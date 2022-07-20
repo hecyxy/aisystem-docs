@@ -16,29 +16,16 @@
   <meta name="author" content="ZOMI酱">
   <meta name="keywords" content="">
   
-    <meta name="description" content="MoCo V1：视觉领域也能自监督啦 Momentum Contrast for Unsupervised Visual Representation Learning 何凯明从 CVPR 2020 上发表的 MoCo V1（Momentum Contrast for Unsupervised Visual Representation Learning），到前几天挂在arxiv上面的 MoCo">
+    <meta name="description" content="Momentum Contrast for Unsupervised Visual Representation Learning 何凯明从 CVPR 2020 上发表的 MoCo V1（Momentum Contrast for Unsupervised Visual Representation Learning），到前几天挂在arxiv上面的 MoCo V3（An Empirical Stu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MoCo V1：视觉领域也能自监督啦">
 <meta property="og:url" content="http://example.com/2022/07/20/mocov1/index.html">
 <meta property="og:site_name" content="ZOMI酱的博客">
-<meta property="og:description" content="MoCo V1：视觉领域也能自监督啦 Momentum Contrast for Unsupervised Visual Representation Learning 何凯明从 CVPR 2020 上发表的 MoCo V1（Momentum Contrast for Unsupervised Visual Representation Learning），到前几天挂在arxiv上面的 MoCo">
+<meta property="og:description" content="Momentum Contrast for Unsupervised Visual Representation Learning 何凯明从 CVPR 2020 上发表的 MoCo V1（Momentum Contrast for Unsupervised Visual Representation Learning），到前几天挂在arxiv上面的 MoCo V3（An Empirical Stu">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/mocov1/self_supervised1.png">
-<meta property="og:image" content="http://example.com/images/mocov1/farmer.jpg">
-<meta property="og:image" content="http://example.com/images/mocov1/experience1.png">
-<meta property="og:image" content="http://example.com/images/mocov1/loss1.png">
-<meta property="og:image" content="http://example.com/images/mocov1/loss2.png">
-<meta property="og:image" content="http://example.com/images/mocov1/self_supervised2.png">
-<meta property="og:image" content="http://example.com/images/mocov1/self_supervised3.png">
-<meta property="og:image" content="http://example.com/images/mocov1/moco4.png">
-<meta property="og:image" content="http://example.com/images/mocov1/moco5.png">
-<meta property="og:image" content="http://example.com/images/mocov1/moco1.png">
-<meta property="og:image" content="http://example.com/images/mocov1/moco2.png">
-<meta property="og:image" content="http://example.com/images/mocov1/moco3.png">
-<meta property="og:image" content="http://example.com/images/mocov1/experience2.png">
-<meta property="og:image" content="http://example.com/images/mocov1/experience4.png">
 <meta property="article:published_time" content="2022-07-20T12:01:02.000Z">
-<meta property="article:modified_time" content="2022-07-20T12:05:26.967Z">
+<meta property="article:modified_time" content="2022-07-20T12:08:45.792Z">
 <meta property="article:author" content="ZOMI酱">
 <meta property="article:tag" content="Transformer">
 <meta name="twitter:card" content="summary_large_image">
@@ -262,7 +249,7 @@
         
         
         
-          70 分钟
+          69 分钟
         
       </span>
     
@@ -313,8 +300,7 @@
             
               <div class="markdown-body">
                 
-                <p><strong>MoCo V1：视觉领域也能自监督啦</strong></p>
-<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.05722">Momentum Contrast for Unsupervised Visual Representation Learning</a></p>
+                <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.05722">Momentum Contrast for Unsupervised Visual Representation Learning</a></p>
 <p>何凯明从 CVPR 2020 上发表的 MoCo V1（Momentum Contrast for Unsupervised Visual Representation Learning），到前几天挂在arxiv上面的 MoCo V3（An Empirical Study of Training Self-Supervised Visual Transformers），MoCo一共走过了三个版本。</p>
 <p>今天介绍 MoCo 系列第一版 MoCo v1 就是在 SimCLR 发表前经典的图像自监督学习方法，MoCo v1 和 v2 是针对 CNN 设计的，而 MoCo v3 是针对 Transformer 结构设计的，反映了 MoCo 系列对视觉模型的普适性。</p>
 <h1 id="自监督学习-Self-Supervised-Learning"><a href="#自监督学习-Self-Supervised-Learning" class="headerlink" title="自监督学习 Self-Supervised Learning"></a>自监督学习 Self-Supervised Learning</h1><p>一般机器学习分为有无监督学习，无监督学习和强化学习。而自监督学习（Self-Supervised Learning）是无监督学习里面的一种，主要是希望能够学习到一种通用的特征表达用于下游任务 (Downstream Tasks)。而在视觉模型中，MoCo 之所以经典是创造出了一个固定的视觉自监督的模式：</p>
@@ -519,9 +505,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/20/mocov2/" title="mocov2">
+                      <a href="/2022/07/20/mocov2/" title="MoCo V2：MoCo系列再升级">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">mocov2</span>
+                        <span class="hidden-mobile">MoCo V2：MoCo系列再升级</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
