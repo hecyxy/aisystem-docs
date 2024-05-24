@@ -1,0 +1,846 @@
+
+<!DOCTYPE html>
+
+
+<html lang="cn" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<meta property="og:title" content="Generic items" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="reference/kitchen-sink/generic.html" />
+<meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
+<meta property="og:description" content="These are the things that don't quite fit into other groupings. Inline Markup: One of the nice things about markup languages is the ability to have inline markup. This makes the presentation much n..." />
+<meta name="description" content="These are the things that don't quite fit into other groupings. Inline Markup: One of the nice things about markup languages is the ability to have inline markup. This makes the presentation much n..." />
+
+    <title>Generic items &#8212; Sphinx Book Theme</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=182be0a6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=aabdd393"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/rtd-data.js?v=db39d344"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/kitchen-sink/generic';</script>
+    <script src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="icon" href="../../_static/logo-square.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="cn"/>
+    <meta name="docbuild:last-update" content="May 24, 2024"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Blog"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo-wide.svg" class="logo__image only-light" alt="Sphinx Book Theme - Home"/>
+    <script>document.write(`<img src="../../_static/logo-wide-dark.svg" class="logo__image only-dark" alt="Sphinx Book Theme - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://executablebooks.org/" title="Executable Books" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/ebp-logo.png" class="icon-link-image" alt="Executable Books"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/chenzomi12/AISystem" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/chenzomi12/AISystem/releases" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/dw/sphinx-book-theme" class="icon-link-image" alt="PyPI"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 一. AI 系统概述 ===</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../01Introduction/README.html">=== 一. AI 系统概述(DONE) ====</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01Introduction/01Present.html">AI 的历史与现状(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01Introduction/02Develop.html">AI 发展驱动力(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01Introduction/03Architecture.html">AI 系统全栈架构(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01Introduction/04Sample.html">AI 系统与程序代码关系(DONE)</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 附录内容 ===</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/README.html">附录(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/Instruments.html">书写工具(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/Install.html">环境安装</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/Inference.html">参考链接(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/Glossary.html">术语表(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/Editors.html">编辑和作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/Criterion.html">书写规范</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/sphinx-book-theme/blob/master/docs/reference/kitchen-sink/generic.rst?plain=1" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/sphinx-book-theme/edit/master/docs/reference/kitchen-sink/generic.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/sphinx-book-theme/issues/new?title=Issue%20on%20page%20%2Freference/kitchen-sink/generic.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/reference/kitchen-sink/generic.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Generic items</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-markup">Inline Markup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperlinks">Hyperlinks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreted-text">Interpreted text</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-labels">GUI labels</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#keys-menu-labels">Keys / Menu labels</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#long-inline-code-wrapping">Long inline code wrapping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#math">Math</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidebar">Sidebar</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-with-sidebar">Code with Sidebar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#targets">Targets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#target-footnotes">Target Footnotes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#centered-text">Centered text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rubric">Rubric</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidebars-and-rubrics">Sidebars and Rubrics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-links">Download Links</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+<section id="generic-items">
+<h1>Generic items<a class="headerlink" href="#generic-items" title="Link to this heading">#</a></h1>
+<p>These are the things that don't quite fit into other groupings.</p>
+<section id="inline-markup">
+<h2>Inline Markup<a class="headerlink" href="#inline-markup" title="Link to this heading">#</a></h2>
+<p>One of the nice things about markup languages is the ability to have inline
+markup. This makes the presentation <em>much</em> nicer. The <strong>bold</strong> text shouldn't
+be too overbearing. It is very common to have <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">code</span></code> as well. It is
+important to ensure that the inline code doesn't have a line height that is
+greater than the regular prose; otherwise the spacing looks weird.</p>
+<p>It is also possible to use explicit roles to do things like a <sub>subscript</sub>,
+a <sup>superscript</sup>, <em>emphasis</em>, <strong>strong</strong>, and
+<code class="docutils literal notranslate"><span class="pre">literal</span></code>.</p>
+<section id="hyperlinks">
+<h3>Hyperlinks<a class="headerlink" href="#hyperlinks" title="Link to this heading">#</a></h3>
+<p>It is a website, so it'll have hyperlinks like <a class="reference external" href="http://www.python.org">http://www.python.org</a> (inline),
+or <a class="reference external" href="http://www.python.org/">Python</a> <label for='sidenote-role-4' class='margin-toggle'><span id="id20">
+<sup>4</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-4' name='sidenote-role-4' class='margin-toggle'><span class="sidenote"><sup>4</sup><a class="reference external" href="http://www.python.org/">http://www.python.org/</a></span> (external reference), <a class="reference internal" href="#example">example</a> (internal reference),
+<a class="reference external" href="http://www.python.org">Python web site</a> (external hyperlinks with embedded
+URI), footnote references (manually numbered <label for='sidenote-role-1' class='margin-toggle'><span id="id1">
+<sup>1</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-1' name='sidenote-role-1' class='margin-toggle'><span class="sidenote"><sup>1</sup>A footnote contains body elements, consistently indented by at
+least 3 spaces.</span>, anonymous auto-numbered <label for='sidenote-role-3' class='margin-toggle'><span id="id2">
+<sup>3</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-3' name='sidenote-role-3' class='margin-toggle'><span class="sidenote"><sup>3</sup>This footnote is numbered automatically and anonymously using a
+label of &quot;#&quot; only.</span>,
+labeled auto-numbered <label for='sidenote-role-2' class='margin-toggle'><span id="id3">
+<sup>2</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-2' name='sidenote-role-2' class='margin-toggle'><span class="sidenote"><sup>2</sup>Footnotes may be numbered, either manually (as in <a class="footnote-reference brackets" href="#id6" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>) or
+automatically using a &quot;#&quot;-prefixed label.  This footnote has a
+label so it can be referred to from multiple places, both as a
+footnote reference (<a class="footnote-reference brackets" href="#label" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>) and as a hyperlink reference
+(<a class="reference internal" href="#label">label</a>).</span>, or symbolic <label for='sidenote-role-*' class='margin-toggle'><span id="id4">
+<sup>*</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-*' name='sidenote-role-*' class='margin-toggle'><span class="sidenote"><sup>*</sup>Footnotes may also use symbols, specified with a &quot;*&quot; label.
+Here's a reference to the next footnote: <a class="footnote-reference brackets" href="#id12" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>†<span class="fn-bracket">]</span></a>.</span>), citation references (<label for='sidenote-role-12' class='margin-toggle'><span id="id5">
+<sup>12</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-12' name='sidenote-role-12' class='margin-toggle'><span class="sidenote"><sup>12</sup>This citation has some <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">blocks</span></code> in it, maybe some <strong>bold</strong> and
+<em>italics</em> too. Heck, lets put a link to a meta citation <a class="footnote-reference brackets" href="#id15" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a> too.</span>),
+substitution references (<a class="reference internal" href="https://source.unsplash.com/32x32/daily?icon"><img alt="EXAMPLE" src="https://source.unsplash.com/32x32/daily?icon" style="width: 1em;" /></a>), and <span class="target" id="inline-hyperlink-targets">inline hyperlink targets</span>
+(see <a class="reference internal" href="#targets">Targets</a> below for a reference back to here).</p>
+<p>reStructuredText has character-level inline markup too. It's ugly to write, but
+someone might be using it, so here's an example: <strong>re</strong><code class="docutils literal notranslate"><span class="pre">Structured</span></code><em>Text</em>.</p>
+<p>It is also possible to link to documented items, such as
+<code class="xref py py-class docutils literal notranslate"><span class="pre">api_sample.RandomNumberGenerator</span></code>.</p>
+</section>
+<section id="interpreted-text">
+<h3>Interpreted text<a class="headerlink" href="#interpreted-text" title="Link to this heading">#</a></h3>
+<p>The default role for &quot;interpreted text&quot; (AKA single backticks) is
+<cite>Title Reference</cite>. There are other reference syntaxes as well: <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0287/"><strong>PEP 287</strong></a> and
+<span class="target" id="index-1"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2822.html"><strong>RFC 2822</strong></a>.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">--pep-references</span></code> option was supplied, there should be a live link to
+PEP 258 here.</p>
+<section id="gui-labels">
+<h4>GUI labels<a class="headerlink" href="#gui-labels" title="Link to this heading">#</a></h4>
+<p>According to the RST demo, GUI labels (like <span class="guilabel">this label</span>) are a way to
+indicate that some action is to be taken by the user. Like inline code literals,
+GUI labels should not run over line height.</p>
+</section>
+<section id="keys-menu-labels">
+<h4>Keys / Menu labels<a class="headerlink" href="#keys-menu-labels" title="Link to this heading">#</a></h4>
+<p>Key-bindings indicate that the read is to press a button on the keyboard or
+mouse, for example <kbd class="kbd docutils literal notranslate">MMB</kbd>, <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">⌘</kbd>+<kbd class="kbd docutils literal notranslate">⇧</kbd>+<kbd class="kbd docutils literal notranslate">M</kbd></kbd> and <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Shift</kbd>-<kbd class="kbd docutils literal notranslate">MMB</kbd></kbd>. Another
+useful way is <code class="docutils literal notranslate"><span class="pre">menuselection</span></code> to show menus:
+<span class="menuselection">My ‣ Software ‣ Some menu ‣ Some sub menu 1 ‣ Some sub menu 2 ‣ Some sub menu 3</span></p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">menuselection</span></code> should break when it is too long to fit on a
+single line.</p>
+</section>
+<section id="long-inline-code-wrapping">
+<h4>Long inline code wrapping<a class="headerlink" href="#long-inline-code-wrapping" title="Link to this heading">#</a></h4>
+<p>Let's test wrapping and whitespace significance in inline literals:
+<code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">is</span> <span class="pre">an</span> <span class="pre">example</span> <span class="pre">of</span> <span class="pre">--inline-literal</span> <span class="pre">--text,</span> <span class="pre">--including</span> <span class="pre">some--</span>
+<span class="pre">strangely--hyphenated-words.</span>&#160; <span class="pre">Adjust-the-width-of-your-browser-window</span>
+<span class="pre">to</span> <span class="pre">see</span> <span class="pre">how</span> <span class="pre">the</span> <span class="pre">text</span> <span class="pre">is</span> <span class="pre">wrapped.</span>&#160; <span class="pre">--</span> <span class="pre">----</span> <span class="pre">--------</span>&#160; <span class="pre">Now</span> <span class="pre">note</span>&#160;&#160;&#160; <span class="pre">the</span>
+<span class="pre">spacing</span>&#160;&#160;&#160; <span class="pre">between</span> <span class="pre">the</span>&#160;&#160;&#160; <span class="pre">words</span> <span class="pre">of</span>&#160;&#160;&#160; <span class="pre">this</span> <span class="pre">sentence</span>&#160;&#160;&#160; <span class="pre">(words</span>
+<span class="pre">should</span>&#160;&#160;&#160; <span class="pre">be</span> <span class="pre">grouped</span>&#160;&#160;&#160; <span class="pre">in</span> <span class="pre">pairs).</span></code></p>
+</section>
+</section>
+</section>
+<section id="math">
+<h2>Math<a class="headerlink" href="#math" title="Link to this heading">#</a></h2>
+<p>This is a test. Here is an equation:
+<span class="math notranslate nohighlight">\(X_{0:5} = (X_0, X_1, X_2, X_3, X_4)\)</span>.
+Here is another:</p>
+<div class="math notranslate nohighlight" id="equation-this-is-a-label">
+<span class="eqno">()<a class="headerlink" href="#equation-this-is-a-label" title="Link to this equation">#</a></span>\[\nabla^2 f =
+\frac{1}{r^2} \frac{\partial}{\partial r}
+\left( r^2 \frac{\partial f}{\partial r} \right) +
+\frac{1}{r^2 \sin \theta} \frac{\partial f}{\partial \theta}
+\left( \sin \theta \, \frac{\partial f}{\partial \theta} \right) +
+\frac{1}{r^2 \sin^2\theta} \frac{\partial^2 f}{\partial \phi^2}\]</div>
+<p>You can add a link to equations like the one above <a class="reference internal" href="#equation-this-is-a-label">()</a> by using
+<code class="docutils literal notranslate"><span class="pre">:eq:</span></code>.</p>
+</section>
+<section id="sidebar">
+<h2>Sidebar<a class="headerlink" href="#sidebar" title="Link to this heading">#</a></h2>
+<aside class="sidebar">
+<p class="sidebar-title">Ch'ien / The Creative</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+<img alt="https://source.unsplash.com/200x200/daily?cute+puppy" src="https://source.unsplash.com/200x200/daily?cute+puppy" />
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</aside>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sunt
+voluptatum tenetur libero nulla esse veritatis accusantium earum commodi hic
+voluptatem officia culpa optio atque. Quaerat sed quibusdam ratione nam.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sunt
+voluptatum tenetur libero nulla esse veritatis accusantium earum commodi hic
+voluptatem officia culpa optio atque. Quaerat sed quibusdam ratione nam.</p>
+<section id="code-with-sidebar">
+<h3>Code with Sidebar<a class="headerlink" href="#code-with-sidebar" title="Link to this heading">#</a></h3>
+<aside class="sidebar">
+<p class="sidebar-title">A code example</p>
+<p>With a sidebar on the right.</p>
+</aside>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">Code blocks can also have captions.</span><a class="headerlink" href="#id18" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;three&quot;</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;four&quot;</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;five&quot;</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;six&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;seven&quot;</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eight&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;nine&quot;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ten&quot;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eleven&quot;</span><span class="p">)</span>
+<span class="linenos">12</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;twelve&quot;</span><span class="p">)</span>
+<span class="linenos">13</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;thirteen&quot;</span><span class="p">)</span>
+<span class="linenos">14</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fourteen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<section id="footnotes">
+<h3>Footnotes<a class="headerlink" href="#footnotes" title="Link to this heading">#</a></h3>
+</section>
+<section id="citations">
+<h3>Citations<a class="headerlink" href="#citations" title="Link to this heading">#</a></h3>
+<p>Here's a reference to the above, <a class="footnote-reference brackets" href="#id13" id="id16" role="doc-noteref"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></a> citation.</p>
+<p>Here is another type of citation: <cite>citation</cite></p>
+</section>
+<section id="targets">
+<h3>Targets<a class="headerlink" href="#targets" title="Link to this heading">#</a></h3>
+<p id="example">This paragraph is pointed to by the explicit &quot;example&quot; target.
+A reference can be found under <a class="reference internal" href="#inline-markup">Inline Markup</a>, above. <a class="reference internal" href="#inline-hyperlink-targets">Inline
+hyperlink targets</a> are also possible.</p>
+<p>Section headers are implicit targets, referred to by name. See
+<a class="reference internal" href="#targets">Targets</a>.</p>
+<p>Explicit external targets are interpolated into references such as &quot;<a class="reference external" href="http://www.python.org/">Python</a> <a class="footnote-reference brackets" href="#id19" id="id21" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>&quot;.</p>
+<p>Targets may be indirect and anonymous.  Thus <a class="reference internal" href="#targets">this phrase</a> may also
+refer to the <a class="reference internal" href="#targets">Targets</a> section.</p>
+</section>
+<section id="target-footnotes">
+<h3>Target Footnotes<a class="headerlink" href="#target-footnotes" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="centered-text">
+<h2>Centered text<a class="headerlink" href="#centered-text" title="Link to this heading">#</a></h2>
+<p>You can create a statement with centered text with <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">centered::</span></code></p>
+<p class="centered">
+<strong>This is centered text!</strong></p></section>
+<section id="rubric">
+<h2>Rubric<a class="headerlink" href="#rubric" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>A rubric is like an informal heading that doesn't correspond to the document's structure.</p>
+<p class="attribution">—<a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#rubric">https://docutils.sourceforge.io/docs/ref/rst/directives.html#rubric</a></p>
+</div></blockquote>
+<p>Wikipedia says it is something different:</p>
+<blockquote>
+<div><p>A rubric is a word or section of text that is traditionally written or printed in red ink for emphasis.</p>
+<p class="attribution">—<a class="reference external" href="https://en.wikipedia.org/wiki/Rubric">https://en.wikipedia.org/wiki/Rubric</a></p>
+</div></blockquote>
+<p>This is stylized as docutils tells us to stylize it, since it is used for footnote headers (see end of <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html">https://docs.python.org/3/reference/lexical_analysis.html</a>)</p>
+<p class="rubric">This is a rubric</p>
+<section id="sidebars-and-rubrics">
+<h3>Sidebars and Rubrics<a class="headerlink" href="#sidebars-and-rubrics" title="Link to this heading">#</a></h3>
+<aside class="sidebar">
+<p class="sidebar-title">Sidebar Title</p>
+<p class="sidebar-subtitle">Optional Subtitle</p>
+<p>This is a sidebar.  It is for text outside the flow of the main
+text.</p>
+<p class="rubric">This is a rubric inside a sidebar</p>
+<p>Sidebars often appears beside the main text with a border and
+background color.</p>
+</aside>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sunt
+voluptatum tenetur libero nulla esse veritatis accusantium earum commodi hic
+voluptatem officia culpa optio atque. Quaerat sed quibusdam ratione nam.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sunt
+voluptatum tenetur libero nulla esse veritatis accusantium earum commodi hic
+voluptatem officia culpa optio atque. Quaerat sed quibusdam ratione nam.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sunt
+voluptatum tenetur libero nulla esse veritatis accusantium earum commodi hic
+voluptatem officia culpa optio atque. Quaerat sed quibusdam ratione nam.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sunt
+voluptatum tenetur libero nulla esse veritatis accusantium earum commodi hic
+voluptatem officia culpa optio atque. Quaerat sed quibusdam ratione nam.</p>
+</section>
+</section>
+<section id="download-links">
+<h2>Download Links<a class="headerlink" href="#download-links" title="Link to this heading">#</a></h2>
+<p><a class="reference download external" download="" href="https://source.unsplash.com/200x200/daily?cute+puppy"><code class="xref download docutils literal notranslate"><span class="pre">This</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">download</span> <span class="pre">link</span> <span class="pre">should</span> <span class="pre">wrap</span> <span class="pre">white-spaces</span></code></a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./reference/kitchen-sink"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section ablog__blog_comments">
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-markup">Inline Markup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperlinks">Hyperlinks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreted-text">Interpreted text</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-labels">GUI labels</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#keys-menu-labels">Keys / Menu labels</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#long-inline-code-wrapping">Long inline code wrapping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#math">Math</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidebar">Sidebar</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-with-sidebar">Code with Sidebar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#targets">Targets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#target-footnotes">Target Footnotes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#centered-text">Centered text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rubric">Rubric</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidebars-and-rubrics">Sidebars and Rubrics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-links">Download Links</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on May 24, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

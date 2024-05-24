@@ -1,0 +1,840 @@
+
+<!DOCTYPE html>
+
+
+<html lang="cn" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<meta property="og:title" content="PyData Theme Elements" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="content/pydata-content-blocks.html" />
+<meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
+<meta property="og:description" content="This is a collection of content blocks with special support from this theme's parent theme, the PyData Sphinx Theme There are a few elements that are unique or particularly important to this theme...." />
+<meta name="description" content="This is a collection of content blocks with special support from this theme's parent theme, the PyData Sphinx Theme There are a few elements that are unique or particularly important to this theme...." />
+
+    <title>PyData Theme Elements &#8212; Sphinx Book Theme</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=182be0a6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=aabdd393"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/rtd-data.js?v=db39d344"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/pydata-content-blocks';</script>
+    <script src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="icon" href="../_static/logo-square.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="cn"/>
+    <meta name="docbuild:last-update" content="May 24, 2024"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../reference/blog/atom.xml"
+  title="Blog"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-wide.svg" class="logo__image only-light" alt="Sphinx Book Theme - Home"/>
+    <script>document.write(`<img src="../_static/logo-wide-dark.svg" class="logo__image only-dark" alt="Sphinx Book Theme - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://executablebooks.org/" title="Executable Books" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/ebp-logo.png" class="icon-link-image" alt="Executable Books"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/chenzomi12/AISystem" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/chenzomi12/AISystem/releases" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/dw/sphinx-book-theme" class="icon-link-image" alt="PyPI"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 一. AI 系统概述 ===</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01Introduction/README.html">=== 一. AI 系统概述(DONE) ====</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01Introduction/01Present.html">AI 的历史与现状(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01Introduction/02Develop.html">AI 发展驱动力(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01Introduction/03Architecture.html">AI 系统全栈架构(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01Introduction/04Sample.html">AI 系统与程序代码关系(DONE)</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 附录内容 ===</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00Others/README.html">附录(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00Others/Instruments.html">书写工具(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00Others/Install.html">环境安装</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../00Others/Inference.html">参考链接(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00Others/Glossary.html">术语表(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00Others/Editors.html">编辑和作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00Others/Criterion.html">书写规范</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/sphinx-book-theme/blob/master/docs/content/pydata-content-blocks.md?plain=1" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/sphinx-book-theme/edit/master/docs/content/pydata-content-blocks.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/sphinx-book-theme/issues/new?title=Issue%20on%20page%20%2Fcontent/pydata-content-blocks.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/pydata-content-blocks.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>PyData Theme Elements</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematics">Mathematics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-blocks">Code blocks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-code">Inline code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-execution">Code execution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admonition-sidebars">Admonition sidebars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-shortening-for-git-repository-services">Link shortening for git repository services</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+<section class="tex2jax_ignore mathjax_ignore" id="pydata-theme-elements">
+<h1>PyData Theme Elements<a class="headerlink" href="#pydata-theme-elements" title="Link to this heading">#</a></h1>
+<p>This is a collection of content blocks with special support from this theme's parent theme, <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/latest/user_guide/theme-elements.html">the PyData Sphinx Theme</a></p>
+<p>There are a few elements that are unique or particularly important to this theme.
+Some of these are triggered with configuration or Markdown syntax that is unique to the theme, and we cover them below.</p>
+<section id="mathematics">
+<h2>Mathematics<a class="headerlink" href="#mathematics" title="Link to this heading">#</a></h2>
+<p>Most Sphinx sites support math, but it is particularly important for scientific computing, so we illustrate support here as well.</p>
+<p>Here is an inline equation: <span class="math notranslate nohighlight">\(X_{0:5} = (X_0, X_1, X_2, X_3, X_4)\)</span> and <span class="math notranslate nohighlight">\(another\)</span> and <span class="math notranslate nohighlight">\(x^2 x^3 x^4\)</span> another. And here's one to test vertical height <span class="math notranslate nohighlight">\(\frac{\partial^2 f}{\partial \phi^2}\)</span>.
+Here is a block-level equation:</p>
+<div class="math notranslate nohighlight" id="equation-my-label">
+<span class="eqno">()<a class="headerlink" href="#equation-my-label" title="Link to this equation">#</a></span>\[\nabla^2 f =
+\frac{1}{r^2} \frac{\partial}{\partial r}
+\left( r^2 \frac{\partial f}{\partial r} \right) +
+\frac{1}{r^2 \sin \theta} \frac{\partial f}{\partial \theta}
+\left( \sin \theta \, \frac{\partial f}{\partial \theta} \right) +
+\frac{1}{r^2 \sin^2\theta} \frac{\partial^2 f}{\partial \phi^2}\]</div>
+<p>And here is a really long equation with a label!</p>
+<div class="math notranslate nohighlight" id="equation-my-label-2">
+<span class="eqno">()<a class="headerlink" href="#equation-my-label-2" title="Link to this equation">#</a></span>\[\nabla^2 f =
+\frac{1}{r^2} \frac{\partial}{\partial r}
+\left( r^2 \frac{\partial f}{\partial r} \right) +
+\frac{1}{r^2 \sin \theta} \frac{\partial f}{\partial \theta}
+\left( \sin \theta \, \frac{\partial f}{\partial \theta} \right) +
+\frac{1}{r^2 \sin^2\theta} \frac{\partial^2 f}{\partial \phi^2}
+\nabla^2 f =
+\frac{1}{r^2} \frac{\partial}{\partial r}
+\left( r^2 \frac{\partial f}{\partial r} \right) +
+\frac{1}{r^2 \sin \theta} \frac{\partial f}{\partial \theta}
+\left( \sin \theta \, \frac{\partial f}{\partial \theta} \right) +
+\frac{1}{r^2 \sin^2\theta} \frac{\partial^2 f}{\partial \phi^2}\]</div>
+<p>You can add a link to equations like the one above <a class="reference internal" href="#equation-my-label">()</a> and <a class="reference internal" href="#equation-my-label-2">()</a>.</p>
+</section>
+<section id="code-blocks">
+<h2>Code blocks<a class="headerlink" href="#code-blocks" title="Link to this heading">#</a></h2>
+<p>Code block styling is inspired by <a class="reference external" href="https://primer.style/components/markdown">GitHub's code block style</a> and also has support for Code Block captions/titles.
+See <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block">the Sphinx documentation on code blocks</a> for more information.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A regular code block&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A regular code block&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A regular code block&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also provide captions with code blocks, which will be displayed right above the code.
+For example, the following code:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+rST</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> python
+    <span class="nc">:caption:</span> python.py
+
+    print(&quot;A code block with a caption.&quot;)
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Markdown</label><div class="sd-tab-content docutils">
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-block} python
+:caption: python.py
+
+print(&quot;A code block with a caption.&quot;)
+```
+</pre></div>
+</div>
+</div>
+</div>
+<p>results in:</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">python.py</span><a class="headerlink" href="#id8" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A code block with a caption.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>You can also display line numbers.
+For example, the following code:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+rST</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span>  <span class="ow">code-block</span><span class="p">::</span> python
+    <span class="nc">:caption:</span> python.py
+    <span class="nc">:linenos:</span>
+
+    print(&quot;A code block with a caption and line numbers.&quot;)
+    print(&quot;A code block with a caption and line numbers.&quot;)
+    print(&quot;A code block with a caption and line numbers.&quot;)
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Markdown</label><div class="sd-tab-content docutils">
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-block} python
+:caption: python.py
+:linenos:
+
+print(&quot;A code block with a caption and line numbers.&quot;)
+print(&quot;A code block with a caption and line numbers.&quot;)
+print(&quot;A code block with a caption and line numbers.&quot;)
+```
+</pre></div>
+</div>
+</div>
+</div>
+<p>results in:</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">python.py</span><a class="headerlink" href="#id9" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A code block with a caption and line numbers.&quot;</span><span class="p">)</span>
+<span class="linenos">2</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A code block with a caption and line numbers.&quot;</span><span class="p">)</span>
+<span class="linenos">3</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A code block with a caption and line numbers.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="inline-code">
+<h2>Inline code<a class="headerlink" href="#inline-code" title="Link to this heading">#</a></h2>
+<p>When used directly, the <code class="docutils literal notranslate"><span class="pre">code</span></code> role just displays the text without syntax highlighting, as a literal. As mentioned in the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#inline-code-highlighting">Sphinx documentation</a> you can also enable syntax highlighting by defining a custom role. It will then use the same highlighter as in the <code class="docutils literal notranslate"><span class="pre">code-block</span></code> directive.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+rst</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">role</span><span class="p">::</span> python(code)
+   <span class="nc">:language:</span> python
+
+In Python you can <span class="na">:python:</span><span class="nv">`import sphinx`</span>.
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+markdown</label><div class="sd-tab-content docutils">
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{role} python(code)
+:language: python
+```
+
+In Python you can {python}`import sphinx`.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In Python you can <code class="code highlight python docutils literal highlight-python"><span class="kn">import</span> <span class="nn">sphinx</span></code>.</p>
+</section>
+<section id="code-execution">
+<h2>Code execution<a class="headerlink" href="#code-execution" title="Link to this heading">#</a></h2>
+<p>This theme has support for Jupyter execution libraries so that you can programmatically update your documentation with each build.
+For examples, see <a class="reference internal" href="notebooks.html"><span class="std std-doc">Jupyter notebooks</span></a>.</p>
+</section>
+<section id="admonition-sidebars">
+<h2>Admonition sidebars<a class="headerlink" href="#admonition-sidebars" title="Link to this heading">#</a></h2>
+<div class="sidebar note admonition">
+<p class="admonition-title">A sidebar admonition!</p>
+<p>I was made with the <code class="docutils literal notranslate"><span class="pre">{admonition}</span></code> directive and a <code class="docutils literal notranslate"><span class="pre">sidebar</span></code> class.</p>
+</div>
+<aside class="sidebar">
+<p class="sidebar-title">Sidebar title</p>
+<p>I was made with the <code class="docutils literal notranslate"><span class="pre">{sidebar}</span></code> directive.</p>
+</aside>
+<p>This theme supports a shorthand way of making <strong>admonitions behave like sidebars</strong>.
+This can be a helpful way of highlighting content without interrupting the vertical flow as much.</p>
+<p>For example, on the right are an &quot;admonition sidebar&quot; and a traditional Sphinx sidebar.</p>
+<p>To make an admonition behave like a sidebar, add the <code class="docutils literal notranslate"><span class="pre">sidebar</span></code> class to its list of classes.
+The admonition sidebar in this section was created with the following Markdown:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+rST</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">admonition</span><span class="p">::</span> A sidebar admonition!
+    <span class="nc">:class:</span> sidebar note
+
+    Some sidebar content.
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+Markdown</label><div class="sd-tab-content docutils">
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{admonition} A sidebar admonition!
+:class: sidebar note
+Some sidebar content.
+```
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="footnotes">
+<h2>Footnotes<a class="headerlink" href="#footnotes" title="Link to this heading">#</a></h2>
+<p>Here's a numeric footnote<label for='sidenote-role-1' class='margin-toggle'><span id="id1">
+<sup>1</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-1' name='sidenote-role-1' class='margin-toggle'><span class="sidenote"><sup>1</sup>Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar.</span>, another one (preceded by a space) <label for='sidenote-role-2' class='margin-toggle'><span id="id2">
+<sup>2</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-2' name='sidenote-role-2' class='margin-toggle'><span class="sidenote"><sup>2</sup>Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar.</span>, a named footnote<label for='sidenote-role-3' class='margin-toggle'><span id="id3">
+<sup>3</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-3' name='sidenote-role-3' class='margin-toggle'><span class="sidenote"><sup>3</sup>Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar.</span>, and a symbolic one<label for='sidenote-role-4' class='margin-toggle'><span id="id4">
+<sup>4</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-4' name='sidenote-role-4' class='margin-toggle'><span class="sidenote"><sup>4</sup>Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar. Foo bar foo bar.</span>.
+All will end up as numbers in the rendered HTML, but in the source they look like <code class="docutils literal notranslate"><span class="pre">[^1]</span></code>, <code class="docutils literal notranslate"><span class="pre">[^2]</span></code>, <code class="docutils literal notranslate"><span class="pre">[^named]</span></code> and <code class="docutils literal notranslate"><span class="pre">[^*]</span></code>.</p>
+</section>
+<section id="link-shortening-for-git-repository-services">
+<h2>Link shortening for git repository services<a class="headerlink" href="#link-shortening-for-git-repository-services" title="Link to this heading">#</a></h2>
+<p>Many projects have links back to their issues / PRs hosted on platforms like <strong>GitHub</strong> or <strong>GitLab</strong>.
+Instead of displaying these as raw links, this theme does some lightweight formatting for these platforms specifically.</p>
+<p>In <strong>reStructuredText</strong>, URLs are automatically converted to links, so this works automatically.</p>
+<p>In <strong>MyST Markdown</strong>, by default, you must define a standard Markdown link and duplicate the URL in the link text.
+You may skip the need to manually define the link text by <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#linkify">activating the MyST Linkify extension</a>.</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p><strong>reStructuredText</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://github.com/pydata/pydata-sphinx-theme/pull/1012</span></code></p></li>
+<li><p>https://github.com/pydata/pydata-sphinx-theme/pull/1012</p></li>
+</ul>
+</li>
+<li><p><strong>MyST Markdown (default)</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">[https://github.com/pydata/pydata-sphinx-theme/pull/1012](https://github.com/pydata/pydata-sphinx-theme/pull/1012)</span></code></p></li>
+<li><p><a class="github reference external" href="https://github.com/pydata/pydata-sphinx-theme/pull/1012">pydata/pydata-sphinx-theme#1012</a></p></li>
+</ul>
+</li>
+<li><p><strong>MyST Markdown with <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#linkify">MyST Linkify</a></strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://github.com/pydata/pydata-sphinx-theme/pull/1012</span></code></p></li>
+<li><p>https://github.com/pydata/pydata-sphinx-theme/pull/1012</p></li>
+</ul>
+</li>
+</ul>
+<p>There are a variety of link targets supported, here's a table for reference:</p>
+<p><strong>GitHub</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">https://github.com</span></code>: https://github.com</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://github.com/pydata</span></code>: https://github.com/pydata</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://github.com/pydata/pydata-sphinx-theme</span></code>: https://github.com/pydata/pydata-sphinx-theme</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://github.com/pydata/pydata-sphinx-theme/pull/1012</span></code>: https://github.com/pydata/pydata-sphinx-theme/pull/1012</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://github.com/orgs/pydata/projects/2</span></code>: https://github.com/orgs/pydata/projects/2</p></li>
+</ul>
+<p><strong>GitLab</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">https://gitlab.com</span></code>: https://gitlab.com</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://gitlab.com/gitlab-org</span></code>: https://gitlab.com/gitlab-org</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://gitlab.com/gitlab-org/gitlab</span></code>: https://gitlab.com/gitlab-org/gitlab</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://gitlab.com/gitlab-org/gitlab/-/issues/375583</span></code>: https://gitlab.com/gitlab-org/gitlab/-/issues/375583</p></li>
+</ul>
+<p>Links provided with a text body won't be changed.</p>
+<hr class="footnotes docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section ablog__blog_comments">
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematics">Mathematics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-blocks">Code blocks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-code">Inline code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-execution">Code execution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admonition-sidebars">Admonition sidebars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-shortening-for-git-repository-services">Link shortening for git repository services</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on May 24, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

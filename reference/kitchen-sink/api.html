@@ -1,0 +1,1115 @@
+
+<!DOCTYPE html>
+
+
+<html lang="cn" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<meta property="og:title" content="API documentation" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="reference/kitchen-sink/api.html" />
+<meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
+<meta property="og:description" content="Using Sphinx's sphinx.ext.autodoc plugin, it is possible to auto-generate documentation of a Python module. Fast implementation of the datetime type." />
+<meta name="description" content="Using Sphinx's sphinx.ext.autodoc plugin, it is possible to auto-generate documentation of a Python module. Fast implementation of the datetime type." />
+
+    <title>API documentation &#8212; Sphinx Book Theme</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=182be0a6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=aabdd393"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/rtd-data.js?v=db39d344"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/kitchen-sink/api';</script>
+    <script src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="icon" href="../../_static/logo-square.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="cn"/>
+    <meta name="docbuild:last-update" content="May 24, 2024"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Blog"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo-wide.svg" class="logo__image only-light" alt="Sphinx Book Theme - Home"/>
+    <script>document.write(`<img src="../../_static/logo-wide-dark.svg" class="logo__image only-dark" alt="Sphinx Book Theme - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://executablebooks.org/" title="Executable Books" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/ebp-logo.png" class="icon-link-image" alt="Executable Books"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/chenzomi12/AISystem" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/chenzomi12/AISystem/releases" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/dw/sphinx-book-theme" class="icon-link-image" alt="PyPI"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 一. AI 系统概述 ===</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../01Introduction/README.html">=== 一. AI 系统概述(DONE) ====</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01Introduction/01Present.html">AI 的历史与现状(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01Introduction/02Develop.html">AI 发展驱动力(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01Introduction/03Architecture.html">AI 系统全栈架构(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01Introduction/04Sample.html">AI 系统与程序代码关系(DONE)</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 附录内容 ===</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/README.html">附录(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/Instruments.html">书写工具(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/Install.html">环境安装</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/Inference.html">参考链接(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/Glossary.html">术语表(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/Editors.html">编辑和作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../00Others/Criterion.html">书写规范</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/sphinx-book-theme/blob/master/docs/reference/kitchen-sink/api.rst?plain=1" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/sphinx-book-theme/edit/master/docs/reference/kitchen-sink/api.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/sphinx-book-theme/issues/new?title=Issue%20on%20page%20%2Freference/kitchen-sink/api.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/reference/kitchen-sink/api.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>API documentation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date"><code class="docutils literal notranslate"><span class="pre">date</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.ctime"><code class="docutils literal notranslate"><span class="pre">date.ctime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.fromisocalendar"><code class="docutils literal notranslate"><span class="pre">date.fromisocalendar()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.fromisoformat"><code class="docutils literal notranslate"><span class="pre">date.fromisoformat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.fromordinal"><code class="docutils literal notranslate"><span class="pre">date.fromordinal()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.fromtimestamp"><code class="docutils literal notranslate"><span class="pre">date.fromtimestamp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.isocalendar"><code class="docutils literal notranslate"><span class="pre">date.isocalendar()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.isoformat"><code class="docutils literal notranslate"><span class="pre">date.isoformat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.isoweekday"><code class="docutils literal notranslate"><span class="pre">date.isoweekday()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.replace"><code class="docutils literal notranslate"><span class="pre">date.replace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.strftime"><code class="docutils literal notranslate"><span class="pre">date.strftime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.timetuple"><code class="docutils literal notranslate"><span class="pre">date.timetuple()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.today"><code class="docutils literal notranslate"><span class="pre">date.today()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.toordinal"><code class="docutils literal notranslate"><span class="pre">date.toordinal()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.weekday"><code class="docutils literal notranslate"><span class="pre">date.weekday()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.astimezone"><code class="docutils literal notranslate"><span class="pre">datetime.astimezone()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.combine"><code class="docutils literal notranslate"><span class="pre">datetime.combine()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.ctime"><code class="docutils literal notranslate"><span class="pre">datetime.ctime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.date"><code class="docutils literal notranslate"><span class="pre">datetime.date()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.dst"><code class="docutils literal notranslate"><span class="pre">datetime.dst()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.fromisoformat"><code class="docutils literal notranslate"><span class="pre">datetime.fromisoformat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.fromtimestamp"><code class="docutils literal notranslate"><span class="pre">datetime.fromtimestamp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.isoformat"><code class="docutils literal notranslate"><span class="pre">datetime.isoformat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.now"><code class="docutils literal notranslate"><span class="pre">datetime.now()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.replace"><code class="docutils literal notranslate"><span class="pre">datetime.replace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.strptime"><code class="docutils literal notranslate"><span class="pre">datetime.strptime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.time"><code class="docutils literal notranslate"><span class="pre">datetime.time()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.timestamp"><code class="docutils literal notranslate"><span class="pre">datetime.timestamp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.timetuple"><code class="docutils literal notranslate"><span class="pre">datetime.timetuple()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.timetz"><code class="docutils literal notranslate"><span class="pre">datetime.timetz()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.tzname"><code class="docutils literal notranslate"><span class="pre">datetime.tzname()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.utcfromtimestamp"><code class="docutils literal notranslate"><span class="pre">datetime.utcfromtimestamp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.utcnow"><code class="docutils literal notranslate"><span class="pre">datetime.utcnow()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.utcoffset"><code class="docutils literal notranslate"><span class="pre">datetime.utcoffset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.utctimetuple"><code class="docutils literal notranslate"><span class="pre">datetime.utctimetuple()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time"><code class="docutils literal notranslate"><span class="pre">time</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.dst"><code class="docutils literal notranslate"><span class="pre">time.dst()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.fromisoformat"><code class="docutils literal notranslate"><span class="pre">time.fromisoformat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.isoformat"><code class="docutils literal notranslate"><span class="pre">time.isoformat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.replace"><code class="docutils literal notranslate"><span class="pre">time.replace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.strftime"><code class="docutils literal notranslate"><span class="pre">time.strftime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.tzname"><code class="docutils literal notranslate"><span class="pre">time.tzname()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.utcoffset"><code class="docutils literal notranslate"><span class="pre">time.utcoffset()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timedelta"><code class="docutils literal notranslate"><span class="pre">timedelta</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timedelta.days"><code class="docutils literal notranslate"><span class="pre">timedelta.days</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timedelta.microseconds"><code class="docutils literal notranslate"><span class="pre">timedelta.microseconds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timedelta.seconds"><code class="docutils literal notranslate"><span class="pre">timedelta.seconds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timedelta.total_seconds"><code class="docutils literal notranslate"><span class="pre">timedelta.total_seconds()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timezone"><code class="docutils literal notranslate"><span class="pre">timezone</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timezone.dst"><code class="docutils literal notranslate"><span class="pre">timezone.dst()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timezone.fromutc"><code class="docutils literal notranslate"><span class="pre">timezone.fromutc()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timezone.tzname"><code class="docutils literal notranslate"><span class="pre">timezone.tzname()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timezone.utcoffset"><code class="docutils literal notranslate"><span class="pre">timezone.utcoffset()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.tzinfo"><code class="docutils literal notranslate"><span class="pre">tzinfo</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.tzinfo.dst"><code class="docutils literal notranslate"><span class="pre">tzinfo.dst()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.tzinfo.fromutc"><code class="docutils literal notranslate"><span class="pre">tzinfo.fromutc()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.tzinfo.tzname"><code class="docutils literal notranslate"><span class="pre">tzinfo.tzname()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.tzinfo.utcoffset"><code class="docutils literal notranslate"><span class="pre">tzinfo.utcoffset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+<section id="api-documentation">
+<h1>API documentation<a class="headerlink" href="#api-documentation" title="Link to this heading">#</a></h1>
+<p>Using Sphinx's <code class="docutils literal notranslate"><span class="pre">sphinx.ext.autodoc</span></code> plugin, it is possible to auto-generate documentation of a Python module.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Avoid having in-function-signature type annotations with autodoc,
+by setting the following options:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -- Options for autodoc ----------------------------------------------------</span>
+<span class="c1"># https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#configuration</span>
+
+<span class="c1"># Automatically extract typehints when specified and place them in</span>
+<span class="c1"># descriptions of the relevant function/method.</span>
+<span class="n">autodoc_typehints</span> <span class="o">=</span> <span class="s2">&quot;description&quot;</span>
+
+<span class="c1"># Don&#39;t show class signature with the class&#39; name.</span>
+<span class="n">autodoc_class_signature</span> <span class="o">=</span> <span class="s2">&quot;separated&quot;</span>
+</pre></div>
+</div>
+</div>
+<p id="module-datetime">Fast implementation of the datetime type.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="datetime.date">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">datetime.</span></span><span class="sig-name descname"><span class="pre">date</span></span><a class="reference internal" href="../../_modules/datetime.html#date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datetime.date" title="Link to this definition">#</a></dt>
+<dd><p>date(year, month, day) --&gt; date object</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.ctime">
+<span class="sig-name descname"><span class="pre">ctime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.ctime" title="Link to this definition">#</a></dt>
+<dd><p>Return ctime() style string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.fromisocalendar">
+<span class="sig-name descname"><span class="pre">fromisocalendar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.fromisocalendar" title="Link to this definition">#</a></dt>
+<dd><p>int, int, int -&gt; Construct a date from the ISO year, week number and weekday.</p>
+<p>This is the inverse of the date.isocalendar() function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.fromisoformat">
+<span class="sig-name descname"><span class="pre">fromisoformat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.fromisoformat" title="Link to this definition">#</a></dt>
+<dd><p>str -&gt; Construct a date from the output of date.isoformat()</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.fromordinal">
+<span class="sig-name descname"><span class="pre">fromordinal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.fromordinal" title="Link to this definition">#</a></dt>
+<dd><p>int -&gt; date corresponding to a proleptic Gregorian ordinal.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.fromtimestamp">
+<span class="sig-name descname"><span class="pre">fromtimestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.fromtimestamp" title="Link to this definition">#</a></dt>
+<dd><p>Create a date from a POSIX timestamp.</p>
+<p>The timestamp is a number, e.g. created via time.time(), that is interpreted
+as local time.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.isocalendar">
+<span class="sig-name descname"><span class="pre">isocalendar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.isocalendar" title="Link to this definition">#</a></dt>
+<dd><p>Return a named tuple containing ISO year, week number, and weekday.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.isoformat">
+<span class="sig-name descname"><span class="pre">isoformat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.isoformat" title="Link to this definition">#</a></dt>
+<dd><p>Return string in ISO 8601 format, YYYY-MM-DD.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.isoweekday">
+<span class="sig-name descname"><span class="pre">isoweekday</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.isoweekday" title="Link to this definition">#</a></dt>
+<dd><p>Return the day of the week represented by the date.
+Monday == 1 ... Sunday == 7</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.replace">
+<span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.replace" title="Link to this definition">#</a></dt>
+<dd><p>Return date with new specified fields.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.strftime">
+<span class="sig-name descname"><span class="pre">strftime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.strftime" title="Link to this definition">#</a></dt>
+<dd><p>format -&gt; strftime() style string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.timetuple">
+<span class="sig-name descname"><span class="pre">timetuple</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.timetuple" title="Link to this definition">#</a></dt>
+<dd><p>Return time tuple, compatible with time.localtime().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.today">
+<span class="sig-name descname"><span class="pre">today</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.today" title="Link to this definition">#</a></dt>
+<dd><p>Current date or datetime:  same as self.__class__.fromtimestamp(time.time()).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.toordinal">
+<span class="sig-name descname"><span class="pre">toordinal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.toordinal" title="Link to this definition">#</a></dt>
+<dd><p>Return proleptic Gregorian ordinal.  January 1 of year 1 is day 1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.date.weekday">
+<span class="sig-name descname"><span class="pre">weekday</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.date.weekday" title="Link to this definition">#</a></dt>
+<dd><p>Return the day of the week represented by the date.
+Monday == 0 ... Sunday == 6</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="datetime.datetime">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">datetime.</span></span><span class="sig-name descname"><span class="pre">datetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">hour</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">minute</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">second</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">microsecond</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">tzinfo</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/datetime.html#datetime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datetime.datetime" title="Link to this definition">#</a></dt>
+<dd><p>The year, month and day arguments are required. tzinfo may be None, or an
+instance of a tzinfo subclass. The remaining arguments may be ints.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.astimezone">
+<span class="sig-name descname"><span class="pre">astimezone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.astimezone" title="Link to this definition">#</a></dt>
+<dd><p>tz -&gt; convert to local time in new timezone tz</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.combine">
+<span class="sig-name descname"><span class="pre">combine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.combine" title="Link to this definition">#</a></dt>
+<dd><p>date, time -&gt; datetime with same date and time fields</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.ctime">
+<span class="sig-name descname"><span class="pre">ctime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.ctime" title="Link to this definition">#</a></dt>
+<dd><p>Return ctime() style string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.date">
+<span class="sig-name descname"><span class="pre">date</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.date" title="Link to this definition">#</a></dt>
+<dd><p>Return date object with same year, month and day.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.dst">
+<span class="sig-name descname"><span class="pre">dst</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.dst" title="Link to this definition">#</a></dt>
+<dd><p>Return self.tzinfo.dst(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.fromisoformat">
+<span class="sig-name descname"><span class="pre">fromisoformat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.fromisoformat" title="Link to this definition">#</a></dt>
+<dd><p>string -&gt; datetime from datetime.isoformat() output</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.fromtimestamp">
+<span class="sig-name descname"><span class="pre">fromtimestamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.fromtimestamp" title="Link to this definition">#</a></dt>
+<dd><p>timestamp[, tz] -&gt; tz's local time from POSIX timestamp.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.isoformat">
+<span class="sig-name descname"><span class="pre">isoformat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.isoformat" title="Link to this definition">#</a></dt>
+<dd><p>[sep] -&gt; string in ISO 8601 format, YYYY-MM-DDT[HH[:MM[:SS[.mmm[uuu]]]]][+HH:MM].
+sep is used to separate the year from the time, and defaults to 'T'.
+The optional argument timespec specifies the number of additional terms
+of the time to include. Valid options are 'auto', 'hours', 'minutes',
+'seconds', 'milliseconds' and 'microseconds'.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.now">
+<span class="sig-name descname"><span class="pre">now</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tz=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.now" title="Link to this definition">#</a></dt>
+<dd><p>Returns new datetime object representing current time local to tz.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>tz</dt><dd><p>Timezone object.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>If no tz is specified, uses local timezone.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.replace">
+<span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.replace" title="Link to this definition">#</a></dt>
+<dd><p>Return datetime with new specified fields.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.strptime">
+<span class="sig-name descname"><span class="pre">strptime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.strptime" title="Link to this definition">#</a></dt>
+<dd><p>string, format -&gt; new datetime parsed from a string (like time.strptime()).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.time" title="Link to this definition">#</a></dt>
+<dd><p>Return time object with same time but with tzinfo=None.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.timestamp" title="Link to this definition">#</a></dt>
+<dd><p>Return POSIX timestamp as float.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.timetuple">
+<span class="sig-name descname"><span class="pre">timetuple</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.timetuple" title="Link to this definition">#</a></dt>
+<dd><p>Return time tuple, compatible with time.localtime().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.timetz">
+<span class="sig-name descname"><span class="pre">timetz</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.timetz" title="Link to this definition">#</a></dt>
+<dd><p>Return time object with same time and tzinfo.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.tzname">
+<span class="sig-name descname"><span class="pre">tzname</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.tzname" title="Link to this definition">#</a></dt>
+<dd><p>Return self.tzinfo.tzname(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.utcfromtimestamp">
+<span class="sig-name descname"><span class="pre">utcfromtimestamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.utcfromtimestamp" title="Link to this definition">#</a></dt>
+<dd><p>Construct a naive UTC datetime from a POSIX timestamp.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.utcnow">
+<span class="sig-name descname"><span class="pre">utcnow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.utcnow" title="Link to this definition">#</a></dt>
+<dd><p>Return a new datetime representing UTC day and time.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.utcoffset">
+<span class="sig-name descname"><span class="pre">utcoffset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.utcoffset" title="Link to this definition">#</a></dt>
+<dd><p>Return self.tzinfo.utcoffset(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.datetime.utctimetuple">
+<span class="sig-name descname"><span class="pre">utctimetuple</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.datetime.utctimetuple" title="Link to this definition">#</a></dt>
+<dd><p>Return UTC time tuple, compatible with time.localtime().</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="datetime.time">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">datetime.</span></span><span class="sig-name descname"><span class="pre">time</span></span><a class="reference internal" href="../../_modules/datetime.html#time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datetime.time" title="Link to this definition">#</a></dt>
+<dd><p>time([hour[, minute[, second[, microsecond[, tzinfo]]]]]) --&gt; a time object</p>
+<p>All arguments are optional. tzinfo may be None, or an instance of
+a tzinfo subclass. The remaining arguments may be ints.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.time.dst">
+<span class="sig-name descname"><span class="pre">dst</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.time.dst" title="Link to this definition">#</a></dt>
+<dd><p>Return self.tzinfo.dst(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.time.fromisoformat">
+<span class="sig-name descname"><span class="pre">fromisoformat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.time.fromisoformat" title="Link to this definition">#</a></dt>
+<dd><p>string -&gt; time from time.isoformat() output</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.time.isoformat">
+<span class="sig-name descname"><span class="pre">isoformat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.time.isoformat" title="Link to this definition">#</a></dt>
+<dd><p>Return string in ISO 8601 format, [HH[:MM[:SS[.mmm[uuu]]]]][+HH:MM].</p>
+<p>The optional argument timespec specifies the number of additional terms
+of the time to include. Valid options are 'auto', 'hours', 'minutes',
+'seconds', 'milliseconds' and 'microseconds'.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.time.replace">
+<span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.time.replace" title="Link to this definition">#</a></dt>
+<dd><p>Return time with new specified fields.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.time.strftime">
+<span class="sig-name descname"><span class="pre">strftime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.time.strftime" title="Link to this definition">#</a></dt>
+<dd><p>format -&gt; strftime() style string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.time.tzname">
+<span class="sig-name descname"><span class="pre">tzname</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.time.tzname" title="Link to this definition">#</a></dt>
+<dd><p>Return self.tzinfo.tzname(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.time.utcoffset">
+<span class="sig-name descname"><span class="pre">utcoffset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.time.utcoffset" title="Link to this definition">#</a></dt>
+<dd><p>Return self.tzinfo.utcoffset(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="datetime.timedelta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">datetime.</span></span><span class="sig-name descname"><span class="pre">timedelta</span></span><a class="reference internal" href="../../_modules/datetime.html#timedelta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datetime.timedelta" title="Link to this definition">#</a></dt>
+<dd><p>Difference between two datetime values.</p>
+<p>timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)</p>
+<p>All arguments are optional and default to 0.
+Arguments may be integers or floats, and may be positive or negative.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="datetime.timedelta.days">
+<span class="sig-name descname"><span class="pre">days</span></span><a class="headerlink" href="#datetime.timedelta.days" title="Link to this definition">#</a></dt>
+<dd><p>Number of days.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="datetime.timedelta.microseconds">
+<span class="sig-name descname"><span class="pre">microseconds</span></span><a class="headerlink" href="#datetime.timedelta.microseconds" title="Link to this definition">#</a></dt>
+<dd><p>Number of microseconds (&gt;= 0 and less than 1 second).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="datetime.timedelta.seconds">
+<span class="sig-name descname"><span class="pre">seconds</span></span><a class="headerlink" href="#datetime.timedelta.seconds" title="Link to this definition">#</a></dt>
+<dd><p>Number of seconds (&gt;= 0 and less than 1 day).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.timedelta.total_seconds">
+<span class="sig-name descname"><span class="pre">total_seconds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.timedelta.total_seconds" title="Link to this definition">#</a></dt>
+<dd><p>Total seconds in the duration.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="datetime.timezone">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">datetime.</span></span><span class="sig-name descname"><span class="pre">timezone</span></span><a class="reference internal" href="../../_modules/datetime.html#timezone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datetime.timezone" title="Link to this definition">#</a></dt>
+<dd><p>Fixed offset from UTC implementation of tzinfo.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.timezone.dst">
+<span class="sig-name descname"><span class="pre">dst</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.timezone.dst" title="Link to this definition">#</a></dt>
+<dd><p>Return None.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.timezone.fromutc">
+<span class="sig-name descname"><span class="pre">fromutc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.timezone.fromutc" title="Link to this definition">#</a></dt>
+<dd><p>datetime in UTC -&gt; datetime in local time.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.timezone.tzname">
+<span class="sig-name descname"><span class="pre">tzname</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.timezone.tzname" title="Link to this definition">#</a></dt>
+<dd><p>If name is specified when timezone is created, returns the name.  Otherwise returns offset as 'UTC(+|-)HH:MM'.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.timezone.utcoffset">
+<span class="sig-name descname"><span class="pre">utcoffset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.timezone.utcoffset" title="Link to this definition">#</a></dt>
+<dd><p>Return fixed offset.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="datetime.tzinfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">datetime.</span></span><span class="sig-name descname"><span class="pre">tzinfo</span></span><a class="reference internal" href="../../_modules/datetime.html#tzinfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datetime.tzinfo" title="Link to this definition">#</a></dt>
+<dd><p>Abstract base class for time zone info objects.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.tzinfo.dst">
+<span class="sig-name descname"><span class="pre">dst</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.tzinfo.dst" title="Link to this definition">#</a></dt>
+<dd><p>datetime -&gt; DST offset as timedelta positive east of UTC.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.tzinfo.fromutc">
+<span class="sig-name descname"><span class="pre">fromutc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.tzinfo.fromutc" title="Link to this definition">#</a></dt>
+<dd><p>datetime in UTC -&gt; datetime in local time.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.tzinfo.tzname">
+<span class="sig-name descname"><span class="pre">tzname</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.tzinfo.tzname" title="Link to this definition">#</a></dt>
+<dd><p>datetime -&gt; string name of time zone.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="datetime.tzinfo.utcoffset">
+<span class="sig-name descname"><span class="pre">utcoffset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datetime.tzinfo.utcoffset" title="Link to this definition">#</a></dt>
+<dd><p>datetime -&gt; timedelta showing offset from UTC, negative values indicating West of UTC</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./reference/kitchen-sink"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section ablog__blog_comments">
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date"><code class="docutils literal notranslate"><span class="pre">date</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.ctime"><code class="docutils literal notranslate"><span class="pre">date.ctime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.fromisocalendar"><code class="docutils literal notranslate"><span class="pre">date.fromisocalendar()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.fromisoformat"><code class="docutils literal notranslate"><span class="pre">date.fromisoformat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.fromordinal"><code class="docutils literal notranslate"><span class="pre">date.fromordinal()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.fromtimestamp"><code class="docutils literal notranslate"><span class="pre">date.fromtimestamp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.isocalendar"><code class="docutils literal notranslate"><span class="pre">date.isocalendar()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.isoformat"><code class="docutils literal notranslate"><span class="pre">date.isoformat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.isoweekday"><code class="docutils literal notranslate"><span class="pre">date.isoweekday()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.replace"><code class="docutils literal notranslate"><span class="pre">date.replace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.strftime"><code class="docutils literal notranslate"><span class="pre">date.strftime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.timetuple"><code class="docutils literal notranslate"><span class="pre">date.timetuple()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.today"><code class="docutils literal notranslate"><span class="pre">date.today()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.toordinal"><code class="docutils literal notranslate"><span class="pre">date.toordinal()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.date.weekday"><code class="docutils literal notranslate"><span class="pre">date.weekday()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.astimezone"><code class="docutils literal notranslate"><span class="pre">datetime.astimezone()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.combine"><code class="docutils literal notranslate"><span class="pre">datetime.combine()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.ctime"><code class="docutils literal notranslate"><span class="pre">datetime.ctime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.date"><code class="docutils literal notranslate"><span class="pre">datetime.date()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.dst"><code class="docutils literal notranslate"><span class="pre">datetime.dst()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.fromisoformat"><code class="docutils literal notranslate"><span class="pre">datetime.fromisoformat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.fromtimestamp"><code class="docutils literal notranslate"><span class="pre">datetime.fromtimestamp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.isoformat"><code class="docutils literal notranslate"><span class="pre">datetime.isoformat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.now"><code class="docutils literal notranslate"><span class="pre">datetime.now()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.replace"><code class="docutils literal notranslate"><span class="pre">datetime.replace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.strptime"><code class="docutils literal notranslate"><span class="pre">datetime.strptime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.time"><code class="docutils literal notranslate"><span class="pre">datetime.time()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.timestamp"><code class="docutils literal notranslate"><span class="pre">datetime.timestamp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.timetuple"><code class="docutils literal notranslate"><span class="pre">datetime.timetuple()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.timetz"><code class="docutils literal notranslate"><span class="pre">datetime.timetz()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.tzname"><code class="docutils literal notranslate"><span class="pre">datetime.tzname()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.utcfromtimestamp"><code class="docutils literal notranslate"><span class="pre">datetime.utcfromtimestamp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.utcnow"><code class="docutils literal notranslate"><span class="pre">datetime.utcnow()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.utcoffset"><code class="docutils literal notranslate"><span class="pre">datetime.utcoffset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.datetime.utctimetuple"><code class="docutils literal notranslate"><span class="pre">datetime.utctimetuple()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time"><code class="docutils literal notranslate"><span class="pre">time</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.dst"><code class="docutils literal notranslate"><span class="pre">time.dst()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.fromisoformat"><code class="docutils literal notranslate"><span class="pre">time.fromisoformat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.isoformat"><code class="docutils literal notranslate"><span class="pre">time.isoformat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.replace"><code class="docutils literal notranslate"><span class="pre">time.replace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.strftime"><code class="docutils literal notranslate"><span class="pre">time.strftime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.tzname"><code class="docutils literal notranslate"><span class="pre">time.tzname()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.time.utcoffset"><code class="docutils literal notranslate"><span class="pre">time.utcoffset()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timedelta"><code class="docutils literal notranslate"><span class="pre">timedelta</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timedelta.days"><code class="docutils literal notranslate"><span class="pre">timedelta.days</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timedelta.microseconds"><code class="docutils literal notranslate"><span class="pre">timedelta.microseconds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timedelta.seconds"><code class="docutils literal notranslate"><span class="pre">timedelta.seconds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timedelta.total_seconds"><code class="docutils literal notranslate"><span class="pre">timedelta.total_seconds()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timezone"><code class="docutils literal notranslate"><span class="pre">timezone</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timezone.dst"><code class="docutils literal notranslate"><span class="pre">timezone.dst()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timezone.fromutc"><code class="docutils literal notranslate"><span class="pre">timezone.fromutc()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timezone.tzname"><code class="docutils literal notranslate"><span class="pre">timezone.tzname()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.timezone.utcoffset"><code class="docutils literal notranslate"><span class="pre">timezone.utcoffset()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.tzinfo"><code class="docutils literal notranslate"><span class="pre">tzinfo</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.tzinfo.dst"><code class="docutils literal notranslate"><span class="pre">tzinfo.dst()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.tzinfo.fromutc"><code class="docutils literal notranslate"><span class="pre">tzinfo.fromutc()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.tzinfo.tzname"><code class="docutils literal notranslate"><span class="pre">tzinfo.tzname()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime.tzinfo.utcoffset"><code class="docutils literal notranslate"><span class="pre">tzinfo.utcoffset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on May 24, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
