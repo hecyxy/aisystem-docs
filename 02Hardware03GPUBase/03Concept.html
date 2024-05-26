@@ -286,13 +286,13 @@
 <li class="toctree-l2"><a class="reference internal" href="04History.html">GPU 架构回顾(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware04NVIDIA/README.html">NVIDIA GPU 详解</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/01BasicTC.html">Tensor Core 基本原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/02HistoryTC.html">Tensor Core 架构演进</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/03DeepTC.html">Tensor Core 深度剖析</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/04BasicNvlink.html">分布式通信与 NVLink</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/05DeepNvlink.html">NVLink 原理剖析</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/06DeepNvswitch.html">NV Switch 深度解析</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware04NVIDIA/README.html">NVIDIA GPU 详解(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/01BasicTC.html">Tensor Core 基本原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/02HistoryTC.html">Tensor Core 架构演进(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/03DeepTC.html">Tensor Core 深度剖析(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/04BasicNvlink.html">分布式通信与 NVLink(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/05DeepNvlink.html">NVLink 原理剖析(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/06DeepNvswitch.html">NV Switch 深度解析(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -727,7 +727,7 @@ document.write(`
 <h2>GPU 硬件基础概念<a class="headerlink" href="#gpu" title="Link to this heading">#</a></h2>
 <p>A100 GPU 架构中 GPC（Graphic Processing Cluster）表示图像处理簇，一共有 8 个。共有两个 L2 Cache 并且可以互相实现数据同步，通过 Memory Controller 实现与高带宽存储器 HBM2（High Bandwidth Memory）进行数据交换。</p>
 <p><img alt="A100 GPU 架构图" src="../_images/03Concept01.png" /></p>
-<p>每个 GPC 中包含 TPC（Texture processing cluster）表示纹理处理簇，每个处理簇被分为多个 SM（Streaming Multiprocessors）流处理器，SM 中包含多个 CUDA core 和 Tensor Core，用于处理图形图形和 AI 张量计算。</p>
+<p>每个 GPC 中包含 TPC（Texture processing cluster）表示纹理处理簇，每个处理簇被分为多个 SM（Streaming Multiprocessors）流处理器，SM 中包含多个 CUDA Core 和 Tensor Core，用于处理图形图形和 AI 张量计算。</p>
 <p><img alt="A100 GPU GPC 架构图" src="../_images/03Concept02.png" /></p>
 <p>SM（Streaming Multiprocessors）称作流式多处理器，核心组件包括 CUDA 核心、共享内存、寄存器等。SM 包含很多为线程执行数学运算的 core，是英伟达 GPU 的核心，在 CUDA 中可以执行数百个线程、一个 block 上线程放在同一个 SM 上执行，一个 SM 有限的 Cache 制约了每个 block 的线程数量。</p>
 <p><img alt="A100 GPU SM 架构图" src="../_images/03Concept03.png" /></p>

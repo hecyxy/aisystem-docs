@@ -284,13 +284,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/04History.html">GPU 架构回顾(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware04NVIDIA/README.html">NVIDIA GPU 详解</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/01BasicTC.html">Tensor Core 基本原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/02HistoryTC.html">Tensor Core 架构演进</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/03DeepTC.html">Tensor Core 深度剖析</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/04BasicNvlink.html">分布式通信与 NVLink</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/05DeepNvlink.html">NVLink 原理剖析</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/06DeepNvswitch.html">NV Switch 深度解析</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware04NVIDIA/README.html">NVIDIA GPU 详解(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/01BasicTC.html">Tensor Core 基本原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/02HistoryTC.html">Tensor Core 架构演进(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/03DeepTC.html">Tensor Core 深度剖析(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/04BasicNvlink.html">分布式通信与 NVLink(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/05DeepNvlink.html">NVLink 原理剖析(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/06DeepNvswitch.html">NV Switch 深度解析(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -702,7 +702,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">理论基础</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mlu">寒武纪 MLU 架构细节</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv3-ipu-mlu-core">MLUv3 IPU （MLU core）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv3-ipu-mlu-core">MLUv3 IPU （MLU Core）</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv3-mpu-cluster">MLUv3 MPU (cluster)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv03">MLUv03 片内通信</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">存储层次</a><ul class="visible nav section-nav flex-column">
@@ -744,19 +744,19 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="mlu">
 <h1>寒武纪 MLU 架构细节<a class="headerlink" href="#mlu" title="Link to this heading">#</a></h1>
-<p>下面我们简单根据 zomi 的资料介绍一下 MLU core 的工作原理，再对照寒武纪官方文档来了解一下寒武纪产品的编程模型。</p>
+<p>下面我们简单根据 zomi 的资料介绍一下 MLU Core 的工作原理，再对照寒武纪官方文档来了解一下寒武纪产品的编程模型。</p>
 <section id="mluv3-ipu-mlu-core">
-<h2>MLUv3 IPU （MLU core）<a class="headerlink" href="#mluv3-ipu-mlu-core" title="Link to this heading">#</a></h2>
-<p>IPU 在官方文档中也叫作 MLU core，下面是示意图。</p>
-<p><img alt="MLU core 核心模块" src="../_images/cambricon09.png" /></p>
+<h2>MLUv3 IPU （MLU Core）<a class="headerlink" href="#mluv3-ipu-mlu-core" title="Link to this heading">#</a></h2>
+<p>IPU 在官方文档中也叫作 MLU Core，下面是示意图。</p>
+<p><img alt="MLU Core 核心模块" src="../_images/cambricon09.png" /></p>
 <p>从 zomi 找到的资料图中，我们可以看到，Control Unit 比较重要，负责指令的读取、译码和发射。自研指令可以通过 Control Unit 被负责计算和访存的调度器 Dispatch 到 ALU、VFU、TFU、IO-DMA、Move-DMA 四个队列。IO-DMA 用来实现片外 DRAM 与 W/N-RAM 数据传输，也可以用于实现 Register 与片内 RAM 之间的 Load/Store 操作以及原子操作。Move-DMA 用于 IPU 中 W/N-RAM 与 MPU S-RAM 间数据传输和类型转换。I-Cache 顾名思义就是指令缓存，有 64KB，如 512bit 指令可以缓存 1024 条。VA-Cache(Vector Addressing)是离散数据访问指令的专用缓存。用于加速离散向量访问效率，减少对总线和存储单元读写次数。Neural-RAM（nram）是 768KB，需 16byte 对齐，存储 Input 和 Feature Map 数据。Weight-RAM（wram）是 1024KB，需 8byte 对齐，存储权重和优化器数据。</p>
 <p>ALU 就是标量 Scale 数据的算术逻辑运算。GPR 是指一组位宽 48bit 的寄存器，IPU 为 Load/Store 架构，除立即数以外所有操作加载到 GPR 才能参与算术逻辑运算。SREG 是指位宽 32bit 的特殊寄存器，用于存储硬件特定属性，如 Perf 计数、任务索引等。</p>
 <p>VFU/TFU 是计算单元，实现张量 Tensor 和向量 Vector 运算；输入输出：Vector 运算输入输出在 Neuron-RAM；Tensor 运算输入自 Neuron-RAM 和 Weight-RAM，输出根据调度情况到 Neuron-RAM 和 Weight-RAM。</p>
-<p>关于指令流水，那么 MLU core 有三类可以并行执行的指令队列：XFU-PIPE、 DMA-PIPE、ALU-PIPE。XFU-PIPE 可以执行向量和张量单元指令。DMA-PIPE 可以支持双流同时进行数据搬运执行。具体包括上述的 move-DMA 和 IO-DMA 两个流。ALU-PIPE 可以执行标量数据算术逻辑指令。各个指令队列的并行执行有助于让 IPU 的不同种类的操作互相掩盖。</p>
+<p>关于指令流水，那么 MLU Core 有三类可以并行执行的指令队列：XFU-PIPE、 DMA-PIPE、ALU-PIPE。XFU-PIPE 可以执行向量和张量单元指令。DMA-PIPE 可以支持双流同时进行数据搬运执行。具体包括上述的 move-DMA 和 IO-DMA 两个流。ALU-PIPE 可以执行标量数据算术逻辑指令。各个指令队列的并行执行有助于让 IPU 的不同种类的操作互相掩盖。</p>
 </section>
 <section id="mluv3-mpu-cluster">
 <h2>MLUv3 MPU (cluster)<a class="headerlink" href="#mluv3-mpu-cluster" title="Link to this heading">#</a></h2>
-<p>MPU 的主要功能是单个 Cluster 内部 Shared-RAM 和多个 Cluster 间 Shared-RAM 的管理和通信。从下图可以看到，每一个 cluster 包含 4 个 MLU core（IPU）和一个 MPU。</p>
+<p>MPU 的主要功能是单个 Cluster 内部 Shared-RAM 和多个 Cluster 间 Shared-RAM 的管理和通信。从下图可以看到，每一个 cluster 包含 4 个 MLU Core（IPU）和一个 MPU。</p>
 <p><img alt="cluster 结构" src="../_images/cambricon11.png" /></p>
 <p>在 MPU 中主要由以下几部分组成：Cluster-DMA，负责 Cluster 间和 Shared-RMA 间数据传输。Global-DMA，负责 GPR 与片外内存，GPR 与 Shared-RAM，Shared-RAM 和 DRAM 间数据传输。Shared-RAM，4MB，相当于 1 级缓存，给具体计算提供数据。</p>
 <p>需要注意，MLUv02 以前的寒武纪产品是没有 MPU 架构，也没有 cluster 概念的。</p>
@@ -764,8 +764,8 @@ document.write(`
 <section id="mluv03">
 <h2>MLUv03 片内通信<a class="headerlink" href="#mluv03" title="Link to this heading">#</a></h2>
 <p>这里所述的片内通信分为两种：cluster 内通信与 cluster 间通信。</p>
-<p>cluster 内通信中我们先看 IPU（MLU-core），其中 ICache 访问 Global-DRAM 读取指令并保存到 Icache 中，IO-DMA 还可以直接在 DRAM 和 W/N-RAM 之间搬运数据。Move-DMA 负责在 S/W/N-RAM 之间以及它们与 GPR 之间搬运数据。之所以要使用两种不同的 DMA 是为了方便两者之间的并行。</p>
-<p><img alt="MLU core 通信" src="../_images/cambricon12.png" /></p>
+<p>cluster 内通信中我们先看 IPU（MLU-Core），其中 ICache 访问 Global-DRAM 读取指令并保存到 Icache 中，IO-DMA 还可以直接在 DRAM 和 W/N-RAM 之间搬运数据。Move-DMA 负责在 S/W/N-RAM 之间以及它们与 GPR 之间搬运数据。之所以要使用两种不同的 DMA 是为了方便两者之间的并行。</p>
+<p><img alt="MLU Core 通信" src="../_images/cambricon12.png" /></p>
 <p>我们再看 MPU</p>
 <p><img alt="MPU 通信" src="../_images/cambricon13.png" /></p>
 <p>MPU 上同样有 ICache，此外它也通过 Global-DMA 在 DRAM 和 Shared RAM 之间搬运数据。特别地，它还有两个不同的 Cluster-DMA 通道负责在 Shared RAM 之间搬运数据。值得注意的是，在 MLUv02 的时期（2020 年）就已经有在 Shared RAM 之间的数据通路设计了，而 NVIDIA 在后来的 Hopper 架构的时候，大概是 2022 年，才在不同 Shared memory 之间增加了数据通路。MLU 中的 Cluster 大约可以类比为 NVIDIA GPU 中的 SM（Stream Multiprocessor），虽然二者还是挺不同的，但从增加数据通路有利于计算单元之间传递数据的角度来看，或许寒武纪已经领先 NVIDIA。</p>
@@ -944,7 +944,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">理论基础</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mlu">寒武纪 MLU 架构细节</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv3-ipu-mlu-core">MLUv3 IPU （MLU core）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv3-ipu-mlu-core">MLUv3 IPU （MLU Core）</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv3-mpu-cluster">MLUv3 MPU (cluster)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv03">MLUv03 片内通信</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">存储层次</a><ul class="visible nav section-nav flex-column">

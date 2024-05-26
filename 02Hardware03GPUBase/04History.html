@@ -81,7 +81,7 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="NVIDIA GPU 详解" href="../02Hardware04NVIDIA/README.html" />
+    <link rel="next" title="NVIDIA GPU 详解(DONE)" href="../02Hardware04NVIDIA/README.html" />
     <link rel="prev" title="GPU 架构与 CUDA 关系(DONE)" href="03Concept.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -286,13 +286,13 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">GPU 架构回顾(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware04NVIDIA/README.html">NVIDIA GPU 详解</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/01BasicTC.html">Tensor Core 基本原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/02HistoryTC.html">Tensor Core 架构演进</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/03DeepTC.html">Tensor Core 深度剖析</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/04BasicNvlink.html">分布式通信与 NVLink</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/05DeepNvlink.html">NVLink 原理剖析</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/06DeepNvswitch.html">NV Switch 深度解析</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware04NVIDIA/README.html">NVIDIA GPU 详解(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/01BasicTC.html">Tensor Core 基本原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/02HistoryTC.html">Tensor Core 架构演进(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/03DeepTC.html">Tensor Core 深度剖析(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/04BasicNvlink.html">分布式通信与 NVLink(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/05DeepNvlink.html">NVLink 原理剖析(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/06DeepNvswitch.html">NV Switch 深度解析(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -711,14 +711,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ampere">Ampere 架构</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hopper">Hopper 架构</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blackwell">Blackwell 架构</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">总结</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">小结与讨论</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuda-core-tensor-core">CUDA Core &amp; Tensor Core</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvlink">NVLink</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvswitch">NVSwitch</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">参考文献</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">参考文献</a></li>
 </ul>
             </nav>
         </div>
@@ -1369,7 +1369,7 @@ document.write(`
 <p><img alt="GPT-3 Inference Performance" src="../_images/04History38.jpg" /></p>
 </section>
 <section id="id1">
-<h2>总结<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2>小结与讨论<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>本节主要回顾了从 2010 年到 2024 年 NVIDIA GPU 架构的发展，其中有几个比较重要的时间节点和事件：</p>
 <ul class="simple">
 <li><p>2010 年提出 Fermi 架构，开启了架构演进的进程，属于首个完整的 GPU 计算架构，里面提出的新概念一直沿用至今；</p></li>
@@ -1382,7 +1382,7 @@ document.write(`
 </ul>
 <section id="cuda-core-tensor-core">
 <h3>CUDA Core &amp; Tensor Core<a class="headerlink" href="#cuda-core-tensor-core" title="Link to this heading">#</a></h3>
-<p>Cuda core 和 Tensor core 都是运算单元，与硬件相关。随着科学计算迅速发展，为了使用 GPU 的高算力，需要将科学计算任务适配成图形图像任务，Cuda core 属于全能通用型浮点运算单元，用于加、乘、乘加运算。随着 AI 迅速发展，对矩阵乘法的算力需求不断增大，Tensor core 专门为深度学习矩阵运算设计，适用于在高精度矩阵运算。以 Hopper 架构为例，每个 SM 有 128 个 CUDA Core，4 个 Tensor Core，Tensor Core 相比较支持的精度更多，而且 Tensor Core 是可编程的，除了使用 CUDA API 调用 Tensor Core，如 cublas、cudnn 等，还可以使用 WMMA (Warp-level Matrix Multiply Accumulate) API、MMA (Matrix Multiply Accumulate) PTX 进行编程。</p>
+<p>Cuda Core 和 Tensor Core 都是运算单元，与硬件相关。随着科学计算迅速发展，为了使用 GPU 的高算力，需要将科学计算任务适配成图形图像任务，Cuda Core 属于全能通用型浮点运算单元，用于加、乘、乘加运算。随着 AI 迅速发展，对矩阵乘法的算力需求不断增大，Tensor Core 专门为深度学习矩阵运算设计，适用于在高精度矩阵运算。以 Hopper 架构为例，每个 SM 有 128 个 CUDA Core，4 个 Tensor Core，Tensor Core 相比较支持的精度更多，而且 Tensor Core 是可编程的，除了使用 CUDA API 调用 Tensor Core，如 cublas、cudnn 等，还可以使用 WMMA (Warp-level Matrix Multiply Accumulate) API、MMA (Matrix Multiply Accumulate) PTX 进行编程。</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
@@ -1511,17 +1511,17 @@ document.write(`
 </section>
 </section>
 <section id="id2">
-<h2>参考文献<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>英伟达 GPU 架构白皮书：<a class="reference external" href="https://www.NVIDIA.cn/technologies/">https://www.NVIDIA.cn/technologies/</a></p>
-</section>
-<section id="id3">
-<h2>本节视频<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2>本节视频<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?aid=783019461&bvid=BV1x24y1F7kY&cid=1113803137&page=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
 <html>
 <iframe src="https://player.bilibili.com/player.html?aid=698236135&bvid=BV1mm4y1C7fg&cid=1115170922&page=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
+</section>
+<section id="id3">
+<h2>参考文献<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>英伟达 GPU 架构白皮书：<a class="reference external" href="https://www.NVIDIA.cn/technologies/">https://www.NVIDIA.cn/technologies/</a></p>
 </section>
 </section>
 
@@ -1573,7 +1573,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">NVIDIA GPU 详解</p>
+        <p class="prev-next-title">NVIDIA GPU 详解(DONE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1602,14 +1602,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ampere">Ampere 架构</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hopper">Hopper 架构</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blackwell">Blackwell 架构</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">总结</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">小结与讨论</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuda-core-tensor-core">CUDA Core &amp; Tensor Core</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvlink">NVLink</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvswitch">NVSwitch</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">参考文献</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">参考文献</a></li>
 </ul>
   </nav></div>
 
