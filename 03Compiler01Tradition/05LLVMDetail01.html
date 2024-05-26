@@ -1,0 +1,1130 @@
+
+<!DOCTYPE html>
+
+
+<html lang="cn" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<meta property="og:title" content="LLVM IR 详解" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="03Compiler01Tradition/05LLVMDetail01.html" />
+<meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
+<meta property="og:description" content="在上一节中，我们已经简要介绍了 LLVM 的基本概念和架构，我们现在将更深入地研究 LLVM 的 IR（中间表示）的概念。 了解 LLVM IR 的重要性是为了能够更好地理解编译器的运作原理，以及在编译过程中 IR 是如何被使用的。LLVM IR 提供了一种抽象程度适中的表示形式，同时能够涵盖绝大多数源代码所包含的信息，这使得编译器能够更为灵活地操作和优化代码。 本节将进一步探究 LLVM ..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="/_images/social_previews/summary_03Compiler01Tradition_05LLVMDetail01_5746c618.png" />
+<meta property="og:image:alt" content="在上一节中，我们已经简要介绍了 LLVM 的基本概念和架构，我们现在将更深入地研究 LLVM 的 IR（中间表示）的概念。 了解 LLVM IR 的重要性是为了能够更好地理解编译器的运作原理，以及在编译过程中 IR 是如何被使用的。LLVM IR 提供了一种抽象程度适中的表示形式，同时能够涵盖绝大多数源代码所包含..." />
+<meta name="description" content="在上一节中，我们已经简要介绍了 LLVM 的基本概念和架构，我们现在将更深入地研究 LLVM 的 IR（中间表示）的概念。 了解 LLVM IR 的重要性是为了能够更好地理解编译器的运作原理，以及在编译过程中 IR 是如何被使用的。LLVM IR 提供了一种抽象程度适中的表示形式，同时能够涵盖绝大多数源代码所包含的信息，这使得编译器能够更为灵活地操作和优化代码。 本节将进一步探究 LLVM ..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+    <title>LLVM IR 详解 &#8212; AI System</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=182be0a6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=aabdd393"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/rtd-data.js?v=db39d344"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03Compiler01Tradition/05LLVMDetail01';</script>
+    <script src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="icon" href="../_static/logo-square.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="LLVM 前端和优化层" href="05LLVMDetail02.html" />
+    <link rel="prev" title="LLVM 架构设计和原理" href="04LLVM.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="cn"/>
+    <meta name="docbuild:last-update" content="May 25, 2024"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../reference/blog/atom.xml"
+  title="Blog"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-wide.svg" class="logo__image only-light" alt="AI System - Home"/>
+    <script>document.write(`<img src="../_static/logo-wide-dark.svg" class="logo__image only-dark" alt="AI System - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/chenzomi12/AISystem" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.youtube.com/@ZOMI666" title="Youtube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-youtube fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Youtube</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://space.bilibili.com/517221395" title="Blibili" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-bilibili fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Blibili</span></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 一. AI 系统概述 ===</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01Introduction/README.html">本节概述(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01Introduction/01Present.html">AI 的历史与现状(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01Introduction/02Develop.html">AI 发展驱动力(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01Introduction/03Architecture.html">AI 系统全栈架构(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01Introduction/04Sample.html">AI 系统与程序代码关系(DONE)</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 二. AI 硬件体系结构 ===</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02Hardware/README.html">AI 硬件体系结构概述</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware01Foundation/README.html">AI 计算体系概述</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/01Introduction.html">课程内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/02ArchSlim.html">AI 计算模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/03MobileParallel.html">AI 计算模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/04Metrics.html">关键设计指标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/05Matrix.html">核心计算之矩阵乘</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/06BitWidth.html">计算之比特位宽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/07Summary.html">AI 计算体系总结</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware03GPUBase/README.html">图形处理器 GPU</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/01Works.html">GPU 工作原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/02Principle.html">为什么 GPU 适用于 AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/03Concept.html">GPU 架构与 CUDA 关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/04History.html">GPU 架构回顾</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware04NVIDIA/README.html">NVIDIA GPU 详解</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/01BasicTC.html">Tensor Core 基本原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/02HistoryTC.html">Tensor Core 架构演进</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/03DeepTC.html">Tensor Core 深度剖析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/04BasicNvlink.html">分布式通信与 NVLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/05DeepNvlink.html">NVLink 原理剖析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/06DeepNvswitch.html">NV Switch 深度解析</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/01DOJOArch.html">特斯拉 DOJO 架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/02DOJODetail.html">特斯拉 DOJO Core 原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/03DOJOSystem.html">特斯拉 DOJO 存算系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1 - 脉动阵列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06.TPU2.html">谷歌 TPUv2 训练芯片</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 三维互联</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04CambriconProduct.html">中科寒武纪科技股份有限公司</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/05CambriconArch.html">寒武纪 MLU 芯片架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/06CambriconArch.html">理论基础</a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD/SIMT 与 AI 芯片的关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">CUDA/SIMD/SIMT/DSA 关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 和 NVIDIA 中借鉴</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编译器 ===</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03Compiler/README.html">AI 编译原理概述</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">传统编译器</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">编译器基础介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02History.html">传统编译器发展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03GCC.html">GCC 编译过程和原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04LLVM.html">LLVM 架构设计和原理</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">LLVM IR 详解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05LLVMDetail02.html">LLVM 前端和优化层</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05LLVMDetail03.html">LLVM 后端代码生成</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器的发展阶段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06.memory.html">内存分配算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07.constant_fold.html">常量折叠原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08.cse.html">公共表达式消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09.dce.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10.algebraic.html">代数简化原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/11.summary.html">优化 Pass 总结</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/01.introduction.html">PyTorch2.0 特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/02.torchscript.html">TorchScript 静态图尝试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/03.torchfx_lazy.html">FX 与 LazyTensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/04.torchdynamo.html">TorchDynamo 获取图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/05.aotatuograd.html">AOTAutograd 原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/06.dispatch.html">Dispatch 机制</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 四. 推理系统&amp;引擎 ===</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04Inference/README.html">推理系统&amp;引擎概述</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构（上）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/06Architecture.html">推理引擎架构（下）</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 模型小型化（上）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05Transformer.html">Transformer 小型化</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换&amp;优化</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/05Optimizer.html">计算图优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/06Basic.html">常量折叠&amp;冗余节点消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/07Extend.html">算子融合/替换/前移</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 五. AI 框架核心模块 ===</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/04Dispatch.html">计算图的调度与执行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/05ControlFlow.html">计算图的控制流实现</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/06StaticGraph.html">动态图与静态图转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03TensorParallel.html">张量并行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05PipelineParallel.html">流水并行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/06HybridParallel.html">混合并行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/07Summary.html">分布式训练总结</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 附录内容 ===</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00Others/README.html">附录(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00Others/Instruments.html">书写工具(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00Others/Install.html">环境安装</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../00Others/Inference.html">参考链接(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00Others/Glossary.html">术语表(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00Others/Editors.html">编辑和作者(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00Others/Criterion.html">书写规范(DONE)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/sphinx-book-theme/blob/master/docs/03Compiler01Tradition/05LLVMDetail01.md?plain=1" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/sphinx-book-theme/edit/master/docs/03Compiler01Tradition/05LLVMDetail01.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/sphinx-book-theme/issues/new?title=Issue%20on%20page%20%2F03Compiler01Tradition/05LLVMDetail01.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/03Compiler01Tradition/05LLVMDetail01.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>LLVM IR 详解</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">LLVM IR 概述</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">LLVM IR 数据结构</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">LLVM IR 表示形式</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">LLVM IR 示例程序</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">LLVM IR 基本语法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">LLVM IR 指令集</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">LLVM IR 指导原则</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssa">静态单赋值（SSA）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">三地址码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">LLVM IR 内存模型</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">引用</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+<!--Copyright © ZOMI 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
+<section class="tex2jax_ignore mathjax_ignore" id="llvm-ir">
+<h1>LLVM IR 详解<a class="headerlink" href="#llvm-ir" title="Link to this heading">#</a></h1>
+<p>在上一节中，我们已经简要介绍了 LLVM 的基本概念和架构，我们现在将更深入地研究 LLVM 的 IR（中间表示）的概念。</p>
+<p>了解 LLVM IR 的重要性是为了能够更好地理解编译器的运作原理，以及在编译过程中 IR 是如何被使用的。LLVM IR 提供了一种抽象程度适中的表示形式，同时能够涵盖绝大多数源代码所包含的信息，这使得编译器能够更为灵活地操作和优化代码。</p>
+<p>本节将进一步探究 LLVM IR 的不同表示形式，将有助于我们更好地理解代码在编译器中是如何被处理和转换的。</p>
+<section id="id1">
+<h2>LLVM IR 概述<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>在开发编译器时，通常的做法是将源代码编译到某种中间表示（Intermediate Representation，一般称为 IR），然后再将 IR 翻译为目标体系结构的汇编（比如 MIPS 或 X86），这种做法相对于直接将源代码翻译为目标体系结构的好处主要有两个：</p>
+<ol class="arabic simple">
+<li><p>首先，有一些优化技术是目标平台无关的，我们只需要在 IR 上做这些优化，再翻译到不同的汇编，这样就能够在所有支持的体系结构上实现这种优化，这大大的减少了开发的工作量。</p></li>
+<li><p>其次，假设我们有 m 种源语言和 n 种目标平台，如果我们直接将源代码翻译为目标平台的代码，那么我们就需要编写 m * n 个不同的编译器。然而，如果我们采用一种 IR 作为中转，先将源语言编译到这种 IR ，再将这种 IR 翻译到不同的目标平台上，那么我们就只需要实现 m + n 个编译器。</p></li>
+</ol>
+<p>因此，目前常见的编译器都分为了三个部分，前端（front-end），优化层（middle-end）以及后端（back-end），每一部分都承担了不同的功能：</p>
+<ul class="simple">
+<li><p>前端：将源高级语言编译到中间表达 IR</p></li>
+<li><p>优化层：对中间表达 IR 进行编译优化</p></li>
+<li><p>后端：将中间表达 IR 翻译为目标机器的语言</p></li>
+</ul>
+<p>同理，LLVM 也是按照这一结构设计进行架构设计:</p>
+<p><img alt="编译器" src="../_images/llvm_ir07.png" /></p>
+<p>在 LLVM 中不管是前端、优化层、还是后端都有大量的 IR，使得 LLVM 的模块化程度非常高，可以大量的复用一些相同的代码，非常方便的集成到不同的 IDE 和编译器当中。</p>
+</section>
+<section id="id2">
+<h2>LLVM IR 数据结构<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>LLVM 并非使用单一的 IR 进行表达，前端传给优化层时传递的是一种抽象语法树（Abstract Syntax Tree，AST）的 IR。因此 IR 是一种抽象表达，没有固定的形态。</p>
+<p><img alt="编译器" src="../_images/llvm_ir01.png" /></p>
+<p>抽象语法树的作用在于牢牢抓住程序的脉络，从而方便编译过程的后续环节（如代码生成）对程序进行解读。AST 就是开发者为语言量身定制的一套模型，基本上语言中的每种结构都与一种 AST 对象相对应。</p>
+<p>在中端优化完成之后会传一个 DAG 图的 IR 给后端，DAG 图能够非常有效的去表示硬件的指定的顺序。</p>
+<blockquote>
+<div><p>DAG（Directed Acyclic Graph，有向无环图）是图论中的一种数据结构，它是由顶点和有向边组成的图，其中顶点之间的边是有方向的，并且图中不存在任何环路（即不存在从某个顶点出发经过若干条边之后又回到该顶点的路径）。</p>
+<p>在计算机科学中，DAG 图常常用于描述任务之间的依赖关系，例如在编译器和数据流分析中。DAG 图具有拓扑排序的特性，可以方便地对图中的节点进行排序，以确保按照依赖关系正确地执行任务。</p>
+</div></blockquote>
+<p>编译的不同阶段会产生不同的数据结构和中间表达，如前端的抽象语法树（AST）、优化层的 DAG 图、后端的机器码等。后端优化时 DAG 图可能又转为普通的 IR 进行优化，最后再生产机器码。</p>
+</section>
+<section id="id3">
+<h2>LLVM IR 表示形式<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>LLVM IR 具有三种表示形式，这三种中间格式是完全等价的：</p>
+<ul class="simple">
+<li><p>在内存中的编译中间语言（无法通过文件的形式得到的指令类等）</p></li>
+<li><p>在硬盘上存储的二进制中间语言（格式为.bc）</p></li>
+<li><p>人类可读的代码语言（格式为.ll）</p></li>
+</ul>
+<p>接下来我们就看一下具体的 .ll 文件格式。</p>
+<section id="id4">
+<h3>LLVM IR 示例程序<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>我们编写一个简单的 C 语言程序，并将其编译为 LLVM IR。</p>
+<p>test.c 文件内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">    </span><span class="n">test</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>======= 介绍下面 XXXX</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clang<span class="w"> </span>-S<span class="w"> </span>-emit-llvm<span class="w"> </span>.<span class="se">\t</span>est.c
+</pre></div>
+</div>
+<p>编译完成后，生成的 test.ll 文件内容如下：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="p">;</span><span class="w"> </span><span class="nv">ModuleID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;.\test.c&#39;</span>
+<span class="nv">source_filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;.\\test.c&quot;</span>
+target<span class="w"> </span><span class="nv">datalayout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;e-m:w-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128&quot;</span>
+target<span class="w"> </span><span class="nv">triple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;x86_64-w64-windows-gnu&quot;</span>
+
+<span class="p">;</span><span class="w"> </span>Function<span class="w"> </span>Attrs:<span class="w"> </span>noinline<span class="w"> </span>nounwind<span class="w"> </span>optnone<span class="w"> </span>uwtable
+define<span class="w"> </span>dso_local<span class="w"> </span>void<span class="w"> </span>@test<span class="o">(</span>i32<span class="w"> </span>noundef<span class="w"> </span>%0,<span class="w"> </span>i32<span class="w"> </span>noundef<span class="w"> </span>%1<span class="o">)</span><span class="w"> </span><span class="c1">#0 { ;定义全局函数@test(a,b)</span>
+<span class="w">  </span>%3<span class="w"> </span><span class="o">=</span><span class="w"> </span>alloca<span class="w"> </span>i32,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>局部变量<span class="w"> </span>c
+<span class="w">  </span>%4<span class="w"> </span><span class="o">=</span><span class="w"> </span>alloca<span class="w"> </span>i32,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>局部变量<span class="w"> </span>d
+<span class="w">  </span>%5<span class="w"> </span><span class="o">=</span><span class="w"> </span>alloca<span class="w"> </span>i32,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>局部变量<span class="w"> </span>e
+<span class="w">  </span>store<span class="w"> </span>i32<span class="w"> </span>%0,<span class="w"> </span>ptr<span class="w"> </span>%3,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>%0<span class="w"> </span>赋值给%3<span class="w"> </span><span class="nv">c</span><span class="o">=</span>a
+<span class="w">  </span>store<span class="w"> </span>i32<span class="w"> </span>%1,<span class="w"> </span>ptr<span class="w"> </span>%4,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>%1<span class="w"> </span>赋值给%4<span class="w"> </span><span class="nv">d</span><span class="o">=</span>b
+<span class="w">  </span>%6<span class="w"> </span><span class="o">=</span><span class="w"> </span>load<span class="w"> </span>i32,<span class="w"> </span>ptr<span class="w"> </span>%3,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>读取%3，值给%6<span class="w"> </span>就是参数<span class="w"> </span>a
+<span class="w">  </span>%7<span class="w"> </span><span class="o">=</span><span class="w"> </span>load<span class="w"> </span>i32,<span class="w"> </span>ptr<span class="w"> </span>%4,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>读取%4，值给%7<span class="w"> </span>就是参数<span class="w"> </span>b
+<span class="w">  </span>%8<span class="w"> </span><span class="o">=</span><span class="w"> </span>add<span class="w"> </span>nsw<span class="w"> </span>i32<span class="w"> </span>%6,<span class="w"> </span>%7
+<span class="w">  </span>store<span class="w"> </span>i32<span class="w"> </span>%8,<span class="w"> </span>ptr<span class="w"> </span>%5,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>参数<span class="w"> </span>%9<span class="w"> </span>赋值给%5<span class="w"> </span>e<span class="w"> </span>就是转换前函数写的<span class="w"> </span>int<span class="w"> </span>c<span class="w"> </span>变量
+<span class="w">  </span>ret<span class="w"> </span>void
+<span class="o">}</span>
+
+<span class="p">;</span><span class="w"> </span>Function<span class="w"> </span>Attrs:<span class="w"> </span>noinline<span class="w"> </span>nounwind<span class="w"> </span>optnone<span class="w"> </span>uwtable
+define<span class="w"> </span>dso_local<span class="w"> </span>i32<span class="w"> </span>@main<span class="o">()</span><span class="w"> </span><span class="c1">#0 {</span>
+<span class="w">  </span>%1<span class="w"> </span><span class="o">=</span><span class="w"> </span>alloca<span class="w"> </span>i32,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span>
+<span class="w">  </span>%2<span class="w"> </span><span class="o">=</span><span class="w"> </span>alloca<span class="w"> </span>i32,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span>
+<span class="w">  </span>%3<span class="w"> </span><span class="o">=</span><span class="w"> </span>alloca<span class="w"> </span>i32,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span>
+<span class="w">  </span>store<span class="w"> </span>i32<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>ptr<span class="w"> </span>%1,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span>
+<span class="w">  </span>store<span class="w"> </span>i32<span class="w"> </span><span class="m">10</span>,<span class="w"> </span>ptr<span class="w"> </span>%2,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span>
+<span class="w">  </span>store<span class="w"> </span>i32<span class="w"> </span><span class="m">20</span>,<span class="w"> </span>ptr<span class="w"> </span>%3,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span>
+<span class="w">  </span>%4<span class="w"> </span><span class="o">=</span><span class="w"> </span>load<span class="w"> </span>i32,<span class="w"> </span>ptr<span class="w"> </span>%2,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span>
+<span class="w">  </span>%5<span class="w"> </span><span class="o">=</span><span class="w"> </span>load<span class="w"> </span>i32,<span class="w"> </span>ptr<span class="w"> </span>%3,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span>
+<span class="w">  </span>call<span class="w"> </span>void<span class="w"> </span>@test<span class="o">(</span>i32<span class="w"> </span>noundef<span class="w"> </span>%4,<span class="w"> </span>i32<span class="w"> </span>noundef<span class="w"> </span>%5<span class="o">)</span>
+<span class="w">  </span>ret<span class="w"> </span>i32<span class="w"> </span><span class="m">0</span>
+<span class="o">}</span>
+
+attributes<span class="w"> </span><span class="c1">#0 = { noinline nounwind optnone uwtable &quot;min-legal-vector-width&quot;=&quot;0&quot; &quot;no-trapping-math&quot;=&quot;true&quot; &quot;stack-protector-buffer-size&quot;=&quot;8&quot; &quot;target-cpu&quot;=&quot;x86-64&quot; &quot;target-features&quot;=&quot;+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87&quot; &quot;tune-cpu&quot;=&quot;generic&quot; }</span>
+
+!llvm.module.flags<span class="w"> </span><span class="o">=</span><span class="w"> </span>!<span class="o">{</span>!0,<span class="w"> </span>!1,<span class="w"> </span>!2,<span class="w"> </span>!3<span class="o">}</span>
+!llvm.ident<span class="w"> </span><span class="o">=</span><span class="w"> </span>!<span class="o">{</span>!4<span class="o">}</span>
+
+!0<span class="w"> </span><span class="o">=</span><span class="w"> </span>!<span class="o">{</span>i32<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>!<span class="s2">&quot;wchar_size&quot;</span>,<span class="w"> </span>i32<span class="w"> </span><span class="m">2</span><span class="o">}</span>
+!1<span class="w"> </span><span class="o">=</span><span class="w"> </span>!<span class="o">{</span>i32<span class="w"> </span><span class="m">8</span>,<span class="w"> </span>!<span class="s2">&quot;PIC Level&quot;</span>,<span class="w"> </span>i32<span class="w"> </span><span class="m">2</span><span class="o">}</span>
+!2<span class="w"> </span><span class="o">=</span><span class="w"> </span>!<span class="o">{</span>i32<span class="w"> </span><span class="m">7</span>,<span class="w"> </span>!<span class="s2">&quot;uwtable&quot;</span>,<span class="w"> </span>i32<span class="w"> </span><span class="m">2</span><span class="o">}</span>
+!3<span class="w"> </span><span class="o">=</span><span class="w"> </span>!<span class="o">{</span>i32<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>!<span class="s2">&quot;MaxTLSAlign&quot;</span>,<span class="w"> </span>i32<span class="w"> </span><span class="m">65536</span><span class="o">}</span>
+!4<span class="w"> </span><span class="o">=</span><span class="w"> </span>!<span class="o">{</span>!<span class="s2">&quot;(built by Brecht Sanders, r4) clang version 17.0.6&quot;</span><span class="o">}</span>
+</pre></div>
+</div>
+<p>======== 先介绍基本语法，然后介绍示例程序，然后对示例程序进行解析。上面的示例代码描述的是？</p>
+</section>
+<section id="id5">
+<h3>LLVM IR 基本语法<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>========== 深入介绍语法规则</p>
+<ol class="arabic simple">
+<li><p>注释以 ; 开头</p></li>
+<li><p>全局表示以 &#64; 开头，局部变量以 % 开头</p></li>
+<li><p>alloca 在函数栈帧中分配内存</p></li>
+<li><p>i32 32 位 4 个字节的意思</p></li>
+<li><p>align 字节对齐</p></li>
+<li><p>store 写入</p></li>
+<li><p>load 读取</p></li>
+</ol>
+</section>
+<section id="id6">
+<h3>LLVM IR 指令集<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>========== 深入指令集介绍</p>
+<ul class="simple">
+<li><p>LLVM IR 是类似于精简指令集(RISC)的底层虚拟指令集;</p></li>
+<li><p>和真实精简指令集一样，支持简单指令的线性序列，例如添加、相减、比较和分支；</p></li>
+<li><p>指令都是三地址形式，它们接受一定数量的输入然后在不同的寄存器中存储计算结果；</p></li>
+<li><p>与大多数精简指令集不同，LVM 使用强类型的简单类型系统，并剥离了机器差异；</p></li>
+<li><p>LLVM IR 不使用固定的命名寄存器，它使用以%字符命名的临时寄存器；</p></li>
+</ul>
+</section>
+</section>
+<section id="id7">
+<h2>LLVM IR 指导原则<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>======= 下面的 1,2 没有前后文，看不懂主语。</p>
+<ol class="arabic simple">
+<li><p>采用静态单赋值形式（Static single assignment,SSA）表示，代码组织为三地址指令序列和无限寄存器让优化能够快速执行。</p></li>
+<li><p>整个程序的 IR 存储到磁盘让链接时优化易于实现。</p></li>
+</ol>
+<section id="ssa">
+<h3>静态单赋值（SSA）<a class="headerlink" href="#ssa" title="Link to this heading">#</a></h3>
+<p>静态单赋值是指当程序中的每个变量都有且只有一个赋值语句时，称一个程序是 SSA 形式的。LLVM IR 中，每个变量都在使用前都必须先定义，且每个变量只能被赋值一次。以<code class="docutils literal notranslate"><span class="pre">1*2+3</span></code>为例：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>%0<span class="w"> </span><span class="o">=</span><span class="w"> </span>mul<span class="w"> </span>i32<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>
+%0<span class="w"> </span><span class="o">=</span><span class="w"> </span>add<span class="w"> </span>i32<span class="w"> </span>%0,<span class="w"> </span><span class="m">3</span>
+ret<span class="w"> </span>i32<span class="w"> </span>%0
+</pre></div>
+</div>
+<p>静态单赋值形式是指每个变量只有一个赋值语句，所以上述代码的<code class="docutils literal notranslate"><span class="pre">%0</span></code>不能复用</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>%0<span class="w"> </span><span class="o">=</span><span class="w"> </span>mul<span class="w"> </span>i32<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>
+%1<span class="w"> </span><span class="o">=</span><span class="w"> </span>add<span class="w"> </span>i32<span class="w"> </span>%0,<span class="w"> </span><span class="m">3</span>
+ret<span class="w"> </span>i32<span class="w"> </span>%1
+</pre></div>
+</div>
+<p>静态单赋值好处：</p>
+<ul class="simple">
+<li><p>每个值只有单一赋值定义了它。每次使用一个值，可以立刻向后追溯到给出其定义的唯一的指令。非常方便编译器正向和反向的编译；</p></li>
+<li><p>极大简化优化，因为 SSA 形式建立了平凡的 use-de 链，也就是一个值到达使用之处的定义的列表。</p></li>
+</ul>
+<p>======= 定义了它？太过于口语，不知道它代指什么。</p>
+</section>
+<section id="id8">
+<h3>三地址码<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>每个三地址码指令，都可以被分解为一个四元组(4-tuple)的形式：（运算符，操作数 1，操作数 2，结果）由于每个陈述都包含了三个变量，即每条指令最多有三个操作数，所以它被称为三地址码</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>指令类型</p></th>
+<th class="head"><p>指令格式</p></th>
+<th class="head"><p>四元组表示</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>赋值指令</p></td>
+<td><p>z=x op y(z=x+y)</p></td>
+<td><p>(op,x,y,z)</p></td>
+</tr>
+</tbody>
+</table>
+<p>======= 可以再深入一点</p>
+</section>
+<section id="id9">
+<h3>LLVM IR 内存模型<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>当想要在编译的优化层对 LLVM IR 进行优化时，就需要了解 LLVM IR 的内存模型。LLVM IR 的内存模型是基于基本块的，每个基本块都有自己的内存空间，指令只能在其内存空间内执行。</p>
+<p>在 LLVM 架构中，几乎所有的东西都是一个 Value。Value 是一个非常基础的基类，一个继承于 Value 的子类表示它的结果可以被其他地方使用。继承于 User 的类表示它会使用一个或多个 Value 对象 根据 Value 与 User 之间的关系，还可以引申出 use-def 链和 def-use 链这两个概念。use-def 链是指被某个 User 使用的 Value 列表，def-use 链是使用某个 Value 的 User 列表。实际上，LLVM 中还定义了一个 Use 类，Use 就是上述的使用关系中的一个边。</p>
+<ul class="simple">
+<li><p>LLVM IR 文件的基本单位称为 module</p></li>
+<li><p>一个 module 中可以拥有多个顶层实体，比如 function 和 global variavle</p></li>
+<li><p>一个 function define 中至少有一个 basicblock</p></li>
+<li><p>每个 basicblock 中有若干 instruction，并且都以 terminator instruction 结尾</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Module</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="p">;</span><span class="w"> </span><span class="nv">ModuleID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;.\test.c&#39;</span>
+<span class="nv">source_filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;.\\test.c&quot;</span>
+target<span class="w"> </span><span class="nv">datalayout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;e-m:w-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128&quot;</span>
+target<span class="w"> </span><span class="nv">triple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;x86_64-w64-windows-gnu&quot;</span>
+
+......
+</pre></div>
+</div>
+<p>整个.ll 文件就是一个 Module，它包含了 Module 的元数据，比如文件名、目标平台、数据布局等。</p>
+<p>Module 类聚合了整个翻译单元用到的所有数据，它是 LLVM 术语中的“module”的同义词。它声明了 Module::iterator typedef，作为遍历这个模块中的函数的简便方法。你可以用 begin()和 end()方法获取这些迭代器。</p>
+<ol class="arabic simple" start="2">
+<li><p>Function</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="p">;</span><span class="w"> </span>Function<span class="w"> </span>Attrs:<span class="w"> </span>noinline<span class="w"> </span>nounwind<span class="w"> </span>optnone<span class="w"> </span>uwtable
+define<span class="w"> </span>dso_local<span class="w"> </span>void<span class="w"> </span>@test<span class="o">(</span>i32<span class="w"> </span>noundef<span class="w"> </span>%0,<span class="w"> </span>i32<span class="w"> </span>noundef<span class="w"> </span>%1<span class="o">)</span><span class="w"> </span><span class="c1">#0 { ;定义全局函数@test(a,b)</span>
+<span class="w">  </span>%3<span class="w"> </span><span class="o">=</span><span class="w"> </span>alloca<span class="w"> </span>i32,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>局部变量<span class="w"> </span>c
+<span class="w">  </span>%4<span class="w"> </span><span class="o">=</span><span class="w"> </span>alloca<span class="w"> </span>i32,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>局部变量<span class="w"> </span>d
+<span class="w">  </span>%5<span class="w"> </span><span class="o">=</span><span class="w"> </span>alloca<span class="w"> </span>i32,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>局部变量<span class="w"> </span>e
+<span class="w">  </span>store<span class="w"> </span>i32<span class="w"> </span>%0,<span class="w"> </span>ptr<span class="w"> </span>%3,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>%0<span class="w"> </span>赋值给%3<span class="w"> </span><span class="nv">c</span><span class="o">=</span>a
+<span class="w">  </span>store<span class="w"> </span>i32<span class="w"> </span>%1,<span class="w"> </span>ptr<span class="w"> </span>%4,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>%1<span class="w"> </span>赋值给%4<span class="w"> </span><span class="nv">d</span><span class="o">=</span>b
+<span class="w">  </span>%6<span class="w"> </span><span class="o">=</span><span class="w"> </span>load<span class="w"> </span>i32,<span class="w"> </span>ptr<span class="w"> </span>%3,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>读取%3，值给%6<span class="w"> </span>就是参数<span class="w"> </span>a
+<span class="w">  </span>%7<span class="w"> </span><span class="o">=</span><span class="w"> </span>load<span class="w"> </span>i32,<span class="w"> </span>ptr<span class="w"> </span>%4,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>读取%4，值给%7<span class="w"> </span>就是参数<span class="w"> </span>b
+<span class="w">  </span>%8<span class="w"> </span><span class="o">=</span><span class="w"> </span>add<span class="w"> </span>nsw<span class="w"> </span>i32<span class="w"> </span>%6,<span class="w"> </span>%7
+<span class="w">  </span>store<span class="w"> </span>i32<span class="w"> </span>%8,<span class="w"> </span>ptr<span class="w"> </span>%5,<span class="w"> </span>align<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>参数<span class="w"> </span>%9<span class="w"> </span>赋值给%5<span class="w"> </span>e<span class="w"> </span>就是转换前函数写的<span class="w"> </span>int<span class="w"> </span>c<span class="w"> </span>变量
+<span class="w">  </span>ret<span class="w"> </span>void
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>在 Module 中，可以定义多个函数(Function)，每个函数都有自己的类型签名、参数列表、局部变量列表、基本块列表、属性列表等。</p>
+<p>Function 类包含有关函数定义和声明的所有对象。对于声明来说（用 isDeclaration()检查它是否为声明），它仅包含函数原型。无论定义或者声明，它都包含函数参数的列表，可通过 getArgumentList()方法或者 arg_begin()和 arg_end()这对方法访问它。你可以通过 Function::arg_iteratortypedef 遍历它们。如果 Function 对象代表函数定义，你可以通过这样的语句遍历它的内容：for (Function::iterator i = function.begin(), e = function.end(); i != e; ++i)，你将遍历它的基本块。</p>
+<ol class="arabic simple" start="3">
+<li><p>BasicBlock</p></li>
+</ol>
+<p>每个 Function 可以有多个 BasicBlock，每个 BasicBlock 由若干条指令(Instruction)组成，最后以一个 terminator 指令结束。</p>
+<p>BasicBlock 类封装了 LLVM 指令序列，可通过 begin()/end()访问它们。你可以利用 getTerminator()方法直接访问它的最后一条指令，你还可以用一些辅助函数遍历 CFG，例如通过 getSinglePredecessor()访问前驱基本块，当一个基本块有单一前驱时。然而，如果它有多个前驱基本块，就需要自己遍历前驱列表，这也不难，你只要逐个遍历基本块，查看它们的终结指令的目标基本块。</p>
+<ol class="arabic simple" start="4">
+<li><p>Instruction</p></li>
+</ol>
+<p>Instruction 类表示 LLVM IR 的运算原子，一个单一的指令。</p>
+<p>利用一些方法可获得高层级的断言，例如 isAssociative()，isCommutative()，isIdempotent()，和 isTerminator()，但是它的精确的功能可通过 getOpcode()获知，它返回 llvm::Instruction 枚举的一个成员，代表了 LLVM IR opcode。可通过 op_begin()和 op_end()这对方法访问它的操作数，它从 User 超类继承得到。</p>
+<p>======== 整体再修改下，不是很清晰，很多读起来有点拗口，指代不清楚的地方。</p>
+</section>
+</section>
+<section id="id10">
+<h2>总结<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<p>本节 LLVM IR 的基本概念，包括三地址码、LLVM IR 表示形式、LLVM IR 基本语法、LLVM IR 指令集、静态单赋值、LLVM IR 内存模型等。在下一节我们将介绍 LLVM 的前端和优化层。</p>
+<p>========= 把重点的内容描述一下，高度提炼，参考本节我写的第一篇和第二篇的总结。</p>
+</section>
+<section id="id11">
+<h2>本节视频<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<html>
+<iframe src="https://player.bilibili.com/player.html?aid=305431124&bvid=BV1PP411u7NR&cid=900781834&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</html>
+</section>
+<section id="id12">
+<h2>引用<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>https://zh.wikipedia.org/wiki/三位址碼</p></li>
+<li><p>https://buaa-se-compiling.github.io/miniSysY-tutorial/pre/llvm_ir_quick_primer.html</p></li>
+<li><p>https://llvm-tutorial-cn.readthedocs.io/en/latest/chapter-2.html</p></li>
+<li><p>https://buaa-se-compiling.github.io/miniSysY-tutorial/pre/llvm_ir_ssa.html</p></li>
+<li><p>https://buaa-se-compiling.github.io/miniSysY-tutorial/pre/design_hints.html</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./03Compiler01Tradition"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section ablog__blog_comments">
+  
+  
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04LLVM.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">LLVM 架构设计和原理</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05LLVMDetail02.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">LLVM 前端和优化层</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">LLVM IR 概述</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">LLVM IR 数据结构</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">LLVM IR 表示形式</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">LLVM IR 示例程序</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">LLVM IR 基本语法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">LLVM IR 指令集</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">LLVM IR 指导原则</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssa">静态单赋值（SSA）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">三地址码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">LLVM IR 内存模型</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">引用</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on May 25, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
