@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="微分计算模式" />
+<meta property="og:title" content="微分计算模式(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="05Framework02AutoDiff/03GradMode.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
@@ -19,7 +19,7 @@
 <meta name="description" content="上一节简单了解计算机中常用几种微分方式。本章将深入介绍 AI 框架离不开的核心功能：自动微分。 而自动微分则是分为前向微分和后向微分两种实现模式，不同的实现模式有不同的机制和计算逻辑，而无论哪种模式都离不开雅克比矩阵，所以我们也会深入了解一下雅克比矩阵的原理。 雅克比矩阵: 在向量微积分中，Jacobian 矩阵是一阶偏导数以一定方式排列成的矩阵，其行列式称为 Jacobian 行列式。Ja..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>微分计算模式 &#8212; AI System</title>
+    <title>微分计算模式(DONE) &#8212; AI System</title>
   
   
   
@@ -81,8 +81,8 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="微分实现方式" href="04Implement.html" />
-    <link rel="prev" title="什么是微分" href="02BaseConcept.html" />
+    <link rel="next" title="微分实现方式(DONE)" href="04Implement.html" />
+    <link rel="prev" title="什么是微分(DONE)" href="02BaseConcept.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
@@ -317,12 +317,13 @@
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD/SIMT 与 AI 芯片的关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">CUDA/SIMD/SIMT/DSA 关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 和 NVIDIA 中借鉴</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD &amp; SIMT 与芯片架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">SIMD &amp; SIMT 与 CUDA 关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/04NVSIMT.html">CUDA 编程模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 对 AI 芯片思考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考(DONE)</a></li>
 </ul>
 </li>
 </ul>
@@ -423,7 +424,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
@@ -436,30 +437,30 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">自动微分(DONE)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02BaseConcept.html">什么是微分</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">微分计算模式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04Implement.html">微分实现方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05ForwardMode.html">动手实现自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06ReversedMode.html">动手实现 PyTorch 微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07Challenge.html">自动微分的挑战&amp;未来</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02BaseConcept.html">什么是微分(DONE)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">微分计算模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04Implement.html">微分实现方式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05ForwardMode.html">动手实现自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06ReversedMode.html">动手实现 PyTorch 微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/04Dispatch.html">计算图的调度与执行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/05ControlFlow.html">计算图的控制流实现</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/06StaticGraph.html">动态图与静态图转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/04Dispatch.html">计算图的调度与执行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/05ControlFlow.html">计算图的控制流实现(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/06StaticGraph.html">动态图与静态图转换(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -692,7 +693,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>微分计算模式</h1>
+    <h1>微分计算模式(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -702,26 +703,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">雅克比矩阵</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>微分计算模式</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">计算模式区别</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">样例</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">雅克比矩阵</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>微分计算模式</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">计算模式区别</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">样例</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foward-mode">前向模式 Foward Mode</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">计算过程</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">雅克比-向量矩阵</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">优缺点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">计算过程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">雅克比-向量矩阵</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">优缺点</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverse-mode">反向模式 Reverse Mode</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">计算过程</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">向量-雅克比矩阵</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">优缺点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">计算过程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">向量-雅克比矩阵</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">优缺点</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">正反向模式的比较</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">正反向模式的比较</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -734,12 +735,12 @@ document.write(`
                 <article class="bd-article">
                   
 <!--适用于[License](https://github.com/chenzomi12/AISystem/blob/main/LICENSE)版权许可-->
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>微分计算模式<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="done">
+<h1>微分计算模式(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
 <p>上一节简单了解计算机中常用几种微分方式。本章将深入介绍 AI 框架离不开的核心功能：自动微分。</p>
 <p>而自动微分则是分为前向微分和后向微分两种实现模式，不同的实现模式有不同的机制和计算逻辑，而无论哪种模式都离不开雅克比矩阵，所以我们也会深入了解一下雅克比矩阵的原理。</p>
-<section id="id2">
-<h2>雅克比矩阵<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h2>雅克比矩阵<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>在向量微积分中，Jacobian 矩阵是一阶偏导数以一定方式排列成的矩阵，其行列式称为 Jacobian 行列式。Jacobian 矩阵的重要性在于它体现了一个可微方程与给出点的最优线性逼近。</p>
 <p>Jacobian 矩阵表示两个向量所有可能的偏导数。它是一个向量相对于另一个向量的梯度，其实现的是 <span class="math notranslate nohighlight">\(n\)</span> 维向量到 <span class="math notranslate nohighlight">\(m\)</span> 维向量的映射。</p>
 <p>在矢量运算中，Jacobian 矩阵是基于函数对所有变量一阶偏导数的数值矩阵，当输入个数等于输出个数时又称为 Jacobian 行列式。</p>
@@ -748,22 +749,22 @@ document.write(`
 \[\begin{split} J_f= \left[ \begin{matrix} \dfrac{\delta y_1}{\delta x_1} &amp; \cdots &amp; \dfrac{\delta y_1}{\delta x_n} \\ \vdots &amp; \ddots &amp; \vdots \\ \dfrac{\delta y_m}{\delta x_1} &amp; \vdots &amp; \dfrac{\delta y_m}{\delta x_n} \end{matrix} \right] \end{split}\]</div>
 <p>:eqlabel:<code class="docutils literal notranslate"><span class="pre">diff_03_eq1</span></code></p>
 </section>
-<section id="id3">
-<h2><strong>微分计算模式</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h2><strong>微分计算模式</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>根据对分解后的基本操作求导和链式规则组合顺序的不同，自动微分可以分为两种模式：</p>
 <ul class="simple">
 <li><p><em>前向模式</em>（Forward Automatic Differentiation，也叫做 tangent mode AD）或者前向累积梯度（前向模式）</p></li>
 <li><p><em>反向模式</em>（Reverse Automatic Differentiation，也叫做 adjoint mode AD）或者说反向累计梯度（反向模式）。</p></li>
 </ul>
-<section id="id4">
-<h3>计算模式区别<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>计算模式区别<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>两种自动微分模式都通过递归方式来求 <span class="math notranslate nohighlight">\(dy/dx\)</span>，只不过根据链式法则展开的形式不太一样。</p>
 <p>前向梯度累积会指定从内到外的链式法则遍历路径，即先计算 <span class="math notranslate nohighlight">\(dw_1/dx\)</span>，再计算 <span class="math notranslate nohighlight">\(dw_2/dw_1\)</span>，最后计算 <span class="math notranslate nohighlight">\(dy/dw_2\)</span>。即，前向模式是在计算图前向传播的同时计算微分。因此前向模式的一次正向传播就可以计算出输出值和导数值。</p>
 <div class="math notranslate nohighlight">
 \[ \frac{dw_i}{dx}=\frac{dw_i}{dw_{i-1}}\frac{dw_{i-1}}{dx} \]</div>
 <p>:eqlabel:<code class="docutils literal notranslate"><span class="pre">diff_03_eq2</span></code></p>
 <p>反向梯度累积正好相反，它会先计算 <span class="math notranslate nohighlight">\(dy/dw_2\)</span>，然后计算 <span class="math notranslate nohighlight">\(dw_2/dw_1\)</span>，最后计算 <span class="math notranslate nohighlight">\(dw_1/dx\)</span>。这是最为熟悉的反向传播模式，它非常符合<strong>沿模型误差反向传播</strong>这一直观思路。</p>
-<p>即，反向模式需要对计算图进行一次正向计算，得出输出值，再进行反向传播。反向模式需要保存正向传播的中间变量值（比如<span class="math notranslate nohighlight">\(𝑤_𝑖\)</span>），这些中间变量数值在反向传播时候被用来计算导数，所以反向模式的内存开销要大。</p>
+<p>即，反向模式需要对计算图进行一次正向计算，得出输出值，再进行反向传播。反向模式需要保存正向传播的中间变量值（比如 <span class="math notranslate nohighlight">\(𝑤_𝑖\)</span>），这些中间变量数值在反向传播时候被用来计算导数，所以反向模式的内存开销要大。</p>
 <div class="math notranslate nohighlight">
 \[ \frac{dy}{dw_i}=\frac{dy}{dw_{i+1}}\frac{dw_{i+1}}{dw_i} \]</div>
 <p>:eqlabel:<code class="docutils literal notranslate"><span class="pre">diff_03_eq3</span></code></p>
@@ -782,8 +783,8 @@ document.write(`
 <p>:eqlabel:<code class="docutils literal notranslate"><span class="pre">diff_03_eq5</span></code></p>
 <p>可以仅通过一次对计算过程的遍历得到 Jacobian 矩阵的一行。但它的导数链式法则传递方向和程序执行方向相反，所以需要在程序计算过程中记录一些额外的信息来辅助求导，这些辅助信息包括计算图和计算过程的中间变量。</p>
 </section>
-<section id="id5">
-<h3>样例<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>样例<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>我们以公式为例，首先把它转换成一个计算图：</p>
 <div class="math notranslate nohighlight">
 \[ f(x1,x2)=ln(x1)+x1x2−sin(x2) \]</div>
@@ -821,8 +822,8 @@ document.write(`
 <p>:eqlabel:<code class="docutils literal notranslate"><span class="pre">diff_03_eq10</span></code></p>
 <p>可以看出，左侧是源程序分解后得到的基本操作集合，而右侧则是每一个基本操作根据已知的求导规则和链式法则由上至下计算的求导结果。</p>
 <p><img alt="正向 AD 计算流程" src="../_images/03GradMode03.png" /></p>
-<section id="id6">
-<h3>计算过程<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>计算过程<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>根据上图左边的 Forward Primal Trace 直接计算公式，对于节点数值的计算如下：</p>
 <ol class="arabic simple">
 <li><p>我们给输入节点赋值，<span class="math notranslate nohighlight">\(v_{−1}=x_1=2，v_0=x_2=5\)</span></p></li>
@@ -846,8 +847,8 @@ document.write(`
 </ol>
 <p>从计算过程来看啦，自动微分的前向模式实际上与我们在微积分里所学的求导过程一致。</p>
 </section>
-<section id="id7">
-<h3>雅克比-向量矩阵<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>雅克比-向量矩阵<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>把上述过程当做雅克比矩阵求解问题，假设一个函数有 n 个输入变量 <span class="math notranslate nohighlight">\(x_i\)</span>，m 个输入变量 <span class="math notranslate nohighlight">\(y_j\)</span>，即输入向量 <span class="math notranslate nohighlight">\(x \in R^n, y \in R^m\)</span>，则这个的映射是：</p>
 <div class="math notranslate nohighlight">
 \[ f:R^n \to R^m \]</div>
@@ -864,8 +865,8 @@ document.write(`
 <p>:eqlabel:<code class="docutils literal notranslate"><span class="pre">diff_03_eq13</span></code></p>
 <p>最终我们可以递归的得到本次迭代的计算目标：雅克比矩阵中的第 i 行。</p>
 </section>
-<section id="id8">
-<h3>优缺点<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>优缺点<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>前向模式的优点：</p>
 <ul class="simple">
 <li><p>实现起来很简单</p></li>
@@ -888,8 +889,8 @@ document.write(`
 <p>从下图可以看出来，reverse mode 和 forward mode 是一对相反过程，reverse mode 从最终结果开始求导，利用最终输出对每一个节点进行求导。下图虚线就是反向模式。</p>
 <p><img alt="正反向计算图" src="../_images/03GradMode04.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">600px</span></code></p>
-<section id="id9">
-<h3>计算过程<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>计算过程<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>前向和后向两种模式的过程表达如下，表的左列浅色为前向计算函数值的过程，与前向计算时相同，右面列深色为反向计算导数值的过程。</p>
 <p>反向模式的计算过程如图所示，其中：</p>
 <div class="math notranslate nohighlight">
@@ -921,8 +922,8 @@ document.write(`
 </ol>
 <p>因此，<span class="math notranslate nohighlight">\(\overline{v}_1=0.5+5=5.5\)</span>，同理有 <span class="math notranslate nohighlight">\(\overline{v}_2=2.0-0.284=1.716\)</span></p>
 </section>
-<section id="id10">
-<h3>向量-雅克比矩阵<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>向量-雅克比矩阵<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>对于函数 <span class="math notranslate nohighlight">\(\overline{y}=f(\overline{x})\)</span>，其中 <span class="math notranslate nohighlight">\(f: \mathbb{R}^{n} \rightarrow \mathbb{R}^{m}\)</span>，那么 <span class="math notranslate nohighlight">\(\overline{y}\)</span> 中关于 <span class="math notranslate nohighlight">\(\overline{x}\)</span> 的梯度可以表示为 Jacobian 矩阵：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} J_{f}= \left[\begin{array}{ccc} \dfrac{\partial y}{\partial x_{1}} &amp; \cdots &amp; \dfrac{\partial y}{\partial x_{1}} \end{array}\right]= \left[\begin{array}{ccc} \dfrac{\partial y_{1}}{\partial x_{1}} &amp; \cdots &amp; \dfrac{\partial y_{1}}{\partial x_{n}} \\ \vdots &amp; \ddots &amp; \vdots \\ \dfrac{\partial y_{m}}{\partial x_{1}} &amp; \cdots &amp; \dfrac{\partial y_{m}}{\partial x_{n}} \end{array}\right] \end{split}\]</div>
@@ -937,8 +938,8 @@ document.write(`
 <p>:eqlabel:<code class="docutils literal notranslate"><span class="pre">diff_03_eq18</span></code></p>
 <p>即通过雅克比矩阵转置与后续节点梯度值的乘积，可以得到当前节点的梯度值。</p>
 </section>
-<section id="id11">
-<h3>优缺点<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>优缺点<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>前向模式在计算之中，计算图各个节点的数值和该节点的导数可同步求出，但是代价就是对于多个输入需要多次计算才行。</p>
 <p>反向模式的优点：</p>
 <ul class="simple">
@@ -952,16 +953,16 @@ document.write(`
 </ul>
 </section>
 </section>
-<section id="id12">
-<h2>正反向模式的比较<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h2>正反向模式的比较<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <p>前向自动微分（tangent mode AD 和后向自动微分（adjoint mode AD）分别计算了 Jacobian 矩阵的一列和一行。</p>
 <p>前向模式和反向模式的不同之处在于矩阵相乘的起始之处不同。</p>
 <p>当输出维度小于输入维度，反向模式的乘法次数要小于前向模式。因此，当输出的维度大于输入的时候，适宜使用前向模式微分；当输出维度远远小于输入的时候，适宜使用反向模式微分。</p>
 <p>即，后向自动微分更加适合多参数的情况，多参数的时候后向自动微分的时间复杂度更低，只需要一遍 reverse mode 的计算过程，便可以求出输出对于各个输入的导数，从而轻松求取梯度用于后续优化更新。</p>
 <p>因此，目前大部分 AI 框架都会优先采用反向模式，但是也有例如 MindSpore 等 AI 框架同事支持正反向的实现模式。</p>
 </section>
-<section id="id13">
-<h2>本节视频<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<section id="id12">
+<h2>本节视频<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?aid=730968276&bvid=BV1zD4y117bL&cid=854595253&page=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -1008,7 +1009,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">什么是微分</p>
+        <p class="prev-next-title">什么是微分(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -1016,7 +1017,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">微分实现方式</p>
+        <p class="prev-next-title">微分实现方式(DONE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1036,26 +1037,26 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">雅克比矩阵</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>微分计算模式</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">计算模式区别</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">样例</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">雅克比矩阵</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>微分计算模式</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">计算模式区别</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">样例</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foward-mode">前向模式 Foward Mode</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">计算过程</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">雅克比-向量矩阵</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">优缺点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">计算过程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">雅克比-向量矩阵</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">优缺点</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverse-mode">反向模式 Reverse Mode</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">计算过程</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">向量-雅克比矩阵</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">优缺点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">计算过程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">向量-雅克比矩阵</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">优缺点</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">正反向模式的比较</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">正反向模式的比较</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">本节视频</a></li>
 </ul>
   </nav></div>
 

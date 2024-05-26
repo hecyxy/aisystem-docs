@@ -39,6 +39,8 @@ AI 编译器主要是分为前端优化、后端优化，部分还会有中间�
 > 请大家尊重开源和 ZOMI 的努力，引用 PPT 的内容请规范转载标明出处哦！
 
 ```{toctree}
+:maxdepth: 1
+
 01Introduction
 02GraphIR
 03OPFusion

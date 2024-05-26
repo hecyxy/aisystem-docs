@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="什么是微分" />
+<meta property="og:title" content="什么是微分(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="05Framework02AutoDiff/02BaseConcept.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
@@ -19,7 +19,7 @@
 <meta name="description" content="自动微分（Automatic Differentiation，AD）是一种对计算机程序进行高效准确求导的技术，一直被广泛应用于计算流体力学、大气科学、工业设计仿真优化等领域。 近年来，机器学习技术的兴起也驱动着对自动微分技术的研究进入一个新的阶段。随着自动微分和其他微分技术研究的深入，其与编程语言、计算框架、编译器等领域的联系愈发紧密，从而衍生扩展出更通用的可微编程概念。也是作为 AI 框架..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>什么是微分 &#8212; AI System</title>
+    <title>什么是微分(DONE) &#8212; AI System</title>
   
   
   
@@ -81,8 +81,8 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="微分计算模式" href="03GradMode.html" />
-    <link rel="prev" title="自动微分" href="01Introduction.html" />
+    <link rel="next" title="微分计算模式(DONE)" href="03GradMode.html" />
+    <link rel="prev" title="自动微分(DONE)" href="01Introduction.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
@@ -317,12 +317,13 @@
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD/SIMT 与 AI 芯片的关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">CUDA/SIMD/SIMT/DSA 关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 和 NVIDIA 中借鉴</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD &amp; SIMT 与芯片架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">SIMD &amp; SIMT 与 CUDA 关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/04NVSIMT.html">CUDA 编程模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 对 AI 芯片思考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考(DONE)</a></li>
 </ul>
 </li>
 </ul>
@@ -423,7 +424,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
@@ -436,30 +437,30 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">自动微分(DONE)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">自动微分</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">什么是微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03GradMode.html">微分计算模式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04Implement.html">微分实现方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05ForwardMode.html">动手实现自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06ReversedMode.html">动手实现 PyTorch 微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07Challenge.html">自动微分的挑战&amp;未来</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">自动微分(DONE)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">什么是微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03GradMode.html">微分计算模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04Implement.html">微分实现方式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05ForwardMode.html">动手实现自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06ReversedMode.html">动手实现 PyTorch 微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/04Dispatch.html">计算图的调度与执行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/05ControlFlow.html">计算图的控制流实现</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/06StaticGraph.html">动态图与静态图转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/04Dispatch.html">计算图的调度与执行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/05ControlFlow.html">计算图的控制流实现(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/06StaticGraph.html">动态图与静态图转换(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -692,7 +693,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>什么是微分</h1>
+    <h1>什么是微分(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -702,17 +703,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">计算机求导方法</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">手动微分</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">数值微分</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">符号微分</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">自动微分</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">基本原理</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">数学基础</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">自动微分精髓</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">计算机求导方法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">手动微分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">数值微分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">符号微分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">自动微分</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">基本原理</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">数学基础</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">自动微分精髓</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -725,13 +726,13 @@ document.write(`
                 <article class="bd-article">
                   
 <!--适用于[License](https://github.com/chenzomi12/AISystem/blob/main/LICENSE)版权许可-->
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>什么是微分<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="done">
+<h1>什么是微分(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
 <p>自动微分（Automatic Differentiation，AD）是一种对计算机程序进行高效准确求导的技术，一直被广泛应用于计算流体力学、大气科学、工业设计仿真优化等领域。</p>
 <p>近年来，机器学习技术的兴起也驱动着对自动微分技术的研究进入一个新的阶段。随着自动微分和其他微分技术研究的深入，其与编程语言、计算框架、编译器等领域的联系愈发紧密，从而衍生扩展出更通用的可微编程概念。也是作为 AI 框架核心的功能，被广泛地应用。</p>
 <p>本章将从常见的微分方法开始介绍，然后深入自动微分基本概念。</p>
-<section id="id2">
-<h2>计算机求导方法<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h2>计算机求导方法<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>对计算机程序求导的方法可以归纳为以下四种：</p>
 <ul class="simple">
 <li><p>**手动求解法(Manual Differentiation) **：根据链式求导法则，手工求导并编写对应的结果程序，依据链式法则解出梯度公式，带入数值，得到梯度。</p></li>
@@ -742,14 +743,14 @@ document.write(`
 <p><img alt="计算机程序求导的方法" src="../_images/02BaseConcept01.png" /></p>
 <p>下面详细对上面 4 种不同的计算机求导方法进行详细说明。</p>
 </section>
-<section id="id3">
-<h2>手动微分<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h2>手动微分<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>手动微分就是对每一个目标函数都需要利用求导公式手动写出求导公式，然后依照公式编写代码，带入数值，求出最终梯度。</p>
 <p>这种方法准确有效，但是不适合工程实现，因为通用性和灵活性很差，每一次我们修改算法模型，都要修改对应的梯度求解算法。如果模型复杂或者项目频繁反复迭代，那么工作量将会是巨大的。</p>
 <p>如图中 Manual Differentiation 所示，会把原始的计算公式根据链式求导法则进行展开。</p>
 </section>
-<section id="id4">
-<h2>数值微分<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h2>数值微分<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>数值微分方式应该是最直接而且简单的一种自动求导方式，使用差分近似方法完成，其本质是根据导数的定义推导而来。</p>
 <div class="math notranslate nohighlight">
 \[ f'(x)=lim_{h \to 0}\frac{f(x+h)-f(x)}{h} \]</div>
@@ -804,8 +805,8 @@ document.write(`
 <li><p>引入舍入误差（Round-off Error），在计算过程中出现的对小数位数的不断舍入会导致求导过程中的误差不断累积。</p></li>
 </ul>
 </section>
-<section id="id5">
-<h2>符号微分<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h2>符号微分<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>符号微分（Symbolic Differentiation）属符号计算的范畴，利用链式求导规则对表达式进行自动计算，其计算结果是导函数的表达式。符号计算用于求解数学中的公式解，得到的是解的表达式而非具体的数值。</p>
 <p>符号微分适合符号表达式的自动求导，符号微分的原理是用下面的简单求导规则，对计算机程序中的表达式进行递归变换来完成求导替代手动微分：</p>
 <div class="math notranslate nohighlight">
@@ -836,11 +837,11 @@ document.write(`
 <li><p>表达式必须是闭包（closed form）形式，即必须能写成完整数学表达式，不能有编程语言中的循环结构、条件结构等，才能将整个问题转换为一个纯数学符号问题。</p></li>
 </ul>
 </section>
-<section id="id6">
-<h2>自动微分<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h2>自动微分<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>其实，对于机器学习中的应用，不需要得到导数的表达式，而只需计算函数在某一点处的导数值，即对应神经网络、深度学习在确定层数中某个神经元的导数值。</p>
-<section id="id7">
-<h3>基本原理<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>基本原理<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>自动微分是介于数值微分和符号微分之间的方法，采用类似有向图的计算来求解微分值。</p>
 <ul class="simple">
 <li><p>数值微分：直接代入数值近似求解；</p></li>
@@ -851,8 +852,8 @@ document.write(`
 <p>这些数值优化算法都依赖于函数的一阶导数值或二阶导数值（包括梯度与 Hessian 矩阵）。因此需要解决如何求一个复杂函数的导数问题，自动微分技术是解决此问题的一种通用方法。</p>
 <p>由于自动微分法只对基本函数或常数运用符号微分法则，所以它可以灵活结合编程语言的循环结构，条件结构等。使用自动微分和不使用自动微分对代码总体改动非常小，由于它实际是一种图计算，可以对其做很多优化，所以该方法在现代深度学习系统中得到广泛应用。</p>
 </section>
-<section id="id8">
-<h3>数学基础<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>数学基础<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>在计算链式法则之前，我们先回顾一下复合函数。复合函数在本质上就是有关函数的函数（function of functions）。它将一个函数的返回值作为参数传递给另一个函数，并且将另一个函数的返回值作为参数再传递给下一个函数，也就是函数套函数，把几个简单的函数复合为一个较为复杂的函数。</p>
 <p>链式法则是微积分中的求导法则，用于求一个复合函数的导数，是在微积分的求导运算中一种常用的方法。复合函数的导数将是构成复合这有限个函数在相应点的 导数的乘积，就像锁链一样一环套一环，故称链式法则。</p>
 <p>自动微分的思想则是将计算机程序中的运算操作分解为一个有限的基本操作集合，且集合中基本操作的求导规则均为已知在完成每一个基本操作的求导后，使用链式法则将结果组合得到整体程序的求导结果。即：</p>
@@ -872,8 +873,8 @@ document.write(`
 \[ (f(g(x)))'=f'(g(x))g'(x)=[sin(x^2+1)]' \cdot 2x=2cos(x^2+1) \cdot x \]</div>
 <p>:eqlabel:<code class="docutils literal notranslate"><span class="pre">diff_02_eq13</span></code></p>
 </section>
-<section id="id9">
-<h3>自动微分精髓<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>自动微分精髓<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>自动微分的精髓在于它发现了微分计算的本质：微分计算就是一系列有限的可微算子的组合。</p>
 <p>自动微分法被认为是对计算机程序进行非标准的解释。自动微分基于一个事实，即每一个计算机程序，不论它有多么复杂，都是在执行加减乘除这一系列基本算数运算，以及指数、对数、三角函数这类初等函数运算。</p>
 <p>于是自动微分先将符号微分法应用于最基本的算子，比如常数，幂函数，指数函数，对数函数，三角函数等，然后代入数值，保留中间结果，最后再通过链式求导法则应用于整个函数。</p>
@@ -895,8 +896,8 @@ document.write(`
 </ul>
 </section>
 </section>
-<section id="id10">
-<h2>本节视频<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h2>本节视频<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?aid=345813308&bvid=BV1Ld4y1M7GJ&cid=911384582&page=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -943,7 +944,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">自动微分</p>
+        <p class="prev-next-title">自动微分(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -951,7 +952,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">微分计算模式</p>
+        <p class="prev-next-title">微分计算模式(DONE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -971,17 +972,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">计算机求导方法</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">手动微分</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">数值微分</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">符号微分</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">自动微分</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">基本原理</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">数学基础</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">自动微分精髓</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">计算机求导方法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">手动微分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">数值微分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">符号微分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">自动微分</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">基本原理</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">数学基础</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">自动微分精髓</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
 </ul>
   </nav></div>
 

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="计算图与自动微分" />
+<meta property="og:title" content="计算图与自动微分(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="05Framework03DataFlow/03Atuodiff.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
@@ -19,7 +19,7 @@
 <meta name="description" content="自动求导应用链式法则求某节点对其他节点的雅可比矩阵，它从结果节点开始，沿着计算路径向前追溯，逐节点计算雅可比。将神经网络和损失函数连接成一个计算图，则它的输入、输出和参数都是节点，可利用自动求导求损失值对网络参数的雅可比，从而得到梯度。 在前面的内容我们深入地探讨过自动微分的原理，可是 AI 框架中神经网络模型怎么跟自动产生连接关系呢？自动微分跟反向传播是什么关系呢？在实际 AI 框架的实现..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>计算图与自动微分 &#8212; AI System</title>
+    <title>计算图与自动微分(DONE) &#8212; AI System</title>
   
   
   
@@ -81,8 +81,8 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="计算图的调度与执行" href="04Dispatch.html" />
-    <link rel="prev" title="计算图原理" href="02Computegraph.html" />
+    <link rel="next" title="计算图的调度与执行(DONE)" href="04Dispatch.html" />
+    <link rel="prev" title="计算图原理(DONE)" href="02Computegraph.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
@@ -317,12 +317,13 @@
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD/SIMT 与 AI 芯片的关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">CUDA/SIMD/SIMT/DSA 关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 和 NVIDIA 中借鉴</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD &amp; SIMT 与芯片架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">SIMD &amp; SIMT 与 CUDA 关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/04NVSIMT.html">CUDA 编程模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 对 AI 芯片思考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考(DONE)</a></li>
 </ul>
 </li>
 </ul>
@@ -423,7 +424,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
@@ -436,30 +437,30 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">计算图</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02Computegraph.html">计算图原理</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">计算图与自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04Dispatch.html">计算图的调度与执行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05ControlFlow.html">计算图的控制流实现</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06StaticGraph.html">动态图与静态图转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07Future.html">计算图的挑战&amp;未来</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">计算图(DONE)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02Computegraph.html">计算图原理(DONE)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">计算图与自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04Dispatch.html">计算图的调度与执行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05ControlFlow.html">计算图的控制流实现(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06StaticGraph.html">动态图与静态图转换(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -692,7 +693,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>计算图与自动微分</h1>
+    <h1>计算图与自动微分(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -702,25 +703,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">深度学习训练流程</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">训练神经网络</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">反向传播与自动微分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">深度学习训练流程</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">训练神经网络</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">反向传播与自动微分</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">自动微分基础回顾</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">前向计算</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">反向微分</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">计算图的自动微分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">自动微分基础回顾</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">前向计算</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">反向微分</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">计算图的自动微分</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI 框架自动微分方式</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">动态计算图</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">静态计算图</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">动态计算图</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">静态计算图</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch 实现</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">视频</a></li>
 </ul>
             </nav>
         </div>
@@ -733,14 +734,14 @@ document.write(`
                 <article class="bd-article">
                   
 <!--适用于[License](https://github.com/chenzomi12/AISystem/blob/main/LICENSE)版权许可-->
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>计算图与自动微分<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="done">
+<h1>计算图与自动微分(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
 <p>自动求导应用链式法则求某节点对其他节点的雅可比矩阵，它从结果节点开始，沿着计算路径向前追溯，逐节点计算雅可比。将神经网络和损失函数连接成一个计算图，则它的输入、输出和参数都是节点，可利用自动求导求损失值对网络参数的雅可比，从而得到梯度。</p>
 <p>在前面的内容我们深入地探讨过自动微分的原理，可是 AI 框架中神经网络模型怎么跟自动产生连接关系呢？自动微分跟反向传播是什么关系呢？在实际 AI 框架的实现中，自动微分的实现方式有什么变化吗？</p>
+<section id="id1">
+<h2>深度学习训练流程<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <section id="id2">
-<h2>深度学习训练流程<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<section id="id3">
-<h3>训练神经网络<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<h3>训练神经网络<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>深度学习的基本原理是设计一个多参数的非线性组合模型，即多层神经网络，因此深度学习的形式表示为神经网络模型。</p>
 <p>如图所示，通过这个神经网络模型可以用来近似（拟合）一个无法求解的复杂函数 <span class="math notranslate nohighlight">\(y = fun(x)\)</span>，其中输入变量 x 和输出变量 y 皆为高维变量。具体训练过程主要分为以下三个部分：</p>
 <ol class="arabic simple">
@@ -754,14 +755,14 @@ document.write(`
 <blockquote>
 <div><p>注意，反向传播重复利用前向传播中存储的中间值，以避免重复计算。带来的影响之一是我们需要保留中间值，直到反向传播完成。这也是训练比单纯的预测需要更多的内存（显存）的原因之一。 此外，这些中间值的大小与网络层的数量和批量的大小大致成正比。</p>
 </div></blockquote>
-<p><img alt="三维张量示例" src="../images/05Framework03DataFlow/023FW_DataFlow/graph_framework02.png" /></p>
+<p><img alt="三维张量示例" src="../_images/graph_framework02.png" /></p>
 <p>因此，在深度学习神经网络训练的核心是求导，计算神经网络模型的参数 <span class="math notranslate nohighlight">\(w\)</span>，并根据损失函数更新其梯度 <span class="math notranslate nohighlight">\(\frac{\partial L(w)}{\partial w}\)</span>，即：</p>
 <div class="math notranslate nohighlight">
 \[ L(w)=Loss(f(w, x_i),y_i) \Rightarrow \frac{\partial L(w)}{\partial w} \]</div>
 <p>:eqlabel:<code class="docutils literal notranslate"><span class="pre">autodiff_03_eq1</span></code></p>
 </section>
-<section id="id4">
-<h3>反向传播与自动微分<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>反向传播与自动微分<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>在计算图的概念中会经常提到自动微分功能，通过自动微分来构建反向的计算图。而在神经网络模型的训练流程和训练原理中，主要会提及反向传播算法，优化器对损失函数进行求导后的值，通过反向传播算法把传递给神经网络的每一层参数进行更新。那么在 AI 框架中，自动微分和反向传播之间的关系是什么呢？</p>
 <p>首先，自动微分是将复合函数分解为输出变量（根节点）和一系列的输入变量（叶子节点）及基本函数（中间节点），构成一个计算图，并以此计算任意两个节点间的梯度：</p>
 <ul class="simple">
@@ -772,8 +773,8 @@ document.write(`
 <p>因此，反向传播算法实际上就是自动微分，只不过在 AI 框架中，实际上计算图中的根节点为度量误差的损失函数，因而把节点间的偏导称为误差项。</p>
 </section>
 </section>
-<section id="id5">
-<h2>自动微分基础回顾<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h2>自动微分基础回顾<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>神经网络模型的训练流程中，主要包含网络模型的 1）前向计算，2）计算损失，3）更新权重参数三个最主要的计算阶段。</p>
 <p>当开发者使用 AI 框架提供的 Python API 构造完成一个深度神经网络时，在数学上这个网络模型对应了一个复杂的带参数的高度非凸函数，求解其中的可学习参数依赖于基于一阶梯度的迭代更新法。</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LeNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -803,35 +804,35 @@ document.write(`
 <li><p>基于 Tape 的反向微分</p></li>
 <li><p>和基于源代码转换的反向微分</p></li>
 </ul>
-<section id="id6">
-<h3>前向计算<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>前向计算<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>自动微分是 AI 框架的核心组件之一，在进入 AI 框架如何实现自动微分之前，我们先通过一个简单的例子理解自动微分的基本原理。</p>
 <p>假设一个简单的复合函数为例子：</p>
 <div class="math notranslate nohighlight">
 \[ f(x1,x2)=ln(x1)+x1*x2−sin(x2) \]</div>
 <p>:eqlabel:<code class="docutils literal notranslate"><span class="pre">autodiff_03_eq2</span></code></p>
 <p>下图是函数对应的计算图：</p>
-<p><img alt="对应计算图" src="../images/05Framework03DataFlow/023FW_DataFlow/forward_mode01.png" />
+<p><img alt="对应计算图" src="../_images/forward_mode01.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">550px</span></code></p>
 <p>假设给定复合函数 <span class="math notranslate nohighlight">\(f(x1,x2)\)</span> 中，<span class="math notranslate nohighlight">\(x1\)</span> 和 <span class="math notranslate nohighlight">\(x2\)</span> 均为输入变量。为了对 <span class="math notranslate nohighlight">\(f(x1,x2)\)</span> 求值，依照表达式对应的计算图定义的计算顺序，复合函数 <span class="math notranslate nohighlight">\(f(x1,x2)\)</span> 可以被分解成一个求值序列，把一个给定输入逐步计算输出的求值序列称之为前向计算过程：</p>
-<p><img alt="对应计算图" src="../images/05Framework03DataFlow/023FW_DataFlow/compute_graph03.png" />
+<p><img alt="对应计算图" src="../_images/compute_graph03.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">400px</span></code></p>
 <p>通过上图可得知，前向计算过程是引入一系列的中间变量，将一个复杂的函数，分解成一系列基本函数或者叫做基本的计算操作，最后将这些基本函数构成一个前向的计算图。</p>
 </section>
-<section id="id7">
-<h3>反向微分<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>反向微分<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>链式求导法则是对称的，在计算导数 <span class="math notranslate nohighlight">\(\partial {f(x1,x2)} / \partial x\)</span> 时，链式求导法则并不关心哪个变量作为分母，哪个变量作为分子。</p>
 <p>于是，反向模式根据从后向前计算，依次得到对每个中间变量节点的偏导数，直到到达自变量节点处，这样就得到了每个输入的偏导数。在每个节点处，根据该节点的后续节点（前向传播中的后续节点）计算其导数值。其对应的反向微分计算公式为：</p>
-<p><img alt="对应计算图" src="../images/05Framework03DataFlow/023FW_DataFlow/compute_graph04.png" />
+<p><img alt="对应计算图" src="../_images/compute_graph04.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">400px</span></code></p>
 <p>对于上面表达式求值的过程称之为反向微分。在反向微分中，变量导数的计算顺序与变量的前向计算顺序正好相反；运行的时间复杂度是 <span class="math notranslate nohighlight">\(O(m)\)</span>，<span class="math notranslate nohighlight">\(m\)</span> 是输出变量的个数。因此可以构建相对应的反向计算图：</p>
-<p><img alt="对应计算图" src="../images/05Framework03DataFlow/023FW_DataFlow/compute_graph06.png" />
+<p><img alt="对应计算图" src="../_images/compute_graph06.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">550px</span></code></p>
 <p>在神经网络以及大量基于一阶导数方法进行训练的机器学习算法中，不论输入变量数目有多少，模型的输出一定是一个标量函数（即对应损失函数）。这决定了保留前向计算的所有中间结果，只需再次运行程序一次，便可以用反向微分算法计算出损失函数对每个中间变量和输入的导数。</p>
 <p>在反向微分的运行过程中，需要保留神经网络所有中间层前向结算的结果，对越接近输入层的中间层，其计算结果首先被压入栈中，而在反向计算时越晚被弹出栈。显然，网络越深，反向微分会消耗越多的内存，形成一个巨大的内存池。</p>
 </section>
-<section id="id8">
-<h3>计算图的自动微分<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>计算图的自动微分<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>在神经网络训练过程中，可以将每一个基本表达式理解为计算图中的一个结点，这个结点上面的标量形式的表达式进行了向量化的推广，因为 AI 框架的计算图中的数据统一表示为张量这一数据结构。</p>
 <p>假设，<span class="math notranslate nohighlight">\(\mathbf{Y} = G(\mathbf{X})\)</span> 作为基本求导原语，其中 <span class="math notranslate nohighlight">\(\mathbf{Y} = [y_1, \cdots, y_m]\)</span> 和 <span class="math notranslate nohighlight">\(\mathbf{X}=[x_1, \cdots, x_n]\)</span> 都是向量。这时，<span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> 对 <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> 的导数不再是一个标量，而是由偏导数构成的雅克比矩阵 <span class="math notranslate nohighlight">\(J\)</span>（Jacobian matrix）：</p>
 <div class="math notranslate nohighlight">
@@ -866,7 +867,7 @@ J = \left[\frac{\partial \mathbf{Y}}{\partial x_1}, \cdots, \frac{\partial \math
 <li><p>当上一张量操作的输入和输出，计算当前张量操作每个输入的向量-雅克比乘积</p></li>
 </ul>
 <p>在实际的 AI 框架构建的计算图中，并不是把正向节点和反向节点融合在一张图，而是构建起一张大图包括正向和反向，或者是构建起两张图，一张正向的计算图，一张反向的计算图，通过输出节点把正反向计算图链接在一起。</p>
-<p><img alt="对应计算图" src="../images/05Framework03DataFlow/023FW_DataFlow/compute_graph05.png" />
+<p><img alt="对应计算图" src="../_images/compute_graph05.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">550px</span></code></p>
 <p>从图中可知，前向计算图和反向计算图有着完全相同的结构，区别在于计算流动的方向相反。计算图中的每个结点都是一个无状态的张量操作，结点的入边（incoming edge）表示张量操作的输入，出边表示张量操作的输出。</p>
 <p>同时，由于梯度会依赖前向计算的输入或是计算结果，反向计算图中会有从前向计算图输入和输出张量指向反向计算图中导数计算结点的边。</p>
@@ -875,9 +876,9 @@ J = \left[\frac{\partial \mathbf{Y}}{\partial x_1}, \cdots, \frac{\partial \math
 <section id="ai">
 <h2>AI 框架自动微分方式<a class="headerlink" href="#ai" title="Link to this heading">#</a></h2>
 <p>在 AI 框架基于反向模式（Reverse Mode）的自动求导机制中，根据反向计算图的构建时机，又分为基于对偶图的自动求导、基于表达式追踪和图层 IR 的自动求导，基于对偶图的求导方式通常与图层 IR 相结合，而使用动态图的 AI 框架多采用基于表达式追踪的自动求导方式。</p>
-<p><img alt="对应计算图" src="../images/05Framework03DataFlow/023FW_DataFlow/framework04.png" /></p>
-<section id="id9">
-<h3>动态计算图<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><img alt="对应计算图" src="../_images/framework04.png" /></p>
+<section id="id8">
+<h3>动态计算图<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>AI 框架中实现自动微分最常用的一种方法是使用**表达式追踪（Evaluation Trace）**的方式，即追踪数值计算过程的中间变量。简单的说，就是对应上一节说到的在前向计算过程中保留中间计算结果，根据反向模式的原理依次计算出中间导数，反向计算的过程当中复用正向计算所保留的中间结果。</p>
 <p>其中在业界主流的 AI 框架 PyTorch 和 PyTorch Autograd 都采用了一种称为**基于磁带（tape-based）**的自动微分技术：假设一个磁带式录音机来记录当前所执行的操作，然后它向后重放，来计算每一层的梯度。即会将上下文的变量操作都记录在 tape 上，然后用反向微分法来计算这个函数的导数。</p>
 <p>每一次执行神经网络模型，依据前端语言描述动态生成一份临时的计算图，这意味着该实现方式下计算图是动态生成，并且过程灵活可变，该特性有助于在神经网络结构调整阶段提高效率，这种实现方式也被称为<strong>动态计算图</strong>。</p>
@@ -888,8 +889,8 @@ J = \left[\frac{\partial \mathbf{Y}}{\partial x_1}, \cdots, \frac{\partial \math
 </ul>
 <p>在前向传播过程中构建出反向计算图，与基于对偶图的自动求导机制的滞后性相反，这里在前向传播过程中就可以构造出的反向计算图，基于输出的梯度信息对输入自动求导。</p>
 </section>
-<section id="id10">
-<h3>静态计算图<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>静态计算图<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p><strong>图层 IR</strong>作为 AI 框架实现自动微分的另外一种方法。实现方式上，静态地生成可以根据 Python 等前端高级语言描述的神经网络拓扑结构，以及参数变量等图层信息构建一个固定的计算图。这种实现方式也称为<strong>静态计算图</strong>。在基于计算图的 AI 框架中，利用反向微分计算梯度通常实现为计算图上的一个优化 Pass，给定前向计算图，以损失函数为根节点广度优先遍历前向计算图的时，便能按照对偶结构自动生成出反向计算图。</p>
 <p>静态图在执行前有一个完整的构图和编译优化过程：</p>
 <ul class="simple">
@@ -924,16 +925,16 @@ J = \left[\frac{\partial \mathbf{Y}}{\partial x_1}, \cdots, \frac{\partial \math
 </ol>
 <p>上述步骤的求梯度顺序和对多个梯度值的累加规则恰好是求导链式法则的程序表述，正因为求导链式法则衍生的梯度累加规则，张量的 grad 梯度不会自动清零，在需要的时候需要手动置零。</p>
 </section>
-<section id="id11">
-<h2>总结<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h2>总结<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>了解神经网络/AI 系统中训练流程跟微分之间的关系</p></li>
 <li><p>回顾自动微分的正反向模式和计算图中的自动微分</p></li>
 <li><p>了解自动微分在深度学习中的一个实现表示</p></li>
 </ul>
 </section>
-<section id="id12">
-<h2>视频<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h2>视频<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?aid=688904932&bvid=BV1S24y197FU&cid=911589985&page=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -980,7 +981,7 @@ J = \left[\frac{\partial \mathbf{Y}}{\partial x_1}, \cdots, \frac{\partial \math
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">计算图原理</p>
+        <p class="prev-next-title">计算图原理(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -988,7 +989,7 @@ J = \left[\frac{\partial \mathbf{Y}}{\partial x_1}, \cdots, \frac{\partial \math
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">计算图的调度与执行</p>
+        <p class="prev-next-title">计算图的调度与执行(DONE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1008,25 +1009,25 @@ J = \left[\frac{\partial \mathbf{Y}}{\partial x_1}, \cdots, \frac{\partial \math
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">深度学习训练流程</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">训练神经网络</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">反向传播与自动微分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">深度学习训练流程</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">训练神经网络</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">反向传播与自动微分</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">自动微分基础回顾</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">前向计算</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">反向微分</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">计算图的自动微分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">自动微分基础回顾</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">前向计算</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">反向微分</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">计算图的自动微分</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI 框架自动微分方式</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">动态计算图</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">静态计算图</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">动态计算图</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">静态计算图</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch 实现</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">视频</a></li>
 </ul>
   </nav></div>
 

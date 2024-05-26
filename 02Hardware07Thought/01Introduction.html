@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="芯片的编程体系" />
+<meta property="og:title" content="芯片的编程体系(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="02Hardware07Thought/01Introduction.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
@@ -19,7 +19,7 @@
 <meta name="description" content="本章主要探讨 SIMD 和 SIMT 的主要区别与联系，SIMT 与 CUDA 编程之间的关系，并且会讨论 GPU 在 SIMT 编程本质，SIMD、SIMT 与 DSA 架构，DSA 架构的主要形态。目前已经有大量的 AI 芯片研发上市，但是如何开发基于硬件的编译栈与编程体系，让开发者更好地使用 AI 芯片，更好的发挥 AI 芯片的算力，让生态更加繁荣，因此理解 AI 芯片的编程体系就显得..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>芯片的编程体系 &#8212; AI System</title>
+    <title>芯片的编程体系(DONE) &#8212; AI System</title>
   
   
   
@@ -81,8 +81,8 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SIMD/SIMT 与 AI 芯片的关系" href="02SIMTSIMD.html" />
-    <link rel="prev" title="AI 芯片黄金十年" href="README.html" />
+    <link rel="next" title="SIMD &amp; SIMT 与芯片架构" href="02SIMTSIMD.html" />
+    <link rel="prev" title="AI 芯片黄金十年(DONE)" href="README.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
@@ -317,12 +317,13 @@
 
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">AI 芯片黄金十年</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">芯片的编程体系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02SIMTSIMD.html">SIMD/SIMT 与 AI 芯片的关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03SPMT.html">CUDA/SIMD/SIMT/DSA 关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05DSA.html">从 CUDA 和 NVIDIA 中借鉴</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06AIChip.html">AI 芯片的思考</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">AI 芯片黄金十年(DONE)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">芯片的编程体系(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02SIMTSIMD.html">SIMD &amp; SIMT 与芯片架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03SPMT.html">SIMD &amp; SIMT 与 CUDA 关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04NVSIMT.html">CUDA 编程模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05DSA.html">从 CUDA 对 AI 芯片思考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06AIChip.html">AI 芯片的思考(DONE)</a></li>
 </ul>
 </li>
 </ul>
@@ -423,7 +424,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
@@ -436,30 +437,30 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/04Dispatch.html">计算图的调度与执行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/05ControlFlow.html">计算图的控制流实现</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/06StaticGraph.html">动态图与静态图转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/04Dispatch.html">计算图的调度与执行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/05ControlFlow.html">计算图的控制流实现(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/06StaticGraph.html">动态图与静态图转换(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -692,7 +693,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>芯片的编程体系</h1>
+    <h1>芯片的编程体系(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -703,14 +704,14 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI 芯片并行分类</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">并行处理硬件架构</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">AI 计算方式与硬件模型</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">AI 计算方式</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">硬件模型</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">并行处理硬件架构</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">AI 计算方式与硬件模型</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">AI 计算方式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">硬件模型</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -722,26 +723,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>芯片的编程体系<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="done">
+<h1>芯片的编程体系(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
 <p>本章主要探讨 SIMD 和 SIMT 的主要区别与联系，SIMT 与 CUDA 编程之间的关系，并且会讨论 GPU 在 SIMT 编程本质，SIMD、SIMT 与 DSA 架构，DSA 架构的主要形态。目前已经有大量的 AI 芯片研发上市，但是如何开发基于硬件的编译栈与编程体系，让开发者更好地使用 AI 芯片，更好的发挥 AI 芯片的算力，让生态更加繁荣，因此理解 AI 芯片的编程体系就显得尤为重要。</p>
 <section id="ai">
 <h2>AI 芯片并行分类<a class="headerlink" href="#ai" title="Link to this heading">#</a></h2>
 <p>AI 芯片主要是为实现并行计算，从程序并行的角度出发，主要可以分为指令级并行、数据级并行和任务级并行：</p>
 <ol class="arabic simple">
-<li><p>指令级并行（Instruction Level Parallelism，ILP）：在同一时间内执行多条指令，这些指令可能是不同的程序段或者同一程序段的不同部分。这种并行性是通过流水线技术实现的，即在处理器中同时执行多个指令的不同阶段，从而提高处理器的效率。</p></li>
-<li><p>数据级并行（Data Level Parallelism，DLP）：在同一时间内处理多个数据元素，这些数据元素可能是独立的或者相关的。数据级并行通常通过向量处理器或者并行处理器来实现，可以同时对多个数据元素进行相同的操作，从而提高数据处理的效率。</p></li>
-<li><p>任务级并行（Task Level Parallelism）：将一个任务分解成多个子任务，然后同时执行这些子任务，可以通过多线程或者分布式计算来实现。</p></li>
+<li><p><strong>指令级并行（Instruction Level Parallelism，ILP）</strong>：在同一时间内执行多条指令，这些指令可能是不同的程序段或者同一程序段的不同部分。这种并行性是通过流水线技术实现的，即在处理器中同时执行多个指令的不同阶段，从而提高处理器的效率。</p></li>
+<li><p><strong>数据级并行（Data Level Parallelism，DLP）</strong>：在同一时间内处理多个数据元素，这些数据元素可能是独立的或者相关的。数据级并行通常通过向量处理器或者并行处理器来实现，可以同时对多个数据元素进行相同的操作，从而提高数据处理的效率。</p></li>
+<li><p><strong>任务级并行（Task Level Parallelism）</strong>：将一个任务分解成多个子任务，然后同时执行这些子任务，可以通过多线程或者分布式计算来实现。</p></li>
 </ol>
 </section>
-<section id="id2">
-<h2>并行处理硬件架构<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h2>并行处理硬件架构<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>按照数据与指令之间的关系，关于并行处理的硬件架构主要有 SISD（单指令流单数据流）、SIMD（单指令流多数据流）、MSID（多指令流单数据流）和 MIMD（多指令流多数据流）四种：</p>
 <ol class="arabic simple">
-<li><p>单指令流单数据流（Single Instruction Single Data，SISD）：这种架构中只有一个处理器执行单个指令流，处理单个数据流。这是传统的单处理器系统，适用于串行计算任务。</p></li>
-<li><p>单指令流多数据流（Single Instruction Multiple Data，SIMD）：这种架构中有多个处理器同时执行相同的指令流，但处理不同的数据流，每个处理器执行相同的操作，但是操作的数据不同。适用于向量处理器或者 GPU 等并行处理器架构。</p></li>
-<li><p>多指令流单数据流（Multiple Instruction Single Data，MISD）：这种架构中有多个处理器执行不同的指令流，但处理相同的数据流。每个处理器执行不同的操作，但是操作的数据相同。MISD 系统在实际应用中较为罕见。</p></li>
-<li><p>多指令流多数据流（Multiple Instruction Multiple Data，MIMD）：这种架构中有多个处理器执行不同的指令流，处理不同的数据流，每个处理器可以独立执行不同的任务，适用于多核处理器、分布式系统或者并行计算集群等场景。</p></li>
+<li><p><strong>单指令流单数据流（Single Instruction Single Data，SISD）</strong>：这种架构中只有一个处理器执行单个指令流，处理单个数据流。这是传统的单处理器系统，适用于串行计算任务。</p></li>
+<li><p><strong>单指令流多数据流（Single Instruction Multiple Data，SIMD）</strong>：这种架构中有多个处理器同时执行相同的指令流，但处理不同的数据流，每个处理器执行相同的操作，但是操作的数据不同。适用于向量处理器或者 GPU 等并行处理器架构。</p></li>
+<li><p><strong>多指令流单数据流（Multiple Instruction Single Data，MISD）</strong>：这种架构中有多个处理器执行不同的指令流，但处理相同的数据流。每个处理器执行不同的操作，但是操作的数据相同。MISD 系统在实际应用中较为罕见。</p></li>
+<li><p><strong>多指令流多数据流（Multiple Instruction Multiple Data，MIMD）</strong>：这种架构中有多个处理器执行不同的指令流，处理不同的数据流，每个处理器可以独立执行不同的任务，适用于多核处理器、分布式系统或者并行计算集群等场景。</p></li>
 </ol>
 <p>SISD 系统中每个指令部件每次仅译码一条指令，而且在执行时仅为操作部件提供一份数据，此时支持串行计算，硬件并不支持并行计算，在时钟周期内 CPU 只能处理一个数据流。</p>
 <p><img alt="SISD" src="../_images/01introduction01.png" /></p>
@@ -750,10 +751,10 @@ document.write(`
 <p>NVIDIA GPU 架构围绕可扩展的多线程流式多处理器 (Streaming Multiprocessors，SM) 阵列构建，当主机 CPU 上的 CUDA 程序调用内核网格时，网格的块被枚举并分发到具有可用执行能力的多处理器。一个线程块的线程在一个 SM 上并发执行，多个线程块可以在一个 SM 上并发执行，当线程块终止时，新块在空出的 SM 上启动，SM 使 GPU 同时执行数百个线程。</p>
 <p>为了管理如此大量的线程，NVIDIA GPU 实际上采用了 SIMT（Single-Instruction Multiple-Thread，单指令多线程）架构，SIMT 体系结构属于 SIMD 中的一种特殊形态，但是 SIMT 使程序员能够为独立的标量线程编写线程级并行代码，以及为协调线程编写数据并行代码。</p>
 </section>
+<section id="id2">
+<h2>AI 计算方式与硬件模型<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <section id="id3">
-<h2>AI 计算方式与硬件模型<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<section id="id4">
-<h3>AI 计算方式<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<h3>AI 计算方式<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>在神经网络中，单个神经元展开，其中最核心的计算为矩阵乘 <span class="math notranslate nohighlight">\((X·W)\)</span>，无论 FFN 还是 CNN，早期的 ALSTN，亦或是大模型中的 Transformer 都大量地使用到矩阵乘计算。</p>
 <p><img alt="神经网络架构图" src="../_images/01Introduction03.png" /></p>
 <blockquote>
@@ -771,19 +772,19 @@ document.write(`
 <p>在 AI 框架的开发流程中，首先由算法工程师定义神经网络，然后使用 AI 框架（如 PyTorch、MindSpore、PaddlePaddle 等框架）编写对应的程序；AI 框架自动构建正向计算图，根据自动微分机制构建反向计算图；最后将计算图转变成算子的执行序列，算子最终会执行在底层 AI 芯片上。</p>
 <p><img alt="AI 框架的开发流程" src="../_images/01introduction04.png" /></p>
 </section>
-<section id="id5">
-<h3>硬件模型<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>硬件模型<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>为了通过 AI 框架实现神经网络模型中大量的矩阵乘等计算，如何基于不同的硬件并行处理架构（如 SIMD、SIMT）来实现呢？AI 系统需要关心和解决该问题吗？SIMD 是否只对底层硬件设计有约束？</p>
 <p>为了解决上面的问题，因此有了硬件<strong>执行模型</strong>和<strong>编程模型</strong>两个概念。</p>
 <p>针对 AI 框架中具体的数学计算业界一般称为算子，其在 AI 芯片等硬件上提供了具体的 Kernel 实现，需要根据硬件执行模型（Execution Model）来确定编程模型（Programming Model）。程序员只关心编程模型，如何编写具体的算子，而硬件关心的是具体的指令执行。</p>
 </section>
 </section>
-<section id="id6">
-<h2>总结<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h2>小结与思考<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>那么 SIMD、SIMT 与 DSA 之间有怎样的区别和联系呢？ SIMD 和 SIMT 的设计，对编程模型带来哪些挑战呢？程序员编程时并没有直接控制硬件指令，SIMD 作为硬件并行处理架构并没有暴露太多底层的执行指令给开发者，那为什么以 SIMT 为主的 CUDA 能够抽象出高效易用的编程 API 给开发者？英伟达的 SIMT 到底是编程模式还是硬件模式？在 CUDA 开发过程中到底是控制硬件线程还是并行编程？线程的硬件执行是什么方式？带着这些疑问，我们将会在后续的章节逐一解答这些问题。</p>
 </section>
-<section id="id7">
-<h2>本节视频<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2>本节视频<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?aid=829755871&bvid=BV13u4y197Lw&cid=1234342087&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -830,7 +831,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">AI 芯片黄金十年</p>
+        <p class="prev-next-title">AI 芯片黄金十年(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -838,7 +839,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">SIMD/SIMT 与 AI 芯片的关系</p>
+        <p class="prev-next-title">SIMD &amp; SIMT 与芯片架构</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -859,14 +860,14 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI 芯片并行分类</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">并行处理硬件架构</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">AI 计算方式与硬件模型</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">AI 计算方式</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">硬件模型</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">并行处理硬件架构</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">AI 计算方式与硬件模型</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">AI 计算方式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">硬件模型</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">本节视频</a></li>
 </ul>
   </nav></div>
 

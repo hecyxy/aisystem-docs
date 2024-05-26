@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="计算图的调度与执行" />
+<meta property="og:title" content="计算图的调度与执行(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="05Framework03DataFlow/04Dispatch.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
@@ -19,7 +19,7 @@
 <meta name="description" content="在前面的内容介绍过，深度学习的训练过程主要分为以下三个部分：1）前向计算、2）计算损失、3）更新权重参数。在训练神经网络时，前向传播和反向传播相互依赖。对于前向传播，沿着依赖的方向遍历计算图并计算其路径上的所有变量。然后将这些用于反向传播，其中计算顺序与计算图的相反。 基于计算图的 AI 框架中，训练的过程阶段中，会统一表示为由基础算子构成的计算图，算子属于计算图中的一个节点，由具体的后端硬..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>计算图的调度与执行 &#8212; AI System</title>
+    <title>计算图的调度与执行(DONE) &#8212; AI System</title>
   
   
   
@@ -81,8 +81,8 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="计算图的控制流实现" href="05ControlFlow.html" />
-    <link rel="prev" title="计算图与自动微分" href="03Atuodiff.html" />
+    <link rel="next" title="计算图的控制流实现(DONE)" href="05ControlFlow.html" />
+    <link rel="prev" title="计算图与自动微分(DONE)" href="03Atuodiff.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
@@ -317,12 +317,13 @@
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD/SIMT 与 AI 芯片的关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">CUDA/SIMD/SIMT/DSA 关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 和 NVIDIA 中借鉴</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD &amp; SIMT 与芯片架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">SIMD &amp; SIMT 与 CUDA 关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/04NVSIMT.html">CUDA 编程模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 对 AI 芯片思考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考(DONE)</a></li>
 </ul>
 </li>
 </ul>
@@ -423,7 +424,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
@@ -436,30 +437,30 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">计算图</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02Computegraph.html">计算图原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Atuodiff.html">计算图与自动微分</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">计算图的调度与执行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05ControlFlow.html">计算图的控制流实现</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06StaticGraph.html">动态图与静态图转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07Future.html">计算图的挑战&amp;未来</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">计算图(DONE)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02Computegraph.html">计算图原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Atuodiff.html">计算图与自动微分(DONE)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">计算图的调度与执行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05ControlFlow.html">计算图的控制流实现(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06StaticGraph.html">动态图与静态图转换(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -692,7 +693,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>计算图的调度与执行</h1>
+    <h1>计算图的调度与执行(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -702,22 +703,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">图调度</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">什么是算子</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">算子间调度</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">算子并发调度</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">算子异构调度</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">图调度</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">什么是算子</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">算子间调度</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">算子并发调度</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">算子异构调度</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">图执行</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">单算子执行</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">图下沉执行</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">图切分与多设备执行</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">图执行</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">单算子执行</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">图下沉执行</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">图切分与多设备执行</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch 算子执行</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">视频</a></li>
 </ul>
             </nav>
         </div>
@@ -730,18 +731,18 @@ document.write(`
                 <article class="bd-article">
                   
 <!--适用于[License](https://github.com/chenzomi12/AISystem/blob/main/LICENSE)版权许可-->
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>计算图的调度与执行<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="done">
+<h1>计算图的调度与执行(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
 <p>在前面的内容介绍过，深度学习的训练过程主要分为以下三个部分：1）前向计算、2）计算损失、3）更新权重参数。在训练神经网络时，前向传播和反向传播相互依赖。对于前向传播，沿着依赖的方向遍历计算图并计算其路径上的所有变量。然后将这些用于反向传播，其中计算顺序与计算图的相反。</p>
 <p>基于计算图的 AI 框架中，训练的过程阶段中，会统一表示为由基础算子构成的计算图，算子属于计算图中的一个节点，由具体的后端硬件进行高效执行。</p>
 <p>目前 AI 框架的前端负责给开发者提供对应的 API，通过统一表示把开发者编写的 Python 代码表示为前向计算图，AI 框架会根据前向计算图图，自动补全反向计算图，生成出完整的计算图。神经网络模型的整体训练流程，则对应了计算图的数据流动的执行过程。算子的调度根据计算图描述的数据依赖关系，确定算子的执行顺序，由运行时系统调度计算图中的节点到设备上执行。</p>
 <p>实际上，计算图的执行方式，可以分为两种模式：1）逐算子下发执行的交互式方式，如 PyTroch 框架；2）以及整个计算图或者部分子图一次性下发到硬件进行执行，如 TensorFlow 和 MindSpore。无论采用哪种模式，其大致架构如下所示。</p>
-<p><img alt="计算图执行通用架构" src="../images/05Framework03DataFlow/023FW_DataFlow/framework05.png" /></p>
-<section id="id2">
-<h2>图调度<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p><img alt="计算图执行通用架构" src="../_images/framework05.png" /></p>
+<section id="id1">
+<h2>图调度<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>计算图的调度主要是指静态图。在静态图中，需要先定义好整个计算流，再次运行的时就不需要重新构建计算图，因此其性能更加高效。之所以性能会更高效，是因为会对计算图中的算子的执行序列进行调度优化。</p>
-<section id="id3">
-<h3>什么是算子<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>什么是算子<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>AI 框架中对张量计算的种类有很多，比如加法、乘法、矩阵相乘、矩阵转置等，这些计算被称为算子（Operator），它们是 AI 框架的核心组件。为了更加方便的描述计算图中的算子，现在来对<strong>算子</strong>这一概念进行定义：</p>
 <ul class="simple">
 <li><p><strong>狭义的算子（Kernel）</strong>：对张量 Tensor 执行的基本操作集合，包括四则运算，数学函数，甚至是对张量元数据的修改，如维度压缩（Squeeze），维度修改（reshape）等。</p></li>
@@ -750,15 +751,15 @@ document.write(`
 <p>我们在后续的内容中会将狭义的算子，统一称之为核（Kernel），在 AI 框架中，使用 C++ 实现层里的算子指的就是这里的 Kernel，而这里的 Kernel 实现并不支持自动梯度计算（Autograd）模块，也不感知微分的概念。</p>
 <p>广义的算子我们将其称之为函数或方法（Function），这也是平时经常接触到的 AI 框架中 PyTorch API，包括 Python API 和 C++ API，其配合 PyTorch Autograd 模块后就可以支持自动梯度求导计算。</p>
 </section>
-<section id="id4">
-<h3>算子间调度<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>算子间调度<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>无论是大模型还是传统的神经网络模型，实际上最后执行都会落在单台设备环境上执行对应的算子。对单设备执行环境，制约计算图中节点调度执行的关键因素是节点之间的数据流依赖和具体的算子。</p>
 <p>假设继续以简单的复合函数为例子：</p>
 <div class="math notranslate nohighlight">
 \[ f(x1,x2)=ln(x1)+x1*x2−sin(x2) \]</div>
 <p>:eqlabel:<code class="docutils literal notranslate"><span class="pre">autodiff_04_eq1</span></code></p>
 <p>下图是函数对应的计算图，一共有 5 个算子：</p>
-<p><img alt="正向计算图" src="../images/05Framework03DataFlow/023FW_DataFlow/forward_mode03.png" />
+<p><img alt="正向计算图" src="../_images/forward_mode03.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">550px</span></code>
 :label:<code class="docutils literal notranslate"><span class="pre">autodiff_04_img1</span></code></p>
 <p>AI 框架根据上述计算图的数据流的依赖关系，在单设备环境下，依次调用具体的算子可以如下所示：</p>
@@ -782,23 +783,23 @@ Sub_grad<span class="o">(</span>v5,<span class="w"> </span>v5_delta<span class="
 <li><p>AI 框架在运行时继续处理 FIFO 队列中的剩余节点，直到遍历完所有的节点，队列为空</p></li>
 </ol>
 <p>图中按照数据流约束执行对应的计算图的一个可能调度序列。其中蓝色为正向计算时候用到的算子，红色为反向计算时候用到的算子。这种调度方式主要以 PyTorch 的默认执行方式，TensorFlow 的 eager 模式，以及 MindSpore 的 PyNative 模式为主。</p>
-<p><img alt="执行队列时间轴" src="../images/05Framework03DataFlow/023FW_DataFlow/forward_mode02.png" />
+<p><img alt="执行队列时间轴" src="../_images/forward_mode02.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">550px</span></code></p>
 </section>
-<section id="id5">
-<h3>算子并发调度<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>算子并发调度<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>单设备算子间使用单线程管理先进先出队列进行调度，这种方式是直接也是最原始的。实际 AI 框架会根据计算图，找到相互独立的算子进行并发调度，提高计算的并行性。</p>
 <p>这个时候，就非常依赖于计算图能够准确的描述了算子之间的依赖关系，通过后端编译优化功能或者后端编译优化的 Pass，提供并发执行队列的调度操作。</p>
 <p>以 TensorFlow 和 MindSpore 这一类默认使用静态图的 AI 框架为例。其默认算子执行调度策略中，计算图中的节点会被分类为低代价节点（一般是仅在 CPU 上执行的一些拼接节点）和高代价节点（张量计算节点）。</p>
 <p>先进先出队列中的一个节点被分配给线程池中的线程调度执行时，这个线程会一次执行完计算图中所有低代价节点；部分 AI 框架会执行预编译阶段，在计算图调度模块中预先遍历计算图，区分高代价节点和低代价加点，并对其优先级根据具体情况进行按等级划分。假设遇到高代价节点时，将该节点派发给线程池中其他线程执行，从而实现算子并发调度执行。</p>
-<p><img alt="算子多队列并发调度" src="../images/05Framework03DataFlow/023FW_DataFlow/forward_mode04.png" />
+<p><img alt="算子多队列并发调度" src="../_images/forward_mode04.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">550px</span></code></p>
 </section>
-<section id="id6">
-<h3>算子异构调度<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>算子异构调度<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>在手机端侧异构计算环境中，主要存在 CPU、GPU 以及 NPU 等多种异构的计算 IP，因此一张计算图可以由运行在不同计算 IP 的算子组成为异构计算图，继续以
 :eqref:<code class="docutils literal notranslate"><span class="pre">autodiff_04_eq1</span></code>为例，下图展示了一个在端侧 SoC 中典型的由异构 IP 共同参与的计算图。</p>
-<p><img alt="算子异构调度" src="../images/05Framework03DataFlow/023FW_DataFlow/forward_mode05.png" />
+<p><img alt="算子异构调度" src="../_images/forward_mode05.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">550px</span></code></p>
 <p>假设该手机 SoC 芯片有 CPU、GPU 和 NPU 三款计算 IP，所述计算图由如下几类异构计算 IP 对应的算子组成：</p>
 <ul class="simple">
@@ -811,15 +812,15 @@ Sub_grad<span class="o">(</span>v5,<span class="w"> </span>v5_delta<span class="
 <p>不过在实际工程经验过程来看，目前采用算子异构调度的方式作为推理引擎的新增特性比较多，主要原因在于：1）调度逻辑复杂，程序控制实现起来并不简单，即使自动化方式只能针对部分神经网络模型；2）大部分神经网络模型的结构，仍然以高度串行为主，上下节点之间的依赖较重；3）异构调度涉及到不同 IP 计算结果之间的通信，通信的开销往往大于计算的开销。导致计算需要等待数据的同步与传输。</p>
 </section>
 </section>
-<section id="id7">
-<h2>图执行<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2>图执行<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>AI 框架生成计算图后，经过图调度模块对进行图进行标记，计算图已经准备好被实际的硬件执行，根据硬件能力的差异，可以将异构计算图的执行分为三种模式：1）单算子执行、2）整图下沉执行与 3）图切分到多设备执行。</p>
 <p>第一种单算子执行主要针对 CPU 和 GPU 的场景，计算图中的算子按照输入和输出的依赖关系被逐个调度与执行。整图下沉执行模式主要是针对 DSA 架构的 AI 芯片而言，其主要的优势是能够将整个计算图一次性下发到设备上，无需借助 CPU 的调度能力而独立完成计算图中所有算子的调度与执行，减少了主机和 AI 芯片的交互次数，借助 AI 芯片并行加速能力，提高计算效率和性能。</p>
 <p>图切分与多设备执行的方式是面向大规模计算场景的，如现在很火的大模型。由于计算图自身表达的灵活性，对于复杂场景的计算图在 AI 芯片上进行整图下沉执行的效率不一定能达到最优，或者在单个 AI 芯片上不能完整放下一张计算图。因此可以将计算图进行拆分，把大模型产生的计算图分别放在不同的 AI 加速芯片上面。此外，对于 AI 芯片执行效率低下的部分分离出来，交给 CPU 处理，将更适合  AI 芯片的子图下沉到  AI 芯片进行计算，这样可以兼顾性能和灵活性两方面。</p>
-<section id="id8">
-<h3>单算子执行<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>单算子执行<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>单算子执行类似于串行执行，将计算图展开为具体的执行序列，按照执行序逐个 Kernel 执行，如图所示。其特点为执行顺序固定，单线程执行，对系统资源要求相对较低。</p>
-<p><img alt="算子异构调度" src="../images/05Framework03DataFlow/023FW_DataFlow/forward_mode06.png" />
+<p><img alt="算子异构调度" src="../_images/forward_mode06.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">650px</span></code></p>
 <p>单算子执行的一般执行过程：算子在高级语言如 Python 侧被触发执行后，经过 AI 框架初始化，其中需要确定算子的输入输出数据、算子类型、算子大小以及对应的硬件设备等信息，接着 AI 框架会为该算子预分配计算所需的内存信息，最后交给具体的硬件加速芯片执行具体的计算。</p>
 <p>单算子的执行方式好处在于其灵活性高，算子直接通过 Python 运行时调度：</p>
@@ -829,8 +830,8 @@ Sub_grad<span class="o">(</span>v5,<span class="w"> </span>v5_delta<span class="
 <li><p>利用高级语言的特性，如在复杂计算加速任务中与 Python 庞大而丰富的生态库协同完成</p></li>
 </ol>
 </section>
-<section id="id9">
-<h3>图下沉执行<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>图下沉执行<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>单算子调度具有着较高的易用性等优点，其缺点也很明显：</p>
 <ol class="arabic simple">
 <li><p>难于对计算图进行极致的性能优化，缺乏计算图的全局信息，单算子执行时无法根据上下文完成算子融合，代数化简等编译优化的工作</p></li>
@@ -838,21 +839,21 @@ Sub_grad<span class="o">(</span>v5,<span class="w"> </span>v5_delta<span class="
 </ol>
 <p>整图下沉式的执行方式，是通过专用的 AI 加速芯片，将整个计算图或者部分计算图（子图）一次性下发到 DSA 芯片上以完成计算图的计算。如 Google TPU 和华为昇腾 NPU，多个算子可以组成一个子图，子图在执行之前被编程成一个具体的任务，将包含多个算子的任务一次性下发到硬件上直接执行。</p>
 <p>计算图下沉的执行方式避免了在计算过程中，host 主机侧和 device 设备侧频繁地进行交互，CPU 下发一个算子到 NPU，再从队列中取出下一个节点下发到 NPU，因此可以获得更好的整体计算性能。然而计算图下沉执行的方式也存在一些局限，例如算子在动态 Shape，复杂控制流、副作用等场景下会面临较大的技术挑战。</p>
-<p><img alt="图下沉硬件执行" src="../images/05Framework03DataFlow/023FW_DataFlow/graph_framework01.png" /></p>
+<p><img alt="图下沉硬件执行" src="../_images/graph_framework01.png" /></p>
 </section>
-<section id="id10">
-<h3>图切分与多设备执行<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>图切分与多设备执行<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>对于上面两个简单的神经网络模型，在数据流依赖的约束下只存在串行调度方案，牵强地用并发和异构调度作为例子。但是在实际的网络模型中，对一些复杂的神经网络模型存在多分枝，特别是 CV 在检测领域。</p>
 <p>目前大模型非常的火，典型代表如下图 Transformer Decoder 堆叠的模型结构，这时如果后端有多个执行算子 Kernel 的硬件加速设备，因为模型结构太大，参数量太多，没有办法在一张 AI 加速卡上放下整个计算图，因此在 AI 框架的运行时在调度执行计算图前，可以对网络模型进行切分，按照模型结构层数进行切分，把 2/3 层 Transformer 结构模块放在同一设备上。</p>
 <p>下面以简单的模型并行对神经网络模型的计算图进行切分，对模型按层数来切分，也可以按照模型单一层横向来切分出不同的子图。</p>
-<p><img alt="针对 Transformer 模型并行" src="../images/05Framework03DataFlow/023FW_DataFlow/model_parallel02.png" />
+<p><img alt="针对 Transformer 模型并行" src="../_images/model_parallel02.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">550px</span></code></p>
 <p>多计算设备环境下执行计算图，AI 框架的运行时需要解决，如何将计算图中的具体计算，放置到不同设备上以及如何管理跨设备数据传输两个问题：</p>
 <ol class="arabic simple">
 <li><p><strong>计算图切分</strong>：给定一个计算图，并将计算图切分为不同的子图或者单算子后，放置到多个计算设备上，每个设备拥有计算图的一部分。</p></li>
 <li><p><strong>跨设备通信</strong>：子图被放置不同设备上，此时 AI 框架会为计算图新增一些跨设备的链接和通信节点（All Reduce 或 All Gather 等集合通信），实现跨设备数据传输。</p></li>
 </ol>
-<p><img alt="基本的 Inception 模块执行策略" src="../images/05Framework03DataFlow/023FW_DataFlow/model_parallel01.png" />
+<p><img alt="基本的 Inception 模块执行策略" src="../_images/model_parallel01.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">550px</span></code></p>
 <p>实际上做好计算图切分，并把计算图映射到多设备是一个复杂的组合优化问题，目前针对大模型在千卡集群规模下同时进行训练的最优并行策略寻优，称为自动并行。</p>
 <blockquote>
@@ -864,23 +865,23 @@ Sub_grad<span class="o">(</span>v5,<span class="w"> </span>v5_delta<span class="
 <h2>PyTorch 算子执行<a class="headerlink" href="#pytorch" title="Link to this heading">#</a></h2>
 <p>PyTorch 的函数是一个非常复杂核心的模块，其大部分代码都是由 PyTorch tool 根据模板文件自动生成。如果想要查看其源代码，无法直接在 PyTorch 的 GitHub 代码库中搜索到，必须要将代码下载到本地并进行编译。当调用函数时，就会接触到 PyTorch 的调度模块。</p>
 <p>以 PyTorch 的加法为例，假设调用 torch.add 函数 API 时，AI 框架总共会经历两次调度：</p>
-<p><img alt="PyTorch 算子执行" src="../images/05Framework03DataFlow/023FW_DataFlow/dispatch03.png" />
+<p><img alt="PyTorch 算子执行" src="../_images/dispatch03.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">500px</span></code></p>
 <p>第一次调度会根据执行张量的设备（device）和布局（layout）动态选择对应的实现函数，比如 <code class="docutils literal notranslate"><span class="pre">&lt;CPU,</span> <span class="pre">Strided&gt;</span> <span class="pre">Tensor</span></code>，<code class="docutils literal notranslate"><span class="pre">&lt;CPU,</span> <span class="pre">Sparse&gt;</span> <span class="pre">Tensor</span></code>或者<code class="docutils literal notranslate"><span class="pre">&lt;GPU,</span> <span class="pre">,</span> <span class="pre">Strided&gt;</span> <span class="pre">Tensor</span></code>。不同设备布局的实现，可能会编译在不同的动态链接库里。</p>
 <p>第二次调度则会根据张量元素的数据类型，通过 switch 分支的方式进行一次轻量级的静态选择，最终选出合适的 Kernel 来执行对张量的操作。</p>
 <p>Kernel 主要是算子的计算模块，但是别忘记了在深度学习中，算子还包含求导模块。计算模块主要定义了 Kernel 的计算步骤，需要先在 <code class="docutils literal notranslate"><span class="pre">aten/src/ATen/native/native_functions.yaml</span></code> 中声明 Kernel 计算模块的函数签名，然后在 <code class="docutils literal notranslate"><span class="pre">native/</span></code> 目录下实现该函数。</p>
 <p>在前面的函数调用中，主要就通过 Kernel 对 张量进行操作。求导模块主要是对计算模块的一个反向求导，需要直接在 <code class="docutils literal notranslate"><span class="pre">tools/autograd/derivatives.yaml</span></code> 中声明定义求导的过程，剩下就可以交给 <code class="docutils literal notranslate"><span class="pre">Autograd</span></code> 代码生成模块自动生成对应的代码。</p>
 </section>
-<section id="id11">
-<h2>总结<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h2>总结<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>了解对于计算图进行上层的编译优化手段</p></li>
 <li><p>了解计算图最基础的调度执行模式和优化后的调度执行模式</p></li>
 <li><p>了解计算图在多设备上进行图切分和多设备执行</p></li>
 </ul>
 </section>
-<section id="id12">
-<h2>视频<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h2>视频<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?aid=731435786&bvid=BV1hD4y1k7Ty&cid=911663481&page=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -927,7 +928,7 @@ Sub_grad<span class="o">(</span>v5,<span class="w"> </span>v5_delta<span class="
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">计算图与自动微分</p>
+        <p class="prev-next-title">计算图与自动微分(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -935,7 +936,7 @@ Sub_grad<span class="o">(</span>v5,<span class="w"> </span>v5_delta<span class="
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">计算图的控制流实现</p>
+        <p class="prev-next-title">计算图的控制流实现(DONE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -955,22 +956,22 @@ Sub_grad<span class="o">(</span>v5,<span class="w"> </span>v5_delta<span class="
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">图调度</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">什么是算子</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">算子间调度</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">算子并发调度</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">算子异构调度</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">图调度</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">什么是算子</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">算子间调度</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">算子并发调度</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">算子异构调度</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">图执行</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">单算子执行</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">图下沉执行</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">图切分与多设备执行</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">图执行</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">单算子执行</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">图下沉执行</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">图切分与多设备执行</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch 算子执行</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">视频</a></li>
 </ul>
   </nav></div>
 

@@ -30,6 +30,8 @@
 > 请大家尊重开源和 ZOMI 的努力，引用 PPT 的内容请规范转载标明出处哦！
 
 ```{toctree}
+:maxdepth: 1
+
 01Appear
 02Stage
 03Architecture

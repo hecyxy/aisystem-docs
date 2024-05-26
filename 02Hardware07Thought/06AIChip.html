@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="AI 芯片的思考" />
+<meta property="og:title" content="AI 芯片的思考(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="02Hardware07Thought/06AIChip.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
@@ -19,7 +19,7 @@
 <meta name="description" content="为了满足数据中心算力需求，Google 在 2014 年开始研发基于特定领域架构（Domain-specific Architecture，DSA）的 TPU（Tensor Processing Unit），专门为深度学习任务设计的定制硬件加速器，加速谷歌的机器学习工作负载，特别是训练和推理大规模神经网络模型。 David Patterson（大卫·帕特森）是计算机体系结构领域科学家，自 1..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>AI 芯片的思考 &#8212; AI System</title>
+    <title>AI 芯片的思考(DONE) &#8212; AI System</title>
   
   
   
@@ -80,7 +80,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="AI 编译原理概述" href="../03Compiler/README.html" />
-    <link rel="prev" title="从 CUDA 和 NVIDIA 中借鉴" href="05DSA.html" />
+    <link rel="prev" title="从 CUDA 对 AI 芯片思考" href="05DSA.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
@@ -315,12 +315,13 @@
 
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">AI 芯片黄金十年</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">芯片的编程体系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02SIMTSIMD.html">SIMD/SIMT 与 AI 芯片的关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03SPMT.html">CUDA/SIMD/SIMT/DSA 关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05DSA.html">从 CUDA 和 NVIDIA 中借鉴</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">AI 芯片的思考</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">AI 芯片黄金十年(DONE)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">芯片的编程体系(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02SIMTSIMD.html">SIMD &amp; SIMT 与芯片架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03SPMT.html">SIMD &amp; SIMT 与 CUDA 关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04NVSIMT.html">CUDA 编程模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05DSA.html">从 CUDA 对 AI 芯片思考</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">AI 芯片的思考(DONE)</a></li>
 </ul>
 </li>
 </ul>
@@ -421,7 +422,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
@@ -434,30 +435,30 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/04Dispatch.html">计算图的调度与执行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/05ControlFlow.html">计算图的控制流实现</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/06StaticGraph.html">动态图与静态图转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/04Dispatch.html">计算图的调度与执行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/05ControlFlow.html">计算图的控制流实现(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/06StaticGraph.html">动态图与静态图转换(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -690,7 +691,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>AI 芯片的思考</h1>
+    <h1>AI 芯片的思考(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -700,16 +701,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-1-memory-flops">Thought 1：模型 Memory &amp; FLOPs 增长</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-2">Thought 2：模型快速演变</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-3">Thought 3：生产部署需要多租户技术</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-4-sram-dram">Thought 4：较大的 SRAM 和存取速度极快的 DRAM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-5-flops">Thought 5：重要的是内存，而非 FLOPs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-6-dsa">Thought 6：DSA 既要专业也要灵活</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-7">Thought 7：半导体技术发展速度不同，要做好选型</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-8-ai">Thought 8：编译器优化和 AI 应用兼容</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">参考文献</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">模型对内存和算力的需求</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">模型结构快速演变</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">生产部署提供多租户</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sram-dram">SRAM 与 DRAM 的权衡</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">内存比非算力重要</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dsa">DSA 既要专业也要灵活</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">半导体供应链的选型</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">编译器优化和 AI 应用兼容</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">参考文献</a></li>
 </ul>
             </nav>
         </div>
@@ -721,12 +722,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-<section class="tex2jax_ignore mathjax_ignore" id="ai">
-<h1>AI 芯片的思考<a class="headerlink" href="#ai" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="ai-done">
+<h1>AI 芯片的思考(DONE)<a class="headerlink" href="#ai-done" title="Link to this heading">#</a></h1>
 <p>为了满足数据中心算力需求，Google 在 2014 年开始研发基于特定领域架构（Domain-specific Architecture，DSA）的 TPU（Tensor Processing Unit），专门为深度学习任务设计的定制硬件加速器，加速谷歌的机器学习工作负载，特别是训练和推理大规模神经网络模型。</p>
 <p>David Patterson（大卫·帕特森）是计算机体系结构领域科学家，自 1976 年起担任加州大学伯克利分校的计算机科学教授并在 2016 年宣布退休，在 2017 年加入 Google TPU 团队，2020 年在加州大学伯克利分校发表演讲《A Decade of Machine Learning Accelerators:Lessons Learned and Carbon Footprint》，分享了 TPU 近几年的发展历程以及心得体会，本节主要摘录并深入探讨其中的 8 点思考。</p>
-<section id="thought-1-memory-flops">
-<h2>Thought 1：模型 Memory &amp; FLOPs 增长<a class="headerlink" href="#thought-1-memory-flops" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h2>模型对内存和算力的需求<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>AI 模型近几年所需的内存空间和算力平均每年增长 50%，模型所需内存和算力增长大约 10~20 倍。但是芯片设计到实际应用需要一定的周期，其中芯片设计需要 1 年，部署需要 1 年，实际使用并优化大约需要 3 年，因此总共需要 5 年时间。</p>
 <p><img alt="模型参数量" src="../_images/06AIChip01.png" /></p>
 <p>训练模型参数量的增长速度比推理模型更快，2016-2023 年，SOTA 训练模型的算力需求年均增长 10 倍，GPT-2 模型的参数量从 15 亿增长到 GPT-3 1750 亿，提高了 100 倍。</p>
@@ -734,14 +735,13 @@ document.write(`
 <p>但是 AI 芯片的内存容量增长相比来说就比较缓慢，A100 的 HBM 最大内存是 80 G，H100 最大内存是 188 G，谷歌 TPU v5 内存是 32 G，特斯拉 DOJO 内存是 16 G，华为昇腾内存是 64 G，寒武纪 MLU 370 内存是 16 G。</p>
 <p><img alt="AI 芯片内存空间" src="../_images/06AIChip03.png" /></p>
 </section>
-<section id="thought-2">
-<h2>Thought 2：模型快速演变<a class="headerlink" href="#thought-2" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h2>模型结构快速演变<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>深度神经网络（DNN）是一个发展迅速的领域，2016 年 MLP（Multilayer Perceptron，多层感知器）和 LSTM（Long Short-Term Memory，长短期记忆网络）是主流的深度学习模型，2020 年 CNN（Convolutional Neural Network，卷积神经网络）、RNN（Recurrent Neural Network，循环神经网络）和 BERT（Bidirectional Encoder Representations from Transformers）被广泛应用。</p>
-<p><img alt="AI 芯片内存空间" src="../_images/06AIChip04.png" /></p>
 <p>大型语言模型（Large Language Model，LLM）基于 transformer，参数规模从五年前的仅有十亿参数（例如 GPT-2 的 1.5B 参数）稳步增长到如今的万亿参数，例如 OpenAI 的 GPT-3.5、微软的 Phi-3、谷歌的 Gemma、Meta 的 Llamma 等，未来可能会出现新的网络模型，因此 DSA 架构需要足够通用以支持新的模型。</p>
 </section>
-<section id="thought-3">
-<h2>Thought 3：生产部署需要多租户技术<a class="headerlink" href="#thought-3" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h2>生产部署提供多租户<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>大部分 AI 相关论文假设同一时间 NPU 只需运行一个模型。实际应用需要切换不同模型：</p>
 <ul class="simple">
 <li><p>机器翻译涉及语言对比，因此需要使用不同的模型；</p></li>
@@ -751,15 +751,15 @@ document.write(`
 <p><img alt="Virtual GPU Technology | NVIDIA GRID" src="../_images/06AIChip05.png" /></p>
 <p>因此需要多租户技术（Multi-tenancy）实现算力切分、显存虚拟化、内存寻址、虚拟内存页等技术。GPU 虚拟化技术可以将物理 GPU 资源虚拟化为多个逻辑 GPU 资源，使多个用户或应用程序能够共享同一块物理 GPU 而不会相互干扰。这种技术可以提高 GPU 资源的利用率和性能，并且能够为不同用户提供独立的 GPU 环境，增强系统的安全性和隔离性。目前常见的 GPU 虚拟化技术包括 NVIDIA vGPU、AMD MxGPU 以及 Intel GVT-g 等虚拟化方案。</p>
 </section>
-<section id="thought-4-sram-dram">
-<h2>Thought 4：较大的 SRAM 和存取速度极快的 DRAM<a class="headerlink" href="#thought-4-sram-dram" title="Link to this heading">#</a></h2>
+<section id="sram-dram">
+<h2>SRAM 与 DRAM 的权衡<a class="headerlink" href="#sram-dram" title="Link to this heading">#</a></h2>
 <p>通过统计 8 个模型的基准数据，其中有 6 个模型涉及到多租户技术。如果从 CPU 主机重新加载参数，上下文切换需要 10 秒，因此需要更快的 DRAM（片外存储）用来交换多种模型的数据。</p>
 <p><img alt="模型采用的多租户技术" src="../_images/06AIChip06.png" /></p>
 <p>红色虚线表示单芯片的最大 SRAM（片上存储），而实际情况下不少模型需要的内存远大于此。部分芯片的设计思路是期望利用 SRAM 解决所有任务，减少内存数据搬运的时间，但是在多租户场景下很难实现。所以 AI 芯片不仅需要更大的 SRAM 片上存储内存空间，更需要存储速度更快的片外存储 DRAM。</p>
 <p><img alt="存储空间与模型大小的差距" src="../_images/06AIChip07.png" /></p>
 </section>
-<section id="thought-5-flops">
-<h2>Thought 5：重要的是内存，而非 FLOPs<a class="headerlink" href="#thought-5-flops" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h2>内存比非算力重要<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>现代微处理器最大的瓶颈是能耗，而不是芯片集成度，访问片外 DRAM 需要的能耗是访问片上 SRAM 的 100 倍，是算术运算能耗的 5000 ~ 10,000 倍。因此 AI 芯片通过增加浮点运算单元（FPU）来分摊内存访问开销。AI 芯片开发者一般通过减少浮点运算数 FLOPs 来优化模型，减少内存访问是更有效的办法，GPGPU 的功耗大多浪费在数据搬运上，而非核心计算，而优化数据流正是 AI 芯片的核心价值。</p>
 <p><img alt="存储类型和浮点计算对能耗的影响" src="../_images/06AIChip08.png" /></p>
 <p>英伟达 Ampere 架构使用第三代 Tensor Core，使不同的 Warp 线程组更好地访问多级缓存。Ampere 架构 Tensor Core 的一个 warp 中有 32 个线程共享数据，而 Volta 架构 Tensor Core 只有 8 个线程，更多的线程之间共享数据，可以更好地在线程间减少矩阵的数据搬运。</p>
@@ -769,20 +769,20 @@ document.write(`
 <p>TPU 使用脉动阵列（systolic array），以固定时间间隔使数据从不同方向流入阵列中的处理单元，最后将数据累积，以完成大型矩阵乘法运算。在 70 年代的芯片只有单金属层，不能很好地实现互连，Kung 和 Leiserson 提出”脉动阵列“以减少布线，简化连接。如今芯片多达 10 个金属层，最大难点是能耗，脉动阵列能效高，使用脉动阵列可以使芯片容纳更多乘法单元，从而分摊内存访问开销。</p>
 <p><img alt="TPUv1: systolic array" src="../_images/06AIChip11.png" /></p>
 </section>
-<section id="thought-6-dsa">
-<h2>Thought 6：DSA 既要专业也要灵活<a class="headerlink" href="#thought-6-dsa" title="Link to this heading">#</a></h2>
+<section id="dsa">
+<h2>DSA 既要专业也要灵活<a class="headerlink" href="#dsa" title="Link to this heading">#</a></h2>
 <p>DSA 难点在于既要对模型进行针对性的优化，同时还须保持一定的灵活性。训练之所以比推理更加复杂，是因为训练的计算量更大，包含反向传播、转置和求导等运算。训练时需要将大量运算结果储存起来用于反向传播的计算，因此也需要更大的内存空间。</p>
 <p>此外，支持更加广泛的计算数据格式（如 BF16、FP16、HF32）用于 AI 计算，指令、流水、可编程性也更高，需要灵活的编译器和上层软硬件配套，CUDA 在这个方面已经积累了很多年，TPU 逐渐支持了 INT8、BFloat16 等。</p>
 </section>
-<section id="thought-7">
-<h2>Thought 7：半导体技术发展速度不同，要做好选型<a class="headerlink" href="#thought-7" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h2>半导体供应链的选型<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>计算逻辑的进步速度很快，但是芯片布线（制程工艺）的发展速度则较慢。 SRAM 和 HBM 比 DDR4 和 GDDR6 速度更快，能效更高，因此 AI 芯片需要根据数据的操作格式选用一定的存储设备。在大模型训练过程中普遍使用 BF16，部分会使用 FP8 进行推理，如果选型有问题，比如只能用 FP32 模拟 BF16，将减慢大模型训练迭代的速度。</p>
 <p><img alt="芯片制程与存储类型的匹配" src="../_images/06AIChip12.png" /></p>
 <p>TPU v2 中有两个互连的 Tensor Core，更加方便布线，同时对编译器也更加友好。</p>
 <p><img alt="TPUv2" src="../_images/06AIChip13.png" /></p>
 </section>
-<section id="thought-8-ai">
-<h2>Thought 8：编译器优化和 AI 应用兼容<a class="headerlink" href="#thought-8-ai" title="Link to this heading">#</a></h2>
+<section id="ai">
+<h2>编译器优化和 AI 应用兼容<a class="headerlink" href="#ai" title="Link to this heading">#</a></h2>
 <p>DSA 的编译器需要对 AI 模型进行分析和优化，通过编译器把 AI 使用的指令转换为高效的底层代码，以便在特定硬件上运行时能够更快地执行，充分发挥硬件的性能，具体可分为与机器无关高级操作和与相关低级操作，从而提供不同维度的优化 API 和 PASS（LLVM 编译器所采用的一种结构化技术，用于完成编译对象（如 IR）的分析、优化或转换等功能）。</p>
 <p>目前编译器维度比较多，有类似于 CUDA 提供编程体系，有类似于 TVM（深度学习编译器）和 XLA（加速线性代数）提供编译优化，包括对计算图进行图优化、内存优化、并行化、向量化等操作，以提高模型的执行速度和减少资源消耗，优化的具体方式如下：</p>
 <ul class="simple">
@@ -800,18 +800,16 @@ document.write(`
 <p>GPU 中存储单元主要有 HBM 和 SRAM，HBM 容量大但是访问速度慢，SRAM 容量小却有着较高的访问速度。GPU SRAM 的读写（I/O）的速度为 19 TB/s 和 GPU HBM 的读写（I/O）速度相差十几倍，而对比存储容量也相差了好几个数量级。FlashAttention 通过减少 GPU 内存读取/写入，运行速度比 PyTorch 标准注意力快 2-4 倍，所需内存减少 5-20 倍。而且 Flash Attention 的计算是从 HBM 中读取块，在 SRAM 中计算之后再写到 HBM 中，因此想避免从 HBM 里读取或写入注意力矩阵。算法没有减少计算量，而是从 IO 感知出发，减少 HBM 访问次数，从而减少了计算时间。</p>
 <p><img alt="Flash Attention" src="../_images/06AIChip16.png" /></p>
 </section>
-<section id="id1">
-<h2>参考文献<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<div id="ref1"></div>
-[1] "David Patterson: A Decade of Machine Learning Accelerators:Lessons Learned and Carbon Footprint" YouTube, [https://www.youtube.com/watch?v=PLK3pGELbSs]
-<div id="ref2"></div>
-[2] "TPU 演进十年：Google 的十大经验教训" 知乎, [https://zhuanlan.zhihu.com/p/573794328]
-</section>
-<section id="id2">
-<h2>本节视频<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2>本节视频<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="////player.bilibili.com/player.html?aid=237147839&bvid=BV1te411y7UC&cid=1367020095&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
+</section>
+<section id="id7">
+<h2>参考文献<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>[1] &quot;David Patterson: A Decade of Machine Learning Accelerators:Lessons Learned and Carbon Footprint&quot; YouTube, [https://www.youtube.com/watch?v=PLK3pGELbSs]</p>
+<p>[2] &quot;TPU 演进十年：Google 的十大经验教训&quot; 知乎, [https://zhuanlan.zhihu.com/p/573794328]</p>
 </section>
 </section>
 
@@ -855,7 +853,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">从 CUDA 和 NVIDIA 中借鉴</p>
+        <p class="prev-next-title">从 CUDA 对 AI 芯片思考</p>
       </div>
     </a>
     <a class="right-next"
@@ -883,16 +881,16 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-1-memory-flops">Thought 1：模型 Memory &amp; FLOPs 增长</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-2">Thought 2：模型快速演变</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-3">Thought 3：生产部署需要多租户技术</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-4-sram-dram">Thought 4：较大的 SRAM 和存取速度极快的 DRAM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-5-flops">Thought 5：重要的是内存，而非 FLOPs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-6-dsa">Thought 6：DSA 既要专业也要灵活</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-7">Thought 7：半导体技术发展速度不同，要做好选型</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thought-8-ai">Thought 8：编译器优化和 AI 应用兼容</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">参考文献</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">模型对内存和算力的需求</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">模型结构快速演变</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">生产部署提供多租户</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sram-dram">SRAM 与 DRAM 的权衡</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">内存比非算力重要</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dsa">DSA 既要专业也要灵活</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">半导体供应链的选型</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">编译器优化和 AI 应用兼容</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">参考文献</a></li>
 </ul>
   </nav></div>
 

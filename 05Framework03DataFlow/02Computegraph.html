@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="计算图原理" />
+<meta property="og:title" content="计算图原理(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="05Framework03DataFlow/02Computegraph.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
@@ -19,7 +19,7 @@
 <meta name="description" content="在前面的章节曾经提到过，目前主流的 AI 框架都选择使用 计算图 来抽象神经网络计算表达，通过通用的数据结构（张量）来理解、表达和执行神经网络模型，通过 计算图 可以把 AI 系统化的问题形象地表示出来。 本节将会以 AI 概念落地的时候，遇到的一些问题与挑战，因此引出了计算图的概念来对神经网络模型进行统一抽象。接着展开什么是计算，计算图的基本构成来深入了解诶计算图。最后简单地学习 PyTo..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>计算图原理 &#8212; AI System</title>
+    <title>计算图原理(DONE) &#8212; AI System</title>
   
   
   
@@ -81,8 +81,8 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="计算图与自动微分" href="03Atuodiff.html" />
-    <link rel="prev" title="基本介绍" href="01Introduction.html" />
+    <link rel="next" title="计算图与自动微分(DONE)" href="03Atuodiff.html" />
+    <link rel="prev" title="基本介绍(DONE)" href="01Introduction.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
@@ -317,12 +317,13 @@
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD/SIMT 与 AI 芯片的关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">CUDA/SIMD/SIMT/DSA 关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 和 NVIDIA 中借鉴</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD &amp; SIMT 与芯片架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">SIMD &amp; SIMT 与 CUDA 关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/04NVSIMT.html">CUDA 编程模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 对 AI 芯片思考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考(DONE)</a></li>
 </ul>
 </li>
 </ul>
@@ -423,7 +424,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
@@ -436,30 +437,30 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">计算图</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">计算图原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Atuodiff.html">计算图与自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04Dispatch.html">计算图的调度与执行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05ControlFlow.html">计算图的控制流实现</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06StaticGraph.html">动态图与静态图转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07Future.html">计算图的挑战&amp;未来</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">计算图(DONE)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">计算图原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Atuodiff.html">计算图与自动微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04Dispatch.html">计算图的调度与执行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05ControlFlow.html">计算图的控制流实现(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06StaticGraph.html">动态图与静态图转换(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -692,7 +693,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>计算图原理</h1>
+    <h1>计算图原理(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -703,23 +704,23 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI 系统化问题</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">遇到的挑战</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">计算图的定义</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">遇到的挑战</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">计算图的定义</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">计算图的基本构成</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">数据表达方式</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">张量和张量操作</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">计算图表示 AI 框架</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">计算图的基本构成</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">数据表达方式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">张量和张量操作</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">计算图表示 AI 框架</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch 计算图</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">动态计算图</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">动态计算图</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function">计算图中 Function</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">视频</a></li>
 </ul>
             </nav>
         </div>
@@ -732,14 +733,14 @@ document.write(`
                 <article class="bd-article">
                   
 <!--适用于[License](https://github.com/chenzomi12/AISystem/blob/main/LICENSE)版权许可-->
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>计算图原理<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="done">
+<h1>计算图原理(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
 <p>在前面的章节曾经提到过，目前主流的 AI 框架都选择使用<strong>计算图</strong>来抽象神经网络计算表达，通过通用的数据结构（张量）来理解、表达和执行神经网络模型，通过<strong>计算图</strong>可以把 AI 系统化的问题形象地表示出来。</p>
 <p>本节将会以 AI 概念落地的时候，遇到的一些问题与挑战，因此引出了计算图的概念来对神经网络模型进行统一抽象。接着展开什么是计算，计算图的基本构成来深入了解诶计算图。最后简单地学习 PyTorch 如何表达计算图。</p>
 <section id="ai">
 <h2>AI 系统化问题<a class="headerlink" href="#ai" title="Link to this heading">#</a></h2>
-<section id="id2">
-<h3>遇到的挑战<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h3>遇到的挑战<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>在真正的 AI 工程化过程中，我们会遇到诸多问题。而为了高效地训练一个复杂神经网络，AI 框架需要解决许多问题，例如：</p>
 <ul class="simple">
 <li><p>如何对复杂的神经网络模型实现自动微分？</p></li>
@@ -752,8 +753,8 @@ document.write(`
 <p>因此派生出了目前主流的 AI 框架都选择使用<strong>计算图</strong>来抽象神经网络计算。</p>
 <p><img alt="计算图/数据流图" src="../_images/graph_framework01.png" /></p>
 </section>
-<section id="id3">
-<h3>计算图的定义<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>计算图的定义<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>我们会经常遇到有些 AI 框架把统一的图描述称为数据流图，有些称为计算图，这里可以统称为<strong>计算图</strong>。下面简单介绍为什么可以都统称为计算图的原因。</p>
 <ul class="simple">
 <li><p>数据流图（Data Flow Diagram，DFD）：从数据传递和加工角度，以图形方式来表达系统的逻辑功能、数据在系统内部的逻辑流向和逻辑变换过程，是结构化系统分析方法的主要表达工具及用于表示软件模型的一种图示方法。在 AI 框架中数据流图表示对数据进行处理的单元，接收一定的数据输入，然后对其进行处理，再进行系统输出。</p></li>
@@ -768,10 +769,10 @@ document.write(`
 :width:<code class="docutils literal notranslate"><span class="pre">650px</span></code></p>
 </section>
 </section>
+<section id="id3">
+<h2>计算图的基本构成<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <section id="id4">
-<h2>计算图的基本构成<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<section id="id5">
-<h3>数据表达方式<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h3>数据表达方式<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>标量 Scalar</strong></p></li>
 </ul>
@@ -802,7 +803,7 @@ document.write(`
 </pre></div>
 </div>
 <p>图中对标量、向量、矩阵进行形象化表示：</p>
-<p><img alt="标量、向量与矩阵示例" src="../images/05Framework03DataFlow/023FW_DataFlow/data_type01.png" />
+<p><img alt="标量、向量与矩阵示例" src="../_images/data_type01.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">650px</span></code></p>
 <ul class="simple">
 <li><p><strong>张量</strong></p></li>
@@ -811,8 +812,8 @@ document.write(`
 <p>在几何代数中，张量是基于向量和矩阵的推广，通俗一点理解的话，可以将标量是为零阶张量，向量视为一阶张量，矩阵视为二阶张量。在 AI 框架中，所有数据将会使用张量进行表示，例如，图像任务通常将一副图片根据组织成一个 3 维张量，张量的三个维度分别对应着图像的长、宽和通道数，一张长和宽分别为 H, W 的彩色的图片可以表示为一个三维张量，形状为 (C, H, W)。自然语言处理任务中，一个句子被组织成一个 2 维张量，张量的两个维度分别对应着词向量和句子的长度。</p>
 <p>一组图像或者多个句子只需要为张量再增加一个批量（batch）维度，N 张彩色图片组成的一批数据可以表示为一个四维张量，形状为 (N, C, H, W)。</p>
 </section>
-<section id="id6">
-<h3>张量和张量操作<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>张量和张量操作<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>在执行计算任务中，数据常常被组织成一个高维数组，整个计算任务的绝大部分时间都消耗在高维数组上的数值计算操作上。高维数组和高维数组之上的数值计算是神经网络的核心，构成了计算图中最重要的一类基本算子。在 AI 框架的数据中主要有稠密张量和稀疏张量，这里先考虑最为常用的稠密张量。</p>
 <p>张量作为高维数组，是对标量，向量，矩阵的推广。AI 框架对张量的表示主要有以下几个重要因素：</p>
 <ol class="arabic simple">
@@ -821,17 +822,17 @@ document.write(`
 <li><p><strong>设备</strong>：决定了张量的存储设备，如在通用处理器 CPU 中的 DDR 上还是 GPU/NPU 的 HBM 上等。</p></li>
 </ol>
 <p>下面是针对形状为 (3, 2, 5) 的三维张量进行表示。</p>
-<p><img alt="三维张量示例" src="../images/05Framework03DataFlow/023FW_DataFlow/data_type02.png" /></p>
+<p><img alt="三维张量示例" src="../_images/data_type02.png" /></p>
 <p>虽然张量通常用索引来指代轴，但是始终要记住每个轴的含义。轴一般按照从全局到局部的顺序进行排序：首先是批次轴，随后是空间维度，最后是每个位置的特征。这样，在内存中，特征向量就会位于连续的区域。例如针对形状为 (3, 2, 4, 5) 的四维张量进行表示，其内存表示如图中右侧所示。</p>
-<p><img alt="四维张量示例" src="../images/05Framework03DataFlow/023FW_DataFlow/data_type03.png" />
+<p><img alt="四维张量示例" src="../_images/data_type03.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">550px</span></code></p>
 <p>高维数组为开发者提供了一种逻辑上易于理解的方式来组织有着规则形状的同质数据，极大地提高了编程的可理解性。另一方面，使用高维数据组织数据，易于让后端自动推断并完成元素逻辑存储空间向物理存储空间的映射。更重要的是：张量操作将同构的基本运算类型作为一个整体进行批量操作，通常都隐含着很高的数据并行性，因此非常适合在单指令多数据（SIMD）并行后端上进行加速。</p>
 </section>
-<section id="id7">
-<h3>计算图表示 AI 框架<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>计算图表示 AI 框架<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>计算图是用来描述运算的有向无环图，有两个主要元素：节点 (Node) 和边 (Edge)。节点表示数据，如向量、矩阵、张量；边表示具体执行的运算，如加、减、乘、除和卷积等。</p>
 <p>下面以简单的数学公式 <span class="math notranslate nohighlight">\(z = x + y\)</span> 为例，可以绘制上述方程的计算图如下：</p>
-<p><img alt="z=x+y 计算图表示" src="../images/05Framework03DataFlow/023FW_DataFlow/compute_graph01.png" />
+<p><img alt="z=x+y 计算图表示" src="../_images/compute_graph01.png" />
 :width:<code class="docutils literal notranslate"><span class="pre">400px</span></code></p>
 <p>上面的计算图具有一个三个节点，分别代表张量数据中的两个输入变量 x 和 y 以及一个输出 z。两条边带有具体的 “+” 符号表示加法。</p>
 <p>在 AI 框架中会稍微有点不同，其计算图的基本组成有两个主要的元素：1）基本数据结构张量和 2）基本计算单元算子。节点代表 Operator 具体的计算操作（即算子），边代表 Tensor 张量。整个计算图能够有效地表达神经网络模型的计算逻辑和状态。</p>
@@ -846,7 +847,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ Loss(x, x') = f(x) - x' \]</div>
 <p>根据正向的神经网络模型定义，AI 框架中的计算图如下：</p>
-<p><img alt="Conv + ReLU 计算图表示" src="../images/05Framework03DataFlow/023FW_DataFlow/compute_graph02.png" /></p>
+<p><img alt="Conv + ReLU 计算图表示" src="../_images/compute_graph02.png" /></p>
 <p>上面 (a) 中计算图具有两个节点，分别代表卷积 Conv 计算和激活 ReLU 计算，Conv 计算接受三个输入变量 x 和权重 w  以及一个偏置 b，激活接受 Conv 卷积的输出并输出一个变量。（b）为对应（a）的反向计算图，在神经网络模型训练的过程当中，自动微分功能会为开发者自动构建反向图，然后输入输出完整一个完整 step 计算。</p>
 <p>总而言之，AI 框架的设计很自然地沿用了张量和张量操作，将其作为构造复杂神经网络的基本描述单元，开发者可以在不感知复杂的框架后端实现细节的情况下，在 Python 脚本语言中复用由后端优化过的张量操作。而计算 Kernel 的开发者，能够隔离神经网络算法的细节，将张量计算作为一个独立的性能域，使用底层的编程模型和编程语言应用硬件相关优化。</p>
 <blockquote>
@@ -856,8 +857,8 @@ document.write(`
 </section>
 <section id="pytorch">
 <h2>PyTorch 计算图<a class="headerlink" href="#pytorch" title="Link to this heading">#</a></h2>
-<section id="id8">
-<h3>动态计算图<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>动态计算图<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>在 Pytorch 的计算图中，同样由节点和边组成，节点表示张量或者函数，边表示张量和函数之间的依赖关系。其中 Pytorch 中的计算图是动态图。这里的动态主要有两重含义。</p>
 <ul class="simple">
 <li><p>第一层含义是：计算图的正向传播是立即执行的。无需等待完整的计算图创建完毕，每条语句都会在计算图中动态添加节点和边，并立即执行正向传播得到计算结果。</p></li>
@@ -929,16 +930,16 @@ tensor([[4.5000]])
 </div>
 </section>
 </section>
-<section id="id9">
-<h2>总结<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>总结<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>了解 AI 应用或者深度学习需要工程化、系统化过程中会遇到哪些问题</p></li>
 <li><p>计算图的提出，解决了 AI 系统向下硬件执行计算统一表示，向上承接 AI 相关程序表示</p></li>
 <li><p>了解了计算图的基本构成是由独立的数据结构张量和基本计算单元算子组成</p></li>
 </ul>
 </section>
-<section id="id10">
-<h2>视频<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h2>视频<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?aid=346347233&bvid=BV1rR4y197HM&cid=911588326&page=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -985,7 +986,7 @@ tensor([[4.5000]])
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">基本介绍</p>
+        <p class="prev-next-title">基本介绍(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -993,7 +994,7 @@ tensor([[4.5000]])
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">计算图与自动微分</p>
+        <p class="prev-next-title">计算图与自动微分(DONE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1014,23 +1015,23 @@ tensor([[4.5000]])
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI 系统化问题</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">遇到的挑战</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">计算图的定义</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">遇到的挑战</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">计算图的定义</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">计算图的基本构成</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">数据表达方式</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">张量和张量操作</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">计算图表示 AI 框架</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">计算图的基本构成</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">数据表达方式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">张量和张量操作</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">计算图表示 AI 框架</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch 计算图</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">动态计算图</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">动态计算图</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function">计算图中 Function</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">视频</a></li>
 </ul>
   </nav></div>
 
