@@ -14,7 +14,7 @@
 <meta property="og:description" content="在上一节中，我们详细探讨了 GCC 的编译过程和原理。然而，由于 GCC 存在代码耦合度高、难以进行独立操作以及庞大的代码量等缺点。正是由于对这些问题的意识，人们开始期待新一代编译器的出现。在本节，我们将深入研究 LLVM 的架构设计和原理，以探索其与 GCC 不同之处。 LLVM 发展历程: 在早期的 Apple MAC 电脑选择使用 GNU 编译器集合（GCC）作为官方编译器。尽管 GC..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
+<meta property="og:image" content="/_images/social_previews/summary_03Compiler01Tradition_04LLVM_ce28343f.png" />
 <meta property="og:image:alt" content="在上一节中，我们详细探讨了 GCC 的编译过程和原理。然而，由于 GCC 存在代码耦合度高、难以进行独立操作以及庞大的代码量等缺点。正是由于对这些问题的意识，人们开始期待新一代编译器的出现。在本节，我们将深入研究 LLVM 的架构设计和原理，以探索其与 GCC 不同之处。 LLVM 发展历程: 在早期的 Appl..." />
 <meta name="description" content="在上一节中，我们详细探讨了 GCC 的编译过程和原理。然而，由于 GCC 存在代码耦合度高、难以进行独立操作以及庞大的代码量等缺点。正是由于对这些问题的意识，人们开始期待新一代编译器的出现。在本节，我们将深入研究 LLVM 的架构设计和原理，以探索其与 GCC 不同之处。 LLVM 发展历程: 在早期的 Apple MAC 电脑选择使用 GNU 编译器集合（GCC）作为官方编译器。尽管 GC..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -80,11 +80,11 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="LLVM IR 详解" href="05LLVMDetail01.html" />
-    <link rel="prev" title="GCC 编译过程和原理" href="03GCC.html" />
+    <link rel="prev" title="GCC 主要特征" href="03GCC.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 26, 2024"/>
+    <meta name="docbuild:last-update" content="May 27, 2024"/>
 
 <link
   rel="alternate"
@@ -331,10 +331,10 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">传统编译器</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01Introduction.html">编译器基础介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02History.html">传统编译器发展</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03GCC.html">GCC 编译过程和原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03GCC.html">GCC 主要特征</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">LLVM 架构设计和原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05LLVMDetail01.html">LLVM IR 详解</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05LLVMDetail02.html">LLVM 前端和优化层</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05LLVMDetail02.html">LLVM前端和优化层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05LLVMDetail03.html">LLVM 后端代码生成</a></li>
 </ul>
 </li>
@@ -355,7 +355,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07.constant_fold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08.cse.html">公共表达式消除</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09.dce.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10.algebraic.html">代数简化原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/11.summary.html">优化 Pass 总结</a></li>
 </ul>
 </li>
@@ -543,7 +543,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/sphinx-book-theme/blob/master/docs/03Compiler01Tradition/04LLVM.md?plain=1" target="_blank"
+      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/blob/master/03Compiler01Tradition/04LLVM.md?plain=1" target="_blank"
    class="btn btn-sm btn-source-file-button dropdown-item"
    title="Show source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -560,7 +560,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/sphinx-book-theme/edit/master/docs/03Compiler01Tradition/04LLVM.md" target="_blank"
+      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/edit/master/03Compiler01Tradition/04LLVM.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -577,7 +577,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/sphinx-book-theme/issues/new?title=Issue%20on%20page%20%2F03Compiler01Tradition/04LLVM.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/issues/new?title=Issue%20on%20page%20%2F03Compiler01Tradition/04LLVM.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -703,16 +703,15 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">LLVM 发展历程</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">LLVM 架构特点</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">LLVM 组件独立</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">LLVM 组件独立性</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">LLVM 中间表达</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">LLVM 整体架构</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">LLVM 核心流程</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">案例实践</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">引用</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">案例实践</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">引用</a></li>
 </ul>
             </nav>
         </div>
@@ -733,10 +732,10 @@ document.write(`
 <p>在早期的 Apple MAC 电脑选择使用 GNU 编译器集合（GCC）作为官方编译器。尽管 GCC 在开源世界中表现良好，但苹果对编译工具提出了更高要求。苹果在增强 Objective-C 和 C 语言方面投入了大量努力，但 GCC 开发者对苹果在 Objective-C 支持方面的努力表示不满。因此，苹果基于 GCC 分为两个分支进行独立开发，导致苹果的编译器版本明显落后于官方 GCC 版本。</p>
 <p><img alt="" src="../_images/04LLVM01.png" /></p>
 <p>另一方面，GCC 的代码过于耦合，难以独立开发。随着版本更新，代码质量逐渐下降，而 GCC 无法以模块化方式调用实现 Apple 渴望的更好集成开发环境支持，这限制了 Apple 在编译器领域的发展。</p>
-<p>面对这些问题，苹果一直寻找高效、模块化和更自由的开源替代方案。最终，苹果聘请了编译器领域的专家克里斯·拉特纳来领导 LLVM 项目的实现，标志着 LLVM 编译器的诞生。</p>
+<p>面对这一系列问题，苹果一直寻找高效、模块化和更自由的开源替代方案。最终，苹果聘请了编译器领域的专家克里斯·拉特纳来领导 LLVM 项目的实现，标志着 LLVM 编译器的诞生。</p>
 <p><img alt="Chris Lattner" src="../_images/04LLVM02.png" /></p>
 <p>LLVM 项目起源于 2000 年伊利诺伊大学厄巴纳-香槟分校的维克拉姆·艾夫（Vikram Adve）和克里斯·拉特纳（Chris Lattner）的研究，旨在为所有静态和动态语言创建动态编译技术。LLVM 是以 BSD 许可证开发的开源软件。2005 年，苹果公司雇用了克里斯·拉特纳及其团队为 macOS 和 iOS 开发工具，LLVM 成为了这些平台开发工具的一部分。</p>
-<p>项目最初的命名来源于底层虚拟机（Low Level Virtual Machine）的首字母缩写。随着 LLVM 项目的发展，该缩写引起了混淆，因为项目范围不仅限于创建虚拟机。随着 LLVM 发展壮大，它成为了许多编译工具和低级工具技术的统称，这使得缩写变得不再合适。于是开发者决定摒弃缩写的含义，现在 LLVM 已经成为一个品牌，用于指代 LLVM 项目下的所有子项目，包括 LLVM 中介码（LLVM IR）、LLVM 调试工具、LLVM C++标准库等。</p>
+<p>项目最初被命名为低级虚拟机（Low Level Virtual Machine）的首字母缩写。然而，随着 LLVM 项目的发展，该缩写引起了混淆，因为项目范围不仅局限于创建虚拟机。随着 LLVM 发展壮大，它成为了许多编译工具和低级工具技术的统称，这使得缩写变得不再合适。于是开发者决定摒弃缩写的含义，现在 LLVM 已经成为一个品牌，用于指代 LLVM 项目下的所有子项目，包括 LLVM 中介码（LLVM IR）、LLVM 调试工具、LLVM C++标准库等。</p>
 <p>从 9.0.0 版本开始，LLVM 改用带有 LLVM 额外条款的 Apache 许可证 2.0。自 2019 年 10 月起，LLVM 项目的代码存储已正式迁移到 GitHub<a class="reference internal" href="#ref3"><span class="xref myst"><sup>3</sup></span></a>。</p>
 <p>LLVM 项目已经迅速发展成为一个庞大的编译器工具集合。LLVM 激发了许多人为多种编程语言开发新的编译器，其中最引人注目的之一是 Clang。作为一个新的编译器，Clang 提供对 C、Objective-C 和 C++ 的支持，并且得到了苹果公司的大力支持。Clang 的目标是取代 GCC 在系统中的 C 和 Objective-C 编译器，它能够更轻松地集成到现代开发环境（IDE）中，并且支持线程的更好处理。从 Clang 3.8 版本开始，它还开始支持 OpenMP。GCC 在 Objective-C 方面的发展已经停滞，苹果已经将其支持转移到其他维护分支上。</p>
 <p>在 2021 年 jetbrains 开发者调查中表示 GCC 编译器拥有 78%的用户使用率，Clean 编译器有 43% 的用户使用率。</p>
@@ -744,22 +743,21 @@ document.write(`
 <blockquote>
 <div><p>由于 LLVM 对产业的重大贡献，计算机协会在 2012 年授予维克拉姆·艾夫、克里斯·拉特纳和 Evan ChengACM 软件系统奖。</p>
 </div></blockquote>
-<p>====== 我稍微做了结构的调整，这里可以再 review 以下，整体在调整一下细节使得更加通顺。</p>
 </section>
 <section id="id2">
 <h2>LLVM 架构特点<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>======= LLVM 的架构特点是？一段话高度总结一下哈。</p>
+<p>LLVM 架构具有独立的组件和库化的特点，使得前端和后端工程师能够相对独立地进行工作，从而提高了开发效率和代码维护性。其核心在于中间表示（IR），通过统一且灵活的IR实现了对不同编程语言和目标平台的支持。优化器能够将IR转换为高效的形式，再由后端生成目标平台的机器码。这种设计使得LLVM具有适应不同编程需求和硬件架构的灵活性和高性能，为软件开发提供了强大的支持。</p>
 <section id="id3">
-<h3>LLVM 组件独立<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>LLVM 具有一个重要的特点，就是它的组件独立性和库化架构。使用 LLVM，前端工程师在需要添加一门新的编程语言时，只需实现相应的前端，而不需要修改后端部分。这是因为后端只需将中间表示（IR）翻译成目标平台的机器码即可。</p>
-<p>对于后端工程师来说，他们只需将目标硬件的特性如寄存器、硬件调度以及指令调度对接到 IR 上，而无需修改前端部分。这种灵活的架构使得编译器的前端和后端工程师可以相对独立地开展工作，大大提高了开发效率和维护性。</p>
-<p>在 LLVM 中，IR 扮演着至关重要的角色。它是一种类似汇编语言的底层语言，但具有强类型和精简指令集的特点（RISC），并对目标指令集进行了抽象。例如，在 IR 中，目标指令集的函数调用惯例会被抽象为 call 和 ret 指令，并使用明确的参数。</p>
-<p>此外，LLVM 支持三种不同的 IR 表达形式：人类可读的汇编形式、在 C++中的对象形式以及序列化后的 bitcode 形式。这种多样化的表达形式使得开发人员更好地理解和处理 IR，进而实现更加灵活和高效的编译工作。通过 IR 的抽象和统一，LLVM 极大地创新了编译体系的概念，为编程语言的快速开发和跨平台支持提供了强大的基础。</p>
+<h3>LLVM 组件独立性<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>LLVM 具有一个显著的特点，即其组件的独立性和库化架构。在使用 LLVM 时，前端工程师只需实现相应的前端，而无需修改后端部分，从而使得添加新的编程语言变得更加简便。这是因为后端只需要将中间表示（IR）翻译成目标平台的机器码即可。</p>
+<p>对于后端工程师而言，他们只需将目标硬件的特性如寄存器、硬件调度以及指令调度与IR进行对接，而无需干涉前端部分。这种灵活的架构使得编译器的前端和后端工程师能够相对独立地进行工作，从而极大地提高了开发效率和维护性。</p>
+<p>在 LLVM 中，IR扮演着至关重要的角色。它是一种类似汇编语言的底层语言，但具有强类型和精简指令集的特点（RISC），并对目标指令集进行了抽象。例如，在IR中，目标指令集的函数调用惯例会被抽象为 call 和 ret 指令，并使用明确的参数。</p>
+<p>LLVM 支持三种不同的IR表达形式：人类可读的汇编形式、在 C++ 中的对象形式以及序列化后的 bitcode 形式。这种多样化的表达形式使得开发人员更好地理解和处理 IR，从而实现更加灵活和高效的编译工作。通过IR的抽象和统一，LLVM 极大地推动了编译体系的创新，为编程语言的快速开发和跨平台支持提供了强大的基础。</p>
 </section>
 <section id="id4">
 <h3>LLVM 中间表达<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<p>LLVM 提供了一套适合编译器系统的中间语言（Intermediate Representation，IR），围绕这个中间语言进行了大量的变换和优化。经过这些变换和优化，IR 可以被转换为目标平台相关的汇编语言代码。</p>
-<p>与传统 GCC 的前端直接对应于后端不同，LLVM 的 IR 是统一的，可以适用于多种平台、进行优化和代码生成。</p>
+<p>LLVM提供了一套适用于编译器系统的中间语言（Intermediate Representation，IR），并围绕这个中间语言进行了大量的变换和优化。经过这些变换和优化，IR可以被转换为目标平台相关的汇编语言代码。</p>
+<p>与传统 GCC 的前端直接对应于后端不同，LLVM 的 IR 是统一的，可以适用于多种平台，进行优化和代码生成。</p>
 <blockquote>
 <div><p>根据 2011 年的测试结果，LLVM 的性能在运行时平均比 GCC 低 10%。2013 年的测试显示，LLVM 能够编译出与 GCC 性能相近的执行代码。</p>
 </div></blockquote>
@@ -769,69 +767,85 @@ document.write(`
 <p><img alt="LLVM 的 IR" src="../_images/04LLVM04.png" /></p>
 <p>LLVM IR 的优点包括：</p>
 <ol class="arabic simple">
-<li><p>更独立：LLVM IR 设计为可以在编译器之外的任意工具中重用，使得可以轻松集成其他类型的工具，例如静态分析器和插桩器。</p></li>
-<li><p>更正式：拥有明确定义和规范化的 C++ API，这使得处理、转换和分析变得更加容易。</p></li>
-<li><p>更硬件：LLVM IR 提供了类似 RISCV 的模拟指令集和强类型系统，实现了其“通用表示”的目的。足够底层的指令和细粒度的类型使得上层语言和 IR 的隔离变得容易，同时 IR 的行为更加贴近硬件，使得在 LLVM IR 上的进一步分析成为可能。</p></li>
+<li><p>更独立：LLVM IR 设计为可在编译器之外的任意工具中重用，使得轻松集成其他类型的工具，如静态分析器和插桩器成为可能。</p></li>
+<li><p>更正式：拥有明确定义和规范化的 C++ API，使得处理、转换和分析变得更加便捷。</p></li>
+<li><p>更接近硬件：LLVM IR 提供了类似 RISCV 的模拟指令集和强类型系统，实现了其“通用表示”的目标。具有足够底层指令和细粒度类型的特性使得上层语言和 IR 的隔离变得简单，同时 IR 的行为更接近硬件，为进一步在 LLVM IR 上进行分析提供了可能性。</p></li>
 </ol>
-<p>======= 很多内容看上去像是翻译的，可以自己通读一下文章，然后改改。</p>
 </section>
 </section>
 <section id="id5">
 <h2>LLVM 整体架构<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>LLVM 整体架构，涵盖从指令选择到最终汇编指令生成的完整优化流程。实际在使用过程中使用 C/C++/Obj-C 都会用到 Clang 的前端，往下使用的是 LLVM 的优化器后端。</p>
+<p>LLVM 是一个模块化和可重用的编译器和工具链技术库。它的整体架构包含从前端语言处理到最终生成目标机器码的完整优化流程。对于用户而言，通常会使用 Clang 作为前端，而 LLVM 的优化器和后端处理则是透明的。</p>
 <p><img alt="编译器" src="../_images/04LLVM06.png" /></p>
-<p>所以用户看到的就只是 Clang 的前端，而后面 LLVM 的优化器和后端都隐藏在幕后。</p>
+<ul class="simple">
+<li><p>前端（Front-End）：负责处理高级语言（如 C/C++/Obj-C）的编译，生成中间表示（IR）。</p></li>
+<li><p>优化器（Optimizer）：对中间表示进行各种优化，提高代码执行效率。</p></li>
+<li><p>后端（Back-End）：将优化后的中间表示转换为目标平台的机器码。</p></li>
+</ul>
 <p><img alt="编译器" src="../_images/04LLVM07.png" /></p>
-<p>首先我们以 C/C++/Obj-C 高级语言作为输入，输入到 Clang 前端，Clang 前端会对这些高级语言做一些词法分析、语法分析、语义分析等操作，生成抽象语法树（AST）。然后 Clang 会将 AST 转换为 LLVM 的中间表示（IR）。</p>
-<p>LLVM 的中间表示（IR）连接前端和后端。然后 LLVM 的优化器会对 IR 进行优化，优化器会将 IR 转换为更高效的 IR。最后，LLVM 的后端会将 IR 转换为目标平台相关的汇编代码，并生成可执行文件。</p>
+<p>当用户编写的 C/C++/Obj-C 代码输入到 Clang 前端时，Clang 会执行以下步骤：</p>
+<ul class="simple">
+<li><p>词法分析（Lexical Analysis）：将源代码转换为标记（tokens）。</p></li>
+<li><p>语法分析（Syntax Analysis）：将标记转换为抽象语法树（AST）。</p></li>
+<li><p>语义分析（Semantic Analysis）：检查语义正确性，生成中间表示（IR）。</p></li>
+</ul>
+<p>生成的抽象语法树（AST）通过进一步处理，转换为 LLVM 的中间表示（IR）。这个中间表示是一种平台无关的低级编程语言，用于连接前端和后端。</p>
 <p>在详细的架构图中，我们可以看到 LLVM 的前端、优化器、后端等各个组件的交互。在前端，Clang 会将高级语言代码转换为为 LLVM 的中间表示（IR）。</p>
 <p><img alt="编译器" src="../_images/04LLVM08.png" /></p>
-<p>在中间的编译优化层中，LLVM 会有非常多的 pass，不同的 pass 会对 IR 进行不同的优化处理，将 IR 转换为更高效的 IR。这里有关 pass 的详细内容将在下一节进行介绍。对 IR 的优化完成之后，编译器还是会以 LLVM 的中间表示（IR）作为输出，然后 LLVM 的后端会将 IR 转换为目标平台相关的机器码。</p>
-<p>在后端中 LLVM 会进行指令选择，选择适合特定机器架构的指令。接下来，会进行寄存器分配，为指令分配合适的寄存器。然后，进行指令调度，优化指令执行顺序以提高性能。之后经过指令调度，会对代码进行布局，调整代码的排列顺序以适应目标硬件的执行特性。最后，会进行代码组装，生成目标硬件对应的汇编指令。</p>
-<p>======= 有些内容过于口水话，应该更加描述得更加准确一点。如所以用户看到的就只是 Clang 的前端，而后面 LLVM 的优化器和后端都隐藏在幕后。藏在幕后？藏在哪里？架构很清楚，后端前端、中间层。</p>
-</section>
-<section id="id6">
-<h2>LLVM 核心流程<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<p>编译器前端工作流程（词法、语法、语义分析）
-中间优化层大数据中的 Pass 优化
-编译器后端工作流程（机器指令选择、寄存器分配、指令调度）</p>
-<p>======= 把上面改成一句话或者一段话哈，不要罗列出来。</p>
+<p>LLVM 的优化器通过多个优化 pass 来提升中间表示（IR）的性能。每个 pass 都对 IR 进行特定的优化操作，例如：</p>
+<ul class="simple">
+<li><p>常量折叠（Constant Folding）：将编译时已知的常量表达式直接计算并替换。</p></li>
+<li><p>循环优化（Loop Optimizations）：如循环展开、循环交换等，以提高循环执行效率。</p></li>
+<li><p>死代码消除（Dead Code Elimination）：移除不必要的代码，提高执行效率。
+经过优化后的 IR 是一个更高效的中间表示，准备好进行后续的代码生成。</p></li>
+</ul>
+<p>LLVM 的后端负责将优化后的中间表示转换为目标平台的机器码。这包含以下步骤：</p>
+<ul class="simple">
+<li><p>指令选择（Instruction Selection）：将 IR 转换为目标架构的汇编指令。</p></li>
+<li><p>寄存器分配（Register Allocation）：为指令分配合适的寄存器。</p></li>
+<li><p>指令调度（Instruction Scheduling）：优化指令执行顺序，以提高指令流水线的效率。</p></li>
+<li><p>代码布局（Code Layout）：调整代码的排列顺序，以适应目标硬件的执行特性。</p></li>
+<li><p>代码生成（Code Generation）：生成目标平台的汇编代码和最终的机器码。
+最终，LLVM 后端输出目标平台的可执行文件。</p></li>
+</ul>
+<p>LLVM 的整体架构清晰地分为前端、优化器和后端三个部分。用户与 Clang 前端直接交互，输入高级语言代码，而 Clang 将其转换为中间表示。之后，LLVM 的优化器和后端在后台处理，进行复杂的优化和代码生成步骤，最终输出高效的目标机器码。</p>
 <p><img alt="编译器" src="../_images/llvm_ir06.png" /></p>
 <p>在使用 LLVM 时，我们会从原始的 C 代码开始。这个 C 代码会经过一系列的预处理步骤，最终被转换为 LLVM 的中间表示文件（.ll 文件）或者 LLVM 字节码文件（.bc 文件）。</p>
 <p>接下来使用 LLVM 的前端工具将中间表示文件编译成 IR。IR 的表示有两种方式，一种是 LLVM 汇编语言（.ll 文件），另一种是 LLVM 字节码（.bc 文件）。LLVM 汇编语言更为易读，方便人类阅读和理解。</p>
-<p>IR 经过 LLVM 的后端编译器工具 llc 将 IR 转换为汇编代码（assembly code），这个汇编代码是特定机器（目标机器）的机器码指令的文本表示。</p>
-<p>最后的两个步骤是将汇编代码汇编（assemble）成机器码文件，然后链接（link）生成可执行二进制文件，可以在特定平台上运行。</p>
+<p>IR 经过 LLVM 的后端编译器工具 llc 将 IR 转换为汇编代码（assembly code）。这个汇编代码是目标机器特定机器码指令的文本表示。</p>
+<p>最后的两个步骤是将汇编代码汇编（assemble）成机器码文件，然后链接（link）生成可执行二进制文件，使其可以在特定平台上运行。</p>
 </section>
-<section id="id7">
-<h2>案例实践<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<p>Clang 编译流程。</p>
-<p>======== 加一段话或者一句话，说明这下面或者里面 Clang 编译的是什么。 hello.c 有内容介绍吗？没有上下文哈。</p>
+<section id="id6">
+<h2>案例实践<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>以下是对 Clang 编译过程中各个步骤的说明，其中 hello.c 是我们需要编译的c文件。</p>
 <ol class="arabic simple">
 <li><p>生成.i 文件</p></li>
 </ol>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clang<span class="w"> </span>-E<span class="w"> </span>-c<span class="w"> </span>.<span class="se">\h</span>ello.c<span class="w"> </span>-o<span class="w"> </span>.<span class="se">\h</span>ello.i
 </pre></div>
 </div>
+<p>这一步使用 Clang 的预处理器将 hello.c 文件中的所有预处理指令展开，生成预处理后的文件 hello.i。这包括展开宏定义、处理 #include 头文件等，生成一个纯 C 代码文件。</p>
 <ol class="arabic simple" start="2">
 <li><p>将预处理过后的.i 文件转化为.bc 文件</p></li>
 </ol>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clang<span class="w"> </span>-emit-llvm<span class="w"> </span>.<span class="se">\h</span>ello.i<span class="w"> </span>-c<span class="w"> </span>-o<span class="w"> </span>.<span class="se">\h</span>ello.bc
 </pre></div>
 </div>
+<p>这一步将预处理后的 hello.i 文件编译为 LLVM 位代码（bitcode）文件 hello.bc。LLVM 位代码是中间表示形式，可供进一步优化和转换。</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clang<span class="w"> </span>-emit-llvm<span class="w"> </span>.<span class="se">\h</span>ello.c<span class="w"> </span>-S<span class="w"> </span>-o<span class="w"> </span>.<span class="se">\h</span>ello.ll
 </pre></div>
 </div>
+<p>这一步将 hello.c 文件直接编译成 LLVM 中间表示的汇编代码文件 hello.ll，这是一种人类可读的中间表示形式，适用于进一步的分析和优化。</p>
 <ol class="arabic simple" start="3">
 <li><p>llc</p></li>
 </ol>
-<p>======= 上面 1.2 都是具体的步骤，这里 3 是什么？</p>
-<p>lld 链接器子项目旨在为 LLVM 开发一个内置的，平台独立的链接器[23]，去除对所有第三方链接器的依赖。在 2017 年 5 月，lld 已经支持 ELF、PE/COFF、 和 Mach-O。在 lld 支持不完全的情况下，用户可以使用其他项目，如 GNU ld 链接器。 lld 支持链接时优化。当 LLVM 链接时优化被启用时，LLVM 可以输出 bitcode 而不是本机代码，而本机代码生成由链接器优化处理。</p>
+<p>在前面两个步骤中，我们生成了 .i 文件和 LLVM 位代码文件 .bc 或中间表示文件 .ll。接下来，我们可以使用 llc 工具将这些中间表示文件转换为目标平台的汇编代码。</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>llc<span class="w"> </span>.<span class="se">\h</span>ello.ll<span class="w"> </span>-o<span class="w"> </span>.<span class="se">\h</span>ello.s
 llc<span class="w"> </span>.<span class="se">\h</span>ello.bc<span class="w"> </span>-o<span class="w"> </span>.<span class="se">\h</span>ello2.s
 </pre></div>
 </div>
-<p>此时 hello.s 与 hello2.s 是相同的汇编代码。</p>
-<ol class="arabic simple" start="4">
+<p>通过以上命令，我们分别将 hello.ll 文件和 hello.bc 文件编译为汇编代码文件 hello.s 和 hello2.s。由于 hello.ll 和 hello.bc 表示相同的代码逻辑，所以生成的汇编代码文件 hello.s 和 hello2.s 是相同的。</p>
+<ol class="arabic simple">
 <li><p>转变为可执行的二进制文件</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clang</span> <span class="o">.</span>\<span class="n">hello</span><span class="o">.</span><span class="n">s</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span>
@@ -854,22 +868,22 @@ llc<span class="w"> </span>.<span class="se">\h</span>ello.bc<span class="w"> </
 </div>
 <p>其中 0 是输入，1 是预处理，2 是编译，3 是后端优化，4 是产生汇编指令，5 是库链接，6 是生成可执行的 x86_64 二进制文件。</p>
 </section>
-<section id="id8">
-<h2>总结<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h2>总结<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>LLVM 把编译器移植到新语言只需要实现编译前端，复用已有的优化和后端；</p></li>
 <li><p>LLVM 实现不同组件隔离为单独程序库，易于在整个编译流水线中集成转换和优化 Pass；</p></li>
 <li><p>LLVM 作为实现各种静态和运行时编译语言的通用基础结构。</p></li>
 </ul>
 </section>
-<section id="id9">
-<h2>本节视频<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>本节视频<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?aid=817933285&bvid=BV1CG4y1V7Dn&cid=900870578&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
 </section>
-<section id="id10">
-<h2>引用<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h2>引用<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>https://www.jetbrains.com/lp/devecosystem-2021/cpp/</p></li>
 <li><p>https://zh.wikipedia.org/wiki/LLVM</p></li>
@@ -919,7 +933,7 @@ llc<span class="w"> </span>.<span class="se">\h</span>ello.bc<span class="w"> </
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">GCC 编译过程和原理</p>
+        <p class="prev-next-title">GCC 主要特征</p>
       </div>
     </a>
     <a class="right-next"
@@ -949,16 +963,15 @@ llc<span class="w"> </span>.<span class="se">\h</span>ello.bc<span class="w"> </
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">LLVM 发展历程</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">LLVM 架构特点</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">LLVM 组件独立</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">LLVM 组件独立性</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">LLVM 中间表达</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">LLVM 整体架构</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">LLVM 核心流程</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">案例实践</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">引用</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">案例实践</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">引用</a></li>
 </ul>
   </nav></div>
 
@@ -981,7 +994,7 @@ llc<span class="w"> </span>.<span class="se">\h</span>ello.bc<span class="w"> </
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 26, 2024.
+  Last updated on May 27, 2024.
   <br/>
 </p>
   </div>

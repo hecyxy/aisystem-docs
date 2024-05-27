@@ -14,7 +14,7 @@
 <meta property="og:description" content="在本章节中，我们将深入探讨谷歌的 Tensor Processing Unit（TPU）的发展历程及其在深度学习和人工智能领域的应用。TPU 是谷歌为加速机器学习任务而设计的专用集成电路（ASIC），自首次推出以来，TPU 经历了多次迭代升级，包括 TPU v1、v2、v3 和 v4，以及 Edge TPU 和 Google Tensor 等产品。 这些 TPU 芯片在制程技术、芯片大小、内..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
+<meta property="og:image" content="/_images/social_previews/summary_02Hardware05Abroad_04TPUIntrol_78453aa1.png" />
 <meta property="og:image:alt" content="在本章节中，我们将深入探讨谷歌的 Tensor Processing Unit（TPU）的发展历程及其在深度学习和人工智能领域的应用。TPU 是谷歌为加速机器学习任务而设计的专用集成电路（ASIC），自首次推出以来，TPU 经历了多次迭代升级，包括 TPU v1、v2、v3 和 v4，以及 Edge TPU 和..." />
 <meta name="description" content="在本章节中，我们将深入探讨谷歌的 Tensor Processing Unit（TPU）的发展历程及其在深度学习和人工智能领域的应用。TPU 是谷歌为加速机器学习任务而设计的专用集成电路（ASIC），自首次推出以来，TPU 经历了多次迭代升级，包括 TPU v1、v2、v3 和 v4，以及 Edge TPU 和 Google Tensor 等产品。 这些 TPU 芯片在制程技术、芯片大小、内..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 26, 2024"/>
+    <meta name="docbuild:last-update" content="May 27, 2024"/>
 
 <link
   rel="alternate"
@@ -333,10 +333,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler01Tradition/README.html">传统编译器</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/01Introduction.html">编译器基础介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/02History.html">传统编译器发展</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/03GCC.html">GCC 编译过程和原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/03GCC.html">GCC 主要特征</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/04LLVM.html">LLVM 架构设计和原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail01.html">LLVM IR 详解</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail02.html">LLVM 前端和优化层</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail02.html">LLVM前端和优化层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail03.html">LLVM 后端代码生成</a></li>
 </ul>
 </li>
@@ -357,7 +357,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07.constant_fold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08.cse.html">公共表达式消除</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09.dce.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10.algebraic.html">代数简化原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/11.summary.html">优化 Pass 总结</a></li>
 </ul>
 </li>
@@ -545,7 +545,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/sphinx-book-theme/blob/master/docs/02Hardware05Abroad/04TPUIntrol.md?plain=1" target="_blank"
+      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/blob/master/02Hardware05Abroad/04TPUIntrol.md?plain=1" target="_blank"
    class="btn btn-sm btn-source-file-button dropdown-item"
    title="Show source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -562,7 +562,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/sphinx-book-theme/edit/master/docs/02Hardware05Abroad/04TPUIntrol.md" target="_blank"
+      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/edit/master/02Hardware05Abroad/04TPUIntrol.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -579,7 +579,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/sphinx-book-theme/issues/new?title=Issue%20on%20page%20%2F02Hardware05Abroad/04TPUIntrol.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/issues/new?title=Issue%20on%20page%20%2F02Hardware05Abroad/04TPUIntrol.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -865,7 +865,7 @@ document.write(`
 </tbody>
 </table>
 <p>下图是几代 TPU 的俯视图，第一行从左到右分别是 TPU v1, v2, v4, 第二行从左到右为 v4i 和 v3</p>
-<p><img alt="ALL TPU" src="images/02Hardware05Abroad/tpu/tpu_04.png" /></p>
+<p><img alt="ALL TPU" src="../_images/TPUIntro04.png" /></p>
 </section>
 <section id="id4">
 <h3>历代 TPU 产品<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
@@ -926,7 +926,7 @@ document.write(`
 <p>随着时间的推移，谷歌不仅在大型数据中心部署了先进技术，还洞察到将这些技术应用于消费电子产品，尤其是智能手机市场的巨大潜力。于是在 2017 年，谷歌在 Pixel 2 和 Pixel 3 上便搭载了谷歌针对消费类产品的首个定制图像芯片 —— Pixel Visual Core。之后，谷歌基于 Edge TPU 的框架研发了继任芯片 —— Pixel Neural Core，在 2019 年 10 月发布的 Pixel 4 上首次搭载。之后，谷歌在 Pixel 产品线上对于 TPU 的依赖也一直延续到了今天。</p>
 <p>在这个 AI 爆发的大时代，谷歌在移动端的 AI 掷下豪赌，对于最新发布的 Tensor G3，Google Silicon 的高级总监 Monika Gupta 是这样评价的：“我们的合作与 Tensor 一直不仅仅局限于追求速度和性能这样的传统评价标准。我们的目标是推动移动计算体验的进步。</p>
 <p>在最新的 Tensor G3 芯片中，我们对每个关键的系统组件都进行了升级，以便更好地支持设备上的生成式人工智能技术。这包括最新型号的 ARM 中央处理器、性能更强的图形处理器、全新的图像信号处理器和图像数字信号处理器，以及我们最新研发的，专门为运行 Google 的人工智能模型而量身打造的 TPU。”<a class="reference internal" href="#ref3"><span class="xref myst"><sup>[3]</sup></span></a></p>
-<p><img alt="Alt text" src="images/02Hardware05Abroad/tpu/tpu_06.png" /></p>
+<p><img alt="Alt text" src="../_images/TPUIntro06.png" /></p>
 </section>
 </section>
 <section id="id5">
@@ -952,29 +952,21 @@ document.write(`
 <p>神经网络在进行推理时，并不总是需要 32 位浮点数（FP32）或 16 位浮点数（FP16）以上的计算精度。TPU 通过引入一种称为<strong>量化</strong>的技术，可以将神经网络模型的权重和激活值从 FP32 或 FP16 转换为 8 位整数（Int8），从而实现模型的压缩。这种转换使得 INT8 能够近似表示在预设最小值和最大值之间的任意数的同时优化模型的存储和计算效率。</p>
 <p>在下图从 FP32 量化到 INT8 的过程中，虽然单个数据点无法维持 FP32 的超高精确度，整体数据分布却能保持大致准确。</p>
 <p>尽管连续数值被压缩到较小的离散范围可能引起一定精度损失，但得益于神经网络的泛化能力，在推理场景，特别是分类任务中，量化后的神经网络模型能够在保持接近原始 FP32/FP16 精度水平的同时，实现更快的推理速度和更低的资源消耗。</p>
-<p><img alt="Alt text" src="images/02Hardware05Abroad/tpu/tpu_08.png" /></p>
+<p><img alt="Alt text" src="../_images/TPUIntro08.png" /></p>
 <ul class="simple">
 <li><p><strong>特性二：脉动阵列 &amp; MXU</strong></p></li>
 </ul>
 <p>在 TPU 中有一个关键组件叫做 MXU（Matrix Multiply Unit，矩阵乘法单元）。与传统的 CPU 和 GPU 架构相比，MXU 专为高效处理大规模的 Int8 矩阵加乘法运算而设计了独特的<strong>脉动阵列</strong>（Systolic Array）架构。</p>
 <p>CPU 旨在执行各种计算任务，因此具备通用性。CPU 通过在寄存器中存储数据，并通过程序指令控制算术逻辑单元（ALU）读取哪些寄存器、执行何种操作（如加法、乘法或逻辑运算）以及将结果存储到哪个寄存器。程序由一系列的读取/操作/写入指令构成。这些支持通用性的特性（包括寄存器、ALU 以及程序控制）在功耗和芯片面积上付出了较高的代价。但是对于 MXU 来说，它只需要用 ALU 大批量处理矩阵的加乘运算，而在矩阵的加乘运算生成输出时会多次复用输入数据。因此在某些情况下，TPU 只需要读取每个输入值一次，就可以在不存储回寄存器的情况下将数据复用于许多不同的操作。<a class="reference internal" href="#ref2"><span class="xref myst"><sup>[2]</sup></span></a></p>
 <p>下面这个图中，左边的图例描述了 CPU 中的程序逻辑，数据在经过 ALU 计算前后都会经由寄存器处理，而右图描述了 TPU 内部数据在 ALU 之间更快地流动且复用的过程。<a class="reference internal" href="#ref2"><span class="xref myst"><sup>[2]</sup></span></a></p>
-<p><img alt="Alt text" src="images/02Hardware05Abroad/tpu/tpu_09.png" /></p>
-<p>下图的两个动图是脉动阵列的原理图示，我们可以看到，输入的数据在和权重矩阵相乘的流动中十分有节奏感，就像是心脏泵血一样，这就是为什么脉动阵列要这样命名（注：Systolic 一词专指“心脏收缩的”）</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head text-center"><p>用脉动阵列做输入向量和权重矩阵的矩阵乘法</p></th>
-<th class="head text-center"><p>用脉动阵列做输入矩阵和权重矩阵的矩阵乘法</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-center"><p><img alt="Alt text" src="images/02Hardware05Abroad/tpu/tpu_31.png" /></p></td>
-<td class="text-center"><p><img alt="Alt text" src="images/02Hardware05Abroad/tpu/tpu_32.png" /></p></td>
-</tr>
-</tbody>
-</table>
+<p><img alt="Alt text" src="../_images/TPUIntro09.png" /></p>
+<p>下图的两个图展示了用脉动阵列做为输入向量和输入矩阵的数据流动，我们可以看到，输入的数据在和权重矩阵相乘的流动中十分有节奏感，就像是心脏泵血一样，这就是为什么脉动阵列要这样命名（注：Systolic 一词专指“心脏收缩的”）</p>
+<p>用脉动阵列做输入向量和权重矩阵的矩阵乘法示意图：</p>
+<p><img alt="Alt text" src="../_images/TPUIntro31.png" /></p>
+<p>用脉动阵列做输入矩阵和权重矩阵的矩阵乘法示意图：</p>
+<p><img alt="Alt text" src="../_images/TPUIntro32.png" /></p>
 <p>MXU 的本质就是一个包含了 <span class="math notranslate nohighlight">\(256 \times 256 = 65536\)</span> 个 ALU 的超大的、每一个时钟周期可以处理 65536 个 INT8 加乘运算的脉动阵列。将这个数字和 TPU v1 的频率 700MHZ 相乘我们可以得出 TPU v1 可以每秒钟处理 <span class="math notranslate nohighlight">\(65536 \times 7 \times 10^8 \approx 4.6 \times 10 ^{12} \)</span> 个加乘运算。下图中我们可以看到，数据和权重由控制器控制传入 MXU，脉冲阵列中经过计算再产出最终的结果。</p>
-<p><img alt="MXU" src="images/02Hardware05Abroad/tpu/tpu_18.png" /></p>
+<p><img alt="MXU" src="../_images/TPUIntro18.png" /></p>
 <p><strong>特性三：专用硬件（Minimal and Deterministic Design）</strong></p>
 <p>就如上文提到的，CPU 和 GPU 为了当好多面手，他们复杂的设计导致了许许多多的问题。在推理场景下，CPU 和 GPU 上的处理器行为在其极度复杂的设计下往往难以预测，从而导致了很多无法被预估也无法被解决的数据以及计算延迟。但是 TPU 不同，TPU 的设计简单且实用，所有的设计只为服务一个任务：神经网络推理。</p>
 <p>由于目标的单一化，TPU 上的控制逻辑（control logic）只占了芯片的 2%（远低于 CPU 和 GPU）。同时，由于 TPU 在简化设计和增加芯片内存基础上又缩小了芯片的大小，TPU 的成本控制和良品率也远远优于其他体型更大的芯片。</p>
@@ -984,8 +976,8 @@ document.write(`
 <p>在 2017 年的五月，谷歌推出了 TPU V2。TPU v2 的设计集成了高带宽的存储解决方案，具有 16GiB 的 HBM，并能够提供最高 600 GB/s 的内存带宽，以及 45 TFLOPS 的浮点运算能力，用于支持更加高效的内存访问、数据操作、和复杂运算。</p>
 <p>进一步地，谷歌将四个 TPU v2 排列成了性能为 180 TFLOPS 的四芯片模块，并将这样的 64 个模块组成一个一共有 256 片 TPU v2 集成的 TPU v2 Pod，理论峰值计算量达到了恐怖的 11.5 PFLOPS。</p>
 <p>以下三张图是分别是 TPU v2 和 Tpu v2 Pods</p>
-<p><img alt="Alt text" src="images/02Hardware05Abroad/tpu/tpu_19.png" /></p>
-<p><img alt="Alt text" src="images/02Hardware05Abroad/tpu/tpu_22.png" /></p>
+<p><img alt="Alt text" src="../_images/TPUIntro19.png" /></p>
+<p><img alt="Alt text" src="../_images/TPUIntro22.png" /></p>
 <p>TPU v2 和 v1 的架构差距很小，而主要的架构不同体现在训练场景的优化。我们上文提到，在神经网络的超强泛化能力下，TPU v1 通过将 FP32/FP16 量化成 INT8 的方式大幅度优化了推理场景的计算效率 —— 然而在模型的训练的过程中，INT8 则会导致模型训练中的不稳定和极大随机性，这对于模型训练来说是灾难性的。于是在 TPU v2 中，谷歌的工程师们优化了芯片架构，增加了对于 BF16 的支持。</p>
 <p>下图中详细解释了 FP32，FP16 和 BF16 的区别。总的来说，BF16 数据格式通过减少尾数位数至 7 位，同时保留 8 位的指数部分，用一定的数据精度换来了更宽的数值范围。这种优化主要带来了以下三个优势：</p>
 <ul class="simple">
@@ -993,21 +985,21 @@ document.write(`
 <li><p>BF 在执行计算时，由于结构上的简化，大幅缩短了对于芯片内存的需求，使得 TPU 可以接受更大的批量大小，训练更大的模型。</p></li>
 <li><p>BF16 格式减少了存储和带宽的需求。这意味着相同的内存和带宽可以处理更多的数据，提高了 TPU 数据传输和吞吐效率和计算速率，使得大规模的数据集和复杂模型可以在资源有限的环境中被有效训练和使用。</p></li>
 </ul>
-<p><img alt="Alt text" src="images/02Hardware05Abroad/tpu/tpu_21.png" /></p>
+<p><img alt="Alt text" src="../_images/TPUIntro21.png" /></p>
 </section>
 <section id="tpu-v3">
 <h3>TPU v3 概览<a class="headerlink" href="#tpu-v3" title="Link to this heading">#</a></h3>
 <p>TPU v3 相较于其前身 TPU v2 有了显著的提升。这一代 TPU 在晶体管数量上增加了 11%，同时在时钟频率、互连带宽和内存带宽上实现了 1.35 倍的提升。尽管面积仅增加了 6%，TPU v3 的矩阵单元（MXU）数量翻了一倍，结合前面提到的改进，TPU v3 实现了相比于 v2 2.7 倍的理论峰值性能提升。</p>
 <p>此外，TPU v3 的一个显著改进是其 2D torus 互连结构，它从 TPU v2 的 256 个芯片扩展到了 TPU v3 的 1,024 个芯片，这使得 Pod 超算型号的处理能力提升了 10.7 倍，计算理论峰值从 12 petaflops 跃升至 126 petaflops（BF16）。<a class="reference internal" href="#ref5"><span class="xref myst"><sup>[2]</sup></span></a></p>
-<p><img alt="Alt text" src="images/02Hardware05Abroad/tpu/tpu_23.png" /></p>
+<p><img alt="Alt text" src="../_images/TPUIntro23.png" /></p>
 </section>
 <section id="tpu-v4">
 <h3>TPU v4 概览<a class="headerlink" href="#tpu-v4" title="Link to this heading">#</a></h3>
 <p>2021 年，谷歌推出了 TPU 系列的最新升级 TPU v4，从 16 纳米缩减至 7 纳米，芯片数量是 TPU v3 的四倍，可以说是谷歌在 TPU 制程工艺上最大的一次更新。这一代 TPU 在内存方面也实现了显著的提升，其内存容量从 9MB 增长到 44MB，而 HBM 2 内存则保持了 32GB 的配置。</p>
 <p>在内存带宽上，TPU v4 带来了 33%的提升，达到了 1.2TB/s。就像 v3 之于 v2，TPU v4 首次应用了 3D torus 的互联方式，提供了比 2D torus 更高的带宽和更优的性能，能够支持多达 4,096 个 TPU v4 核心，在 TPU v4 POD 中总共提供了 1.1260 exaflops 的 BF16 峰值算力。</p>
-<p><img alt="Alt text" src="images/02Hardware05Abroad/tpu/tpu_26.png" /></p>
+<p><img alt="Alt text" src="../_images/TPUIntro26.png" /></p>
 <p>以下是 3d torus 的图例，简单来说，相比于 2d torus，3d torus 中的节点可以左右、上下、前后互联。谷歌在论文中提到，3D torus 提供了比 2D torus 更高的双分带宽（Higher Bisection Bandwidth），结合 OCS 能够跳过故障的单元，大大提升了 TPU 的可用性。同时，3d torus 也增强了用户使用时候的定制性和模块化，用户可以按需选择需要的拓扑结构。</p>
-<p><img alt="Alt text" src="images/02Hardware05Abroad/tpu/tpu_28.png" /></p>
+<p><img alt="Alt text" src="../_images/TPUIntro28.png" /></p>
 </section>
 </section>
 <section id="id7">
@@ -1138,7 +1130,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 26, 2024.
+  Last updated on May 27, 2024.
   <br/>
 </p>
   </div>

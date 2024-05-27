@@ -14,7 +14,7 @@
 <meta property="og:description" content="GPU 是 Graphics Processing Unit（图形处理器）的简称，它是计算机系统中负责处理图形和图像相关任务的核心组件。GPU 的发展历史可以追溯到对计算机图形处理需求的不断增长，以及对图像渲染速度和质量的不断追求。从最初的简单图形处理功能到如今的高性能计算和深度学习加速器，GPU 经历了一系列重要的技术突破和发展转折。 在接下来的内容中，我们还将探讨 GPU 与 CPU 的..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
+<meta property="og:image" content="/_images/social_previews/summary_02Hardware02ChipBase_05GPUBase_fdb353c6.png" />
 <meta property="og:image:alt" content="GPU 是 Graphics Processing Unit（图形处理器）的简称，它是计算机系统中负责处理图形和图像相关任务的核心组件。GPU 的发展历史可以追溯到对计算机图形处理需求的不断增长，以及对图像渲染速度和质量的不断追求。从最初的简单图形处理功能到如今的高性能计算和深度学习加速器，GPU 经历了一系列重..." />
 <meta name="description" content="GPU 是 Graphics Processing Unit（图形处理器）的简称，它是计算机系统中负责处理图形和图像相关任务的核心组件。GPU 的发展历史可以追溯到对计算机图形处理需求的不断增长，以及对图像渲染速度和质量的不断追求。从最初的简单图形处理功能到如今的高性能计算和深度学习加速器，GPU 经历了一系列重要的技术突破和发展转折。 在接下来的内容中，我们还将探讨 GPU 与 CPU 的..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 26, 2024"/>
+    <meta name="docbuild:last-update" content="May 27, 2024"/>
 
 <link
   rel="alternate"
@@ -331,10 +331,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler01Tradition/README.html">传统编译器</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/01Introduction.html">编译器基础介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/02History.html">传统编译器发展</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/03GCC.html">GCC 编译过程和原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/03GCC.html">GCC 主要特征</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/04LLVM.html">LLVM 架构设计和原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail01.html">LLVM IR 详解</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail02.html">LLVM 前端和优化层</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail02.html">LLVM前端和优化层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail03.html">LLVM 后端代码生成</a></li>
 </ul>
 </li>
@@ -355,7 +355,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07.constant_fold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08.cse.html">公共表达式消除</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09.dce.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10.algebraic.html">代数简化原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/11.summary.html">优化 Pass 总结</a></li>
 </ul>
 </li>
@@ -543,7 +543,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/sphinx-book-theme/blob/master/docs/02Hardware02ChipBase/05GPUBase.md?plain=1" target="_blank"
+      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/blob/master/02Hardware02ChipBase/05GPUBase.md?plain=1" target="_blank"
    class="btn btn-sm btn-source-file-button dropdown-item"
    title="Show source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -560,7 +560,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/sphinx-book-theme/edit/master/docs/02Hardware02ChipBase/05GPUBase.md" target="_blank"
+      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/edit/master/02Hardware02ChipBase/05GPUBase.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -577,7 +577,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/sphinx-book-theme/issues/new?title=Issue%20on%20page%20%2F02Hardware02ChipBase/05GPUBase.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/issues/new?title=Issue%20on%20page%20%2F02Hardware02ChipBase/05GPUBase.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -729,12 +729,11 @@ document.write(`
 <h2>GPU 发展历史<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>在 GPU 发展史上，第一代 GPU 可追溯至 1999 年之前。这一时期的 GPU 在图形处理领域进行了一定的创新，部分功能开始从 CPU 中分离出来，实现了针对图形处理的硬件加速。其中，最具代表性的是几何处理引擎，即 GEOMETRY ENGINE。该引擎主要用于加速 3D 图像处理，但相较于后来的 GPU，它并不具备软件编程特性。这意味着它的功能相对受限，只能执行预定义的图形处理任务，而无法像现代 GPU 那样灵活地适应不同的软件需求。</p>
 <p>然而，尽管功能有限，第一代 GPU 的出现为图形处理领域的硬件加速打下了重要的基础，奠定了后续 GPU 技术发展的基石。</p>
-<p><img alt="第一代 GPU" src="images/02Hardware02ChipBase/GPU/05GPUBase01.png" /></p>
+<p><img alt="第一代 GPU" src="../_images/05GPUBase01.png" /></p>
 <p>第二代 GPU 的发展跨越了 1999 年到 2005 年这段时期，其间取得了显著的进展。1999 年，英伟达发布了 GeForce256 图像处理芯片，这款芯片专为执行复杂的数学和几何计算而设计。与此前的 GPU 相比，GeForce256 将更多的晶体管用于执行单元，而不是像 CPU 那样用于复杂的控制单元和缓存。它成功地将诸如变换与光照（TRANSFORM AND LIGHTING）等功能从 CPU 中分离出来，实现了图形快速变换，标志着 GPU 的真正出现。</p>
 <p>随着时间的推移，GPU 技术迅速发展。从 2000 年到 2005 年，GPU 的运算速度迅速超越了 CPU。在 2001 年，英伟达和 ATI 分别推出了 GeForce3 和 Radeon 8500，这些产品进一步推动了图形硬件的发展。图形硬件的流水线被定义为流处理器，顶点级可编程性开始出现，同时像素级也具有了有限的编程性。</p>
 <p>尽管如此，第二代 GPU 的整体编程性仍然相对有限，与现代 GPU 相比仍有一定差距。然而，这一时期的 GPU 发展为后续的技术进步奠定了基础，为图形处理和计算领域的发展打下了坚实的基础。</p>
-<p><img alt="GPU2" src="images/02Hardware02ChipBase/GPU/05GPUBase02.png" /></p>
-<p>=======图片哪里引用到了？文章要加上如下图所示这种自眼哈，两张图并列的尽可能合并成一张图</p>
+<p><img alt="GPU2" src="../_images/05GPUBase02.png" /></p>
 <p>从长远看，NVIDIA 的 GPU 在一开始就选择了正确的方向 MIMD，通过 G80 Series，Fermi，Kepler 和 Maxwell 四代（下一章节会有解析）大跨步进化，形成了完善和复杂的储存层次结构和指令派发/执行管线。ATI/AMD 在一开始选择了 VLIW5/4，即 SIMD，通过 GCN 向 MIMD 靠拢，但是进化不够完全（GCN 一开始就落后于 Kepler），所以图形性能和 GPGPU 效率低于对手。</p>
 <p>NVIDIA 和 ATI 之争本质上是 shader 管线与其他纹理，ROP 单元配置比例之争，A 认为计算用 shader 越多越好，计算性能强大，N 认为纹理单元由于结构更简单电晶体更少，单位面积配置起来更划算，至于游戏则是越后期需要计算的比例越重。</p>
 <p>第三代 GPU 的发展从 2006 年开始，带来了方便的编程环境创建，使得用户可以直接编写程序来利用 GPU 的并行计算能力。在 2006 年，英伟达和 ATI 分别推出了 CUDA（Compute Unified Device Architecture）和 CTM（CLOSE TO THE METAL）编程环境。</p>
@@ -742,15 +741,15 @@ document.write(`
 <p>2008 年，苹果公司推出了一个通用的并行计算编程平台 OPENCL（Open Computing Language）。与 CUDA 不同，OPENCL 并不与特定的硬件绑定，而是与具体的计算设备无关，这使得它迅速成为移动端 GPU 的编程环境业界标准。OPENCL 的出现进一步推动了 GPU 在各种应用领域的普及和应用，为广大开发者提供了更广阔的创新空间。</p>
 <p>第三代 GPU 的到来不仅提升了 GPU 的计算性能，更重要的是为其提供了更便捷、灵活的编程环境，使得 GPU 在科学计算、深度学习等领域的应用得以广泛推广，成为现代计算领域不可或缺的重要组成部分。</p>
 <p>下图分别展示了 Nvidia 和 AMD 的工具链架构，我们可以看到两者的层次架构都是十分相像的，最核心的区别实则在于中间的 libraries 部分，两家供应商均根据自己的硬件为基础 library 做了优化；此外在编译层面两方也会针对自身架构，在比如调度，算子融合等方面实现各自的编译逻辑；而在对外接口上双方都在争取提供给当今热门的框架和应用以足够的支持。</p>
-<p><img alt="GPU4" src="images/02Hardware02ChipBase/GPU/05GPUBase03.png" /></p>
+<p><img alt="GPU4" src="../_images/05GPUBase03.png" /></p>
 <p>以及从下方二者的细粒度对比图中，我们更能看出两方工具链架构间的一一映射和具体细节实现上的区别：</p>
-<p><img alt="GPU6" src="images/02Hardware02ChipBase/GPU/05GPUBase04.jpg" /></p>
+<p><img alt="GPU6" src="../_images/05GPUBase04.png" /></p>
 </section>
 <section id="gpu-vs-cpu">
 <h2>GPU vs CPU<a class="headerlink" href="#gpu-vs-cpu" title="Link to this heading">#</a></h2>
 <p>现在探讨一下 CPU 和 GPU 在架构方面的主要区别，CPU 即中央处理单元（Central Processing Unit），负责处理操作系统和应用程序运行所需的各类计算任务，需要很强的通用性来处理各种不同的数据类型，同时逻辑判断又会引入大量的分支跳转和中断的处理，使得 CPU 的内部结构异常复杂。</p>
 <p>GPU 即图形处理单元（Graphics Processing Unit），可以更高效地处理并行运行时复杂的数学运算，最初用于处理游戏和动画中的图形渲染任务，现在的用途已远超于此。两者具有相似的内部组件，包括核心、内存和控制单元。</p>
-<p><img alt="GPU7" src="images/02Hardware02ChipBase/GPU/05GPUBase05.png" /></p>
+<p><img alt="GPU7" src="../_images/05GPUBase05.png" /></p>
 <p>GPU 和 CPU 在架构方面的主要区别包括以下几点：</p>
 <ol class="arabic simple">
 <li><p><strong>并行处理能力</strong>： CPU 拥有少量的强大计算单元（ALU），更适合处理顺序执行的任务，可以在很少的时钟周期内完成算术运算，时钟周期的频率很高，复杂的控制逻辑单元（Control）可以在程序有多个分支的情况下提供分支预测能力，因此 CPU 擅长逻辑控制和串行计算，流水线技术通过多个部件并行工作来缩短程序执行时间。GPU 控制单元可以把多个访问合并成，采用了数量众多的计算单元（ALU）和线程（Thread），大量的 ALU 可以实现非常大的计算吞吐量，超配的线程可以很好地平衡内存延时问题，因此可以同时处理多个任务，专注于大规模高度并行的计算任务。</p></li>
@@ -763,11 +762,11 @@ document.write(`
 <section id="ai-gpu">
 <h2>AI 发展与 GPU<a class="headerlink" href="#ai-gpu" title="Link to this heading">#</a></h2>
 <p>GPU 与人工智能（AI）的发展密不可分。2012 年的一系列重要事件标志着 GPU 在 AI 计算中的崭露头角。Hinton 和 Alex Krizhevsky 设计的 AlexNet 是一个重要的突破，他们利用两块英伟达 GTX 580 GPU 训练了两周，将计算机图像识别的正确率提升了一个数量级，并赢得了 2012 年 ImageNet 竞赛冠军。这一成就充分展示了 GPU 在加速深度学习模型训练中的巨大潜力。</p>
-<p><img alt="GPU9" src="images/02Hardware02ChipBase/GPU/05GPUBase07.png" /></p>
+<p><img alt="GPU9" src="../_images/05GPUBase07.png" /></p>
 <p>同时，谷歌和吴恩达等团队的工作也进一步强调了 GPU 在 AI 计算中的重要性。谷歌利用 1000 台 CPU 服务器完成了猫狗识别任务，而吴恩达等则只用了 3 台 GTX680-GPU 服务器，取得了同样的成果。这一对比显示了 GPU 在深度学习任务中的显著加速效果，进一步激发了对 GPU 在 AI 领域的广泛应用。</p>
 <p>从 2005/2006 年开始，一些研究人员开始尝试使用 GPU 进行 AI 计算，但直到 2012/2013 年，GPU 才被更广泛地接受。随着深度学习网络层次越来越深、网络规模越来越大，GPU 的加速效果越来越显著。这得益于 GPU 相比 CPU 拥有更多的独立大吞吐量计算通道，以及较少的控制单元，使其在高度并行的计算任务中表现出色。</p>
 <p>因此，GPU 在 AI 发展中的作用愈发凸显，它为深度学习等复杂任务提供了强大的计算支持，并成为了 AI 计算的标配。从学术界到互联网头部厂商，都开始广泛采用 GPU，将其引入到各自的生产研发环境中，为 AI 技术的快速发展和应用提供了关键支持。</p>
-<p><img alt="GPU10" src="images/02Hardware02ChipBase/GPU/05GPUBase08.png" /></p>
+<p><img alt="GPU10" src="../_images/05GPUBase08.png" /></p>
 </section>
 <section id="id2">
 <h2>GPU 其他应用场景<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
@@ -798,9 +797,8 @@ document.write(`
 </section>
 <section id="id5">
 <h2>引用<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>=======注意标准格式哟</p>
-<p>[1]. <a class="reference external" href="https://www.zhihu.com/question/267104699/answer/320361801">A 卡和 N 卡的架构有什么区别</a>
-[2]. <a class="reference external" href="https://zhuanlan.zhihu.com/p/442395604">一文看完 GPU 八大应用场景，抢食千亿美元市场</a></p>
+<p>[1]. <a class="reference external" href="https://www.zhihu.com/question/267104699/answer/320361801">A 卡和 N 卡的架构有什么区别</a></p>
+<p>[2]. <a class="reference external" href="https://zhuanlan.zhihu.com/p/442395604">一文看完 GPU 八大应用场景，抢食千亿美元市场</a></p>
 </section>
 </section>
 
@@ -901,7 +899,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 26, 2024.
+  Last updated on May 27, 2024.
   <br/>
 </p>
   </div>
