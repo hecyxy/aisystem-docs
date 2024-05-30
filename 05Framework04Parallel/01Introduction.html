@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="05Framework04Parallel/01Introduction.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="待更新中，卷的不行了卷得不行了！ZOMI 一个人晚上下班后才能更新视频和文章，如果您有兴趣也非常希望您能够参与进来（Github Issues 区留言或者 B 站私信 ZOMI 哦），一起写 AI 系统，一起分享 AI 系统的知识。 本节视频:" />
+<meta property="og:description" content="分布式训练是一种模型训练模式，它将训练工作量分散到多个工作节点上，从而大大提高了训练速度和模型准确性。虽然分布式训练可用于任何类型的 ML 模型训练，但将其用于大型模型和计算要求较高的任务（如深度学习）最为有利。 本章节将围绕在 PyTorch2.0 中提供的多种分布式训练方式，包括数据并行（Data Parallelism, DP）、模型并行（Model Parallelism, MP）、..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_05Framework04Parallel_01Introduction_f2aba2a1.png" />
-<meta property="og:image:alt" content="待更新中，卷的不行了卷得不行了！ZOMI 一个人晚上下班后才能更新视频和文章，如果您有兴趣也非常希望您能够参与进来（Github Issues 区留言或者 B 站私信 ZOMI 哦），一起写 AI 系统，一起分享 AI 系统的知识。 本节视频:" />
-<meta name="description" content="待更新中，卷的不行了卷得不行了！ZOMI 一个人晚上下班后才能更新视频和文章，如果您有兴趣也非常希望您能够参与进来（Github Issues 区留言或者 B 站私信 ZOMI 哦），一起写 AI 系统，一起分享 AI 系统的知识。 本节视频:" />
+<meta property="og:image" content="/_images/social_previews/summary_05Framework04Parallel_01Introduction_7fbd9f72.png" />
+<meta property="og:image:alt" content="分布式训练是一种模型训练模式，它将训练工作量分散到多个工作节点上，从而大大提高了训练速度和模型准确性。虽然分布式训练可用于任何类型的 ML 模型训练，但将其用于大型模型和计算要求较高的任务（如深度学习）最为有利。 本章节将围绕在 PyTorch2.0 中提供的多种分布式训练方式，包括数据并行（Data Paral..." />
+<meta name="description" content="分布式训练是一种模型训练模式，它将训练工作量分散到多个工作节点上，从而大大提高了训练速度和模型准确性。虽然分布式训练可用于任何类型的 ML 模型训练，但将其用于大型模型和计算要求较高的任务（如深度学习）最为有利。 本章节将围绕在 PyTorch2.0 中提供的多种分布式训练方式，包括数据并行（Data Parallelism, DP）、模型并行（Model Parallelism, MP）、..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>基本介绍 &#8212; AI System</title>
@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 27, 2024"/>
+    <meta name="docbuild:last-update" content="May 30, 2024"/>
 
 <link
   rel="alternate"
@@ -464,10 +464,9 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">分布式并行</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02DataParallel.html">数据并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03TensorParallel.html">张量并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05PipelineParallel.html">流水并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06HybridParallel.html">混合并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07Summary.html">分布式训练总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03ModelParallel.html">模型并行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04HybridParallel.html">混合并行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05Summary.html">分布式训练总结</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
@@ -715,9 +714,15 @@ document.write(`
                   
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>基本介绍<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<blockquote>
-<div><p>待更新中，卷的不行了卷得不行了！ZOMI 一个人晚上下班后才能更新视频和文章，如果您有兴趣也非常希望您能够参与进来（Github Issues 区留言或者 B 站私信 ZOMI 哦），一起写 AI 系统，一起分享 AI 系统的知识。</p>
-</div></blockquote>
+<p>分布式训练是一种模型训练模式，它将训练工作量分散到多个工作节点上，从而大大提高了训练速度和模型准确性。虽然分布式训练可用于任何类型的 ML 模型训练，但将其用于大型模型和计算要求较高的任务（如深度学习）最为有利。</p>
+<p>本章节将围绕在 PyTorch2.0 中提供的多种分布式训练方式，包括数据并行（Data Parallelism, DP）、模型并行（Model Parallelism, MP）、设备网格（Device Mesh）、RPC 分布式训练以及自定义扩展等。每种方法在特定用例中都有独特的优势。</p>
+<p>具体来说，这些功能的实现可以分为三个主要组件：</p>
+<ol class="arabic simple">
+<li><p>分布式数据并行训练（DDP）是一种广泛采用的单程序多数据训练范式。在 DDP 中，模型会在每个进程上复制，每个模型副本将接收不同的输入数据样本。DDP 负责梯度通信以保持模型副本同步，并将其与梯度计算重叠以加速训练。</p></li>
+<li><p>基于 RPC 的分布式训练（RPC）支持无法适应数据并行训练的通用训练结构，例如分布式流水线并行、参数服务器范式以及 DDP 与其他训练范式的组合。它有助于管理远程对象的生命周期，并将 autograd 引擎扩展到机器边界之外。</p></li>
+<li><p>提供了在组内进程之间发送张量的功能，包括集体通信 API（如 All_Reduce 和 All_Gather）和点对点通信 API（如 send 和 isend）。尽管 DDP 和 RPC 已经满足了大多数分布式训练需求，c10d 仍然在需要更细粒度通信控制的场景中发挥作用。例如，分布式参数平均，在这种情况下，应用程序希望在反向传播之后计算所有模型参数的平均值，而不是使用 DDP 来通信梯度。这可以将通信与计算解耦，并允许对通信内容进行更细粒度的控制，但同时也放弃了 DDP 提供的性能优化。</p></li>
+</ol>
+<p>通过充分利用这些分布式训练组件，开发人员可以在各种计算要求和硬件配置下高效地训练大型模型，实现更快的训练速度和更高的模型准确性。</p>
 <section id="id2">
 <h2>本节视频<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <html>
@@ -817,7 +822,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 27, 2024.
+  Last updated on May 30, 2024.
   <br/>
 </p>
   </div>

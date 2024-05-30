@@ -14,7 +14,7 @@
 <meta property="og:description" content="什么是大模型？大模型模型参数量实在太大，需要分布式并行训练能力一起来加速训练过程。分布式并行是在大规模 AI 集群上工作的，想要加速就需要软硬件协同，不仅仅要解决通信拓扑的问题、集群组网的问题，还要了解上层 MOE、Transform 等新兴算法。通过对算法的剖析，提出模型并行、数据并行、优化器并行等新的并行模式和通信同步模式，来加速分布式训练的过程。最小的单机执行单元里面，还要针对大模型进..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_05Framework04Parallel_README_59a8e0c1.png" />
+<meta property="og:image" content="/None" />
 <meta property="og:image:alt" content="什么是大模型？大模型模型参数量实在太大，需要分布式并行训练能力一起来加速训练过程。分布式并行是在大规模 AI 集群上工作的，想要加速就需要软硬件协同，不仅仅要解决通信拓扑的问题、集群组网的问题，还要了解上层 MOE、Transform 等新兴算法。通过对算法的剖析，提出模型并行、数据并行、优化器并行等新的并行模式..." />
 <meta name="description" content="什么是大模型？大模型模型参数量实在太大，需要分布式并行训练能力一起来加速训练过程。分布式并行是在大规模 AI 集群上工作的，想要加速就需要软硬件协同，不仅仅要解决通信拓扑的问题、集群组网的问题，还要了解上层 MOE、Transform 等新兴算法。通过对算法的剖析，提出模型并行、数据并行、优化器并行等新的并行模式和通信同步模式，来加速分布式训练的过程。最小的单机执行单元里面，还要针对大模型进..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 27, 2024"/>
+    <meta name="docbuild:last-update" content="May 30, 2024"/>
 
 <link
   rel="alternate"
@@ -466,10 +466,9 @@
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">分布式并行</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02DataParallel.html">数据并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03TensorParallel.html">张量并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05PipelineParallel.html">流水并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06HybridParallel.html">混合并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07Summary.html">分布式训练总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03ModelParallel.html">模型并行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04HybridParallel.html">混合并行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05Summary.html">分布式训练总结</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
@@ -729,39 +728,25 @@ document.write(`
 </div></blockquote>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p>大纲</p></th>
-<th class="head text-center"><p>小节</p></th>
+<tr class="row-odd"><th class="head text-center"><p>小节</p></th>
 <th class="head text-center"><p>链接</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p>分布式并行</p></td>
-<td class="text-center"><p>01 基本介绍</p></td>
+<tr class="row-even"><td class="text-center"><p>01 基本介绍</p></td>
 <td class="text-center"><p><a class="reference internal" href="01Introduction.html"><span class="std std-doc">文章</span></a>, <a class="reference download internal" download="" href="../_downloads/92572375650d8bb063d4f41f704e6c2c/01.introduction.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1ve411w7DL/">视频</a></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p>分布式并行</p></td>
-<td class="text-center"><p>02 数据并行</p></td>
+<tr class="row-odd"><td class="text-center"><p>02 数据并行</p></td>
 <td class="text-center"><p><a class="reference internal" href="02DataParallel.html"><span class="std std-doc">文章</span></a>, <a class="reference download internal" download="" href="../_downloads/8f500be8f3162e4072df38c923b7cd22/02DataParallel.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1JK411S7gL/">视频</a></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p>分布式并行</p></td>
-<td class="text-center"><p>03 模型并行之张量并行</p></td>
-<td class="text-center"><p><a class="reference internal" href="03TensorParallel.html"><span class="std std-doc">文章</span></a>, <a class="reference download internal" download="" href="../_downloads/f74905dfa74e40d9c9a4c0e8ad203aa4/03TensorParallel.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1vt4y1K7wT/">视频</a></p></td>
+<tr class="row-even"><td class="text-center"><p>03 模型并行</p></td>
+<td class="text-center"><p><a class="reference internal" href="03ModelParallel.html"><span class="std std-doc">文章</span></a>, <a class="reference download internal" download="" href="../_downloads/f74905dfa74e40d9c9a4c0e8ad203aa4/03TensorParallel.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference download internal" download="" href="../_downloads/e6ece17e3fe78972ab4a53bd28219a2c/05PipelineParallel.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1vt4y1K7wT/">视频</a>, <a class="reference external" href="https://www.bilibili.com/video/BV1WD4y1t7Ba/">视频</a></p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p>分布式并行</p></td>
-<td class="text-center"><p>04 MindSpore 张量并行</p></td>
-<td class="text-center"><p><a class="reference internal" href="#./04MindsporeParallel.md"><span class="xref myst">文章</span></a>, <a class="reference download internal" download="" href="../_downloads/541d88dc9c55d5a7a6223870264bafd5/04MindsporeParallel.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1vt4y1K7wT/">视频</a></p></td>
+<tr class="row-odd"><td class="text-center"><p>04 混合并行</p></td>
+<td class="text-center"><p><a class="reference internal" href="04HybridParallel.html"><span class="std std-doc">文章</span></a>, <a class="reference download internal" download="" href="../_downloads/541d88dc9c55d5a7a6223870264bafd5/04MindsporeParallel.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1vt4y1K7wT/">视频</a></p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p>分布式并行</p></td>
-<td class="text-center"><p>05 模型并行之流水并行</p></td>
-<td class="text-center"><p><a class="reference internal" href="05PipelineParallel.html"><span class="std std-doc">文章</span></a>, <a class="reference download internal" download="" href="../_downloads/e6ece17e3fe78972ab4a53bd28219a2c/05PipelineParallel.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1WD4y1t7Ba/">视频</a></p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p>分布式并行</p></td>
-<td class="text-center"><p>06 多维混合并行</p></td>
-<td class="text-center"><p><a class="reference internal" href="06HybridParallel.html"><span class="std std-doc">文章</span></a>, <a class="reference download internal" download="" href="../_downloads/cc8016a6a5e5bc1466e088ed3731d628/06HybridParallel.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1gD4y1t7Ut/">视频</a></p></td>
-</tr>
-<tr class="row-even"><td class="text-center"><p>分布式汇总</p></td>
-<td class="text-center"><p>07 分布式训练总结</p></td>
-<td class="text-center"><p><a class="reference internal" href="07Summary.html"><span class="std std-doc">文章</span></a>, <a class="reference download internal" download="" href="../_downloads/2ac6664e89573b57985d266eda47bfbd/07Summary.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1av4y1S7DQ/">视频</a></p></td>
+<tr class="row-even"><td class="text-center"><p>05 分布式训练总结</p></td>
+<td class="text-center"><p><a class="reference internal" href="05Summary.html"><span class="std std-doc">文章</span></a>, <a class="reference download internal" download="" href="../_downloads/2ac6664e89573b57985d266eda47bfbd/07Summary.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1av4y1S7DQ/">视频</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -778,10 +763,9 @@ document.write(`
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="01Introduction.html">基本介绍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02DataParallel.html">数据并行</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03TensorParallel.html">张量并行</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05PipelineParallel.html">流水并行</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06HybridParallel.html">混合并行</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07Summary.html">分布式训练总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03ModelParallel.html">模型并行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04HybridParallel.html">混合并行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05Summary.html">分布式训练总结</a></li>
 </ul>
 </div>
 </section>
@@ -878,7 +862,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 27, 2024.
+  Last updated on May 30, 2024.
   <br/>
 </p>
   </div>
