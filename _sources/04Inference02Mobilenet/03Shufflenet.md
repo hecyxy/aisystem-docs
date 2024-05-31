@@ -22,7 +22,7 @@ ShuffleNet 网络结构同样沿袭了稀疏连接的设计理念。作者通过
 
 因此，在使用分组逐点卷积的同时，需要引入组间信息交换的机制。也就是说，对于第二层卷积而言，每个卷积核需要同时接收各组的特征作为输入，如下图 (b)所示。作者指出，通过引入“通道重排”（channel shuffle，见下图 (c)）可以很方便地实现这一机制；并且由于通道重排操作是可导的，因此可以嵌在网络结构中实现端到端的学习。
 
-![Shuffle 部分结构](./../images/04Inference02Mobilenet/03.shufflenet01.png)
+![Shuffle 部分结构](../images/04Inference02Mobilenet/03.shufflenet01.png)
 
 ### 网络结构
 
@@ -66,7 +66,7 @@ channel shuffle 的思想如上面图中所示。一般卷积操作中输入特�
 
 - **逐点分组卷积 ( stride=2 )**。
 
-![ShuffleNet Unit 结构](./../images/04Inference02Mobilenet/03.shufflenet02.png)
+![ShuffleNet Unit 结构](../images/04Inference02Mobilenet/03.shufflenet02.png)
 
 ### 代码
 
@@ -208,7 +208,7 @@ ShuffleNet v2 是一种深度神经网络架构，与 ShuffleNet v1 和 MobileNe
 
 在移动设备中的运行速度不仅仅需要考虑 FLOPs，还需要考虑其他的因素，比如内存访问成本(memory access cost)和平台特点(platform characterics)。所以，ShuffleNet v2 通过控制不同的环境来测试网络在设备上运行速度的快慢，而不是通过 FLOPs 来判断性能指标。
 
-![03.shufflenet03](./../images/04Inference02Mobilenet/03.shufflenet03.png)
+![03.shufflenet03](../images/04Inference02Mobilenet/03.shufflenet03.png)
 
 因此，ShuffleNetv2 提出了设计应该考虑两个原则：
 
@@ -240,7 +240,7 @@ ShuffleNet v2 是一种深度神经网络架构，与 ShuffleNet v1 和 MobileNe
 
 和 v1 一样，v2 的 block 的通道数是按照 0.5x 1x 等比例进行缩放，以生成不同复杂度的 ShuffleNet v2 网络，并标记为 ShuffleNet v2 0.5×、ShuffleNet v2 1× 等模型。
 
-![block](./../images/04Inference02Mobilenet/03.shufflenet04.png)
+![block](../images/04Inference02Mobilenet/03.shufflenet04.png)
 
 ### 代码
 

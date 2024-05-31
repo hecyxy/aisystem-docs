@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="02Hardware05Abroad/08TPU4.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="待更新中，卷的不行了卷得不行了！ZOMI 一个人晚上下班后才能更新视频和文章，如果您有兴趣也非常希望您能够参与进来（Github Issues 区留言或者 B 站私信 ZOMI 哦），一起写 AI 系统，一起分享 AI 系统的知识。 本节视频:" />
+<meta property="og:description" content="TPU v4 和 TPU v3 中间相差了四年，在这四年之间，谷歌即使发布了许多对于业界非常重要的研究成果，但是在 TPU 的正代芯片上却没有什么更新。实际上，在2018年的 TPU v3 之后，谷歌花了更多的精力在面向大众的芯片上，例如Google Tensor，Pixel手机系列里的各种处理单元等。在这期间，英伟达迭代了三代架构（Volta, Amber, Hopper），PyTorch..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="待更新中，卷的不行了卷得不行了！ZOMI 一个人晚上下班后才能更新视频和文章，如果您有兴趣也非常希望您能够参与进来（Github Issues 区留言或者 B 站私信 ZOMI 哦），一起写 AI 系统，一起分享 AI 系统的知识。 本节视频:" />
-<meta name="description" content="待更新中，卷的不行了卷得不行了！ZOMI 一个人晚上下班后才能更新视频和文章，如果您有兴趣也非常希望您能够参与进来（Github Issues 区留言或者 B 站私信 ZOMI 哦），一起写 AI 系统，一起分享 AI 系统的知识。 本节视频:" />
+<meta property="og:image:alt" content="TPU v4 和 TPU v3 中间相差了四年，在这四年之间，谷歌即使发布了许多对于业界非常重要的研究成果，但是在 TPU 的正代芯片上却没有什么更新。实际上，在2018年的 TPU v3 之后，谷歌花了更多的精力在面向大众的芯片上，例如Google Tensor，Pixel手机系列里的各种处理单元等。在这期间，..." />
+<meta name="description" content="TPU v4 和 TPU v3 中间相差了四年，在这四年之间，谷歌即使发布了许多对于业界非常重要的研究成果，但是在 TPU 的正代芯片上却没有什么更新。实际上，在2018年的 TPU v3 之后，谷歌花了更多的精力在面向大众的芯片上，例如Google Tensor，Pixel手机系列里的各种处理单元等。在这期间，英伟达迭代了三代架构（Volta, Amber, Hopper），PyTorch..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>谷歌 TPUv4 三维互联 &#8212; AI System</title>
@@ -74,17 +74,19 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02Hardware05Abroad/08TPU4';</script>
     <script src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="国内 AI 芯片" href="../02Hardware06Domestic/README.html" />
-    <link rel="prev" title="谷歌 TPUv3 POD 形态" href="07TPU3.html" />
+    <link rel="prev" title="谷歌 TPUv3 POD 形态(DONE)" href="07TPU3.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 30, 2024"/>
+    <meta name="docbuild:last-update" content="May 31, 2024"/>
 
 <link
   rel="alternate"
@@ -259,9 +261,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/06BitWidth.html">计算之比特位宽(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质</a></li>
 
 
@@ -272,7 +274,7 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算</a></li>
 </ul>
@@ -293,15 +295,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/06DeepNvswitch.html">NV Switch 深度解析(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">国外 AI 芯片</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01DOJOArch.html">特斯拉 DOJO 架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02DOJODetail.html">特斯拉 DOJO Core 原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03DOJOSystem.html">特斯拉 DOJO 存算系统</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">国外 AI 芯片(DONE)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="04TPUIntrol.html">谷歌 TPU 历史发展</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05TPU1.html">谷歌 TPU v1 - 脉动阵列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.TPU2.html">谷歌 TPUv2 训练芯片</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06TPU2.html">谷歌 TPUv2 训练芯片</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07TPU3.html">谷歌 TPUv3 POD 形态</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05TPU1.html">谷歌 TPU v1-脉动阵列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06TPU2.html">谷歌 TPUv2 训练芯片(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07TPU3.html">谷歌 TPUv3 POD 形态(DONE)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">谷歌 TPUv4 三维互联</a></li>
 </ul>
 </li>
@@ -327,20 +325,21 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编译器 ===</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../03Compiler/README.html">AI 编译原理概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03Compiler/README.html">AI 编译原理概述(DONE)</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler01Tradition/README.html">传统编译器</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/01Introduction.html">编译器基础介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/02History.html">传统编译器发展</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/03GCC.html">GCC 主要特征</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/04LLVM.html">LLVM 架构设计和原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail01.html">LLVM IR 详解</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail02.html">LLVM前端和优化层</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail03.html">LLVM 后端代码生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/01Introduction.html">编译器基础介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/02History.html">传统编译器发展(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/03GCC.html">GCC 主要特征(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/04LLVM.html">LLVM 架构设计和原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMIR.html">LLVM IR 基本概念(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/06LLVMDetail.html">LLVM IR 详解(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/07LLVMFrontend.html">LLVM 前端和优化层</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/08LLVMBackend.html">LLVM 后端代码生成(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器的发展阶段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
@@ -398,6 +397,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05Transformer.html">Transformer 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/07EfficientNet.html">EfficientNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/08GhostNet.html">GhostNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/09MobileVit.html">MobileVit 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/10MobileFormer.html">MobileFormer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/11EfficientFormer.html">EfficientFormer</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -700,7 +705,38 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tpu-v4">TPU v4 介绍</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">TPU v4 架构图</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">产品形态</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sparse-core">Sparse Core</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embedding">Embedding 层理解</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Sparse Core 核心架构</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tpu-v4-pod">TPU v4 Pod</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">光互联</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">拓扑结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">对标英伟达的计算集群</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-circuit-switching">光电路交换机 - Optical Circuit Switching</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#palomar">光路开关芯片 Palomar</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-mems">2D MEMS 阵列</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Palomar 工作原理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">总结和思考</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">优点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">缺点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">思考</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">章节小结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -715,11 +751,126 @@ document.write(`
 <!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="tpuv4">
 <h1>谷歌 TPUv4 三维互联<a class="headerlink" href="#tpuv4" title="Link to this heading">#</a></h1>
-<blockquote>
-<div><p>待更新中，卷的不行了卷得不行了！ZOMI 一个人晚上下班后才能更新视频和文章，如果您有兴趣也非常希望您能够参与进来（Github Issues 区留言或者 B 站私信 ZOMI 哦），一起写 AI 系统，一起分享 AI 系统的知识。</p>
-</div></blockquote>
+<p>TPU v4 和 TPU v3 中间相差了四年，在这四年之间，谷歌即使发布了许多对于业界非常重要的研究成果，但是在 TPU 的正代芯片上却没有什么更新。实际上，在2018年的 TPU v3 之后，谷歌花了更多的精力在面向大众的芯片上，例如Google Tensor，Pixel手机系列里的各种处理单元等。在这期间，英伟达迭代了三代架构（Volta, Amber, Hopper），PyTorch 也代替了 TensorFlow 成为了业界的首选训练框架，同时也面临了对于超大计算能力的更多需求，因此，TPU v4的出现就是为了应对以上这些问题。</p>
+<section id="tpu-v4">
+<h2>TPU v4 介绍<a class="headerlink" href="#tpu-v4" title="Link to this heading">#</a></h2>
 <section id="id1">
-<h2>本节视频<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h3>TPU v4 架构图<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>首先来看一下 TPU v4 的架构图，每个TPU v4 都有两个 Tensor Core，每个Tensor Core里面有分别六个单元组成，其中有四个是TPU的最核心的脉动阵列 MXU，另外还有两个单元，一个是Scalar Unit，另一个是Vector Unit，这些都在前面的章节讲过。同时我们还看到两个HBM也就是内存模块，为了降低电缆的时延，它们分别被放在了Tensor Core的左右两边。</p>
+<p><img alt="TPU v4 Arch" src="../_images/08TPU401.png" /></p>
+</section>
+<section id="id2">
+<h3>产品形态<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>下面是TPU v4的产品形态，相比于前几代，形态的变化差异非常的大。</p>
+<ul class="simple">
+<li><p>制造工艺：从前代的16nm提升到了最新的7nm工艺。</p></li>
+<li><p>硬件增加：TPU v4上的MXU数量相比前代TPU v3，又翻了一倍，而内存则增加了9倍，增加到了244MB，虽然HBM内存的容量依然是32GB，但内存带宽增加到了1.2TB/s，相比前代提升了33%。</p></li>
+<li><p>Sparse Core ：TPU v4 的硬件增加了Sparse Core的支持用于利好稀疏计算，基于TPU v4改良的自有Transformer模型架构</p></li>
+<li><p>3D torus：TPU v4首次亮相了3D torus的互联方式，紧密耦合4096个TPU v4引擎，使得TPU v4 POD总计提供1.126 Exaflops的BF16峰值算力。</p></li>
+</ul>
+<p>我们在下文会细分讲解第二个特性（Sparse Core）和 3D-Torus的互联方式</p>
+<p><img alt="TPU v4 Arch" src="../_images/08TPU402.png" /></p>
+</section>
+</section>
+<section id="sparse-core">
+<h2>Sparse Core<a class="headerlink" href="#sparse-core" title="Link to this heading">#</a></h2>
+<section id="embedding">
+<h3>Embedding 层理解<a class="headerlink" href="#embedding" title="Link to this heading">#</a></h3>
+<p>Embedding处理离散型分类特征（Categorical Features），是稀疏化的典型计算范式，NLP/搜推算法仅支持字符串形式输入是标示为离散的稀疏向量特征。这些特征不适合映射到硬件上的矩阵乘法单元进行Tensor计算，因为他本质上更像哈希表。换句话说，在要被处理的输入矩阵中会存在极大量的0，而这些数据本身是不需要，或者可以简化计算的。而如果根据传统的矩阵计算方式，就会重复计算非常多次的0相乘，白白浪费了计算资源。同时，将这些稀疏变量放在 Tensor Cores 上进行计算往往会设计小规模的内存访问动作，很容易会触及到CPU和DRAM的性能瓶颈，尤其是在TPU和CPU 4:1 的TPU 集群上，而在此之上，网络中心的延迟也会进一步加剧这种负面影响。因此，能够高效处理稀疏变量的计算范式就被应用到了TPU之上。</p>
+<p>深度学习中由于神经网络通畅在稠密Tensor上计算性能更优，因此就需要对稀疏的矩阵进行一个信息的压缩，通过特定的embedding层去生成一个稠密的原数据表达，这通常是NLP或者搜推算法的第一层。</p>
+<p>下面的图是一个在搜推场景非常经典的模型框架，叫做 Deep &amp; Wide Model。Wide&amp;Deep其实是一个框架，wide部分可以是任意广义线性模型，而Deep部分就是一个Embedding的全连接神经网络。可以看到图片中 &quot;Deep Models&quot;的部分，用户的稀疏特征被先被处理成稠密embeddings再进入中间的隐藏层，协同“Wide Models”输出最终的单元。</p>
+<p><img alt="TPU v4 Arch" src="../_images/08TPU403.jpeg" /></p>
+<p>TPU v4 在Sparse Core中原生支持了Embedding计算的模型并行和数据并行，提供了极大的并行灵活度，让大规模的embedding计算能够很好的在大规模集群内被妥善计算和处理。</p>
+</section>
+<section id="id3">
+<h3>Sparse Core 核心架构<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>下图是Sparse Core的架构示意图，图中的深蓝色方框就是SC中最通用的单元--16个tiles（计算瓦片）。每个瓦片都有一个关联的HBM通道，并支持多个内存访问。每个瓦片都有一个Fetch Unit、一个可编程的8路SIMD向量处理单元（这里是scVPU，不要与TPU v4中的Tensor Core的VPU混淆）、以及一个Flush Unit。Fetch Unit，从HBM读取激活函数和参数到瓦片的2.5 MiB稀疏向量内存（Spmem）的切片中。刷新单元在反向传播过程中将更新的参数写入HBM。此外，五个跨通道单元（图中的金色方框）在16个Spmem上执行与他们名称相对应的嵌入操作。与TPU v1一样，这些单元执行类似CISC的指令，并处理可变长度的输入，其中每条指令的运行时间取决于数据。</p>
+<p><img alt="TPU v4 Arch" src="../_images/08TPU406.png" /></p>
+</section>
+</section>
+<section id="tpu-v4-pod">
+<h2>TPU v4 Pod<a class="headerlink" href="#tpu-v4-pod" title="Link to this heading">#</a></h2>
+<p>TPU v4 Pod 提供了exaflops的算力，原因就是因为其强大的芯片间互联能力。谷歌将 <span class="math notranslate nohighlight">\( 4 \times 4 \times 4 = 64\)</span> 个 TPU v4 芯片互联在一起，形成一个立方体结构（Cube）。再把 <span class="math notranslate nohighlight">\( 4 \times 4 \times 4\)</span> Cube 用光互联连在一起形成一个总共有 4096 个 TPU v4 超级计算机。</p>
+<section id="id4">
+<h3>光互联<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>谷歌在TPU v4 Pod中应用了光交换器（OCS）为了避免计算等通信。在如此大规模的超级计算机中，芯片间互联很大程度上决定整体计算效率；如果数据互联效率不够高的话，很多时候芯片都在等待来自其他芯片数据到达以开始计算。所以必须确保芯片之间互联高带宽，低延迟。而光互连对于物理距离较远的芯片就成为了首选。OCS 由 64 （<span class="math notranslate nohighlight">\( 4 \times 4 \times 4\)</span>）颗 TPU 构成一组 Slice 间互连，实现了 Pod 内 Slice 间全光互连（4096 TPUs）；当然也可用于Pod之间互连而不仅局限于芯片之间。</p>
+<p>在使用可配置光互连（以及光路开关）时，假设芯片可靠率在99%的情况下，其整体系统的平均性能提升比不使OCS可高达6倍，可见光互连开关的重要性。</p>
+</section>
+<section id="id5">
+<h3>拓扑结构<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>谷歌在 TPU v4 Pod 中采取了 3D Torus的拓扑结构实现芯片之间的互联。在3D Torus网络中，每个节点通过三个维度的连接与相邻节点相连，形成一个三维的网格结构。这种高度互联的结构允许芯片在X-Y-Z三个维度上形成一个连续循环，提供高带宽和低延迟的通信能力，非常适合于高性能计算和大规模并行处理。谷歌的TPU v4 能够紧密耦合4,096个TPUv4引擎，实现总计1.126 exaflops的BF16计算能力。TPU v4的每个端口对应一个TPU v4芯片，端口连接交换机提供6 Tb/sec的带宽，作为网络接口卡和3D环面网络的基础。这种设计确保了TPU v4在处理大规模并行计算任务时的高效性和稳定性。</p>
+<p>下图是一个3D Torus Cube的图示，我们可以看到每一个节点都会和上下、左右、前后的节点互联，而处于这个立方体边上的芯片会连接到在它相对面上的节点从而实现每一个节点都与6个节点互联。</p>
+<p><img alt="TPU v4 Arch" src="../_images/08TPU406.png" /></p>
+<p>我们细致讲一下这个 Cube。下图是一个Cube的另一种展开方式。Cube如果要实现6面连接，每个面需要16条链路，每个Cube总共有96条光链路连接到OCS上。为了提供整个 3D Torus的连接，相对的侧面需要连接到相同的OCS上面（图中不同色块和Cube之间的长环）。因此，每个Cube会连接到 <span class="math notranslate nohighlight">\(6 \times 16 \div 4\)</span>。</p>
+<p><img alt="TPU v4 Arch" src="../_images/08TPU406.png" /></p>
+</section>
+<section id="id6">
+<h3>对标英伟达的计算集群<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>英伟达 DGX SuperPod 搭配第四代 NVLink/NVSwitch 最多可以连接 32 个 node 总 256 颗 H100 芯片，并实现每颗GPU 900G/s的互连带宽。NV 每机架 4台 DGX（共 32 颗 H100 GPU），机架内/外需要光纤连接。NV的每机架算力密度相对更小/更窄，且需要更多的收发激光器和光纤线材，网络成本高。如果NV 部署4096颗GPU集群，必须切分成更多个 SuperPod 并独立规划互连网络层，中间完成多层交换，集群内总计需要采购大约568个 Infiniband Switch。</p>
+<p>反观TPU v4 Pod， 与超级计算机一样，工作负载由不同规模的算力承担，称为切片：64 芯片、128 芯片、256 芯片等。与 Infiniband 相比，OCS 的成本更低、功耗更低、速度更快，成本不到系统成本的 5%，功率不到系统功率的 3%。每个 TPU v4 都包含 SparseCores 数据流处理器，可将依赖嵌入的模型加速 5 至 7 倍，但仅使用 5% 的裸片面积和功耗。</p>
+</section>
+</section>
+<section id="optical-circuit-switching">
+<h2>光电路交换机 - Optical Circuit Switching<a class="headerlink" href="#optical-circuit-switching" title="Link to this heading">#</a></h2>
+<p>我们上面简单讨论了一下OCS，我们打开一下这一部分，让我们看一下它有什么厉害之处。</p>
+<section id="palomar">
+<h3>光路开关芯片 Palomar<a class="headerlink" href="#palomar" title="Link to this heading">#</a></h3>
+<p>光路有多开关芯片叫做Palomar，使用的是基于 MEMS 反射镜阵列的技术，具体原理是使用一个 2D MEMS 反射镜阵列，通过控制反射镜的位置来调整光路，从而实现光路切换。使用 MEMS 光路开关芯片可以实现低损耗，低切换延迟（毫秒级别）、低功耗、低成本。</p>
+<section id="d-mems">
+<h4>2D MEMS 阵列<a class="headerlink" href="#d-mems" title="Link to this heading">#</a></h4>
+<p>下图就是一个反射镜阵列的封装照片，在每个陶瓷封装内部是单个大型芯粒，芯粒里面有176个可单独控制的微反射镜。</p>
+<p><img alt="TPU v4 Arch" src="../_images/08TPU407.png" /></p>
+<p>下面是整个反射镜的热成像图，每一个深色的圆形都代表了一个微反射镜。我们可以清楚的看到每一个微反射镜四周都有四个梳状驱动区域，用于在两个方向上旋转反射镜，使得光可以进行光切换。</p>
+<p><img alt="TPU v4 Arch" src="../_images/08TPU408.png" /></p>
+</section>
+<section id="id7">
+<h4>Palomar 工作原理<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<p>下面这个图解释了 Palomar OCS 的工作原理。绿色线条表示带内光信号路径。与带内信号路径叠加的是一个850纳米波长的监控通道（红色箭头），用于校准镜面。输入/输出的光学信号通过二维（2D）光纤准直器阵列（Fiber collimator array）进入光学核心，每个准直器阵列由一个NxN光纤阵列和2D透镜阵列组成。这个的核心是其中的两组2D MEMS阵列。MEMS的镜面被在监控通道的校准下，被驱动、倾斜以将信号切换到相应的输入/输出准直光纤。</p>
+<p>为什么需要OCS呢？我们传统的交换机传进来的是一个光缆，再把光转化成电，把点再转成光输出，会造成很多的性能损耗。那这个时候整个OCS是提供光到光的一转换，从而节省了非常多的电，更重要的是解决了很多时延问题。</p>
+<p><img alt="TPU v4 Arch" src="../_images/08TPU409.png" /></p>
+<p>下面是Palomar的实物图，我们可以对照上面的图片找到每一部分的样子</p>
+<p><img alt="TPU v4 Arch" src="../_images/08TPU410.png" /></p>
+<p>下图是带有CPU板、电源、风扇和高压驱动器板的后机箱。</p>
+<p><img alt="TPU v4 Arch" src="../_images/08TPU411.png" /></p>
+</section>
+</section>
+</section>
+<section id="id8">
+<h2>总结和思考<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h3>优点<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>低时延：3D Tours 因其相邻节点之间的短而直接的连线，可以换来更低的延迟；尤其当节点间需要运行那种密集I/O的、紧耦合的并行任务时特别有用。</p></li>
+<li><p>低网络代价：对于相同数量的节点， 3D Torus 拓扑网络直径低于 Clos 拓扑，两者相比之下，前者的交换机/线材/连接器的保有量更低，网络层次更少，节省硬件成本。</p></li>
+<li><p>路由可重配：Google OCS网络支持动态可重配路由，Silic集群在部署之后可以立即投入生产，无需等待整个网络收敛；并且这种特性更容易隔离/下线故障节点。</p></li>
+<li><p>更好集群布局：集群布局让物理连接上相临的节点间在逻辑上临近，让密集I/O通信、data-flow发生在局部流域，换来更低的通信开销；同时优化了延迟和功耗。这就是3D Torus 将大集群逻辑切割成紧耦合的局部域，局部互连并共享作业。</p></li>
+</ul>
+</section>
+<section id="id10">
+<h3>缺点<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>系统成熟度低：Clos拓扑本身具备非阻塞特点，性能能够始终保持一致且可以预测，其所有输入/输出都是全带宽同时连接，无冲突无阻塞，这在3D Tours 拓扑中无法保证。
+= 拓扑僵硬：在Clos这种Spine-Leaf脊叶拓扑中，扩容新的叶交换机相对简单，无需更改当前架构；相比之下，扩缩3D Tours 结构比较复杂和耗时，可能需要重新配置整个拓扑。</p></li>
+<li><p>负载均衡问题：Clos网络在任意两个节点之间提供更多路径，从而实现负载均衡和冗余；虽然3D Tours结构也提供多路径冗余，但显而易见Clos的替代路径数量更多，具体取决于网络的配置。</p></li>
+</ul>
+</section>
+<section id="id11">
+<h3>思考<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>模型的演进总是要比芯片的设计迭代更快，随着大模型涌现，支持主要依赖AI计算集群，而非提高单芯片能力（单芯片FLOPS没那么香），TPU v4 对于高效互联和规模化的支持。</p></li>
+<li><p>算法-芯片协同设计是TPU v4的灵魂，人工智能芯片与算法之间的结合继续保持紧密关系。包括对于新数据格式（HF32/BF16）支持，对于稀疏计算支持，对于模型关键算法专用加速器。</p></li>
+<li><p>Benchmark 之外很多生产环境的性能指标都无法直观评测，XLA 编译器的优化效益也难以直观评测。到底TPU v4真的那么香吗？</p></li>
+</ul>
+</section>
+</section>
+<section id="id12">
+<h2>章节小结<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<p>本章节详细介绍了谷歌TPU v4芯片的关键特性和创新之处。TPU v4通过采用7nm工艺，翻倍的MXU数量，以及显著增加的内存容量和带宽，实现了性能的大幅提升。特别引人注目的是Sparse Core的引入，它专门针对稀疏计算进行了优化，使得TPU v4在处理深度学习中的Embedding层时更加高效。此外，3D Torus互联方式的首次亮相，以及TPU v4 Pod的构建，展示了谷歌在大规模并行计算和高效互联方面的突破。Palomar光路开关芯片的开发，利用MEMS技术，进一步降低了系统延迟和功耗，同时减少了网络成本。</p>
+<p>TPU v4 Pod显示出了在成本、功耗和速度方面的优势，但是，尽管3D Torus拓扑结构带来了低延迟和低网络成本的益处，但也存在一些挑战，如系统成熟度、拓扑的僵硬性以及负载均衡问题。面向未来，TPU v4的设计强调了算法与芯片之间的紧密协同，以及对新数据格式和稀疏计算的支持，这预示着AI计算集群的重要性日益增加。作为历史上最有远见的科技公司之一（甚至没有之一），谷歌是否能在大模型时代依旧保持曾经的远见，才是他们能不能在这个时代甚至下个时代引领世界最关键的钥匙。</p>
+</section>
+<section id="id13">
+<h2>本节视频<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=962382946&bvid=BV1QH4y1X77U&cid=1307298314&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </section>
 </section>
 
@@ -763,7 +914,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">谷歌 TPUv3 POD 形态</p>
+        <p class="prev-next-title">谷歌 TPUv3 POD 形态(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -791,7 +942,38 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tpu-v4">TPU v4 介绍</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">TPU v4 架构图</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">产品形态</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sparse-core">Sparse Core</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embedding">Embedding 层理解</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Sparse Core 核心架构</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tpu-v4-pod">TPU v4 Pod</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">光互联</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">拓扑结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">对标英伟达的计算集群</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-circuit-switching">光电路交换机 - Optical Circuit Switching</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#palomar">光路开关芯片 Palomar</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-mems">2D MEMS 阵列</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Palomar 工作原理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">总结和思考</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">优点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">缺点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">思考</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">章节小结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -814,7 +996,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 30, 2024.
+  Last updated on May 31, 2024.
   <br/>
 </p>
   </div>

@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference04Converter/04Detail.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="======== 整体问题跟前面的几篇类似，因此统一审视以下哈。 用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。 因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的转换。模型转换主要有 直接转换 和 规范式转换 两种方式，本文将详细介绍这两种转..." />
+<meta property="og:description" content="用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。 因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的转换。模型转换主要有 直接转换 和 规范式转换 两种方式，本文将详细介绍这两种转换方式的流程以及相关的技术细节。 模型转换技术的设计思路: 直接转..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="======== 整体问题跟前面的几篇类似，因此统一审视以下哈。 用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。 因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的..." />
-<meta name="description" content="======== 整体问题跟前面的几篇类似，因此统一审视以下哈。 用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。 因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的转换。模型转换主要有 直接转换 和 规范式转换 两种方式，本文将详细介绍这两种转..." />
+<meta property="og:image:alt" content="用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。 因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的转换。模型转换主要有 直接转换 和 规范式转换 两种方式，本文将详..." />
+<meta name="description" content="用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。 因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的转换。模型转换主要有 直接转换 和 规范式转换 两种方式，本文将详细介绍这两种转换方式的流程以及相关的技术细节。 模型转换技术的设计思路: 直接转..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>模型转换流程 &#8212; AI System</title>
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 30, 2024"/>
+    <meta name="docbuild:last-update" content="May 31, 2024"/>
 
 <link
   rel="alternate"
@@ -259,9 +259,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/06BitWidth.html">计算之比特位宽(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质</a></li>
 
 
@@ -272,7 +272,7 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算</a></li>
 </ul>
@@ -293,15 +293,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/06DeepNvswitch.html">NV Switch 深度解析(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/01DOJOArch.html">特斯拉 DOJO 架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/02DOJODetail.html">特斯拉 DOJO Core 原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/03DOJOSystem.html">特斯拉 DOJO 存算系统</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1 - 脉动阵列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06.TPU2.html">谷歌 TPUv2 训练芯片</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 三维互联</a></li>
 </ul>
 </li>
@@ -327,20 +323,21 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编译器 ===</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../03Compiler/README.html">AI 编译原理概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03Compiler/README.html">AI 编译原理概述(DONE)</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler01Tradition/README.html">传统编译器</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/01Introduction.html">编译器基础介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/02History.html">传统编译器发展</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/03GCC.html">GCC 主要特征</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/04LLVM.html">LLVM 架构设计和原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail01.html">LLVM IR 详解</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail02.html">LLVM前端和优化层</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMDetail03.html">LLVM 后端代码生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/01Introduction.html">编译器基础介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/02History.html">传统编译器发展(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/03GCC.html">GCC 主要特征(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/04LLVM.html">LLVM 架构设计和原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/05LLVMIR.html">LLVM IR 基本概念(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/06LLVMDetail.html">LLVM IR 详解(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/07LLVMFrontend.html">LLVM 前端和优化层</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/08LLVMBackend.html">LLVM 后端代码生成(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器的发展阶段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
@@ -398,6 +395,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05Transformer.html">Transformer 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/07EfficientNet.html">EfficientNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/08GhostNet.html">GhostNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/09MobileVit.html">MobileVit 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/10MobileFormer.html">MobileFormer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/11EfficientFormer.html">EfficientFormer</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -730,14 +733,13 @@ document.write(`
 <!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>模型转换流程<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>======== 整体问题跟前面的几篇类似，因此统一审视以下哈。</p>
 <p>用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。</p>
 <p>因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的转换。模型转换主要有<strong>直接转换</strong>和<strong>规范式转换</strong>两种方式，本文将详细介绍这两种转换方式的流程以及相关的技术细节。</p>
 <section id="id2">
 <h2>模型转换技术的设计思路<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p><strong>直接转换</strong>是将网络模型从 AI 框架直接转换为适合目标框架使用的格式。例如下图中的 MindSpore Converter 直接将 AI 框架 MindSpore 的格式转换成推理引擎 IR 的格式。</p>
 <p><strong>规范式转换</strong>设计了一种开放式的文件规范，使得主流 AI 框架可以实现对该规范标准的支持。例如不是直接转换 Pytorch 格式，而是把 Pytorch 转换为 ONNX 格式，或者把 MindSpore 转换成 ONNX 格式，再通过 ONNX Converter 转换成推理引擎 IR。主流 AI 框架基本上都是支持这两种转换技术的。</p>
-<p><img alt="模型转换" src="04Inference04Converter/image/converter01.png" /></p>
+<p><img alt="模型转换" src="04Inference04Converter/image/01Introduction01.png" /></p>
 </section>
 <section id="id3">
 <h2>直接转换<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
@@ -749,6 +751,7 @@ document.write(`
 <li><p>格式转换：将第一步识别得到的模型结构、模型参数信息，直接代码层面翻译成推理引擎支持的格式。当算子较为复杂时，可在 Converter 中封装对应的算子转换函数来实现对推理引擎的算子转换。</p></li>
 <li><p>模型保存：在推理引擎下保存模型，可得到推理引擎支持的模型文件，即对应的计算图的显示表示。</p></li>
 </ol>
+<p>直接转换过程中需要考虑多个技术细节，例如不同深度学习框架对算子的实现可能有差异，需要确保转换后的算子能够在目标框架中正确运行；不同框架可能对张量数据的存储格式有不同的要求，如 NCHW（批量数、通道数、高度、宽度）和 NHWC（批量数、高度、宽度、通道数）等，需要在转换过程中进行格式适配；某些框架的算子参数可能存在命名或含义上的差异，需要在转换过程中进行相应调整；为了保证转换后的模型在目标框架中的性能，可能需要对某些计算图进行优化处理，如算子融合、常量折叠等。</p>
 </section>
 <section id="id5">
 <h3>直接转换实例<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
@@ -808,12 +811,7 @@ document.write(`
 <span class="c1"># 模型转换完成，可以使用 PyTorch 模型进行推理或继续训练</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>首先定义了一个简单的 TensorFlow 模型 SimpleModel 并在 MNIST 数据集上进行了训练。</p></li>
-<li><p>定义一个对应的 PyTorch 模型 PyTorchModel，其结构与 TensorFlow 模型相同。</p></li>
-<li><p>将 TensorFlow 模型中的参数转移到 PyTorch 模型中，确保权重参数正确地转移。</p></li>
-<li><p>最后保存转换后的 PyTorch 模型，以便在 PyTorch 中进行推理。</p></li>
-</ul>
+<p>上述代码首先定义了一个简单的 TensorFlow 模型 SimpleModel 并在 MNIST 数据集上进行了训练。然后定义一个对应的 PyTorch 模型 PyTorchModel，其结构与 TensorFlow 模型相同。将 TensorFlow 模型中的参数转移到 PyTorch 模型中，确保权重参数正确地转移。最后保存转换后的 PyTorch 模型，以便在 PyTorch 中进行推理。</p>
 </section>
 <section id="id6">
 <h3>模型转换工具<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
@@ -1107,6 +1105,7 @@ document.write(`
 <p>ONNX 的规范及代码主要由微软，亚马逊，Facebook 和 IBM 等公司共同开发，以开放源代码的方式托管在 Github 上。目前官方支持加载 ONNX 模型并进行推理的深度学习框架有：Caffe2、PyTorch、MXNet、ML.NET、TensorRT 和 Microsoft CNTK，并且 TensorFlow 也非官方的支持 ONNX。</p>
 <p>每个深度学习框架都有自己的图表示形式和特定的 API，这使得在不同框架之间转换模型变得复杂。此外，不同的深度学习框架针对不同的优化和特性进行了优化，例如快速训练、支持复杂网络架构、移动设备上的推理等。ONNX 可以提供计算图的通用表示，帮助开发人员能够在开发或部署的任何阶段选择最适合其项目的框架。</p>
 <p>ONNX 定义了一种可扩展的计算图模型、一系列内置的运算单元（OP）和标准数据类型。每一个计算流图都定义为由节点组成的列表，并构建有向无环图。其中每一个节点都有一个或多个输入与输出，每一个节点称之为一个 OP。这相当于一种通用的计算图，不同深度学习框架构建的计算图都能转化为它。</p>
+<p>规范式转换需要确保源框架能够正确导出规范格式的模型文件，并且目标框架能够正确导入；需要定义良好的跨框架兼容性，包括对各种算子的定义和数据格式的支持。同时还应具备良好的扩展性，能够适应新出现的算子和模型结构。</p>
 </section>
 <section id="pytorch-onnx">
 <h3>Pytorch 转 ONNX 实例<a class="headerlink" href="#pytorch-onnx" title="Link to this heading">#</a></h3>
@@ -1125,7 +1124,7 @@ document.write(`
     <span class="p">)</span>
 </pre></div>
 </div>
-<p>如果上述代码运行成功，目录下会新增一个&quot;srcnn.onnx&quot;的 ONNX 模型文件。可以用下面的脚本来验证一下模型文件是否正确。</p>
+<p>如果上述代码运行成功，目录下会新增一个<code class="docutils literal notranslate"><span class="pre">pytorch_model.onnx</span></code>的 ONNX 模型文件。可以用下面的脚本来验证一下模型文件是否正确。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">onnx</span> 
  
 <span class="n">onnx_model</span> <span class="o">=</span> <span class="n">onnx</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;pytorch_model.onnx&quot;</span><span class="p">)</span> 
@@ -1139,33 +1138,34 @@ document.write(`
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">onnx.load</span></code>函数用于读取一个 ONNX 模型。<code class="docutils literal notranslate"><span class="pre">onnx.checker.check_model</span></code>用于检查模型格式是否正确，如果有错误的话该函数会直接报错。我们的模型是正确的，控制台中应该会打印出&quot;Model correct&quot;。</p>
 <p>使用 Netron（开源的模型可视化工具）来可视化 ONNX 模型：</p>
-<p><img alt="ONNX 模型可视化" src="04Inference04Converter/image/converter09.png" /></p>
+<p><img alt="ONNX 模型可视化" src="04Inference04Converter/image/04Detail02.png" /></p>
 <p>点击 input 或者 output，可以查看 ONNX 模型的基本信息，包括模型的版本信息，以及模型输入、输出的名称和数据类型。</p>
-<p><img alt="模型基本信息" src="04Inference04Converter/image/converter10.png" /></p>
+<p><img alt="模型基本信息" src="04Inference04Converter/image/04Detail03.png" /></p>
 <p>点击某一个算子节点，可以看到算子的具体信息。比如点击第一个 Gemm 可以看到：</p>
-<p><img alt="算子信息" src="04Inference04Converter/image/converter11.png" /></p>
+<p><img alt="算子信息" src="04Inference04Converter/image/04Detail04.png" /></p>
 <p>每个算子记录了算子属性、图结构、权重三类信息:</p>
-<ul class="simple">
-<li><p>算子属性信息即图中 attributes 里的信息，这些算子属性最终会用来生成一个具体的算子。</p></li>
-<li><p>图结构信息指算子节点在计算图中的名称、邻边的信息。对于图中的 Gemm 来说，该算子节点叫做<code class="docutils literal notranslate"><span class="pre">/fc1/Gemm</span></code>，输入数据叫做<code class="docutils literal notranslate"><span class="pre">input</span></code>，输出数据叫做<code class="docutils literal notranslate"><span class="pre">/fc1/Gemm_output_0</span></code>。根据每个算子节点的图结构信息，就能完整地复原出网络的计算图。</p></li>
-<li><p>权重信息指的是网络经过训练后，算子存储的权重信息。对于图中的 Gemm 来说，权重信息包括<code class="docutils literal notranslate"><span class="pre">fc1.weight</span></code>和<code class="docutils literal notranslate"><span class="pre">fc1.bias</span></code>。点击图中 <code class="docutils literal notranslate"><span class="pre">fc1.weight</span></code>和<code class="docutils literal notranslate"><span class="pre">fc1.bias</span></code>后面的加号即可看到权重信息的具体内容。</p></li>
-</ul>
+<ol class="arabic simple">
+<li><p>算子属性信息：即图中 attributes 里的信息，这些算子属性最终会用来生成一个具体的算子。</p></li>
+<li><p>图结构信息：指算子节点在计算图中的名称、邻边的信息。对于图中的 Gemm 来说，该算子节点叫做<code class="docutils literal notranslate"><span class="pre">/fc1/Gemm</span></code>，输入数据叫做<code class="docutils literal notranslate"><span class="pre">input</span></code>，输出数据叫做<code class="docutils literal notranslate"><span class="pre">/fc1/Gemm_output_0</span></code>。根据每个算子节点的图结构信息，就能完整地复原出网络的计算图。</p></li>
+<li><p>权重信息：指的是网络经过训练后，算子存储的权重信息。对于图中的 Gemm 来说，权重信息包括<code class="docutils literal notranslate"><span class="pre">fc1.weight</span></code>和<code class="docutils literal notranslate"><span class="pre">fc1.bias</span></code>。点击图中 <code class="docutils literal notranslate"><span class="pre">fc1.weight</span></code>和<code class="docutils literal notranslate"><span class="pre">fc1.bias</span></code>后面的加号即可看到权重信息的具体内容。</p></li>
+</ol>
 </section>
 </section>
 <section id="id8">
 <h2>模型转换通用流程<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<p>以下是模型转换的通用流程：</p>
 <ol class="arabic simple">
-<li><p>AI 框架生成计算图（以静态图表示），常用基于源码 AST 转换和基于 Trace 的方式；</p>
-<ul class="simple">
-<li><p><strong>基于源码 AST 转换：</strong> 分析前端代码来将动态图代码自动转写为静态图代码，通过词法分析器和解析器对源代码进行分析，然后对抽象语法树进行转写，将动态图代码语法映射为静态图代码语法，从而避免控制流或数据依赖的缺失。</p></li>
-<li><p><strong>基于 Trace：</strong> 在动态图模式下执行并记录调度的算子，然后根据记录的调度顺序构建静态图模型，并将其保存下来。当再次调用模型时，直接使用保存的静态图模型执行计算。</p></li>
-</ul>
-</li>
-<li><p>对接主流通用算子，并重点处理计算图中的自定义算子；</p></li>
-<li><p>目标格式转换，将模型转换到一种中间格式，即推理引擎的自定义 IR；</p></li>
+<li><p>AI 框架生成计算图（以静态图表示），常用基于源码 AST 转换和基于 Trace 的方式：</p></li>
+</ol>
+<p><strong>基于源码 AST 转换：</strong> 分析前端代码来将动态图代码自动转写为静态图代码，通过词法分析器和解析器对源代码进行分析，然后对抽象语法树进行转写，将动态图代码语法映射为静态图代码语法，从而避免控制流或数据依赖的缺失，确保转换后的静态图模型与原动态图模型行为一致。</p>
+<p><strong>基于 Trace：</strong> 在动态图模式下执行并记录调度的算子，然后根据记录的调度顺序构建静态图模型，并将其保存下来。当再次调用模型时，直接使用保存的静态图模型执行计算。这种方法能够捕获动态执行过程中的所有操作，确保转换后的静态图模型能够准确再现动态图模型的行为。</p>
+<ol class="arabic simple" start="2">
+<li><p>对接主流通用算子，确保模型中的通用算子在目标框架中能够找到对应的实现。针对模型中的自定义算子，需要编写专门的转换逻辑，可能需要在目标框架中实现相应的自定义算子，或者将自定义算子替换为等效的通用算子组合。</p></li>
+<li><p>目标格式转换，将模型转换到一种中间格式，即推理引擎的自定义 IR。中间格式 IR 包含了模型的计算图、算子、参数等所有信息，使得模型转换更加灵活和高效。；</p></li>
 <li><p>根据推理引擎的中间格式 IR，导出并保存模型文件，用于后续真正推理执行使用。</p></li>
 </ol>
-<p><img alt="模型转换通用流程" src="04Inference04Converter/image/converter06.png" /></p>
+<p><img alt="模型转换通用流程" src="04Inference04Converter/image/04Detail01.png" /></p>
+<p>在模型转换过程中，要注意确保源框架和目标框架中的算子兼容，能够处理不同框架中张量数据格式的差异。此外，还可以对计算图进行优化，提升推理性能，尽可能确保模型的精度不受损失。</p>
 </section>
 <section id="id9">
 <h2>总结<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
@@ -1300,7 +1300,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 30, 2024.
+  Last updated on May 31, 2024.
   <br/>
 </p>
   </div>

@@ -41,4 +41,10 @@
 04Mobilenet
 05ESPNet
 05Transformer
+06FBNet
+07EfficientNet
+08GhostNet
+09MobileVit
+10MobileFormer
+11EfficientFormer
 ```
