@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="03Compiler01Tradition/07LLVMFrontend.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="========= 内容要更加细致地深入一下，特别是对例子的解释和输出。把images目录里面没有用到的图片文件删掉哈，目录改完统一命名哈，看其他，按照md的文件名命名。 在上一节讲到了 LLVM 的 IR 贯穿了 LLVM 编译器的全生命周期，里面的每一个箭头都是一个 IR 的过程，这个就是整体 LLVM 最重要的核心概念。 有了 LVM IR 之后这并不意味着 LLVM 或者编译器的整个..." />
+<meta property="og:description" content="在上一节讲到了 LLVM 的 IR 贯穿了 LLVM 编译器的全生命周期，里面的每一个箭头都是一个 IR 的过程，这个就是整体 LLVM 最重要的核心概念。 有了 LVM IR 之后这并不意味着 LLVM 或者编译器的整个 Pipeline 都是使用一个单一的 IR，而是在编译的不同阶段会采用不同的数据结构，但总体来说还是会维护一个比较标准的 IR。接下来本节就具体的介绍一下 LLVM 的前..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="========= 内容要更加细致地深入一下，特别是对例子的解释和输出。把images目录里面没有用到的图片文件删掉哈，目录改完统一命名哈，看其他，按照md的文件名命名。 在上一节讲到了 LLVM 的 IR 贯穿了 LLVM 编译器的全生命周期，里面的每一个箭头都是一个 IR 的过程，这个就是整体 LLVM 最重..." />
-<meta name="description" content="========= 内容要更加细致地深入一下，特别是对例子的解释和输出。把images目录里面没有用到的图片文件删掉哈，目录改完统一命名哈，看其他，按照md的文件名命名。 在上一节讲到了 LLVM 的 IR 贯穿了 LLVM 编译器的全生命周期，里面的每一个箭头都是一个 IR 的过程，这个就是整体 LLVM 最重要的核心概念。 有了 LVM IR 之后这并不意味着 LLVM 或者编译器的整个..." />
+<meta property="og:image" content="/_images/social_previews/summary_03Compiler01Tradition_07LLVMFrontend_781879d1.png" />
+<meta property="og:image:alt" content="在上一节讲到了 LLVM 的 IR 贯穿了 LLVM 编译器的全生命周期，里面的每一个箭头都是一个 IR 的过程，这个就是整体 LLVM 最重要的核心概念。 有了 LVM IR 之后这并不意味着 LLVM 或者编译器的整个 Pipeline 都是使用一个单一的 IR，而是在编译的不同阶段会采用不同的数据结构，但总..." />
+<meta name="description" content="在上一节讲到了 LLVM 的 IR 贯穿了 LLVM 编译器的全生命周期，里面的每一个箭头都是一个 IR 的过程，这个就是整体 LLVM 最重要的核心概念。 有了 LVM IR 之后这并不意味着 LLVM 或者编译器的整个 Pipeline 都是使用一个单一的 IR，而是在编译的不同阶段会采用不同的数据结构，但总体来说还是会维护一个比较标准的 IR。接下来本节就具体的介绍一下 LLVM 的前..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>LLVM 前端和优化层 &#8212; AI System</title>
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 31, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
 
 <link
   rel="alternate"
@@ -262,9 +262,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质</a></li>
-
-
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
 
 
 
@@ -294,11 +292,11 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 三维互联</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -365,13 +363,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/01.introduction.html">PyTorch2.0 特性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/02.torchscript.html">TorchScript 静态图尝试</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/03.torchfx_lazy.html">FX 与 LazyTensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/04.torchdynamo.html">TorchDynamo 获取图</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/05.aotatuograd.html">AOTAutograd 原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/06.dispatch.html">Dispatch 机制</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -427,7 +419,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
@@ -729,16 +721,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
+<!--Copyright © ZOMI 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="llvm">
 <h1>LLVM 前端和优化层<a class="headerlink" href="#llvm" title="Link to this heading">#</a></h1>
-<p>========= 内容要更加细致地深入一下，特别是对例子的解释和输出。把images目录里面没有用到的图片文件删掉哈，目录改完统一命名哈，看其他，按照md的文件名命名。</p>
 <p>在上一节讲到了 LLVM 的 IR 贯穿了 LLVM 编译器的全生命周期，里面的每一个箭头都是一个 IR 的过程，这个就是整体 LLVM 最重要的核心概念。</p>
 <p>有了 LVM IR 之后这并不意味着 LLVM 或者编译器的整个 Pipeline 都是使用一个单一的 IR，而是在编译的不同阶段会采用不同的数据结构，但总体来说还是会维护一个比较标准的 IR。接下来本节就具体的介绍一下 LLVM 的前端和优化层。</p>
 <section id="llvm-clang">
 <h2>LLVM 前端 - Clang<a class="headerlink" href="#llvm-clang" title="Link to this heading">#</a></h2>
 <p>LLVM 的前端其实是把源代码也就是 C、C++、Python 这些高级语言变为编译器的中间表示 LLVM IR 的过程。</p>
 <p>这个阶段属于代码生成之前的过程，和硬件与目标无关，所以在前端的最后一个环节是 IR 的生成</p>
-<p><img alt="编译器" src="../_images/llvm_ir10.png" /></p>
+<p><img alt="编译器" src="../_images/07LLVMFrontend01.png" /></p>
 <p>Clang 是一个强大的编译器工具，作为 LLVM 的前端承担着将 C、C++ 和 Objective-C 语言代码转换为 LLVM 中间表示（IR）的任务。</p>
 <p>通过 Clang 的三个关键步骤：词法分析、语法分析和语义分析，源代码被逐步转化为高效的中间表示形式，为进一步的优化和目标代码生成做准备。</p>
 <ul class="simple">
@@ -746,7 +738,7 @@ document.write(`
 <li><p>语法分析器则负责根据编程语言的语法规则，将这些标记流组织成符合语言语法结构的语法树。</p></li>
 <li><p>语义分析阶段则确保语法树的各部分之间的关系和含义是正确的，比如类型匹配、变量声明的范围等，以确保程序的正确性和可靠性。</p></li>
 </ul>
-<p><img alt="编译器" src="../_images/llvm_ir21.png" /></p>
+<p><img alt="编译器" src="../_images/07LLVMFrontend02.png" /></p>
 <p>每个编程语言前端都会有自己的词法分析器、语法分析器和语义分析器，它们的任务是将程序员编写的源代码转换为通用的抽象语法树（AST），这样可以为后续的处理步骤提供统一的数据结构表示。AST 是程序的一个中间表示形式，它便于进行代码分析、优化和转换。</p>
 <section id="id1">
 <h3>词法分析<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
@@ -765,11 +757,30 @@ document.write(`
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clang<span class="w"> </span>-cc1<span class="w"> </span>-dump-tokens<span class="w"> </span>hello.c
 </pre></div>
 </div>
-<p>============ 不要用图片，自己运行一下，深入到细节里面，去看看里面的内容哦。
-<img alt="编译器" src="../_images/llvm_ir11.png" /></p>
-<p>编译器会将每一个符号、每一个括号、每一个字符都进行分解，并记录它们出现的位置，每个标记都包含一个 <code class="docutils literal notranslate"><span class="pre">SourceLocation</span></code> 类的实例，例如通过类似 <code class="docutils literal notranslate"><span class="pre">Loc=&lt;hello.c:6:11&gt;</span></code> 这样的标记来表示在 hello.c  文件的第 6 行第 11 个位置。通过这样的方式，编译器能够准确地确定每个符号的位置，然后将它们切分成一个个语言的原子，以便进行下一步的分析。</p>
-<p>在这个过程中，编译器实际上在对代码进行解析和分析的同时，也在建立起符号与位置的映射关系，这有助于后续的语法分析和语义分析。通过精准记录每个字符的位置信息，编译器能够更好地理解代码的结构，进而更有效地进行编译和优化。</p>
-<p>这种精细的位置记录和符号切分过程是编译器中至关重要的一部分，它为编译过程的后续阶段奠定了坚实的基础，也为程序员提供了更准确的编译器信息反馈，帮助他们更好地理解和调试代码。</p>
+<p>词法分析输出如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="s1">&#39;int&#39;</span>        <span class="p">[</span><span class="n">StartOfLine</span><span class="p">]</span>  <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">1</span><span class="o">&gt;</span>
+<span class="n">identifier</span> <span class="s1">&#39;main&#39;</span>        <span class="p">[</span><span class="n">LeadingSpace</span><span class="p">]</span> <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">5</span><span class="o">&gt;</span>
+<span class="n">l_paren</span> <span class="s1">&#39;(&#39;</span>             <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">9</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="s1">&#39;void&#39;</span>             <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="o">&gt;</span>
+<span class="n">r_paren</span> <span class="s1">&#39;)&#39;</span>             <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">14</span><span class="o">&gt;</span>
+<span class="n">l_brace</span> <span class="s1">&#39;{&#39;</span>             <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">15</span><span class="o">&gt;</span>
+<span class="n">identifier</span> <span class="s1">&#39;printf&#39;</span>      <span class="p">[</span><span class="n">StartOfLine</span><span class="p">]</span> <span class="p">[</span><span class="n">LeadingSpace</span><span class="p">]</span>   <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">5</span><span class="o">&gt;</span>
+<span class="n">l_paren</span> <span class="s1">&#39;(&#39;</span>             <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">11</span><span class="o">&gt;</span>
+<span class="n">l_paren</span> <span class="s1">&#39;(&#39;</span>             <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">12</span> <span class="o">&lt;</span><span class="n">Spelling</span><span class="o">=</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">19</span><span class="o">&gt;&gt;</span>
+<span class="n">string_literal</span> <span class="s1">&#39;&quot;hello world</span><span class="se">\n</span><span class="s1">&quot;&#39;</span>                <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">12</span> <span class="o">&lt;</span><span class="n">Spelling</span><span class="o">=</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">20</span><span class="o">&gt;&gt;</span>
+<span class="n">r_paren</span> <span class="s1">&#39;)&#39;</span>             <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">12</span> <span class="o">&lt;</span><span class="n">Spelling</span><span class="o">=</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">35</span><span class="o">&gt;&gt;</span>
+<span class="n">r_paren</span> <span class="s1">&#39;)&#39;</span>             <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">21</span><span class="o">&gt;</span>
+<span class="n">semi</span> <span class="s1">&#39;;&#39;</span>                <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">22</span><span class="o">&gt;</span>
+<span class="k">return</span> <span class="s1">&#39;return&#39;</span>  <span class="p">[</span><span class="n">StartOfLine</span><span class="p">]</span> <span class="p">[</span><span class="n">LeadingSpace</span><span class="p">]</span>   <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">5</span><span class="o">&gt;</span>
+<span class="n">numeric_constant</span> <span class="s1">&#39;0&#39;</span>     <span class="p">[</span><span class="n">LeadingSpace</span><span class="p">]</span> <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="o">&gt;</span>
+<span class="n">semi</span> <span class="s1">&#39;;&#39;</span>                <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">13</span><span class="o">&gt;</span>
+<span class="n">r_brace</span> <span class="s1">&#39;}&#39;</span>      <span class="p">[</span><span class="n">StartOfLine</span><span class="p">]</span>  <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">1</span><span class="o">&gt;</span>
+<span class="n">eof</span> <span class="s1">&#39;&#39;</span>          <span class="n">Loc</span><span class="o">=&lt;</span><span class="n">hello</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">2</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>编译器通过词法分析过程将源代码解析为一系列符号，并准确记录它们在源文件中的位置。每个符号都被赋予一个 <code class="docutils literal notranslate"><span class="pre">SourceLocation</span></code> 类的实例，以便表示其在源文件中的确切位置，例如 <code class="docutils literal notranslate"><span class="pre">Loc=&lt;hello.c:6:11&gt;</span></code> 表示该符号出现在文件 hello.c 的第 6 行第 11 个位置。这种位置信息的精确记录为后续的语法分析和语义分析提供了重要的基础。</p>
+<p>词法分析过程同时也在建立符号与位置之间的映射关系。这种精细的位置记录有助于编译器更好地理解代码的结构，并能够更有效地进行编译和优化。此外，它为程序员提供了更准确的编译器信息反馈，帮助他们更好地理解和调试代码。</p>
+<p>在编译器的工作流程中，这种精准的位置记录和符号切分过程至关重要，为后续阶段的处理提供了可靠的基础，也为代码分析提供了更深层次的支持。</p>
 </section>
 <section id="id2">
 <h3>语法分析<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
@@ -779,14 +790,81 @@ document.write(`
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clang<span class="w"> </span>-fsyntax-only<span class="w"> </span>-Xclang<span class="w"> </span>-ast-dump<span class="w"> </span>hello.c
 </pre></div>
 </div>
-<p>============ 不要用图片，自己运行一下，深入到细节里面，去看看里面的内容哦。
-<img alt="编译器" src="../_images/llvm_ir12.png" /></p>
-<p>抽象语法树（AST）的每一个节点都有自己的定义，每个节点代表源代码中的一个语法结构，如表达式、语句或声明，节点之间的边表示这些语法结构之间的关系。</p>
-<p>下图是 AST 的图形视图，可用下面的命令得到：</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clang<span class="w"> </span>-fsyntax-only<span class="w"> </span>-Xclang<span class="w"> </span>-ast-view<span class="w"> </span>min.c
+<p>语法分析输出如下：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>TranslationUnitDecl<span class="w"> </span>0x1c08a71cf28<span class="w"> </span><span class="s">&lt;&lt;invalid sloc&gt;&gt; &lt;invalid</span><span class="w"> </span>sloc&gt;
+<span class="p">|</span>-TypedefDecl<span class="w"> </span>0x1c08a71d750<span class="w"> </span><span class="s">&lt;&lt;invalid sloc&gt;&gt; &lt;invalid</span><span class="w"> </span>sloc&gt;<span class="w"> </span>implicit<span class="w"> </span>__int128_t<span class="w"> </span><span class="s1">&#39;__int128&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="sb">`</span>-BuiltinType<span class="w"> </span>0x1c08a71d4f0<span class="w"> </span><span class="s1">&#39;__int128&#39;</span>
+<span class="p">|</span>-TypedefDecl<span class="w"> </span>0x1c08a71d7c0<span class="w"> </span><span class="s">&lt;&lt;invalid sloc&gt;&gt; &lt;invalid</span><span class="w"> </span>sloc&gt;<span class="w"> </span>implicit<span class="w"> </span>__uint128_t<span class="w"> </span><span class="s1">&#39;unsigned __int128&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="sb">`</span>-BuiltinType<span class="w"> </span>0x1c08a71d510<span class="w"> </span><span class="s1">&#39;unsigned __int128&#39;</span>
+<span class="p">|</span>-TypedefDecl<span class="w"> </span>0x1c08a71dac8<span class="w"> </span><span class="s">&lt;&lt;invalid sloc&gt;&gt; &lt;invalid</span><span class="w"> </span>sloc&gt;<span class="w"> </span>implicit<span class="w"> </span>__NSConstantString<span class="w"> </span><span class="s1">&#39;struct __NSConstantString_tag&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="sb">`</span>-RecordType<span class="w"> </span>0x1c08a71d8a0<span class="w"> </span><span class="s1">&#39;struct __NSConstantString_tag&#39;</span>
+<span class="p">|</span><span class="w">   </span><span class="sb">`</span>-Record<span class="w"> </span>0x1c08a71d818<span class="w"> </span><span class="s1">&#39;__NSConstantString_tag&#39;</span>
+<span class="p">|</span>-TypedefDecl<span class="w"> </span>0x1c08a71db60<span class="w"> </span><span class="s">&lt;&lt;invalid sloc&gt;&gt; &lt;invalid</span><span class="w"> </span>sloc&gt;<span class="w"> </span>implicit<span class="w"> </span>__builtin_ms_va_list<span class="w"> </span><span class="s1">&#39;char *&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="sb">`</span>-PointerType<span class="w"> </span>0x1c08a71db20<span class="w"> </span><span class="s1">&#39;char *&#39;</span>
+<span class="p">|</span><span class="w">   </span><span class="sb">`</span>-BuiltinType<span class="w"> </span>0x1c08a71cfd0<span class="w"> </span><span class="s1">&#39;char&#39;</span>
+<span class="p">|</span>-TypedefDecl<span class="w"> </span>0x1c08a71dbd0<span class="w"> </span><span class="s">&lt;&lt;invalid sloc&gt;&gt; &lt;invalid</span><span class="w"> </span>sloc&gt;<span class="w"> </span>implicit<span class="w"> </span>referenced<span class="w"> </span>__builtin_va_list<span class="w"> </span><span class="s1">&#39;char *&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="sb">`</span>-PointerType<span class="w"> </span>0x1c08a71db20<span class="w"> </span><span class="s1">&#39;char *&#39;</span>
+<span class="p">|</span><span class="w">   </span><span class="sb">`</span>-BuiltinType<span class="w"> </span>0x1c08a71cfd0<span class="w"> </span><span class="s1">&#39;char&#39;</span>
+<span class="p">|</span>-TypedefDecl<span class="w"> </span>0x1c08a71dcc0<span class="w"> </span>&lt;D:/package/mingw64/x86_64-w64-mingw32/include/vadefs.h:24:3,<span class="w"> </span>col:29&gt;<span class="w"> </span>col:29<span class="w"> </span>referenced<span class="w"> </span>__gnuc_va_list<span class="w"> </span><span class="s1">&#39;__builtin_va_list&#39;</span>:<span class="s1">&#39;char *&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="sb">`</span>-ElaboratedType<span class="w"> </span>0x1c08a71dc80<span class="w"> </span><span class="s1">&#39;__builtin_va_list&#39;</span><span class="w"> </span>sugar
+<span class="p">|</span><span class="w">   </span><span class="sb">`</span>-TypedefType<span class="w"> </span>0x1c08a71dc50<span class="w"> </span><span class="s1">&#39;__builtin_va_list&#39;</span><span class="w"> </span>sugar
+<span class="p">|</span><span class="w">     </span><span class="p">|</span>-Typedef<span class="w"> </span>0x1c08a71dbd0<span class="w"> </span><span class="s1">&#39;__builtin_va_list&#39;</span>
+<span class="p">|</span><span class="w">     </span><span class="sb">`</span>-PointerType<span class="w"> </span>0x1c08a71db20<span class="w"> </span><span class="s1">&#39;char *&#39;</span>
+<span class="p">|</span><span class="w">       </span><span class="sb">`</span>-BuiltinType<span class="w"> </span>0x1c08a71cfd0<span class="w"> </span><span class="s1">&#39;char&#39;</span>
+<span class="p">|</span>-TypedefDecl<span class="w"> </span>0x1c08a71dd90<span class="w"> </span>&lt;line:31:3,<span class="w"> </span>col:26&gt;<span class="w"> </span>col:26<span class="w"> </span>referenced<span class="w"> </span>va_list<span class="w"> </span><span class="s1">&#39;__gnuc_va_list&#39;</span>:<span class="s1">&#39;char *&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="sb">`</span>-ElaboratedType<span class="w"> </span>0x1c08a71dd50<span class="w"> </span><span class="s1">&#39;__gnuc_va_list&#39;</span><span class="w"> </span>sugar
+<span class="p">|</span><span class="w">   </span><span class="sb">`</span>-TypedefType<span class="w"> </span>0x1c08a71dd20<span class="w"> </span><span class="s1">&#39;__gnuc_va_list&#39;</span><span class="w"> </span>sugar
+<span class="p">|</span><span class="w">     </span><span class="p">|</span>-Typedef<span class="w"> </span>0x1c08a71dcc0<span class="w"> </span><span class="s1">&#39;__gnuc_va_list&#39;</span>
+<span class="p">|</span><span class="w">     </span><span class="sb">`</span>-ElaboratedType<span class="w"> </span>0x1c08a71dc80<span class="w"> </span><span class="s1">&#39;__builtin_va_list&#39;</span><span class="w"> </span>sugar
+<span class="p">|</span><span class="w">       </span><span class="sb">`</span>-TypedefType<span class="w"> </span>0x1c08a71dc50<span class="w"> </span><span class="s1">&#39;__builtin_va_list&#39;</span><span class="w"> </span>sugar
+<span class="p">|</span><span class="w">         </span><span class="p">|</span>-Typedef<span class="w"> </span>0x1c08a71dbd0<span class="w"> </span><span class="s1">&#39;__builtin_va_list&#39;</span>
+<span class="p">|</span><span class="w">         </span><span class="sb">`</span>-PointerType<span class="w"> </span>0x1c08a71db20<span class="w"> </span><span class="s1">&#39;char *&#39;</span>
+<span class="p">|</span><span class="w">           </span><span class="sb">`</span>-BuiltinType<span class="w"> </span>0x1c08a71cfd0<span class="w"> </span><span class="s1">&#39;char&#39;</span>
+<span class="p">|</span>-FunctionDecl<span class="w"> </span>0x1c08c19e690<span class="w"> </span>&lt;D:/package/mingw64/x86_64-w64-mingw32/include/_mingw.h:580:1,<span class="w"> </span>col:31&gt;<span class="w"> </span>col:14<span class="w"> </span>__debugbreak<span class="w"> </span><span class="s1">&#39;void (void) __attribute__((cdecl))&#39;</span>:<span class="s1">&#39;void (void)&#39;</span>
+<span class="p">|</span>-FunctionDecl<span class="w"> </span>0x1c08c19e848<span class="w"> </span>prev<span class="w"> </span>0x1c08c19e690<span class="w"> </span>&lt;line:90:31,<span class="w"> </span>line:592:1&gt;<span class="w"> </span>line:581:36<span class="w"> </span>__debugbreak<span class="w"> </span><span class="s1">&#39;void (void) __attribute__((cdecl))&#39;</span>:<span class="s1">&#39;void (void)&#39;</span><span class="w"> </span>extern<span class="w"> </span>inline
+<span class="p">|</span><span class="w"> </span><span class="p">|</span>-CompoundStmt<span class="w"> </span>0x1c08c19ea20<span class="w"> </span>&lt;line:582:1,<span class="w"> </span>line:592:1&gt;
+<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="sb">`</span>-GCCAsmStmt<span class="w"> </span>0x1c08c19e9c8<span class="w"> </span>&lt;line:584:3,<span class="w"> </span>col:35&gt;
+<span class="p">|</span><span class="w"> </span><span class="p">|</span>-AlwaysInlineAttr<span class="w"> </span>0x1c08c19e8f0<span class="w"> </span>&lt;line:90:64&gt;<span class="w"> </span>always_inline
+<span class="p">|</span><span class="w"> </span><span class="sb">`</span>-GNUInlineAttr<span class="w"> </span>0x1c08c19e948<span class="w"> </span>&lt;col:82&gt;
+
+...
+
+<span class="p">|</span>-FunctionDecl<span class="w"> </span>0x1c08c259c58<span class="w"> </span>&lt;col:24,<span class="w"> </span>D:/package/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h:870:117&gt;<span class="w"> </span>col:26<span class="w"> </span>_fread_nolock_s<span class="w"> </span><span class="s1">&#39;size_t (void *, size_t, size_t, size_t, FILE *) __attribute__((cdecl))&#39;</span>:<span class="s1">&#39;size_t (void *, size_t, size_t, size_t, FILE *)&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="p">|</span>-ParmVarDecl<span class="w"> </span>0x1c08c259990<span class="w"> </span>&lt;col:42,<span class="w"> </span>col:48&gt;<span class="w"> </span>col:48<span class="w"> </span>_DstBuf<span class="w"> </span><span class="s1">&#39;void *&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="p">|</span>-ParmVarDecl<span class="w"> </span>0x1c08c259a08<span class="w"> </span>&lt;col:56,<span class="w"> </span>col:63&gt;<span class="w"> </span>col:63<span class="w"> </span>_DstSize<span class="w"> </span><span class="s1">&#39;size_t&#39;</span>:<span class="s1">&#39;unsigned long long&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="p">|</span>-ParmVarDecl<span class="w"> </span>0x1c08c259a80<span class="w"> </span>&lt;col:72,<span class="w"> </span>col:79&gt;<span class="w"> </span>col:79<span class="w"> </span>_ElementSize<span class="w"> </span><span class="s1">&#39;size_t&#39;</span>:<span class="s1">&#39;unsigned long long&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="p">|</span>-ParmVarDecl<span class="w"> </span>0x1c08c259af8<span class="w"> </span>&lt;col:92,<span class="w"> </span>col:99&gt;<span class="w"> </span>col:99<span class="w"> </span>_Count<span class="w"> </span><span class="s1">&#39;size_t&#39;</span>:<span class="s1">&#39;unsigned long long&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="p">|</span>-ParmVarDecl<span class="w"> </span>0x1c08c259b78<span class="w"> </span>&lt;col:106,<span class="w"> </span>col:112&gt;<span class="w"> </span>col:112<span class="w"> </span>_File<span class="w"> </span><span class="s1">&#39;FILE *&#39;</span>
+<span class="p">|</span><span class="w"> </span><span class="sb">`</span>-DLLImportAttr<span class="w"> </span>0x1c08c259d28<span class="w"> </span>&lt;D:/package/mingw64/x86_64-w64-mingw32/include/_mingw.h:52:40&gt;
+<span class="sb">`</span>-FunctionDecl<span class="w"> </span>0x1c08c259e20<span class="w"> </span>&lt;hello.c:5:1,<span class="w"> </span>line:8:1&gt;<span class="w"> </span>line:5:5<span class="w"> </span>main<span class="w"> </span><span class="s1">&#39;int (void)&#39;</span>
+<span class="w">  </span><span class="sb">`</span>-CompoundStmt<span class="w"> </span>0x1c08c25a058<span class="w"> </span>&lt;col:15,<span class="w"> </span>line:8:1&gt;
+<span class="w">    </span><span class="p">|</span>-CallExpr<span class="w"> </span>0x1c08c259fd0<span class="w"> </span>&lt;line:6:5,<span class="w"> </span>col:21&gt;<span class="w"> </span><span class="s1">&#39;int&#39;</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>-ImplicitCastExpr<span class="w"> </span>0x1c08c259fb8<span class="w"> </span>&lt;col:5&gt;<span class="w"> </span><span class="s1">&#39;int (*)(const char *, ...)&#39;</span><span class="w"> </span>&lt;FunctionToPointerDecay&gt;
+<span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="sb">`</span>-DeclRefExpr<span class="w"> </span>0x1c08c259ec8<span class="w"> </span>&lt;col:5&gt;<span class="w"> </span><span class="s1">&#39;int (const char *, ...)&#39;</span><span class="w"> </span>Function<span class="w"> </span>0x1c08c1bb9d8<span class="w"> </span><span class="s1">&#39;printf&#39;</span><span class="w"> </span><span class="s1">&#39;int (const char *, ...)&#39;</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="sb">`</span>-ImplicitCastExpr<span class="w"> </span>0x1c08c25a010<span class="w"> </span>&lt;line:3:19,<span class="w"> </span>col:35&gt;<span class="w"> </span><span class="s1">&#39;const char *&#39;</span><span class="w"> </span>&lt;NoOp&gt;
+<span class="w">    </span><span class="p">|</span><span class="w">   </span><span class="sb">`</span>-ImplicitCastExpr<span class="w"> </span>0x1c08c259ff8<span class="w"> </span>&lt;col:19,<span class="w"> </span>col:35&gt;<span class="w"> </span><span class="s1">&#39;char *&#39;</span><span class="w"> </span>&lt;ArrayToPointerDecay&gt;
+<span class="w">    </span><span class="p">|</span><span class="w">     </span><span class="sb">`</span>-ParenExpr<span class="w"> </span>0x1c08c259f50<span class="w"> </span>&lt;col:19,<span class="w"> </span>col:35&gt;<span class="w"> </span><span class="s1">&#39;char[13]&#39;</span><span class="w"> </span>lvalue
+<span class="w">    </span><span class="p">|</span><span class="w">       </span><span class="sb">`</span>-StringLiteral<span class="w"> </span>0x1c08c259f28<span class="w"> </span>&lt;col:20&gt;<span class="w"> </span><span class="s1">&#39;char[13]&#39;</span><span class="w"> </span>lvalue<span class="w"> </span><span class="s2">&quot;hello world\n&quot;</span>
+<span class="w">    </span><span class="sb">`</span>-ReturnStmt<span class="w"> </span>0x1c08c25a048<span class="w"> </span>&lt;line:7:5,<span class="w"> </span>col:12&gt;
+<span class="w">      </span><span class="sb">`</span>-IntegerLiteral<span class="w"> </span>0x1c08c25a028<span class="w"> </span>&lt;col:12&gt;<span class="w"> </span><span class="s1">&#39;int&#39;</span><span class="w"> </span><span class="m">0</span>
 </pre></div>
 </div>
-<p><img alt="编译器" src="../_images/llvm_ir13.png" /></p>
+<p>以上输出结果反映了对源代码进行语法分析后得到的抽象语法树（AST）。AST 是对源代码结构的一种抽象表示，其中各种节点代表了源代码中的不同语法结构，如声明、定义、表达式等。这些节点包括：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TypedefDecl</span></code>：用于定义新类型的声明，如 <code class="docutils literal notranslate"><span class="pre">__int128</span></code> 和 <code class="docutils literal notranslate"><span class="pre">char</span></code>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RecordType</span></code>：描述了记录类型，例如 <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">__NSConstantString_tag</span></code>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FunctionDecl</span></code>：表示函数声明，包括函数名称、返回类型和参数信息。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParmVarDecl</span></code>：参数变量的声明，包括参数名称和类型。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CompoundStmt</span></code>：表示由多个语句组成的语句块。</p></li>
+<li><p>函数调用表达式、声明引用表达式和隐式类型转换表达式等，用于描述不同的语法结构。</p></li>
+<li><p>各种属性信息，如内联属性和 DLL 导入属性，用于描述代码的特性和行为。</p></li>
+</ul>
+<p>这些节点之间通过边相连，反映了它们在源代码中的关系和层次。AST 为进一步的语义分析和编译过程提供了基础，是编译器理解和处理源代码的重要工具。</p>
+<p>下图是 AST 的图形视图，可用下面的命令得到：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clang<span class="w"> </span>-fsyntax-only<span class="w"> </span>-Xclang<span class="w"> </span>-ast-view<span class="w"> </span>hello.c
+</pre></div>
+</div>
+<p><img alt="编译器" src="../_images/07LLVMFrontend03.png" /></p>
 <p>AST 节点 CompoundStmt 包含 <code class="docutils literal notranslate"><span class="pre">if</span></code> 和 <code class="docutils literal notranslate"><span class="pre">return</span></code> 语句，<code class="docutils literal notranslate"><span class="pre">IfStmt</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ReturnStmt</span></code>。每次对 a 和 b 的使用都生成一个到 int 类型的 <code class="docutils literal notranslate"><span class="pre">ImplicitCastExpr</span></code>，如 C 标准的要求。</p>
 <p><code class="docutils literal notranslate"><span class="pre">ASTContext</span></code> 类包含翻译单元的完整 AST。利用 <code class="docutils literal notranslate"><span class="pre">ASTContext::getTranslationUnitDecl()</span></code> 接口，从顶层 <code class="docutils literal notranslate"><span class="pre">TranslationUnitDecl</span></code> 实例开始，我们可以访问任何一个 AST 节点。</p>
 </section>
@@ -795,15 +873,33 @@ document.write(`
 <p>语法分析（Semantic Analyze）主要关注代码结构是否符合语法规则，而语义分析则负责确保代码的含义和逻辑正确。在语义分析阶段，编译器会检查变量的类型是否匹配、函数调用是否正确、表达式是否合理等，以确保代码在运行时不会出现逻辑错误。</p>
 <p>语义分析借助符号表来检验代码是否符合语言类型系统。符号表存储标识符和其对应的类型之间的映射，以及其他必要信息。一种直观的类型检查方法是在解析阶段之后，遍历抽象语法树（AST），同时从符号表中获取关于类型的信息。</p>
 <p>语义分析报错案例：</p>
-<p>============ 不要用图片，自己运行一下，深入到细节里面，去看看里面的内容哦。
-<img alt="编译器" src="../_images/llvm_ir14.png" /></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="cp">#define HELLOWORD (&quot;hello world\n&quot;)</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">HELLOWORD</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>执行</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clang<span class="w"> </span>-c<span class="w"> </span>hello.c
 </pre></div>
 </div>
 <p>这里的错误源于两个不同的变量用了相同的名字，它们的类型不同。这个错误必须在语义分析时被发现，相应地 Clang 报告了这个问题：</p>
-<p>============ 不要用图片，自己运行一下，深入到细节里面，去看看里面的内容哦。
-<img alt="编译器" src="../_images/llvm_ir15.png" /></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>hello.c:6:5:<span class="w"> </span>error:<span class="w"> </span>redefinition<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>different<span class="w"> </span>type:<span class="w"> </span><span class="s1">&#39;int[5]&#39;</span><span class="w"> </span>vs<span class="w"> </span><span class="s1">&#39;int[4]&#39;</span>
+<span class="w">    </span><span class="m">6</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>int<span class="w"> </span>a<span class="o">[</span><span class="m">5</span><span class="o">]</span><span class="p">;</span>
+<span class="w">      </span><span class="p">|</span><span class="w">     </span>^
+hello.c:5:5:<span class="w"> </span>note:<span class="w"> </span>previous<span class="w"> </span>definition<span class="w"> </span>is<span class="w"> </span>here
+<span class="w">    </span><span class="m">5</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>int<span class="w"> </span>a<span class="o">[</span><span class="m">4</span><span class="o">]</span><span class="p">;</span>
+<span class="w">      </span><span class="p">|</span><span class="w">     </span>^
+<span class="m">1</span><span class="w"> </span>error<span class="w"> </span>generated.
+</pre></div>
+</div>
 <p>语义分析的主要任务是检查代码的语义是否正确，并确保代码的类型正确。语义分析器检查代码的类型是否符合语言的类型系统，并确保代码的语义正确。</p>
 <p>语义分析器的输出是类型无误的 AST，它是编译器后端的输入。</p>
 </section>
@@ -821,11 +917,15 @@ document.write(`
 </ul>
 <p>分析 Pass 用于收集信息和了解程序的行为，而转换 Pass 则用于修改程序以实现优化或修改功能。在 LLVM 中，这两种 Pass 通常结合使用，以实现对程序进行全面优化和改进。</p>
 <p>优化过程需要执行以下代码：</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>opt<span class="w"> </span>hello.bc<span class="w"> </span>-instcount<span class="w"> </span>-time-passes<span class="w"> </span>-domtree<span class="w"> </span>-o<span class="w"> </span>hello-tmp.bc<span class="w"> </span>-stats
+<p>首先我们需要生成 hello.bc 文件：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clang<span class="w"> </span>-emit-llvm<span class="w"> </span>-c<span class="w"> </span>hello.c<span class="w"> </span>-o<span class="w"> </span>hello.bc
 </pre></div>
 </div>
-<p>============ 不要用图片，自己运行一下，深入到细节里面，去看看里面的内容哦。
-<img alt="编译器" src="../_images/llvm_ir16.png" /></p>
+<p>然后执行优化过程：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>opt<span class="w"> </span>-passes<span class="o">=</span><span class="s1">&#39;instcount,adce,mdgc&#39;</span><span class="w"> </span>-o<span class="w"> </span>hello-tmp.bc<span class="w"> </span>hello.bc<span class="w"> </span>-stats
+</pre></div>
+</div>
+<p>就可以生成 hello-tmp.bc 文件，其中包含了优化后的 IR。</p>
 <p>在上述过程中有很多不同阶段的 pass。</p>
 <ul class="simple">
 <li><p>以 adce(Aggressive Dead Code Elimination)为例：adce 是 Analysis Pass 类似死代码消除(Dead Code Elimination)，它会分析代码中是否存在冗余的计算，如果存在，则将冗余的计算消除掉。</p></li>
@@ -853,9 +953,9 @@ document.write(`
 <h3>Pass API<a class="headerlink" href="#pass-api" title="Link to this heading">#</a></h3>
 <p>Pass 类是实现优化的主要资源。然而，我们从不直接使用它，而是通过清楚的子类使用它。当实现一个 Pass 时，你应该选择适合你的 Pss 的最佳粒度，适合此粒度的最佳子类，例如基于函数、模块、循环、强联通区域，等等。常见的这些子类如下：</p>
 <ul class="simple">
-<li><p>ModulePass：这是最通用的 Pass；它一次分析整个模块，函数的次序不确定。它不限定使用者的行为，允许删除函数和其它修改。为了使用它，你需要写一个类继承 <code class="docutils literal notranslate"><span class="pre">ModulePass</span></code>，并重载 <code class="docutils literal notranslate"><span class="pre">runOnModule()</span></code> 方法。</p></li>
-<li><p>FunctionPass：这个子类允许一次处理一个函数，处理函数的次序不确定。这是应用最多的 Pass 类型。它禁止修改外部函数、删除函数、删除全局变量。为了使用它，需要写一个它的子类，重载 <code class="docutils literal notranslate"><span class="pre">runOnFunction()</span></code> 方法。</p></li>
-<li><p>BasicBlockPass：这个类的粒度是基本块。<code class="docutils literal notranslate"><span class="pre">FunctionPass</span></code> 类禁止的修改在这里也是禁止的。它还禁止修改或者删除外部基本块。使用者需要写一个类继承 <code class="docutils literal notranslate"><span class="pre">BasicBlockPass</span></code>，并重载它的 <code class="docutils literal notranslate"><span class="pre">runOnBasicBlock()</span></code> 方法。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ModulePass</span></code>：这是最通用的 Pass；它一次分析整个模块，函数的次序不确定。它不限定使用者的行为，允许删除函数和其它修改。为了使用它，你需要写一个类继承 <code class="docutils literal notranslate"><span class="pre">ModulePass</span></code>，并重载 <code class="docutils literal notranslate"><span class="pre">runOnModule()</span></code> 方法。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FunctionPass</span></code>：这个子类允许一次处理一个函数，处理函数的次序不确定。这是应用最多的 Pass 类型。它禁止修改外部函数、删除函数、删除全局变量。为了使用它，需要写一个它的子类，重载 <code class="docutils literal notranslate"><span class="pre">runOnFunction()</span></code> 方法。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BasicBlockPass</span></code>：这个类的粒度是基本块。<code class="docutils literal notranslate"><span class="pre">FunctionPass</span></code> 类禁止的修改在这里也是禁止的。它还禁止修改或者删除外部基本块。使用者需要写一个类继承 <code class="docutils literal notranslate"><span class="pre">BasicBlockPass</span></code>，并重载它的 <code class="docutils literal notranslate"><span class="pre">runOnBasicBlock()</span></code> 方法。</p></li>
 </ul>
 </section>
 </section>
@@ -987,7 +1087,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 31, 2024.
+  Last updated on Jun 01, 2024.
   <br/>
 </p>
   </div>

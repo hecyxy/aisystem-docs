@@ -14,7 +14,7 @@
 <meta property="og:description" content="本节首先会基于 The Deep Learning Compiler: A Comprehensive Survey 中的调研做一个热门 AI 编译器的横向对比，并简要介绍几个当前常用的 AI 编译器。随后会分析当前 AI 编译器面临的诸多挑战，并展望 AI 编译器的未来。 业界主流 AI 编译器对比: 在 The Deep Learning Compiler: A Comprehensiv..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_03Compiler02AICompiler_04Future_43ee8e73.png" />
+<meta property="og:image" content="/None" />
 <meta property="og:image:alt" content="本节首先会基于 The Deep Learning Compiler: A Comprehensive Survey 中的调研做一个热门 AI 编译器的横向对比，并简要介绍几个当前常用的 AI 编译器。随后会分析当前 AI 编译器面临的诸多挑战，并展望 AI 编译器的未来。 业界主流 AI 编译器对比: 在 Th..." />
 <meta name="description" content="本节首先会基于 The Deep Learning Compiler: A Comprehensive Survey 中的调研做一个热门 AI 编译器的横向对比，并简要介绍几个当前常用的 AI 编译器。随后会分析当前 AI 编译器面临的诸多挑战，并展望 AI 编译器的未来。 业界主流 AI 编译器对比: 在 The Deep Learning Compiler: A Comprehensiv..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 31, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
 
 <link
   rel="alternate"
@@ -262,9 +262,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质</a></li>
-
-
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
 
 
 
@@ -294,11 +292,11 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 三维互联</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -365,13 +363,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/01.introduction.html">PyTorch2.0 特性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/02.torchscript.html">TorchScript 静态图尝试</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/03.torchfx_lazy.html">FX 与 LazyTensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/04.torchdynamo.html">TorchDynamo 获取图</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/05.aotatuograd.html">AOTAutograd 原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/06.dispatch.html">Dispatch 机制</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -427,7 +419,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
@@ -806,10 +798,10 @@ document.write(`
 <p>修饰符方法也基本分为两个路线。</p>
 <p>第一个路线是函数提取静态分析，即 Tracing Based 方法，常用 PyTorch 中的 PyTorch.fx 方法。PyTorch.fx 是 PyTorch 中的一个模块，其中 fx 代表“Function Extraction”。其可以执行函数提取工作，即将 PyTorch 模型中的函数提取出来，形成一个独立的函数图（Function Graph），这个图描述了函数之间的调用关系和数据流动情况；同时也可以对提取出的函数图进行静态分析，识别函数之间的依赖关系和数据流动路径，以及执行过程中的优化机会。在变量前加上此修饰符，可以逐句进行跟踪并做出翻译，例如下图所示代码操作。</p>
 <p><img alt="fx 方法" src="../_images/Future11.png" />
-======== 代码不要用图，直接贴代码，用markdown表示代码的方法。</p>
+======== 代码不要用图，直接贴代码，用 markdown 表示代码的方法。</p>
 <p>第二个路线是源码转换，即 AST Transform 方法，常用 PyTorch 中的 PyTorch.jit.trace 方法。torch.jit.trace 是 PyTorch 中用于函数追踪的一个函数。它用于将给定的 Python 函数或者模块转换为 Torch Script，从而允许在静态图上执行函数，以提高执行效率和部署性能。在用户自定义的函数前加上此修饰符，即可对函数进行一个源码转换，例如下图所示代码操作。</p>
 <p><img alt="AST 方法" src="../_images/Future12.png" />
-======== 代码不要用图，直接贴代码，用markdown表示代码的方法。</p>
+======== 代码不要用图，直接贴代码，用 markdown 表示代码的方法。</p>
 <p>虽然 PyTorch 提出了诸如 JIT 虚拟机以及修饰符等针对 Python 静态化的方案，但都存在瑕疵。下面罗列一些当前 AI 编译器在 Python 静态化上面临的挑战。</p>
 <p><strong>类型推导</strong>:将 Python 动态类型转换为编译器 IR 静态类型是一项挑战，需要编译器在运行时收集类型信息、处理类型不确定性，并在精度和性能之间寻找平衡，以确保正确推导出变量的静态类型。</p>
 <p><strong>控制流表达</strong>：在将 Python 代码静态化的过程中，对控制流表达（如 if、else、while、for 等）的处理也是难点之一。编译器需要分析和转换这些控制结构，确保在静态化后仍能正确执行程序逻辑，包括条件分支的静态推导、循环结构的终止条件确定、循环不变量提取、迭代器和生成器的处理以及异常处理的转换。通过对这些控制流表达进行静态化，编译器能够为 Python 代码提供更好的类型检查、优化和部署支持。</p>
@@ -971,7 +963,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 31, 2024.
+  Last updated on Jun 01, 2024.
   <br/>
 </p>
   </div>

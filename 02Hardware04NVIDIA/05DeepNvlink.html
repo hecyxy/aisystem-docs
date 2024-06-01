@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="02Hardware04NVIDIA/05DeepNvlink.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="随着人工智能技术的飞速发展，大型模型的参数量已经从亿级跃升至万亿级，这一变化不仅标志着人工智能能力的显著提升，也对支持这些庞大模型训练的底层硬件和网络架构提出了前所未有的挑战。为了有效地训练这些复杂的模型，需要依赖于大规模的 GPU 服务器集群，它们通过高速网络相互连接，以便进行快速、高效的数据交换。但是，即便是最先进的 GPU 也可能因为网络瓶颈而无法充分发挥其计算潜力，导致整个算力集群的..." />
+<meta property="og:description" content="随着人工智能技术的飞速发展，大型模型的参数量已经从亿级跃升至万亿级，这一变化不仅标志着人工智能的显著提升，也对支持这些庞大模型训练的底层硬件和网络架构提出了前所未有的挑战。为了有效地训练这些复杂的模型，需要依赖于大规模的 GPU 服务器集群，它们通过高速网络相互连接，以便进行快速、高效的数据交换。但是，即便是最先进的 GPU 也可能因为网络瓶颈而无法充分发挥其计算潜力，导致整个算力集群的性能..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="随着人工智能技术的飞速发展，大型模型的参数量已经从亿级跃升至万亿级，这一变化不仅标志着人工智能能力的显著提升，也对支持这些庞大模型训练的底层硬件和网络架构提出了前所未有的挑战。为了有效地训练这些复杂的模型，需要依赖于大规模的 GPU 服务器集群，它们通过高速网络相互连接，以便进行快速、高效的数据交换。但是，即便是..." />
-<meta name="description" content="随着人工智能技术的飞速发展，大型模型的参数量已经从亿级跃升至万亿级，这一变化不仅标志着人工智能能力的显著提升，也对支持这些庞大模型训练的底层硬件和网络架构提出了前所未有的挑战。为了有效地训练这些复杂的模型，需要依赖于大规模的 GPU 服务器集群，它们通过高速网络相互连接，以便进行快速、高效的数据交换。但是，即便是最先进的 GPU 也可能因为网络瓶颈而无法充分发挥其计算潜力，导致整个算力集群的..." />
+<meta property="og:image" content="/_images/social_previews/summary_02Hardware04NVIDIA_05DeepNvlink_858bbacb.png" />
+<meta property="og:image:alt" content="随着人工智能技术的飞速发展，大型模型的参数量已经从亿级跃升至万亿级，这一变化不仅标志着人工智能的显著提升，也对支持这些庞大模型训练的底层硬件和网络架构提出了前所未有的挑战。为了有效地训练这些复杂的模型，需要依赖于大规模的 GPU 服务器集群，它们通过高速网络相互连接，以便进行快速、高效的数据交换。但是，即便是最先..." />
+<meta name="description" content="随着人工智能技术的飞速发展，大型模型的参数量已经从亿级跃升至万亿级，这一变化不仅标志着人工智能的显著提升，也对支持这些庞大模型训练的底层硬件和网络架构提出了前所未有的挑战。为了有效地训练这些复杂的模型，需要依赖于大规模的 GPU 服务器集群，它们通过高速网络相互连接，以便进行快速、高效的数据交换。但是，即便是最先进的 GPU 也可能因为网络瓶颈而无法充分发挥其计算潜力，导致整个算力集群的性能..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>NVLink 原理剖析(DONE) &#8212; AI System</title>
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 31, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
 
 <link
   rel="alternate"
@@ -262,9 +262,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质</a></li>
-
-
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
 
 
 
@@ -294,11 +292,11 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 三维互联</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -365,13 +363,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/01.introduction.html">PyTorch2.0 特性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/02.torchscript.html">TorchScript 静态图尝试</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/03.torchfx_lazy.html">FX 与 LazyTensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/04.torchdynamo.html">TorchDynamo 获取图</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/05.aotatuograd.html">AOTAutograd 原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/06.dispatch.html">Dispatch 机制</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -427,7 +419,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
@@ -732,11 +724,11 @@ document.write(`
 <!--Copyright 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="nvlink-done">
 <h1>NVLink 原理剖析(DONE)<a class="headerlink" href="#nvlink-done" title="Link to this heading">#</a></h1>
-<p>随着人工智能技术的飞速发展，大型模型的参数量已经从亿级跃升至万亿级，这一变化不仅标志着人工智能能力的显著提升，也对支持这些庞大模型训练的底层硬件和网络架构提出了前所未有的挑战。为了有效地训练这些复杂的模型，需要依赖于大规模的 GPU 服务器集群，它们通过高速网络相互连接，以便进行快速、高效的数据交换。但是，即便是最先进的 GPU 也可能因为网络瓶颈而无法充分发挥其计算潜力，导致整个算力集群的性能大打折扣。这一现象凸显了在构建大规模 GPU 集群时，仅仅增加 GPU 数量并不能线性增加集群的总体算力。相反，随着集群规模的扩大，网络通信的额外开销也会成倍增加，严重影响计算效率。</p>
+<p>随着人工智能技术的飞速发展，大型模型的参数量已经从亿级跃升至万亿级，这一变化不仅标志着人工智能的显著提升，也对支持这些庞大模型训练的底层硬件和网络架构提出了前所未有的挑战。为了有效地训练这些复杂的模型，需要依赖于大规模的 GPU 服务器集群，它们通过高速网络相互连接，以便进行快速、高效的数据交换。但是，即便是最先进的 GPU 也可能因为网络瓶颈而无法充分发挥其计算潜力，导致整个算力集群的性能大打折扣。这一现象凸显了在构建大规模 GPU 集群时，仅仅增加 GPU 数量并不能线性增加集群的总体算力。相反，随着集群规模的扩大，网络通信的额外开销也会成倍增加，严重影响计算效率。</p>
 <p>在这种背景下，算存互连（即计算与存储之间的连接）和算力互连（即计算单元之间的连接）的重要性变得日益突出。这些互连技术是实现高效大规模并行计算的关键，它们确保数据可以迅速在处理单元和存储设备间传输，最大限度地减少通信延迟，提高整体系统性能。</p>
 <section id="pcie-gpu">
 <h2>PCIe 与 GPU 关系<a class="headerlink" href="#pcie-gpu" title="Link to this heading">#</a></h2>
-<p>在解决这一挑战的过程中，PCIe (Peripheral Component Interconnect Express) 和 NVIDIA 的 NVLink、NVSwitch 等通信技术扮演了重要角色，本文将深度的介绍这几种技术，我们先来简单了解一下。</p>
+<p>在解决这一挑战的过程中，PCIe (Peripheral Component Interconnect Express) 和 NVIDIA 的 NVLink、NVSwitch 等通信技术扮演了重要角色，本文将深入介绍这几种技术。</p>
 <section id="pcie">
 <h3>PCIe 互联技术<a class="headerlink" href="#pcie" title="Link to this heading">#</a></h3>
 <p>PCIe 是一种高速串行计算机扩展总线标准，广泛应用于连接服务器中的 GPU、SSD 等设备。它通过提供高带宽和低延迟的数据传输，支持了复杂计算任务的需求。然而，随着计算需求的不断增长，PCIe 的带宽可能成为限制因素。</p>
@@ -759,7 +751,7 @@ document.write(`
 <li><p>对 HBM 的访问：如果一个 GPU 需要直接访问另一个 GPU 的 HBM 内存，数据必须通过 PCIe 总线传输，这会受到 PCIe 带宽的限制。这种通信方式比 GPU 内部访问 HBM 的速度慢得多，因为 PCIe 的带宽远低于 HBM 的内存带宽。</p></li>
 <li><p>通过 CPU 的调度：在没有直接 GPU 对 GPU 通信能力的系统中，CPU 充当数据交换的中介。CPU 负责在多个 GPU 之间分配和调度计算任务，以及管理数据在 GPU 和系统内存之间的传输。</p></li>
 </ol>
-<p>这就使得 PCIe 的带宽限制成为多 GPU 系统中一个限制因素。特别是当工作负载需要频繁的 GPU 间通信时，在数据传输密集型的应用中，这种限制可能导致性能下降。</p>
+<p>这就使得 PCIe 的带宽限制成为多 GPU 系统中的一个限制因素。特别是当工作负载需要频繁的 GPU 间通信时，在数据传输密集型的应用中，这种限制可能导致性能下降。</p>
 <p><img alt="GPU 间 NVLink 互联" src="../_images/05DeepNvlink04.png" /></p>
 <p>NVLink 的出现为 GPU 间的互联提供了一种革命性的方式，使得不同 GPU 之间的通信和数据共享变得更加高效和直接。</p>
 <p>通过 NVLink，GPU 的图形处理簇（GPCs）可以直接访问连接在同一系统中其他 GPU 上的高带宽内存（HBM）数据。这种直接的内存访问机制显著降低了数据交换的延迟，并提高了数据处理的速度。同时，NVLink 支持多条链路同时操作，这意味着可以通过多条 NVLink 同时对其他 GPU 内的 HBM 数据进行访问，极大地增加了带宽和通信速度。每条 NVLink 链路都提供了远高于 PCIe 的数据传输速率，多条链路的组合使得整体带宽得到了成倍增加。</p>
@@ -810,7 +802,7 @@ document.write(`
 <h3>NVLink 互联拓扑<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>为了实现 GPU 间的高效链接和协作计算，就需要基于 NVLink 系统配置和性能成本要求，来合理的配置 GPU 之间的 NVLink 通道的物理布局和连接方式。</p>
 <p><img alt="NVLink 拓扑" src="../_images/05DeepNvlink11.png" /></p>
-<p>初代 DGX-1 通常采用了一种类似于上图的互联形式。不过，IBM 在其基于 Power8+微架构的 Power 处理器上引入了 NVLink 1.0 技术，这使得 NVIDIA 的 P100 GPU 可以直接通过 NVLink 与 CPU 相连，而无需经过 PCIe 总线。这一举措实现了 GPU 与 CPU 之间的高速、低延迟的直接通信，为深度学习和高性能计算提供了更强大的性能和效率。</p>
+<p>初代 DGX-1 通常采用了一种类似于上图的互联形式。不过，IBM 在基于 Power8+微架构的 Power 处理器上引入了 NVLink 1.0 技术，这使得 NVIDIA 的 P100 GPU 可以直接通过 NVLink 与 CPU 相连，而无需经过 PCIe 总线。这一举措实现了 GPU 与 CPU 之间的高速、低延迟的直接通信，为深度学习和高性能计算提供了更强大的性能和效率。</p>
 <p>通过与最近的 Power8+ CPU 相连，每个节点的 4 个 GPU 可以配置成一种全连接的 mesh 结构。这种结构使得 GPU 之间可以直接交换数据，并在深度学习和计算密集型任务中实现更高效的数据传输和协作计算。</p>
 <p><img alt="DGX1 NVLink 拓扑" src="../_images/05DeepNvlink12.png" /></p>
 <p>如上图所示，DGX-1 集成了八块 P100 GPU 和两块志强 E5 2698v4 处理器。然而，由于每块 GPU 只有 4 条 NVLink 通道，因此 GPU 形成了一种混合的 cube-mesh 网络拓扑结构。在这种结构中，GPU 被分成两组，每组四块 GPU，并且在组内形成了一个 mesh 结构，在组间形成了一个 cube 结构。</p>
@@ -821,9 +813,9 @@ document.write(`
 <section id="id5">
 <h3>第五代 NVLink<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>在 2024 年的 Blackwell 架构中英伟达继续对其服务器带宽和可扩展性方面进行迭代。</p>
-<p>总体上看，NVIDIA 将 NVLink 的带宽从每 GPU 900GB/秒增加了一倍，达到每 GPU 1800GB/秒。与上一代产品相比，这是过去几年来 NVLink 带宽的最大跃升，因为 2022 Hopper 架构的 NVLink 带宽仅比上代提高了 50%。</p>
-<p>值得注意的是，尽管 NVIDIA 将 GPU 芯片数量翻倍，但互连带宽也翻了一倍，因此每个芯片接收的数据量并没有改变。然而，由于两个芯片需要作为单个处理器一起工作，因此需要传输和重新排列的数据总量显着增加。</p>
-<p>另一个有趣的方面是，每个 GPU 的 NVLink 数量在幕后没有改变，GH100 Hopper 的 NVLink 容量为 18 个链接，Blackwell GPU 的 NVLink 容量也是 18 个链接。因此，NVLink 5 带来的所有带宽增益都来自于链路内每个高速对的 200Gbps 更高信号传输速率。这与前几代 NVLink 的模式是一致的，每次迭代都会使信号传输速率翻倍。</p>
+<p>总体上看，NVIDIA 将 NVLink 的带宽从每 GPU 900GB/s 增加了一倍，达到每 GPU 1800GB/s。与上一代产品相比，这是过去几年来 NVLink 带宽的最大跃升，因为 2022 Hopper 架构的 NVLink 带宽仅比上代提高了 50%。</p>
+<p>值得注意的是，尽管 NVIDIA 将 GPU 芯片数量翻倍，互连带宽也翻了一倍，因此每个芯片接收的数据量并没有改变。然而，由于两个芯片需要作为单个处理器一起工作，因此需要传输和重新排列的数据总量显着增加。</p>
+<p>另一个有趣的方面是，每个 GPU 的 NVLink 数量没有改变，GH100 Hopper 的 NVLink 容量为 18 个链接，Blackwell GPU 的 NVLink 容量也是 18 个链接。因此，NVLink 5 带来的所有带宽增益都来自于链路内每个高速对的 200Gbps 更高信号传输速率。这与前几代 NVLink 的模式是一致的，每次迭代都会使信号传输速率翻倍。</p>
 <p>除此之外，由于 NVLink 4 的链路数量保持不变，本地芯片拓扑选项基本上也保持不变。NVIDIA 的 HGX H100 设计结合了 4 路和 8 路设置，HGX B200/B100 设置也将相同。这并不意味着 NVIDIA 没有增加 NVLink 域中 GPU 数量的雄心，但这将在机架级别而不是节点级别实现。</p>
 </section>
 </section>
@@ -947,7 +939,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 31, 2024.
+  Last updated on Jun 01, 2024.
   <br/>
 </p>
   </div>

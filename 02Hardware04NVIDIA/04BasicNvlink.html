@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="02Hardware04NVIDIA/04BasicNvlink.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="在进入大模型时代后，大模型发展已是人工智能的核心，但训练大模型实际上是一项比较复杂的工作，因为它需要大量的 GPU 资源和较长的训练时间。 此外，由于单个 GPU 工作线程的内存有限，并且许多大型模型的大小已经超出了单个 GPU 的范围。所以就需要实现跨多个 GPU 的模型训练，这种训练方式就涉及到了分布式通信和 NVLink。当谈及分布式通信和 NVLink 时，我们进入了一个引人入胜且不..." />
+<meta property="og:description" content="在进入大模型时代后，大模型的发展已成为人工智能的核心，但训练大模型实际上是一项比较复杂的工作，因为它需要大量的 GPU 资源和较长的训练时间。 此外，由于单个 GPU 工作线程的内存有限，并且许多大型模型的大小已经超出了单个 GPU 的范围。所以就需要实现跨多个 GPU 的模型训练，这种训练方式就涉及到了分布式通信和 NVLink。当谈及分布式通信和 NVLink 时，我们进入了一个引人入胜..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="在进入大模型时代后，大模型发展已是人工智能的核心，但训练大模型实际上是一项比较复杂的工作，因为它需要大量的 GPU 资源和较长的训练时间。 此外，由于单个 GPU 工作线程的内存有限，并且许多大型模型的大小已经超出了单个 GPU 的范围。所以就需要实现跨多个 GPU 的模型训练，这种训练方式就涉及到了分布式通信和..." />
-<meta name="description" content="在进入大模型时代后，大模型发展已是人工智能的核心，但训练大模型实际上是一项比较复杂的工作，因为它需要大量的 GPU 资源和较长的训练时间。 此外，由于单个 GPU 工作线程的内存有限，并且许多大型模型的大小已经超出了单个 GPU 的范围。所以就需要实现跨多个 GPU 的模型训练，这种训练方式就涉及到了分布式通信和 NVLink。当谈及分布式通信和 NVLink 时，我们进入了一个引人入胜且不..." />
+<meta property="og:image" content="/_images/social_previews/summary_02Hardware04NVIDIA_04BasicNvlink_43463061.png" />
+<meta property="og:image:alt" content="在进入大模型时代后，大模型的发展已成为人工智能的核心，但训练大模型实际上是一项比较复杂的工作，因为它需要大量的 GPU 资源和较长的训练时间。 此外，由于单个 GPU 工作线程的内存有限，并且许多大型模型的大小已经超出了单个 GPU 的范围。所以就需要实现跨多个 GPU 的模型训练，这种训练方式就涉及到了分布式通..." />
+<meta name="description" content="在进入大模型时代后，大模型的发展已成为人工智能的核心，但训练大模型实际上是一项比较复杂的工作，因为它需要大量的 GPU 资源和较长的训练时间。 此外，由于单个 GPU 工作线程的内存有限，并且许多大型模型的大小已经超出了单个 GPU 的范围。所以就需要实现跨多个 GPU 的模型训练，这种训练方式就涉及到了分布式通信和 NVLink。当谈及分布式通信和 NVLink 时，我们进入了一个引人入胜..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>分布式通信与 NVLink(DONE) &#8212; AI System</title>
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 31, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
 
 <link
   rel="alternate"
@@ -262,9 +262,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质</a></li>
-
-
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
 
 
 
@@ -294,11 +292,11 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 三维互联</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -365,13 +363,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/01.introduction.html">PyTorch2.0 特性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/02.torchscript.html">TorchScript 静态图尝试</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/03.torchfx_lazy.html">FX 与 LazyTensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/04.torchdynamo.html">TorchDynamo 获取图</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/05.aotatuograd.html">AOTAutograd 原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/06.dispatch.html">Dispatch 机制</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -427,7 +419,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
@@ -732,15 +724,15 @@ document.write(`
 <!--Copyright 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="nvlink-done">
 <h1>分布式通信与 NVLink(DONE)<a class="headerlink" href="#nvlink-done" title="Link to this heading">#</a></h1>
-<p>在进入大模型时代后，大模型发展已是人工智能的核心，但训练大模型实际上是一项比较复杂的工作，因为它需要大量的 GPU 资源和较长的训练时间。</p>
+<p>在进入大模型时代后，大模型的发展已成为人工智能的核心，但训练大模型实际上是一项比较复杂的工作，因为它需要大量的 GPU 资源和较长的训练时间。</p>
 <p>此外，由于单个 GPU 工作线程的内存有限，并且许多大型模型的大小已经超出了单个 GPU 的范围。所以就需要实现跨多个 GPU 的模型训练，这种训练方式就涉及到了分布式通信和 NVLink。当谈及分布式通信和 NVLink 时，我们进入了一个引人入胜且不断演进的技术领域，本节我们将简单介绍分布式通信的原理和实现高效分布式通信背后的技术 NVLink 的演进。</p>
 <p>分布式通信是指将计算机系统中的多个节点连接起来，使它们能够相互通信和协作，以完成共同的任务。而 NVLink 则是一种高速、低延迟的通信技术，通常用于连接 GPU 之间或连接 GPU 与其他设备之间，以实现高性能计算和数据传输。</p>
 <section id="id1">
 <h2>分布式并行<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>当前深度学习进入了大模型时代，即 Foundation Models。大模型，顾名思义主打的就是“大”。主要包括以下几个方面：</p>
+<p>当前深度学习进入了大模型时代，即 Foundation Models。大模型，顾名思义主打的就是“大”，主要包括以下几个方面：</p>
 <ol class="arabic simple">
 <li><p><strong>数据规模大</strong>：大模型通常采用自监督学习方法，减少了数据标注，降低训练研发成本，而大量的数据又可以提高模型的泛化能力和性能。</p></li>
-<li><p><strong>参数规模大</strong>：随着模型参数规模的不断增大，模型可以更好地捕捉数据中的复杂关系和模式，有望进 一步突破现有模型结构的精度局限。</p></li>
+<li><p><strong>参数规模大</strong>：随着模型参数规模的不断增大，模型可以更好地捕捉数据中的复杂关系和模式，有望进一步突破现有模型结构的精度局限。</p></li>
 <li><p><strong>算力需求大</strong>：大规模的数据和参数，使得模型无法在单机上运行和计算，这一方面要求计算硬件的不断进步，另一方面也要求 AI 框架具有分布式并行训练的能力。</p></li>
 </ol>
 <p>所以说，为了解决上述问题我们需要引入分布式并行策略。</p>
@@ -759,7 +751,7 @@ document.write(`
 <p>数据并行的优势和挑战：</p>
 <p>数据并行可以允许训练过程水平扩展到更多的 GPU 上，从而加速训练。其优势是实现简单，而且可以灵活的调整工作单元的数量来适应可用的硬件资源，当前多种深度学习框架提供了内置支持。不过数据并行随着并行的 GPU 数量增加，需要存储更多的参数副本，这会导致显著的内存开销。此外，梯度聚合步骤需要在 GPU 之间同步大量数据，这可能成为系统的瓶颈，特别是当工作单元的数量增多时。</p>
 <p>为了解决数据并行中的通信瓶颈问题，研究者们提出了各种异步同步方案。在这些方案中，每个 GPU 工作线程可以独立于其他线程处理数据，无需等待其他工作线程完成其梯度计算和同步。这种方法可以显著降低因通信导致的停滞时间，从而提高系统的吞吐量。</p>
-<p>其实现原理为，在梯度计算阶段，每个 GPU 在完成自己的前向和反向传播后，不等待其他 GPU，立即进行梯度更新。其次，每个 GPU 在需要时读取最新可用的全局权重，而不必等待所有 GPU 达到同步点。然而，这种方法也有其缺点。由于不同 GPU 上的模型权重可能不同步，工作线程可能会使用过时的权重进行梯度计算，这可能导致统计效率的降低，即精度上无法严格保证。</p>
+<p>实现原理是在梯度计算阶段，每个 GPU 在完成自己的前向和反向传播后，不等待其他 GPU，立即进行梯度更新。其次，每个 GPU 在需要时读取最新可用的全局权重，而不必等待所有 GPU 达到同步点。然而，这种方法也有其缺点。由于不同 GPU 上的模型权重可能不同步，工作线程可能会使用过时的权重进行梯度计算，这可能导致统计效率的降低，即精度上无法严格保证。</p>
 </section>
 <section id="id3">
 <h3>模型并行<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
@@ -796,19 +788,19 @@ document.write(`
 <li><p><strong>TCP/IP 网络</strong>：TCP/IP 协议是互联网通信的基础，它允许不同机器之间通过网络进行数据传输。在分布式计算中，可以使用 TCP/IP 网络进行机器间的通信和数据传输。</p></li>
 <li><p><strong>RDMA（Remote Direct Memory Access）网络</strong>：RDMA 是一种高性能网络通信技术，它允许在不涉及 CPU 的情况下直接从一个内存区域传输数据到另一个内存区域。RDMA 网络通常用于构建高性能计算集群，提供低延迟和高吞吐量的数据传输。</p></li>
 </ol>
-<p>在了解在硬件之后，实现通信不可或缺的是提供集合通信功能的库。其中，最常用的集合通信库之一是 MPI（Message Passing Interface），在 CPU 上被广泛应用。而在 NVIDIA GPU 上，最常用的集合通信库则是 NCCL（NVIDIA Collective Communications Library）。</p>
+<p>在了解硬件之后，实现通信不可或缺的是提供集合通信功能的库。其中，最常用的集合通信库之一是 MPI（Message Passing Interface），在 CPU 上被广泛应用。而在 NVIDIA GPU 上，最常用的集合通信库则是 NCCL（NVIDIA Collective Communications Library）。</p>
 <p><img alt="NVLink&amp;NVSwitch" src="../_images/04BasicNvlink03.png" /></p>
 <p>如上图所示，通过 NCCL 库，我们可以利用 NVLink 或 NVSwitch 将不同的 GPU 相互连接起来。NCCL 在算法层面提供了外部 API，通过这些 API，我们可以方便地进行跨多个 GPU 的集合通信操作。NCCL 的 API 覆盖了常见的集合通信操作，如广播、归约、全局归约、全局同步等，为开发者提供了丰富而高效的并行计算工具。</p>
 </section>
 <section id="id5">
 <h3>集合通信<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>集合通信（Collective Communications）是一种涉及进程组中所有进程的全局通信操作。它包括一系列基本操作，如发送（send）、接收（receive）、复制（copy）、组内进程栅栏同步（Barrier），以及节点间进程同步（signal + wait）。这些基本操作经过组合可以构成一组通信模板，也称为通信原语。</p>
-<p>例如，1 对多的广播（broadcast）、多对 1 的收集（gather）、多对多的收集（all-gather）、1 对多的发散（scatter）、多对 1 的规约（reduce）、多对多的规约（all-reduce）、组合的规约与发散（reduce-scatter）、多对多的全互连（all-to-all）等。下面我们简单介绍几个。</p>
+<p>例如，一对多的广播（broadcast）、多对一的收集（gather）、多对多的收集（all-gather）、一对多的发散（scatter）、多对一的规约（reduce）、多对多的规约（all-reduce）、组合的规约与发散（reduce-scatter）、多对多的全互连（all-to-all）等。下面我们简单介绍几个。</p>
 <p><img alt="集合通信" src="../_images/04BasicNvlink04.png" /></p>
 <ul class="simple">
-<li><p><strong>Gather</strong> 操作属于多对 1 的通信原语，具有多个数据发送者，一个数据接收者，可以在集群内把多个节点的数据收集到一个节点上，他的反向操作对应 Scatter。</p></li>
-<li><p><strong>Broadcast</strong> 属于 1 对多的通信原语，一个数据发送者，多个数据接收者，可以在集群内把一个节点自身的数据广播到其他节点上。如上图所示，当主节点 0 执行 Broadcast 时，数据即从主节点 0 被广播至其他节点。</p></li>
-<li><p><strong>Scatter</strong> 是数据的 1 对多的分发，它将一张 GPU 卡上的数据进行分片再分发到其他所有的 GPU 卡上。</p></li>
+<li><p><strong>Gather</strong> 操作属于多对一的通信原语，具有多个数据发送者，一个数据接收者，可以在集群内把多个节点的数据收集到一个节点上，他的反向操作对应 Scatter。</p></li>
+<li><p><strong>Broadcast</strong> 属于一对多的通信原语，一个数据发送者，多个数据接收者，可以在集群内把一个节点自身的数据广播到其他节点上。如上图所示，当主节点 0 执行 Broadcast 时，数据即从主节点 0 被广播至其他节点。</p></li>
+<li><p><strong>Scatter</strong> 是数据的一对多的分发，它将一张 GPU 卡上的数据进行分片再分发到其他所有的 GPU 卡上。</p></li>
 <li><p><strong>All-Reduce</strong> 属于多对多的通信原语，具有多个数据发送者，多个数据接收者，其在集群内的所有节点上都执行相同的 Reduce 操作，可以将集群内所有节点的数据规约运算得到的结果发送到所有的节点上。简单来说，AllReduce 是数据的多对多的规约运算，它将所有的 GPU 卡上的数据规约（比如 SUM 求和）到集群内每张 GPU 卡上。</p></li>
 <li><p><strong>All-Gather</strong> 属于多对多的通信原语，具有多个数据发送者，多个数据接收者，可以在集群内把多个节点的数据收集到一个主节点上（Gather），再把这个收集到的数据分发到其他节点上。</p></li>
 <li><p><strong>AllToAll</strong> 操作每一个节点的数据会 Scatter 到集群内所有节点上，同时每一个节点也会 Gather 集群内所有节点的数据。AllToAll 是对 AllGather 的扩展，区别是 AllGather 操作中，不同节点向某一节点收集到的数据是相同的，而在 AllToAll 中，不同的节点向某一节点收集到的数据是不同的。</p></li>
@@ -826,8 +818,7 @@ document.write(`
 <section id="nvlink">
 <h3>NVLink 发展<a class="headerlink" href="#nvlink" title="Link to this heading">#</a></h3>
 <p><img alt="NVLink 发展" src="../_images/04BasicNvlink05.png" /></p>
-<p>如上图所示，从 Pascal 架构到 Hoppe 架构，NVLink 已经经过了四代的发展演进。在 2024 年的 GTC 大会上，NVIDIA 发布了 Blackwell 架构，其中 NVLink 再次更新，发布了第五代 NVLink，其中互联带宽达到了 1800GB/s。</p>
-<p>如上图所示，每一层 NVLink 的更新，其每个 GPU 的互联带宽都是在不断的提升，其中 NVLink 之间能够互联的 GPU 数，也从第一代的 4 路到第四代的 18 路。最新的 Blackwell 架构其最大互联 GPU 数，并未增加。</p>
+<p>如上图所示，从 Pascal 架构到 Hoppe 架构，NVLink 已经经过了四代的发展演进。在 2024 年的 GTC 大会上，NVIDIA 发布了 Blackwell 架构，其中 NVLink 再次更新，发布了第五代 NVLink，其中互联带宽达到了 1800GB/s。每一层 NVLink 的更新，其每个 GPU 的互联带宽都是在不断的提升，其中 NVLink 之间能够互联的 GPU 数，也从第一代的 4 路到第四代的 18 路。最新的 Blackwell 架构其最大互联 GPU 数，仍是 18 路并未增加。</p>
 <p><img alt="NVLink 发展" src="../_images/04BasicNvlink06.png" /></p>
 <p>从上图可以看出，在 P100 中每一个 NVLink 只有 40GB/s，而从第二代 V100 到 H100 每一个 NVLink 链路都有 50GB/s，通过增加了链路的数量使得整体带宽增加。</p>
 </section>
@@ -837,8 +828,8 @@ document.write(`
 <p>如上图所示，NVSwitch 技术从 Volta 架构到 Hopper 架构，经历了三代的演进与发展。在每一代中，每个 GPU 互联的芯片模组数量保持不变，都为 8 个，这意味着互联的基本结构保持了稳定性和一致性。随着 NVLink 架构的升级，GPU 到 GPU 之间的带宽却实现了显著的增长，因为 NVSwitch 就是 NVLink 具体承载的芯片模组，从 Volta 架构的 300GB/s 增加到了 Hopper 架构的 900GB/s。</p>
 <p>下面我们来看下 NVLink 与 NVSwitch 在服务器中的关系。</p>
 <p><img alt="NVSwitch 发展" src="../_images/04BasicNvlink08.png" /></p>
-<p>如上图所示，在 P100 中是只有 NVLink 的，GPU 间通过 CubeMesh 进行互联。在 P100 中，每一个 GPU 有 4 路进行互联，每 4 个组成一个 CubeMesh。</p>
-<p>而到了 V100 中，每一个 GPU 可以通过 NVSwitch 合另外一个 GPU 进行互联。到了 A100 中，NVSwitch 再次升级，节省了很多的链路，每一个 GPU 可以通过 NVSwitch 和任何一个 GPU 进行互联。</p>
+<p>如上图所示，在 P100 中只有 NVLink 的，GPU 间通过 CubeMesh 进行互联。在 P100 中，每一个 GPU 有 4 路进行互联，每 4 个组成一个 CubeMesh。</p>
+<p>而到了 V100 中，每一个 GPU 可以通过 NVSwitch 和另外一个 GPU 进行互联。到了 A100 中，NVSwitch 再次升级，节省了很多的链路，每一个 GPU 可以通过 NVSwitch 和任何一个 GPU 进行互联。</p>
 <p>到了 H100 中，又有了新的技术突破，单机内有 8 块 H100 GPU 卡，任意两个 H100 卡之间都有 900 GB/s 的双向互联带宽。值得注意的是，在 DGX H100 系统里，四个 NVSwitch 留出了 72 个 NVLink4 连接，用于通过 NVLink-Network Switch 连接到其他 DGX H100 系统，从而方便组成 DGX H100 SuperPod 系统。其中，72 个 NVLink4 连接的总双向带宽是～3.6TB/s。</p>
 </section>
 </section>
@@ -962,7 +953,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 31, 2024.
+  Last updated on Jun 01, 2024.
   <br/>
 </p>
   </div>

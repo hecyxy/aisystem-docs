@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="03Compiler02AICompiler/03Architecture.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="在上一节中将 AI 编译器的发展大致分为了 3 个阶段，分别为1）朴素编译器、2）专用编译器以及3）通用编译器。 本节作为上一节 AI 编译器架构的一个延续，着重讨论 AI 编译器的通用架构。首先将回顾现有 AI 编译器架构（以 PyTorch 作为标杆），随后引出通用 AI 编译器的架构模型，并进一步介绍其 IR 中间表达层、前端优化以及后端优化的细节，最后以图的形式展示现有 AI 编译器..." />
+<meta property="og:description" content="在上一节中将 AI 编译器的发展大致分为了 3 个阶段，分别为 1）朴素编译器、2）专用编译器以及 3）通用编译器。 本节作为上一节 AI 编译器架构的一个延续，着重讨论 AI 编译器的通用架构。首先将回顾现有 AI 编译器架构（以 PyTorch 作为标杆），随后引出通用 AI 编译器的架构模型，并进一步介绍其 IR 中间表达层、前端优化以及后端优化的细节，最后以图的形式展示现有 AI 编..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_03Compiler02AICompiler_03Architecture_9c745a61.png" />
-<meta property="og:image:alt" content="在上一节中将 AI 编译器的发展大致分为了 3 个阶段，分别为1）朴素编译器、2）专用编译器以及3）通用编译器。 本节作为上一节 AI 编译器架构的一个延续，着重讨论 AI 编译器的通用架构。首先将回顾现有 AI 编译器架构（以 PyTorch 作为标杆），随后引出通用 AI 编译器的架构模型，并进一步介绍其 I..." />
-<meta name="description" content="在上一节中将 AI 编译器的发展大致分为了 3 个阶段，分别为1）朴素编译器、2）专用编译器以及3）通用编译器。 本节作为上一节 AI 编译器架构的一个延续，着重讨论 AI 编译器的通用架构。首先将回顾现有 AI 编译器架构（以 PyTorch 作为标杆），随后引出通用 AI 编译器的架构模型，并进一步介绍其 IR 中间表达层、前端优化以及后端优化的细节，最后以图的形式展示现有 AI 编译器..." />
+<meta property="og:image" content="/_images/social_previews/summary_03Compiler02AICompiler_03Architecture_69bd2d24.png" />
+<meta property="og:image:alt" content="在上一节中将 AI 编译器的发展大致分为了 3 个阶段，分别为 1）朴素编译器、2）专用编译器以及 3）通用编译器。 本节作为上一节 AI 编译器架构的一个延续，着重讨论 AI 编译器的通用架构。首先将回顾现有 AI 编译器架构（以 PyTorch 作为标杆），随后引出通用 AI 编译器的架构模型，并进一步介绍其..." />
+<meta name="description" content="在上一节中将 AI 编译器的发展大致分为了 3 个阶段，分别为 1）朴素编译器、2）专用编译器以及 3）通用编译器。 本节作为上一节 AI 编译器架构的一个延续，着重讨论 AI 编译器的通用架构。首先将回顾现有 AI 编译器架构（以 PyTorch 作为标杆），随后引出通用 AI 编译器的架构模型，并进一步介绍其 IR 中间表达层、前端优化以及后端优化的细节，最后以图的形式展示现有 AI 编..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>AI 编译器的通用架构 &#8212; AI System</title>
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 31, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
 
 <link
   rel="alternate"
@@ -262,9 +262,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质</a></li>
-
-
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
 
 
 
@@ -294,11 +292,11 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 三维互联</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -365,13 +363,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/01.introduction.html">PyTorch2.0 特性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/02.torchscript.html">TorchScript 静态图尝试</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/03.torchfx_lazy.html">FX 与 LazyTensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/04.torchdynamo.html">TorchDynamo 获取图</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/05.aotatuograd.html">AOTAutograd 原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler06PyTorch/06.dispatch.html">Dispatch 机制</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -427,7 +419,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPack 算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
@@ -748,7 +740,7 @@ document.write(`
                   
 <section class="tex2jax_ignore mathjax_ignore" id="ai">
 <h1>AI 编译器的通用架构<a class="headerlink" href="#ai" title="Link to this heading">#</a></h1>
-<p>在上一节中将 AI 编译器的发展大致分为了 3 个阶段，分别为1）朴素编译器、2）专用编译器以及3）通用编译器。</p>
+<p>在上一节中将 AI 编译器的发展大致分为了 3 个阶段，分别为 1）朴素编译器、2）专用编译器以及 3）通用编译器。</p>
 <p>本节作为上一节 AI 编译器架构的一个延续，着重讨论 AI 编译器的通用架构。首先将回顾现有 AI 编译器架构（以 PyTorch 作为标杆），随后引出通用 AI 编译器的架构模型，并进一步介绍其 IR 中间表达层、前端优化以及后端优化的细节，最后以图的形式展示现有 AI 编译器全栈产品。</p>
 <section id="id1">
 <h2>AI 编译器架构回顾<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
@@ -768,7 +760,7 @@ document.write(`
 <section id="id3">
 <h3>编译器前端<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>编译器前端（Compiler Frontend）主要负责接收和处理来自不同深度学习框架的模型，并将其转换为通用的中间表示（IR），进行初步优化。</p>
-<p>========== 下面的一堆重点mark的内容之间是什么关系？有没有一段话进行介绍？</p>
+<p>========== 下面的一堆重点 mark 的内容之间是什么关系？有没有一段话进行介绍？</p>
 <p><strong>Input Format of DL Models（输入格式）</strong>：支持多种深度学习框架，如 TensorFlow、PyTorch、Caffe2、MXNet、飞桨（PaddlePaddle）和 ONNX 等。</p>
 <p><strong>Transformation（转换）</strong>：将来自不同框架的模型转换为统一的表示形式。常见的转换方式包括：TVM 的 Relay、nGraph 的 Bridge、PyTorch 的 ATen（TorchScript）或直接翻译等。</p>
 <p><strong>High-level IR / Graph IR（高层次 IR/图 IR）</strong>：这些 IR 是设备无关的，主要用于表示计算图。表示方法包括 DAG（有向无环图）和基于绑定的张量计算等。实现部分涉及数据表示和操作符支持。</p>
@@ -780,7 +772,7 @@ document.write(`
 <section id="id4">
 <h3>编译器后端<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>编译器后端（Compiler Backend）负责将优化后的计算图转换为特定硬件平台的低层次表示，并进行硬件特定优化和代码生成。</p>
-<p>========== 下面的一堆重点mark的内容之间是什么关系？有没有一段话进行介绍？</p>
+<p>========== 下面的一堆重点 mark 的内容之间是什么关系？有没有一段话进行介绍？</p>
 <p><strong>Hardware Specific Optimizations（硬件特定优化）</strong>：针对特定硬件的优化技术，包括：Intrinsic mapping（内在映射）、Memory allocation（内存分配）、Memory latency hiding（内存延迟隐藏）、Loop oriented optimization（面向循环的优化）以及 Parallelization（并行化）等。</p>
 <p><strong>Scheduling（调度）</strong>：包括 Auto Scheduling（自动调度），如 polyhedral（多面体模型）；也包括 Manual Scheduling（手动调度），如 Halide。</p>
 <p><strong>Auto-tuning（自动调优）</strong>：使用自动调优策略，方法包括 Parameterization（参数化模型）、Cost model（成本模型）以及 Parameter searching（参数搜索）等。</p>
@@ -1009,7 +1001,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 31, 2024.
+  Last updated on Jun 01, 2024.
   <br/>
 </p>
   </div>
