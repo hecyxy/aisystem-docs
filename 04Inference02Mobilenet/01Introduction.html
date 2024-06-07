@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="推理参数" />
+<meta property="og:title" content="推理参数(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference02Mobilenet/01Introduction.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
@@ -19,7 +19,7 @@
 <meta name="description" content="本章节将介绍 AI 模型网络参数方面的一些基本概念，以及硬件相关的性能指标，为后面让大家更了解模型轻量化做初步准备。值得让人思考的是，随着深度学习的发展，神经网络被广泛应用于各种领域，模型性能的提高同时也引入了巨大的参数量和计算量（如下图右所示），一般来说模型参数量越大，精度越高，性能越好(如下图左所示)。 但由于大部分的深度神经网络模型的参数量很大，无法满足直接部署到移动端的条件，因此在不..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>推理参数 &#8212; AI System</title>
+    <title>推理参数(DONE) &#8212; AI System</title>
   
   
   
@@ -81,12 +81,12 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="CNN 模型小型化（上）" href="02CNN.html" />
+    <link rel="next" title="SqueezeNet 系列(DONE)" href="02Squeezenet.html" />
     <link rel="prev" title="模型轻量化" href="README.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 07, 2024"/>
 
 <link
   rel="alternate"
@@ -265,12 +265,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
@@ -345,24 +339,23 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06.memory.html">内存分配算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07.constant_fold.html">常量折叠原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08.cse.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09.dce.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/11.summary.html">优化 Pass 总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
@@ -373,22 +366,19 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04Inference/README.html">推理系统&amp;引擎概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/06Architecture.html">推理引擎架构（下）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型轻量化</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">推理参数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02CNN.html">CNN 模型小型化（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">推理参数(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05Transformer.html">Transformer 小型化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07EfficientNet.html">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08GhostNet.html">GhostNet 系列</a></li>
@@ -401,44 +391,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换&amp;优化</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/05Optimizer.html">计算图优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/06Basic.html">常量折叠&amp;冗余节点消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/07Extend.html">算子融合/替换/前移</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程(DONE)</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 五. AI 框架核心模块 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
@@ -448,7 +424,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
@@ -458,7 +434,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ModelParallel.html">模型并行</a></li>
@@ -466,10 +442,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05Summary.html">分布式训练总结</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -687,7 +663,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>推理参数</h1>
+    <h1>推理参数(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -697,32 +673,32 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">复杂度分析</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">复杂度分析</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flops">FLOPs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">FLOPS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">单位换算</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">FLOPS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">单位换算</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maccs">MACCs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#madds">MAdds</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#params">Params</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac">MAC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">内存带宽</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">神经网络的计算量</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">内存带宽</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">神经网络的计算量</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">典型结构对比</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">标准卷积层</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">典型结构对比</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">标准卷积层</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group">Group 卷积</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#depth-wise">Depth-wise 卷积</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fc">全连接层 FC</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">硬件性能参数</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">硬件性能参数</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu">GPU 重点参数</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">小结与讨论</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">参考文献</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">参考文献</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -735,25 +711,25 @@ document.write(`
                 <article class="bd-article">
                   
 <!--Copyright © XcodeHW 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>推理参数<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="done">
+<h1>推理参数(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
 <p>本章节将介绍 AI 模型网络参数方面的一些基本概念，以及硬件相关的性能指标，为后面让大家更了解模型轻量化做初步准备。值得让人思考的是，随着深度学习的发展，神经网络被广泛应用于各种领域，模型性能的提高同时也引入了巨大的参数量和计算量（如下图右所示），一般来说模型参数量越大，精度越高，性能越好(如下图左所示)。</p>
 <p>但由于大部分的深度神经网络模型的参数量很大，无法满足直接部署到移动端的条件，因此在不严重影响模型性能的前提下对模型进行重新设计，来减少网络参数量和计算复杂度，提升运算能力是目前相当热门的研究方向。同时也希望在后续的章节中，让大家更了解模型轻量化的一些经典网络结构。</p>
 <p><img alt="" src="../_images/01Introduction011.png" /></p>
-<section id="id2">
-<h2>复杂度分析<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h2>复杂度分析<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>模型参数量和计算量是两个重要的考量因素。模型参数量指的是模型中的参数数量，对应于数据结构中空间复杂度的概念。而计算量则对应于时间复杂度的概念，与网络执行时间的长短有关。</p>
 <p>计算量和复杂度的衡量指标主要是 FLOPs（浮点运算次数），FLOPS（每秒所执行的浮点运算次数），MACCs（乘-加操作次数），Params（模型含有多少参数），MAC（内存访问代价），内存带宽（内存带宽），下面将对每个计算指标进行详细讲解。</p>
 <section id="flops">
 <h3>FLOPs<a class="headerlink" href="#flops" title="Link to this heading">#</a></h3>
 <p>FLOPs 是 floating point operations 的缩写（s 表复数），指浮点运算次数，可以用来衡量算法/模型的复杂度，表示计算量。论文中常用的还有 GFLOPs 和 TFLOPs。</p>
 </section>
-<section id="id3">
-<h3>FLOPS<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>FLOPS<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>每秒所执行的浮点运算次数（Floating-point Operations Per Second），理解为计算速度，是一个衡量硬件性能/模型速度的指标，即一个芯片的算力。</p>
 </section>
-<section id="id4">
-<h3>单位换算<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>单位换算<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>一个 MFLOPS（MegaFLOPS）等于每秒一百万（<span class="math notranslate nohighlight">\(=10^{6}\)</span>）次浮点运算。</p></li>
 <li><p>一个 GFLOPS（GigaFLOPS）等于每秒十亿（<span class="math notranslate nohighlight">\(=10^{9}\)</span>）次浮点运算。</p></li>
@@ -788,12 +764,12 @@ document.write(`
 <h3>MAC<a class="headerlink" href="#mac" title="Link to this heading">#</a></h3>
 <p>内存访问代价（Memory Access Cost），指的是输入单个样本，模型/卷积层完成一次前向传播所发生的内存交换总量，即模型的空间复杂度，单位是 Byte。</p>
 </section>
-<section id="id5">
-<h3>内存带宽<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>内存带宽<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>内存带宽决定了它将数据从内存（vRAM） 移动到计算核心的速度，是比计算速度更具代表性的指标，内存带宽值取决于内存和计算核心之间数据传输速度，以及这两个部分之间总线中单独并行链路数量。</p>
 </section>
-<section id="id6">
-<h3>神经网络的计算量<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>神经网络的计算量<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>网络前向计算时，卷积运算占据耗时 90%以上。重点关注下如何计算卷积的运算量。为简化问题，以下讨论认为：卷积采用滑动窗口且忽略非线性计算的开销。</p>
 <p>假设对于 CNN 网络，有卷积层的参数包括：输入 feature map 的 Cin，宽 Hin，高 Win，输出 feature map 的 Cout，宽 Hout，高 Wout，卷积核的尺寸 K，卷积核通道等于 Cin，卷积核个数等于 Cout。</p>
 <p>则该卷积核与 feature map 做卷积的运算量为：</p>
@@ -808,11 +784,11 @@ FLOP_{s}=(K*K*C_{in}*2+1)*W_{out}*H_{out}*C_{out}
 <p>其中的 1 表示偏置量。偏置值每个卷积核对应 1 个，共有 Cout 个。</p>
 </section>
 </section>
-<section id="id7">
-<h2>典型结构对比<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2>典型结构对比<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>下面将会对神经网络模型的典型结构的参数进行对比，标注其参数计算方式。</p>
-<section id="id8">
-<h3>标准卷积层<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>标准卷积层<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Params</p></li>
 </ul>
@@ -882,8 +858,8 @@ c_{in}\times c_{out}
 <p>其中 <span class="math notranslate nohighlight">\(c_{in}\)</span> 与 <span class="math notranslate nohighlight">\(c_{out}\)</span> 分别是输入输出维度。</p>
 </section>
 </section>
-<section id="id9">
-<h2>硬件性能参数<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>硬件性能参数<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>硬件的浮点计算能力，得区分不同精度的浮点数。半精度、单精度、双精度这些概念是在 IEEE 754 标准里定义的，浮点计数是利用浮动小数点的方式使用不同长度的二进制来表示一个数字，与之对应的是定点数。</p>
 <p>同样的长度下浮点数能表达的数字范围相比定点数更大，但浮点数并不能精确表达所有实数，而只能采用更加接近的不同精度来表达。单精度的浮点数采用 4 个字节也就是 32 位二进制来表达一个数字，双精度浮点数采用 8 个字节也就是 64bits 来表达，当然半精度浮点数也就是采用 16bits 了。</p>
 <p><img alt="" src="../_images/01Introduction021.png" /></p>
@@ -959,20 +935,20 @@ c_{in}\times c_{out}
 <p>它指的是显卡每秒钟所能传输的数据量。显存带宽直接决定显卡的性能，越高则性能越强。它受到显存类型和显存容量的共同影响。</p>
 </section>
 </section>
-<section id="id10">
-<h2>小结与讨论<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h2>小结与思考<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <p>本章节主要是介绍深度学习网络结构中基本组件，同时对网络结构参数、硬件算力参数进行初步的介绍，了解相关概念后才能更好理解网络轻量化设计的原理。</p>
 </section>
-<section id="id11">
-<h2>参考文献<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h2>参考文献<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <p>1.<a class="reference external" href="https://dl.acm.org/doi/10.1145/3065386">Alex Krizhevsky, Ilya Sutskever, and Geoffrey E. Hinton. ImageNet Classification with Deep Convolutional Neural Networks. In NIPS, 2012</a></p>
 <p>2.<a class="reference external" href="https://dl.acm.org/doi/10.1145/3065386">Alex Krizhevsky, Ilya Sutskever, and Geoffrey E. Hinton. 2017. ImageNet classification with deep convolutional neural networks. Commun. ACM 60, 6 (June 2017), 84–90. https://doi.org/10.1145/3065386</a></p>
 <p>3.<a class="reference external" href="https://www.nature.com/articles/nature16961">Silver, D., Huang, A., Maddison, C. et al. Mastering the game of Go with deep neural networks and tree search. Nature 529, 484–489 (2016). https://doi.org/10.1038/nature16961</a></p>
 <p>4.<a class="reference external" href="https://arxiv.org/abs/1409.1556">Karen Simonyan and Andrew Zisserman. Very deep convolutional networks for large-scale image recognition. arXiv:1409.1556, 2014.</a></p>
 <p>5.<a class="reference external" href="https://arxiv.org/abs/1807.06434">Mohamed S Abdelfattah, David Han, Andrew Bitar, Roberto DiCecco, Shane O’Connell,Nitika Shanker, Joseph Chu, Ian Prins, Joshua Fender, Andrew C Ling, et al. Dla: Compiler and fpga overlay for neural network inference acceleration. In International Conference on Field Programmable Logic and Applications, pages 411–4117. IEEE, 2018.</a></p>
 </section>
-<section id="id12">
-<h2>本节视频<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h2>本节视频<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?bvid=BV1KW4y1G75J&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -1023,11 +999,11 @@ c_{in}\times c_{out}
       </div>
     </a>
     <a class="right-next"
-       href="02CNN.html"
+       href="02Squeezenet.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">CNN 模型小型化（上）</p>
+        <p class="prev-next-title">SqueezeNet 系列(DONE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1047,32 +1023,32 @@ c_{in}\times c_{out}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">复杂度分析</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">复杂度分析</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flops">FLOPs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">FLOPS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">单位换算</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">FLOPS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">单位换算</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maccs">MACCs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#madds">MAdds</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#params">Params</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac">MAC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">内存带宽</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">神经网络的计算量</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">内存带宽</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">神经网络的计算量</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">典型结构对比</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">标准卷积层</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">典型结构对比</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">标准卷积层</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group">Group 卷积</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#depth-wise">Depth-wise 卷积</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fc">全连接层 FC</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">硬件性能参数</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">硬件性能参数</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu">GPU 重点参数</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">小结与讨论</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">参考文献</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">参考文献</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -1095,7 +1071,7 @@ c_{in}\times c_{out}
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 01, 2024.
+  Last updated on Jun 07, 2024.
   <br/>
 </p>
   </div>

@@ -7,19 +7,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="算子融合" />
+<meta property="og:title" content="算子融合(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="03Compiler03Frontend/03OPFusion.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="Less is more. ————Ludwig Mies Van der Rohe. 在讨论算子融合之前，我们首先要知道什么是计算图，计算图是对算子执行过程形象的表示： C = \{ N, E, I, O\} 为一个计算图，可以表示为由一个节点(Node),边集(Edge),输入边(Input),输出边(Output)组成的四元组。, 计算图是一个又向联通无环图，其中的节点也被称为算子(O..." />
+<meta property="og:description" content="近年来，人们对优化神经网络模型的执行一直非常重视。算子融合是一种常见的提高神经网络模型执行效率的方法。这种融合的基本思想与优化编译器所做的传统循环融合相同，它们会带来：1）消除不必要的中间结果实例化，2）减少不必要的输入扫描；3）实现其他优化机会。下面让我们正式走进算子融合。 算子融合方式: 在讨论算子融合之前，我们首先要知道什么是计算图，计算图是对算子执行过程形象的表示，假设 C = \{..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="Less is more. ————Ludwig Mies Van der Rohe. 在讨论算子融合之前，我们首先要知道什么是计算图，计算图是对算子执行过程形象的表示： C = \{ N, E, I, O\} 为一个计算图，可以表示为由一个节点(Node),边集(Edge),输入边(Input),输出边(Out..." />
-<meta name="description" content="Less is more. ————Ludwig Mies Van der Rohe. 在讨论算子融合之前，我们首先要知道什么是计算图，计算图是对算子执行过程形象的表示： C = \{ N, E, I, O\} 为一个计算图，可以表示为由一个节点(Node),边集(Edge),输入边(Input),输出边(Output)组成的四元组。, 计算图是一个又向联通无环图，其中的节点也被称为算子(O..." />
+<meta property="og:image:alt" content="近年来，人们对优化神经网络模型的执行一直非常重视。算子融合是一种常见的提高神经网络模型执行效率的方法。这种融合的基本思想与优化编译器所做的传统循环融合相同，它们会带来：1）消除不必要的中间结果实例化，2）减少不必要的输入扫描；3）实现其他优化机会。下面让我们正式走进算子融合。 算子融合方式: 在讨论算子融合之前，..." />
+<meta name="description" content="近年来，人们对优化神经网络模型的执行一直非常重视。算子融合是一种常见的提高神经网络模型执行效率的方法。这种融合的基本思想与优化编译器所做的传统循环融合相同，它们会带来：1）消除不必要的中间结果实例化，2）减少不必要的输入扫描；3）实现其他优化机会。下面让我们正式走进算子融合。 算子融合方式: 在讨论算子融合之前，我们首先要知道什么是计算图，计算图是对算子执行过程形象的表示，假设 C = \{..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>算子融合 &#8212; AI System</title>
+    <title>算子融合(DONE) &#8212; AI System</title>
   
   
   
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 07, 2024"/>
 
 <link
   rel="alternate"
@@ -265,12 +265,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
@@ -345,24 +339,23 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">前端优化</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02GraphIR.html">图算 IR</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">算子融合</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">算子融合(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04LayoutPrinc.html">布局转换原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05LayoutAlgo.html">布局转换算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.memory.html">内存分配算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07.constant_fold.html">常量折叠原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08.cse.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="09.dce.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10algebraic.html">代数简化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="11.summary.html">优化 Pass 总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06Memory.html">内存分配算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07ConstantFold.html">常量折叠原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08CSE.html">公共表达式消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
@@ -373,22 +366,19 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04Inference/README.html">推理系统&amp;引擎概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/06Architecture.html">推理引擎架构（下）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 模型小型化（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05Transformer.html">Transformer 小型化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/07EfficientNet.html">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/08GhostNet.html">GhostNet 系列</a></li>
@@ -401,44 +391,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换&amp;优化</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/05Optimizer.html">计算图优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/06Basic.html">常量折叠&amp;冗余节点消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/07Extend.html">算子融合/替换/前移</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程(DONE)</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 五. AI 框架核心模块 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
@@ -448,7 +424,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
@@ -458,7 +434,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ModelParallel.html">模型并行</a></li>
@@ -466,10 +442,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05Summary.html">分布式训练总结</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -687,7 +663,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>算子融合</h1>
+    <h1>算子融合(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -697,20 +673,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">算子融合方式</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">算子融合案例</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">算子融合方式</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">算子融合案例</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bn">BN 计算流程</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">计算访存分析</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">模型重构及算子融合</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">计算访存分析</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">算子融合</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tvm">TVM 融合规则与算法</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">TVM 支配树</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">TVM 算子融合流程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">TVM 支配树</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">TVM 算子融合流程</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -722,41 +698,46 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>算子融合<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<blockquote>
-<div><p>Less is more.        ————Ludwig Mies Van der Rohe.</p>
-</div></blockquote>
-<p>在讨论算子融合之前，我们首先要知道什么是计算图，计算图是对算子执行过程形象的表示：</p>
+<!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
+<section class="tex2jax_ignore mathjax_ignore" id="done">
+<h1>算子融合(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
+<p>近年来，人们对优化神经网络模型的执行一直非常重视。算子融合是一种常见的提高神经网络模型执行效率的方法。这种融合的基本思想与优化编译器所做的传统循环融合相同，它们会带来：1）消除不必要的中间结果实例化，2）减少不必要的输入扫描；3）实现其他优化机会。下面让我们正式走进算子融合。</p>
+<section id="id1">
+<h2>算子融合方式<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>在讨论算子融合之前，我们首先要知道什么是计算图，计算图是对算子执行过程形象的表示，假设 <span class="math notranslate nohighlight">\(C = \{ N, E, I, O\}\)</span> 为一个计算的计算表达，那么可以有：</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(C = \{ N, E, I, O\} \)</span> 为一个计算图，可以表示为由一个节点(Node),边集(Edge),输入边(Input),输出边(Output)组成的四元组。</p></li>
+<li><p>计算图表示为由一个节点 N（Node），边集（Edge），输入边（Input），输出边（Output）组成的四元组</p></li>
 <li><p>计算图是一个又向联通无环图，其中的节点也被称为算子(Operator)</p></li>
 <li><p>算子必定有边相连，输入边，输出边不为空</p></li>
-<li><p>计算图中可以有重边（两个算子之间可以由两条边相连，注意:这种情况会让解析图的时候遇到一些困难）</p></li>
+<li><p>计算图中可以有重边（两个算子之间可以由两条边相连）</p></li>
 </ul>
-<blockquote>
-<div><p>Theorem 计算图与其对应的现实物理实现在逻辑上等价</p>
-</div></blockquote>
-<p>于是当我们遇到一个具体的算子实例时，我们可以在其对应的计算图上做等价的融合优化操作，这样的抽象使我们能够更加专心与逻辑上的处理而不用在意具体的细节；</p>
-<p>那么<strong>为什么</strong>要算子融合呢？这样有什么好处呢？ 融合算子出现主要解决模型训练过程中的读入数据量，同时，减少中间结果的写回操作，降低访存操作。它主要想解决我们遇到的内存墙和并行强墙问题：</p>
+<p>于是当我们遇到一个具体的算子实例时，我们可以在其对应的计算图上做等价的融合优化操作，这样的抽象使我们能够更加专心与逻辑上的处理而不用在意具体的细节。</p>
+<p>为什么要算子融合呢？这样有什么好处呢？ 融合算子出现主要解决模型训练过程中的读入数据量，同时，减少中间结果的写回操作，降低访存操作。它主要想解决我们遇到的内存墙和并行强墙问题：</p>
 <ul class="simple">
 <li><p><strong>内存墙</strong>：主要是访存瓶颈引起。算子融合主要通过对计算图上存在数据依赖的“生产者-消费者”算子进行融合，从而提升中间 Tensor 数据的访存局部性，以此来解决内存墙问题。这种融合技术也统称为“Buffer 融合”。在很长一段时间，Buffer 融合一直是算子融合的主流技术。早期的 AI 框架，主要通过手工方式实现固定 Pattern 的 Buffer 融合。</p></li>
 <li><p><strong>并行墙</strong>：主要是由于芯片多核增加与单算子多核并行度不匹配引起。可以将计算图中的算子节点进行并行编排，从而提升整体计算并行度。特别是对于网络中存在可并行的分支节点，这种方式可以获得较好的并行加速效果。</p></li>
 </ul>
-<p>下面让我们正式走进算子融合。</p>
-<section id="id2">
-<h2>算子融合方式<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>算子的融合方式非常多，我们首先可以观察几个简单的例子，不同的算子融合有着不同的算子开销，也有着不同的内存访问效率提升。</p>
-<p>1.假设我们有如图所示左侧的计算图，他有 4 个算子 <span class="math notranslate nohighlight">\(A,B,C,D\)</span>，此时若我们将 <span class="math notranslate nohighlight">\(C,D\)</span> 做（可行的话）融合，此时可以减少一次的 Kernel 开销，也减少了一次的中间数据缓存。</p>
-<p><img alt="融合方式 1" src="../_images/opfusion04.png" /></p>
-<p>2.如图左侧部分的计算图，<span class="math notranslate nohighlight">\(B,C\)</span> 算子是并行执行，但此时有两次访存，我们可以将 <span class="math notranslate nohighlight">\(A\)</span>“复制”一份分别与 <span class="math notranslate nohighlight">\(B,C\)</span> 做融合，如图右侧所示，此时我们 <span class="math notranslate nohighlight">\(A,B\)</span> 与 <span class="math notranslate nohighlight">\(A,C\)</span> 可以并发执行且只需要一次的访存。</p>
-<p><img alt="融合方式 2" src="../_images/opfusion01.png" /></p>
-<p>3.如图左侧部分的计算图（和 2 一致），此时我们可以变换以下融合的方向，即横向融合，将 <span class="math notranslate nohighlight">\(B,C\)</span> 融合后减少了一次 Kernel 调度，同时结果放在内存中，缓存效率更高。</p>
-<p><img alt="融合方式 3" src="../_images/opfusion02.png" /></p>
-<p>4.如图左侧部分的计算图所示，我们也可以将 <span class="math notranslate nohighlight">\(A,B\)</span> 融合，此时运算结果放在内存中，再给 C 进行运算，此时可以提高内存运算效率。</p>
-<p><img alt="融合方式 4" src="../_images/opfusion03.png" /></p>
-<p>5.同样的，我们还可以将多个卷积核融合成一个卷积核，可以显著减少内存占用和访存的开销，从而提高卷积操作的速度。在执行如下图的卷积操作时，可以将两个卷积算子融合为一个算子，以增加计算复杂度为代价，降低访存次数与内存占用。</p>
-<p><img alt="融合方式 5" src="../_images/kernelfusion01.png" /></p>
+<ol class="arabic simple">
+<li><p>假设我们有如图所示左侧的计算图，他有 4 个算子 <span class="math notranslate nohighlight">\(A,B,C,D\)</span>，此时若我们将 <span class="math notranslate nohighlight">\(C,D\)</span> 做（可行的话）融合，此时可以减少一次的 Kernel 开销，也减少了一次的中间数据缓存。</p></li>
+</ol>
+<p><img alt="融合方式 1" src="../_images/03OPFusion01.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>如图左侧部分的计算图，<span class="math notranslate nohighlight">\(B,C\)</span> 算子是并行执行，但此时有两次访存，我们可以将 <span class="math notranslate nohighlight">\(A\)</span>“复制”一份分别与 <span class="math notranslate nohighlight">\(B,C\)</span> 做融合，如图右侧所示，此时我们 <span class="math notranslate nohighlight">\(A,B\)</span> 与 <span class="math notranslate nohighlight">\(A,C\)</span> 可以并发执行且只需要一次的访存。</p></li>
+</ol>
+<p><img alt="融合方式 2" src="../_images/03OPFusion02.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>如图左侧部分的计算图（和 2 一致），此时我们可以变换以下融合的方向，即横向融合，将 <span class="math notranslate nohighlight">\(B,C\)</span> 融合后减少了一次 Kernel 调度，同时结果放在内存中，缓存效率更高。</p></li>
+</ol>
+<p><img alt="融合方式 3" src="../_images/03OPFusion03.png" /></p>
+<ol class="arabic simple" start="4">
+<li><p>如图左侧部分的计算图所示，我们也可以将 <span class="math notranslate nohighlight">\(A,B\)</span> 融合，此时运算结果放在内存中，再给 C 进行运算，此时可以提高内存运算效率。</p></li>
+</ol>
+<p><img alt="融合方式 4" src="../_images/03OPFusion04.png" /></p>
+<ol class="arabic simple" start="5">
+<li><p>同样的，我们还可以将多个卷积核融合成一个卷积核，可以显著减少内存占用和访存的开销，从而提高卷积操作的速度。在执行如下图的卷积操作时，可以将两个卷积算子融合为一个算子，以增加计算复杂度为代价，降低访存次数与内存占用。</p></li>
+</ol>
+<p><img alt="融合方式 5" src="../_images/03OPFusion05.png" /></p>
 <p>通过示例代码模拟卷积核扩张与融合过程，将两个卷积算子融合成一个更大的卷积算子，具体如下所示：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
@@ -779,7 +760,7 @@ document.write(`
 	<span class="n">conv2_output</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">conv2_weight</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="n">conv2_bias</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;conv2_output: &#39;</span><span class="p">,</span> <span class="n">conv2_output</span><span class="p">)</span>
 
-	<span class="c1"># ============================== kernel fusion ================================== #</span>
+	<span class="c1"># ============================== kernel fusion ============================== #</span>
 	<span class="c1"># 将 conv2 的卷积核权重由(1, 1)扩展到(3, 3)</span>
 	<span class="n">weight_expanded</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">conv2_weight</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 	<span class="c1"># conv1 卷积核与 conv2 卷积核融合</span>
@@ -791,35 +772,40 @@ document.write(`
 	<span class="nb">print</span><span class="p">(</span><span class="n">kernel_fusion_output</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>最后我们给一个更具体的算子融合，读者可自行验证。</p>
-<p><img alt="融合方式 example" src="../_images/opfusion05.png" /></p>
+<p>最后我们给一个更具体的算子融合，读者可自行验证。
+========= 需要用文字解释一下下面的图例。</p>
+<p><img alt="融合方式 example" src="../_images/03OPFusion06.png" /></p>
 <p>总而言之，为了提高效率，我们可以通过消除不必要的中间结果实例化、 减少不必要的输入扫描、 发现其他优化机会等方法来指导我们实现算子融合。</p>
 </section>
-<section id="id3">
-<h2>算子融合案例<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>下面我们以 Conv-BN-ReLU 的算子融合为例：</p>
+<section id="id2">
+<h2>算子融合案例<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Batch-Normalization (BN)是一种让神经网络训练更快、更稳定的方法(faster and more stable)。它计算每个 mini-batch 的均值和方差，并将其拉回到均值为 0 方差为 1 的标准正态分布。BN 层通常在 nonlinear function 的前面/后面使用。</p>
+<p>下面我们以 Conv-BN-ReLU 的算子融合作为例子。</p>
 <section id="bn">
 <h3>BN 计算流程<a class="headerlink" href="#bn" title="Link to this heading">#</a></h3>
+<p>====== 先给出 BN 的计算公式，</p>
 <p>在 BN 前向计算过程中，首先求输入数据的均值 <span class="math notranslate nohighlight">\(\mu\)</span> 与方差 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span>，然后使用 <span class="math notranslate nohighlight">\(\mu\)</span>、<span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 对每个输入数据进行归一化及缩放操作。其中，<span class="math notranslate nohighlight">\(\mu\)</span>、<span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 依赖于输入数据；归一化及缩放计算的输入则依赖于输入数据、均值、方差以及两个超参数。下图为前向计算过程中 BN 的数据依赖关系：</p>
-<p><img alt="BN 计算过程 01" src="../_images/bn01.png" /></p>
+<p><img alt="BN 计算过程 01" src="../_images/03OPFusion07.png" /></p>
 <p>其中，<span class="math notranslate nohighlight">\(\gamma\)</span> 和 <span class="math notranslate nohighlight">\(\beta\)</span> 是一个可学习的参数，在训练过程中，和其他层的权重参数一样，通过梯度下降进行学习。在训练过程中，为保持稳定，一般使用滑动平均法更新 <span class="math notranslate nohighlight">\(\mu\)</span> 与 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span>，滑动平均就是在更新当前值时，保留一定比例上一时刻的值，以均值 <span class="math notranslate nohighlight">\(\mu\)</span> 为例，根据比例 <span class="math notranslate nohighlight">\(\theta\)</span>（如，<span class="math notranslate nohighlight">\(\theta=0.99\)</span>）保存之前的均值，当前只更新 <span class="math notranslate nohighlight">\(1-\theta\)</span> 倍的本 Batch 的均值，计算方法如下：</p>
 <div class="math notranslate nohighlight">
 \[
 \mu_{i}=\theta_{\mu_{i-1}}+(1-\theta)\mu_{i}
 \]</div>
 <p>BN 反向计算过程中，首先求参数误差；然后使用参数误差 <span class="math notranslate nohighlight">\(\Delta\gamma\)</span>、<span class="math notranslate nohighlight">\(\Delta\beta\)</span> 计算输入误差 <span class="math notranslate nohighlight">\(\Delta X\)</span> 。参数误差导数依赖于输出结果误差 <span class="math notranslate nohighlight">\(\Delta Y\)</span> 以及输入 <span class="math notranslate nohighlight">\(X\)</span>；输入误差 <span class="math notranslate nohighlight">\(\Delta X\)</span> 依赖于参数误差导数及输入 <span class="math notranslate nohighlight">\(X\)</span>、输出误差 <span class="math notranslate nohighlight">\(\Delta Y\)</span>。反向过程包括求参数误差以及输入误差两部分，BN 反向计算的关键访存特征是<strong>两次使用输入特征 <span class="math notranslate nohighlight">\(X\)</span> 及输出误差</strong><span class="math notranslate nohighlight">\(\Delta Y\)</span>，分别用于计算参数误差 <span class="math notranslate nohighlight">\(\Delta\gamma\)</span>、<span class="math notranslate nohighlight">\(\Delta\beta\)</span> 及输入数据误差 <span class="math notranslate nohighlight">\(\Delta X\)</span>。</p>
-<p><img alt="BN 计算过程 02" src="../_images/bn02.png" /></p>
+<p><img alt="BN 计算过程 02" src="../_images/03OPFusion08.png" /></p>
 </section>
-<section id="id4">
-<h3>计算访存分析<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>计算访存分析<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>网络模型训练时，需要保存每层前向计算时输出结果，用于反向计算过程参数误差、输入误差的计算。但是随着深度学习模型的加深，需要保存的中间参数逐渐增加，需要消耗较大的内存资源。由于加速器片上缓存容量十分有限，无法保存大量数据。因此需将中间结果及参数写出到加速器的主存中，并在反向计算时依次从主存读入使用。</p>
 <p>前向计算过程中，每层的计算结果需写出主存，用于反向计算过程中计算输入误差；反向计算过程中，每层的结果误差也需写出到主存，原因是反向计算时 BN 层及卷积层都需要进行两次计算，分别求参数误差及输入数据误差，<span class="math notranslate nohighlight">\(X\)</span>、<span class="math notranslate nohighlight">\(\Delta Y\)</span> 加载两次来计算参数误差 <span class="math notranslate nohighlight">\(\Delta\gamma\)</span>、<span class="math notranslate nohighlight">\(\Delta\beta\)</span>  及输入误差 <span class="math notranslate nohighlight">\(\Delta X\)</span> 。ReLU 输入 <span class="math notranslate nohighlight">\(Y\)</span> 不需要保存，直接依据结果 <span class="math notranslate nohighlight">\(Z\)</span> 即可计算出其输入数据误差。</p>
-<p><img alt="BN 计算过程 03" src="../_images/bn03.png" /></p>
+<p><img alt="BN 计算过程 03" src="../_images/03OPFusion09.png" /></p>
 </section>
-<section id="id5">
-<h3>模型重构及算子融合<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>前向过程中，BN 重构为两个子层：BN_A 和 BN_B。其中 BN_A 计算均值与方差，BN_B 完成归一化与缩放，分别融合于相邻卷积层及激活层。首先从主存读取输入 <span class="math notranslate nohighlight">\(X\)</span>、均值 <span class="math notranslate nohighlight">\(\mu\)</span>、方差 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 、参数 <span class="math notranslate nohighlight">\(\gamma\)</span>、<span class="math notranslate nohighlight">\(\beta\)</span>，计算 BN_B，完成归一化及缩放计算，将结果 Y 用于激活计算，输出 <span class="math notranslate nohighlight">\(Z\)</span> 用于卷积计算，卷积结果 <span class="math notranslate nohighlight">\(X^{'}\)</span> 写出到主存之前，计算 BN_A，即求均值 <span class="math notranslate nohighlight">\(\mu^{'}\)</span> 与方差 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span>。完成“<strong>归一化缩放-&gt;激活层-&gt;卷积层-&gt;计算卷积结果均值与方差</strong>”结构模块的前向计算过程只需要读取一次，并写回卷积计算结果 <span class="math notranslate nohighlight">\(X^{'}\)</span> 及相关参数。</p>
-<p><img alt="BN 计算过程 04" src="../_images/bn05.png" /></p>
+<section id="id4">
+<h3>算子融合<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>前向过程中，BN 重构为两个子层：BN_A 和 BN_B。</p>
+<p>其中 BN_A 计算均值与方差，BN_B 完成归一化与缩放，分别融合于相邻卷积层及激活层。首先从主存读取输入 <span class="math notranslate nohighlight">\(X\)</span>、均值 <span class="math notranslate nohighlight">\(\mu\)</span>、方差 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 、参数 <span class="math notranslate nohighlight">\(\gamma\)</span>、<span class="math notranslate nohighlight">\(\beta\)</span>，计算 BN_B，完成归一化及缩放计算，将结果 Y 用于激活计算，输出 <span class="math notranslate nohighlight">\(Z\)</span> 用于卷积计算，卷积结果 <span class="math notranslate nohighlight">\(X^{'}\)</span> 写出到主存之前，计算 BN_A，即求均值 <span class="math notranslate nohighlight">\(\mu^{'}\)</span> 与方差 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span>。</p>
+<p>最终完成“<strong>归一化缩放-&gt;激活层-&gt;卷积层-&gt;计算卷积结果均值与方差</strong>”结构模块的前向计算过程只需要读取一次，并写回卷积计算结果 <span class="math notranslate nohighlight">\(X^{'}\)</span> 及相关参数。</p>
+<p><img alt="BN 计算过程 04" src="../_images/03OPFusion10.png" /></p>
 <p>具体融合计算过程如下所示：</p>
 <ul class="simple">
 <li><p>卷积计算：</p></li>
@@ -872,17 +858,19 @@ y = \gamma\frac{{\left( {z - mean} \right)}}{{\sqrt {\operatorname{var} } }} + \
 </section>
 <section id="tvm">
 <h2>TVM 融合规则与算法<a class="headerlink" href="#tvm" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://github.com/apache/tvm">TVM</a>是一个端到端的机器学习编译框架，它的目标是优化机器学习模型让其高效运行在不同的硬件平台上。它前端支持 TensorFlow, Pytorch, MXNet, ONNX 等几乎所有的主流框架。它支持多种后端(CUDA，ROCm，Vulkan，Metal，OpenCL，LLVM，C，WASM)及不同的设备平台(GPU, CPU, FPGA 及各种自定义 NPU)。</p>
+<p><a class="reference external" href="https://github.com/apache/tvm">TVM</a>是一个端到端的机器学习编译框架，它的目标是优化机器学习模型让其高效运行在不同的硬件平台上。它前端支持 TensorFlow、Pytorch、MXNet、ONNX 等几乎所有的主流框架。它支持多种后端（CUDA、ROCm、Vulkan、Metal、OpenCL、LLVM、C、WASM）及不同的设备平台（GPU、CPU、FPGA 及各种自定义 NPU）。</p>
 <p>TVM 主要用于推理场景。在架构上，主要包括 Relay 和 TIR 两层。其通过 Relay 导入推理模型，随后进行融合优化，最后通过 TIR 生成融合算子。TVM 整体的算子融合策略是基于支配树来实现的，下面将介绍支配树等相关概念。</p>
-<section id="id6">
-<h3>TVM 支配树<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>TVM 支配树<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>支配树与支配点：</p>
 <ul class="simple">
 <li><p>支配树：各个点的支配点构成的树</p></li>
 <li><p>支配点：所有能够到达当前节点的路径的公共祖先点（ Least Common Ancestors，LCA）</p></li>
 </ul>
-<p>具体而言，对于一张有向图(可以有环)我们规定一个起点 <span class="math notranslate nohighlight">\(r\)</span>, 从 <span class="math notranslate nohighlight">\(r\)</span> 点到图上另一个点 <span class="math notranslate nohighlight">\(w\)</span> 可能存在很多条路径(下面将 <span class="math notranslate nohighlight">\(r\)</span> 到 <span class="math notranslate nohighlight">\(w\)</span> 简写为 <span class="math notranslate nohighlight">\(r→w\)</span>)。如果对于 <span class="math notranslate nohighlight">\(r→w\)</span> 的任意一条路径中都存在一个点 <span class="math notranslate nohighlight">\(p\)</span>, 那么我们称点 <span class="math notranslate nohighlight">\(p\)</span> 为 <span class="math notranslate nohighlight">\(w\)</span> 的支配点(也可以称作是 <span class="math notranslate nohighlight">\(r→w\)</span> 的必经点), 注意 <span class="math notranslate nohighlight">\(r\)</span> 点不讨论支配点。下面用 <span class="math notranslate nohighlight">\(idom[u]\)</span> 表示离点 <span class="math notranslate nohighlight">\(u\)</span> 最近的支配点。对于原图上除 <span class="math notranslate nohighlight">\(r\)</span> 外每一个点 <span class="math notranslate nohighlight">\(u\)</span>, 从 <span class="math notranslate nohighlight">\(idom[u]\)</span> 向 <span class="math notranslate nohighlight">\(u\)</span> 建一条边, 最后我们可以得到一个以 <span class="math notranslate nohighlight">\(r\)</span> 为根的树。这个树我们就叫它&quot;支配树&quot;。如下图所示，到达 Node8 的路径有 Node3-&gt;4-&gt;7-&gt;8，Node3-&gt;5-&gt;7-&gt;8，Node3-&gt;6-&gt;7-&gt;8，因此 Node4，Node5，Node6,，Node7 为 Node8 的支配点。</p>
-<p><img alt="TVM 示意图" src="../_images/tvm_lca01.png" /></p>
+<p>具体而言，对于一张有向图(可以有环)我们规定一个起点 <span class="math notranslate nohighlight">\(r\)</span>， 从 <span class="math notranslate nohighlight">\(r\)</span> 点到图上另一个点 <span class="math notranslate nohighlight">\(w\)</span> 可能存在很多条路径(下面将 <span class="math notranslate nohighlight">\(r\)</span> 到 <span class="math notranslate nohighlight">\(w\)</span> 简写为 <span class="math notranslate nohighlight">\(r→w\)</span>)。如果对于 <span class="math notranslate nohighlight">\(r→w\)</span> 的任意一条路径中都存在一个点 <span class="math notranslate nohighlight">\(p\)</span>， 那么我们称点 <span class="math notranslate nohighlight">\(p\)</span> 为 <span class="math notranslate nohighlight">\(w\)</span> 的支配点(也可以称作是 <span class="math notranslate nohighlight">\(r→w\)</span> 的必经点)， 注意 <span class="math notranslate nohighlight">\(r\)</span> 点不讨论支配点。</p>
+<p>下面用 <span class="math notranslate nohighlight">\(idom[u]\)</span> 表示离点 <span class="math notranslate nohighlight">\(u\)</span> 最近的支配点。对于原图上除 <span class="math notranslate nohighlight">\(r\)</span> 外每一个点 <span class="math notranslate nohighlight">\(u\)</span>， 从 <span class="math notranslate nohighlight">\(idom[u]\)</span> 向 <span class="math notranslate nohighlight">\(u\)</span> 建一条边， 最后我们可以得到一个以 <span class="math notranslate nohighlight">\(r\)</span> 为根的树。这个树我们就叫它&quot;支配树&quot;。</p>
+<p>如下图所示，到达 Node8 的路径有 Node3-&gt;4-&gt;7-&gt;8，Node3-&gt;5-&gt;7-&gt;8，Node3-&gt;6-&gt;7-&gt;8，因此 Node4，Node5，Node6，Node7 为 Node8 的支配点。</p>
+<p><img alt="TVM 示意图" src="../_images/03OPFusion11.png" /></p>
 <p>TVM 的算子融合策略就是检查每个 Node 到其支配点的 Node 是否符合融合条件，如果符合就对其进行融合。如上图，检查 Node4-&gt;Node7-&gt;Node8 是否能融合，若可以融合，则用新的算子替代原来路径上的算子。因此支配树作用如下：</p>
 <ul class="simple">
 <li><p>检查每个 Node 到其支配点的 Node 是否符合融合条件</p></li>
@@ -895,35 +883,36 @@ y = \gamma\frac{{\left( {z - mean} \right)}}{{\sqrt {\operatorname{var} } }} + \
 <li><p>使用 Group 来描述多个 Node 是否能被融合；如果一个算子不能和任何其他算子融合，那么这个 group 就只有一个独立的算子；如果几个算子能够融合，则能融合的算子就构成了一个 group</p></li>
 </ul>
 </section>
-<section id="id7">
-<h3>TVM 算子融合流程<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
-<p>  TVM 算子算子融合流程如下：</p>
+<section id="id6">
+<h3>TVM 算子融合流程<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>TVM 算子算子融合流程如下：</p>
 <ul class="simple">
 <li><p>通过 AST 转换为 Relay IR，遍历 Relay IR</p></li>
 <li><p>建立 DAG 用于后支配树分析</p></li>
 <li><p>应用算子融合算法，遍历每个 Node 到它的支配带你的所有路径是否符合融合规则，完成融合后，遍历节点创新的 DAG 图</p></li>
 </ul>
-<p>  TVM 提供了 4 种融合规则，具体如下：</p>
+<p>TVM 提供了 4 种融合规则，具体如下：</p>
 <ul class="simple">
 <li><p>injective(one-to-one map)：映射函数，比如加法，点乘等。</p></li>
 <li><p>reduction：约简，如 sum/max/min，输入到输出具有降维性质，如 sum/max/min。</p></li>
-<li><p>complex-out-fusable(can fuse element-wise map to output)，计算复杂类型，如 conv2d。</p></li>
-<li><p>opaque(cannot be fused) 无法被融合的算子，如 sort。</p></li>
+<li><p>complex-out-fusable(can fuse element-wise map to output)：计算复杂类型的融合，如 conv2d。</p></li>
+<li><p>opaque(cannot be fused) ：无法被融合的算子，如 sort。</p></li>
 </ul>
+<p><img alt="TVM 示意图" src="../_images/03OPFusion12.png" /></p>
 </section>
 </section>
-<section id="id8">
-<h2>总结<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h2>小结与思考<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>算子的融合方式有横向融合和纵向融合，但根据 AI 模型结构和算子的排列，可以衍生出更多不同的融合方式；</p></li>
 <li><p>通过 Conv-BN-ReLU 算子融合例子，了解到如何对算子进行融合和融合后的计算，可以减少对于对访存的压力；</p></li>
 <li><p>在编译器中，一般融合规则都是通过 Pass 来承载，不同的 Pass 处理不同的融合规则，而融合规则主要是人工定义好。</p></li>
 </ol>
 </section>
-<section id="id9">
-<h2>本节视频<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>本节视频<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <html>
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=691289516&bvid=BV1P24y1D7RV&cid=925968608&p=1" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=691289516&bvid=BV1P24y1D7RV&cid=925968608&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
 </section>
 </section>
@@ -996,20 +985,20 @@ y = \gamma\frac{{\left( {z - mean} \right)}}{{\sqrt {\operatorname{var} } }} + \
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">算子融合方式</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">算子融合案例</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">算子融合方式</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">算子融合案例</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bn">BN 计算流程</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">计算访存分析</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">模型重构及算子融合</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">计算访存分析</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">算子融合</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tvm">TVM 融合规则与算法</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">TVM 支配树</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">TVM 算子融合流程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">TVM 支配树</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">TVM 算子融合流程</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -1032,7 +1021,7 @@ y = \gamma\frac{{\left( {z - mean} \right)}}{{\sqrt {\operatorname{var} } }} + \
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 01, 2024.
+  Last updated on Jun 07, 2024.
   <br/>
 </p>
   </div>

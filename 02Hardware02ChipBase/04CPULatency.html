@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="02Hardware02ChipBase/04CPULatency.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="CPU（中央处理器）是计算机的核心组件，其性能对计算机系统的整体性能有着重要影响。CPU 计算时延是指从指令发出到完成整个指令操作所需的时间。理解 CPU 的计算时延对于优化计算性能和设计高效的计算系统至关重要。 CPU 计算时延的组成: CPU 计算时延主要由以下几个部分组成： 指令提取时延（Instruction Fetch Time） ：指令提取时延是指从内存中读取指令到将其放入指令寄..." />
+<meta property="og:description" content="CPU（中央处理器）是计算机的核心组件，其性能对计算机系统的整体性能有着重要影响。CPU 计算时延是指从指令发出到完成整个指令操作所需的时间。理解 CPU 的计算时延对于优化计算性能和设计高效的计算系统至关重要。======== 主要强调，内存、带宽、时延之间的关系，一定要搞清楚三者之间的关系，深入深入深入理解。 CPU 计算时延:===== XXXXX，组织一下语言，下面的内容尽可能展开一..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_02Hardware02ChipBase_04CPULatency_f2803707.png" />
-<meta property="og:image:alt" content="CPU（中央处理器）是计算机的核心组件，其性能对计算机系统的整体性能有着重要影响。CPU 计算时延是指从指令发出到完成整个指令操作所需的时间。理解 CPU 的计算时延对于优化计算性能和设计高效的计算系统至关重要。 CPU 计算时延的组成: CPU 计算时延主要由以下几个部分组成： 指令提取时延（Instructi..." />
-<meta name="description" content="CPU（中央处理器）是计算机的核心组件，其性能对计算机系统的整体性能有着重要影响。CPU 计算时延是指从指令发出到完成整个指令操作所需的时间。理解 CPU 的计算时延对于优化计算性能和设计高效的计算系统至关重要。 CPU 计算时延的组成: CPU 计算时延主要由以下几个部分组成： 指令提取时延（Instruction Fetch Time） ：指令提取时延是指从内存中读取指令到将其放入指令寄..." />
+<meta property="og:image" content="/None" />
+<meta property="og:image:alt" content="CPU（中央处理器）是计算机的核心组件，其性能对计算机系统的整体性能有着重要影响。CPU 计算时延是指从指令发出到完成整个指令操作所需的时间。理解 CPU 的计算时延对于优化计算性能和设计高效的计算系统至关重要。======== 主要强调，内存、带宽、时延之间的关系，一定要搞清楚三者之间的关系，深入深入深入理解。..." />
+<meta name="description" content="CPU（中央处理器）是计算机的核心组件，其性能对计算机系统的整体性能有着重要影响。CPU 计算时延是指从指令发出到完成整个指令操作所需的时间。理解 CPU 的计算时延对于优化计算性能和设计高效的计算系统至关重要。======== 主要强调，内存、带宽、时延之间的关系，一定要搞清楚三者之间的关系，深入深入深入理解。 CPU 计算时延:===== XXXXX，组织一下语言，下面的内容尽可能展开一..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>CPU 计算时延 &#8212; AI System</title>
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 07, 2024"/>
 
 <link
   rel="alternate"
@@ -263,12 +263,6 @@
 <li class="toctree-l2"><a class="reference internal" href="01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03CPUData.html">CPU（中央处理器）</a></li>
-
-
-
-
-
-
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">CPU 计算时延</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06NPUBase.html">NPU 基础</a></li>
@@ -343,24 +337,23 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06.memory.html">内存分配算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07.constant_fold.html">常量折叠原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08.cse.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09.dce.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/11.summary.html">优化 Pass 总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
@@ -371,22 +364,19 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04Inference/README.html">推理系统&amp;引擎概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/06Architecture.html">推理引擎架构（下）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 模型小型化（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05Transformer.html">Transformer 小型化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/07EfficientNet.html">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/08GhostNet.html">GhostNet 系列</a></li>
@@ -399,44 +389,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换&amp;优化</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/05Optimizer.html">计算图优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/06Basic.html">常量折叠&amp;冗余节点消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/07Extend.html">算子融合/替换/前移</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程(DONE)</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 五. AI 框架核心模块 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
@@ -446,7 +422,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
@@ -456,7 +432,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ModelParallel.html">模型并行</a></li>
@@ -464,10 +440,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05Summary.html">分布式训练总结</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -695,26 +671,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">CPU 计算时延的组成</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">影响计算时延的因素</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">优化计算时延的方法</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">CPU 计算例子</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">CPU 指令执行过程</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">数据加载</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">缓存读取</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">计算过程</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">写回结果</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">时延分析</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">CPU 计算时延</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">CPU 计算时延组成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">影响计算时延因素</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">优化计算时延方法</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">计算速度决定性因素</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">CPU 计算</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">例子解析</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">时延分析</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">计算速度决定性因素</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">CPU 时延的产生</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">CPU 时延的产生</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">什么是时钟周期</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">时钟周期的单位</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">CPU 的架构</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">时钟周期</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">时钟周期的单位</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -730,8 +705,12 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="cpu">
 <h1>CPU 计算时延<a class="headerlink" href="#cpu" title="Link to this heading">#</a></h1>
 <p>CPU（中央处理器）是计算机的核心组件，其性能对计算机系统的整体性能有着重要影响。CPU 计算时延是指从指令发出到完成整个指令操作所需的时间。理解 CPU 的计算时延对于优化计算性能和设计高效的计算系统至关重要。</p>
+<p>======== 主要强调，内存、带宽、时延之间的关系，一定要搞清楚三者之间的关系，深入深入深入理解。</p>
 <section id="id1">
-<h2>CPU 计算时延的组成<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2>CPU 计算时延<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>===== XXXXX，组织一下语言，下面的内容尽可能展开一下，不要都用大纲或者目录的方式。</p>
+<section id="id2">
+<h3>CPU 计算时延组成<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>CPU 计算时延主要由以下几个部分组成：</p>
 <ul class="simple">
 <li><p><strong>指令提取时延（Instruction Fetch Time）</strong>：指令提取时延是指从内存中读取指令到将其放入指令寄存器的时间。这个时延受内存速度和缓存命中率的影响。</p></li>
@@ -741,8 +720,8 @@ document.write(`
 <li><p><strong>写回时延（Write-back Time）</strong>：写回时延是指执行完指令后将结果写回寄存器或存储器的时间。这一过程也受缓存的影响。</p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>影响计算时延的因素<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3>影响计算时延因素<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>CPU 时钟频率（Clock Frequency）</strong>：CPU 时钟频率越高，指令执行速度越快，计算时延越短。然而，过高的时钟频率会带来功耗和散热问题。</p></li>
 <li><p><strong>流水线技术（Pipelining）</strong>：流水线技术将指令执行分为多个阶段，每个阶段可以并行处理不同的指令，从而提高指令吞吐量，降低时延。但流水线的深度和效率对时延有直接影响。</p></li>
@@ -751,8 +730,8 @@ document.write(`
 <li><p><strong>内存带宽（Memory Bandwidth）</strong>：高内存带宽可以减少数据传输瓶颈，降低存储器访问时延，提升计算性能。</p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>优化计算时延的方法<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h3>优化计算时延方法<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>提高时钟频率</strong>：在不超出散热和功耗限制的情况下，提高 CPU 的时钟频率可以直接减少计算时延。</p></li>
 <li><p><strong>优化流水线深度</strong>：适当增加流水线深度，提高指令并行处理能力，但需要平衡流水线的复杂性和效率。</p></li>
@@ -761,67 +740,74 @@ document.write(`
 <li><p><strong>提升内存子系统性能</strong>：采用高速内存技术和更高带宽的内存接口，减少数据传输时延，提高整体系统性能。</p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>CPU 计算例子<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p><img alt="CPU 计算" src="../_images/04CPUlatency01.png" /></p>
+</section>
+<section id="id5">
+<h2>CPU 计算<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>图中展示了一个简单的 C 代码示例，用于计算 <code class="docutils literal notranslate"><span class="pre">y[i]</span> <span class="pre">=</span> <span class="pre">alpha</span> <span class="pre">*</span> <span class="pre">x[i]</span> <span class="pre">+</span> <span class="pre">y[i]</span></code>：</p></li>
 </ul>
-<section id="id5">
-<h3>CPU 指令执行过程<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p><img alt="CPU 指令执行过程" src="../_images/04CPULatency02.png" /></p>
+<p>======= 代码用代码来展示，不要用图片。
+<img alt="CPU 计算" src="../_images/04CPUlatency01.png" /></p>
+<section id="id6">
+<h3>例子解析<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>CPU 指令执行过程</p></li>
+</ol>
+<p>====== 详细点展开。图片要用文字描述介绍
+<img alt="CPU 指令执行过程" src="../_images/04CPULatency02.png" /></p>
 <ul class="simple">
 <li><p>横轴（Times）：表示时间的推进。</p></li>
 <li><p>纵轴：展示了不同操作（如加载、计算、写入）的时延。</p></li>
 </ul>
-<section id="id6">
-<h4>数据加载<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<ol class="arabic simple" start="2">
+<li><p>数据加载</p></li>
+</ol>
 <ul class="simple">
 <li><p><strong>Load from DRAM</strong></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">x[0]</span></code> 和 <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">y[0]</span></code>：从主存储器（DRAM）加载数据到缓存（cache）。这个过程涉及较高的内存时延（Memory latency）。</p></li>
 </ul>
-</section>
-<section id="id7">
-<h4>缓存读取<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<ol class="arabic simple" start="3">
+<li><p>缓存读取</p></li>
+</ol>
 <ul class="simple">
 <li><p><strong>Read from cache</strong>：从缓存中读取已经加载的数据。相比从主存储器加载数据，缓存读取的时延较短。</p></li>
 </ul>
-</section>
-<section id="id8">
-<h4>计算过程<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<ol class="arabic simple" start="4">
+<li><p>计算过程</p></li>
+</ol>
 <ul class="simple">
 <li><p><strong>Read x[0]</strong> 和 <strong>Read y[0]</strong>：从缓存中读取需要进行计算的变量 <code class="docutils literal notranslate"><span class="pre">x[0]</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y[0]</span></code>。</p></li>
 <li><p><strong>α * x</strong>：进行乘法运算，计算 <code class="docutils literal notranslate"><span class="pre">α</span> <span class="pre">*</span> <span class="pre">x</span></code>。</p></li>
 <li><p><strong>+ y</strong>：进行加法运算，将上一步的结果与 <code class="docutils literal notranslate"><span class="pre">y</span></code> 相加。</p></li>
 </ul>
-</section>
-<section id="id9">
-<h4>写回结果<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<ol class="arabic simple" start="5">
+<li><p>写回结果</p></li>
+</ol>
 <ul class="simple">
 <li><p><strong>Write result</strong>：将计算结果写回到缓存。这个步骤也包括较短的时延。</p></li>
 <li><p><strong>Write to cache</strong>：最后一步，将计算结果从缓存写回到主存储器（如有需要）。</p></li>
 </ul>
 </section>
-<section id="id10">
-<h4>时延分析<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<section id="id7">
+<h3>时延分析<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Memory latency</strong>：图中用红色标注的长箭头表示内存时延，即从开始加载数据到数据被缓存所需的总时间。这是影响计算速度的重要因素。</p></li>
 <li><p><strong>计算时延</strong>：乘法和加法操作各自有独立的时延，分别用红色小箭头标注。</p></li>
 <li><p><strong>缓存操作时延</strong>：读取和写入缓存的时延相对较短，用绿色箭头表示。</p></li>
 </ul>
 </section>
+<section id="id8">
+<h3>计算速度决定性因素<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>===== 三级目录展开
+图中展示的加载数据操作占用了很长的时间（Memory latency），CPU 在等待数据加载完成之前无法进行后续的计算操作。虽然计算本身（乘法和加法）以及缓存读取和写入的时间较短，但由于内存时延过长，整体计算过程被时延严重拖慢。</p>
 </section>
-<section id="id11">
-<h3>计算速度决定性因素<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-<p>图中展示的加载数据操作占用了很长的时间（Memory latency），CPU 在等待数据加载完成之前无法进行后续的计算操作。虽然计算本身（乘法和加法）以及缓存读取和写入的时间较短，但由于内存时延过长，整体计算过程被时延严重拖慢。</p>
-</section>
-</section>
-<section id="id12">
-<h2>CPU 时延的产生<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
-<p><img alt="CPU 时延的产生" src="../_images/04CPULatency03.png" /></p>
+<section id="id9">
+<h3>CPU 时延的产生<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>====== 展开内容</p>
 <p>电信号在导体中的传播速度约为 60,000,000 米/秒。</p>
 <p>假设计算机时钟频率为 3,000,000,000 赫兹（3 GHz），根据上图可知，从芯片到 DRAM 的信号传输距离大约为 50-100 毫米。</p>
 <p>计算机时钟频率为 3 GHz，意味着每个时钟周期大约为 1 / 3,000,000,000 秒 ≈ 0.333 纳秒。</p>
+<p><img alt="CPU 时延的产生" src="../_images/04CPULatency03.png" /></p>
 <ul class="simple">
 <li><p><strong>电信号在 50 毫米的距离上传播的延迟</strong>：</p>
 <ul>
@@ -836,25 +822,26 @@ document.write(`
 </ul>
 <p>这些传播延迟就是 CPU 的时钟周期，也是 CPU 计算的时延。</p>
 </section>
-<section id="id13">
-<h2>什么是时钟周期<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
-<p>CPU 的时钟周期（Clock Cycle）是指 CPU 时钟信号的一个完整周期，它定义了 CPU 内部所有操作的基本时间单位。每个时钟周期内，CPU 完成一定量的工作，如取指令、解码指令、执行指令等。时钟周期是 CPU 性能的关键因素之一。</p>
 </section>
-<section id="id14">
-<h2>时钟周期的单位<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h2>时钟周期<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<p>======== 为什么这么这么突兀有个时钟周期？
+CPU 的时钟周期（Clock Cycle）是指 CPU 时钟信号的一个完整周期，它定义了 CPU 内部所有操作的基本时间单位。每个时钟周期内，CPU 完成一定量的工作，如取指令、解码指令、执行指令等。时钟周期是 CPU 性能的关键因素之一。</p>
+<section id="id11">
+<h3>时钟周期的单位<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <p>时钟周期的单位通常是秒或其分量，如纳秒（ns）。时钟周期的长度由 CPU 的时钟频率决定：</p>
 <ul class="simple">
 <li><p><strong>时钟频率（Clock Frequency）</strong>：CPU 时钟频率指的是 CPU 每秒钟执行的时钟周期数，单位是赫兹（Hz）。常见的时钟频率为几百 MHz 到几 GHz。</p></li>
 <li><p><strong>时钟周期（Clock Cycle Time）</strong>：时钟周期与时钟频率互为倒数。时钟频率为 3 GHz 的 CPU，其时钟周期为 1 / 3,000,000,000 秒 ≈ 0.333 纳秒。</p></li>
 </ul>
 </section>
-<section id="id15">
-<h2>CPU 的架构<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
-<p>CPU 的基本架构包含了控制单元（Control Unit）、算术逻辑单元（ALU）、缓存（Cache）和主存储器（DRAM）的各个部分，CPU 主要擅长的是逻辑控制，而非计算。</p>
-<p><img alt="CPU 架构" src="../_images/04CPULatency04.png" /></p>
 </section>
-<section id="id16">
-<h2>本节视频<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<section id="id12">
+<h2>小结与思考<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<p>=======1. XXX；2. XXX；</p>
+</section>
+<section id="id13">
+<h2>本节视频<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?aid=739389172&bvid=BV1Qk4y1i7GT&cid=1080828502&page=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -929,26 +916,25 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">CPU 计算时延的组成</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">影响计算时延的因素</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">优化计算时延的方法</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">CPU 计算例子</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">CPU 指令执行过程</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">数据加载</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">缓存读取</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">计算过程</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">写回结果</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">时延分析</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">CPU 计算时延</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">CPU 计算时延组成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">影响计算时延因素</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">优化计算时延方法</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">计算速度决定性因素</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">CPU 计算</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">例子解析</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">时延分析</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">计算速度决定性因素</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">CPU 时延的产生</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">CPU 时延的产生</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">什么是时钟周期</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">时钟周期的单位</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">CPU 的架构</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">时钟周期</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">时钟周期的单位</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -971,7 +957,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 01, 2024.
+  Last updated on Jun 07, 2024.
   <br/>
 </p>
   </div>

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="ShuffleNet" />
+<meta property="og:title" content="ShuffleNet 系列" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference02Mobilenet/03Shufflenet.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
@@ -19,7 +19,7 @@
 <meta name="description" content="本章节会介绍 ShuffleNet，重点在于其模型结构的轻量化设计，涉及如何降低深度网络计算量的论文，在本节中会着重会讲解逐点分组卷积(Pointwise Group Convolution)和通道混洗(Channel Shuffle)两种新的运算。 ShuffleNet V1: ShuffleNet: 发表于 CVPR2018，针对极小的网络上的计算效率依然不高， 1\times1 卷积又..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>ShuffleNet &#8212; AI System</title>
+    <title>ShuffleNet 系列 &#8212; AI System</title>
   
   
   
@@ -82,11 +82,11 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="MobileNet 系列" href="04Mobilenet.html" />
-    <link rel="prev" title="SqueezeNet 系列" href="02Squeezenet.html" />
+    <link rel="prev" title="SqueezeNet 系列(DONE)" href="02Squeezenet.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 07, 2024"/>
 
 <link
   rel="alternate"
@@ -265,12 +265,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
@@ -345,24 +339,23 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06.memory.html">内存分配算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07.constant_fold.html">常量折叠原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08.cse.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09.dce.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/11.summary.html">优化 Pass 总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
@@ -373,22 +366,19 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04Inference/README.html">推理系统&amp;引擎概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/06Architecture.html">推理引擎架构（下）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型轻量化</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">推理参数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02CNN.html">CNN 模型小型化（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">ShuffleNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">推理参数(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ShuffleNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05Transformer.html">Transformer 小型化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07EfficientNet.html">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08GhostNet.html">GhostNet 系列</a></li>
@@ -401,44 +391,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换&amp;优化</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/05Optimizer.html">计算图优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/06Basic.html">常量折叠&amp;冗余节点消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/07Extend.html">算子融合/替换/前移</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程(DONE)</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 五. AI 框架核心模块 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
@@ -448,7 +424,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
@@ -458,7 +434,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ModelParallel.html">模型并行</a></li>
@@ -466,10 +442,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05Summary.html">分布式训练总结</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -687,7 +663,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>ShuffleNet</h1>
+    <h1>ShuffleNet 系列</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -699,25 +675,22 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shufflenet-v1">ShuffleNet V1</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">设计思路</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">网络结构</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pointwise-group-convolution">逐点分组卷积(Pointwise group convolution)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-shuffle">通道重排(channel shuffle)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shufflenet-unit">ShuffleNet Unit</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">逐点分组卷积</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">通道重排</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">ShuffleNet 模块</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shufflenet-v2">ShuffleNet V2</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">贡献概述</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">设计思路</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">网络结构</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">贡献概述</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">设计思路</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">代码</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">小结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">参考文献</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">参考文献</a></li>
 </ul>
             </nav>
         </div>
@@ -731,7 +704,7 @@ document.write(`
                   
 <!--Copyright © XcodeHw 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="shufflenet">
-<h1>ShuffleNet<a class="headerlink" href="#shufflenet" title="Link to this heading">#</a></h1>
+<h1>ShuffleNet 系列<a class="headerlink" href="#shufflenet" title="Link to this heading">#</a></h1>
 <p>本章节会介绍 ShuffleNet，重点在于其模型结构的轻量化设计，涉及如何降低深度网络计算量的论文，在本节中会着重会讲解逐点分组卷积(Pointwise Group Convolution)和通道混洗(Channel Shuffle)两种新的运算。</p>
 <section id="shufflenet-v1">
 <h2>ShuffleNet V1<a class="headerlink" href="#shufflenet-v1" title="Link to this heading">#</a></h2>
@@ -742,15 +715,13 @@ document.write(`
 <p>ShuffleNet 网络结构同样沿袭了稀疏连接的设计理念。作者通过分析 Xception 和 ResNeXt 模型，发现这两种结构通过卷积核拆分虽然计算复杂度均较原始卷积运算有所下降，然而拆分所产生的逐点卷积计算量却相当可观，成为了新的瓶颈。</p>
 <p>例如对于 ResNeXt 模型逐点卷积占据了 93.4%的运算复杂度。可见，为了进一步提升模型的速度，就必须寻求更为高效的结构来取代逐点卷积。</p>
 <p>受 ResNeXt 的启发，作者提出使用分组逐点卷积（group pointwise convolution）来代替原来的结构。通过将卷积运算的输入限制在每个组内，模型的计算量取得了显著的下降。</p>
-<p>然而这样做也带来了明显的问题：在多层逐点卷积堆叠时，模型的信息流被分割在各个组内，组与组之间没有信息交换（如下 图(a)所示）。这将可能影响到模型的表示能力和识别精度。</p>
+<p>然而这样做也带来了明显的问题：在多层逐点卷积堆叠时，模型的信息流被分割在各个组内，组与组之间没有信息交换（如下图(a)所示）。这将可能影响到模型的表示能力和识别精度。</p>
 <p>因此，在使用分组逐点卷积的同时，需要引入组间信息交换的机制。也就是说，对于第二层卷积而言，每个卷积核需要同时接收各组的特征作为输入，如下图 (b)所示。作者指出，通过引入“通道重排”（channel shuffle，见下图 (c)）可以很方便地实现这一机制；并且由于通道重排操作是可导的，因此可以嵌在网络结构中实现端到端的学习。</p>
 <p><img alt="Shuffle 部分结构" src="../_images/03.shufflenet01.png" /></p>
 </section>
 <section id="id2">
-<h3>网络结构<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<section id="pointwise-group-convolution">
-<h4>逐点分组卷积(Pointwise group convolution)<a class="headerlink" href="#pointwise-group-convolution" title="Link to this heading">#</a></h4>
-<p>pointwise group convolutions，其实就是带分组的卷积核为 <span class="math notranslate nohighlight">\(1x1\)</span> 的卷积，也就是说 pointwise convolution 是卷积核为 <span class="math notranslate nohighlight">\(1x1\)</span> 的卷积。在 ResNeXt 中主要是对 <span class="math notranslate nohighlight">\(3x3\)</span> 的卷积做分组操作，但是在 ShuffleNet 中，作者是对 <span class="math notranslate nohighlight">\(1x1\)</span> 的卷积做分组的操作，因为作者认为 <span class="math notranslate nohighlight">\(1x1\)</span> 的卷积操作的计算量不可忽视。</p>
+<h3>逐点分组卷积<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>逐点分组卷积 pointwise group convolutions，其实就是带分组的卷积核为 <span class="math notranslate nohighlight">\(1x1\)</span> 的卷积，也就是说 pointwise convolution 是卷积核为 <span class="math notranslate nohighlight">\(1x1\)</span> 的卷积。在 ResNeXt 中主要是对 <span class="math notranslate nohighlight">\(3x3\)</span> 的卷积做分组操作，但是在 ShuffleNet 中，作者是对 <span class="math notranslate nohighlight">\(1x1\)</span> 的卷积做分组的操作，因为作者认为 <span class="math notranslate nohighlight">\(1x1\)</span> 的卷积操作的计算量不可忽视。</p>
 <p>那什么叫做分组？就是将输入与输出的通道分成几组，比如输出与输入的通道数都是 4 个且分成 2 组，那第 1、2 通道的输出只使用第 1、2 通道的输入，同样那第 3、4 通道的输出只使用第 1、2 通道的输入。</p>
 <p>也就是说，不同组的输出与输入没有关系了，减少联系必然会使计算量减小，但同时也会导致信息的丢失。当分成 g 组后，一层参赛量的大小由 <span class="math notranslate nohighlight">\(C_{out}\times(C_{in}\times K_{h}\times k_{w})\)</span> 变成 <span class="math notranslate nohighlight">\(C_{out}\times(C_{in}\times K_{h}\times k_{w}/g)\)</span> 。</p>
 <p>特征图大小虽然没变化，但是每一组的使用量是原来的 <span class="math notranslate nohighlight">\(1/g\)</span>，卷积也只用到所有参数的 <span class="math notranslate nohighlight">\(1/g\)</span>。然后再循环 <span class="math notranslate nohighlight">\(g\)</span> 次，那么参数量与计算量如下:</p>
@@ -763,17 +734,17 @@ Params=C_{out}/g\times(C_{in}\times K_{h}\times k_{w}/g)\times (C_{in}\times K_{
 Computation=C_{out}/g\times H_{out}\times W_{out} \times(C_{in}/g\times K_{h}\times K_{w}/g )^{2}
 \]</div>
 </section>
-<section id="channel-shuffle">
-<h4>通道重排(channel shuffle)<a class="headerlink" href="#channel-shuffle" title="Link to this heading">#</a></h4>
-<p>可以看到，不同组之间是没有任何联系的，即得到的特征图只和对应组别的输入有关系。论文中也有这样的描述，这种分组因不同组之间没有任何联系，学习到的特征会非常有限，也很容易导致信息丢失，因此论文提出了 channel shuffle。</p>
+<section id="id3">
+<h3>通道重排<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>可以看到，不同组之间是没有任何联系的，即得到的特征图只和对应组别的输入有关系。论文中也有这样的描述，这种分组因不同组之间没有任何联系，学习到的特征会非常有限，也很容易导致信息丢失，因此论文提出了通道重排 channel shuffle。</p>
 <p>channel shuffle 的思想如上面图中所示。一般卷积操作中输入特征图的数量比如是 N，该卷积层的卷积核数量是 M，那么 M 个卷积核中的每一个卷积核都要和 N 个特征图的某个区域做卷积，然后相加作为一个卷积的结果。</p>
-<p>假设你引入分组操作，设组数 为 g，那么 N 个输入特征图就被分成 g 个组，M 个卷积核就被分成 g 个组，然后在做卷积操作的时候，第一个组的 M/g 个卷积核中的每一个都和第一个组的 N/g 个输入特征图做卷积得到结果，第二组同理，直到最后一组，如上图 a。不同的颜色代表不同的组，图中有三个组。</p>
+<p>假设你引入分组操作，设组数为 g，那么 N 个输入特征图就被分成 g 个组，M 个卷积核就被分成 g 个组，然后在做卷积操作的时候，第一个组的 M/g 个卷积核中的每一个都和第一个组的 N/g 个输入特征图做卷积得到结果，第二组同理，直到最后一组，如上图 a。不同的颜色代表不同的组，图中有三个组。</p>
 <p>这种操作可以大大减少计算量，因为你每个卷积核不再是和输入的全部特征图做卷积，而是和一个组的特征图做卷积。但是如果多个组操作叠加在一起，如上图 a 的两个卷积层都有组操作，显然就会产生边界效应。</p>
 <p>即某个输出 channel 仅仅来自输入 channel 的一小部分。这种计算方式使得网络模型学习得到的特征会非常局限。于是就有了 channel shuffle 来解决这个问题，先看上图 b，在进行 GConv2 之前，对其输入图做一个分配，也就是每个组分成几个次组，然后将不同组的下面的组作为 GConv2 的一个组的输入，使得 GConv2 的每一个组都能卷积输入的所有组的特征图，这和图 c 的 channel shuffle 的思想是一样的。</p>
 </section>
-<section id="shufflenet-unit">
-<h4>ShuffleNet Unit<a class="headerlink" href="#shufflenet-unit" title="Link to this heading">#</a></h4>
-<p>基于残差块（residual block）和 通道洗牌（channel shuffle）设计的 <code class="docutils literal notranslate"><span class="pre">ShuffleNet</span> <span class="pre">Unit</span></code> ：</p>
+<section id="id4">
+<h3>ShuffleNet 模块<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>基于残差块（residual block）和通道洗牌（channel shuffle）设计的 <code class="docutils literal notranslate"><span class="pre">ShuffleNet</span> <span class="pre">Unit</span></code> ：</p>
 <ul class="simple">
 <li><p>**深度卷积 **。</p></li>
 <li><p><strong>逐点分组卷积</strong>。</p></li>
@@ -781,9 +752,8 @@ Computation=C_{out}/g\times H_{out}\times W_{out} \times(C_{in}/g\times K_{h}\ti
 </ul>
 <p><img alt="ShuffleNet Unit 结构" src="../_images/03.shufflenet02.png" /></p>
 </section>
-</section>
-<section id="id3">
-<h3>代码<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>代码<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 通道混洗</span>
 <span class="k">def</span> <span class="nf">shuffle_channels</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">groups</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;shuffle channels of a 4-D Tensor&quot;&quot;&quot;</span>
@@ -905,13 +875,13 @@ Computation=C_{out}/g\times H_{out}\times W_{out} \times(C_{in}/g\times K_{h}\ti
 <h2>ShuffleNet V2<a class="headerlink" href="#shufflenet-v2" title="Link to this heading">#</a></h2>
 <p>本节将继续介绍 ShuffleNet 系列，之前介绍的轻量级网络都是通过计算网络复杂度的一个间接度量，即 FLOPs，通过计算浮点运算量来描述轻量级网络的快慢。</p>
 <p>但是从来不直接考虑设备上运行的速度，而 ShuffleNetv2 则从另外的角度去衡量网络的轻量化，并提出了在设计网络时应该考虑的原则。本文同时也将继续分析 ShuffleNetV2 中一些新颖的结构与方法。</p>
-<section id="id4">
-<h3>贡献概述<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>贡献概述<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>ShuffleNet v2 是一种深度神经网络架构，与 ShuffleNet v1 和 MobileNet v2 相比，在计算复杂度为 40M FLOPs 的情况下，精度分别比 ShuffleNet v1 和 MobileNet v2 高 3.5%和 3.7%。ShuffleNet v2 的框架与 ShuffleNet v1 基本相同，都包括 Conv1、Maxpool、Stage 2~5、Global pool 和 FC 等部分。</p>
-<p>唯一的不同是 ShuffleNet v2 比 ShuffleNet v1 多了一个 1x1 Conv5。ShuffleNet v2 最大的贡献在于看到了 GPU 访存带宽（内存访问代价 MAC）对于模型推理时间的影响，而不仅仅是模型复杂度，也就是 FLOPs 和参数量 Params 对于推理时间的影响，并由此提出了 4 个轻量级网络设计的原则和一个新颖的 卷积 block 架构 ShuffleNet v2。</p>
+<p>唯一的不同是 ShuffleNet v2 比 ShuffleNet v1 多了一个 1x1 Conv5。ShuffleNet v2 最大的贡献在于看到了 GPU 访存带宽（内存访问代价 MAC）对于模型推理时间的影响，而不仅仅是模型复杂度，也就是 FLOPs 和参数量 Params 对于推理时间的影响，并由此提出了 4 个轻量级网络设计的原则和一个新颖的卷积 block 架构 ShuffleNet v2。</p>
 </section>
-<section id="id5">
-<h3>设计思路<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>设计思路<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>首先，作者分析了两个经典结构 ShuffleNet v1 和 MobileNet v2 的运行时间(如下图所示)。提出了一个关键点，之前的轻量级网络都是通过计算网络复杂度的一个间接度量，通过计算浮点运算量来描述轻量级网络的快慢。但是从来不直接考虑运行的速度。</p>
 <p>在移动设备中的运行速度不仅仅需要考虑 FLOPs，还需要考虑其他的因素，比如内存访问成本(memory access cost)和平台特点(platform characterics)。所以，ShuffleNet v2 通过控制不同的环境来测试网络在设备上运行速度的快慢，而不是通过 FLOPs 来判断性能指标。</p>
 <p><img alt="03.shufflenet03" src="../_images/03.shufflenet03.png" /></p>
@@ -928,20 +898,20 @@ Computation=C_{out}/g\times H_{out}\times W_{out} \times(C_{in}/g\times K_{h}\ti
 <li><p>G4: 元素操作是不可忽略的</p></li>
 </ul>
 </section>
-<section id="id6">
-<h3>网络结构<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>网络结构<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>在 ShuffleNet v1 block 的基础上，ShuffleNet v2 block 引入通道分割（Channel Split）这个简单的算子来实现上述目的，如下图 (c) 所示。在每个单元 (block) 的开始，我们将输入特征图的 c 个通道切分成 (split) 两个分支 (branches)：<span class="math notranslate nohighlight">\(c-c'\)</span> 个通道和 <span class="math notranslate nohighlight">\(c'\)</span> 个通道。</p>
 <p>根据 G3 网络碎片尽可能少，其中一个分支保持不变（shortcut connection），另外一个分支包含三个通道数一样的卷积来满足 G1。和 v1 不同，v2 block 的两个 <span class="math notranslate nohighlight">\(1\times1\)</span> 卷积不再使用分组卷积，一部分原因是为了满足 G2，另外一部分原因是一开始的通道切分 （split）操作已经完成了分组效果。</p>
 <p>最后，对两个分支的结果进行拼接（concatnate），这样对于卷积 block 来说，输入输出通道数是一样的，符合 G1 原则。和 ShuffleNet v1 一样都使用通道打乱（channel shuffle）操作来保证两个分支的信息进行交互。</p>
-<p>通道打乱之后的输出，就是下一个单元的输入。ShuffleNet v1 的 “Add” 操作不再使用，逐元素操作算子如：ReLU 和 DW 卷积 只存在于在右边的分支。</p>
+<p>通道打乱之后的输出，就是下一个单元的输入。ShuffleNet v1 的 “Add” 操作不再使用，逐元素操作算子如：ReLU 和 DW 卷积只存在于在右边的分支。</p>
 <p>与此同时，我们将三个连续的逐元素操作算子：拼接（“Concat”）、通道打乱（“Channel Shuffle”）和通道拆分（“Channel Split”）合并成一个逐元素算子。根据 G4 原则，这些改变是有利的。</p>
 <p>针对需要进行空间下采样的 block，卷积单元（block）进行了修改，通道切分算子被移除，然后 block 的输出通道数变为两倍，详细信息如下图(d) 所示。</p>
-<p>图 c,d 显示的卷积 block 叠加起来即组成了最后的 ShuffleNet v2 模型，这样堆叠后的网络是类似 ShuffleNet v1 模型的，v1 和 v2 block 的区别在于，v2 在全局平均池化层（global averaged pooling）之前添加了一个 卷积来混合特征（mix up features），而 v1 没有。</p>
+<p>图 c,d 显示的卷积 block 叠加起来即组成了最后的 ShuffleNet v2 模型，这样堆叠后的网络是类似 ShuffleNet v1 模型的，v1 和 v2 block 的区别在于，v2 在全局平均池化层（global averaged pooling）之前添加了一个卷积来混合特征（mix up features），而 v1 没有。</p>
 <p>和 v1 一样，v2 的 block 的通道数是按照 0.5x 1x 等比例进行缩放，以生成不同复杂度的 ShuffleNet v2 网络，并标记为 ShuffleNet v2 0.5×、ShuffleNet v2 1× 等模型。</p>
 <p><img alt="block" src="../_images/03.shufflenet04.png" /></p>
 </section>
-<section id="id7">
-<h3>代码<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>代码<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 通道混洗</span>
 <span class="k">def</span> <span class="nf">channel_shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">groups</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
     <span class="n">batch_size</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>  <span class="c1"># [n,c,h,w]</span>
@@ -1102,19 +1072,19 @@ Computation=C_{out}/g\times H_{out}\times W_{out} \times(C_{in}/g\times K_{h}\ti
 <p>======= 代码不要直接粘贴一大段，看不懂的，融合在对应的网络模型结构里面哈。融合后就没有这个独立代码的小节了。</p>
 </section>
 </section>
-<section id="id8">
-<h2>小结<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h2>小结与思考<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <p>ShuffleNet v1 的核心就是用一系列的新颖结构达到了减少计算量和提高准确率的目的。ShuffleNet v2 则在 v1 的基础进行了更深入的思考，对于轻量级网络设计应该考虑直接评价指标（速度），而不是间接的指标（ FLOPs）。</p>
 <p>通过分析 ShuffleNet 网络模型的推理性能得结合具体的推理平台，目前已知影响推理性能的因素包括: 算子计算量 FLOPs（参数量 Params）、算子内存访问代价（访存带宽）。</p>
 </section>
-<section id="id9">
-<h2>本节视频<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h2>本节视频<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?bvid=BV1Y84y1b7xj&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
 </section>
-<section id="id10">
-<h2>参考文献<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id12">
+<h2>参考文献<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <p>1.<a class="reference external" href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Chollet_Xception_Deep_Learning_CVPR_2017_paper.pdf">François Chollet. Xception: Deep learning with depthwise separable convolutions. arXiv:1610.02357, 2016.</a></p>
 <p>2.<a class="reference external" href="https://arxiv.org/abs/1611.05431">Saining Xie, Ross Girshick, Piotr Dollár, Zhuowen Tu, and Kaiming He. Aggregated residual transformations for deep neural networks. arXiv:1611.05431, 2016.</a></p>
 <p>3.<a class="reference external" href="https://arxiv.org/abs/1512.03385">Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 770–778, 2016.</a></p>
@@ -1178,7 +1148,7 @@ Computation=C_{out}/g\times H_{out}\times W_{out} \times(C_{in}/g\times K_{h}\ti
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">SqueezeNet 系列</p>
+        <p class="prev-next-title">SqueezeNet 系列(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -1208,25 +1178,22 @@ Computation=C_{out}/g\times H_{out}\times W_{out} \times(C_{in}/g\times K_{h}\ti
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shufflenet-v1">ShuffleNet V1</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">设计思路</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">网络结构</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pointwise-group-convolution">逐点分组卷积(Pointwise group convolution)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-shuffle">通道重排(channel shuffle)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shufflenet-unit">ShuffleNet Unit</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">逐点分组卷积</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">通道重排</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">ShuffleNet 模块</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shufflenet-v2">ShuffleNet V2</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">贡献概述</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">设计思路</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">网络结构</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">贡献概述</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">设计思路</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">代码</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">小结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">参考文献</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">参考文献</a></li>
 </ul>
   </nav></div>
 
@@ -1249,7 +1216,7 @@ Computation=C_{out}/g\times H_{out}\times W_{out} \times(C_{in}/g\times K_{h}\ti
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 01, 2024.
+  Last updated on Jun 07, 2024.
   <br/>
 </p>
   </div>

@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference02Mobilenet/07EfficientNet.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="本章节主要介绍 EffiicientNet 系列，在之前的文章中，一般都是单独增加图像分辨率或增加网络深度或单独增加网络的宽度，来提高网络的准确率。而在 EfficientNet 系列论文中，会介绍使用网络搜索技术(NAS)去同时探索网络的 宽度(width)，深度(depth)，分辨率(resolution)对模型准确率的影响。以及如何加速训练推理速度。 EfficientNet V1: ..." />
+<meta property="og:description" content="本章节主要介绍 EffiicientNet 系列，在之前的文章中，一般都是单独增加图像分辨率或增加网络深度或单独增加网络的宽度，来提高网络的准确率。而在 EfficientNet 系列论文中，会介绍使用网络搜索技术(NAS)去同时探索网络的宽度(width)，深度(depth)，分辨率(resolution)对模型准确率的影响。以及如何加速训练推理速度。 EfficientNet V1: E..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="本章节主要介绍 EffiicientNet 系列，在之前的文章中，一般都是单独增加图像分辨率或增加网络深度或单独增加网络的宽度，来提高网络的准确率。而在 EfficientNet 系列论文中，会介绍使用网络搜索技术(NAS)去同时探索网络的 宽度(width)，深度(depth)，分辨率(resolution)对..." />
-<meta name="description" content="本章节主要介绍 EffiicientNet 系列，在之前的文章中，一般都是单独增加图像分辨率或增加网络深度或单独增加网络的宽度，来提高网络的准确率。而在 EfficientNet 系列论文中，会介绍使用网络搜索技术(NAS)去同时探索网络的 宽度(width)，深度(depth)，分辨率(resolution)对模型准确率的影响。以及如何加速训练推理速度。 EfficientNet V1: ..." />
+<meta property="og:image:alt" content="本章节主要介绍 EffiicientNet 系列，在之前的文章中，一般都是单独增加图像分辨率或增加网络深度或单独增加网络的宽度，来提高网络的准确率。而在 EfficientNet 系列论文中，会介绍使用网络搜索技术(NAS)去同时探索网络的宽度(width)，深度(depth)，分辨率(resolution)对模..." />
+<meta name="description" content="本章节主要介绍 EffiicientNet 系列，在之前的文章中，一般都是单独增加图像分辨率或增加网络深度或单独增加网络的宽度，来提高网络的准确率。而在 EfficientNet 系列论文中，会介绍使用网络搜索技术(NAS)去同时探索网络的宽度(width)，深度(depth)，分辨率(resolution)对模型准确率的影响。以及如何加速训练推理速度。 EfficientNet V1: E..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>EfficientNet 系列 &#8212; AI System</title>
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 07, 2024"/>
 
 <link
   rel="alternate"
@@ -265,12 +265,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
@@ -345,24 +339,23 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06.memory.html">内存分配算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07.constant_fold.html">常量折叠原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08.cse.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09.dce.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/11.summary.html">优化 Pass 总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
@@ -373,22 +366,19 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04Inference/README.html">推理系统&amp;引擎概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/06Architecture.html">推理引擎架构（下）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型轻量化</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">推理参数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02CNN.html">CNN 模型小型化（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">推理参数(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05Transformer.html">Transformer 小型化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08GhostNet.html">GhostNet 系列</a></li>
@@ -401,44 +391,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换&amp;优化</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/05Optimizer.html">计算图优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/06Basic.html">常量折叠&amp;冗余节点消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/07Extend.html">算子融合/替换/前移</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程(DONE)</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 五. AI 框架核心模块 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
@@ -448,7 +424,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
@@ -458,7 +434,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ModelParallel.html">模型并行</a></li>
@@ -466,10 +442,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05Summary.html">分布式训练总结</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -698,29 +674,21 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficientnet-v1">EfficientNet V1</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">复合模型缩放法</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">网络结构</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#se">SE 模块</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">复合模型缩放法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#se">SE 模块</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficientnet-v2">EfficientNet V2</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nas">训练感知 NAS 和缩放</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">渐进式学习</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">自适应正则化的渐进学习</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nas">训练感知 NAS 和缩放</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">渐进式学习</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">自适应正则化的渐进学习</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">网络结构</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">网络结构</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">小结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">参考文献</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">小结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">参考文献</a></li>
 </ul>
             </nav>
         </div>
@@ -735,14 +703,12 @@ document.write(`
 <!--Copyright © XcodeHw 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="efficientnet">
 <h1>EfficientNet 系列<a class="headerlink" href="#efficientnet" title="Link to this heading">#</a></h1>
-<p>本章节主要介绍 EffiicientNet 系列，在之前的文章中，一般都是单独增加图像分辨率或增加网络深度或单独增加网络的宽度，来提高网络的准确率。而在 EfficientNet 系列论文中，会介绍使用网络搜索技术(NAS)去同时探索网络的 宽度(width)，深度(depth)，分辨率(resolution)对模型准确率的影响。以及如何加速训练推理速度。</p>
+<p>本章节主要介绍 EffiicientNet 系列，在之前的文章中，一般都是单独增加图像分辨率或增加网络深度或单独增加网络的宽度，来提高网络的准确率。而在 EfficientNet 系列论文中，会介绍使用网络搜索技术(NAS)去同时探索网络的宽度(width)，深度(depth)，分辨率(resolution)对模型准确率的影响。以及如何加速训练推理速度。</p>
 <section id="efficientnet-v1">
 <h2>EfficientNet V1<a class="headerlink" href="#efficientnet-v1" title="Link to this heading">#</a></h2>
 <p><strong>EfficientNetV1</strong>:重点分析了卷积网络的深度，宽度和输入图像大小对卷积网络性能表现的影响，提出了一种混合模型尺度的方法，通过设置一定的参数值平衡调节卷积网络的深度，宽度和输入图像大小，使卷积网络的表现达到最好。</p>
 <section id="id1">
-<h3>设计思路<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<section id="id2">
-<h4>复合模型缩放法<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<h3>复合模型缩放法<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>单独适当增大深度、宽度或分辨率都可以提高网络的精确性，但随着模型的增大，其精度增益却会降低。此外，这三个维度并不是独立的（如：高分辨率图像需要更深的网络来获取更细粒度特征等），需要我们协调和平衡不同尺度的缩放，而不是传统的一维缩放。EfficientNet 的设想就是能否设计一个标准化的卷积网络扩展方法，既可以实现较高的准确率，又可以充分的节省算力资源。其通过 NAS（Neural Architecture Search）技术来搜索网络的图像输入分辨率 r，网络的深度 depth 以及 channel 的宽度 width 三个参数的合理化配置。如下图所示，(b)，(c)，(d)分别从不同的维度对 baseline 做 model scaling，而这篇论文要做的是将这 3 者结合起来一起优化即(e)。</p>
 <p><img alt="EfficientNet" src="images/04Inference02Mobilenet/07.efficientnet_01.png" /></p>
 <p>通过实验得出以下结论:</p>
@@ -751,12 +717,15 @@ document.write(`
 <li><p><strong>增加网络的 width</strong> 能够获得更高细粒度的特征，并且也更容易训练。但是对于宽度很大，深度较浅的网络往往很难学习到更深层次的特征。例如我就只有一个 3×3 的卷积，但是输出通道为 10000，也没办法得到更为抽象的高级语义。</p></li>
 <li><p><strong>增加输入网络的图像分辨率</strong>能够潜在获得更高细粒度的特征模版，图像分辨率越高能看到的细节就越多，能提升分辨能力。但是对于非常高的输入分辨率，准确率的增益也会减少。且大分辨率图像会增加网络的计算量（注意不是参数量）。</p></li>
 </ol>
-<p>Compound Model Scaling 也可以公式化为:</p>
-<p><strong>Problem Formulation</strong></p>
 <p>一个卷积网络的某一层 <span class="math notranslate nohighlight">\(i\)</span> 可以被定义为；</p>
-<p>​                                               $<span class="math notranslate nohighlight">\(Y_{i}=F_{i}(X_{i})\)</span>$</p>
-<p>其中:$<span class="math notranslate nohighlight">\(X_{i}\)</span><span class="math notranslate nohighlight">\( 表示输入的 tensor,其形状为 \)</span>&lt;H_{i},W_{i},C_{i}&gt;<span class="math notranslate nohighlight">\(，\)</span>Y_{i}<span class="math notranslate nohighlight">\( 是输出的 tensor。于是，一个卷积网络 \)</span>N$ 可以被表示成如下形式:</p>
-<p>​                       $<span class="math notranslate nohighlight">\(N=F_{k}\odot ...\odot F_{2}\odot F_{1}(X_{11})=\odot_{j=1....k}F_{j}(X_{1})\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[
+Y_{i}=F_{i}(X_{i})
+\]</div>
+<p>其中：$<span class="math notranslate nohighlight">\(X_{i}\)</span><span class="math notranslate nohighlight">\( 表示输入的 tensor，其形状为 \)</span>&lt;H_{i},W_{i},C_{i}&gt;<span class="math notranslate nohighlight">\(，\)</span>Y_{i}<span class="math notranslate nohighlight">\( 是输出的 tensor。于是，一个卷积网络 \)</span>N$ 可以被表示成如下形式：</p>
+<p>​$<span class="math notranslate nohighlight">\(
+N=F_{k}\odot ...\odot F_{2}\odot F_{1}(X_{11})=\odot_{j=1....k}F_{j}(X_{1})
+\)</span>$</p>
 <p>但是在实际中，ConvNets 的各个层通常被划分为多个 stage，并且每个 stage 中的所有层都具有相同的体系结构（例如 ResNet，共有五个 stage，除了第一层之外的每个 stage 的所有层都分别具有相同的卷积类型）。</p>
 <p>因此，我们可以将 ConvNet 重新表示成如下形式：</p>
 <div class="math notranslate nohighlight">
@@ -765,10 +734,11 @@ N = \bigoplus_{i=1...s}F_{i}^{L_i}(X_{&lt;H_{i},W_{i},C_{i}&gt;})
 \]</div>
 <p>其中 <span class="math notranslate nohighlight">\(F_{i}^{L_{i}}\)</span> 表示第 <span class="math notranslate nohighlight">\(i\)</span> 个 stage，并且这个 stage 由 <span class="math notranslate nohighlight">\(L_{i}\)</span> 次的 <span class="math notranslate nohighlight">\(F_{i}\)</span>（相当于一层 layer）操作构成。</p>
 <p>通常 ConvNet 的设计焦点在 <span class="math notranslate nohighlight">\(F_{i}\)</span>，但是这篇文章的焦点，或者说 Model Scaling 的焦点则是在模型的深度（<span class="math notranslate nohighlight">\(L_{i}\)</span>）、宽度（<span class="math notranslate nohighlight">\(C_{i}\)</span>）和输入图片的大小（<span class="math notranslate nohighlight">\(H_{i}\)</span>,<span class="math notranslate nohighlight">\(W_{i}\)</span>），而不改变在 baseline 中预先定义好的 <span class="math notranslate nohighlight">\(F_{i}\)</span>。</p>
-<p>通过固定 <span class="math notranslate nohighlight">\(F_{i}\)</span>，简化了对于新资源约束的 Model Scaling 设计问题，但仍然有很大的设计空间来探索每一层的不同 <span class="math notranslate nohighlight">\(L_{i}\)</span>，<span class="math notranslate nohighlight">\(C_{i}\)</span>，<span class="math notranslate nohighlight">\(H_{i}\)</span>，<span class="math notranslate nohighlight">\(W_{i}\)</span>。为了进一步减小设计空间，作者又限制所有层必须以恒定比率均匀地做 Scaling。我们的目标是在任何给定的资源约束下最大化模型精度，这可以表述为优化问题：
-$<span class="math notranslate nohighlight">\(
+<p>通过固定 <span class="math notranslate nohighlight">\(F_{i}\)</span>，简化了对于新资源约束的 Model Scaling 设计问题，但仍然有很大的设计空间来探索每一层的不同 <span class="math notranslate nohighlight">\(L_{i}\)</span>，<span class="math notranslate nohighlight">\(C_{i}\)</span>，<span class="math notranslate nohighlight">\(H_{i}\)</span>，<span class="math notranslate nohighlight">\(W_{i}\)</span>。为了进一步减小设计空间，作者又限制所有层必须以恒定比率均匀地做 Scaling。我们的目标是在任何给定的资源约束下最大化模型精度，这可以表述为优化问题：</p>
+<div class="math notranslate nohighlight">
+\[
 max_{d,w,r}Accurracy(N(d,w,r))
-\)</span>$</p>
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 s.t.  N(d,w,r) = \bigoplus_{i=1...s}\hat{F}_{i}^{d \cdot \hat{L}_{i}}(X_{&lt;r\cdot \hat{H}_{i},r\cdot\hat{W}_{i},w\cdot\hat{C}_{i}&gt;})
@@ -792,10 +762,11 @@ FLOPS(N)\leq target flops
 <p><strong>Compound Scaling</strong></p>
 <p>为了追求更好的精度和效率，在连续网络缩放过程中平衡网络宽度、深度和分辨率的所有维度是至关重要的。如下图所示。</p>
 <p><img alt="EfficientNet" src="images/04Inference02Mobilenet/07.efficientnet_03.png" /></p>
-<p>不同维度的 Scaling 并不相互独立，需要协调和平衡不同维度的 Scaling，而不是常规的单维度 Scaling。EfficientNet 提出了 compound scaling method（复合缩放方法），这种方法是通过一个复合系数φ去统一缩放网络的宽度，深度和分辨率，公式表示如下：
-$<span class="math notranslate nohighlight">\(
+<p>不同维度的 Scaling 并不相互独立，需要协调和平衡不同维度的 Scaling，而不是常规的单维度 Scaling。EfficientNet 提出了 compound scaling method（复合缩放方法），这种方法是通过一个复合系数φ去统一缩放网络的宽度，深度和分辨率，公式表示如下：</p>
+<div class="math notranslate nohighlight">
+\[
 depth:d=α^{φ}
-\)</span>$</p>
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 width:w=β^{φ}
@@ -816,15 +787,15 @@ s.t. α\cdotβ^{2}\cotγ^{2}\approx 2
 <p>需要注意的是：常规卷积运算的 FLOPS 与 d，<span class="math notranslate nohighlight">\(w^{2}\)</span>，<span class="math notranslate nohighlight">\(r^{2}\)</span> 成正比，即网络深度增加 1 倍会使 FLOPS 增加 1 倍，网络宽度或分辨率增加 1 倍会使 FLOPS 增加 4 倍。</p>
 <p>由于卷积运算通常在 ConvNets 中占主导地位，因此根据上述的等式，缩放 ConvNets 将使总 FLOPS 大约增加 <span class="math notranslate nohighlight">\((α⋅β^{2}⋅γ^{2})ϕ\)</span>。在本文中，作者做了 <span class="math notranslate nohighlight">\(α⋅β^{2}⋅γ^{2}≈2\)</span> 的约束，这样对于任何新的 ϕ ，总 FLOPS 大约会增加 <span class="math notranslate nohighlight">\(2^{ϕ}\)</span>。</p>
 </section>
-</section>
-<section id="id3">
-<h3>网络结构<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>网络结构<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>以 EfficientNet-B0 baseline 网络结构为例，在 B0 中一共分为 9 个 stage，表中的卷积层后默认都跟有 BN 以及 Swish 激活函数。stage 1 就是一个 3×3 的卷积层。对于 stage 2 到 stage 8 就是在重复堆叠 MBConv。</p>
 <p><img alt="EfficientNet" src="images/04Inference02Mobilenet/07.efficientnet_04.png" /></p>
 <p>Conv 1x1, s1 层，一个 1x1 的标准卷积，用于降维，然后通过一个 BN，没有 swish 激活函数。
 Droupout 层，其 dropout_rate 对应的是 drop_connect_rate；shortcut 连接，执行 add 操作。</p>
+</section>
 <section id="se">
-<h4>SE 模块<a class="headerlink" href="#se" title="Link to this heading">#</a></h4>
+<h3>SE 模块<a class="headerlink" href="#se" title="Link to this heading">#</a></h3>
 <p>如下图所示，SE 模块由一个全局平均池化(AvgPooling)，两个 FC 层组成。第一个全连接层的节点个数是 MBConv 模块的输入特征图 channels 的 <span class="math notranslate nohighlight">\( \frac{1}{4}\)</span> ，且使用 Swish 激活函数。第二个全连接层的节点个数等于 MBConv 模块中 DWConv 层输出特征图的 channels，且使用 Sigmoid 激活函数。简单理解，SE 模块的总体思想是：给每个特征图不同的权重，关注更有用的特征。</p>
 <p><img alt="EfficientNet" src="images/04Inference02Mobilenet/07.efficientnet_05.png" /></p>
 <p><strong>代码</strong></p>
@@ -941,19 +912,15 @@ Droupout 层，其 dropout_rate 对应的是 drop_connect_rate；shortcut 连接
         <span class="n">scale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
         <span class="n">scale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ac2</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">x</span>
-
 </pre></div>
 </div>
 </section>
 </section>
-</section>
 <section id="efficientnet-v2">
 <h2>EfficientNet V2<a class="headerlink" href="#efficientnet-v2" title="Link to this heading">#</a></h2>
-<p><strong>EfficientNet V2</strong>:该网络主要使用训练感知神经结构搜索和缩放的组合；在 EfficientNetV1 的基础上，引入了 Fused-MBConv 到搜索空间中；引入渐进式学习策略、自适应正则强度调整机制使得训练更快；进一步关注模型的推理速度与训练速度。</p>
-<section id="id4">
-<h3>设计思路<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>EfficientNet V2</strong>：该网络主要使用训练感知神经结构搜索和缩放的组合；在 EfficientNetV1 的基础上，引入了 Fused-MBConv 到搜索空间中；引入渐进式学习策略、自适应正则强度调整机制使得训练更快；进一步关注模型的推理速度与训练速度。</p>
 <section id="nas">
-<h4>训练感知 NAS 和缩放<a class="headerlink" href="#nas" title="Link to this heading">#</a></h4>
+<h3>训练感知 NAS 和缩放<a class="headerlink" href="#nas" title="Link to this heading">#</a></h3>
 <p><strong>NAS 搜索</strong></p>
 <p>这里采用的是 trainning-aware NAS framework，搜索工作主要还是基于之前的 Mnasnet 以及 EfficientNet. 但是这次的优化目标联合了 accuracy、parameter efficiency 以及 trainning efficiency 三个维度。这里是以 EfficientNet 作为 backbone，设计空间包含:</p>
 <ul class="simple">
@@ -983,8 +950,8 @@ A \cdot S^{w}\cdot P^{v}
 <p>如下图所示，EfficientNetV2 模型在 ImageNet 上 top-1 acc 和 train step time，这里的训练采用固定的图像大小，不过比推理时图像大小降低 30%，而图中的 EffNet(reprod)也是采用这样的训练策略，可以看到比 baseline 训练速度和效果均有明显提升，而 EfficientNetV2 在训练速度和效果上有进一步地提升。</p>
 <p><img alt="EfficientNet" src="images/04Inference02Mobilenet/07.efficientnet_06.png" /></p>
 </section>
-<section id="id5">
-<h4>渐进式学习<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<section id="id3">
+<h3>渐进式学习<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>除了模型设计优化，论文还提出了一种 progressive learning 策略来进一步提升 EfficientNet v2 的训练速度，简单来说就训练过程渐进地增大图像大小，但在增大图像同时也采用更强的正则化策略，训练的正则化策略包括数据增强和 dropout 等。</p>
 <p>不同的图像输入采用不同的正则化策略，这不难理解，在早期的训练阶段，我们用更小的图像和较弱的正则化来训练网络，这样网络就可以轻松、快速地学习简单的表示。然后，我们逐渐增加图像的大小，但也通过增加更强的正则化，使学习更加困难。从下表中可以看到，大的图像输入要采用更强的数据增强，而小的图像输入要采用较轻的数据增强才能训出最优模型效果。</p>
 <table class="table">
@@ -1018,8 +985,8 @@ A \cdot S^{w}\cdot P^{v}
 <p>（2）反之，较大的图像尺寸会导致更多的计算，而容量较大，因此更容易出现过拟合。</p>
 <p>（3）当图像大小较小时，弱增强的精度最好；但对于较大的图像，更强的增强效果更好。</p>
 </section>
-<section id="id6">
-<h4>自适应正则化的渐进学习<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<section id="id4">
+<h3>自适应正则化的渐进学习<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>在早期训练阶段，使用较小的图像大小和较弱的正则化训练网络，这样网络可以轻松快速地学习简单表示。然后，逐渐增加图像大小，但也通过添加更强的正则化使学习更加困难。在逐步改进图像大小的基础上，自适应地调整正则化。假设整个训练有 N 个步骤，目标图像大小为 <span class="math notranslate nohighlight">\(S_{e}\)</span> ，正则化大小 <span class="math notranslate nohighlight">\(Φ_{e}={ϕ_{e}^{}}\)</span> ，这里 k 表示一种正则化类型，例如 dropout rate or mixup rate value。将训练分为 M 个阶段，对于每个阶段 <span class="math notranslate nohighlight">\(1≤i≤M\)</span> ，利用图像大小 Si 和正则化幅度对模型进行训练 <span class="math notranslate nohighlight">\(Φ_{i}={ϕ_{i}^{k}}\)</span> ，最后阶段 <span class="math notranslate nohighlight">\(M\)</span> 将图像大小 <span class="math notranslate nohighlight">\(S_{e}\)</span> 和正则化 <span class="math notranslate nohighlight">\(Φ_{e}\)</span> ，为了简单起见，启发式地选择初始图像大小 <span class="math notranslate nohighlight">\(S_{0}\)</span>,<span class="math notranslate nohighlight">\(Φ_{0}\)</span> ，然后使用线性插值来确定每个阶段的值，算法 1 总结了该过程。在每个阶段开始，网络将集成前一阶段的所有权重，与 trasnformer 不同，trasnformer 的权重（例如位置嵌入）可能取决于输入长度，ConvNet 的权重与图像大小无关，可以轻松继承。本文中主要研究了以下三种正则：Dropout、RandAugment 以及 Mixup。</p>
 <ul class="simple">
 <li><p>dropout：一种网络级的正规化，通过随机丢弃通道来减少共同适应(co-adaptation)。我们将调整 dropout 率。</p></li>
@@ -1027,9 +994,8 @@ A \cdot S^{w}\cdot P^{v}
 <li><p>Mixup：图像与图像相互作用的数据增强。给定带有标签的两幅图像 <span class="math notranslate nohighlight">\((x_{i},y_{i})\)</span> 和 <span class="math notranslate nohighlight">\((x_{j},y_{j})\)</span>，Mixup 根据混合比将两者混合：<span class="math notranslate nohighlight">\(\widetilde{x_{i}}=λx_{j}+(1-λ)x_{i}\)</span>  <span class="math notranslate nohighlight">\(\widetilde{y_{i}}=λy_{j}+(1-λ)y_{j}\)</span>，。我们将在训练期间调整混合比λ。</p></li>
 </ul>
 </section>
-</section>
-<section id="id7">
-<h3>网络结构<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>网络结构<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>EfficientNet V2 在除了使用 MBConv 之外，在网络浅层使用了 Fused-MBConv 模块，加快训练速度与提升性能；使用较小的 expansion ratio(从 V1 版本的 6 减小到 4)，从而减少内存的访问量；
 偏向使用更小的 3×3 卷积核(V1 版本存在很多 5×5)，并堆叠更多的层结构以增加感受野；移除步长为 1 的最后一个阶段(V1 版本中 stage8)，因为它的参数数量过多，需要减少部分参数和内存访问。</p>
 <p><strong>代码</strong></p>
@@ -1097,22 +1063,21 @@ A \cdot S^{w}\cdot P^{v}
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_res_connect</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">+=</span> <span class="n">x</span>
         <span class="k">return</span> <span class="n">result</span>
-
 </pre></div>
 </div>
 </section>
 </section>
-<section id="id8">
-<h2>小结<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
-<p>相比于 GoogleNet、ResNet 这种人工设计的经典 BackBone，EfficientNet 系列利用强大的计算资源对网络结果进行暴力搜索，得到一系列性能、参数量、计算量最优的网络结构和一些看不懂的超参（虽然人工设计网络中的超参也是大量试出来的，可解释性也较差）。</p>
+<section id="id6">
+<h2>小结<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>相比于谷歌 Net、ResNet 这种人工设计的经典 BackBone，EfficientNet 系列利用强大的计算资源对网络结果进行暴力搜索，得到一系列性能、参数量、计算量最优的网络结构和一些看不懂的超参（虽然人工设计网络中的超参也是大量试出来的，可解释性也较差）。</p>
 <p>EfficientNet 系列的研究方式应该是以后发展的一个重要方向，研究人员可以在 Conv 层的优化、训练策略上多下功夫研究，至于网络架构怎么组合最优，交给机器去做就好。</p>
 </section>
-<section id="id9">
-<h2>本节视频<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h2>本节视频<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <iframe src="https://player.bilibili.com/player.html?bvid=BV1DK411k7qt&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </section>
-<section id="id10">
-<h2>参考文献<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>参考文献<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>1.<a class="reference external" href="https://arxiv.org/abs/1608.06993v2">Huang, G., Liu, Z., Van Der Maaten, L., and Weinberger,K. Q. Densely connected convolutional networks. CVPR,2017.</a></p>
 <p>2.<a class="reference external" href="https://arxiv.org/pdf/1805.08974">Kornblith, S., Shlens, J., and Le, Q. V. Do better imagenet models transfer better? CVPR, 2019.</a></p>
 <p>3.<a class="reference external" href="https://core.ac.uk/display/21817232">Krizhevsky, A. and Hinton, G. Learning multiple layers of features from tiny images. Technical Report, 2009.</a></p>
@@ -1200,29 +1165,21 @@ A \cdot S^{w}\cdot P^{v}
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficientnet-v1">EfficientNet V1</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">复合模型缩放法</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">网络结构</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#se">SE 模块</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">复合模型缩放法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#se">SE 模块</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficientnet-v2">EfficientNet V2</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nas">训练感知 NAS 和缩放</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">渐进式学习</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">自适应正则化的渐进学习</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nas">训练感知 NAS 和缩放</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">渐进式学习</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">自适应正则化的渐进学习</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">网络结构</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">网络结构</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">小结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">参考文献</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">小结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">参考文献</a></li>
 </ul>
   </nav></div>
 
@@ -1245,7 +1202,7 @@ A \cdot S^{w}\cdot P^{v}
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 01, 2024.
+  Last updated on Jun 07, 2024.
   <br/>
 </p>
   </div>

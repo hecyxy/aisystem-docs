@@ -7,19 +7,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="模型转换流程" />
+<meta property="og:title" content="模型转换流程(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference04Converter/04Detail.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。 因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的转换。模型转换主要有 直接转换 和 规范式转换 两种方式，本文将详细介绍这两种转换方式的流程以及相关的技术细节。 模型转换技术的设计思路: 直接转..." />
+<meta property="og:description" content="用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。 因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的转换。模型转换主要有 直接转换 和 规范式转换 两种方式，本文将详细介绍这两种转换方式的流程以及相关的技术细节。 模型转换设计思路: 直接转换 是..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="/None" />
 <meta property="og:image:alt" content="用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。 因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的转换。模型转换主要有 直接转换 和 规范式转换 两种方式，本文将详..." />
-<meta name="description" content="用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。 因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的转换。模型转换主要有 直接转换 和 规范式转换 两种方式，本文将详细介绍这两种转换方式的流程以及相关的技术细节。 模型转换技术的设计思路: 直接转..." />
+<meta name="description" content="用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。 因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的转换。模型转换主要有 直接转换 和 规范式转换 两种方式，本文将详细介绍这两种转换方式的流程以及相关的技术细节。 模型转换设计思路: 直接转换 是..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>模型转换流程 &#8212; AI System</title>
+    <title>模型转换流程(DONE) &#8212; AI System</title>
   
   
   
@@ -79,12 +79,11 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="计算图优化" href="05Optimizer.html" />
-    <link rel="prev" title="自定义计算图 IR" href="03IR.html" />
+    <link rel="prev" title="自定义计算图 IR(DONE)" href="03IR.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 07, 2024"/>
 
 <link
   rel="alternate"
@@ -263,12 +262,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
@@ -343,24 +336,23 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06.memory.html">内存分配算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07.constant_fold.html">常量折叠原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08.cse.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09.dce.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/11.summary.html">优化 Pass 总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
@@ -371,22 +363,19 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04Inference/README.html">推理系统&amp;引擎概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/06Architecture.html">推理引擎架构（下）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 模型小型化（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05Transformer.html">Transformer 小型化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/07EfficientNet.html">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/08GhostNet.html">GhostNet 系列</a></li>
@@ -399,44 +388,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型转换&amp;优化</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02Principle.html">推理文件格式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03IR.html">自定义计算图 IR</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">模型转换流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05Optimizer.html">计算图优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06Basic.html">常量折叠&amp;冗余节点消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07Extend.html">算子融合/替换/前移</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型转换(DONE)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02Principle.html">推理文件格式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03IR.html">自定义计算图 IR(DONE)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">模型转换流程(DONE)</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 五. AI 框架核心模块 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
@@ -446,7 +421,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
@@ -456,7 +431,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ModelParallel.html">模型并行</a></li>
@@ -464,10 +439,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05Summary.html">分布式训练总结</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -685,7 +660,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>模型转换流程</h1>
+    <h1>模型转换流程(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -695,22 +670,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">模型转换技术的设计思路</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">直接转换</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">直接转换的流程</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">直接转换实例</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">模型转换工具</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">模型转换设计思路</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">直接转换流程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">直接转换实例</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">模型转换工具</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">规范式转换</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">规范式转换</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onnx">ONNX 概述</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-onnx">Pytorch 转 ONNX 实例</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-onnx">PyTorch 转 ONNX 实例</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">模型转换通用流程</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本节视频</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">参考文章</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">模型转换通用流程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">参考文章</a></li>
 </ul>
             </nav>
         </div>
@@ -723,20 +697,17 @@ document.write(`
                 <article class="bd-article">
                   
 <!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>模型转换流程<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="done">
+<h1>模型转换流程(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
 <p>用户在使用深度学习框架时，可能会遇到训练环境和部署环境不匹配的情况，比如用户用 Caffe 训练好了一个图像识别的模型，但是生产环境是使用 TensorFlow 做预测。</p>
 <p>因此就需要将使用不同训练框架训练出来的模型相互联系起来，使用户可以进行快速的转换。模型转换主要有<strong>直接转换</strong>和<strong>规范式转换</strong>两种方式，本文将详细介绍这两种转换方式的流程以及相关的技术细节。</p>
-<section id="id2">
-<h2>模型转换技术的设计思路<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h2>模型转换设计思路<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p><strong>直接转换</strong>是将网络模型从 AI 框架直接转换为适合目标框架使用的格式。例如下图中的 MindSpore Converter 直接将 AI 框架 MindSpore 的格式转换成推理引擎 IR 的格式。</p>
 <p><strong>规范式转换</strong>设计了一种开放式的文件规范，使得主流 AI 框架可以实现对该规范标准的支持。例如不是直接转换 Pytorch 格式，而是把 Pytorch 转换为 ONNX 格式，或者把 MindSpore 转换成 ONNX 格式，再通过 ONNX Converter 转换成推理引擎 IR。主流 AI 框架基本上都是支持这两种转换技术的。</p>
 <p><img alt="模型转换" src="04Inference04Converter/image/01Introduction01.png" /></p>
-</section>
-<section id="id3">
-<h2>直接转换<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<section id="id4">
-<h3>直接转换的流程<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>直接转换流程<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>直接转换的流程如下：</p>
 <ol class="arabic simple">
 <li><p>内容读取：读取 AI 框架生成的模型文件，并识别模型网络中的张量数据的类型/格式、算子的类型和参数、计算图的结构和命名规范，以及它们之间的其他关联信息。</p></li>
@@ -745,10 +716,10 @@ document.write(`
 </ol>
 <p>直接转换过程中需要考虑多个技术细节，例如不同深度学习框架对算子的实现可能有差异，需要确保转换后的算子能够在目标框架中正确运行；不同框架可能对张量数据的存储格式有不同的要求，如 NCHW（批量数、通道数、高度、宽度）和 NHWC（批量数、高度、宽度、通道数）等，需要在转换过程中进行格式适配；某些框架的算子参数可能存在命名或含义上的差异，需要在转换过程中进行相应调整；为了保证转换后的模型在目标框架中的性能，可能需要对某些计算图进行优化处理，如算子融合、常量折叠等。</p>
 </section>
-<section id="id5">
-<h3>直接转换实例<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>直接转换实例<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>以下代码演示了如何加载一个预训练的 TensorFlow 模型并进行直接转换为 PyTorch 模型的过程：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">TensorFlow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
@@ -805,8 +776,8 @@ document.write(`
 </div>
 <p>上述代码首先定义了一个简单的 TensorFlow 模型 SimpleModel 并在 MNIST 数据集上进行了训练。然后定义一个对应的 PyTorch 模型 PyTorchModel，其结构与 TensorFlow 模型相同。将 TensorFlow 模型中的参数转移到 PyTorch 模型中，确保权重参数正确地转移。最后保存转换后的 PyTorch 模型，以便在 PyTorch 中进行推理。</p>
 </section>
-<section id="id6">
-<h3>模型转换工具<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>模型转换工具<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>这里列出部分可实现不同框架迁移的模型转换器：</p>
 <table class="table">
 <thead>
@@ -821,7 +792,7 @@ document.write(`
 <th class="head text-center"><p><a class="reference external" href="https://github.com/torch/torch7/wiki/ModelZoo">torch</a></p></th>
 <th class="head text-center"><p><a class="reference external" href="https://github.com/fchollet/deep-learning-models">keras</a></p></th>
 <th class="head text-center"><p><a class="reference external" href="https://pjreddie.com/darknet/imagenet/">darknet</a></p></th>
-<th class="head text-center"><p><a class="reference external" href="https://github.com/tensorflow/models">tensorflow</a></p></th>
+<th class="head text-center"><p><a class="reference external" href="https://github.com/TensorFlow/models">TensorFlow</a></p></th>
 <th class="head text-center"><p><a class="reference external" href="http://docs.chainer.org/en/stable/reference/caffe.html">chainer</a></p></th>
 <th class="head text-center"><p><a class="reference external" href="https://developer.apple.com/documentation/coreml">coreML/iOS</a></p></th>
 <th class="head text-center"><p><a class="reference external" href="https://github.com/PaddlePaddle/models">paddle</a></p></th>
@@ -854,10 +825,10 @@ document.write(`
 <td class="text-center"><p><a class="reference external" href="https://github.com/an-kumar/caffe-theano-conversion">caffe_theano_conversion</a> <a class="reference external" href="https://github.com/kencoken/caffe-model-convert">caffe-model-convert</a> <a class="reference external" href="https://github.com/piergiaj/caffe-to-theano">caffe-to-theano</a></p></td>
 <td class="text-center"><p><a class="reference external" href="https://github.com/NervanaSystems/caffe2neon">caffe2neon</a></p></td>
 <td class="text-center"><p><a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a> <a class="reference external" href="https://github.com/marvis/pytorch-caffe">pytorch-caffe</a> <a class="reference external" href="https://github.com/ruotianluo/pytorch-resnet">pytorch-resnet</a></p></td>
-<td class="text-center"><p><a class="reference external" href="https://github.com/kmatzen/googlenet-caffe2torch">googlenet-caffe2torch</a> <a class="reference external" href="https://github.com/kuangliu/mocha">mocha</a> <a class="reference external" href="https://github.com/szagoruyko/loadcaffe">loadcaffe</a></p></td>
+<td class="text-center"><p>[谷歌 net-caffe2torch](https://github.com/kmatzen/谷歌 net-caffe2torch) <a class="reference external" href="https://github.com/kuangliu/mocha">mocha</a> <a class="reference external" href="https://github.com/szagoruyko/loadcaffe">loadcaffe</a></p></td>
 <td class="text-center"><p><a class="reference external" href="https://github.com/AlexPasqua/keras-caffe-converter">keras-caffe-converter</a> <a class="reference external" href="https://github.com/AlexPasqua/caffe_weight_converter">caffe_weight_converter</a> <a class="reference external" href="https://github.com/qxcv/caffe2keras">caffe2keras</a> <a class="reference external" href="https://github.com/hahnyuan/nn_tools">nn_tools</a> <a class="reference external" href="https://github.com/MarcBS/keras">keras</a> <a class="reference external" href="https://github.com/OdinLin/caffe2keras">caffe2keras</a> <a class="reference external" href="https://github.com/jamescfli/Deep_Learning_Model_Converter">Deep_Learning_Model_Converter</a> <a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a></p></td>
 <td class="text-center"><p><a class="reference external" href="https://github.com/marvis/pytorch-caffe-darknet-convert">pytorch-caffe-darknet-convert</a></p></td>
-<td class="text-center"><p><a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a> <a class="reference external" href="https://github.com/hahnyuan/nn_tools">nn_tools</a> <a class="reference external" href="https://github.com/ethereon/caffe-tensorflow">caffe-tensorflow</a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a> <a class="reference external" href="https://github.com/hahnyuan/nn_tools">nn_tools</a> <a class="reference external" href="https://github.com/ethereon/caffe-TensorFlow">caffe-TensorFlow</a></p></td>
 <td class="text-center"><p>None</p></td>
 <td class="text-center"><p><a class="reference external" href="https://github.com/mdering/CoreMLZoo">CoreMLZoo</a> <a class="reference external" href="https://apple.github.io/coremltools/">apple/coremltools</a> <a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a></p></td>
 <td class="text-center"><p><a class="reference external" href="https://github.com/PaddlePaddle/X2Paddle">X2Paddle</a></p></td>
@@ -950,7 +921,7 @@ document.write(`
 </tr>
 <tr class="row-odd"><td><p><strong><a class="reference external" href="https://github.com/torch/torch7/wiki/ModelZoo">torch</a></strong></p></td>
 <td class="text-center"><p>None</p></td>
-<td class="text-center"><p><a class="reference external" href="https://github.com/facebook/fb-caffe-exts#torch2caffe">fb-caffe-exts/torch2caffe</a> <a class="reference external" href="https://github.com/kuangliu/mocha">mocha</a> <a class="reference external" href="https://github.com/Teaonly/trans-torch">trans-torch</a> <a class="reference external" href="https://github.com/e-lab/th2caffe">th2caffe</a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/Meta/fb-caffe-exts#torch2caffe">fb-caffe-exts/torch2caffe</a> <a class="reference external" href="https://github.com/kuangliu/mocha">mocha</a> <a class="reference external" href="https://github.com/Teaonly/trans-torch">trans-torch</a> <a class="reference external" href="https://github.com/e-lab/th2caffe">th2caffe</a></p></td>
 <td class="text-center"><p><a class="reference external" href="https://github.com/ca1773130n/Torch2Caffe2">Torch2Caffe2</a></p></td>
 <td class="text-center"><p>None</p></td>
 <td class="text-center"><p>None</p></td>
@@ -976,7 +947,7 @@ document.write(`
 <td class="text-center"><p>None</p></td>
 <td class="text-center"><p>-</p></td>
 <td class="text-center"><p>None</p></td>
-<td class="text-center"><p><a class="reference external" href="https://github.com/hahnyuan/nn_tools">nn_tools</a> <a class="reference external" href="https://github.com/goranrauker/convert-to-tensorflow">convert-to-tensorflow</a> <a class="reference external" href="https://github.com/alanswx/keras_to_tensorflow">keras_to_tensorflow</a> <a class="reference external" href="https://github.com/amir-abdi/keras_to_tensorflow">keras_to_tensorflow</a> <a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/hahnyuan/nn_tools">nn_tools</a> <a class="reference external" href="https://github.com/goranrauker/convert-to-TensorFlow">convert-to-TensorFlow</a> <a class="reference external" href="https://github.com/alanswx/keras_to_TensorFlow">keras_to_TensorFlow</a> <a class="reference external" href="https://github.com/amir-abdi/keras_to_TensorFlow">keras_to_TensorFlow</a> <a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a></p></td>
 <td class="text-center"><p>None</p></td>
 <td class="text-center"><p><a class="reference external" href="https://apple.github.io/coremltools/">apple/coremltools</a>  <a class="reference external" href="https://github.com/triagemd/model-converters">model-converters</a> <a class="reference external" href="https://github.com/Bulochkin/keras_models">keras_models</a> <a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a></p></td>
 <td class="text-center"><p>None</p></td>
@@ -999,7 +970,7 @@ document.write(`
 <td class="text-center"><p>None</p></td>
 <td class="text-center"><p>None</p></td>
 </tr>
-<tr class="row-even"><td><p><strong><a class="reference external" href="https://github.com/tensorflow/models">tensorflow</a></strong></p></td>
+<tr class="row-even"><td><p><strong><a class="reference external" href="https://github.com/TensorFlow/models">TensorFlow</a></strong></p></td>
 <td class="text-center"><p><a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a></p></td>
 <td class="text-center"><p><a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a> <a class="reference external" href="https://github.com/hahnyuan/nn_tools">nn_tools</a></p></td>
 <td class="text-center"><p><a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn (through ONNX)</a></p></td>
@@ -1008,7 +979,7 @@ document.write(`
 <td class="text-center"><p>None</p></td>
 <td class="text-center"><p><a class="reference external" href="https://github.com/leonidk/pytorch-tf">pytorch-tf</a> <a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a></p></td>
 <td class="text-center"><p>None</p></td>
-<td class="text-center"><p><a class="reference external" href="https://github.com/triagemd/model-converters">model-converters</a> <a class="reference external" href="https://github.com/hahnyuan/nn_tools">nn_tools</a> <a class="reference external" href="https://github.com/goranrauker/convert-to-tensorflow">convert-to-tensorflow</a> <a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/triagemd/model-converters">model-converters</a> <a class="reference external" href="https://github.com/hahnyuan/nn_tools">nn_tools</a> <a class="reference external" href="https://github.com/goranrauker/convert-to-TensorFlow">convert-to-TensorFlow</a> <a class="reference external" href="https://github.com/Microsoft/MMdnn">MMdnn</a></p></td>
 <td class="text-center"><p>None</p></td>
 <td class="text-center"><p>-</p></td>
 <td class="text-center"><p>None</p></td>
@@ -1088,19 +1059,19 @@ document.write(`
 </table>
 </section>
 </section>
-<section id="id7">
-<h2>规范式转换<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h2>规范式转换<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>下面以 ONNX 为代表介绍规范式转换技术。</p>
 <section id="onnx">
 <h3>ONNX 概述<a class="headerlink" href="#onnx" title="Link to this heading">#</a></h3>
 <p>ONNX(Open Neural Network Exchange)是一种针对机器学习所设计的开放式的文件格式，用于存储训练好的模型。它使得不同的人工智能框架（如 Pytorch、MXNet）可以采用相同格式存储模型数据并交互。</p>
-<p>ONNX 的规范及代码主要由微软，亚马逊，Facebook 和 IBM 等公司共同开发，以开放源代码的方式托管在 Github 上。目前官方支持加载 ONNX 模型并进行推理的深度学习框架有：Caffe2、PyTorch、MXNet、ML.NET、TensorRT 和 Microsoft CNTK，并且 TensorFlow 也非官方的支持 ONNX。</p>
-<p>每个深度学习框架都有自己的图表示形式和特定的 API，这使得在不同框架之间转换模型变得复杂。此外，不同的深度学习框架针对不同的优化和特性进行了优化，例如快速训练、支持复杂网络架构、移动设备上的推理等。ONNX 可以提供计算图的通用表示，帮助开发人员能够在开发或部署的任何阶段选择最适合其项目的框架。</p>
+<p>ONNX 的规范及代码主要由微软，亚马逊，Meta 和 IBM 等公司共同开发，以开放源代码的方式托管在 Github 上。目前官方支持加载 ONNX 模型并进行推理的深度学习框架有：Caffe2、PyTorch、MXNet、ML.NET、TensorRT 和 Microsoft CNTK，并且 TensorFlow 也非官方的支持 ONNX。</p>
+<p>每个深度学习框架都有自己的图表示形式和特定的 API，这使得在不同框架之间转换模型变得复杂。此外，不同的深度学习框架针对不同的优化和特性进行了优化，例如快速训练、支持复杂网络架构、移动设备上的推理等。ONNX 可以提供计算图的通用表示，帮助开发人员能够在开发或部署的任何阶段选择最适合其课程的框架。</p>
 <p>ONNX 定义了一种可扩展的计算图模型、一系列内置的运算单元（OP）和标准数据类型。每一个计算流图都定义为由节点组成的列表，并构建有向无环图。其中每一个节点都有一个或多个输入与输出，每一个节点称之为一个 OP。这相当于一种通用的计算图，不同深度学习框架构建的计算图都能转化为它。</p>
 <p>规范式转换需要确保源框架能够正确导出规范格式的模型文件，并且目标框架能够正确导入；需要定义良好的跨框架兼容性，包括对各种算子的定义和数据格式的支持。同时还应具备良好的扩展性，能够适应新出现的算子和模型结构。</p>
 </section>
 <section id="pytorch-onnx">
-<h3>Pytorch 转 ONNX 实例<a class="headerlink" href="#pytorch-onnx" title="Link to this heading">#</a></h3>
+<h3>PyTorch 转 ONNX 实例<a class="headerlink" href="#pytorch-onnx" title="Link to this heading">#</a></h3>
 <p>这里读取在直接转换中保存的 PyTorch 模型<code class="docutils literal notranslate"><span class="pre">pytorch_model.pth</span></code>，使用<code class="docutils literal notranslate"><span class="pre">torch.onnx.export()</span></code>函数来将其转换为 ONNX 格式。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span>
 
@@ -1143,8 +1114,8 @@ document.write(`
 </ol>
 </section>
 </section>
-<section id="id8">
-<h2>模型转换通用流程<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2>模型转换通用流程<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>以下是模型转换的通用流程：</p>
 <ol class="arabic simple">
 <li><p>AI 框架生成计算图（以静态图表示），常用基于源码 AST 转换和基于 Trace 的方式：</p></li>
@@ -1159,19 +1130,22 @@ document.write(`
 <p><img alt="模型转换通用流程" src="04Inference04Converter/image/04Detail01.png" /></p>
 <p>在模型转换过程中，要注意确保源框架和目标框架中的算子兼容，能够处理不同框架中张量数据格式的差异。此外，还可以对计算图进行优化，提升推理性能，尽可能确保模型的精度不受损失。</p>
 </section>
-<section id="id9">
-<h2>总结<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
-<p>模型转换是指将不同框架的模型格式转换为推理引擎统一的计算图表示。本文介绍了直接转换和规范式转换两种主要方式：直接转换和规范式转换。</p>
-<p>然后介绍了模型转换的通用流程，包括生成计算图、对接通用算子、目标格式转换和模型保存。模型转换直接关系到模型在不同框架间的部署和应用效果，因此在实践中需要结合具体需求和场景选择合适的转换方式和工具。</p>
+<section id="id7">
+<h2>小结与思考<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>模型转换流程：涉及将深度学习模型从一种框架转换到另一种框架，包括直接转换和通过开放式文件格式如ONNX的规范式转换。</p></li>
+<li><p>关键技术细节：在模型转换过程中，需要处理算子兼容性、张量格式差异、参数适配以及计算图优化等问题，以确保模型在目标框架中的性能和精度。</p></li>
+<li><p>工具与实例：多种模型转换工具如MMdnn和ONNX支持不同框架间的迁移，示例代码展示了如何将PyTorch模型转换为ONNX格式，进而实现跨框架模型部署。</p></li>
+</ul>
 </section>
-<section id="id10">
-<h2>本节视频<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>本节视频<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <html>
-<iframe src="https://www.bilibili.com/video/BV13341197zU/?spm_id_from=333.880.my_history.page.click&vd_source=57ec244afa109ba4ee6346389a5f32f7" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=436059900&bvid=BV13341197zU&cid=985638392&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
 </section>
-<section id="id11">
-<h2>参考文章<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h2>参考文章<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://blog.csdn.net/weixin_45651194/article/details/132921090">【AI】推理引擎的模型转换模块</a></p></li>
 <li><p><a class="reference external" href="https://blog.csdn.net/jasonaidm/article/details/90522615">深度学习模型转换</a></p></li>
@@ -1226,17 +1200,8 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">自定义计算图 IR</p>
+        <p class="prev-next-title">自定义计算图 IR(DONE)</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="05Optimizer.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">计算图优化</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -1254,22 +1219,21 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">模型转换技术的设计思路</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">直接转换</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">直接转换的流程</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">直接转换实例</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">模型转换工具</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">模型转换设计思路</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">直接转换流程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">直接转换实例</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">模型转换工具</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">规范式转换</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">规范式转换</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onnx">ONNX 概述</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-onnx">Pytorch 转 ONNX 实例</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-onnx">PyTorch 转 ONNX 实例</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">模型转换通用流程</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">总结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本节视频</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">参考文章</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">模型转换通用流程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">参考文章</a></li>
 </ul>
   </nav></div>
 
@@ -1292,7 +1256,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 01, 2024.
+  Last updated on Jun 07, 2024.
   <br/>
 </p>
   </div>

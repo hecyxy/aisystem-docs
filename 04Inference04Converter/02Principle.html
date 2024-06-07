@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="推理文件格式" />
+<meta property="og:title" content="推理文件格式(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference04Converter/02Principle.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
@@ -19,7 +19,7 @@
 <meta name="description" content="在训练好一个模型后，需要将其保存下来，以便在需要时重新加载并进行推理或进一步的训练。为了实现这一目标，需要一种有效的方式来将模型的参数、结构等保存起来。 本文主要介绍在推理引擎中，针对神经网络模型的序列化与反序列化、不同的模型序列化方法，以及 Protobuf 和 FlatBuffers 两种在端侧常用的模型文件格式。 模型序列化: 模型序列化是模型部署的第一步，如何把训练好的模型存储起来，..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>推理文件格式 &#8212; AI System</title>
+    <title>推理文件格式(DONE) &#8212; AI System</title>
   
   
   
@@ -79,12 +79,12 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="自定义计算图 IR" href="03IR.html" />
-    <link rel="prev" title="基本介绍" href="01Introduction.html" />
+    <link rel="next" title="自定义计算图 IR(DONE)" href="03IR.html" />
+    <link rel="prev" title="基本介绍(DONE)" href="01Introduction.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 07, 2024"/>
 
 <link
   rel="alternate"
@@ -263,12 +263,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
@@ -343,24 +337,23 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06.memory.html">内存分配算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07.constant_fold.html">常量折叠原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08.cse.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09.dce.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/11.summary.html">优化 Pass 总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
@@ -371,22 +364,19 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04Inference/README.html">推理系统&amp;引擎概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/06Architecture.html">推理引擎架构（下）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 模型小型化（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05Transformer.html">Transformer 小型化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/07EfficientNet.html">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/08GhostNet.html">GhostNet 系列</a></li>
@@ -399,44 +389,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型转换&amp;优化</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">推理文件格式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03IR.html">自定义计算图 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04Detail.html">模型转换流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05Optimizer.html">计算图优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06Basic.html">常量折叠&amp;冗余节点消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07Extend.html">算子融合/替换/前移</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型转换(DONE)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">推理文件格式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03IR.html">自定义计算图 IR(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04Detail.html">模型转换流程(DONE)</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 五. AI 框架核心模块 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
@@ -446,7 +422,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
@@ -456,7 +432,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ModelParallel.html">模型并行</a></li>
@@ -464,10 +440,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05Summary.html">分布式训练总结</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -685,7 +661,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>推理文件格式</h1>
+    <h1>推理文件格式(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -695,28 +671,28 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">模型序列化</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">序列化与反序列化</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">序列化分类</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">模型序列化</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">序列化与反序列化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">序列化分类</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">Pytorch 模型序列化方法</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">目标文件格式</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">目标文件格式</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-buffers">Protocol Buffers</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">文件语法详解</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">文件语法详解</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#protobuf">Protobuf 例子</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">Tensorflow 编码和解码</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">编码模式</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">编解码过程</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">TensorFlow 编码和解码</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">编码模式</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">编解码过程</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flatbuffers">FlatBuffers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protobuf-vs-flatbuffers">Protobuf VS FlatBuffers</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">小结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本节视频</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">参考文章</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">小结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">参考文章</a></li>
 </ul>
             </nav>
         </div>
@@ -729,15 +705,15 @@ document.write(`
                 <article class="bd-article">
                   
 <!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>推理文件格式<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="done">
+<h1>推理文件格式(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
 <p>在训练好一个模型后，需要将其保存下来，以便在需要时重新加载并进行推理或进一步的训练。为了实现这一目标，需要一种有效的方式来将模型的参数、结构等保存起来。</p>
 <p>本文主要介绍在推理引擎中，针对神经网络模型的序列化与反序列化、不同的模型序列化方法，以及 Protobuf 和 FlatBuffers 两种在端侧常用的模型文件格式。</p>
-<section id="id2">
-<h2>模型序列化<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h2>模型序列化<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>模型序列化是模型部署的第一步，如何把训练好的模型存储起来，以供后续的模型预测使用，是模型部署的首先要考虑的问题。</p>
-<section id="id3">
-<h3>序列化与反序列化<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>序列化与反序列化<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>训练好的模型通常存储在计算机的内存中。然而，内存中的数据是暂时的，不具备长期存储的能力。因此，为了将模型保存供将来使用，我们需要将其从内存中移动到硬盘上进行永久存储。</p>
 <p>这个过程被称为模型的保存和加载，或者说是序列化和反序列化。在这个过程中，模型的参数、结构和其他相关信息会被保存到硬盘上的文件中，以便在需要时重新加载到内存中。</p>
 <p><img alt="序列化和反序列化" src="04Inference04Converter/image/02Principle01.png" /></p>
@@ -746,12 +722,12 @@ document.write(`
 <li><p>模型反序列化：将硬盘当中的二进制数据反序列化的存储到内存中，得到网络模型对应的内存对象。无论是序列化与反序列的目的是将数据、模型长久的保存。</p></li>
 </ul>
 </section>
-<section id="id4">
-<h3>序列化分类<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>序列化分类<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>跨平台跨语言通用序列化方法</p></li>
 </ol>
-<p>常用的序列化主要有四种格式：XML（一种可扩展标记语言，非常适合存储和传输结构化数据），JSON（一种轻量级的数据交换格式），Protocol Buffers（Google 开发的语言中立、平台中立、可扩展的序列化结构数据格式）和 Flatbuffer（Google 开发的另一种高效序列化库，与 Protobuffer 类似）。前两种是文本格式，人和机器都可以理解，后两种是二进制格式，只有机器能理解，但在存储传输解析上有很大的速度优势。使用最广泛为 Protobuffer。</p>
+<p>常用的序列化主要有四种格式：XML（一种可扩展标记语言，非常适合存储和传输结构化数据），JSON（一种轻量级的数据交换格式），Protocol Buffers（谷歌开发的语言中立、平台中立、可扩展的序列化结构数据格式）和 Flatbuffer（谷歌开发的另一种高效序列化库，与 Protobuffer 类似）。前两种是文本格式，人和机器都可以理解，后两种是二进制格式，只有机器能理解，但在存储传输解析上有很大的速度优势。使用最广泛为 Protobuffer。</p>
 <p>下图中的<a class="reference external" href="https://onnx.ai/">ONNX</a>使用的就是 Protobuf 这个序列化数据结构去存储神经网络的权重信息。ONNX（Open Neural Network Exchange）是一个开放格式，用于机器学习模型的跨平台共享。通过使用 Protobuf，ONNX 能够在不同的深度学习框架之间高效地传输模型数据。</p>
 <p><a class="reference external" href="https://developer.apple.com/cn/documentation/coreml/">CoreML</a>既是一种文件格式，又是一个强大的机器学习运行时环境，它使用了 Protocol Buffers 的二进制序列化格式，并在所有苹果操作系统平台上提供了高效的推理和重新训练功能。CoreML 允许开发者轻松地将机器学习模型集成到 iOS、macOS、watchOS 和 tvOS 应用中，利用苹果设备的硬件加速特性实现高效的模型推理。</p>
 <p><img alt="Protobuffer" src="04Inference04Converter/image/02Principle02.png" /></p>
@@ -873,21 +849,21 @@ document.write(`
 <p>这种方法不仅保存了模型的参数，还包括完整的计算图信息，使得模型可以在支持 ONNX 的不同框架和平台之间进行转换和部署。</p>
 </section>
 </section>
-<section id="id5">
-<h2>目标文件格式<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h2>目标文件格式<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>在序列化与反序列化的过程中，选择合适的目标文件格式至关重要，它决定了数据的存储方式、传输效率和系统的整体性能。下文将介绍 Protobuf 和 FlatBuffers 两种流行的目标文件格式。</p>
 <section id="protocol-buffers">
 <h3>Protocol Buffers<a class="headerlink" href="#protocol-buffers" title="Link to this heading">#</a></h3>
 <p><strong>Protobuf</strong>是 “Protocol Buffers” 的缩写，是一种高效、与语言无关的数据序列化机制。它使开发人员能够在文件中定义结构化数据<code class="docutils literal notranslate"><span class="pre">.proto</span></code>，然后使用该文件生成可以从不同数据流写入和读取数据的源代码。</p>
-<p>Protobuf 最初是由 Google 的工程师开发的，他们需要一种有效的方法来跨各种内部服务序列化结构化数据。其特点是语言无关、平台无关；比 XML 更小更快更为简单；扩展性、兼容性好。</p>
-<section id="id6">
-<h4>文件语法详解<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p>Protobuf 最初是由谷歌的工程师开发的，他们需要一种有效的方法来跨各种内部服务序列化结构化数据。其特点是语言无关、平台无关；比 XML 更小更快更为简单；扩展性、兼容性好。</p>
+<section id="id5">
+<h4>文件语法详解<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p><strong>基本语法：</strong> 字段规则 数据类型 名称 = 域值 [选项 = 选项值]</p></li>
+<li><p><strong>基本语法：</strong> 字段规则数据类型名称 = 域值 [选项 = 选项值]</p></li>
 </ul>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>//<span class="w"> </span>字段规则<span class="w"> </span>数据类型<span class="w"> </span><span class="nv">名称</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>域值<span class="w"> </span><span class="o">[</span><span class="nv">选项</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>选项值<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>//<span class="w"> </span><span class="nv">字段规则数据类型名称</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>域值<span class="w"> </span><span class="o">[</span><span class="nv">选项</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>选项值<span class="o">]</span>
 
-message<span class="w"> </span>Net<span class="o">{</span><span class="w">      </span>//<span class="w"> </span>message<span class="w"> </span>属于<span class="w"> </span>Net<span class="w"> </span>域；
+message<span class="w"> </span>Net<span class="o">{</span><span class="w"> </span>//<span class="w"> </span>message<span class="w"> </span>属于<span class="w"> </span>Net<span class="w"> </span>域；
 <span class="w">  </span>optional<span class="w"> </span>string<span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;conv_1*1_0_3&#39;</span><span class="p">;</span>
 <span class="w">  </span>repeated<span class="w"> </span>Layer<span class="w"> </span><span class="nv">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">;</span>
 <span class="o">}</span>
@@ -952,7 +928,7 @@ message<span class="w"> </span>Net<span class="o">{</span><span class="w">      
 <p>池化层、全连接层等内容可以参考<a class="reference external" href="https://github.com/BVLC/caffe/blob/master/examples/mnist/readme.md">Training LeNet on MNIST with Caffe</a>。</p>
 </section>
 <section id="tensorflow">
-<h4>Tensorflow 编码和解码<a class="headerlink" href="#tensorflow" title="Link to this heading">#</a></h4>
+<h4>TensorFlow 编码和解码<a class="headerlink" href="#tensorflow" title="Link to this heading">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">将给定的</span> <span class="n">Protocol</span> <span class="n">Buffer</span> <span class="n">对象编码为字节字符串</span>
 
 <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">encode_proto</span><span class="p">(</span>
@@ -979,15 +955,15 @@ message<span class="w"> </span>Net<span class="o">{</span><span class="w">      
 </pre></div>
 </div>
 </section>
-<section id="id7">
-<h4>编码模式<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<section id="id6">
+<h4>编码模式<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
 <p>计算机里一般常用的是二进制编码，如 int 类型由 32 位组成，每位代表数值 2 的 n 次方，n 的范围
 是 0-31。Protobuf 采用 TLV 编码模式，即把一个信息按照 tag-length-value 的模式进行编码。tag 和 value 部分类似于字典的 key 和 value，tag 标识字段的类型和唯一性，它是一个整数，表示字段号和数据类型。Protobuf 中，Tag 是通过字段号和数据类型组合编码的。length 表示 value 的长度，对于定长数据类型（如整数、浮点数），Length 可以省略，因为值的长度是已知的。对于可变长数据类型（如字符串、字节数组），Length 表示值的字节数。Value 是实际的数据内容。根据 Tag 和 Length，可以正确解析和理解 Value 部分。</p>
 <p>在 Protobuf 中，Tag 的编码结合了字段号和数据类型，具体采用 Varint 编码方式：字段号（Field Number）唯一标识消息中的字段，值为正整数。线类型（Wire Type）表示字段的数据类型，如整数、浮点数、长度前缀的字符串等。Protobuf 使用 3 位来表示线类型（Wire Type），其余部分表示字段号（Field Number）。编码格式如下：</p>
 <p><code class="docutils literal notranslate"><span class="pre">Tag</span> <span class="pre">=</span> <span class="pre">(Field</span> <span class="pre">Number</span> <span class="pre">&lt;&lt;</span> <span class="pre">3)</span> <span class="pre">|</span> <span class="pre">Wire</span> <span class="pre">Type</span></code></p>
 </section>
-<section id="id8">
-<h4>编解码过程<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<section id="id7">
+<h4>编解码过程<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
 <p>Protobuf 的编解码过程是基于其 TLV 结构进行的。解析根消息（Root Message）时，会逐个解析其包含的字段。以下是具体的步骤：</p>
 <p><strong>编码过程：</strong> 首先构建消息结构，根据<code class="docutils literal notranslate"><span class="pre">.proto</span></code>文件定义的消息结构，构建消息对象；然后对逐个字段进行编码，编码 Tag（将字段号和线类型编码成 Tag）、Length（对于可变长数据类型，计算并编码值的长度）、Value（将实际数据编码成二进制格式）；然后将 Tag、Length 和 Value 组合成二进制格式的数据块，最后将所有字段的二进制数据块组合成完整的消息二进制流。</p>
 <p><strong>解码过程：</strong> 根 message 由多个 TLV 形式的 field 组成，解析 message 的时候逐个去解析 field。由于 field 是 TLV 形式，因此可以知道每个 field 的长度，然后通过偏移上一个 field 长度找到下一个 field 的起始地址。其中 field 的 value 有可能是一个嵌套的 message，这时候需要递归地应用相同的解析方法。在解析 field 时，首先解析其 tag，以获取 field_num（属性 ID）和 type。field_num 标识了该属性的唯一标识，而 type 则指示了用于解码 value 的编码算法。</p>
@@ -995,7 +971,7 @@ message<span class="w"> </span>Net<span class="o">{</span><span class="w">      
 </section>
 <section id="flatbuffers">
 <h3>FlatBuffers<a class="headerlink" href="#flatbuffers" title="Link to this heading">#</a></h3>
-<p>FlatBuffers 是一个开源的、跨平台的、高效的、提供了多种语言接口的序列化工具库。实现了与 Protocal Buffers 类似的序列化格式。主要由 Wouter van Oortmerssen 编写，并由 Google 开源。</p>
+<p>FlatBuffers 是一个开源的、跨平台的、高效的、提供了多种语言接口的序列化工具库。实现了与 Protocal Buffers 类似的序列化格式。主要由 Wouter van Oortmerssen 编写，并由谷歌开源。</p>
 <p>FlatBuffers 主要针对部署和对性能有要求的应用。相对于 Protocol Buffers，FlatBuffers 不需要解析，只通过序列化后的二进制 buffer 即可完成数据访问。</p>
 <p>FlatBuffers 具有数据访问不需要解析（将数据序列化成二进制 buffer，之后的数据访问直接读取这个 buffer）、内存高效且速度快（数据访问只在序列化后的二进制 buffer，不需额外的内存分配，数据访问速度接近原生的 struct，只多了一次解引用）、生成的代码量小（只需依赖一个头文件）、可扩展性强（支持灵活的 schema 定义，可以方便地扩展数据结构）、支持强类型检测（提供编译时的类型检查，确保数据结构的安全性和正确性）和易于使用（提供多种语言接口）等特点。</p>
 <p>与 Protocol Buffers 类似，使用 FlatBuffers 需要先定义一个 schema 文件，用于描述要序列化的数据结构的组织关系。以下是一个简单的示例：</p>
@@ -1051,25 +1027,29 @@ message<span class="w"> </span>Net<span class="o">{</span><span class="w">      
 </table>
 </section>
 </section>
-<section id="id9">
-<h2>小结<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
-<p>本文介绍了模型的序列化与反序列化过程，以及不同的序列化方法和文件格式。在训练好一个模型后，为了将其保存以便在需要时重新加载并进行推理或进一步的训练，需要将模型的参数、结构等保存起来。选择合适的序列化方法和文件格式对于系统的性能和效率至关重要，需要考虑系统的性能、跨平台兼容性和部署需求等因素。</p>
-<p>在需要跨平台、跨语言的场景下，可以选择 Protobuf，因为它具有良好的兼容性和高效的数据传输速度。如果系统对性能要求很高，特别是在移动端或嵌入式设备上部署模型时，可以考虑使用 FlatBuffers，它在序列化后不需要转换/解包的操作就可以获得原数据，反序列化消耗的时间极短，且生成的代码量较少，运行比较轻量，CPU 占用较低，内存占用较少。</p>
+<section id="id8">
+<h2>小结<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>模型序列化：模型序列化是将训练好的模型从内存中保存到硬盘上，以供将来使用的必要步骤，涉及将模型的参数、结构等信息存储到文件中。</p></li>
+<li><p>序列化分类：序列化方法分为跨平台跨语言通用序列化方法（如XML、JSON、Protocol Buffers和Flatbuffers）、模型本身提供的自定义序列化方法、语言级通用序列化方法（如Python的pickle和joblib、R的rda）以及用户自定义序列化方法。</p></li>
+<li><p>Pytorch模型序列化：PyTorch提供了基于内部格式和ONNX的序列化方法。内部格式通过torch.save和torch.load实现模型状态的保存与加载，而ONNX通过torch.onnx.export导出模型，支持不同框架和平台之间的模型转换与部署。</p></li>
+<li><p>目标文件格式：Protobuf和FlatBuffers是两种流行的目标文件格式。Protobuf是一种高效、与语言无关的数据序列化机制，而FlatBuffers提供了无需解析即可直接访问序列化数据的能力，适合性能要求高的应用场景。</p></li>
+</ul>
 </section>
-<section id="id10">
-<h2>本节视频<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h2>本节视频<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <html>
-<iframe src="https://www.bilibili.com/video/BV13P4y167sr/?vd_source=57ec244afa109ba4ee6346389a5f32f7" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=905905415&bvid=BV13P4y167sr&cid=983223956&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
 </section>
-<section id="id11">
-<h2>参考文章<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h2>参考文章<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://blog.csdn.net/weixin_46649052/article/details/119763872">PyTorch 学习—19.模型的加载与保存（序列化与反序列化）</a></p></li>
 <li><p><a class="reference external" href="https://github.com/aipredict/ai-models-serialization">开源 AI 模型序列化总结</a></p></li>
 <li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/346511883">ONNX 学习笔记</a></p></li>
 <li><p><a class="reference external" href="https://blog.csdn.net/volvet/article/details/85013830">深入 CoreML 模型定义</a></p></li>
-<li><p><a class="reference external" href="https://medium.com/&#64;JMangiaswift-loves-tensorflow-and-coreml-2a11da25d44">Swift loves TensorFlow and CoreML</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/&#64;JMangiaswift-loves-TensorFlow-and-coreml-2a11da25d44">Swift loves TensorFlow and CoreML</a></p></li>
 <li><p><a class="reference external" href="https://blog.postman.com/what-is-protobuf/">什么是 Protobuf？</a></p></li>
 <li><p><a class="reference external" href="https://colobu.com/2015/01/07/Protobuf-language-guide/">Protobuf 语法指南</a></p></li>
 <li><p><a class="reference external" href="https://halfrost.com/flatbuffers_schema/">深入浅出 FlatBuffers 之 Schema</a></p></li>
@@ -1121,7 +1101,7 @@ message<span class="w"> </span>Net<span class="o">{</span><span class="w">      
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">基本介绍</p>
+        <p class="prev-next-title">基本介绍(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -1129,7 +1109,7 @@ message<span class="w"> </span>Net<span class="o">{</span><span class="w">      
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">自定义计算图 IR</p>
+        <p class="prev-next-title">自定义计算图 IR(DONE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1149,28 +1129,28 @@ message<span class="w"> </span>Net<span class="o">{</span><span class="w">      
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">模型序列化</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">序列化与反序列化</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">序列化分类</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">模型序列化</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">序列化与反序列化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">序列化分类</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">Pytorch 模型序列化方法</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">目标文件格式</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">目标文件格式</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-buffers">Protocol Buffers</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">文件语法详解</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">文件语法详解</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#protobuf">Protobuf 例子</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">Tensorflow 编码和解码</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">编码模式</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">编解码过程</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">TensorFlow 编码和解码</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">编码模式</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">编解码过程</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flatbuffers">FlatBuffers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protobuf-vs-flatbuffers">Protobuf VS FlatBuffers</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">小结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本节视频</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">参考文章</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">小结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">参考文章</a></li>
 </ul>
   </nav></div>
 
@@ -1193,7 +1173,7 @@ message<span class="w"> </span>Net<span class="o">{</span><span class="w">      
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 01, 2024.
+  Last updated on Jun 07, 2024.
   <br/>
 </p>
   </div>

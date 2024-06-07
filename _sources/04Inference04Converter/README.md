@@ -1,8 +1,8 @@
 <!--Copyright © ZOMI 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 
-# 模型转换&优化
+# 模型转换(DONE)
 
-《模型转换&优化》在这一节当中分为模型转换和模型优化，在整体架构图中属于离线模型转换模块。一方面，推理引擎需要把不同 AI 框架训练得到的模型进行转换；另外一方面需要对转换后的模型进行图优化等技术。
+《模型转换》在这一节当中分为模型转换和模型优化，在整体架构图中属于离线模型转换模块。一方面，推理引擎需要把不同 AI 框架训练得到的模型进行转换；另外一方面需要对转换后的模型进行图优化等技术。
 
 ## 内容大纲
 
@@ -16,16 +16,12 @@
 | 模型转换模块 | 02 架构与文件格式| [文章](./02Principle.md), [PPT](./02Principle.pdf), [视频](https://www.bilibili.com/video/BV13P4y167sr/) |
 | 模型转换模块 | 03 自定义计算图 IR | [文章](./03IR.md), [PPT](./03IR.pdf), [视频](https://www.bilibili.com/video/BV1rx4y177R9/) |
 | 模型转换模块 | 04 流程细节 | [文章](./04Detail.md), [PPT](./04Detail.pdf), [视频](https://www.bilibili.com/video/BV13341197zU/) |
-| 图优化模块| 05 计算图优化策略| [文章](./05Optimizer.md), [PPT](./05Optimizer.pdff), [视频](https://www.bilibili.com/video/BV1g84y1L7tF/) |
-| 图优化模块| 06 常量折叠&冗余节点消除| [文章](./06Basic.md), [PPT](./06Basic.pdf), [视频](https://www.bilibili.com/video/BV1fA411r7hr/) |
-| 图优化模块| 07 算子融合/替换/前移 | [文章](./06Basic.md), [PPT](./06Basic.pdf), [视频](https://www.bilibili.com/video/BV1Qj411T7Ef/) |
-| 图优化模块| 08 数据布局转换&内存优化| [文章](./07Extend.md), [PPT](./07Extend.pdf), [视频](https://www.bilibili.com/video/BV1Ae4y1N7u7/) |
 
 ## 备注
 
 文字课程开源在 [AISys](https://chenzomi12.github.io/)，系列视频托管[B 站](https://space.bilibili.com/517221395)和[油管](https://www.youtube.com/@ZOMI666/videos)，PPT 开源在[github](https://github.com/chenzomi12/AISystem)，欢迎取用！！！
 
-> 非常希望您也参与到这个开源项目中，B 站给 ZOMI 留言哦！
+> 非常希望您也参与到这个开源课程中，B 站给 ZOMI 留言哦！
 > 
 > 欢迎大家使用的过程中发现 bug 或者勘误直接提交代码 PR 到开源社区哦！
 >
@@ -39,7 +35,4 @@
 02Principle
 03IR
 04Detail
-05Optimizer
-06Basic
-07Extend
 ```

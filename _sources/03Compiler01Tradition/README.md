@@ -19,7 +19,7 @@
 | 02 开源编译器的发展 | [文章](./02History.md), [PPT](./02History.pdf), [视频](https://www.bilibili.com/video/BV1sM411C7Vr/) |
 | 03 GCC 编译过程和原理 | [文章](./03GCC.md), [PPT](./03GCC.pdf), [视频](https://www.bilibili.com/video/BV1LR4y1f7et/) |
 | 04 LLVM 设计架构 | [文章](./04LLVM.md), [PPT](./04LLVM.pdf), [视频](https://www.bilibili.com/video/BV1CG4y1V7Dn/ |
-| 05 LLVM IR 详解 | [文章](./05LLVMIR), [文章](./06LLVMDetail.md), [PPT](./05LLVMDetail01.pdff), [视频](https://www.bilibili.com/video/BV1LR4y1f7et/) |
+| 05 LLVM IR 详解 | [文章](./05LLVMIR), [文章](./06LLVMDetail.md), [PPT](./05LLVMDetail01.pdf), [视频](https://www.bilibili.com/video/BV1LR4y1f7et/) |
 | 06 LLVM 前端和优化层 | [文章](./07LLVMFrontend.md), [PPT](./05LLVMDetail02.pdf), [视频](https://www.bilibili.com/video/BV1vd4y1t7vS) |
 | 07 LLVM 后端代码生成 | [文章](./08LLVMBackend.md), [PPT](./05LLVMDetail03.pdf), [视频](https://www.bilibili.com/video/BV1cd4y1b7ho) |
 
@@ -27,7 +27,7 @@
 
 文字课程开源在 [AISys](https://chenzomi12.github.io/)，系列视频托管[B 站](https://space.bilibili.com/517221395)和[油管](https://www.youtube.com/@ZOMI666/videos)，PPT 开源在[github](https://github.com/chenzomi12/AISystem)，欢迎取用！！！
 
-> 非常希望您也参与到这个开源项目中，B 站给 ZOMI 留言哦！
+> 非常希望您也参与到这个开源课程中，B 站给 ZOMI 留言哦！
 > 
 > 欢迎大家使用的过程中发现 bug 或者勘误直接提交代码 PR 到开源社区哦！
 >

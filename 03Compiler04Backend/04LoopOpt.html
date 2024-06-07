@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="算子循环优化" />
+<meta property="og:title" content="算子循环优化(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="03Compiler04Backend/04LoopOpt.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
@@ -19,7 +19,7 @@
 <meta name="description" content="在具体硬件执行计算的时候，实际会大量地使用 for 等循环指令不断地去读取不同的数据执行重复的指令（SIMT/SIMD），因此循环优化主要是为了提升数据的局部性或者计算的并行性，从而提升整体算子性能，当然这二者都需要 AI 芯片硬件的支持。 循环优化挑战: 数据局部性: 数据的局部性与计算机存储层次有关，计算机有速度由慢到快，容量由大到小的多层次存储器，以最优的控制调度算法和合理的成本，构成..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>算子循环优化 &#8212; AI System</title>
+    <title>算子循环优化(DONE) &#8212; AI System</title>
   
   
   
@@ -79,12 +79,12 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="指令和存储优化" href="05OtherOpt.html" />
-    <link rel="prev" title="算子手工优化方式" href="03Optimization.html" />
+    <link rel="next" title="指令和存储优化(DONE)" href="05OtherOpt.html" />
+    <link rel="prev" title="算子手工优化(DONE)" href="03Optimization.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 07, 2024"/>
 
 <link
   rel="alternate"
@@ -263,12 +263,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
@@ -343,24 +337,23 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06.memory.html">内存分配算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07.constant_fold.html">常量折叠原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08.cse.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09.dce.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/11.summary.html">优化 Pass 总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">后端优化</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">AI 编译器后端优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02OPSCompute.html">计算与调度</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Optimization.html">算子手工优化方式</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">算子循环优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05OtherOpt.html">指令和存储优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06AutoTuning.html">Auto-Tuning 原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">AI 编译器后端优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02OPSCompute.html">计算与调度(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Optimization.html">算子手工优化(DONE)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">算子循环优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05OtherOpt.html">指令和存储优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
@@ -371,22 +364,19 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04Inference/README.html">推理系统&amp;引擎概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/06Architecture.html">推理引擎架构（下）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 模型小型化（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05Transformer.html">Transformer 小型化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/07EfficientNet.html">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/08GhostNet.html">GhostNet 系列</a></li>
@@ -399,44 +389,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换&amp;优化</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/05Optimizer.html">计算图优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/06Basic.html">常量折叠&amp;冗余节点消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/07Extend.html">算子融合/替换/前移</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程(DONE)</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 五. AI 框架核心模块 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
@@ -446,7 +422,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
@@ -456,7 +432,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ModelParallel.html">模型并行</a></li>
@@ -464,10 +440,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05Summary.html">分布式训练总结</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -685,7 +661,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>算子循环优化</h1>
+    <h1>算子循环优化(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -695,22 +671,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">循环优化挑战</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">数据局部性</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">计算并行性</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">循环优化挑战</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">数据局部性</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">计算并行性</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">循环优化</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">循环分块</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">循环展开</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">循环重排</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">循环融合</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">循环拆分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">循环优化</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">循环分块</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">循环展开</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">循环重排</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">循环融合</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">循环拆分</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">小结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">本节视频</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">参考文献</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">参考文献</a></li>
 </ul>
             </nav>
         </div>
@@ -722,13 +698,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>算子循环优化<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
+<section class="tex2jax_ignore mathjax_ignore" id="done">
+<h1>算子循环优化(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
 <p>在具体硬件执行计算的时候，实际会大量地使用 for 等循环指令不断地去读取不同的数据执行重复的指令（SIMT/SIMD），因此循环优化主要是为了提升数据的局部性或者计算的并行性，从而提升整体算子性能，当然这二者都需要 AI 芯片硬件的支持。</p>
+<section id="id1">
+<h2>循环优化挑战<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <section id="id2">
-<h2>循环优化挑战<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<section id="id3">
-<h3>数据局部性<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<h3>数据局部性<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>数据的局部性与计算机存储层次有关，计算机有速度由慢到快，容量由大到小的多层次存储器，以最优的控制调度算法和合理的成本，构成存储系统。最上层的寄存器一般在 CPU 芯片内，直接参与运算，它们的速度最快但是价格最高、容量最小。主存存放运行中的程序与数据，但是其速度与 CPU 差距较大，为了匹配它们之间的速度差异，在主存与 CPU 之间插入了一种比主存速度更快、容量更小的高速缓冲存储器即 Cache。主存与 Cache 之间的数据迁移由硬件自动完成，对于程序员来说是透明的、无法直接编程控制的。</p>
 <p><img alt="内存层级" src="../_images/04LoopOpt01.png" /></p>
 <p>在现代多核 CPU 架构中，Cache 也是分为三层即 L1、L2、L3 级 Cache，对计算机运算速度影响最大的是 L3 Cache，因为该级 Cache 的不命中将导致片外访存。L3 Cache 的大小一般在几 MB 至几十 MB 之间，其容量也较小，因此无法把所有的数据都放到 Cache 里，Cache 里应该放 CPU 最有可能会对它进行处理的数据。</p>
@@ -749,8 +726,8 @@ document.write(`
 <p>从空间局部性来看，A 中的元素在 m 次后切换到下一个元素。而 B 中的元素在每次都会切换到下一个。这两个数组具有不同的模式，A 的时间局部性更明显，B 的空间局部性更明显。</p>
 <p>那么为什么要分析数据的局部性呢？因为 Cache 的容量小的特点，一次只能容纳一部分数据，对于 Cache 来说，如果 CPU 要进行读写操作的数据在 Cache 中，则称为命中啊，可以在 Cache 这一级别返回数据，如果不在 Cache 中，则没有命中，需要去下一级存储取数据，增加了 IO 的开销。</p>
 </section>
-<section id="id4">
-<h3>计算并行性<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>计算并行性<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>现代 CPU 通常是多核结构，可以进行线程级并行。在单核 CPU 上运行多任务时，通常是模拟进行的并行，通过进程调度算法如时间片轮转算法来同时进行多任务，实际上 CPU 在一个时刻只进行了一个任务。</p>
 <p>在多核 CPU 上，每一个核都可以进行计算，搭配超线程技术（Intel CPU）时，一个核可以执行两个线程。通过将多个计算线程分配到多个核，可以同时执行多线程计算实现并行加速，这是 CPU 上最有效的优化方式。</p>
 <p>在 window 可以通过任务管理器查看内核与逻辑处理器数量。逻辑处理器就是用超线程技术模拟的，能让处理器在同一时间段内同时处理多个线程，从而实现更好的多任务处理能力。</p>
@@ -760,11 +737,11 @@ document.write(`
 <p><img alt="SIMD" src="../_images/04LoopOpt04.png" /></p>
 </section>
 </section>
-<section id="id5">
-<h2>循环优化<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h2>循环优化<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>循环的优化方案针对不同的数据局部性和计算并行性，有不同的优化方案，如循环分块、循环展开、循环重排、循环融合、循环拆分等。下面重点接受不同的循环优化方案细节。</p>
-<section id="id6">
-<h3>循环分块<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>循环分块<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>循环分块是利用 Cache 的数据局部性进行优化的一种方法。现代 CPU 通常具有多级 Cache，在存储体系中，Cache 是除 CPU 寄存器外最接近 CPU 的存储层次，相比主存速度更快，但是容量更小。Cache 中复制有 CPU 频繁使用的数据以进行快速访问。由于 Cache 的容量有限，数据会在 Cache 中进行换入换出。当访问的数据在 Cache 中没有时，产生 Cache miss，会向低一级存储层次发出访问请求，然后该数据存储进 Cache，这时访问数据的时间就大大提高。当访问数据就在 Cache 中时，会直接使用该数据以进行复用。</p>
 <p>循环分块主要针对大型数据集进行优化，大数据集无法一次全部存入 Cache 中。当遍历该数据集时，循环按照顺序进行访问，会替换掉之前加载进 Cache 的数据，导致后面的指令对之前的数据无法复用，要重新加载数据，产生大量的 Cache miss，数据的复用性很差。程序执行时间变长，大量时间花费在载入数据上。</p>
 <p>循环分块将大数据集分成多个小块以充分进行数据复用。数据块的内存访问是一个具有高内存局部性的小邻域。该数据块可以一次加载进 Cache，执行完所有或者尽可能多的计算任务后才被替换出。</p>
@@ -794,7 +771,7 @@ document.write(`
 </pre></div>
 </div>
 <p>假设 W 个 A 中的元素也能一次性放入 Cache。B 的 Cache miss 没变，A 的 Cache miss 变为 n/W  * W/b = n/b。</p>
-<p>从公式上推导，似乎只要 T 和 W 满足了能放进 Cache 的数量，那么 Cache miss 与 T、W 就无关，不同 T、W 的性能应该是一样的，但实际运行并不是这样的。tile 大小的选择受到 Cache line 大小、Cache 关联度、数据替换策略、硬件存储架构等多个因素的共同影响，分块过大时数据尚未充分利用 Cache 的重用就被替换出去从而导致 miss，而分块过小又会造成较大的成本开销从而掩盖带来的性能优势。tile 大小的选择目前还没有一个确定的算法，目前流行的方法有基于分析的方法、基于经验搜索的算法<label for='sidenote-role-1' class='margin-toggle'><span id="id7">
+<p>从公式上推导，似乎只要 T 和 W 满足了能放进 Cache 的数量，那么 Cache miss 与 T、W 就无关，不同 T、W 的性能应该是一样的，但实际运行并不是这样的。tile 大小的选择受到 Cache line 大小、Cache 关联度、数据替换策略、硬件存储架构等多个因素的共同影响，分块过大时数据尚未充分利用 Cache 的重用就被替换出去从而导致 miss，而分块过小又会造成较大的成本开销从而掩盖带来的性能优势。tile 大小的选择目前还没有一个确定的算法，目前流行的方法有基于分析的方法、基于经验搜索的算法<label for='sidenote-role-1' class='margin-toggle'><span id="id6">
 <sup>1</sup></span>
 
 </label><input type='checkbox' id='sidenote-role-1' name='sidenote-role-1' class='margin-toggle'><span class="sidenote"><sup>1</sup>刘松，卫国，博，.面向局部性和并行优化的循环分块技术[J].计算机研究与发展, 2015, 52(005):1160-1176.DOI:10.7544/issn1000-1239.2015.20131387.</span>等。</p>
@@ -803,8 +780,8 @@ document.write(`
 <li><p>基于经验搜索的方法：将循环嵌套看做是一个黑盒，根据经验选择一系列不同分块大小的组合，在目标机器上对这些分块组合进行自动调优，并从较好的分块大小组合中选取性能最优的分块大小。这类方法的缺陷是对多层循环进行分块时，要遍历庞大的搜索空间，导致时间成本过高。</p></li>
 </ul>
 </section>
-<section id="id8">
-<h3>循环展开<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>循环展开<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>循环展开（Loop Unrolling）将一个循环中的多次迭代展开成多个单独的迭代，以减少程序执行的开销，提高代码的运行效率。在计算机执行程序的流水线中，每次跳转到循环体内部都需要进行额外的指令处理和跳转操作，这会增加程序的开销。而循环展开可以通过减少跳转次数、减少指令处理次数等方式，降低指令分支预测的开销来优化程序性能，提高程序执行的速度。</p>
 <p>通常循环展开包含以下几个步骤：</p>
 <ol class="arabic simple">
@@ -830,7 +807,7 @@ document.write(`
 </div>
 <p>在展开后的循环中，原本执行了 <em>n</em> 次循环迭代，变成了执行 <em>n/4</em> 次循环展开。</p>
 <p>从循环展开的优化有效上分析，循环展开不仅可以减少循环开销，如循环变量测试及分支语句等，还提高了指令之间的并发度，并且因为减少了分支语句从而减少流水线停顿，提升了流水线效率。另外一个分析角度是循环展开后可能会为其他优化提供更多机会。循环展开也有可能会带来负面效果。如果展开后循环体超过指令缓存容量，会引起缓存失效，造成程序性能的下降。并且循环展开会增加寄存器压力，可能导致生成更多的寄存器溢出处理操作，从而降低优化效果。</p>
-<p>循环展开最关键的是确定展开因子，目前主要有三种方法<label for='sidenote-role-2' class='margin-toggle'><span id="id9">
+<p>循环展开最关键的是确定展开因子，目前主要有三种方法<label for='sidenote-role-2' class='margin-toggle'><span id="id8">
 <sup>2</sup></span>
 
 </label><input type='checkbox' id='sidenote-role-2' name='sidenote-role-2' class='margin-toggle'><span class="sidenote"><sup>2</sup>张鹏. 基于 GCC 编译器的循环展开关键技术研究[D]. 湖南:国防科学技术大学,2015.</span>：</p>
@@ -841,13 +818,13 @@ document.write(`
 </ol>
 <p>比较上面三个方法可以看到：启发式方法开销最小，展开因子的选择依赖于静态模型的准确性；机器学习开销次之，展开因子的选择不仅依赖于提取的循环特征，而且还需要大量样本进行训练；迭代编译开销最大，但在不考虑开销的情况下肯定可以找到最优展开因子。</p>
 </section>
-<section id="id10">
-<h3>循环重排<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>循环重排<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>循环重排序（reorder）是矩阵乘法常见的优化方式，指的是对程序中的循环结构重新排列顺序，以优化数据访问模式，特别是在 CNN 中卷积层的应用。通过改变循环的嵌套顺序或者循环内部的迭代顺序，可以改善数据的局部性，减少缓存失效。如下图循环重排序示意图，在矩阵乘法计算中，B 是逐列访问的，在行优先的存储模式下访问模式很不友好。切换内层的循环顺序可以使得所有元素按顺序读取和写入。一次计算输出的一行，得到的是中间结果，全部累加即可得到结果矩阵的一行最终结果，这种方式利用的是内存的空间局部性。</p>
 <p><img alt="循环重排访存模式" src="../_images/04LoopOpt06.png" /></p>
 </section>
-<section id="id11">
-<h3>循环融合<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>循环融合<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>循环融合（Loop Fusion）用于将多个循环合并为一个更大的循环，将相邻或紧密间隔的循环融合在一起。通过合并多个循环，可以减少程序中的循环次数，从而减少循环开销。合并循环可以减少内存访问次数，提高数据局部性，减少缓存未命中的可能性，从而提高程序执行效率。</p>
 <p>以下是一个简单的循环融合的示例代码：</p>
 <p>两个独立的循环如下：</p>
@@ -892,8 +869,8 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="id12">
-<h3>循环拆分<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id11">
+<h3>循环拆分<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <p>拆分主要是将循环分成多个循环，可以在有条件的循环中使用，分为无条件循环和含条件循环。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -937,21 +914,22 @@ document.write(`
 <p>这样做可以提升数组 E 的局部性，减少 Cache miss。</p>
 </section>
 </section>
-<section id="id13">
-<h2>小结<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<section id="id12">
+<h2>小结与思考<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>因为 Cache 的容量小的特点，一次只能容纳一部分数据，因此需要分析计算的时间局部性和空间局部性。</p></li>
 <li><p>循环的优化方案针对不同的数据局部性和计算并行性，有循环分块、循环展开、循环重排、循环融合、循环拆分等方案。</p></li>
+<li><p>循环优化的目的是提升数据的局部性或计算的并行性，以提高整体算子性能。其挑战包括数据局部性和计算并行性。</p></li>
 </ul>
 </section>
-<section id="id14">
-<h2>本节视频<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<section id="id13">
+<h2>本节视频<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
 <html>
-<iframe src="https://player.bilibili.com/player.html?bvid=BV1r14y1w7hG&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=776857139&bvid=BV1r14y1w7hG&cid=937441251&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
 </section>
-<section id="id15">
-<h2>参考文献<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<section id="id14">
+<h2>参考文献<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
 <hr class="footnotes docutils" />
 </section>
 </section>
@@ -996,7 +974,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">算子手工优化方式</p>
+        <p class="prev-next-title">算子手工优化(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -1004,7 +982,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">指令和存储优化</p>
+        <p class="prev-next-title">指令和存储优化(DONE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1024,22 +1002,22 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">循环优化挑战</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">数据局部性</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">计算并行性</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">循环优化挑战</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">数据局部性</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">计算并行性</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">循环优化</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">循环分块</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">循环展开</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">循环重排</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">循环融合</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">循环拆分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">循环优化</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">循环分块</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">循环展开</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">循环重排</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">循环融合</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">循环拆分</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">小结</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">本节视频</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">参考文献</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">参考文献</a></li>
 </ul>
   </nav></div>
 
@@ -1062,7 +1040,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 01, 2024.
+  Last updated on Jun 07, 2024.
   <br/>
 </p>
   </div>

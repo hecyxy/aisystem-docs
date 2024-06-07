@@ -16,14 +16,13 @@
 | 推理系统 | 02 什么是推理系统  | [文章](./02Constraints.md), [PPT](./02Constraints.pdf), [视频](https://www.bilibili.com/video/BV1nY4y1f7G5/)  |
 | 推理系统 | 03 推理流程全景    | [文章](./03Workflow.md), [PPT](./03Workflow.pdf), [视频](https://www.bilibili.com/video/BV1M24y1v7rK/)     |
 | 推理系统 | 04 推理系统架构    | [文章](./04System.md), [PPT](./04System.pdf), [视频](https://www.bilibili.com/video/BV1Gv4y1i7Tw/)       |
-| 推理系统 | 05(上) 推理引擎架构 | [文章](./05Inference.md), [PPT](./05Inference.pdf), [视频](https://www.bilibili.com/video/BV1Mx4y137Er/)    |
-| 推理系统 | 05(下) 推理引擎架构 | [文章](./06Architecture.md), [PPT](./06Architecture.pdf), [视频](https://www.bilibili.com/video/BV1FG4y1C7Mn/) |
+| 推理系统 | 05 推理引擎架构 | [文章](./05Inference.md), [PPT1](./05Inference.pdf), [PPT2](./06Architecture.pdf), [视频 1](https://www.bilibili.com/video/BV1Mx4y137Er/), [视频 2](https://www.bilibili.com/video/BV1FG4y1C7Mn/)   |
 
 ## 备注
 
 文字课程开源在 [AISys](https://chenzomi12.github.io/)，系列视频托管[B 站](https://space.bilibili.com/517221395)和[油管](https://www.youtube.com/@ZOMI666/videos)，PPT 开源在[github](https://github.com/chenzomi12/AISystem)，欢迎取用！！！
 
-> 非常希望您也参与到这个开源项目中，B 站给 ZOMI 留言哦！
+> 非常希望您也参与到这个开源课程中，B 站给 ZOMI 留言哦！
 > 
 > 欢迎大家使用的过程中发现 bug 或者勘误直接提交代码 PR 到开源社区哦！
 >
@@ -39,5 +38,4 @@
 03Workflow
 04System
 05Inference
-06Architecture
 ```

@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference02Mobilenet/04Mobilenet.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="本章节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。======= 同样合并 MoblieNet 系列到总体总结哈 MobileNet V1: MobileNet v1 是一种体积较小..." />
+<meta property="og:description" content="本章节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。 MobileNet V1: MobileNet v1 是一种体积较小、计算量较少、适用于移动设备的卷积神经网络。mobileNet..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="本章节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。======= 同样合并 MoblieNet 系列到..." />
-<meta name="description" content="本章节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。======= 同样合并 MoblieNet 系列到总体总结哈 MobileNet V1: MobileNet v1 是一种体积较小..." />
+<meta property="og:image:alt" content="本章节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。 MobileNet V1: MobileNet v..." />
+<meta name="description" content="本章节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。 MobileNet V1: MobileNet v1 是一种体积较小、计算量较少、适用于移动设备的卷积神经网络。mobileNet..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>MobileNet 系列 &#8212; AI System</title>
@@ -82,11 +82,11 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ESPNet 系列" href="05ESPNet.html" />
-    <link rel="prev" title="ShuffleNet" href="03Shufflenet.html" />
+    <link rel="prev" title="ShuffleNet 系列" href="03Shufflenet.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 01, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 07, 2024"/>
 
 <link
   rel="alternate"
@@ -265,12 +265,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
@@ -345,24 +339,23 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06.memory.html">内存分配算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07.constant_fold.html">常量折叠原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08.cse.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09.dce.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/11.summary.html">优化 Pass 总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化方式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler06PyTorch/README.html">PyTorch2.0 图模式</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
@@ -373,22 +366,19 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04Inference/README.html">推理系统&amp;引擎概述</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/06Architecture.html">推理引擎架构（下）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构(DONE)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型轻量化</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">推理参数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02CNN.html">CNN 模型小型化（上）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">推理参数(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet 系列</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05Transformer.html">Transformer 小型化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07EfficientNet.html">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08GhostNet.html">GhostNet 系列</a></li>
@@ -401,44 +391,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换&amp;优化</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/05Optimizer.html">计算图优化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/06Basic.html">常量折叠&amp;冗余节点消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/07Extend.html">算子融合/替换/前移</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Kernel/README.html">Kernel 优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/01Introduction.html">Kernel 优化架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/03Im2col.html">Im2Col 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/04Winograd.html">Winograd 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Kernel/08Others.html">汇编与循环优化</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程(DONE)</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 五. AI 框架核心模块 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">本章内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
@@ -448,7 +424,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
@@ -458,7 +434,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ModelParallel.html">模型并行</a></li>
@@ -466,10 +442,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05Summary.html">分布式训练总结</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework05AICluster/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework06AIAlgo/README.html">分布式训练</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -698,57 +674,46 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v1">MobileNet V1</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#depthwise-convolution">逐通道卷积（Depthwise Convolution）</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pointwise-convolution">逐点卷积 Pointwise Convolution</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">宽度乘子（α）和分辨率乘子（ρ）</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">网络结构</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">逐通道卷积</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">逐点卷积</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">宽度&amp;分辨率乘子</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v2">MobileNet V2</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">贡献概述</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-bottlenecks">Linear Bottlenecks(线性瓶颈层)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">可分离卷积块的演化</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inverted-residuals">Inverted residuals 反向残差</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relu6">关于 ReLU6</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">网络结构</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">贡献概述</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-bottlenecks">Linear Bottlenecks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">可分离卷积块的演化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">反向残差</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relu6">ReLU6 激活</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v3">MobileNet V3</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">重新设计耗时层结构</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">重新设计激活函数</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nas-block-wise-search">NAS 搜索全局结构（Block-wise Search）</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#netadapt-layer-wise-search">NetAdapt 搜索层结构（Layer-wise Search）</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">网络结构</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">重新设计耗时层结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">重新设计激活函数</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nas-block-wise-search">NAS 搜索全局结构（Block-wise Search）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#netadapt-layer-wise-search">NetAdapt 搜索层结构（Layer-wise Search）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">网络结构</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#se">SE 结构</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v3-block">MobileNet v3 block</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v4">MobileNet V4</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">设计原则</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">网络结构</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-independent-pareto-efficiency">Hardware-Independent Pareto Efficiency</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-inverted-bottlenecks">Universal Inverted Bottlenecks</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilemqa">MobileMQA</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-nas-for-enhanced-architectures">Refining NAS for Enhanced Architectures</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">设计原则</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-independent-pareto-efficiency">Hardware-Independent Pareto Efficiency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-inverted-bottlenecks">Universal Inverted Bottlenecks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilemqa">MobileMQA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-nas-for-enhanced-architectures">Refining NAS for Enhanced Architectures</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">代码</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">小结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">小结与思考</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">本节视频</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">参考文献</a></li>
 </ul>
@@ -766,24 +731,21 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="mobilenet">
 <h1>MobileNet 系列<a class="headerlink" href="#mobilenet" title="Link to this heading">#</a></h1>
 <p>本章节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。</p>
-<p>======= 同样合并 MoblieNet 系列到总体总结哈</p>
 <section id="mobilenet-v1">
 <h2>MobileNet V1<a class="headerlink" href="#mobilenet-v1" title="Link to this heading">#</a></h2>
 <p>MobileNet v1 是一种体积较小、计算量较少、适用于移动设备的卷积神经网络。mobileNet V1 的主要创新点是用深度可分离卷积(depthwise separable convolution)代替普通的卷积，并使用宽度乘数(width multiply)减少参数量，在 ImageNet 图像分类、Stanford Dog 细粒度图像分类、目标检测、人脸属性识别、人脸编码、以图搜地等计算机视觉任务上，结合知识蒸馏进行评估，MobileNet 表现出极致的轻量化和速度性能。</p>
 <section id="id1">
-<h3>设计思路<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<section id="depthwise-convolution">
-<h4>逐通道卷积（Depthwise Convolution）<a class="headerlink" href="#depthwise-convolution" title="Link to this heading">#</a></h4>
-<p>Depthwise Convolution 的一个卷积核只有一个通道，输入信息的一个通道只被一个卷积核卷积，这个过程产生的 feature map 通道数和输入的通道数完全一样，如下图所示：</p>
+<h3>逐通道卷积<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>逐通道卷积（Depthwise Convolution）的一个卷积核只有一个通道，输入信息的一个通道只被一个卷积核卷积，这个过程产生的 feature map 通道数和输入的通道数完全一样，如下图所示：</p>
 <p><img alt="Depthwise Convolution 结构" src="../_images/04.mobilenet_01.png" /></p>
 <p>深度分离卷积把输入特征图的所有通道进行分离，每个通道对应的一个卷积核对该通道的特征图进行单独的卷积操作(也就是说，第 m 个深度卷积核作用在输入的第 m 个通道上，得到输出结果的第 m 个通道)。在深度分离卷积中，每个卷积核的深度固定为 1。</p>
 <p>参数量:<span class="math notranslate nohighlight">\(D_{k}\times D_{k}\times M\)</span></p>
 <p>计算量 :<span class="math notranslate nohighlight">\(D_{k}\times  D_{k}\times M\times D_{f}\times D_{f}\)</span></p>
 <p>其中 <span class="math notranslate nohighlight">\(D_{k}\)</span> 为卷积核尺寸，<span class="math notranslate nohighlight">\(D_{f}\)</span> 为特征图尺寸，M 为输入通道数，输出通道数为 1。</p>
 </section>
-<section id="pointwise-convolution">
-<h4>逐点卷积 Pointwise Convolution<a class="headerlink" href="#pointwise-convolution" title="Link to this heading">#</a></h4>
-<p>Pointwise Convolution 的本质就是 <span class="math notranslate nohighlight">\(1\times 1\)</span> 的卷积，它的卷积核的尺寸为 <span class="math notranslate nohighlight">\(1\times 1\times M\)</span>，M 为上一层输出信息的通道数。所以这里 Pointwise Convolution 的每个卷积核会将上一步的特征图在通道方向上进行加权组合，生成新的特征图，如下图所示：
+<section id="id2">
+<h3>逐点卷积<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>逐点卷积（Pointwise Convolution）的本质就是 <span class="math notranslate nohighlight">\(1\times 1\)</span> 的卷积，它的卷积核的尺寸为 <span class="math notranslate nohighlight">\(1\times 1\times M\)</span>，M 为上一层输出信息的通道数。所以这里 Pointwise Convolution 的每个卷积核会将上一步的特征图在通道方向上进行加权组合，生成新的特征图，如下图所示：
 <img alt="Pointwise Convolution 结构" src="../_images/04.mobilenet_02.png" /></p>
 <p>参数量:<span class="math notranslate nohighlight">\(1\times 1\times M\times N\)</span></p>
 <p>计算量:<span class="math notranslate nohighlight">\(1\times 1\times M\times N\times D_{f}\times D_{f}\)</span></p>
@@ -799,8 +761,8 @@ D_{k}\cdot D_{k}\cdot M\cdot D_{F}\cdot D_{F} + M\cdot N\cdot D_{F}\cdot D_{F}
 \frac{D_{k}\cdot D_{k}\cdot M\cdot D_{F}\cdot D_{F} + M\cdot N\cdot D_{F}\cdot D_{F}}{D_{k}\cdot D_{k}\cdot M\cdot N\cdot D_{F}\cdot D_{F}}=\frac{1}{N}+\frac{1}{D_{k}^{2}}
 \]</div>
 </section>
-<section id="id2">
-<h4>宽度乘子（α）和分辨率乘子（ρ）<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<section id="id3">
+<h3>宽度&amp;分辨率乘子<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>宽度和分辨率调整系数用于调整模型的大小和计算复杂性。</p>
 <ul class="simple">
 <li><p><strong>宽度系数（α）</strong>：宽度系数是一个介于 0 和 1 之间的比例因子。通过降低每个卷积层的通道数，可以减少模型中的参数数量和计算量，从而使模型更轻量化。</p></li>
@@ -817,15 +779,14 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
 \frac{D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdotρD_{F}}{D_{k}\cdot D_{k} \cdot M\cdot N\cdot D_{F}\cdot D_{F}} =\frac{αρ}{N}+\frac{α^{2}ρ^{2}}{D_{k}^{2}}
 \]</div>
 </section>
-</section>
-<section id="id3">
-<h3>网络结构<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>网络结构<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>MBconv 由 Depthwise Convolution，BN，ReLU 组成，基本结构如下图右面所示：</p>
 <p><img alt="MBconv 结构" src="../_images/04.mobilenet_03.png" /></p>
 <p>====== 模型结构介绍太少了，融合进去代码哈</p>
 </section>
-<section id="id4">
-<h3>代码<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>代码<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 
@@ -885,15 +846,13 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
 </section>
 <section id="mobilenet-v2">
 <h2>MobileNet V2<a class="headerlink" href="#mobilenet-v2" title="Link to this heading">#</a></h2>
-<p>在上一章节中介绍了 MobileNetV1 版本，主要是将普通卷积转成逐点和逐通道卷积，也讲到了用于调整模型的大小和计算复杂性的宽度和分辨率因子。在本章节中主要会讲解基于 V1 构建的更高效更 轻量的网络结构。</p>
-<section id="id5">
-<h3>贡献概述<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>在上一章节中介绍了 MobileNetV1 版本，主要是将普通卷积转成逐点和逐通道卷积，也讲到了用于调整模型的大小和计算复杂性的宽度和分辨率因子。在本章节中主要会讲解基于 V1 构建的更高效更轻量的网络结构。</p>
+<section id="id6">
+<h3>贡献概述<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>MobileNet-v2 的主要思想就是在 v1 的基础上引入了线性瓶颈 (Linear Bottleneck)和逆残差 (Inverted Residual)来提高网络的表征能力，同样也是一种轻量级的卷积神经网络。</p>
 </section>
-<section id="id6">
-<h3>设计思路<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <section id="linear-bottlenecks">
-<h4>Linear Bottlenecks(线性瓶颈层)<a class="headerlink" href="#linear-bottlenecks" title="Link to this heading">#</a></h4>
+<h3>Linear Bottlenecks<a class="headerlink" href="#linear-bottlenecks" title="Link to this heading">#</a></h3>
 <p>MobileNetV1 中引入α参数来做模型通道的缩减，相当于给模型“瘦身”，这样特征信息就能更集中在缩减后的通道中。但研究人员发现深度可分离卷积中有大量卷积核为 0，即有很多卷积核没有参与实际计算。研究后发现是 ReLU 激活函数的问题，认为 ReLU 这个激活函数，在低维空间运算中会损失很多信息，而在高维空间中会保留较多有用信息 。ReLU 会对维度较低的张量造成较大的信息损耗。</p>
 <p>维度越低，损失信息越多。（如下图 2 和 3 已经没有螺旋的样子了）；维度越高，损失信息越少（当原始输入维度数增加到 15 以后再加 ReLU，基本不会丢失太多的信息，接近输入）。</p>
 <p><img alt="ReLu" src="../_images/04.mobilenet_04.png" /></p>
@@ -902,7 +861,7 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
 <p>实验证据表明，使用线性层至关重要，因为它可以防止非线性破坏太多的信息。</p>
 </section>
 <section id="id7">
-<h4>可分离卷积块的演化<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<h3>可分离卷积块的演化<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>可分离卷积块的演化如下图所示：</p>
 <ol class="arabic simple">
 <li><p>标准卷积（一个大方块）；</p></li>
@@ -912,9 +871,9 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
 </ol>
 <p><img alt="Conv" src="../_images/04.mobilenet_05.png" /></p>
 </section>
-<section id="inverted-residuals">
-<h4>Inverted residuals 反向残差<a class="headerlink" href="#inverted-residuals" title="Link to this heading">#</a></h4>
-<p>反向残差如下图所示</p>
+<section id="id8">
+<h3>反向残差<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>反向残差（Inverted residuals ）如下图所示：</p>
 <p><img alt="反向残差" src="../_images/04.mobilenet_06.png" /></p>
 <ul class="simple">
 <li><p>Original residual block：reduce – transfer – expand （中间窄两头宽）</p></li>
@@ -926,19 +885,18 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
 <p>在 Inverted Residual block 中，3x3 卷积变成 Depthwise 了，计算量很少了，所以通道数可以多一点，效果更好，所以通过 1x1 卷积先提升通道数，再 Depthwise3x3 卷积，最后用 1x1 卷积降低通道数。两端的通道数都很小，所以 1x1 卷积升通道和降通道计算量都并不大，而中间的通道数虽然多，但是 Depthwise 的卷积计算量也不。</p>
 </section>
 <section id="relu6">
-<h4>关于 ReLU6<a class="headerlink" href="#relu6" title="Link to this heading">#</a></h4>
+<h3>ReLU6 激活<a class="headerlink" href="#relu6" title="Link to this heading">#</a></h3>
 <p>卷积之后通常会接一个 ReLU 非线性激活，在 MobileNet 中使用 ReLU6。ReLU6 在普通的 ReLU 基础上限制最大输出为 6，这是为了在移动端设备 float16/int8 的低精度的时候也能有很好的数值分辨率。</p>
 <p>如果对 ReLU 的激活范围不加限制，输出范围为 0 到正无穷，如果激活值非常大，分布在一个很大的范围内，则低精度的 float16/int8 无法很好地精确描述如此大范围的数值，带来精度损失。</p>
 </section>
-</section>
-<section id="id8">
-<h3>网络结构<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>网络结构<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>v2 的加入了 1×1 升维，引入 Shortcut 并且去掉了最后的 ReLU，改为 Linear。步长为 1 时，先进行 1×1 卷积升维，再进行深度卷积提取特征，再通过 Linear 的逐点卷积降维。</p>
 <p>将 input 与 output 相加，形成残差结构。步长为 2 时，因为 input 与 output 的尺寸不符，因此不添加 shortcut 结构。整个结构由 v2 block 堆叠而成。</p>
 <p><img alt="v2block" src="../_images/04.mobilenet_07.png" /></p>
 </section>
-<section id="id9">
-<h3>代码<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>代码<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 
@@ -948,7 +906,7 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
 <span class="sd">    This function is taken from the original tf repo.</span>
 <span class="sd">    It ensures that all layers have a channel number that is divisible by 8</span>
 <span class="sd">    It can be seen here:</span>
-<span class="sd">    https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet/mobilenet.py</span>
+<span class="sd">    https://github.com/TensorFlow/models/blob/master/research/slim/nets/mobilenet/mobilenet.py</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">min_ch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">min_ch</span> <span class="o">=</span> <span class="n">divisor</span>
@@ -1065,14 +1023,15 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
 <section id="mobilenet-v3">
 <h2>MobileNet V3<a class="headerlink" href="#mobilenet-v3" title="Link to this heading">#</a></h2>
 <p>在本章节会主要介绍 MobileNetV3 相对于 V1，V2 的改进之处，除了介绍更轻量的网络结构外，还会给大家带来新的技术，什么是神经网络结构搜索(Nas)，以及 Nas 如何与 MobileNet 进行结合。</p>
-<p>MobileNetV3 是由 google 团队在 2019 年提出的轻量化网络模型，传统的卷积神经网络，内容需求大，运算量大，无法再移动设备以及嵌入式设备上运行，为了解决这一问题，MobileNet 网络应运而生。</p>
+<p>MobileNetV3 是由谷歌团队在 2019 年提出的轻量化网络模型，传统的卷积神经网络，内容需求大，运算量大，无法再移动设备以及嵌入式设备上运行，为了解决这一问题，MobileNet 网络应运而生。</p>
 <p>MobileNetV3 在移动端图像分类、目标检测、语义分割等任务上均取得了优秀的表现。MobileNetV3 采用了很多新的技术，包括针对通道注意力的 Squeeze-and-Excitation 模块、NAS 搜索方法等，这些方法都有利于进一步提升网络的性能。</p>
-<section id="id10">
-<h3>重新设计耗时层结构<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id11">
+<h3>重新设计耗时层结构<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <p>首先，减少网络第一个卷积层的卷积核个数，从 32 减到 16，然后精简了最后的 Stage，将原来搜索到的最后阶段的人工精简，删除了多余的卷积层，将延迟较少了 7 毫秒，将近全部运行时间的 11%，并减少了 3000 万的乘加操作次数，几乎没有损失准确性。</p>
 <p><img alt="新结构" src="../_images/04.mobilenet_08.png" /></p>
-<section id="id11">
-<h4>重新设计激活函数<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+</section>
+<section id="id12">
+<h3>重新设计激活函数<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <p>引入新的非线性激活函数：h-swish。swish 公式：</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1088,7 +1047,7 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
 <p>在网络结构搜索中，作者结合两种技术：资源受限的 NAS（platform-aware NAS）与 NetAdapt，前者用于在计算和参数量受限的前提下搜索网络的各个模块，所以称之为模块级的搜索（Block-wise Search） ，后者用于对各个模块确定之后网络层的微调。</p>
 </section>
 <section id="nas-block-wise-search">
-<h4>NAS 搜索全局结构（Block-wise Search）<a class="headerlink" href="#nas-block-wise-search" title="Link to this heading">#</a></h4>
+<h3>NAS 搜索全局结构（Block-wise Search）<a class="headerlink" href="#nas-block-wise-search" title="Link to this heading">#</a></h3>
 <p>采用 NSA 方法来搜寻全局网络结构，另外需要针对轻量模型进行优化，用一个多目标奖励。</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1097,7 +1056,7 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
 <p>来近似 pareto 最优解，根据目标延迟 TAR 为每个模型 m 平衡模型精度 ACC(m)和延迟 LAT(m)。用较小的权重因子 w =-0.15 来弥补不同的延迟的更大精度变化。从头训练了一个新的架构搜索，找到了初始的 seed 模型，然后应用 NetAdapt 和其他优化来获得最终的 MobilenetV3-Small 模型。</p>
 </section>
 <section id="netadapt-layer-wise-search">
-<h4>NetAdapt 搜索层结构（Layer-wise Search）<a class="headerlink" href="#netadapt-layer-wise-search" title="Link to this heading">#</a></h4>
+<h3>NetAdapt 搜索层结构（Layer-wise Search）<a class="headerlink" href="#netadapt-layer-wise-search" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 \frac{ΔACC}{ΔLatency}
@@ -1108,9 +1067,8 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
 <li><p>减少所有共享相同 bottleneck size 模块的瓶颈。</p></li>
 </ul>
 </section>
-</section>
-<section id="id12">
-<h3>网络结构<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id13">
+<h3>网络结构<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <section id="se">
 <h4>SE 结构<a class="headerlink" href="#se" title="Link to this heading">#</a></h4>
 <p>首先使用一个全局池化层将每个通道变成一个具体的数值，然后接两个全连接层，最后通过一个 H-Sigmoid 函数获取最终的权重，赋值给最初的特征图。</p>
@@ -1122,8 +1080,8 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
 <p><img alt="v3 block 结构" src="../_images/04.mobilenet_11.png" /></p>
 </section>
 </section>
-<section id="id13">
-<h3>代码<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<section id="id14">
+<h3>代码<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
 
 <span class="kn">import</span> <span class="nn">torch</span>
@@ -1137,7 +1095,7 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
 <span class="sd">    This function is taken from the original tf repo.</span>
 <span class="sd">    It ensures that all layers have a channel number that is divisible by 8</span>
 <span class="sd">    It can be seen here:</span>
-<span class="sd">    https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet/mobilenet.py</span>
+<span class="sd">    https://github.com/TensorFlow/models/blob/master/research/slim/nets/mobilenet/mobilenet.py</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">min_ch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">min_ch</span> <span class="o">=</span> <span class="n">divisor</span>
@@ -1172,7 +1130,9 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
                                                <span class="n">norm_layer</span><span class="p">(</span><span class="n">out_planes</span><span class="p">),</span>   <span class="c1"># BN 层</span>
                                                <span class="n">activation_layer</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 
-<span class="c1"># 注意力机制模块（SE 模块，即两个全连接层）   该模块的基本流程是：先进行自适应平均池化(1x1)———&gt;1x1 的卷积层———&gt;relu 激活层———&gt;1x1 的卷积池化———&gt;hardsigmoid()激活函数激活</span>
+<span class="c1"># 注意力机制模块（SE 模块，即两个全连接层）</span>
+<span class="c1"># 该模块的基本流程是：</span>
+<span class="c1"># 先进行自适应平均池化(1x1)———&gt;1x1 的卷积层———&gt;relu 激活层———&gt;1x1 的卷积池化———&gt;hardsigmoid()激活函数激活</span>
 <span class="k">class</span> <span class="nc">SqueezeExcitation</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_c</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">squeeze_factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">SqueezeExcitation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -1308,11 +1268,11 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
 
         <span class="c1"># building last several layers</span>
         <span class="n">lastconv_input_c</span> <span class="o">=</span> <span class="n">inverted_residual_setting</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">out_c</span>  <span class="c1"># 最后的 bneckblock 的输出 channel</span>
-        <span class="n">lastconv_output_c</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">lastconv_input_c</span>    <span class="c1"># lastconv_output_c 与 最后的 bneckblock 的输出 channel 数是六倍的关系</span>
+        <span class="n">lastconv_output_c</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">lastconv_input_c</span>    <span class="c1"># lastconv_output_c 与最后的 bneckblock 的输出 channel 数是六倍的关系</span>
 
         <span class="c1"># 定义最后一层的卷积层</span>
         <span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ConvBNActivation</span><span class="p">(</span><span class="n">lastconv_input_c</span><span class="p">,</span>   <span class="c1"># 最后的 bneckblock 的输出 channel 数</span>
-                                       <span class="n">lastconv_output_c</span><span class="p">,</span>   <span class="c1"># lastconv_output_c 与 最后的 bneckblock 的输出 channel 数是六倍的关系</span>
+                                       <span class="n">lastconv_output_c</span><span class="p">,</span>   <span class="c1"># lastconv_output_c 与最后的 bneckblock 的输出 channel 数是六倍的关系</span>
                                        <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                                        <span class="n">norm_layer</span><span class="o">=</span><span class="n">norm_layer</span><span class="p">,</span>
                                        <span class="n">activation_layer</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">Hardswish</span><span class="p">))</span>
@@ -1435,8 +1395,6 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
     <span class="k">return</span> <span class="n">MobileNetV3</span><span class="p">(</span><span class="n">inverted_residual_setting</span><span class="o">=</span><span class="n">inverted_residual_setting</span><span class="p">,</span>
                        <span class="n">last_channel</span><span class="o">=</span><span class="n">last_channel</span><span class="p">,</span>
                        <span class="n">num_classes</span><span class="o">=</span><span class="n">num_classes</span><span class="p">)</span>
-
-
 </pre></div>
 </div>
 <p>======= 代码不要直接粘贴一大段，看不懂的，融合在对应的网络模型结构里面哈。融合后就没有这个独立代码的小节了。</p>
@@ -1447,8 +1405,8 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
 <p>在这一章节会介绍 MobileNets 系列最新的版本 V4，重会介绍 V4 做出哪些方面的升级，以及使用哪些更先进的思想与技术，给轻量级的网络设计带来重要的改变。</p>
 <p>MobileNetV4，主要是针对移动设备设计的通用高效架构。在其核心部分，引入了通用倒瓶颈（UIB）搜索块，Mobile MQA，带来了 39%速度提升。同时还带来了一种优化的神经架构搜索（NAS）方法，它提高了 MobileNetV4 搜索的有效性。</p>
 <p>UIB、Mobile MQA 以及精细化的 NAS 方法的整合，使得 MNv4 模型系列在移动 CPU、DSP、GPU 以及像苹果神经引擎和谷歌 Pixel EdgeTPU 这样的专用加速器上几乎达到了帕累托最优——这是其他测试模型所不具备的特性。最后，为了进一步提升准确度，引入了一种新颖的蒸馏技术。借助这项技术，MNv4-Hybrid-Large 模型在 ImageNet-1K 上的准确度达到了 87%，在 Pixel 8 EdgeTPU 上的运行时间仅为 3.8ms。</p>
-<section id="id14">
-<h3>设计原则<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<section id="id15">
+<h3>设计原则<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <p>MobileNetV4 在平衡 MACs 和内存带宽方面进行了投资，旨在以最低的成本获得最大的回报，特别关注网络的起始和结束部分。</p>
 <p>在网络的开头，MobileNetV4 使用大而昂贵的前几层来显著提高模型的容量和下游准确性。这些初始层主要由大量的 MACs 组成，因此它们仅在低 Ridge Point 硬件上成本较高。在网络的末端，所有 MobileNetV4 变体使用相同大小的最终全连接(FC)层以最大化准确性，尽管这导致较小尺寸的 MNV4 变体在高 Ridge Point 硬件上遭受更高的 FC 延迟。</p>
 <p>由于大的初始卷积层在低 RP 硬件上成本高，但在高 RP 硬件上并不昂贵，而最终的全连接层在高 Ridge Point 硬件上成本高，在低 Ridge Point 硬件上却不贵，MobileNetV4 模型不会同时遭受这两种减速。</p>
@@ -1467,14 +1425,12 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
 </ul>
 <p>这些原则使得 MobileNetV4 在所有评估的硬件上大多数情况下都是帕累托最优的。</p>
 </section>
-<section id="id15">
-<h3>网络结构<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <section id="hardware-independent-pareto-efficiency">
-<h4>Hardware-Independent Pareto Efficiency<a class="headerlink" href="#hardware-independent-pareto-efficiency" title="Link to this heading">#</a></h4>
+<h3>Hardware-Independent Pareto Efficiency<a class="headerlink" href="#hardware-independent-pareto-efficiency" title="Link to this heading">#</a></h3>
 <p>屋顶线模型：为了使一个模型在普遍情况下都高效，它必须能够在其理论的计算复杂度与实际硬件性能之间找到平衡。</p>
 <p>在硬件目标上表现出色，这些硬件目标的瓶颈极大地限制了模型性能，这些瓶颈主要由硬件的最高计算吞吐量和最高内存带宽决定。</p>
 <p>为此，作者使用了屋顶线模型，该模型估计给定工作负载的性能，并预测它是受内存瓶颈还是计算瓶颈的限制。简而言之，它忽略了特定的硬件细节，只考虑工作负载的操作强度 LayerMACs/(WeightBytes + ActivationBytes) 与硬件处理器和内存系统的理论极限之间的关系。</p>
-<p>内存和计算操作大致是并行发生的，因此两个中较慢的那个大约决定了延迟瓶颈。为了将屋顶线模型应用于以 为索引的神经网络层，作者可以以下述方式计算模型推理延迟：</p>
+<p>内存和计算操作大致是并行发生的，因此两个中较慢的那个大约决定了延迟瓶颈。为了将屋顶线模型应用于以为索引的神经网络层，作者可以以下述方式计算模型推理延迟：</p>
 <div class="math notranslate nohighlight">
 \[
 MACTime_{i}=\frac{LayerMAC_{s_{i}}}{PeakMA_{s}}
@@ -1495,7 +1451,7 @@ MemTime_{i}=\frac{WeightBytes_{i}+AtivationBytes_{i}}{PeakMemmBW}
 <p>在高脊点硬件上，数据移动是瓶颈，所以 MAC 不会显著减慢模型速度，但可以增加模型容量（如 MobileNetV1-1.5x）。因此，为低脊点优化的模型在高脊点上运行缓慢，因为内存密集和低 MAC 的全连接（FC）层受到内存带宽的限制，不能利用高可用的峰值 MAC。</p>
 </section>
 <section id="universal-inverted-bottlenecks">
-<h4>Universal Inverted Bottlenecks<a class="headerlink" href="#universal-inverted-bottlenecks" title="Link to this heading">#</a></h4>
+<h3>Universal Inverted Bottlenecks<a class="headerlink" href="#universal-inverted-bottlenecks" title="Link to this heading">#</a></h3>
 <p>作者提出了通用逆瓶颈（UniversalInvertedBottleneck, UIB）模块，这是一个适用于高效网络设计的可适应构建块，它具有灵活地适应各种优化目标的能力，而不会使搜索复杂度爆炸性增长。</p>
 <p>倒瓶颈（IB）模块，由 MobileNetV2 提出，已成为高效网络的标准化构建模块。</p>
 <p>基于最成功的 MobileNet 要素——可分离的深度卷积（DW）和点式（PW）扩展及倒瓶颈结构，本文引入了一种新的构建块——通用倒瓶颈（UIB）块，如下图所示。其结构相当简单。</p>
@@ -1509,7 +1465,7 @@ MemTime_{i}=\frac{WeightBytes_{i}+AtivationBytes_{i}}{PeakMemmBW}
 <p>FFN 是由两个 1x1 的点状卷积（PW）堆叠而成，并在它们之间加入激活和标准化层。PW 是最受加速器友好的操作之一，但最好与其他模块一起使用。</p>
 </section>
 <section id="mobilemqa">
-<h4>MobileMQA<a class="headerlink" href="#mobilemqa" title="Link to this heading">#</a></h4>
+<h3>MobileMQA<a class="headerlink" href="#mobilemqa" title="Link to this heading">#</a></h3>
 <p>在本节中，作者介绍了 MobileMQA，这是一个专门为加速器优化的新型注意力块，它能提供超过 39%的推理速度提升。</p>
 <p>操作强度的重要性：近期在视觉模型的研究中，人们大多致力于减少算术运算（MACs）以提高效率。然而，在移动加速器上性能的真正瓶颈往往不是计算而是内存访问。这是因为加速器提供的计算能力远大于内存带宽。因此，仅仅最小化 MACs 可能并不会导致更好的性能。相反，作者必须考虑操作强度，即算术运算与内存访问的比率。</p>
 <p>MQA 在混合模型中是高效的：MHSA 将 Query、键和值投影到多个空间以捕捉信息的不同方面。多 Query 注意力（MQA） 通过在所有头之间使用共享的键和值简化了这一点。尽管多个 Query 头是必要的，但大型语言模型可以有效共享单个键和值的头，而不会牺牲准确度。对于键和值使用一个共享的头，当批处理的 Token 数量相对于特征维度较小时，可以大大减少内存访问需求，从而显著提高操作强度。</p>
@@ -1528,7 +1484,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
 <p>其中 SR 表示空间缩减，在作者设计中是指步长为 2 的深度可分离卷积（DW），或者在未使用空间缩减的情况下的恒等函数。结合非对称空间下采样可以在极小的精度损失（-0.06%）情况下，带来超过 20%的效率提升。</p>
 </section>
 <section id="refining-nas-for-enhanced-architectures">
-<h4>Refining NAS for Enhanced Architectures<a class="headerlink" href="#refining-nas-for-enhanced-architectures" title="Link to this heading">#</a></h4>
+<h3>Refining NAS for Enhanced Architectures<a class="headerlink" href="#refining-nas-for-enhanced-architectures" title="Link to this heading">#</a></h3>
 <p>为了有效地实例化 UIB 块，作者采用了针对性能改进定制的 TuNAS。</p>
 <p>增强搜索策略：作者的方法通过实施两阶段搜索，减轻了 TuNAS 因参数共享而偏向于较小滤波器和扩展因子的偏见。这种策略解决了 UIB 的深度层与其他搜索选项之间参数数量方差的问题。</p>
 <p>粗粒度搜索：起初，作者专注于确定最优的滤波器大小，同时保持参数固定：一个默认扩展因子为 4 的反向瓶颈块和一个 3x3 的深度可分核。</p>
@@ -1551,7 +1507,6 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
 <li><p>MNv4-Conv-L：针对 384px 输入，双重延迟目标为 2.3ms（Pixel6EdgeTPU）和 2.0ms（Pixel7EdgeTPU）。</p></li>
 </ul>
 <p>需要注意的是，通过将作者的搜索空间限制在跨设备具有良好相关成本模型的组件上，作者发现 EdgeTPU 延迟优化可以直接产生普遍高效的模型。</p>
-</section>
 </section>
 <section id="id16">
 <h3>代码<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
@@ -1767,6 +1722,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>====== 断开要介绍下对应代码</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">torch</span>
@@ -1782,7 +1738,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function is copied from here </span>
-<span class="sd">    &quot;https://github.com/tensorflow/models/blob/master/official/vision/modeling/layers/nn_layers.py&quot;</span>
+<span class="sd">    &quot;https://github.com/TensorFlow/models/blob/master/official/vision/modeling/layers/nn_layers.py&quot;</span>
 <span class="sd">    </span>
 <span class="sd">    This is to ensure that all layers have channels that are divisible by 8.</span>
 
@@ -1917,7 +1873,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Params to initiate MobilenNetV4</span>
 <span class="sd">        Args:</span>
 <span class="sd">            model : support 5 types of models as indicated in </span>
-<span class="sd">            &quot;https://github.com/tensorflow/models/blob/master/official/vision/modeling/backbones/mobilenet.py&quot;        </span>
+<span class="sd">            &quot;https://github.com/TensorFlow/models/blob/master/official/vision/modeling/backbones/mobilenet.py&quot;        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="k">assert</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">MODEL_SPECS</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -1952,7 +1908,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
 </section>
 </section>
 <section id="id17">
-<h2>小结<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
+<h2>小结与思考<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
 <p>MobileNet V1 是一种高效、轻量级的深度学习模型，适用于移动设备和嵌入式系统。其主要特点包括采用深度可分离卷积技术、具有宽度和分辨率调整系数、低延迟、低计算资源占用，以及广泛应用于多种计算机视觉任务。MobileNet V2 是在 V1 基础上提出的升级版轻量级深度学习卷积神经网络（CNN）架构。</p>
 <p>在提高性能的同时保持了低计算复杂性和参数数量的优势，适用于移动设备和嵌入式系统。MobileNet V3 是在 V2 基础上进一步优化的轻量级深度学习卷积神经网络（CNN）架构。</p>
 <p>它继承了 MobileNet V1 和 MobileNet V2 的优点，同时融合了神经网络架构搜索技术（Neural Architecture Search，NAS），在性能和效率方面取得了更大的提升。MobileNet V4 引入了新的通用反转瓶颈和移动 MQA 层，并结合了改进的神经架构搜索（NAS）方法。</p>
@@ -1966,7 +1922,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
 </section>
 <section id="id19">
 <h2>参考文献<a class="headerlink" href="#id19" title="Link to this heading">#</a></h2>
-<p>1.<a class="reference external" href="https://arxiv.org/abs/1603.04467">M. Abadi, A. Agarwal, P. Barham, E. Brevdo, Z. Chen,C. Citro, G. S. Corrado, A. Davis, J. Dean, M. Devin, et al.Tensorflow: Large-scale machine learning on heterogeneous  systems, 2015. Software available from tensorflow. org, 1,2015.</a></p>
+<p>1.<a class="reference external" href="https://arxiv.org/abs/1603.04467">M. Abadi, A. Agarwal, P. Barham, E. Brevdo, Z. Chen,C. Citro, G. S. Corrado, A. Davis, J. Dean, M. Devin, et al.TensorFlow: Large-scale machine learning on heterogeneous  systems, 2015. Software available from TensorFlow. org, 1,2015.</a></p>
 <p>2.<a class="reference external" href="https://arxiv.org/pdf/1609.07061.pdf">I. Hubara, M. Courbariaux, D. Soudry, R. El-Yaniv, and Y. Bengio. Quantized neural networks: Training neural networks with low precision weights and activations. arXiv preprint arXiv:1609.07061, 2016. 2</a></p>
 <p>3.<a class="reference external" href="https://arxiv.org/pdf/1602.07360.pdf">F. N. Iandola, M. W. Moskewicz, K. Ashraf, S. Han, W. J.Dally, and K. Keutzer. Squeezenet: Alexnet-level accuracy with 50x fewer parameters and¡ 1mb model size. arXiv preprint arXiv:1602.07360, 2016. 1, 6</a></p>
 <p>4.<a class="reference external" href="https://arxiv.org/abs/1502.03167">S. Ioffe and C. Szegedy. Batch normalization: Accelerating deep network training by reducing internal covariate shift.arXiv preprint arXiv:1502.03167, 2015.</a></p>
@@ -1978,7 +1934,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
 <p>10.<a class="reference external" href="https://www.scitepress.org/Papers/2019/74696/74696.pdf">R. Avenash and P. Vishawanth. Semantic segmentation of satellite images using a modified cnn with hard-swish activation function. In VISIGRAPP, 2019. 2, 4</a></p>
 <p>11.<a class="reference external" href="https://openaccess.thecvf.com/content_cvpr_2017/html/Huang_SpeedAccuracy_Trade-Offs_for_CVPR_2017_paper.html"> Jonathan Huang, Vivek Rathod, Chen Sun, Menglong Zhu, Anoop Korattikara, Alireza Fathi,Ian Fischer, Zbigniew Wojna, Yang Song, Sergio Guadarrama, et al. Speed/accuracy trade-offs for modern convolutional object detectors. In CVPR,2017. 7</a></p>
 <p>12.<a class="reference internal" href="#"><span class="xref myst">Wei Liu, Dragomir Anguelov, Dumitru Erhan,Christian Szegedy, Scott Reed, Cheng-Yang Fu,and Alexander C Berg. Ssd: Single shot multibox detector. In ECCV, 2016.</span></a></p>
-<p>13.<a class="reference external" href="https://arxiv.longhoe.net/abs/1512.02325">Jonathan Huang, Vivek Rathod, Derek Chow,Chen Sun, and Menglong Zhu. Tensorflow object detection api, 2017. 7</a></p>
+<p>13.<a class="reference external" href="https://arxiv.longhoe.net/abs/1512.02325">Jonathan Huang, Vivek Rathod, Derek Chow,Chen Sun, and Menglong Zhu. TensorFlow object detection api, 2017. 7</a></p>
 <p>14.<a class="reference external" href="https://arxiv.org/abs/1706.05587">Liang-Chieh Chen, George Papandreou, Florian Schroff, and Hartwig Adam. Rethinking atrous convolution for semantic image segmentation. CoRR, abs/1706.05587, 2017. 7</a></p>
 <p>15.<a class="reference external" href="https://cir.nii.ac.jp/crid/1573668925020519424">Matthias Holschneider, Richard KronlandMartinet, Jean Morlet, and Ph Tchamitchian.A real-time algorithm for signal analysis with the help of the wavelet transform. In Wavelets:Time-Frequency Methods and Phase Space, pages 289–297. 1989. 7</a></p>
 <p>16.<a class="reference external" href="https://cir.nii.ac.jp/crid/1573668925020519424">Pierre Sermanet, David Eigen, Xiang Zhang,Michael Mathieu, Rob Fergus, and Yann Le- ¨Cun. Overfeat: Integrated recognition, localization and detection using convolutional networks.arXiv:1312.6229, 2013. 7</a></p>
@@ -2040,7 +1996,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ShuffleNet</p>
+        <p class="prev-next-title">ShuffleNet 系列</p>
       </div>
     </a>
     <a class="right-next"
@@ -2069,57 +2025,46 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v1">MobileNet V1</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#depthwise-convolution">逐通道卷积（Depthwise Convolution）</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pointwise-convolution">逐点卷积 Pointwise Convolution</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">宽度乘子（α）和分辨率乘子（ρ）</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">网络结构</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">逐通道卷积</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">逐点卷积</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">宽度&amp;分辨率乘子</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v2">MobileNet V2</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">贡献概述</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-bottlenecks">Linear Bottlenecks(线性瓶颈层)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">可分离卷积块的演化</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inverted-residuals">Inverted residuals 反向残差</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relu6">关于 ReLU6</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">网络结构</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">贡献概述</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-bottlenecks">Linear Bottlenecks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">可分离卷积块的演化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">反向残差</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relu6">ReLU6 激活</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v3">MobileNet V3</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">重新设计耗时层结构</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">重新设计激活函数</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nas-block-wise-search">NAS 搜索全局结构（Block-wise Search）</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#netadapt-layer-wise-search">NetAdapt 搜索层结构（Layer-wise Search）</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">网络结构</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">重新设计耗时层结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">重新设计激活函数</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nas-block-wise-search">NAS 搜索全局结构（Block-wise Search）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#netadapt-layer-wise-search">NetAdapt 搜索层结构（Layer-wise Search）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">网络结构</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#se">SE 结构</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v3-block">MobileNet v3 block</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v4">MobileNet V4</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">设计原则</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">网络结构</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-independent-pareto-efficiency">Hardware-Independent Pareto Efficiency</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-inverted-bottlenecks">Universal Inverted Bottlenecks</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilemqa">MobileMQA</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-nas-for-enhanced-architectures">Refining NAS for Enhanced Architectures</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">设计原则</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-independent-pareto-efficiency">Hardware-Independent Pareto Efficiency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-inverted-bottlenecks">Universal Inverted Bottlenecks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilemqa">MobileMQA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-nas-for-enhanced-architectures">Refining NAS for Enhanced Architectures</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">代码</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">小结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">小结与思考</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">本节视频</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">参考文献</a></li>
 </ul>
@@ -2144,7 +2089,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 01, 2024.
+  Last updated on Jun 07, 2024.
   <br/>
 </p>
   </div>
