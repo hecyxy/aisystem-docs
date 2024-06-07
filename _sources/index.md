@@ -90,7 +90,6 @@ title: AISystem & AIInfra
 03Compiler02AICompiler/README
 03Compiler03Frontend/README
 03Compiler04Backend/README
-03Compiler06PyTorch/README
 ```
 
 <!-- ## 四. 推理系统&引擎 -->
@@ -104,7 +103,8 @@ title: AISystem & AIInfra
 04Inference02Mobilenet/README
 04Inference03Slim/README
 04Inference04Converter/README
-04Inference05Kernel/README
+04Inference05Optimize/README
+04Inference06Kernel/README
 ```
 
 <!-- ## 五. AI 框架核心模块 -->
@@ -118,8 +118,6 @@ title: AISystem & AIInfra
 05Framework02AutoDiff/README
 05Framework03DataFlow/README
 05Framework04Parallel/README
-05Framework05AICluster/README
-05Framework06AIAlgo/README
 ```
 
 <!-- ## 附录内容 -->

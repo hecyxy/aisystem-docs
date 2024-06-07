@@ -50,5 +50,5 @@ AI 编译器主要是分为前端优化、后端优化，部分还会有中间�
 07ConstantFold
 08CSE
 09DCE
-10algebraic
+10Algebraic
 ```
