@@ -4,7 +4,7 @@
 
 回到卷积本身，其变种丰富、计算复杂，神经网络运行时大部分时间都耗费在计算卷积，神经网络模型的发展在不断增加网络的深度，因此优化卷积计算就显得尤为重要。
 
-本章将首先介绍卷积在数学范畴中的定义，通过信号处理领域的一个例子对卷积的过程进行阐释。之后为大家介绍 CNN 中卷积计算的相关知识。在了解卷积计算的基础之上，本章会继续为大家介绍卷积在内存中的数据格式以及张量中的卷积计算过程。
+本节将首先介绍卷积在数学范畴中的定义，通过信号处理领域的一个例子对卷积的过程进行阐释。之后为大家介绍 CNN 中卷积计算的相关知识。在了解卷积计算的基础之上，本节会继续为大家介绍卷积在内存中的数据格式以及张量中的卷积计算过程。
 
 ## 卷积的数学原理
 
@@ -299,7 +299,7 @@ $$
 
 对于整个 CNN，时间复杂度是所有卷积层时间复杂度的累加。因此，减少卷积层的数量或降低每个卷积层的计算量都可以有效降低 CNN 的时间复杂度。例如，可以通过使用更小的卷积核、减少卷积层的通道数或采用更高效的卷积算法来优化 CNN 的性能。
 
-在本章的后续小节会为大家介绍卷积的优化算法。
+在本节的后续小节会为大家介绍卷积的优化算法。
 
 2. 空间复杂度
 
@@ -462,13 +462,3 @@ for (int oh = 0; oh < OH; oh++) {
 <html>
 <iframe src="https://www.bilibili.com/video/BV1No4y1e7KX/?spm_id_from=333.337.search-card.all.click&vd_source=096daa038c279ccda6e4f8c5eea82de7" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
-
-## 参考文献
-
-- [Lecun Y , Bottou L .Gradient-based learning applied to document recognition[J].Proceedings of the IEEE, 1998, 86(11):2278-2324.DOI:10.1109/5.726791.](https://ieeexplore.ieee.org/document/726791)
-- [Fukushima, Kunihiko and Sei Miyake. “Neocognitron: A Self-Organizing Neural Network Model for a Mechanism of Visual Pattern Recognition.” (1982).](https://www.semanticscholar.org/paper/Neocognitron%3A-A-Self-Organizing-Neural-Network-for-Fukushima-Miyake/9b2541b8d8ca872149b4dabd2ccdc0cacc46ebf5)
-- [ Bouvrie J .Notes on Convolutional Neural Networks[J].neural nets, 2006.](https://www.semanticscholar.org/paper/Notes-on-Convolutional-Neural-Networks-Bouvrie/2a4393aa1bc3cb7fe2deecc88720bfb84dabb263)
-- [Krizhevsky A , Sutskever I , Hinton G .ImageNet Classification with Deep Convolutional Neural Networks[J].Advances in neural information processing systems, 2012, 25(2).DOI:10.1145/3065386.](https://dl.acm.org/doi/10.1145/3065386)
-- Goodfellow, I., Bengio, Y., & Courville, A. Deep Learning. MIT Press, 2016.
-
-

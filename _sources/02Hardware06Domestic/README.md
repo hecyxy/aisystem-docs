@@ -31,7 +31,5 @@
 ```{toctree}
 :maxdepth: 1
 
-04CambriconProduct
-05CambriconArch
-06CambriconArch
+04Cambricon
 ```

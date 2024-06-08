@@ -2,7 +2,7 @@
 
 # MobileNet 系列
 
-本章节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。
+本节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。
 
 ## MobileNet V1
 
@@ -134,7 +134,7 @@ class MobileNetV1(nn.Module):
 
 ## MobileNet V2
 
-在上一章节中介绍了 MobileNetV1 版本，主要是将普通卷积转成逐点和逐通道卷积，也讲到了用于调整模型的大小和计算复杂性的宽度和分辨率因子。在本章节中主要会讲解基于 V1 构建的更高效更轻量的网络结构。 
+在上一章节中介绍了 MobileNetV1 版本，主要是将普通卷积转成逐点和逐通道卷积，也讲到了用于调整模型的大小和计算复杂性的宽度和分辨率因子。在本节中主要会讲解基于 V1 构建的更高效更轻量的网络结构。 
 
 ### 贡献概述
 
@@ -320,7 +320,7 @@ class MobileNetV2(nn.Module):
 
 ## MobileNet V3
 
-在本章节会主要介绍 MobileNetV3 相对于 V1，V2 的改进之处，除了介绍更轻量的网络结构外，还会给大家带来新的技术，什么是神经网络结构搜索(Nas)，以及 Nas 如何与 MobileNet 进行结合。
+在本节会主要介绍 MobileNetV3 相对于 V1，V2 的改进之处，除了介绍更轻量的网络结构外，还会给大家带来新的技术，什么是神经网络结构搜索(Nas)，以及 Nas 如何与 MobileNet 进行结合。
 
 MobileNetV3 是由谷歌团队在 2019 年提出的轻量化网络模型，传统的卷积神经网络，内容需求大，运算量大，无法再移动设备以及嵌入式设备上运行，为了解决这一问题，MobileNet 网络应运而生。
 
@@ -1282,69 +1282,3 @@ MobileNet V1 是一种高效、轻量级的深度学习模型，适用于移动�
 <html>
 <iframe src="https://player.bilibili.com/player.html?bvid=BV1Y84y1b7xj&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
-
-## 参考文献
-
-1.[M. Abadi, A. Agarwal, P. Barham, E. Brevdo, Z. Chen,C. Citro, G. S. Corrado, A. Davis, J. Dean, M. Devin, et al.TensorFlow: Large-scale machine learning on heterogeneous  systems, 2015. Software available from TensorFlow. org, 1,2015.](https://arxiv.org/abs/1603.04467)
-
-2.[I. Hubara, M. Courbariaux, D. Soudry, R. El-Yaniv, and Y. Bengio. Quantized neural networks: Training neural networks with low precision weights and activations. arXiv preprint arXiv:1609.07061, 2016. 2](https://arxiv.org/pdf/1609.07061.pdf)
-
-3.[F. N. Iandola, M. W. Moskewicz, K. Ashraf, S. Han, W. J.Dally, and K. Keutzer. Squeezenet: Alexnet-level accuracy with 50x fewer parameters and¡ 1mb model size. arXiv preprint arXiv:1602.07360, 2016. 1, 6](https://arxiv.org/pdf/1602.07360.pdf)
-
-4.[S. Ioffe and C. Szegedy. Batch normalization: Accelerating deep network training by reducing internal covariate shift.arXiv preprint arXiv:1502.03167, 2015.](https://arxiv.org/abs/1502.03167)
-
-5.[M. Jaderberg, A. Vedaldi, and A. Zisserman. Speeding up convolutional neural networks with low rank expansions.arXiv preprint arXiv:1405.3866, 2014. 2](https://arxiv.org/abs/1405.3866)
-
-6.[Y. Jia, E. Shelhamer, J. Donahue, S. Karayev, J. Long, R. Girshick, S. Guadarrama, and T. Darrell. Caffe: Convolutional architecture for fast feature embedding. arXiv preprint arXiv:1408.5093, 2014. 4](https://dl.acm.org/doi/10.1145/2647868.2654889)
-
-7.[ J. Jin, A. Dundar, and E. Culurciello. Flattened convolutional neural networks for feedforward acceleration. arXiv preprint arXiv:1412.5474, 2014. 1, 3](https://arxiv.org/abs/1412.5474v4)
-
-8.[A. Khosla, N. Jayadevaprakash, B. Yao, and L. Fei-Fei.Novel dataset for fine-grained image categorization. In First Workshop on Fine-Grained Visual Categorization, IEEE Conference on Computer Vision and Pattern Recognition,Colorado Springs, CO, June 2011. 6](http://vision.stanford.edu/aditya86/ImageNetDogs)
-
-9.[J. Krause, B. Sapp, A. Howard, H. Zhou, A. Toshev,T. Duerig, J. Philbin, and L. Fei-Fei. The unreasonable effectiveness of noisy data for fine-grained recognition. arXiv preprint arXiv:1511.06789, 2015. 6](https://arxiv.org/abs/1511.06789v1)
-
-10.[R. Avenash and P. Vishawanth. Semantic segmentation of satellite images using a modified cnn with hard-swish activation function. In VISIGRAPP, 2019. 2, 4](https://www.scitepress.org/Papers/2019/74696/74696.pdf)
-
-11.[ Jonathan Huang, Vivek Rathod, Chen Sun, Menglong Zhu, Anoop Korattikara, Alireza Fathi,Ian Fischer, Zbigniew Wojna, Yang Song, Sergio Guadarrama, et al. Speed/accuracy trade-offs for modern convolutional object detectors. In CVPR,2017. 7](https://openaccess.thecvf.com/content_cvpr_2017/html/Huang_SpeedAccuracy_Trade-Offs_for_CVPR_2017_paper.html)
-
-12.Wei Liu, Dragomir Anguelov, Dumitru Erhan,Christian Szegedy, Scott Reed, Cheng-Yang Fu,and Alexander C Berg. Ssd: Single shot multibox detector. In ECCV, 2016.
-
-13.[Jonathan Huang, Vivek Rathod, Derek Chow,Chen Sun, and Menglong Zhu. TensorFlow object detection api, 2017. 7](https://arxiv.longhoe.net/abs/1512.02325)
-
-14.[Liang-Chieh Chen, George Papandreou, Florian Schroff, and Hartwig Adam. Rethinking atrous convolution for semantic image segmentation. CoRR, abs/1706.05587, 2017. 7](https://arxiv.org/abs/1706.05587)
-
-15.[Matthias Holschneider, Richard KronlandMartinet, Jean Morlet, and Ph Tchamitchian.A real-time algorithm for signal analysis with the help of the wavelet transform. In Wavelets:Time-Frequency Methods and Phase Space, pages 289–297. 1989. 7](https://cir.nii.ac.jp/crid/1573668925020519424)
-
-16.[Pierre Sermanet, David Eigen, Xiang Zhang,Michael Mathieu, Rob Fergus, and Yann Le- ¨Cun. Overfeat: Integrated recognition, localization and detection using convolutional networks.arXiv:1312.6229, 2013. 7](https://cir.nii.ac.jp/crid/1573668925020519424)
-
-17.[George Papandreou, Iasonas Kokkinos, and PierreAndre Savalle. Modeling local and global deformations in deep learning: Epitomic convolution,multiple instance learning, and sliding window detection. In CVPR, 2015. 7](https://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Papandreou_Modeling_Local_and_2015_CVPR_paper.html)
-
-18.[T.-Y. Lin, M. Maire, S. Belongie, J. Hays, P. Perona, D. Ramanan, P. Dollar, and C. L. Zitnick. Microsoft COCO: Common objects in context. In ECCV, 2014. 7](https://ui.adsabs.harvard.edu/abs/2014arXiv1405.0312L/abstract)
-
-19[C. Liu, B. Zoph, J. Shlens, W. Hua, L. Li, L. Fei-Fei, A. L.Yuille, J. Huang, and K. Murphy.Progressive neural architecture search. CoRR, abs/1712.00559, 2017. 2](https://openaccess.thecvf.com/content_ECCV_2018/html/Chenxi_Liu_Progressive_Neural_Architecture_ECCV_2018_paper.html)
-
-20.[H. Liu, K. Simonyan, and Y. Yang. DARTS: differentiable architecture search. CoRR, abs/1806.09055, 2018. 2](https://arxiv.longhoe.net/abs/1806.09055)
-
-21.[W. Liu, A. Rabinovich, and A. C. Berg. Parsenet: Looking wider to see better. CoRR, abs/1506.04579, 2015. 7](https://arxiv.longhoe.net/abs/1506.04579)
-
-22.[ J. Long, E. Shelhamer, and T. Darrell. Fully convolutional networks for semantic segmentation. In CVPR, 2015. 8](https://openaccess.thecvf.com/content_cvpr_2015/html/Long_Fully_Convolutional_Networks_2015_CVPR_paper.html)
-
-22.[S. Mehta, M. Rastegari, A. Caspi, L. G. Shapiro, and H. Hajishirzi. Espnet: Efficient spatial pyramid of dilated convolutions for semantic segmentation. In Computer Vision -ECCV 2018 - 15th European Conference, Munich, Germany,September 8-14, 2018, Proceedings, Part X, pages 561–580,2018. 8](https://arxiv.longhoe.net/abs/1803.06815)
-
-23.[S. Mehta, M. Rastegari, L. G. Shapiro, and H. Hajishirzi. Espnetv2: A light-weight, power efficient, and general purpose convolutional neural network. CoRR, abs/1811.11431, 2018.](https://arxiv.longhoe.net/abs/1811.11431)
-
-24.[H. Park, Y. Yoo, G. Seo, D. Han, S. Yun, and N. Kwak.Concentrated-comprehensive convolutions for lightweightsemantic segmentation. CoRR, abs/1812.04920, 2018. 8](https://www.researchgate.net/publication/329607971_Concentrated-Comprehensive_Convolutions_for_lightweight_semantic_segmentation)
-
-25.[H. Pham, M. Y. Guan, B. Zoph, Q. V. Le, and J. Dean.Efficient neural architecture search via parameter sharing.CoRR, abs/1802.03268, 2018. 2](https://arxiv.longhoe.net/abs/1802.03268)
-
-26.[P. Ramachandran, B. Zoph, and Q. V. Le. Searching for activation functions. CoRR, abs/1710.05941, 2017. 2, 4](https://arxiv.longhoe.net/abs/1710.05941)
-
-27.[F. N. Iandola, M. W. Moskewicz, K. Ashraf, S. Han, W. J.Dally, and K. Keutzer. Squeezenet: Alexnet-level accuracy  with 50x fewer parameters and <1mb model size. CoRR,abs/1602.07360, 2016. 2](https://arxiv.longhoe.net/abs/1602.07360)
-
-28.[J. Wu, C. Leng, Y. Wang, Q. Hu, and J. Cheng. Quantized convolutional neural networks for mobile devices. CoRR,abs/1512.06473, 2015. 2](https://openaccess.thecvf.com/content_cvpr_2016/html/Wu_Quantized_Convolutional_Neural_CVPR_2016_paper.html)
-
-29.[S. Zhou, Z. Ni, X. Zhou, H. Wen, Y. Wu, and Y. Zou. Dorefanet: Training low bitwidth convolutional neural networks with low bitwidth gradients. CoRR, abs/1606.06160, 2016.](https://arxiv.longhoe.net/abs/1606.06160)
-
-30.[Pavan Kumar Anasosalu Vasu, James Gabriel, Jeff Zhu, Oncel Tuzel, and Anurag Ranjan. Fastvit: A fast hybrid vision transformer using structural reparameterization. arXiv preprint arXiv:2303.14189, 2023.](https://arxiv.org/pdf/2303.14189.pdf)
-
-

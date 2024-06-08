@@ -57,10 +57,6 @@ title: AISystem & AIInfra
 :caption: === 一. AI 系统概述 ===
 
 01Introduction/README
-01Introduction/01Present
-01Introduction/02Develop
-01Introduction/03Architecture
-01Introduction/04Sample
 ```
 
 <!-- ## 二. AI 硬件体系结构 -->
@@ -127,12 +123,6 @@ title: AISystem & AIInfra
 :maxdepth: 1
 
 00Others/README
-00Others/Instruments
-00Others/Install
-00Others/Inference
-00Others/Glossary
-00Others/Editors
-00Others/Criterion
 ```
 
 ## 备注

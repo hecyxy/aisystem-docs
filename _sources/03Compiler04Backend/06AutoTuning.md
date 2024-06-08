@@ -30,7 +30,7 @@ DNN 部署的硬件平台越来越多样化，包括 CPU、GPU、FPGA 和 ASIC�
 
 4.  **反馈学习**：根据性能评估的结果，调整搜索策略，进一步优化参数选择。
 
-自动调优可以显著提高 AI 应用的运行效率，尤其是在深度学习等计算密集型任务中。然而，由于 AI 应用的多样性和复杂性，自动调优仍然是一个活跃的研究领域，研究人员和工程师们正在不断探索更高效、更智能的调优方法。在自动调优中，TVM 是走在前列的 AI 编译器，其自动调优系统已经历经三代，本章将介绍 TVM 的这三代自动调优系统。
+自动调优可以显著提高 AI 应用的运行效率，尤其是在深度学习等计算密集型任务中。然而，由于 AI 应用的多样性和复杂性，自动调优仍然是一个活跃的研究领域，研究人员和工程师们正在不断探索更高效、更智能的调优方法。在自动调优中，TVM 是走在前列的 AI 编译器，其自动调优系统已经历经三代，本节将介绍 TVM 的这三代自动调优系统。
 
 ## AutoTVM 介绍
 
@@ -236,9 +236,3 @@ Meta Schedule 提供了多种内置的探索策略，可以详尽或高效地进
 <html>
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=307179697&bvid=BV1uA411D7JF&cid=949212038&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
-
-## 参考文献
-
-[^1]:Chen T, Zheng L, Yan E, et al. Learning to optimize tensor programs[J]. Advances in Neural Information Processing Systems, 2018, 31.
-[^2]:Zheng L, Jia C, Sun M, et al. Ansor: Generating {High-Performance} tensor programs for deep learning[C]//14th USENIX symposium on operating systems design and implementation (OSDI 20). 2020: 863-879.
-[^3]:https://github.com/apache/tvm-rfcs/blob/main/rfcs/0005-meta-schedule-autotensorir.md
