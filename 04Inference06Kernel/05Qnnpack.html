@@ -6,17 +6,17 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="QNNPACK 算法" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference06Kernel/05Qnnpack.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="算法介绍: QNNPACK(Quantized Neural Networks PACKage) 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络加速库 Marat Dukhan 于 2019 年离开 Meta ..." />
+<meta property="og:description" content="QNNPACK（Quantized Neural Networks PACKage 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络加速库。本节将会深入介绍 QNNPACK 算法的实现过程。======== 需要..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="算法介绍: QNNPACK(Quantized Neural Networks PACKage) 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优..." />
-<meta name="description" content="算法介绍: QNNPACK(Quantized Neural Networks PACKage) 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络加速库 Marat Dukhan 于 2019 年离开 Meta ..." />
+<meta property="og:image:alt" content="QNNPACK（Quantized Neural Networks PACKage 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络..." />
+<meta name="description" content="QNNPACK（Quantized Neural Networks PACKage 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络加速库。本节将会深入介绍 QNNPACK 算法的实现过程。======== 需要..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>QNNPACK 算法 &#8212; AI System</title>
@@ -25,19 +25,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -53,9 +53,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=182be0a6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="../_static/documentation_options.js?v=aabdd393"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -82,11 +82,11 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="推理内存布局" href="06Memory.html" />
-    <link rel="prev" title="Winograd 算法" href="04Winograd.html" />
+    <link rel="prev" title="Winograd 算法(DONE)" href="04Winograd.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 08, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 10, 2024"/>
 
 <link
   rel="alternate"
@@ -104,27 +104,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -146,8 +142,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -242,18 +243,20 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 一. AI 系统概述 ===</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../01Introduction/README.html">课程概述(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01Introduction/README.html">课程概述(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01Introduction/00Introduction.html">本节内容(DONE)</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="../01Introduction/01Present.html">AI 的历史与现状(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01Introduction/02Develop.html">AI 发展驱动力(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01Introduction/03Architecture.html">AI 系统全栈架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01Introduction/04Sample.html">AI 系统与程序代码关系(DONE)</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 二. AI 硬件体系结构 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02Hardware/README.html">AI 硬件体系结构概述(DONE)</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware01Foundation/README.html">AI 计算体系概述(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware01Foundation/README.html">AI 计算体系概述(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/01Introduction.html">课程内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/02ArchSlim.html">AI 计算模式（上）(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/03MobileParallel.html">AI 计算模式（下）(DONE)</a></li>
@@ -261,25 +264,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/05Matrix.html">核心计算之矩阵乘(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/06BitWidth.html">计算之比特位宽(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware03GPUBase/README.html">图形处理器 GPU(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware03GPUBase/README.html">图形处理器 GPU(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/01Works.html">GPU 工作原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/02Principle.html">为什么 GPU 适用于 AI(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/03Concept.html">GPU 架构与 CUDA 关系(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/04History.html">GPU 架构回顾(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware04NVIDIA/README.html">NVIDIA GPU 详解(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware04NVIDIA/README.html">英伟达 GPU 详解(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/01BasicTC.html">Tensor Core 基本原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/02HistoryTC.html">Tensor Core 架构演进(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/03DeepTC.html">Tensor Core 深度剖析(DONE)</a></li>
@@ -287,21 +290,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/05DeepNvlink.html">NVLink 原理剖析(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/06DeepNvswitch.html">NV Switch 深度解析(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪</a></li>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪(DONE)</a></li>
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD &amp; SIMT 与芯片架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">SIMD &amp; SIMT 与 CUDA 关系</a></li>
@@ -309,12 +312,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 对 AI 芯片思考</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考(DONE)</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编译器 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../03Compiler/README.html">AI 编译原理概述(DONE)</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler01Tradition/README.html">传统编译器(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler01Tradition/README.html">传统编译器(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/01Introduction.html">编译器基础介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/02History.html">传统编译器发展(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/03GCC.html">GCC 主要特征(DONE)</a></li>
@@ -324,15 +327,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/07LLVMFrontend.html">LLVM 前端和优化层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/08LLVMBackend.html">LLVM 后端代码生成(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
@@ -344,8 +347,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化(DONE)</a></li>
@@ -353,20 +356,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 四. 推理系统&amp;引擎 ===</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04Inference/README.html">推理系统&amp;引擎概述(DONE)</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet 系列</a></li>
@@ -379,8 +382,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/10MobileFormer.html">MobileFormer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/11EfficientFormer.html">EfficientFormer</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
@@ -388,84 +391,85 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Optimize/README.html">模型优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Optimize/README.html">模型优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/01Optimizer.html">计算图优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/02Basic.html">离线图优化技术</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/03Extend.html">通用图优化技术</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Kernel 优化</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">Kernel 优化架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Im2col.html">Im2Col 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04Winograd.html">Winograd 算法</a></li>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Kernel 优化</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">Kernel 层架构(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02Conv.html">卷积操作原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Im2col.html">Im2Col 算法(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04Winograd.html">Winograd 算法(DONE)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">QNNPACK 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06Memory.html">推理内存布局</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07Nc4hw4.html">nc4hw4 内存排布</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08Others.html">汇编与循环优化</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 五. AI 框架核心模块 ===</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述(DONE)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">内容介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTroch 微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/04Dispatch.html">计算图的调度与执行(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/05ControlFlow.html">计算图的控制流实现(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/06StaticGraph.html">动态图与静态图转换(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图挑战与未来(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ModelParallel.html">模型并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/04HybridParallel.html">混合并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05Summary.html">分布式训练总结</a></li>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ZeRODP.html">数据并行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/04TensorParallel.html">张量并行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05PipelineParallel.html">流水并行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/06HybridParallel.html">混合并行(DONE)</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 附录内容 ===</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../00Others/README.html">附录(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../00Others/README.html">附录(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../00Others/Editors.html">编辑和作者(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../00Others/Instruments.html">书写工具(DONE)</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../00Others/Install.html">本地部署(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../00Others/Install.html">本地部署(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../00Others/Inference.html">参考链接(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../00Others/Glossary.html">术语表(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../00Others/Criterion.html">书写规范(DONE)</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -481,7 +485,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -490,7 +494,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -678,18 +682,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">算法介绍</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#im2col-gemm">传统 im2col + GEMM 方法</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-indirect-convolution-algorithm">The Indirect Convolution Algorithm（间接卷积算法）</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization">神经网络量化（Quantization）</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">间接卷积算法的计算划分</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repacking">Repacking（内存重新组织）</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indirection-buffer">Indirection Buffer（间接缓冲区）</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gemm">与 GEMM 算法的对比</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">QNNPACK 算法介绍</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#im2col-gemm">Im2Col + GEMM 回顾</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">间接卷积算法</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">神经网络量化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">对计算进行划分</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repacking">Repacking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indirection-buffer">Indirection Buffer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gemm">与 GEMM 算法的对比</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -701,41 +707,54 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
+<!--Copyright ©  适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="qnnpack">
 <h1>QNNPACK 算法<a class="headerlink" href="#qnnpack" title="Link to this heading">#</a></h1>
+<p>QNNPACK（Quantized Neural Networks PACKage 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络加速库。本节将会深入介绍 QNNPACK 算法的实现过程。</p>
+<p>======== 需要继续优化，图片请引用 PPT 里面的图片，不要网上找，有好几个图片 PPT 都已经重绘优化过的。
+======== 具体的计算公式和计算内容详细展开请参考连接，进行补充哈，特别是 Repacking 和 Indirection 部分：
+https://aijishu.com/a/1060000000116424
+https://zhuanlan.zhihu.com/p/81026071
+https://zhenhuaw.me/blog/2019/reveal-qnnpack-implementation.html</p>
 <section id="id1">
-<h2>算法介绍<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>QNNPACK(Quantized Neural Networks PACKage) 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络加速库</p>
+<h2>QNNPACK 算法介绍<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>Marat Dukhan 于 2019 年离开 Meta 来到谷歌之后，发表了一篇名为 The Indirect Convolution Algorithm 的文章，揭秘了 QNNPack 加速库中针对矩阵卷积运算的核心算法，即如文章标题所示的 The Indirect Convolution Algorithm（间接卷积算法）。</p>
-<p>在本节中，笔者将结合 The Indirect Convolution Algorithm 这篇论文以及 QNNPack 在开源时同期发布的一篇技术性博客 QNNPACK: Open source library for optimized mobile deep learning，带领大家领略间接卷积算法的魅力。</p>
-</section>
+<p>在本节中，将结合 The Indirect Convolution Algorithm 这篇论文以及 QNNPack 在开源时同期发布的一篇技术性博客 QNNPACK: Open source library for optimized mobile deep learning，带领大家领略间接卷积算法的魅力。</p>
 <section id="im2col-gemm">
-<h2>传统 im2col + GEMM 方法<a class="headerlink" href="#im2col-gemm" title="Link to this heading">#</a></h2>
-<p>在介绍简介卷积算法前，先回顾一下传统的矩阵卷积运算方法。</p>
-<p>简单的 1×1 卷积可以直接映射到矩阵-矩阵乘法，但对于具有较大内核、填充或下采样（步幅）的卷积，则不是这种情况。这些更复杂的卷积可以通过结合 im2col 算法与 GEMM 算法来实现：即将四维的输入图像按照卷积窗尺寸进行重排成为一个二维的矩阵，同时将卷积核进行展开重排也成为一个二维的矩阵，将卷积操作转换为两个矩阵的乘法，直接使用 GEMM 方式完成矩阵乘即可。im2col + GEMM 方法能成功的原因本质上是其拆解后忽略内存复用后的计算过程等价于矩阵乘。</p>
-<p>现假设已经完成 im2col 的转换，将卷积已经转换为如下图所示的矩阵乘法。B 矩阵为 kernel，尺寸为 N × K；A 矩阵为 feature map，尺寸为 K × M；结果矩阵 C 尺寸为 N × M。要想得到 C 矩阵中某一个位置的数据，需要计算 B 矩阵中对应列与 A 矩阵中对应行相乘的结果。</p>
-<p><img alt="矩阵乘法示意图" src="../_images/QNNPACK07.png" /></p>
+<h3>Im2Col + GEMM 回顾<a class="headerlink" href="#im2col-gemm" title="Link to this heading">#</a></h3>
+<p>在介绍 QNNPACK 算法前，先回顾一下传统的矩阵卷积运算方法。</p>
+<p>简单的 1×1 卷积可以直接映射到矩阵-矩阵乘法，但对于具有较大内核、填充或下采样（步幅）的卷积，则不是这种情况。这些更复杂的卷积可以通过结合 Im2Col 算法与 GEMM 算法来实现：即将四维的输入图像按照卷积窗尺寸进行重排成为一个二维的矩阵，同时将卷积核进行展开重排也成为一个二维的矩阵，将卷积操作转换为两个矩阵的乘法，直接使用 GEMM 方式完成矩阵乘即可。Im2Col + GEMM 方法能成功的原因本质上是其拆解后忽略内存复用后的计算过程等价于矩阵乘。</p>
+<p>现假设已经完成 Im2Col 的转换，将卷积已经转换为如下图所示的矩阵乘法。B 矩阵为 kernel，尺寸为 N × K；A 矩阵为 feature map，尺寸为 K × M；结果矩阵 C 尺寸为 N × M。要想得到 C 矩阵中某一个位置的数据，需要计算 B 矩阵中对应列与 A 矩阵中对应行相乘的结果。</p>
+<p><img alt="矩阵乘法示意图" src="../_images/QNNPACK07.png" />
+======== 图片命名规范，按照从 01 到最后一张图片，应该是 05QNNPACK01.png 以此类推</p>
 <p>一般经过向量化优化后，同时可以并行计算多个结果数据，则一次计算一块 MR × NR 的小块。</p>
-<p><img alt="向量化优化后计算 MR×NR" src="../_images/QNNPACK08.png" /></p>
-<p>在分块概念出现后，传统 im2col+GEMM 方法一般是在 K 维度上进行拆分，在一次计算核中仅计算 K 维的局部，最后通过累加得到结果数据。这样的话，在每次计算核的处理中，都会发生对输出的加载和存储，即要将本次计算产生的部分和累加到输出中。</p>
-<p><img alt="传统 im2col + GEMM 方法" src="../_images/QNNPACK01.png" /></p>
-<p>使用传统 im2col + GEMM 存在几个明显的缺陷：</p>
-<p><strong>im2col 消耗空间较大</strong>：使用 im2col 方法将输入图像以及卷积核展开成为二维中间矩阵会消耗大量内存空间。</p>
-<p><strong>GEMM 输入缓存空间较大</strong>：在面对大卷积核时，使用 GEMM 进行通用矩阵乘时需要缓存大量的行数据，就算采用分割方法同样不可避免。</p>
-<p>针对以上缺陷，Marat Dukhan 提出的间接卷积算法都能较好地解决。</p>
+<p><img alt="向量化优化后计算 MR×NR" src="../_images/QNNPACK08.png" />
+======== 换成 PPT 里面的图，PPT 右键保存。</p>
+<p>在分块概念出现后，传统 Im2Col+GEMM 方法一般是在 K 维度上进行拆分，在一次计算核中仅计算 K 维的局部，最后通过累加得到结果数据。这样的话，在每次计算核的处理中，都会发生对输出的加载和存储，即要将本次计算产生的部分和累加到输出中。</p>
+<p><img alt="传统 Im2Col + GEMM 方法" src="../_images/QNNPACK01.png" /></p>
+<p>使用传统 Im2Col + GEMM 存在几个明显的缺陷：</p>
+<ul class="simple">
+<li><p><strong>Im2Col 消耗空间较大</strong>：使用 Im2Col 方法将输入图像以及卷积核展开成为二维中间矩阵会消耗大量内存空间。</p></li>
+<li><p><strong>GEMM 输入缓存空间较大</strong>：在面对大卷积核时，使用 GEMM 进行通用矩阵乘时需要缓存大量的行数据，就算采用分割方法同样不可避免。</p></li>
+</ul>
+<p>针对以上缺陷，Marat Dukhan 提出的间接卷积算法（即 QNNPACK）都能较好地解决。</p>
 </section>
-<section id="the-indirect-convolution-algorithm">
-<h2>The Indirect Convolution Algorithm（间接卷积算法）<a class="headerlink" href="#the-indirect-convolution-algorithm" title="Link to this heading">#</a></h2>
-<p>The Indirect Convolution Algorithm（间接卷积算法）是 QNNPACK 中的核心算法。QNNPACK 原本推出的目的是解决量化问题，但后续发现在非量化的矩阵卷积运算中通用能发挥强大的性能。</p>
-<section id="quantization">
-<h3>神经网络量化（Quantization）<a class="headerlink" href="#quantization" title="Link to this heading">#</a></h3>
-<p>神经网络的计算通常依赖于单精度浮点数（FP32）。然而，随着深度学习算法的不断发展，神经网络对计算资源和内存的需求急剧增加。这种需求的增加使得许多移动设备无法有效地运行复杂的神经网络模型。为了解决这个问题，量化（Quantization）技术被引入到神经网络中。量化的核心思想是将神经网络中的权重参数和计算从 FP32 转换为低精度的整型数，例如 INT8。通过这种转换，计算速度和内存利用效率得到了显著提升。</p>
+</section>
+<section id="id2">
+<h2>间接卷积算法<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>间接卷积算法（The Indirect Convolution Algorithm）是 QNNPACK 中的核心算法。QNNPACK 原本推出的目的是解决量化问题，但后续发现在非量化的矩阵卷积运算中通用能发挥强大的性能。</p>
+<section id="id3">
+<h3>神经网络量化<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>神经网络的计算通常依赖于单精度浮点数（FP32）。然而，随着深度学习算法的不断发展，神经网络对计算资源和内存的需求急剧增加。这种需求的增加使得许多移动设备无法有效地运行复杂的神经网络模型。</p>
+<p>为了解决这个问题，量化（Quantization）技术被引入到神经网络中。量化的核心思想是将神经网络中的权重参数和计算从 FP32 转换为低精度的整型数，例如 FP16/FP8/INT8。通过这种转换，计算速度和内存利用效率得到了显著提升。</p>
 <p>线性量化的核心公式涉及 3 个参数：</p>
-<p><strong>缩放因子（Scale）</strong>:将浮点数值缩放到整数值范围的比例。</p>
-<p><strong>零点（Zero Point）</strong>:量化过程中用来调整数值的偏移量。</p>
-<p><strong>量化值（Quantized Value）</strong>:最终的整数表示形式。</p>
+<ul class="simple">
+<li><p><strong>缩放因子（Scale）</strong>:将浮点数值缩放到整数值范围的比例。</p></li>
+<li><p><strong>零点（Zero Point）</strong>:量化过程中用来调整数值的偏移量。</p></li>
+<li><p><strong>量化值（Quantized Value）</strong>:最终的整数表示形式。</p></li>
+</ul>
 <p>量化公式即可以表示如下：</p>
-<p>给定一个浮点数 𝑟 和相应的缩放因子 scale 和零点 zeropoint，量化过程可以表示为：</p>
+<p>给定一个浮点数 r 和相应的缩放因子 scale 和零点 zeropoint，量化过程可以表示为：</p>
 <div class="math notranslate nohighlight">
 \[ q = round(r/scale) + zeropoint \]</div>
 <p>其中，q 是量化后的整数值，round() 表示四舍五入操作。</p>
@@ -754,64 +773,76 @@ document.write(`
 \[ r[i] = scale × (q[i] − zeropoint) \]</div>
 <p>其中，scale 是一个正的浮点数，zeropoint 是一个 8 位无符号整数，和 q[i]一样。</p>
 </section>
-<section id="id2">
-<h3>间接卷积算法的计算划分<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>虽然 QNNPACK 利用了像其他 BLAS 库一样的 PDOT 微内核（Parallel Dot Product，是一种专门用于加速矩阵乘法运算的小型计算核心，它在处理低精度整数如 8 位整数和矩阵乘法时表现出色，特别是在移动设备和资源受限的硬件环境中；PDOT 微内核的设计目标是高效利用硬件资源，实现低精度整数矩阵乘法的高效计算），但其对具有 8 位元素的量化张量和移动 AI 使用案例的关注带来了非常不同的性能优化视角。大多数 BLAS 库针对科学计算使用案例，处理的矩阵通常由成千上万的双精度浮点元素组成，而 QNNPACK 的输入矩阵来自低精度、移动设备特定的计算机视觉模型，具有非常不同的维度。</p>
+<section id="id4">
+<h3>对计算进行划分<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>虽然 QNNPACK 利用了像其他 BLAS 库一样的 PDOT 微内核，但其对具有 8 位元素的量化张量和移动 AI 使用案例的关注带来了非常不同的性能优化视角。大多数 BLAS 库针对科学计算使用案例，处理的矩阵通常由成千上万的双精度浮点元素组成，而 QNNPACK 的输入矩阵来自低精度、移动设备特定的计算机视觉模型，具有非常不同的维度。</p>
+<blockquote>
+<div><p>PDOT：Parallel Dot Product，是一种专门用于加速矩阵乘法运算的小型计算核心，它在处理低精度整数如 8 位整数和矩阵乘法时表现出色，特别是在移动设备和资源受限的硬件环境中。</p>
+<p>PDOT 微内核的设计目标是高效利用硬件资源，实现低精度整数矩阵乘法的高效计算。</p>
+</div></blockquote>
 <p>移动架构的约束规定 MR 和 NR 不能超过 8。因此，即使在具有 1024 通道的最大模型中，PDOT 微内核中读取的整个内存块最多为 16KB，这甚至可以适应超低端移动核心的一级缓存。这标志着 QNNPACK 与其他 GEMM 实现之间的重要区别：其他库会重新打包 A 和 B 矩阵，以更好地利用缓存层次结构，希望通过大量计算来摊销打包开销，而 QNNPACK 则针对 A 和 B 面板可以适应 L1 缓存的情况进行优化。因此，<strong>它旨在消除所有非计算必需的内存转换</strong>。</p>
-<p>间接卷积算法的计算同样也是基于对输出的切分，计算 MR × NR 的小块。与传统 GEMM 方法不同的是，其将将整个 K 维全部在计算 Kernel 中处理完，消除了输出部分和的访存。这里所说的「将整个 K 维全部」并不是指 K 维不进行拆分，而是指拆分后不和其他维度交换，实际计算中 K 维会以 2^𝑛 为基础进行拆分。</p>
+<p>间接卷积算法的计算同样也是基于对输出的切分，计算 MR × NR 的小块。与传统 GEMM 方法不同的是，其将将整个 K 维全部在计算 Kernel 中处理完，消除了输出部分和的访存。这里所说的「将整个 K 维全部」并不是指 K 维不进行拆分，而是指拆分后不和其他维度交换，实际计算中 K 维会以 <span class="math notranslate nohighlight">\(2^n\)</span> 为基础进行拆分。</p>
 <p><img alt="间接卷积算法示意图" src="../_images/QNNPACK02.png" /></p>
 <p>“消除所有非计算必需的内存转换”即为间接卷积算法的核心特定，这样的特性同样也注定了它在非量化任务中同样能起到显著的优化作用。</p>
 </section>
 <section id="repacking">
-<h3>Repacking（内存重新组织）<a class="headerlink" href="#repacking" title="Link to this heading">#</a></h3>
+<h3>Repacking<a class="headerlink" href="#repacking" title="Link to this heading">#</a></h3>
 <p>对内存重新组织（Repacking）可以使得相关联的数据更加靠近，这样在访问一个数据时，相关的数据更有可能已经在缓存中，从而减少缓存未命中的次数。</p>
 <p>在传统情况下，由于 K 可能很大，需要对输入内存进行重新组织，防止相邻的访存引起高速缓存冲突，但是这样的操作是需要额外开销的，具体来讲一般分为以下两种情况：</p>
 <p><strong>矩阵 A 的 Repacking</strong>:由于矩阵 A 包含卷积输入数据，并且每次推理运行时都会改变，因此每次运行都需要重打包，这会导致额外的开销。</p>
 <p><strong>矩阵 B 的 Repacking</strong>:矩阵 B 包含静态权重，可以一次性地转换为任何内存布局，这样在后续计算中可以更高效地使用缓存。</p>
 <p>QNNPACK 通过消除不必要的 Repacking，优化了内存使用率并提高计算效率，如下图所示。具体来讲通过如下几个方面来实现。</p>
 <p><img alt="Repacking 示意图" src="../_images/QNNPACK09.png" /></p>
-<p><strong>充分利用缓存</strong>：由于 QNNPACK 适配的是移动设备量化神经网络，K 一般来说较小，A 和 B 的面板总能装入 L1 缓存中，因此不需要像传统实现那样对 A 和 B 的面板进行分割和 Repacking。</p>
-<p><strong>消除 A 的 Repacking</strong>：由于 A 的数据在每次推理运行时都变化，传统实现为了提高缓存利用率和微内核效率会 Repacking A。但是，QNNPACK 通过确保整个面板适合 L1 缓存，避免了这种 Repacking，节省了每次运行的开销。</p>
-<p><strong>避免缓存关联性问题</strong>：传统实现中的 Repacking 部分是为了避免缓存关联性问题，即如果读取的行被大步长分隔，可能会导致不同行的元素落入同一缓存集合中，导致性能下降。而 QNNPACK 通过确保面板适合 L1 缓存，避免了这种情况。</p>
+<p>其带来的好处主要有以下三个方面：</p>
+<ul class="simple">
+<li><p><strong>充分利用缓存</strong>：由于 QNNPACK 适配的是移动设备量化神经网络，K 一般来说较小，A 和 B 的面板总能装入 L1 缓存中，因此不需要像传统实现那样对 A 和 B 的面板进行分割和 Repacking。</p></li>
+<li><p><strong>消除 A 的 Repacking</strong>：由于 A 的数据在每次推理运行时都变化，传统实现为了提高缓存利用率和微内核效率会 Repacking A。但是，QNNPACK 通过确保整个面板适合 L1 缓存，避免了这种 Repacking，节省了每次运行的开销。</p></li>
+<li><p><strong>避免缓存关联性问题</strong>：传统实现中的 Repacking 部分是为了避免缓存关联性问题，即如果读取的行被大步长分隔，可能会导致不同行的元素落入同一缓存集合中，导致性能下降。而 QNNPACK 通过确保面板适合 L1 缓存，避免了这种情况。</p></li>
+</ul>
 </section>
 <section id="indirection-buffer">
-<h3>Indirection Buffer（间接缓冲区）<a class="headerlink" href="#indirection-buffer" title="Link to this heading">#</a></h3>
-<p>在 QNNPACK 中，Marat Dukhan 实现了一种更高效的算法。与其将卷积输入转换以适应矩阵-矩阵乘法的实现，不如调整微内核的实现，使其能够实时进行 im2col 转换。间接卷积算法的有效工作以来一个关键的前提——网络连续运行时，输入张量的内存地址保持不变。这一特性其实比较容易满足，即使地址真的需要变化，也可以将其拷贝到固定的内存区域中。</p>
-<p>间接卷积算法没有将实际数据从输入张量复制到 im2col 缓冲区，而是设置了一个间接缓冲区，其中包含指向用于计算每个输出像素的输入像素行的指针。同时，此算法还修改了矩阵-矩阵乘法微内核，使其从间接缓冲区加载指向虚拟矩阵 A 行的指针，这个缓冲区通常比 im2col 缓冲区小得多。此外，如果输入张量的内存位置在推理运行之间不变，间接缓冲区可以在初始化时设置一次指向输入行的指针，然后在多个推理运行中重复使用。从实验结果可以观察到，使用间接缓冲区的微内核不仅消除了 im2col 转换的开销，而且性能稍微优于矩阵-矩阵乘法微内核（这可能是因为在计算不同的输出像素时重复使用了输入行）。</p>
+<h3>Indirection Buffer<a class="headerlink" href="#indirection-buffer" title="Link to this heading">#</a></h3>
+<p>在 QNNPACK 中，Marat Dukhan 实现了一种更高效的算法。与其将卷积输入转换以适应矩阵-矩阵乘法的实现，不如调整微内核的实现，使其能够实时进行 Im2Col 转换。间接卷积算法的有效工作以来一个关键的前提——网络连续运行时，输入张量的内存地址保持不变。这一特性其实比较容易满足，即使地址真的需要变化，也可以将其拷贝到固定的内存区域中。</p>
+<p>间接卷积算法没有将实际数据从输入张量复制到 Im2Col 缓冲区，而是设置了一个间接缓冲区（Indirection Buffer），其中包含指向用于计算每个输出像素的输入像素行的指针。同时，此算法还修改了矩阵-矩阵乘法微内核，使其从间接缓冲区加载指向虚拟矩阵 A 行的指针，这个缓冲区通常比 Im2Col 缓冲区小得多。</p>
+<p>此外，如果输入张量的内存位置在推理运行之间不变，间接缓冲区可以在初始化时设置一次指向输入行的指针，然后在多个推理运行中重复使用。从实验结果可以观察到，使用间接缓冲区的微内核不仅消除了 Im2Col 转换的开销，而且性能稍微优于矩阵-矩阵乘法微内核（这可能是因为在计算不同的输出像素时重复使用了输入行）。</p>
 <p><img alt="有间接缓冲区与直接 GEMM 对比" src="../_images/QNNPACK03.png" /></p>
-<p>间接缓冲区是一个指向输入像素行的指针缓冲区。每行包含 C 个像素，并且这些行可以选择性地跨步。对于每个输出像素位置和每个内核元素，间接缓冲区包含一个指向输入像素行的指针，该行的像素将与相应内核元素的滤波器权重行进行卷积，以生成相应的输出像素。对于非单位内核的卷积，通常使用隐式填充。在带有隐式填充的卷积中，在计算卷积之前，输入张量在空间维度上被隐式地用零填充。为了处理填充卷积，间接卷积算法需要一个显式的零向量——一个由 C 个元素初始化为零的常量向量。显式零向量不需要与输入张量连续，并且可以在多个卷积操作之间共享。在初始化间接缓冲区时，超出输入张量范围的输入行的指针将被替换为指向显式零向量的指针。</p>
+<p>间接缓冲区是一个指向输入像素行的指针缓冲区。每行包含 C 个像素，并且这些行可以选择性地跨步。对于每个输出像素位置和每个内核元素，间接缓冲区包含一个指向输入像素行的指针，该行的像素将与相应内核元素的滤波器权重行进行卷积，以生成相应的输出像素。对于非单位内核的卷积，通常使用隐式填充。在带有隐式填充的卷积中，在计算卷积之前，输入张量在空间维度上被隐式地用零填充。</p>
+<p>为了处理填充卷积，间接卷积算法需要一个显式的零向量——一个由 C 个元素初始化为零的常量向量。显式零向量不需要与输入张量连续，并且可以在多个卷积操作之间共享。在初始化间接缓冲区时，超出输入张量范围的输入行的指针将被替换为指向显式零向量的指针。</p>
 <p>间接缓冲区依赖于多个参数：输入、输出和滤波器张量的形状，卷积步幅、扩张和隐式填充，以及指向输入张量和显式零张量的指针，以及输入张量中像素行的步幅。这些参数可以根据其变化频率及其对间接缓冲区的影响分为几类：</p>
-<p><em>卷积步幅、扩张、内核大小、隐式填充、输入通道数和输出通道数</em>：这些是神经网络模型的参数，一旦模型实例化后，它们实际上是不可变的。</p>
-<p><em>输入或输出张量的高度和宽度</em>：这些输入参数的变化需要完全重新初始化间接缓冲区。然而，对于大多数类型的模型，特别是在生产环境中，这种变化是罕见的。</p>
-<p><em>批量大小</em>：批量大小的变化仅需要对先前未初始化的批次索引部分重新初始化间接缓冲区。</p>
-<p><em>输入张量或显式零向量的指针</em>：这些输入参数的变化需要完全重新初始化间接缓冲区。为了避免这种开销，实现卷积的高级框架可以保证在没有形状变化的情况下，张量具有持久位置。</p>
-<p>下图展示了间接卷积算法的基本工作流程。</p>
+<ul class="simple">
+<li><p><strong>卷积步幅、扩张、内核大小、隐式填充、输入通道数和输出通道数</strong>：这些是神经网络模型的参数，一旦模型实例化后，它们实际上是不可变的。</p></li>
+<li><p><strong>输入或输出张量的高度和宽度</strong>：这些输入参数的变化需要完全重新初始化间接缓冲区。然而，对于大多数类型的模型，特别是在生产环境中，这种变化是罕见的。</p></li>
+<li><p><strong>批量大小</strong>：批量大小的变化仅需要对先前未初始化的批次索引部分重新初始化间接缓冲区。</p></li>
+<li><p><strong>输入张量或显式零向量的指针</strong>：这些输入参数的变化需要完全重新初始化间接缓冲区。为了避免这种开销，实现卷积的高级框架可以保证在没有形状变化的情况下，张量具有持久位置。</p></li>
+</ul>
+<p>下图展示了间接卷积算法的基本工作流程：</p>
+<p><img alt="间接卷积算法工作流程图" src="../_images/QNNPACK04.png" /></p>
 <p>左侧部分表示多个输入使用相同的输入缓冲区（Input Buffer），间接卷积算法会在该输入缓冲区基础上构建间接缓冲区。如图中右侧在网络运行时，每次计算出 M × N 规模的输出，其中 M 将视为 OH × OW 视作一维后的向量规模化。一般 M × N 的尺寸在量化神经网络中是 4 × 4、4 × 8 以及 8 × 8。在计算 M×N 规模大小输出时，经由间接缓冲区取出对应输入缓冲区数据，并取出权重，计算出结果，整体计算过程等价于计算 M×K 和 K×N 矩阵乘。</p>
 <p>在实现过程中，软件的执行过程分为两部分：在准备阶段，需要执行加载模型配置输入缓冲区以及重排权重使其内存布局适用于后续计算两个工作；在运行阶段对于每个输入执行 (𝑂𝐻∗𝑂𝑊/𝑀)∗(𝑂𝐶/𝑁) 次循环，每次使用 GEMM 计算 𝑀×𝑁 大小输出。</p>
-<p><img alt="间接卷积算法工作流程图" src="../_images/QNNPACK04.png" /></p>
-<p>现对间接缓冲区布局解释如下。</p>
+<p>现对间接缓冲区布局解释如下：</p>
 <p>间接缓冲区可以理解为一组卷积核大小的缓冲区，共有 𝑂𝐻×𝑂𝑊 个，每个缓冲区大小为 𝐾𝐻×𝐾𝑊 （每个缓冲区对应某个输出要使用的输入地址）。每计算一个空间位置输出，使用一个间接缓冲区；空间位置相同而通道不同的输出使用相同间接缓冲区，缓冲区中的每个指针用于索引输入中 IC 个元素。</p>
 <p>在计算时，随着输出的索引内存地址移动，选用不同的间接缓冲区，即可得到相应的输入地址。无需再根据输出目标的坐标计算要使用的输入的地址，这等同于预先计算地址。</p>
 <p>下图以 M 和 N 均为 4，KH 和 KW 均为 3 的情况做出示例。</p>
+<p><img alt="间接缓冲区布局" src="../_images/QNNPACK05.png" /></p>
 <p>当计算大小为 M × N 大小的输出时，使用的输入为卷积核在对应输入位置上滑动 M 步所覆盖的区域，输入规模为：</p>
 <div class="math notranslate nohighlight">
 \[ KH × (M + 2(KW-1)) × IC \]</div>
 <p>这些输入内存由 M 个间接缓冲区中的指针索引，共有 M × KH × KW 个。</p>
 <p>图中将平面缓冲区展示为三维的形式（引入 IC 维度），意在说明间接缓冲区的每个指针可索引 IC 个输入元素，而每个间接缓冲区索引的内容即为与权重对应的输入内存区域。</p>
-<p>间接缓冲区如下图中部下方的排布图所示。 A、B、C、D 四个缓冲区内部相同空间位置的指针被组织到了一起并横向排布。值得注意的是，图例中 Stride 为 1，当 Stride 不为 1 时，重新组织后 A、B、C、D 相同空间的坐标（对应于在输入的坐标）不一定是连续的，相邻的空间位置横向坐标相差 strdie 大小。</p>
-<p><img alt="间接缓冲区布局" src="../_images/QNNPACK05.png" /></p>
+<p>间接缓冲区如下图中部下方的排布图所示。A、B、C、D 四个缓冲区内部相同空间位置的指针被组织到了一起并横向排布。值得注意的是，图例中 Stride 为 1，当 Stride 不为 1 时，重新组织后 A、B、C、D 相同空间的坐标（对应于在输入的坐标）不一定是连续的，相邻的空间位置横向坐标相差 strdie 大小。</p>
 <p>现在来分析如何使用间接缓冲区完成计算。间接缓冲区使得可以通过指针模拟出对输入的访存。在实际运行计算尺寸为 M × N 的计算核时，会有 M 个智障扫描输入。M 个指针每次从间接缓冲区中取出 M 个地址，即对应于 M × IC 的输入内存。指针以 M × S 的形式运行，其中 S 在 IC 维度上运动。此部分输入扫描完毕后，这 M 个指针从间接缓冲区中继续取出相应部分的指针，继续对下一轮 M × IC 输入内存进行遍历，每次计算出输出部分的大小为 1/(KH × KW)。当这个过程运行 KH × KW 次后即得到了 M × N 的输出。</p>
-<p>上述 M 个指针不断运动扫描的过程其实就是在扫描三维输入经过 im2col 之后的矩阵，而输入缓冲区的特点就是他将对二维矩阵的扫描转为对三维张量的扫描。上述 M × IC 的内存块其实是由 M 个 1 × IC 张量组成，他们之间 W 维度的间距为步长 stride。这样一来，只需要运行</p>
+<p>上述 M 个指针不断运动扫描的过程其实就是在扫描三维输入经过 Im2Col 之后的矩阵，而输入缓冲区的特点就是他将对二维矩阵的扫描转为对三维张量的扫描。上述 M × IC 的内存块其实是由 M 个 1 × IC 张量组成，他们之间 W 维度的间距为步长 stride。这样一来，只需要运行</p>
 <div class="math notranslate nohighlight">
 \[ \[ \left\lceil \frac{OH \times OW}{M} \right\rceil \times \left\lceil \frac{OC}{N} \right\rceil \] \]</div>
 <p>次计算核，即可得到全部的输出。</p>
 </section>
+</section>
 <section id="gemm">
-<h3>与 GEMM 算法的对比<a class="headerlink" href="#gemm" title="Link to this heading">#</a></h3>
+<h2>与 GEMM 算法的对比<a class="headerlink" href="#gemm" title="Link to this heading">#</a></h2>
 <p>与基于 GEMM 的卷积算法相比，间接卷积的性能受到四个因素的影响：</p>
 <ol class="arabic simple">
-<li><p>消除非单位卷积的 im2col 转换。间接卷积方法不需要执行 im2col 转换，这减少了内存和计算开销，因为无需将输入数据块复制到 im2col 缓冲区。</p></li>
-<li><p>改进的输入行缓存。对于大内核卷积，间接卷积方法通过从同一位置读取不同输出像素的输入行，提高了缓存效率。这是因为间接 GEMM 方法可以更好地利用缓存，而传统 GEMM 方法则需要从 im2col 缓冲区的不同位置读取数据，增加了缓存未命中率。</p></li>
+<li><p>消除非单位卷积的 Im2Col 转换。间接卷积方法不需要执行 Im2Col 转换，这减少了内存和计算开销，因为无需将输入数据块复制到 Im2Col 缓冲区。</p></li>
+<li><p>改进的输入行缓存。对于大内核卷积，间接卷积方法通过从同一位置读取不同输出像素的输入行，提高了缓存效率。这是因为间接 GEMM 方法可以更好地利用缓存，而传统 GEMM 方法则需要从 Im2Col 缓冲区的不同位置读取数据，增加了缓存未命中率。</p></li>
 <li><p>指针加载的开销。间接缓冲区引入了缓冲区指针，需要从间接缓冲区加载输入数据行的指针，这比在常量步幅假设下直接计算这些指针略微增加了开销。</p></li>
 <li><p>循环效率的差异。间接卷积操作中，R × S（内核的高度和宽度）和 C（通道数）的迭代通过两个嵌套循环进行，这可能比 GEMM 操作中的单个循环（R × S × C 次迭代）效率稍低。单循环通常能更好地利用处理器的流水线和指令缓存，从而提高执行效率。</p></li>
 </ol>
@@ -819,15 +850,18 @@ document.write(`
 <p>在 The Indirect Convolution Algorithm 中作者展示了间接卷积算法、基于 GEMM 的算法以及 ResNet18 和 SqueezeNet 1.0 模型中仅 GEMM 部分的性能。可以看到间接卷积算法性能会明显优于其他算法的性能。</p>
 <p><img alt="性能对比" src="../_images/QNNPACK06.png" /></p>
 </section>
+<section id="id5">
+<h2>小结与思考<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>QNNPACK 是一种为量化神经网络设计的加速库，通过间接卷积算法优化移动设备上的计算性能。</p></li>
+<li><p>QNNPACK 利用量化技术减少模型大小和内存需求，同时通过避免不必要的内存转换和优化内存访问模式提升效率。</p></li>
+<li><p>QNNPACK 的间接卷积算法通过使用间接缓冲区和 PDOT 微内核，有效解决了传统卷积运算中的内存消耗和缓存效率问题。</p></li>
+</ul>
 </section>
-<section id="id3">
-<h2>小结与思考<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>间接卷积算法是对基于 GEMM 的卷积算法的修改，其中 GEMM 操作从间接缓冲区读取输入张量中行的地址。实验表明，这种修改后的类似 GEMM 的操作与传统的 GEMM 操作性能相似，并且表明两种算法之间的主要区别在于 GEMM 基于算法中的 im2col 缓冲区与间接卷积算法中的间接缓冲区之间的差异。与基于 GEMM 的算法中的 im2col 缓冲区不同，间接缓冲区在输入通道数上是恒定的，并且可以在卷积调用之间保持不变。间接卷积算法提供了基于 GEMM 算法的通用性，但具有更小的内存占用和消除 im2col 转换成本的优势。这些特点使间接卷积算法成为卷积操作默认实现的可行选项。间接卷积算法在本论文范围之外还具有有趣的性能特点。特别是，该算法在多线程卷积调用期间可能比基于 GEMM 的算法具有额外的性能优势。修改后的 GEMM 操作是计算密集型的，应该随着核心数量线性扩展，而基于 GEMM 的卷积中的 im2col 部分会被内存或缓存带宽所限制，其在核心数量上的扩展是次线性的。</p>
-</section>
-<section id="id4">
-<h2>本节视频<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2>本节视频<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <html>
-<iframe src="https:&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=992873862&bvid=BV1ms4y1o7ki&cid=1034431308&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
 </section>
 </section>
@@ -863,7 +897,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -872,7 +906,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Winograd 算法</p>
+        <p class="prev-next-title">Winograd 算法(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -900,18 +934,20 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">算法介绍</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#im2col-gemm">传统 im2col + GEMM 方法</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-indirect-convolution-algorithm">The Indirect Convolution Algorithm（间接卷积算法）</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization">神经网络量化（Quantization）</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">间接卷积算法的计算划分</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repacking">Repacking（内存重新组织）</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indirection-buffer">Indirection Buffer（间接缓冲区）</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gemm">与 GEMM 算法的对比</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">QNNPACK 算法介绍</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#im2col-gemm">Im2Col + GEMM 回顾</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">间接卷积算法</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">神经网络量化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">对计算进行划分</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repacking">Repacking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indirection-buffer">Indirection Buffer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gemm">与 GEMM 算法的对比</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -934,7 +970,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 08, 2024.
+  Last updated on Jun 10, 2024.
   <br/>
 </p>
   </div>
@@ -952,8 +988,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

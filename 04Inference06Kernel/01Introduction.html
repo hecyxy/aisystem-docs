@@ -6,38 +6,38 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="Kernel 优化架构" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Kernel 层架构(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference06Kernel/01Introduction.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="推理引擎的 Kernel 层通常是推理引擎中用于执行底层数学运算的组件。在深度学习模型推理过程中，需要对大量数据进行高效的数学运算，如矩阵乘法、卷积、池化等。Kernel 层就是实现这些运算的核心部分，它直接影响着推理引擎的速度和效率。本节将从四个方面对推理引擎的 Kernel 优化方面进行介绍。 在算法优化方面，主要针对卷积算子的计算进行优化。卷积操作是深度学习模型中计算密集且耗时的部分，..." />
+<meta property="og:description" content="推理引擎的 Kernel 层通常是推理引擎中用于执行底层数学运算的组件。在神经网络模型推理过程中，需要对大量数据进行高效的数学运算，如矩阵乘法、卷积、池化等。Kernel 层就是实现这些运算的核心部分，它直接影响着推理引擎的速度和效率，因此本节将会重点介绍 Kernel 层相关的内容。 Kernel 层介绍: 在推理引擎架构中，Runtime 层和 Kernel 层是紧密相连的两个组件。 R..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="推理引擎的 Kernel 层通常是推理引擎中用于执行底层数学运算的组件。在深度学习模型推理过程中，需要对大量数据进行高效的数学运算，如矩阵乘法、卷积、池化等。Kernel 层就是实现这些运算的核心部分，它直接影响着推理引擎的速度和效率。本节将从四个方面对推理引擎的 Kernel 优化方面进行介绍。 在算法优化方面..." />
-<meta name="description" content="推理引擎的 Kernel 层通常是推理引擎中用于执行底层数学运算的组件。在深度学习模型推理过程中，需要对大量数据进行高效的数学运算，如矩阵乘法、卷积、池化等。Kernel 层就是实现这些运算的核心部分，它直接影响着推理引擎的速度和效率。本节将从四个方面对推理引擎的 Kernel 优化方面进行介绍。 在算法优化方面，主要针对卷积算子的计算进行优化。卷积操作是深度学习模型中计算密集且耗时的部分，..." />
+<meta property="og:image:alt" content="推理引擎的 Kernel 层通常是推理引擎中用于执行底层数学运算的组件。在神经网络模型推理过程中，需要对大量数据进行高效的数学运算，如矩阵乘法、卷积、池化等。Kernel 层就是实现这些运算的核心部分，它直接影响着推理引擎的速度和效率，因此本节将会重点介绍 Kernel 层相关的内容。 Kernel 层介绍: 在..." />
+<meta name="description" content="推理引擎的 Kernel 层通常是推理引擎中用于执行底层数学运算的组件。在神经网络模型推理过程中，需要对大量数据进行高效的数学运算，如矩阵乘法、卷积、池化等。Kernel 层就是实现这些运算的核心部分，它直接影响着推理引擎的速度和效率，因此本节将会重点介绍 Kernel 层相关的内容。 Kernel 层介绍: 在推理引擎架构中，Runtime 层和 Kernel 层是紧密相连的两个组件。 R..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>Kernel 优化架构 &#8212; AI System</title>
+    <title>Kernel 层架构(DONE) &#8212; AI System</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -53,9 +53,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=182be0a6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="../_static/documentation_options.js?v=aabdd393"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -79,12 +79,12 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="卷积操作原理" href="02Conv.html" />
+    <link rel="next" title="卷积操作原理(DONE)" href="02Conv.html" />
     <link rel="prev" title="Kernel 优化" href="README.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 08, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 10, 2024"/>
 
 <link
   rel="alternate"
@@ -102,27 +102,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -144,8 +140,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -240,18 +241,20 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 一. AI 系统概述 ===</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../01Introduction/README.html">课程概述(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01Introduction/README.html">课程概述(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01Introduction/00Introduction.html">本节内容(DONE)</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="../01Introduction/01Present.html">AI 的历史与现状(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01Introduction/02Develop.html">AI 发展驱动力(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01Introduction/03Architecture.html">AI 系统全栈架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01Introduction/04Sample.html">AI 系统与程序代码关系(DONE)</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 二. AI 硬件体系结构 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02Hardware/README.html">AI 硬件体系结构概述(DONE)</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware01Foundation/README.html">AI 计算体系概述(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware01Foundation/README.html">AI 计算体系概述(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/01Introduction.html">课程内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/02ArchSlim.html">AI 计算模式（上）(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/03MobileParallel.html">AI 计算模式（下）(DONE)</a></li>
@@ -259,25 +262,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/05Matrix.html">核心计算之矩阵乘(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/06BitWidth.html">计算之比特位宽(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware03GPUBase/README.html">图形处理器 GPU(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware03GPUBase/README.html">图形处理器 GPU(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/01Works.html">GPU 工作原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/02Principle.html">为什么 GPU 适用于 AI(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/03Concept.html">GPU 架构与 CUDA 关系(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware03GPUBase/04History.html">GPU 架构回顾(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware04NVIDIA/README.html">NVIDIA GPU 详解(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware04NVIDIA/README.html">英伟达 GPU 详解(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/01BasicTC.html">Tensor Core 基本原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/02HistoryTC.html">Tensor Core 架构演进(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/03DeepTC.html">Tensor Core 深度剖析(DONE)</a></li>
@@ -285,21 +288,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/05DeepNvlink.html">NVLink 原理剖析(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware04NVIDIA/06DeepNvswitch.html">NV Switch 深度解析(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware05Abroad/README.html">国外 AI 芯片(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/04TPUIntrol.html">谷歌 TPU 历史发展(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪</a></li>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪(DONE)</a></li>
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/01Introduction.html">芯片的编程体系(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/02SIMTSIMD.html">SIMD &amp; SIMT 与芯片架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/03SPMT.html">SIMD &amp; SIMT 与 CUDA 关系</a></li>
@@ -307,12 +310,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/05DSA.html">从 CUDA 对 AI 芯片思考</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware07Thought/06AIChip.html">AI 芯片的思考(DONE)</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编译器 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../03Compiler/README.html">AI 编译原理概述(DONE)</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler01Tradition/README.html">传统编译器(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler01Tradition/README.html">传统编译器(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/01Introduction.html">编译器基础介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/02History.html">传统编译器发展(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/03GCC.html">GCC 主要特征(DONE)</a></li>
@@ -322,15 +325,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/07LLVMFrontend.html">LLVM 前端和优化层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/08LLVMBackend.html">LLVM 后端代码生成(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler03Frontend/README.html">前端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
@@ -342,8 +345,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/01Introduction.html">AI 编译器后端优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/02OPSCompute.html">计算与调度(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/03Optimization.html">算子手工优化(DONE)</a></li>
@@ -351,20 +354,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 四. 推理系统&amp;引擎 ===</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04Inference/README.html">推理系统&amp;引擎概述(DONE)</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference01Inference/README.html">推理系统(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/01Introduction.html">引言(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/02Constraints.html">推理系统介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/03Workflow.html">推理流程全景(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/04System.html">推理系统架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference01Inference/05Inference.html">推理引擎架构(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet 系列</a></li>
@@ -377,8 +380,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/10MobileFormer.html">MobileFormer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/11EfficientFormer.html">EfficientFormer</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
@@ -386,84 +389,85 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/02Principle.html">推理文件格式(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/03IR.html">自定义计算图 IR(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference04Converter/04Detail.html">模型转换流程(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Optimize/README.html">模型优化</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Optimize/README.html">模型优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/01Optimizer.html">计算图优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/02Basic.html">离线图优化技术</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/03Extend.html">通用图优化技术</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Kernel 优化</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Kernel 优化架构</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02Conv.html">卷积操作原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Im2col.html">Im2Col 算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04Winograd.html">Winograd 算法</a></li>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Kernel 优化</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Kernel 层架构(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02Conv.html">卷积操作原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Im2col.html">Im2Col 算法(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04Winograd.html">Winograd 算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05Qnnpack.html">QNNPACK 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06Memory.html">推理内存布局</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07Nc4hw4.html">nc4hw4 内存排布</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08Others.html">汇编与循环优化</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 五. AI 框架核心模块 ===</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1"><a class="reference internal" href="../05Framework/README.html">AI 框架核心概述(DONE)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework01Foundation/README.html">AI 框架基础(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/01Introduction.html">内容介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/01Introduction.html">自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/02BaseConcept.html">什么是微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTroch 微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework03DataFlow/README.html">计算图(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/01Introduction.html">基本介绍(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/02Computegraph.html">计算图原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/03Atuodiff.html">计算图与自动微分(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/04Dispatch.html">计算图的调度与执行(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/05ControlFlow.html">计算图的控制流实现(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/06StaticGraph.html">动态图与静态图转换(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图的挑战&amp;未来(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework03DataFlow/07Future.html">计算图挑战与未来(DONE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ModelParallel.html">模型并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/04HybridParallel.html">混合并行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05Summary.html">分布式训练总结</a></li>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework04Parallel/README.html">分布式并行(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/02DataParallel.html">数据并行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/03ZeRODP.html">数据并行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/04TensorParallel.html">张量并行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05PipelineParallel.html">流水并行(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/06HybridParallel.html">混合并行(DONE)</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 附录内容 ===</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../00Others/README.html">附录(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../00Others/README.html">附录(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../00Others/Editors.html">编辑和作者(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../00Others/Instruments.html">书写工具(DONE)</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../00Others/Install.html">本地部署(DONE)</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../00Others/Install.html">本地部署(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../00Others/Inference.html">参考链接(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../00Others/Glossary.html">术语表(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../00Others/Criterion.html">书写规范(DONE)</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -479,7 +483,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -488,7 +492,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -666,7 +670,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Kernel 优化架构</h1>
+    <h1>Kernel 层架构(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -676,11 +680,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Kernel 层介绍</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Kernel 层推理架构</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">推理流程</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">开发推理程序</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel">Kernel 层介绍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Kernel 层优化方法</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">算法优化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">内存布局</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">汇编优化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">调度优化</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Kernel 层推理架构</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">推理流程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">开发推理程序</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -693,81 +705,110 @@ document.write(`
                 <article class="bd-article">
                   
 <!--Copyright ©  适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
-<section class="tex2jax_ignore mathjax_ignore" id="kernel">
-<h1>Kernel 优化架构<a class="headerlink" href="#kernel" title="Link to this heading">#</a></h1>
-<p>推理引擎的 Kernel 层通常是推理引擎中用于执行底层数学运算的组件。在深度学习模型推理过程中，需要对大量数据进行高效的数学运算，如矩阵乘法、卷积、池化等。Kernel 层就是实现这些运算的核心部分，它直接影响着推理引擎的速度和效率。本节将从四个方面对推理引擎的 Kernel 优化方面进行介绍。</p>
-<p>在算法优化方面，主要针对卷积算子的计算进行优化。卷积操作是深度学习模型中计算密集且耗时的部分，因此对其进行优化能够显著提升推理性能。其中，对于卷积 kernel 算子的优化主要关注 Im2Col、Winograd 等算法的应用。这些算法通过特定的数学变换和近似，减少了卷积操作的计算复杂度，从而提升了推理速度。其主要方法有：</p>
+<section class="tex2jax_ignore mathjax_ignore" id="kernel-done">
+<h1>Kernel 层架构(DONE)<a class="headerlink" href="#kernel-done" title="Link to this heading">#</a></h1>
+<p>推理引擎的 Kernel 层通常是推理引擎中用于执行底层数学运算的组件。在神经网络模型推理过程中，需要对大量数据进行高效的数学运算，如矩阵乘法、卷积、池化等。Kernel 层就是实现这些运算的核心部分，它直接影响着推理引擎的速度和效率，因此本节将会重点介绍 Kernel 层相关的内容。</p>
+<section id="kernel">
+<h2>Kernel 层介绍<a class="headerlink" href="#kernel" title="Link to this heading">#</a></h2>
+<p>在推理引擎架构中，Runtime 层和 Kernel 层是紧密相连的两个组件。</p>
+<p>Runtime 提供了一个执行环境，它管理整个推理过程，包括模型的加载、预处理、执行和后处理。它还负责资源管理，如内存分配和线程管理。其通常具有平台无关性，可以在不同的操作系统和硬件上运行，为上层应用提供 API 接口，使得用户能够轻松地集成和使用神经网络模型。</p>
+<p>Kernel 层包含了一系列的低级函数，它们直接在硬件上执行数学运算，如卷积、矩阵乘法和激活函数。其通常是硬件特定的，针对不同的 AI 加速芯片有不同的实现。Kernel 层实现时，会进行各种优化，包括算法优化、内存访问优化、向量化、并行化和硬件特定的汇编优化。如下图所示为在推理引擎中的 Kernel 层。</p>
+<p><img alt="推理引擎架构" src="../_images/01Introduction018.png" /></p>
+<p>从层与层之间集成的角度来说，Runtime 层会根据模型的操作和目标硬件选择合适的 Kernel 层来执行计算。Runtime 的决策（如算子融合、内存管理等）会影响到 Kernel 层的性能表现。Kernel 层作为 Runtime 层的一部分，被集成到整个推理流程中。</p>
+<p>而从交互和适配的角度来说，Runtime 层负责调用 Kernel 层提供的函数，传递必要的输入数据，并处理 Kernel 层的输出结果。它可能会提供一些适配层（adapter layer），以便在不同的硬件上运行相同的 Kernel 代码，或者将不同硬件的 Kernel 接口统一化。Runtime 层的优化和 Kernel 层的优化共同决定了整个推理引擎的性能。</p>
+<p>总体而言，Runtime 提供了一个高层次的抽象，管理模型的执行和资源，而 Kernel 层则是底层的实现，直接在硬件上执行数学运算。Kernel 层的优化主要体现在各种高性能算子和算子库的设计上，这些算子和算子库通常针对不同的 AI 加速芯片进行了优化，以提高计算速度和效率。</p>
+</section>
+<section id="id1">
+<h2>Kernel 层优化方法<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h3>算法优化<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>算法优化主要针对卷积算子的计算进行优化。卷积操作是神经网络模型中计算密集且耗时的部分，因此对其进行优化能够显著提升推理性能。其中，对于卷积 Kernel 算子的优化主要关注 Im2Col、Winograd 等算法的应用。这些算法通过特定的数学变换和近似，减少了卷积操作的计算复杂度，从而提升了推理速度。其主要方法有：</p>
 <ol class="arabic simple">
 <li><p><strong>空间组合优化算法</strong>：将大卷积分解为小卷积，减少内存访问次数，提高缓存利用率。</p></li>
-<li><p><strong>Im2Col/Col2Im</strong>：将输入图像和卷积核转换为列向量的形式，然后使用矩阵乘法来实现卷积，这样可以利用高效的矩阵乘法库。</p></li>
+<li><p><strong>Im2Col/Col2Im</strong>：将输入图像和卷积核转换为列向量形式，使用矩阵乘法来实现卷积，可以利用高效矩阵乘法库。</p></li>
 <li><p><strong>Winograd 算法</strong>：通过预计算和转换，减少卷积中的乘法次数，特别适用于小尺寸的卷积核。</p></li>
 <li><p><strong>快速傅里叶变换（FFT）</strong>：对于大尺寸的卷积核，使用 FFT 将空间域的卷积转换为频域的点乘，提高计算效率。</p></li>
 </ol>
+</section>
+<section id="id3">
+<h3>内存布局<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>在内存布局方面，主要的方法有：</p>
 <ol class="arabic simple">
 <li><p><strong>权重和输入数据的重排</strong>：重新组织权重和输入数据的内存布局，使得数据访问更加连续，减少缓存缺失。</p></li>
 <li><p><strong>通道优先（Channel First/Last）</strong>：根据硬件特性选择通道数据的存储顺序，例如 NCHW 或 NHWC。</p></li>
 <li><p><strong>NC1HWC0 与 NCHW4</strong>：NC1HWC0 布局通常用于支持 Winograd 算法或其他需要特定通道分组操作的卷积算法。这种布局是针对特定硬件（如某些 AI 加速器）优化的，其中 C 被分割为 C1 和 C0，C1 代表通道的分组数，C0 代表每个分组中的通道数。这种布局可以减少内存访问次数，提高缓存利用率，并可能减少所需的内存带宽。NCHW4 是一种特殊的内存布局，其中 C 被分割为 4 个通道，这种布局通常用于支持 4 通道的 SIMD 操作。NCHW4 布局可以在支持 4 通道向量化指令的硬件上提供更好的性能，例如某些 ARM 处理器。这种布局可以减少数据填充（padding）的需要，并提高数据处理的并行度。</p></li>
 </ol>
+</section>
+<section id="id4">
+<h3>汇编优化<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>从汇编优化的方面，主要的方法有：</p>
 <ol class="arabic simple">
-<li><p><strong>指令优化</strong>：针对特定的 CPU 指令集（如 AVX、AVX2、SSE 等）进行优化，使用向量化指令来提高计算效率。</p></li>
+<li><p><strong>指令优化</strong>：针对特定 CPU 指令集（如 AVX、AVX2、SSE 等）进行优化，使用向量化指令来提高计算效率。</p></li>
 <li><p><strong>循环优化</strong>：减少循环的开销，增加指令级的并行性。</p></li>
 <li><p><strong>存储优化</strong>：优化内存访问模式，使得数据访问更加连续，以提高缓存命中率和内存带宽利用率。</p></li>
 </ol>
+</section>
+<section id="id5">
+<h3>调度优化<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>从调度优化的方面，则主要有并行计算和自动调优等方法。根据操作间的依赖关系和执行时间，合理调度任务，减少等待时间和提高资源利用率。</p>
 <p>推理引擎的 Kernel 层是整个推理系统的基础，对于实现高性能的深度学习推理至关重要。随着深度学习应用的普及和硬件技术的进步，推理引擎的 Kernel 层也在不断地发展和优化，以适应更加多样化的应用场景和性能要求。</p>
-<section id="id1">
-<h2>Kernel 层介绍<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p><img alt="推理引擎架构" src="../_images/01.introduction01.png" /></p>
-<p>在推理引擎架构中，Runtime 层和 kernel 层是紧密相连的两个组件。Runtime 提供了一个执行环境，它管理整个推理过程，包括模型的加载、预处理、执行和后处理。它还负责资源管理，如内存分配和线程管理。其通常具有平台无关性，可以在不同的操作系统和硬件上运行，为上层应用提供 API 接口，使得用户能够轻松地集成和使用深度学习模型。Kernel 层包含了一系列的低级函数，它们直接在硬件上执行数学运算，如卷积、矩阵乘法和激活函数。其通常是硬件特定的，针对不同的处理器（如 CPU、GPU、TPU 等）有不同的实现。Kernel 层实现时，会进行各种优化，包括算法优化、内存访问优化、向量化、并行化和硬件特定的汇编优化。</p>
-<p>从层与层之间集成的角度来说，Runtime 层会根据模型的操作和目标硬件选择合适的 Kernel 层来执行计算。Kernel 层作为 Runtime 层的一部分，被集成到整个推理流程中。而从交互和适配的角度来说，Runtime 层负责调用 Kernel 层提供的函数，传递必要的输入数据，并处理 Kernel 层的输出结果。它可能会提供一些适配层（adapter layer），以便在不同的硬件上运行相同的 Kernel 代码，或者将不同硬件的 Kernel 接口统一化。Runtime 层的优化和 Kernel 层的优化共同决定了整个推理引擎的性能。Runtime 的决策（如算子融合、内存管理等）会影响到 Kernel 层的性能表现。</p>
-<p>总结来说，Runtime 提供了一个高层次的抽象，管理模型的执行和资源，而 Kernel 层则是底层的实现，直接在硬件上执行数学运算。Kernel 层的优化主要体现在各种高性能算子和算子库的设计上，这些算子和算子库通常针对不同的处理器架构（如 CPU、GPU、TPU 等）进行了优化，以提高计算速度和效率。</p>
 </section>
-<section id="id2">
-<h2>Kernel 层推理架构<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>下面分别从 CPU 和 GPU 的角度介绍一下几种人工高性能算子和封装的高性能算子库：</p>
+</section>
+<section id="id6">
+<h2>Kernel 层推理架构<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>如图所示，下面分别从 CPU 和 GPU 的角度介绍一下几种人工实现的高性能算子和封装的高性能算子库：</p>
+<p><img alt="" src="../_images/01Introduction026.png" /></p>
 <p>CPU 优化：</p>
 <ol class="arabic simple">
-<li><p><strong>NEON</strong>： NEON 是 ARM 架构上的 SIMD（单指令多数据）扩展，用于提高多媒体处理和浮点运算的性能。推理引擎可以利用 NEON 指令集来优化 Kernel 层，特别是在移动设备和嵌入式设备上。</p></li>
-<li><p><strong>AVX</strong>： AVX（Advanced Vector Extensions）是 Intel 处理器上的 SIMD 指令集，用于提高浮点运算和整数运算的性能。推理引擎可以利用 AVX 指令集来优化 Kernel 层，特别是在 Intel CPU 上。</p></li>
-<li><p><strong>Metal</strong>： Metal 是苹果开发的低级图形和计算 API，用于优化在 Apple GPU 上的性能。推理引擎可以利用 Metal API 来优化 Kernel 层，特别是在 iOS 和 macOS 设备上。</p></li>
-<li><p><strong>TVM</strong>： TVM（Tensor Virtual Machine）是一个开源的深度学习编译器框架，用于优化深度学习模型在各种硬件上的性能。它支持 CPU、GPU、TPU 和其他类型的硬件。</p></li>
+<li><p><strong>NEON</strong>：NEON 是 ARM 架构上的 SIMD（单指令多数据）扩展，用于提高多媒体处理和浮点运算的性能。推理引擎可以利用 NEON 指令集来优化 Kernel 层，特别是在移动设备和嵌入式设备上。</p></li>
+<li><p><strong>AVX</strong>：AVX（Advanced Vector Extensions）是 Intel 处理器上的 SIMD 指令集，用于提高浮点运算和整数运算的性能。推理引擎可以利用 AVX 指令集来优化 Kernel 层，特别是在 Intel CPU 上。</p></li>
+<li><p><strong>Metal</strong>：Metal 是苹果开发的低级图形和计算 API，用于优化在 Apple GPU 上的性能。推理引擎可以利用 Metal API 来优化 Kernel 层，特别是在 iOS 和 macOS 设备上。</p></li>
+<li><p><strong>TVM</strong>：TVM（Tensor Virtual Machine）是一个开源的深度学习编译器框架，用于优化神经网络模型在各种硬件上的性能。它支持 CPU、GPU、TPU 和其他类型的硬件。</p></li>
 </ol>
 <p>GPU 优化：</p>
 <ol class="arabic simple">
-<li><p><strong>CUDA</strong>： CUDA 是 NVIDIA 的并行计算平台和编程模型，用于在 NVIDIA GPU 上执行并行计算。推理引擎可以利用 CUDA 来优化 Kernel 层，特别是在大规模矩阵运算和卷积操作方面。</p></li>
-<li><p><strong>OpenCL</strong>： OpenCL 是一个开放的标准，用于编写在异构系统上运行的程序。它允许开发者利用 CPU、GPU 和其他类型的处理器来加速计算密集型任务。推理引擎可以利用 OpenCL 来优化 Kernel 层，特别是在 GPU 上。</p></li>
-<li><p><strong>Vulkan</strong>： Vulkan 是新一代的图形和计算 API，用于在各种 GPU 上执行并行计算。推理引擎可以利用 Vulkan API 来优化 Kernel 层，特别是在高性能计算和图形处理方面。</p></li>
-<li><p><strong>Tensor Cores</strong>： Tensor Cores 是 NVIDIA GPU 上的一种特殊类型的核心，专门用于加速矩阵乘法和卷积操作。推理引擎可以利用 Tensor Cores 来优化 Kernel 层，特别是在执行大规模的矩阵运算时。</p></li>
+<li><p><strong>CUDA</strong>：CUDA 是英伟达的并行计算平台和编程模型，用于在英伟达 GPU 上执行并行计算。推理引擎可以利用 CUDA 来优化 Kernel 层，特别是在大规模矩阵运算和卷积操作方面。</p></li>
+<li><p><strong>OpenCL</strong>：OpenCL 是一个开放的标准，用于编写在异构系统上运行的程序。它允许开发者利用 CPU、GPU 和其他类型的处理器来加速计算密集型任务。推理引擎可以利用 OpenCL 来优化 Kernel 层，特别是在 GPU 上。</p></li>
+<li><p><strong>Vulkan</strong>：Vulkan 是新一代的图形和计算 API，用于在各种 GPU 上执行并行计算。推理引擎可以利用 Vulkan API 来优化 Kernel 层，特别是在高性能计算和图形处理方面。</p></li>
+<li><p><strong>Tensor Cores</strong>：Tensor Cores 是英伟达 GPU 上的一种特殊类型的核心，专门用于加速矩阵乘法和卷积操作。推理引擎可以利用 Tensor Cores 来优化 Kernel 层，特别是在执行大规模的矩阵运算时。</p></li>
 </ol>
 <p>此外，封装的高性能算子库有：</p>
 <ol class="arabic simple">
-<li><p><strong>cuDNN（CUDA Deep Neural Network Library）</strong>：由 NVIDIA 开发，为 GPU 优化的深度神经网络算子库，包括卷积、池化、归一化、激活函数等。</p></li>
+<li><p><strong>cuDNN（CUDA Deep Neural Network Library）</strong>：由英伟达开发，为 GPU 优化的深度神经网络算子库，包括卷积、池化、归一化、激活函数等。</p></li>
 <li><p><strong>MKL-DNN（Intel Math Kernel Library for Deep Neural Networks）</strong>：由 Intel 开发，为 CPU 优化的深度神经网络算子库，现在发展成为 oneDNN，支持多种 Intel 处理器。</p></li>
 <li><p><strong>MIOpen</strong>：由 AMD 开发，为 GPU 优化的深度学习算子库，特别针对 AMD 的 GPU 架构进行了优化。</p></li>
-<li><p><strong>TensorRT</strong>：NVIDIA 的深度学习推理优化器，它提供了 C++和 Python 接口，可以对模型进行优化并生成高性能的推理引擎。</p></li>
+<li><p><strong>TensorRT</strong>：英伟达的深度学习推理优化器，它提供了 C++和 Python 接口，可以对模型进行优化并生成高性能的推理引擎。</p></li>
 <li><p><strong>ONNX Runtime</strong>：支持 ONNX 模型的跨平台推理引擎，包括了对多种硬件平台的高性能算子实现。</p></li>
 <li><p><strong>ACL（ARM Compute Library）</strong>：由 ARM 开发，为 ARM 架构的 CPU 和 GPU 提供优化的算子库，包括卷积、池化、全连接层等。</p></li>
 </ol>
 <p>这些算子方面的优化方法和技术可以根据具体的硬件平台和模型需求来选择和组合，以提高推理引擎在 Kernel 层的性能。在实际应用中，开发者需要根据目标设备和性能要求来选择最合适的优化策略。</p>
 </section>
-<section id="id3">
-<h2>推理流程<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p><img alt="推理流程示意图" src="../_images/01.introduction02.png" /></p>
-<p>推理引擎的推理流程是指从加载模型到输出推理结果的一系列步骤。首先加载预先训练好的模型文件，这些文件可能是以特定格式（如 ONNX、TensorFlow SavedModel、PyTorch TorchScript 等）保存的。此外，对模型结构，包括层的类型、参数和拓扑结构进行解析。之后将模型转换或编译为推理引擎能够执行的格式，这其中可能包括优化模型结构、融合某些层以减少计算和内存访问、选择合适的 Kernel 实现等操作。对于支持硬件加速的推理引擎，这一步可能还包括为特定硬件（如 GPU、TPU 等）生成优化的执行代码。在上述离线模块生成的推理模型经过模型压缩（或者不压缩）后送入编译模块再次进行汇编层面的优化，完成优化后就可以真正在线执行推理。</p>
-<p>在在线执行阶段，将输入数据（如图像、文本等）转换为模型所需的格式，将预处理后的输入数据复制到设备内存中，为推理做准备。在推理引擎中执行模型，最后将处理后的推理结果返回给用户或下游应用程序。</p>
+<section id="id7">
+<h2>推理流程<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>推理引擎的推理流程是指从加载模型到输出推理结果的一系列步骤。首先加载预先训练好的模型文件，这些文件可能是以特定格式（如 ONNX、TensorFlow SavedModel、PyTorch TorchScript 等）保存的。</p>
+<p>此外，对模型结构，包括层的类型、参数和拓扑结构进行解析。之后将模型转换或编译为推理引擎能够执行的格式，这其中可能包括优化模型结构、融合某些层以减少计算和内存访问、选择合适的 Kernel 实现等操作。对于支持硬件加速的推理引擎，这一步可能还包括为特定 AI 加速芯片生成优化的执行代码。在上述离线模块生成的推理模型经过模型压缩（或者不压缩）后送入编译模块再次进行汇编层面的优化，完成优化后就可以真正在线执行推理。</p>
+<p><img alt="推理流程示意图" src="../_images/01Introduction036.png" /></p>
+<p>在线执行阶段，将输入数据（如图像、文本等）转换为模型所需的格式，将预处理后的输入数据复制到设备内存中，为推理做准备。在推理引擎中执行模型，最后将处理后的推理结果返回给用户或下游应用程序。</p>
 <p>整个推理流程的目标是高效、准确地执行模型推理，同时尽可能减少计算和延迟。</p>
 </section>
-<section id="id4">
-<h2>开发推理程序<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p><img alt="开发推理程序示意图" src="../_images/01.introduction03.png" /></p>
-<p>Kernel 层所进行的优化一般蕴含在上图中的⑤进行执行，Runtime 会根据模型的操作和目标硬件选择合适的 Kernel 来执行计算。Kernel 层作为 Runtime 的一部分，被集成到整个推理流程中。其负责调用 Kernel 层提供的函数，传递必要的输入数据，并处理 Kernel 的输出结果。总的来说，Runtime 层的优化和 Kernel 层的优化共同决定了整个推理引擎的性能。Runtime 的决策（如算子融合、内存管理等）会影响到 Kernel 层的性能表现。</p>
+<section id="id8">
+<h2>开发推理程序<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<p>Kernel 层所进行的优化一般蕴含在上图中的⑤进行执行，Runtime 会根据模型的操作和目标硬件选择合适的 Kernel 来执行计算。如图所示，Kernel 层作为 Runtime 的一部分，被集成到整个推理流程中。</p>
+<p><img alt="开发推理程序示意图" src="../_images/01Introduction043.png" /></p>
+<p>其负责调用 Kernel 层提供的函数，传递必要的输入数据，并处理 Kernel 的输出结果。总的来说，Runtime 层的优化和 Kernel 层的优化共同决定了整个推理引擎的性能。Runtime 的决策（如算子融合、内存管理等）会影响到 Kernel 层的性能表现。</p>
 </section>
-<section id="id5">
-<h2>本节视频<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h2>小结与思考<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Kernel 层是推理引擎中执行底层数学运算的核心组件，直接影响推理速度和效率。</p></li>
+<li><p>Kernel 层优化包括算法优化、内存布局、汇编优化和调度优化，旨在提高计算速度和效率。</p></li>
+<li><p>推理引擎 Kernel 层通过优化算子，适应多样化应用场景和性能要求，与 Runtime 层协同工作以实现高效推理。</p></li>
+</ul>
+</section>
+<section id="id10">
+<h2>本节视频<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <html>
-<iframe src="https://www.bilibili.com/video/BV1Ze4y1c7Bb/?spm_id_from=333.337.search-card.all.click&vd_source=096daa038c279ccda6e4f8c5eea82de7" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=651712557&bvid=BV1Ze4y1c7Bb&cid=1003817481&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
 </section>
 </section>
@@ -803,7 +844,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -820,7 +861,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">卷积操作原理</p>
+        <p class="prev-next-title">卷积操作原理(DONE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -840,11 +881,19 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Kernel 层介绍</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Kernel 层推理架构</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">推理流程</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">开发推理程序</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel">Kernel 层介绍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Kernel 层优化方法</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">算法优化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">内存布局</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">汇编优化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">调度优化</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Kernel 层推理架构</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">推理流程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">开发推理程序</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -867,7 +916,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 08, 2024.
+  Last updated on Jun 10, 2024.
   <br/>
 </p>
   </div>
@@ -885,8 +934,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
