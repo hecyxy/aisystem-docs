@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 11, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
 
 <link
   rel="alternate"
@@ -344,7 +344,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </details></li>
@@ -372,7 +372,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型轻量化</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01Introduction.html">推理参数(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05ESPNet.html">ESPNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06FBNet.html">FBNet 系列</a></li>
@@ -718,7 +718,7 @@ document.write(`
 <section id="id1">
 <h3>复合模型缩放法<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>单独适当增大深度、宽度或分辨率都可以提高网络的精确性，但随着模型的增大，其精度增益却会降低。此外，这三个维度并不是独立的（如：高分辨率图像需要更深的网络来获取更细粒度特征等），需要我们协调和平衡不同尺度的缩放，而不是传统的一维缩放。EfficientNet 的设想就是能否设计一个标准化的卷积网络扩展方法，既可以实现较高的准确率，又可以充分的节省算力资源。其通过 NAS（Neural Architecture Search）技术来搜索网络的图像输入分辨率 r，网络的深度 depth 以及 channel 的宽度 width 三个参数的合理化配置。如下图所示，(b)，(c)，(d)分别从不同的维度对 baseline 做 model scaling，而这篇论文要做的是将这 3 者结合起来一起优化即(e)。</p>
-<p><img alt="EfficientNet" src="images/04Inference02Mobilenet/07.efficientnet_01.png" /></p>
+<p><img alt="EfficientNet" src="../_images/07Efficientnet01.png" /></p>
 <p>通过实验得出以下结论:</p>
 <ol class="arabic simple">
 <li><p><strong>增加网络的 depth</strong> 能够得到更加丰富、复杂的高级语义特征，并且能很好的应用到其他任务中去。但是网络的深度过深会面临梯度消失，训练困难等问题。</p></li>
@@ -730,23 +730,22 @@ document.write(`
 \[
 Y_{i}=F_{i}(X_{i})
 \]</div>
-<p>其中：$<span class="math notranslate nohighlight">\(X_{i}\)</span><span class="math notranslate nohighlight">\( 表示输入的 tensor，其形状为 \)</span>&lt;H_{i},W_{i},C_{i}&gt;<span class="math notranslate nohighlight">\(，\)</span>Y_{i}<span class="math notranslate nohighlight">\( 是输出的 tensor。于是，一个卷积网络 \)</span>N$ 可以被表示成如下形式：</p>
-<p>​$<span class="math notranslate nohighlight">\(
+<p>其中：<span class="math notranslate nohighlight">\(X_{i}\)</span>表示输入的 tensor，其形状为 <span class="math notranslate nohighlight">\(&lt;H_{i},W_{i},C_{i}&gt;\)</span>，<span class="math notranslate nohighlight">\(Y_{i}\)</span> 是输出的 tensor。于是，一个卷积网络 <span class="math notranslate nohighlight">\(N\)</span> 可以被表示成如下形式：</p>
+<div class="math notranslate nohighlight">
+\[
 N=F_{k}\odot ...\odot F_{2}\odot F_{1}(X_{11})=\odot_{j=1....k}F_{j}(X_{1})
-\)</span>$</p>
+\]</div>
 <p>但是在实际中，ConvNets 的各个层通常被划分为多个 stage，并且每个 stage 中的所有层都具有相同的体系结构（例如 ResNet，共有五个 stage，除了第一层之外的每个 stage 的所有层都分别具有相同的卷积类型）。</p>
-<p>因此，我们可以将 ConvNet 重新表示成如下形式：</p>
-<div class="math notranslate nohighlight">
-\[
+<p>因此，我们可以将 ConvNet 重新表示成如下形式：
+$<span class="math notranslate nohighlight">\(
 N = \bigoplus_{i=1...s}F_{i}^{L_i}(X_{&lt;H_{i},W_{i},C_{i}&gt;})
-\]</div>
-<p>其中 <span class="math notranslate nohighlight">\(F_{i}^{L_{i}}\)</span> 表示第 <span class="math notranslate nohighlight">\(i\)</span> 个 stage，并且这个 stage 由 <span class="math notranslate nohighlight">\(L_{i}\)</span> 次的 <span class="math notranslate nohighlight">\(F_{i}\)</span>（相当于一层 layer）操作构成。</p>
+\)</span><span class="math notranslate nohighlight">\(
+其中 \)</span>F_{i}^{L_{i}}<span class="math notranslate nohighlight">\( 表示第 \)</span>i<span class="math notranslate nohighlight">\( 个 stage，并且这个 stage 由 \)</span>L_{i}<span class="math notranslate nohighlight">\( 次的 \)</span>F_{i}$（相当于一层 layer）操作构成。</p>
 <p>通常 ConvNet 的设计焦点在 <span class="math notranslate nohighlight">\(F_{i}\)</span>，但是这篇文章的焦点，或者说 Model Scaling 的焦点则是在模型的深度（<span class="math notranslate nohighlight">\(L_{i}\)</span>）、宽度（<span class="math notranslate nohighlight">\(C_{i}\)</span>）和输入图片的大小（<span class="math notranslate nohighlight">\(H_{i}\)</span>,<span class="math notranslate nohighlight">\(W_{i}\)</span>），而不改变在 baseline 中预先定义好的 <span class="math notranslate nohighlight">\(F_{i}\)</span>。</p>
-<p>通过固定 <span class="math notranslate nohighlight">\(F_{i}\)</span>，简化了对于新资源约束的 Model Scaling 设计问题，但仍然有很大的设计空间来探索每一层的不同 <span class="math notranslate nohighlight">\(L_{i}\)</span>，<span class="math notranslate nohighlight">\(C_{i}\)</span>，<span class="math notranslate nohighlight">\(H_{i}\)</span>，<span class="math notranslate nohighlight">\(W_{i}\)</span>。为了进一步减小设计空间，作者又限制所有层必须以恒定比率均匀地做 Scaling。目标是在任何给定的资源约束下最大化模型精度，这可以表述为优化问题：</p>
-<div class="math notranslate nohighlight">
-\[
+<p>通过固定 <span class="math notranslate nohighlight">\(F_{i}\)</span>，简化了对于新资源约束的 Model Scaling 设计问题，但仍然有很大的设计空间来探索每一层的不同 <span class="math notranslate nohighlight">\(L_{i}\)</span>，<span class="math notranslate nohighlight">\(C_{i}\)</span>，<span class="math notranslate nohighlight">\(H_{i}\)</span>，<span class="math notranslate nohighlight">\(W_{i}\)</span>。为了进一步减小设计空间，作者又限制所有层必须以恒定比率均匀地做 Scaling。目标是在任何给定的资源约束下最大化模型精度，这可以表述为优化问题：
+$<span class="math notranslate nohighlight">\(
 max_{d,w,r}Accurracy(N(d,w,r))
-\]</div>
+\)</span>$</p>
 <div class="math notranslate nohighlight">
 \[
 s.t.  N(d,w,r) = \bigoplus_{i=1...s}\hat{F}_{i}^{d \cdot \hat{L}_{i}}(X_{&lt;r\cdot \hat{H}_{i},r\cdot\hat{W}_{i},w\cdot\hat{C}_{i}&gt;})
@@ -766,15 +765,14 @@ FLOPS(N)\leq target flops
 <p>下图左边显示了具有不同深度系数 d 的基线模型进行缩放的实证研究，表明了增加网络层数到一定深度时精度并不能随之增加。</p>
 <p><strong>Width</strong>:小型模型通常使用缩放网络宽度来提取更多的特征，然而，非常宽但较浅的网络往往难以捕获更高层次的特征。下图中结果显示，当网络越大，w 变得越宽时，精度迅速饱和。</p>
 <p><strong>Resolution</strong>:早期的图像大小以 224×224 开始，现在常使用 299×299 或者 311×311。最近的创新：480×480 的分辨率和 600×600 的分辨率。下图右是缩放网络分辨率的结果，更高的分辨率的确提高了网络的精度，但对于非常高的分辨率来说，准确率的提高会减弱。</p>
-<p><img alt="EfficientNet" src="images/04Inference02Mobilenet/07.efficientnet_02.png" /></p>
+<p><img alt="EfficientNet" src="../_images/07Efficientnet02.png" /></p>
 <p><strong>Compound Scaling</strong></p>
 <p>为了追求更好的精度和效率，在连续网络缩放过程中平衡网络宽度、深度和分辨率的所有维度是至关重要的。如下图所示。</p>
-<p><img alt="EfficientNet" src="images/04Inference02Mobilenet/07.efficientnet_03.png" /></p>
-<p>不同维度的 Scaling 并不相互独立，需要协调和平衡不同维度的 Scaling，而不是常规的单维度 Scaling。EfficientNet 提出了 compound scaling method（复合缩放方法），这种方法是通过一个复合系数φ去统一缩放网络的宽度，深度和分辨率，公式表示如下：</p>
-<div class="math notranslate nohighlight">
-\[
+<p><img alt="EfficientNet" src="../_images/07Efficientnet03.png" /></p>
+<p>不同维度的 Scaling 并不相互独立，需要协调和平衡不同维度的 Scaling，而不是常规的单维度 Scaling。EfficientNet 提出了 compound scaling method（复合缩放方法），这种方法是通过一个复合系数φ去统一缩放网络的宽度，深度和分辨率，公式表示如下：
+$<span class="math notranslate nohighlight">\(
 depth:d=α^{φ}
-\]</div>
+\)</span>$</p>
 <div class="math notranslate nohighlight">
 \[
 width:w=β^{φ}
@@ -798,14 +796,9 @@ s.t. α\cdotβ^{2}\cotγ^{2}\approx 2
 <section id="id2">
 <h3>网络结构<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>以 EfficientNet-B0 baseline 网络结构为例，在 B0 中一共分为 9 个 stage，表中的卷积层后默认都跟有 BN 以及 Swish 激活函数。stage 1 就是一个 3×3 的卷积层。对于 stage 2 到 stage 8 就是在重复堆叠 MBConv。</p>
-<p><img alt="EfficientNet" src="images/04Inference02Mobilenet/07.efficientnet_04.png" /></p>
+<p><img alt="EfficientNet" src="../_images/07Efficientnet04.png" /></p>
 <p>Conv 1x1, s1 层，一个 1x1 的标准卷积，用于降维，然后通过一个 BN，没有 swish 激活函数。
 Droupout 层，其 dropout_rate 对应的是 drop_connect_rate；shortcut 连接，执行 add 操作。</p>
-</section>
-<section id="se">
-<h3>SE 模块<a class="headerlink" href="#se" title="Link to this heading">#</a></h3>
-<p>如下图所示，SE 模块由一个全局平均池化(AvgPooling)，两个 FC 层组成。第一个全连接层的节点个数是 MBConv 模块的输入特征图 channels 的 <span class="math notranslate nohighlight">\( \frac{1}{4}\)</span> ，且使用 Swish 激活函数。第二个全连接层的节点个数等于 MBConv 模块中 DWConv 层输出特征图的 channels，且使用 Sigmoid 激活函数。简单理解，SE 模块的总体思想是：给每个特征图不同的权重，关注更有用的特征。</p>
-<p><img alt="EfficientNet" src="images/04Inference02Mobilenet/07.efficientnet_05.png" /></p>
 <p><strong>代码</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># MBConvm 模块的配置类</span>
 <span class="k">class</span> <span class="nc">InvertedResidualConfig</span><span class="p">:</span>
@@ -897,9 +890,14 @@ Droupout 层，其 dropout_rate 对应的是 drop_connect_rate；shortcut 连接
             <span class="n">result</span> <span class="o">+=</span> <span class="n">x</span>
 
         <span class="k">return</span> <span class="n">result</span>
-
 </pre></div>
 </div>
+</section>
+<section id="se">
+<h3>SE 模块<a class="headerlink" href="#se" title="Link to this heading">#</a></h3>
+<p>如下图所示，SE 模块由一个全局平均池化(AvgPooling)，两个 FC 层组成。第一个全连接层的节点个数是 MBConv 模块的输入特征图 channels 的 <span class="math notranslate nohighlight">\( \frac{1}{4}\)</span> ，且使用 Swish 激活函数。第二个全连接层的节点个数等于 MBConv 模块中 DWConv 层输出特征图的 channels，且使用 Sigmoid 激活函数。简单理解，SE 模块的总体思想是：给每个特征图不同的权重，关注更有用的特征。</p>
+<p><img alt="EfficientNet" src="../_images/07Efficientnet05.png" /></p>
+<p><strong>代码</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 注意力机制模块</span>
 <span class="k">class</span> <span class="nc">SqueezeExcitation</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
@@ -938,11 +936,10 @@ Droupout 层，其 dropout_rate 对应的是 drop_connect_rate；shortcut 连接
 <li><p>expansion ratio : 1, 4, 6</p></li>
 </ul>
 <p>另外，作者通过以下方法来减小搜索空间的范围：</p>
-<p>移除不需要的搜索选项，重用 EfficientNet 中搜索的 channel sizes，接着在搜索空间中随机采样了 1000 个模型，并针对每个模型训练 10 个 epochs（使用较小的图像尺度）。搜索奖励结合了模型准确率 A，标准训练一个 step 所需时间 S 以及模型参数大小 P，奖励函数可写成：</p>
-<div class="math notranslate nohighlight">
-\[
+<p>移除不需要的搜索选项，重用 EfficientNet 中搜索的 channel sizes，接着在搜索空间中随机采样了 1000 个模型，并针对每个模型训练 10 个 epochs（使用较小的图像尺度）。搜索奖励结合了模型准确率 A，标准训练一个 step 所需时间 S 以及模型参数大小 P，奖励函数可写成：
+$<span class="math notranslate nohighlight">\(
 A \cdot S^{w}\cdot P^{v}
-\]</div>
+\)</span>$</p>
 <p>其中，A 是模型精度、S 是归一化训练时长，P 是参数量，w=-0.07 和 v=-005。</p>
 <p>与 V1 的不同：</p>
 <p>1.除了使用 MBConv 之外还使用了 Fused-MBConv 模块，加快训练速度与提升性能。</p>
@@ -956,7 +953,7 @@ A \cdot S^{w}\cdot P^{v}
 <p>2.在网络的后期添加更多的层提升模型容量且不引入过多耗时。</p>
 <p><strong>训练速度比较</strong></p>
 <p>如下图所示，EfficientNetV2 模型在 ImageNet 上 top-1 acc 和 train step time，这里的训练采用固定的图像大小，不过比推理时图像大小降低 30%，而图中的 EffNet(reprod)也是采用这样的训练策略，可以看到比 baseline 训练速度和效果均有明显提升，而 EfficientNetV2 在训练速度和效果上有进一步地提升。</p>
-<p><img alt="EfficientNet" src="images/04Inference02Mobilenet/07.efficientnet_06.png" /></p>
+<p><img alt="EfficientNet" src="../_images/07Efficientnet06.png" /></p>
 </section>
 <section id="id3">
 <h3>渐进式学习<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
@@ -1078,8 +1075,10 @@ A \cdot S^{w}\cdot P^{v}
 </section>
 <section id="id6">
 <h2>小结<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<p>相比于谷歌 Net、ResNet 这种人工设计的经典 BackBone，EfficientNet 系列利用强大的计算资源对网络结果进行暴力搜索，得到一系列性能、参数量、计算量最优的网络结构和一些看不懂的超参（虽然人工设计网络中的超参也是大量试出来的，可解释性也较差）。</p>
-<p>EfficientNet 系列的研究方式应该是以后发展的一个重要方向，研究人员可以在 Conv 层的优化、训练策略上多下功夫研究，至于网络架构怎么组合最优，交给机器去做就好。</p>
+<ul class="simple">
+<li><p>相比于GoogleNet、ResNet 这种人工设计的经典 BackBone，EfficientNet 系列利用强大的计算资源对网络结果进行暴力搜索，得到一系列性能、参数量、计算量最优的网络结构和一些看不懂的超参（虽然人工设计网络中的超参也是大量试出来的，可解释性也较差）。</p></li>
+<li><p>EfficientNet 系列的研究方式应该是以后发展的一个重要方向，研究人员可以在 Conv 层的优化、训练策略上多下功夫研究，至于网络架构怎么组合最优，交给机器去做就好。</p></li>
+</ul>
 </section>
 <section id="id7">
 <h2>本节视频<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
@@ -1192,7 +1191,7 @@ A \cdot S^{w}\cdot P^{v}
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 11, 2024.
+  Last updated on Jun 15, 2024.
   <br/>
 </p>
   </div>

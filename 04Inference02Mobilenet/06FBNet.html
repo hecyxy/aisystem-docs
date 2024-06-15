@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 11, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
 
 <link
   rel="alternate"
@@ -344,7 +344,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </details></li>
@@ -372,7 +372,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型轻量化</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01Introduction.html">推理参数(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05ESPNet.html">ESPNet 系列</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">FBNet 系列</a></li>
@@ -683,36 +683,29 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fbnet-v1">FBNet V1</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dnas">DNAS 方法</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">搜索空间</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#latency-aware">Latency-Aware 损失函数</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">搜索算法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnas">DNAS 方法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">搜索空间</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latency-aware">Latency-Aware 损失函数</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">搜索算法</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">网络结构</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fbnet-v2">FBNet V2</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">通道搜索</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">输入分辨率搜索</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">有效形状传播</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">通道搜索</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">输入分辨率搜索</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">有效形状传播</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">网络结构</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fbnet-v3">FBNet V3</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">联合搜索</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">搜索空间</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">联合搜索</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">搜索空间</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -731,26 +724,22 @@ document.write(`
 <section id="fbnet-v1">
 <h2>FBNet V1<a class="headerlink" href="#fbnet-v1" title="Link to this heading">#</a></h2>
 <p><strong>FBNetV1</strong>:完全基于 NAS 搜索的轻量级网络系列，结合了 DNAS 和资源约束。采用梯度优化的方法优化卷积结构，避免像以前的方法那样分别枚举和训练各个体系结构。FBNets-B 在 ImageNet 上 top-1 准确率为 74.1%，295M FLOPs。</p>
-<section id="id1">
-<h3>设计思路<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <section id="dnas">
-<h4>DNAS 方法<a class="headerlink" href="#dnas" title="Link to this heading">#</a></h4>
+<h3>DNAS 方法<a class="headerlink" href="#dnas" title="Link to this heading">#</a></h3>
 <p>FBNet v1 的训练方法和构建网络的方法基本上沿用了 DARTS 的方法，不同的是 DARTS 的 Super net 主要体现在 Cell 结构里，搜索空间包括 cell 内部的连接和路径上的操作；而 FBNet 体现在整个网络的主体里，连接是确定的，只搜索路径上的操作。流程如下图所示。DNAS 方法将整体的搜索空间表示为超网，将寻找最优网络结构问题转换为寻找最优的候选 block 分布，通过梯度下降来训练 block 的分布，而且可以为网络每层选择不同的 block。为了更好的估计网络的时延，预先测量并记录了每个候选 block 的实际时延，在估算时直接根据网络结构和对应的时延累计即可。</p>
 <p>DNAS 将网络结构搜索问题公式化为：</p>
 <div class="math notranslate nohighlight">
 \[\underset {a∈A}{min}  \underset {w_{a}}{min} L(a,w_{a}) \tag{1}\]</div>
 <p>给定结构空间 A，寻找最优的结构 <span class="math notranslate nohighlight">\(a∈A\)</span>，在训练好权值后 <span class="math notranslate nohighlight">\(w_{a}\)</span>，可以满足最小化损失 <span class="math notranslate nohighlight">\(L(a,w_{a})\)</span>，论文主要集中于 3 个因素：搜索空间、考虑实际时延的损失函数以及高效的搜索算法。</p>
-<p><img alt="DNAS" src="images/04Inference02Mobilenet/03cnn/03CNN_07_1.png" />
-===== ????</p>
+<p><img alt="FBNet" src="../_images/06Fpnet01.png" /></p>
 </section>
-<section id="id2">
-<h4>搜索空间<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<section id="id1">
+<h3>搜索空间<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>之前的方法大都搜索单元结构，然后堆叠成完整的网络，但实际上，相同的单元结构在不同的层对网络的准确率和时延的影响是大不相同的。为此，论文构造了整体网络结构(macro-architecture)固定的 layer-wise 搜索空间，每层可以选择不同结构的 block，整体网络结构如表 1 所示，前一层和后三层的结构是固定的，其余层的结构需要进行搜索。前面的层由于特征分辨率较大，人工设定了较小的核数量以保证网络的轻量性。layer-wise 搜索空间如下图所示，基于 MobileNetV2 和 ShuffleNet 的经典结构设计，通过设定不同的卷积核大小(3 或 5)、扩展率以及分组数来构造成不同的候选 block。若 block 的输入和输出分辨率一致，则添加 element-wise 的 shortcut，而若使用了分组卷积，则需要对卷积输出进行 channel shuffle。</p>
-<p><img alt="搜索空间结构" src="images/04Inference02Mobilenet/03cnn/03CNN_07.png" />
-===== ????</p>
+<p><img alt="FBNet" src="../_images/06Fpnet02.png" /></p>
 </section>
 <section id="latency-aware">
-<h4>Latency-Aware 损失函数<a class="headerlink" href="#latency-aware" title="Link to this heading">#</a></h4>
+<h3>Latency-Aware 损失函数<a class="headerlink" href="#latency-aware" title="Link to this heading">#</a></h3>
 <p>公式 1 中的损失函数不仅要反映准确率，也要反应目标硬件上的时延。因此，定义以下损失函数：</p>
 <div class="math notranslate nohighlight">
 \[L(a,w_{a}) = CE(a,w_{a})\cdot αlog(LAT(a)^{β})\tag{2}\]</div>
@@ -786,9 +775,8 @@ document.write(`
 
 </pre></div>
 </div>
-</section>
-<section id="id3">
-<h4>搜索算法<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<section id="id2">
+<h4>搜索算法<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <p>论文将搜索空间表示为随机超网，每层包含 9 个表 2 的并行 block。在推理的时候，候选 block 被执行的概率为：</p>
 <div class="math notranslate nohighlight">
 \[P_{θ_{l}(b_{l}=b_{l,i})} = softmax(θ_{l,i};θ_{l}) = \frac{exp(θ_{l,i})} {\sum_{i=1}exp(θ_{l,i})}\tag{4}\]</div>
@@ -839,21 +827,19 @@ m_{l,i}=GumbelSoftmax(θ_{l,i}|θ_{l})
 </div>
 </section>
 </section>
-<section id="id4">
-<h3>网络结构<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>网络结构<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>FBNet 是通过 DNAS 神经架构搜索发现的一种卷积神经架构。它采用受 MobileNetv2 启发的基本类型图像模型块，该模型利用深度卷积和反向残差结构（请参阅组件，见下图）。其中，FBNet-A 和 FBNet-B、FBNet-C 的区别在于最后一个卷积的输出 channel 不一样</p>
-<p><img alt="FBNet" src="images/04Inference02Mobilenet/06.fpnet_03.png" /></p>
+<p><img alt="FBNet" src="../_images/06Fpnet03.png" /></p>
 </section>
 </section>
 <section id="fbnet-v2">
 <h2>FBNet V2<a class="headerlink" href="#fbnet-v2" title="Link to this heading">#</a></h2>
 <p><strong>FBNetV2</strong>: 提出了 DMaskingNAS，将 channel 数和输入分辨率分别以 mask 和采样的方式加入到超网中，在带来少量内存和计算量的情况下，大幅增加搜索空间。同时采用一种用于特征映射重用的屏蔽机制，使得随着搜索空间的扩大，存储和计算成本几乎保持不变。此外，本文采用有效的形状传播来最大化每个触发器或每个参数的精度。与所有以前的架构相比，搜索到的 FBNetV2s 具有一流的性能。</p>
-<section id="id5">
-<h3>设计思路<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<section id="id6">
-<h4>通道搜索<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<section id="id4">
+<h3>通道搜索<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>把不同的 channel 加入搜索空间，之前的 DNAS 方法就是把不同的选项融进超网，这样会带来接近 o(N2)种选择的可能。为了减少搜索 channel 时候的计算量，作者构造了 channel masking 的机制，把不同 channel 的最终输出，表征为和一个 mask 相乘的形式，如下图所示。</p>
-<p><img alt="FBNet" src="images/04Inference02Mobilenet/06.fpnet_04.png" /></p>
+<p><img alt="FBNet" src="../_images/06Fpnet04.png" /></p>
 <p>其中右边那个灰色的长方体表示一个 shape 为(c, h, w)的 tensor，和左边的 mask 向量 M 相乘的结果。M 可以拆解为多个 mask，m1，m2，m3...和对应 3 的 Gumbel Softmax 的系数 g1，g2，g3...的乘积和。通过调节左边的 mask，就能得到等价的不同 channel 的结果。相当于对一个大的 tensor，mask 掉额外的 channel，得到相应的别的 channel 的结果。</p>
 <p>在通道搜索中，作者假设不同的每一层的通道路径都共享一个卷积核参数，不同 channel 的输出取决于一个叫做 mask 的向量。比如图中 g1 g2 和 g3 是不同 channel 选择的架构参数，对应的白蓝条状是 mask 向量，其中白色表示 1，蓝色表示 0，分别和卷积相乘，那么白色对应的部分表示该路径上的输出 channel 个数，蓝色部分表示该路径上没有这部分 channel，但是在整体计算上维度是保持一致的，不同 mask 向量分别和卷积核参数相乘，再用 channel 的架构参数加权和。这样在搜索的过程中，通过架构参数就可以知道每个 stage 中的卷积核该选择多少个输出 channel。</p>
 <p>想要进行加权和，首先就会遇到下图 Step A 中的问题：channel 不同，对应的 tensor shape 不同，无法直接相加。为了解决这个问题，可以引入 Step B 中的方法：对输出做 zero padding，使之 shape 对齐（图中蓝色部分），然后加权求和。Step B 和 Step C 是等价的,Step C 相当于对卷积的 filter 进行 mask,随后作者又进行了一个简化的假设，假设所有的 weighting 共享，也就是 Step D 的形式。Step E 和 Step D 是等效的，即为最终的 channel masking 机制。</p>
@@ -873,10 +859,10 @@ y = \sum^{k}_{i=1}g_{i}(b(x)\circ l_{i}) \tag{2}
 y=b(x)\circ \underbrace{\sum^{k}_{i=1}g_{i}l_{i}}_{M} \tag{3}
 \]</div>
 <p>这种近似只需要一个正向传递和一个特征映射，除了等式 3 中可忽略的 M 项之外，不会引起额外的 FLOP 或存储器成本。(图 Channel Masking for channel search（DMaskingNAS），通道屏蔽)。此外，这种近似并不等价，只是因为权重是共享的，这在 DNAS 被证明可以减少训练时间和提高准确性[Single-path nas: Device-aware efficient convnet design]。这使本文能够搜索任何模块的输出通道数，包括相关的架构决策，如反向残差模块中的扩展速率。</p>
-<p><img alt="FBNet" src="images/04Inference02Mobilenet/06.fpnet_05.png" /></p>
+<p><img alt="FBNet" src="../_images/06Fpnet05.png" /></p>
 </section>
-<section id="id7">
-<h4>输入分辨率搜索<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<section id="id5">
+<h3>输入分辨率搜索<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>对于空间维度，本文搜索输入分辨率。与通道一样，以前的 DNAS 方法只是用每个输入分辨率实例化每个块。这种不太成熟的方法有两个缺点:增加了内存成本和不兼容的维度。和以前一样，通过对结果进行零填充来直接解决这两个问题。但是，有两点需要注意:</p>
 <p>像素错位</p>
 <p>意味着填充不能像以前那样自然地发生。对图像的外围进行零填充是没有意义的，会导致像素错位(下图 b)。</p>
@@ -885,18 +871,18 @@ y=b(x)\circ \underbrace{\sum^{k}_{i=1}g_{i}l_{i}}_{M} \tag{3}
 <p>B:沿较小特征图外围的零填充使得求和成为可能。但是，右上角的像素(蓝色)没有正确对齐。</p>
 <p>C:在空间上散布零填充导致正确对齐像素的和。注意，两个特征图的右上角像素在总和中正确重叠。</p>
 <p>D:假设 F 是一个 3 × 3 核的卷积。与包含一个子集(灰色)的特征图进行简单卷积，会导致该子集的感受野(2 × 2，蓝色)减小。</p>
-<p>E:为了保留所有搜索到的输入分辨率的感受域，在卷积之前必须对输入进行二次抽样。注意感受野(蓝色)仍然是 3 × 3。</p>
+<p>E:为了保留所有搜索到的输入分辨率的感受域，在卷积之前必须对输入进行二次抽样。注意感受野（蓝色）仍然是 3 × 3。</p>
 <p>此外，注意到可以实现相同的效果，而不需要构造一个更小的张量，具有适当步长的膨胀卷积；进行子采样以避免修改 F 运算。</p>
 <p>上面说了在 channel 维度的做法。在空间维度的做法也是类似的，作者也想构造一种加权和的形式表征不同分辨率的特征图。如图 A 所示，不同分辨率的 tensor 不能直接相加。图 B 说明了在边缘 padding 的方式不行，像素无法对齐。图 C 这种方式会又带来感受野错位的问题：如图 D 所示，Interspersing zero-padding 之后，一个 3x3 的 kenel 有效感受野变成了 2x2。所以图 E 才是作者最终的解决方法：和 F 运算完之后再 padding。</p>
-<p><img alt="FBNetV2" src="images/04Inference02Mobilenet/06.fpnet_06.png" /></p>
-<p>为了处理像素错位，进行零填充，使零点在空间上分散(上图 c)。这种零填充模式是统一的；除了零，这是最近邻上采样。例如，大小增加 2 倍将涉及每隔一行和一列进行零填充。补零而不是上采样可以最大限度地减少输入分辨率的“像素污染”(下图)。</p>
-<p><img alt="FBNetV2" src="images/04Inference02Mobilenet/06.fpnet_07.png" /></p>
+<p><img alt="FBNet" src="../_images/06Fpnet06.png" /></p>
+<p>为了处理像素错位，进行零填充，使零点在空间上分散(上图 c)。这种零填充模式是统一的；除了零，这是最近邻上采样。例如，大小增加 2 倍将涉及每隔一行和一列进行零填充。补零而不是上采样可以最大限度地减少输入分辨率的“像素污染”，如下图所示。</p>
+<p><img alt="" src="../_images/06Fpnet07.png" /></p>
 <p>在最左边，本文有原始的 8×8 特征图。蓝色的 4×4 是使用最近邻进行二次采样的特征图，并且均匀地进行零填充。黄色的 2 × 2 也是二次抽样和零填充。将 2 × 2 与 4 × 4 相加得到最右边的组合特征图。只有角落中的绿色像素保存两种特征地图大小的值；这些绿色值被较低分辨率的特征图“污染&quot;。</p>
 <p>感受野错位:由于特征图的子集对应于不同的分辨率，简单地卷积整个特征图会导致感受野的减小。为了处理感受野错位，本文转而对二次抽样输入进行卷积。使用 Gumbel Softmax，得到了分辨率子采样。</p>
 <p>NASNet 引入了组合隐藏状态的类似概念。这些组合也用于有效地探索组合大的搜索空间，但用于确定——而不是输入分辨率或通道——重复搜索单元的次数。根据上述观点，输入分辨率搜索会导致恒定的存储成本，而不管输入分辨率的数量。另一方面，随着分辨率数量的增加，计算成本呈次线性增加。</p>
 </section>
-<section id="id8">
-<h4>有效形状传播<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<section id="id6">
+<h3>有效形状传播<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>请注意，这种有效形状的计算仅在训练期间使用。在本文的加权求和公式(1)中。输出 y 保留最大数量的通道。然而，存在非整数数量的有效通道:假设 16 通道输出具有 Gumbel 权重 gi = 0.8，12 通道输出具有权重 gi = 0.2。这意味着有效通道数为 0.8 ∗ 16 + 0.2 ∗ 12 = 15.2 0.8<em>16+0.2</em>12 = 15.20.8∗16+0.2∗12=15.2。</p>
 <p>这些有效通道对于 FLOP 和参数计算都是必要的，因为将较高的权重分配给更多的通道会导致较大的成本损失。这种有效形状就是本文如何实现在以前的工作中介绍的有效资源成本:首先，定义 gumbel softmax 权重为：</p>
 <div class="math notranslate nohighlight">
@@ -936,15 +922,14 @@ cost^{l} =
   \end{cases} \tag{10}
 \end{split}\]</div>
 <p>具有γ卷积群。第(l + 1)层的有效输入通道是 $<span class="math notranslate nohighlight">\(\overline{C}^{l+1}_{in} = \overline{C}^l_{out} \)</span><span class="math notranslate nohighlight">\(
-。总训练损失由(1)交叉熵损失和(2)总成本组成，总成本是来自所有层的成本之和:\)</span>cost_{total} =\sum_lcost^l<span class="math notranslate nohighlight">\(。在正向传递中，对于所有卷积，本文计算并返回输出张量和有效输出形状。此外，Gumbel Softmax 等式 4 中的 \)</span>\mathcal{T}<span class="math notranslate nohighlight">\(。在整个训练期间下降，[Categorical reparameterization with gumbel-softmax]，迫使 \)</span>g^{l}<span class="math notranslate nohighlight">\( 接近 one-hot 分布。\)</span>argmax_{i}g^{l}_{i}$ 将因此在超图中选择块的路径；每个块的单通道和扩展速率选项；和整个网络的单一输入分辨率。然后这个最终的架构被训练。请注意，这种最终模型不使用 mask，也不需要有效的形状。</p>
+。总训练损失由(1)交叉熵损失和(2)总成本组成，总成本是来自所有层的成本之和:\)</span>cost_{total} =\sum_lcost^l<span class="math notranslate nohighlight">\(。在正向传递中，对于所有卷积，本文计算并返回输出张量和有效输出形状。此外，Gumbel Softmax 等式 4 中的 \)</span>\mathcal{T}<span class="math notranslate nohighlight">\(。在整个训练期间下降，迫使 \)</span>g^{l}<span class="math notranslate nohighlight">\( 接近 one-hot 分布。\)</span>argmax_{i}g^{l}_{i}$ 将因此在超图中选择块的路径；每个块的单通道和扩展速率选项；和整个网络的单一输入分辨率。然后这个最终的架构被训练。请注意，这种最终模型不使用 mask，也不需要有效的形状。</p>
 </section>
-</section>
-<section id="id9">
-<h3>网络结构<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>网络结构<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>首先使用 DMaskingNAS 寻找低计算预算的紧凑模型(见下图):</p>
-<p><img alt="FBNetV2" src="images/04Inference02Mobilenet/06.fpnet_08.png" /></p>
+<p><img alt="FBNet" src="../_images/06Fpnet08.png" /></p>
 <p>搜索出来的 FBNetV2 架构，颜色表示不同的内核大小，高度表示不同的膨胀率。高度是按比例绘制的。模型范围为 50 MFLOPs 至 300 MFLOPs，如下图所示。搜索到的 FBNetV2s 优于所有现有网络。</p>
-<p><img alt="FBNetV2" src="images/04Inference02Mobilenet/06.fpnet_09.png" /></p>
+<p><img alt="FBNet" src="../_images/06Fpnet09.png" /></p>
 <p><strong>代码</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">py2_round</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mf">0.0</span> <span class="k">else</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span>
@@ -1055,10 +1040,8 @@ cost^{l} =
 <section id="fbnet-v3">
 <h2>FBNet V3<a class="headerlink" href="#fbnet-v3" title="Link to this heading">#</a></h2>
 <p><strong>FBNetV3</strong>：论文认为目前的 NAS 方法大都只满足网络结构的搜索，而没有在意网络性能验证时的训练参数的设置是否合适，这可能导致模型性能下降。为此，论文提出 JointNAS，在资源约束的情况下，搜索最准确的训练参数以及网络结构。</p>
-<section id="id10">
-<h3>设计思路<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-<section id="id11">
-<h4>联合搜索<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<section id="id8">
+<h3>联合搜索<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>JointNAS，分粗粒度和细粒度两个阶段，对网络架构和训练超参都进行搜索。JointNAS 优化目标可公式化为:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1072,7 +1055,7 @@ cost^{l} =
 <p>** 粗粒度阶段</p>
 <p>粗粒度搜索生成准确率预测器和一个高性能候选网络集,这个预测器是一个多层感知器构成的小型网络，这个预测器是一个多层感知器构成的小型网络这个预测器是一个多层感知器构成的小型网络，包含了两个部分，一个代理预测器，一个是准确率预测器。</p>
 <p>预测器的结构如下图所示，包含一个结构编码器以及两个 head，分别为辅助的代理 head 以及准确率 head。代理 head 预测网络的属性(FLOPs 或参数量等)，主要在编码器预训练时使用，准确率 head 根据训练参数以及网络结构预测准确率，使用代理 head 预训练的编码器在迭代优化过程中进行 fine-tuned。</p>
-<p><img alt="FBNetV2" src="images/04Inference02Mobilenet/06.fpnet_10.png" /></p>
+<p><img alt="FBNet" src="../_images/06Fpnet10.png" /></p>
 <p>Neural Acquisition Function，即预测器，见上图。它包含编码架构与两个 head：</p>
 <ul class="simple">
 <li><p>Auxiliary proxy head 用于预训练编码架构、预测架构统计信息（比如 FLOPs 与参数两）。注：网络架构通过 one-hot 方式进行编码；</p></li>
@@ -1099,8 +1082,8 @@ cost^{l} =
 </ul>
 <p>需要注意，当资源约束改变时，预测器依然可以重复使用，能够快速地使用细粒度阶段搜索到合适的网络结构和训练参数。</p>
 </section>
-<section id="id12">
-<h4>搜索空间<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<section id="id9">
+<h3>搜索空间<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>FBNetV3 的搜索空间包括了训练超参和网络架构。训练超参的搜索空间包括了优化器类型、初始学习率、参数正则化比例、mixup 比例、dropout 比例、随机深度 drop 比例和是否使用 EMA 等。网络架构的搜索空间是逆残差模型的参数，包括输入分辨率、卷积核大小、中间通道放大比例、每一 stage 网络的通道数和深度等。</p>
 <p><strong>代码</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">py2_round</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1218,13 +1201,15 @@ cost^{l} =
 </div>
 </section>
 </section>
+<section id="id10">
+<h2>小结与思考<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>FBNet 系列是完全基于 NAS 方法的轻量级网络系列，分析当前搜索方法的缺点，逐步增加创新性改进。</p></li>
+<li><p>FBNetV1 结合了 DNAS 和资源约束，FBNetV2 加入了 channel 和输入分辨率的搜索，FBNetV3 则是使用准确率预测来进行快速的网络结构搜索，期待官方更完整的代码开源。</p></li>
+</ul>
 </section>
-<section id="id13">
-<h2>小结与思考<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
-<p>FBNet 系列是完全基于 NAS 方法的轻量级网络系列，分析当前搜索方法的缺点，逐步增加创新性改进，FBNet 结合了 DNAS 和资源约束，FBNetV2 加入了 channel 和输入分辨率的搜索，FBNetV3 则是使用准确率预测来进行快速的网络结构搜索，期待完整的代码开源。</p>
-</section>
-<section id="id14">
-<h2>本节视频<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h2>本节视频<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <iframe src="https://player.bilibili.com/player.html?bvid=BV1DK411k7qt&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </section>
 </section>
@@ -1298,36 +1283,29 @@ cost^{l} =
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fbnet-v1">FBNet V1</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dnas">DNAS 方法</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">搜索空间</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#latency-aware">Latency-Aware 损失函数</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">搜索算法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dnas">DNAS 方法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">搜索空间</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latency-aware">Latency-Aware 损失函数</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">搜索算法</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">网络结构</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fbnet-v2">FBNet V2</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">通道搜索</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">输入分辨率搜索</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">有效形状传播</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">通道搜索</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">输入分辨率搜索</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">有效形状传播</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">网络结构</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fbnet-v3">FBNet V3</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">设计思路</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">联合搜索</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">搜索空间</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">联合搜索</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">搜索空间</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -1350,7 +1328,7 @@ cost^{l} =
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 11, 2024.
+  Last updated on Jun 15, 2024.
   <br/>
 </p>
   </div>

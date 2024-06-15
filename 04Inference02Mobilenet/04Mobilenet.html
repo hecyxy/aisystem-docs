@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference02Mobilenet/04Mobilenet.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="本节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。 MobileNet V1: MobileNet v1 是一种体积较小、计算量较少、适用于移动设备的卷积神经网络。mobileNet ..." />
+<meta property="og:description" content="在本章节会介绍 MobileNet 系列，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。会结合目前较流行的深度学习技术，在V1的基础会分别讲解V2，V3，V4做出的改进升级，让读者们更深入了解轻量级网络结构的设计思路与..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="本节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。 MobileNet V1: MobileNet v1..." />
-<meta name="description" content="本节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。 MobileNet V1: MobileNet v1 是一种体积较小、计算量较少、适用于移动设备的卷积神经网络。mobileNet ..." />
+<meta property="og:image:alt" content="在本章节会介绍 MobileNet 系列，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。会结合目前较流行的深度学习技术，在V1的基础会分别..." />
+<meta name="description" content="在本章节会介绍 MobileNet 系列，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。会结合目前较流行的深度学习技术，在V1的基础会分别讲解V2，V3，V4做出的改进升级，让读者们更深入了解轻量级网络结构的设计思路与..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>MobileNet 系列 &#8212; AI System</title>
@@ -82,11 +82,11 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ESPNet 系列" href="05ESPNet.html" />
-    <link rel="prev" title="ShuffleNet 系列" href="03Shufflenet.html" />
+    <link rel="prev" title="ShuffleNet" href="03Shufflenet.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 11, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
 
 <link
   rel="alternate"
@@ -344,7 +344,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </details></li>
@@ -372,7 +372,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型轻量化</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01Introduction.html">推理参数(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05ESPNet.html">ESPNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06FBNet.html">FBNet 系列</a></li>
@@ -687,43 +687,38 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">逐点卷积</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">宽度&amp;分辨率乘子</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">网络结构</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v2">MobileNet V2</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">贡献概述</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-bottlenecks">Linear Bottlenecks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">可分离卷积块的演化</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">反向残差</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">可分离卷积块的演化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">反向残差</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relu6">ReLU6 激活</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">网络结构</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v3">MobileNet V3</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">重新设计耗时层结构</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">重新设计激活函数</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">重新设计耗时层结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">重新设计激活函数</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nas-block-wise-search">NAS 搜索全局结构（Block-wise Search）</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#netadapt-layer-wise-search">NetAdapt 搜索层结构（Layer-wise Search）</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">网络结构</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#se">SE 结构</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v3-block">MobileNet v3 block</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#se">SE 结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverted-residuals">反向残差结构(Inverted Residuals)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v3-block">MobileNet V3 block</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v4">MobileNet V4</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">设计原则</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">设计原则</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-independent-pareto-efficiency">Hardware-Independent Pareto Efficiency</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-inverted-bottlenecks">Universal Inverted Bottlenecks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilemqa">MobileMQA</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-nas-for-enhanced-architectures">Refining NAS for Enhanced Architectures</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">代码</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -738,14 +733,14 @@ document.write(`
 <!--Copyright © XcodeHw 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="mobilenet">
 <h1>MobileNet 系列<a class="headerlink" href="#mobilenet" title="Link to this heading">#</a></h1>
-<p>本节会介绍 MobileNet v1，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。</p>
+<p>在本章节会介绍 MobileNet 系列，重点在于其模型结构的轻量化设计，主要介绍详细的轻量化设计原则，基于这原则，MobileNetV1 是如何设计成一个小型，低延迟，低功耗的参数化模型，可以满足各种用例的资源约束。可以更方便的实现分类，检测，嵌入和分割等功能。会结合目前较流行的深度学习技术，在V1的基础会分别讲解V2，V3，V4做出的改进升级，让读者们更深入了解轻量级网络结构的设计思路与过程。</p>
 <section id="mobilenet-v1">
 <h2>MobileNet V1<a class="headerlink" href="#mobilenet-v1" title="Link to this heading">#</a></h2>
-<p>MobileNet v1 是一种体积较小、计算量较少、适用于移动设备的卷积神经网络。mobileNet V1 的主要创新点是用深度可分离卷积(depthwise separable convolution)代替普通的卷积，并使用宽度乘数(width multiply)减少参数量，在 ImageNet 图像分类、Stanford Dog 细粒度图像分类、目标检测、人脸属性识别、人脸编码、以图搜地等计算机视觉任务上，结合知识蒸馏进行评估，MobileNet 表现出极致的轻量化和速度性能。</p>
+<p>MobileNet V1 是一种体积较小、计算量较少、适用于移动设备的卷积神经网络。mobileNet V1 的主要创新点是用深度可分离卷积(depthwise separable convolution)代替普通的卷积，并使用宽度乘数(width multiply)减少参数量，在 ImageNet 图像分类、Stanford Dog 细粒度图像分类、目标检测、人脸属性识别、人脸编码、以图搜地等计算机视觉任务上，结合知识蒸馏进行评估，MobileNet 表现出极致的轻量化和速度性能。</p>
 <section id="id1">
 <h3>逐通道卷积<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>逐通道卷积（Depthwise Convolution）的一个卷积核只有一个通道，输入信息的一个通道只被一个卷积核卷积，这个过程产生的 feature map 通道数和输入的通道数完全一样，如下图所示：</p>
-<p><img alt="Depthwise Convolution 结构" src="../_images/04.mobilenet_01.png" /></p>
+<p><img alt="Mobilenet" src="../_images/04Mobilenet01.png" /></p>
 <p>深度分离卷积把输入特征图的所有通道进行分离，每个通道对应的一个卷积核对该通道的特征图进行单独的卷积操作(也就是说，第 m 个深度卷积核作用在输入的第 m 个通道上，得到输出结果的第 m 个通道)。在深度分离卷积中，每个卷积核的深度固定为 1。</p>
 <p>参数量:<span class="math notranslate nohighlight">\(D_{k}\times D_{k}\times M\)</span></p>
 <p>计算量 :<span class="math notranslate nohighlight">\(D_{k}\times  D_{k}\times M\times D_{f}\times D_{f}\)</span></p>
@@ -754,7 +749,7 @@ document.write(`
 <section id="id2">
 <h3>逐点卷积<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>逐点卷积（Pointwise Convolution）的本质就是 <span class="math notranslate nohighlight">\(1\times 1\)</span> 的卷积，它的卷积核的尺寸为 <span class="math notranslate nohighlight">\(1\times 1\times M\)</span>，M 为上一层输出信息的通道数。所以这里 Pointwise Convolution 的每个卷积核会将上一步的特征图在通道方向上进行加权组合，生成新的特征图，如下图所示：
-<img alt="Pointwise Convolution 结构" src="../_images/04.mobilenet_02.png" /></p>
+<img alt="Mobilenet" src="../_images/04Mobilenet02.png" /></p>
 <p>参数量:<span class="math notranslate nohighlight">\(1\times 1\times M\times N\)</span></p>
 <p>计算量:<span class="math notranslate nohighlight">\(1\times 1\times M\times N\times D_{f}\times D_{f}\)</span></p>
 <p>其中卷积核尺寸是 <span class="math notranslate nohighlight">\(1\times1\)</span>，<span class="math notranslate nohighlight">\(D_{f}\)</span> 为特征图尺寸，<span class="math notranslate nohighlight">\(M\)</span> 为输入通道数，<span class="math notranslate nohighlight">\(N\)</span> 为输出通道数。</p>
@@ -768,6 +763,23 @@ D_{k}\cdot D_{k}\cdot M\cdot D_{F}\cdot D_{F} + M\cdot N\cdot D_{F}\cdot D_{F}
 \[
 \frac{D_{k}\cdot D_{k}\cdot M\cdot D_{F}\cdot D_{F} + M\cdot N\cdot D_{F}\cdot D_{F}}{D_{k}\cdot D_{k}\cdot M\cdot N\cdot D_{F}\cdot D_{F}}=\frac{1}{N}+\frac{1}{D_{k}^{2}}
 \]</div>
+<p><strong>代码</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 定义 DW、PW 卷积模块</span>
+<span class="k">def</span> <span class="nf">conv_dw</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="n">stride</span><span class="p">):</span>
+    
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+                <span class="c1"># DW  DW 卷积的卷积核输入与输出的数量一致，且等于分组数</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">inp</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>  
+                <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">inp</span><span class="p">),</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+
+                <span class="c1"># PW</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">oup</span><span class="p">),</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                <span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="id3">
 <h3>宽度&amp;分辨率乘子<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
@@ -789,29 +801,21 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
 </section>
 <section id="id4">
 <h3>网络结构<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<p>MBconv 由 Depthwise Convolution，BN，ReLU 组成，基本结构如下图右面所示：</p>
-<p><img alt="MBconv 结构" src="../_images/04.mobilenet_03.png" /></p>
-<p>====== 模型结构介绍太少了，融合进去代码哈</p>
-</section>
-<section id="id5">
-<h3>代码<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>在V1结构中会加入BN，并使用ReLU激活函数，所以depthwise separable convolution的基本结构如下图右面所示, 左面是正常的conv：</p>
+<p><img alt="Mobilenet" src="../_images/04Mobilenet03.png" /></p>
+<p><strong>代码</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 <span class="kn">import</span> <span class="nn">torch</span>
-
-<span class="k">class</span> <span class="nc">MobileNetV1</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch_in</span><span class="p">,</span> <span class="n">n_classes</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">MobileNetV1</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-
-        <span class="c1"># 定义普通卷积、BN、激活模块</span>
-        <span class="k">def</span> <span class="nf">conv_bn</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="n">stride</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+<span class="c1"># 定义普通卷积、BN、激活模块</span>
+<span class="k">def</span> <span class="nf">conv_bn</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="n">stride</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
                 <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
                 <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">oup</span><span class="p">),</span>
                 <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                 <span class="p">)</span>
-        <span class="c1"># 定义 DW、PW 卷积模块</span>
-        <span class="k">def</span> <span class="nf">conv_dw</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="n">stride</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+<span class="c1"># 定义 DW、PW 卷积模块</span>
+<span class="k">def</span> <span class="nf">conv_dw</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="n">stride</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
                 <span class="c1"># dw</span>
                 <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">inp</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>   <span class="c1"># DW 卷积的卷积核输入与输出的数量一致，且等于分组数</span>
                 <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">inp</span><span class="p">),</span>
@@ -823,9 +827,20 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
                 <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
                 <span class="p">)</span>
 
+</pre></div>
+</div>
+<p>整体网络就是通过不断堆叠MBconv组件组成的,首先是一个3x3的标准卷积，然后后面就是堆积depthwise separable convolution，并且可以看到其中的部分depthwise convolution会通过strides=2进行down sampling。经过 卷积提取特征后再采用average pooling将feature变成1x1，根据预测类别大小加上全连接层，最后是一个softmax层。</p>
+<p><strong>代码</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="k">class</span> <span class="nc">MobileNetV1</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch_in</span><span class="p">,</span> <span class="n">n_classes</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MobileNetV1</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-            <span class="n">conv_bn</span><span class="p">(</span><span class="n">ch_in</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-            <span class="n">conv_dw</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">conv_bn</span><span class="p">(</span><span class="n">ch_in</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="c1">#普通卷积</span>
+            <span class="n">conv_dw</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>    <span class="c1">#DW卷积</span>
             <span class="n">conv_dw</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
             <span class="n">conv_dw</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
             <span class="n">conv_dw</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
@@ -838,9 +853,9 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
             <span class="n">conv_dw</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
             <span class="n">conv_dw</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
             <span class="n">conv_dw</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">AdaptiveAvgPool2d</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">AdaptiveAvgPool2d</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1">#自适应平均池化</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="n">n_classes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="n">n_classes</span><span class="p">)</span> <span class="c1">#线性层</span>
 
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -849,27 +864,22 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
         <span class="k">return</span> <span class="n">x</span>
 </pre></div>
 </div>
-<p>======= 代码不要直接粘贴一大段，看不懂的，融合在对应的网络模型结构里面哈。融合后就没有这个独立代码的小节了。</p>
 </section>
 </section>
 <section id="mobilenet-v2">
 <h2>MobileNet V2<a class="headerlink" href="#mobilenet-v2" title="Link to this heading">#</a></h2>
-<p>在上一章节中介绍了 MobileNetV1 版本，主要是将普通卷积转成逐点和逐通道卷积，也讲到了用于调整模型的大小和计算复杂性的宽度和分辨率因子。在本节中主要会讲解基于 V1 构建的更高效更轻量的网络结构。</p>
-<section id="id6">
-<h3>贡献概述<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<p>MobileNet-v2 的主要思想就是在 v1 的基础上引入了线性瓶颈 (Linear Bottleneck)和逆残差 (Inverted Residual)来提高网络的表征能力，同样也是一种轻量级的卷积神经网络。</p>
-</section>
+<p><strong>MobileNet-V2</strong> 的主要思想就是在 v1 的基础上引入了线性瓶颈 (Linear Bottleneck)和逆残差 (Inverted Residual)来提高网络的表征能力，同样也是一种轻量级的卷积神经网络。</p>
 <section id="linear-bottlenecks">
 <h3>Linear Bottlenecks<a class="headerlink" href="#linear-bottlenecks" title="Link to this heading">#</a></h3>
 <p>MobileNetV1 中引入α参数来做模型通道的缩减，相当于给模型“瘦身”，这样特征信息就能更集中在缩减后的通道中。但研究人员发现深度可分离卷积中有大量卷积核为 0，即有很多卷积核没有参与实际计算。研究后发现是 ReLU 激活函数的问题，认为 ReLU 这个激活函数，在低维空间运算中会损失很多信息，而在高维空间中会保留较多有用信息 。ReLU 会对维度较低的张量造成较大的信息损耗。</p>
 <p>维度越低，损失信息越多。（如下图 2 和 3 已经没有螺旋的样子了）；维度越高，损失信息越少（当原始输入维度数增加到 15 以后再加 ReLU，基本不会丢失太多的信息，接近输入）。</p>
-<p><img alt="ReLu" src="../_images/04.mobilenet_04.png" /></p>
+<p><img alt="Mobilenet" src="../_images/04Mobilenet04.png" /></p>
 <p>如果&quot;manifold of interest&quot;（兴趣流形）都为非零值，则经过 ReLU 相当于只做了一个线性变换，没有信息丢失，维度足够多时，ReLU 能够保留&quot;manifold of interest&quot;（兴趣流形）的完整信息。</p>
 <p>论文针对这个问题在 Bottleneck 末尾使用 Linear Bottleneck(即不使用 ReLU 激活，做了线性变换)来代替原本的非线性激活变换。具体到 V2 网络中就是将最后的 Point-Wise 卷积的 ReLU6 都换成线性函数。</p>
 <p>实验证据表明，使用线性层至关重要，因为它可以防止非线性破坏太多的信息。</p>
 </section>
-<section id="id7">
-<h3>可分离卷积块的演化<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>可分离卷积块的演化<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>可分离卷积块的演化如下图所示：</p>
 <ol class="arabic simple">
 <li><p>标准卷积（一个大方块）；</p></li>
@@ -877,65 +887,22 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
 <li><p>linear bottleneck，(高维后)relu6-dw-relu6-pw，降维-升维-；</p></li>
 <li><p>和图(c)等效，(线性激活后)pw 升维-relu6-dw-relu6-pw，降维-线性激活；</p></li>
 </ol>
-<p><img alt="Conv" src="../_images/04.mobilenet_05.png" /></p>
+<p><img alt="Mobilenet" src="../_images/04Mobilenet05.png" /></p>
 </section>
-<section id="id8">
-<h3>反向残差<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>反向残差<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>反向残差（Inverted residuals ）如下图所示：</p>
-<p><img alt="反向残差" src="../_images/04.mobilenet_06.png" /></p>
+<p><img alt="Mobilenet" src="../_images/04Mobilenet06.png" /></p>
 <ul class="simple">
 <li><p>Original residual block：reduce – transfer – expand （中间窄两头宽）</p></li>
 </ul>
-<p>Residual block 先用 1x1 卷积降通道过 ReLU，再 3x3 卷积过 ReLU，最后再用 1x1 卷积过 ReLU 恢复通道，并和输入相加。之所以要 1*1 卷积降通道，是为了减少计算量，不然中间的 3x3 卷积计算量太大。所以 Residual block 是中间窄两头宽。</p>
+<p>Residual block 先用 <span class="math notranslate nohighlight">\(1 \times 1\)</span>卷积降通道过 ReLU，再 <span class="math notranslate nohighlight">\(3 \times 3\)</span> 卷积过 ReLU，最后再用 <span class="math notranslate nohighlight">\(1 \times 1\)</span>卷积过 ReLU 恢复通道，并和输入相加。之所以要<span class="math notranslate nohighlight">\(1 \times 1\)</span>卷积降通道，是为了减少计算量，不然中间的<span class="math notranslate nohighlight">\( 3 \times 3\)</span> 卷积计算量太大。所以 Residual block 是中间窄两头宽。</p>
 <ul class="simple">
 <li><p>Inverted residual block：expand – transfer – reduce （中间宽两头窄）</p></li>
 </ul>
-<p>在 Inverted Residual block 中，3x3 卷积变成 Depthwise 了，计算量很少了，所以通道数可以多一点，效果更好，所以通过 1x1 卷积先提升通道数，再 Depthwise3x3 卷积，最后用 1x1 卷积降低通道数。两端的通道数都很小，所以 1x1 卷积升通道和降通道计算量都并不大，而中间的通道数虽然多，但是 Depthwise 的卷积计算量也不。</p>
-</section>
-<section id="relu6">
-<h3>ReLU6 激活<a class="headerlink" href="#relu6" title="Link to this heading">#</a></h3>
-<p>卷积之后通常会接一个 ReLU 非线性激活，在 MobileNet 中使用 ReLU6。ReLU6 在普通的 ReLU 基础上限制最大输出为 6，这是为了在移动端设备 float16/int8 的低精度的时候也能有很好的数值分辨率。</p>
-<p>如果对 ReLU 的激活范围不加限制，输出范围为 0 到正无穷，如果激活值非常大，分布在一个很大的范围内，则低精度的 float16/int8 无法很好地精确描述如此大范围的数值，带来精度损失。</p>
-</section>
-<section id="id9">
-<h3>网络结构<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
-<p>v2 的加入了 1×1 升维，引入 Shortcut 并且去掉了最后的 ReLU，改为 Linear。步长为 1 时，先进行 1×1 卷积升维，再进行深度卷积提取特征，再通过 Linear 的逐点卷积降维。</p>
-<p>将 input 与 output 相加，形成残差结构。步长为 2 时，因为 input 与 output 的尺寸不符，因此不添加 shortcut 结构。整个结构由 v2 block 堆叠而成。</p>
-<p><img alt="v2block" src="../_images/04.mobilenet_07.png" /></p>
-</section>
-<section id="id10">
-<h3>代码<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-
-<span class="k">def</span> <span class="nf">_make_divisible</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">divisor</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">min_ch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        将输入的通道数(ch)调整到 divisor 的整数倍，方便硬件加速</span>
-<span class="sd">    This function is taken from the original tf repo.</span>
-<span class="sd">    It ensures that all layers have a channel number that is divisible by 8</span>
-<span class="sd">    It can be seen here:</span>
-<span class="sd">    https://github.com/TensorFlow/models/blob/master/research/slim/nets/mobilenet/mobilenet.py</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">min_ch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">min_ch</span> <span class="o">=</span> <span class="n">divisor</span>
-    <span class="n">new_ch</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">min_ch</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ch</span> <span class="o">+</span> <span class="n">divisor</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">//</span> <span class="n">divisor</span> <span class="o">*</span> <span class="n">divisor</span><span class="p">)</span>
-    <span class="c1"># Make sure that round down does not go down by more than 10%.</span>
-    <span class="k">if</span> <span class="n">new_ch</span> <span class="o">&lt;</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">ch</span><span class="p">:</span>
-        <span class="n">new_ch</span> <span class="o">+=</span> <span class="n">divisor</span>
-    <span class="k">return</span> <span class="n">new_ch</span>
-
-<span class="c1"># 定义普通卷积、BN 结构</span>
-<span class="k">class</span> <span class="nc">ConvBNReLU</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_channel</span><span class="p">,</span> <span class="n">out_channel</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">padding</span> <span class="o">=</span> <span class="p">(</span><span class="n">kernel_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># padding 的设置根据 kernel_size 来定，如果 kernel_size 为 3，则 padding 设置为 1；如果 kernel_size 为 1，为 padding 为 0</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">ConvBNReLU</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-            <span class="c1"># 在 pytorch 中，如果设置的 group=1 的话，就为普通卷积；如果设置的值为输入特征矩阵的深度的话（即 in_channel），则为深度卷积（deptwise conv），并且 Dw 卷积的输出特征矩阵的深度等于输入特征矩阵的深度</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channel</span><span class="p">,</span> <span class="n">out_channel</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="n">padding</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>  <span class="c1"># groups=1，示普通的卷积；因为接下来要使用的是 BN 层，此处的偏置不起任何作用，所以设置为 1</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">out_channel</span><span class="p">),</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU6</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    <span class="c1"># 此处使用的是 Relu6 激活函数</span>
-        <span class="p">)</span>
-
-<span class="c1"># 定义 mobile 网络基本结构--即到残差结构</span>
+<p>在 Inverted Residual block 中，<span class="math notranslate nohighlight">\( 3 \times 3\)</span> 卷积变成 Depthwise 了，计算量很少了，所以通道数可以多一点，效果更好，所以通过 <span class="math notranslate nohighlight">\(1 \times 1\)</span> 卷积先提升通道数，再 Depthwise <span class="math notranslate nohighlight">\( 3 \times 3\)</span>卷积，最后用<span class="math notranslate nohighlight">\(1 \times 1\)</span>卷积降低通道数。两端的通道数都很小，所以 <span class="math notranslate nohighlight">\(1 \times 1\)</span>卷积升通道和降通道计算量都并不大，而中间的通道数虽然多，但是 Depthwise 的卷积计算量也不。</p>
+<p><strong>代码</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 定义 mobile 网络基本结构--即到残差结构</span>
 <span class="k">class</span> <span class="nc">InvertedResidual</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_channel</span><span class="p">,</span> <span class="n">out_channel</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="n">expand_ratio</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">InvertedResidual</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -962,6 +929,54 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
             <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="relu6">
+<h3>ReLU6 激活<a class="headerlink" href="#relu6" title="Link to this heading">#</a></h3>
+<p>卷积之后通常会接一个 ReLU 非线性激活，在 MobileNet 中使用 ReLU6。ReLU6 在普通的 ReLU 基础上限制最大输出为 6，这是为了在移动端设备 float16/int8 的低精度的时候也能有很好的数值分辨率。</p>
+<p>如果对 ReLU 的激活范围不加限制，输出范围为 0 到正无穷，如果激活值非常大，分布在一个很大的范围内，则低精度的 float16/int8 无法很好地精确描述如此大范围的数值，带来精度损失。</p>
+<p><strong>代码</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 定义普通卷积、BN 结构</span>
+<span class="k">class</span> <span class="nc">ConvBNReLU</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_channel</span><span class="p">,</span> <span class="n">out_channel</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">padding</span> <span class="o">=</span> <span class="p">(</span><span class="n">kernel_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># padding 的设置根据 kernel_size 来定，如果 kernel_size 为 3，则 padding 设置为 1；如果 kernel_size 为 1，为 padding 为 0</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ConvBNReLU</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="c1"># 在 pytorch 中，如果设置的 group=1 的话，就为普通卷积；如果设置的值为输入特征矩阵的深度的话（即 in_channel），则为深度卷积（deptwise conv），并且 Dw 卷积的输出特征矩阵的深度等于输入特征矩阵的深度</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channel</span><span class="p">,</span> <span class="n">out_channel</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="n">padding</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>  <span class="c1"># groups=1，示普通的卷积；因为接下来要使用的是 BN 层，此处的偏置不起任何作用，所以设置为 1</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">out_channel</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU6</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    <span class="c1"># 此处使用的是 Relu6 激活函数</span>
+        <span class="p">)</span>
+
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>网络结构<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>V2 的加入了<span class="math notranslate nohighlight">\(1 \times 1\)</span> 升维，引入 Shortcut 并且去掉了最后的 ReLU，改为 Linear。步长为 1 时，先进行 <span class="math notranslate nohighlight">\(1 \times 1\)</span> 卷积升维，再进行深度卷积提取特征，再通过 Linear 的逐点卷积降维。</p>
+<p>将 input 与 output 相加，形成残差结构。步长为 2 时，因为 input 与 output 的尺寸不符，因此不添加 shortcut 结构。整个结构由 V2 block 堆叠而成。</p>
+<p><img alt="Mobilenet" src="../_images/04Mobilenet07.png" /></p>
+</section>
+<section id="id8">
+<h3>代码<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="k">def</span> <span class="nf">_make_divisible</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">divisor</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">min_ch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">     将输入的通道数(ch)调整到 divisor 的整数倍，方便硬件加速</span>
+<span class="sd">    This function is taken from the original tf repo.</span>
+<span class="sd">    It ensures that all layers have a channel number that is divisible by 8</span>
+<span class="sd">    It can be seen here:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">min_ch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">min_ch</span> <span class="o">=</span> <span class="n">divisor</span>
+    <span class="n">new_ch</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">min_ch</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ch</span> <span class="o">+</span> <span class="n">divisor</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">//</span> <span class="n">divisor</span> <span class="o">*</span> <span class="n">divisor</span><span class="p">)</span>
+    <span class="c1"># Make sure that round down does not go down by more than 10%.</span>
+    <span class="k">if</span> <span class="n">new_ch</span> <span class="o">&lt;</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">ch</span><span class="p">:</span>
+        <span class="n">new_ch</span> <span class="o">+=</span> <span class="n">divisor</span>
+    <span class="k">return</span> <span class="n">new_ch</span>
+
 
 <span class="c1"># 定义 mobileNetV2 网络</span>
 <span class="k">class</span> <span class="nc">MobileNetV2</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -1025,21 +1040,18 @@ D_{k}\cdot D_{k} \cdot αM\cdotρD_{F}\cdotρD_{F}+ αM\cdot αN\cdotρD_{F}\cdo
         <span class="k">return</span> <span class="n">x</span>
 </pre></div>
 </div>
-<p>======= 代码不要直接粘贴一大段，看不懂的，融合在对应的网络模型结构里面哈。融合后就没有这个独立代码的小节了。</p>
 </section>
 </section>
 <section id="mobilenet-v3">
 <h2>MobileNet V3<a class="headerlink" href="#mobilenet-v3" title="Link to this heading">#</a></h2>
-<p>在本节会主要介绍 MobileNetV3 相对于 V1，V2 的改进之处，除了介绍更轻量的网络结构外，还会给大家带来新的技术，什么是神经网络结构搜索(Nas)，以及 Nas 如何与 MobileNet 进行结合。</p>
-<p>MobileNetV3 是由谷歌团队在 2019 年提出的轻量化网络模型，传统的卷积神经网络，内容需求大，运算量大，无法再移动设备以及嵌入式设备上运行，为了解决这一问题，MobileNet 网络应运而生。</p>
-<p>MobileNetV3 在移动端图像分类、目标检测、语义分割等任务上均取得了优秀的表现。MobileNetV3 采用了很多新的技术，包括针对通道注意力的 Squeeze-and-Excitation 模块、NAS 搜索方法等，这些方法都有利于进一步提升网络的性能。</p>
-<section id="id11">
-<h3>重新设计耗时层结构<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>MobileNetV3</strong> 是由谷歌团队在 2019 年提出的轻量化网络模型，传统的卷积神经网络，内容需求大，运算量大，无法再移动设备以及嵌入式设备上运行，为了解决这一问题，MobileNet V3网络应运而生。在移动端图像分类、目标检测、语义分割等任务上均取得了优秀的表现。MobileNetV3 采用了很多新的技术，包括针对通道注意力的 Squeeze-and-Excitation 模块、NAS 搜索方法等，这些方法都有利于进一步提升网络的性能。</p>
+<section id="id9">
+<h3>重新设计耗时层结构<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>首先，减少网络第一个卷积层的卷积核个数，从 32 减到 16，然后精简了最后的 Stage，将原来搜索到的最后阶段的人工精简，删除了多余的卷积层，将延迟较少了 7 毫秒，将近全部运行时间的 11%，并减少了 3000 万的乘加操作次数，几乎没有损失准确性。</p>
-<p><img alt="新结构" src="../_images/04.mobilenet_08.png" /></p>
+<p><img alt="Mobilenet" src="../_images/04Mobilenet08.png" /></p>
 </section>
-<section id="id12">
-<h3>重新设计激活函数<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>重新设计激活函数<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>引入新的非线性激活函数：h-swish。swish 公式：</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1051,7 +1063,7 @@ Swish x = x*α(x)
 h-swish[x] = x\frac{ReLU6(x+3)}{6}
 \]</div>
 <p>替换前后能够对 swish 进行一个很好的近似，如下图所示:</p>
-<p><img alt="h-swish" src="../_images/04.mobilenet_09.png" /></p>
+<p><img alt="Mobilenet" src="../_images/04Mobilenet09.png" /></p>
 <p>在网络结构搜索中，作者结合两种技术：资源受限的 NAS（platform-aware NAS）与 NetAdapt，前者用于在计算和参数量受限的前提下搜索网络的各个模块，所以称之为模块级的搜索（Block-wise Search），后者用于对各个模块确定之后网络层的微调。</p>
 </section>
 <section id="nas-block-wise-search">
@@ -1075,70 +1087,12 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
 <li><p>减少所有共享相同 bottleneck size 模块的瓶颈。</p></li>
 </ul>
 </section>
-<section id="id13">
-<h3>网络结构<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <section id="se">
-<h4>SE 结构<a class="headerlink" href="#se" title="Link to this heading">#</a></h4>
+<h3>SE 结构<a class="headerlink" href="#se" title="Link to this heading">#</a></h3>
 <p>首先使用一个全局池化层将每个通道变成一个具体的数值，然后接两个全连接层，最后通过一个 H-Sigmoid 函数获取最终的权重，赋值给最初的特征图。</p>
-<p><img alt="SE 结构" src="../_images/04.mobilenet_10.png" /></p>
-</section>
-<section id="mobilenet-v3-block">
-<h4>MobileNet v3 block<a class="headerlink" href="#mobilenet-v3-block" title="Link to this heading">#</a></h4>
-<p>核心模块，也是网络的基本模块。主要实现了通道可分离卷积+SE 通道注意力机制+残差连接。结构图如下：</p>
-<p><img alt="v3 block 结构" src="../_images/04.mobilenet_11.png" /></p>
-</section>
-</section>
-<section id="id14">
-<h3>代码<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
-
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span><span class="p">,</span> <span class="n">Tensor</span>
-<span class="kn">from</span> <span class="nn">torch.nn</span> <span class="kn">import</span> <span class="n">functional</span> <span class="k">as</span> <span class="n">F</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
-
-<span class="c1"># 得到同传入数据最近的 8 的整数倍数值</span>
-<span class="k">def</span> <span class="nf">_make_divisible</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">divisor</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">min_ch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This function is taken from the original tf repo.</span>
-<span class="sd">    It ensures that all layers have a channel number that is divisible by 8</span>
-<span class="sd">    It can be seen here:</span>
-<span class="sd">    https://github.com/TensorFlow/models/blob/master/research/slim/nets/mobilenet/mobilenet.py</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">min_ch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">min_ch</span> <span class="o">=</span> <span class="n">divisor</span>
-    <span class="n">new_ch</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">min_ch</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ch</span> <span class="o">+</span> <span class="n">divisor</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">//</span> <span class="n">divisor</span> <span class="o">*</span> <span class="n">divisor</span><span class="p">)</span>
-    <span class="c1"># Make sure that round down does not go down by more than 10%.</span>
-    <span class="k">if</span> <span class="n">new_ch</span> <span class="o">&lt;</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">ch</span><span class="p">:</span>
-        <span class="n">new_ch</span> <span class="o">+=</span> <span class="n">divisor</span>
-    <span class="k">return</span> <span class="n">new_ch</span>
-
-<span class="c1"># 普通卷积、BN、激活层模块</span>
-<span class="k">class</span> <span class="nc">ConvBNActivation</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                 <span class="n">in_planes</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>   <span class="c1"># 输入特征矩阵的通道</span>
-                 <span class="n">out_planes</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>  <span class="c1"># 输出特征矩阵的通道</span>
-                 <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-                 <span class="n">stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-                 <span class="n">groups</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-                 <span class="n">norm_layer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>   <span class="c1"># 在卷积后的 BN 层</span>
-                 <span class="n">activation_layer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>  <span class="c1"># 激活函数</span>
-        <span class="n">padding</span> <span class="o">=</span> <span class="p">(</span><span class="n">kernel_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-        <span class="k">if</span> <span class="n">norm_layer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">norm_layer</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span>
-        <span class="k">if</span> <span class="n">activation_layer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">activation_layer</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU6</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">ConvBNActivation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="n">in_planes</span><span class="p">,</span>
-                                                         <span class="n">out_channels</span><span class="o">=</span><span class="n">out_planes</span><span class="p">,</span>
-                                                         <span class="n">kernel_size</span><span class="o">=</span><span class="n">kernel_size</span><span class="p">,</span>
-                                                         <span class="n">stride</span><span class="o">=</span><span class="n">stride</span><span class="p">,</span>
-                                                         <span class="n">padding</span><span class="o">=</span><span class="n">padding</span><span class="p">,</span>
-                                                         <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span>
-                                                         <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-                                               <span class="n">norm_layer</span><span class="p">(</span><span class="n">out_planes</span><span class="p">),</span>   <span class="c1"># BN 层</span>
-                                               <span class="n">activation_layer</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-
-<span class="c1"># 注意力机制模块（SE 模块，即两个全连接层）</span>
+<p><img alt="" src="../_images/04Mobilenet10.png" /></p>
+<p><strong>代码</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 注意力机制模块（SE 模块，即两个全连接层）</span>
 <span class="c1"># 该模块的基本流程是：</span>
 <span class="c1"># 先进行自适应平均池化(1x1)———&gt;1x1 的卷积层———&gt;relu 激活层———&gt;1x1 的卷积池化———&gt;hardsigmoid()激活函数激活</span>
 <span class="k">class</span> <span class="nc">SqueezeExcitation</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -1155,8 +1109,14 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
         <span class="n">scale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
         <span class="n">scale</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">hardsigmoid</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># 激活函数</span>
         <span class="k">return</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">x</span>   <span class="c1"># 将得到的数据与传入的对应 channel 数据进行相乘</span>
-
-<span class="c1"># 定义 block 的配置类</span>
+</pre></div>
+</div>
+</section>
+<section id="inverted-residuals">
+<h3>反向残差结构(Inverted Residuals)<a class="headerlink" href="#inverted-residuals" title="Link to this heading">#</a></h3>
+<p>相对于MobileNets_V2，MobileNets_V3的反向残差结构发生改变，在MobileNets_V2的反向残差结构基础上加入了SE模块。</p>
+<p><strong>代码</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 定义 block 的配置类</span>
 <span class="k">class</span> <span class="nc">InvertedResidualConfig</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">input_c</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>  <span class="c1"># block 模块中的第一个 1x1 卷积层的输入 channel 数</span>
@@ -1179,8 +1139,8 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
     <span class="k">def</span> <span class="nf">adjust_channels</span><span class="p">(</span><span class="n">channels</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">width_multi</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">_make_divisible</span><span class="p">(</span><span class="n">channels</span> <span class="o">*</span> <span class="n">width_multi</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 
-<span class="c1"># 定义 block 模块</span>
-<span class="c1"># 此为 block 模块，其包含第一个 1x1 卷积层、DeptWis 卷积层、SE 注意力机制层（判断是否需求）、第二个 1x1 卷积层、激活函数（需要判断是否是非线性激活）</span>
+
+<span class="c1"># 此为 block 模块，其包含第一个 1x1 卷积层、DeptWis 卷积层、SE 注意力机制层（判断是否需求）、第二个 1x1 卷积层、激活函数（需要判断是否是非线性激活）,ConvBNActivation为普通卷积块卷积层</span>
 <span class="k">class</span> <span class="nc">InvertedResidual</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">cnf</span><span class="p">:</span> <span class="n">InvertedResidualConfig</span><span class="p">,</span>   <span class="c1"># cnf:配置类参数</span>
@@ -1205,7 +1165,7 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
                                            <span class="n">norm_layer</span><span class="o">=</span><span class="n">norm_layer</span><span class="p">,</span>
                                            <span class="n">activation_layer</span><span class="o">=</span><span class="n">activation_layer</span><span class="p">))</span>
 
-        <span class="c1"># depthwise</span>
+        <span class="c1"># depthwise  </span>
         <span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ConvBNActivation</span><span class="p">(</span><span class="n">cnf</span><span class="o">.</span><span class="n">expanded_c</span><span class="p">,</span>
                                        <span class="n">cnf</span><span class="o">.</span><span class="n">expanded_c</span><span class="p">,</span>
                                        <span class="n">kernel_size</span><span class="o">=</span><span class="n">cnf</span><span class="o">.</span><span class="n">kernel</span><span class="p">,</span>   <span class="c1"># depthwise 卷积的卷积核大小</span>
@@ -1235,6 +1195,24 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
             <span class="n">result</span> <span class="o">+=</span> <span class="n">x</span>   <span class="c1"># 进行 shortcut 连接</span>
 
         <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</section>
+<section id="mobilenet-v3-block">
+<h3>MobileNet V3 block<a class="headerlink" href="#mobilenet-v3-block" title="Link to this heading">#</a></h3>
+<p>核心模块，也是网络的基本模块。主要实现了通道可分离卷积+SE 通道注意力机制+残差连接。结构图如下：</p>
+<p><img alt="Mobilenet" src="../_images/04Mobilenet11.png" /></p>
+</section>
+<section id="id11">
+<h3>代码<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span><span class="p">,</span> <span class="n">Tensor</span>
+<span class="kn">from</span> <span class="nn">torch.nn</span> <span class="kn">import</span> <span class="n">functional</span> <span class="k">as</span> <span class="n">F</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+
 
 <span class="c1"># MobileNetV3 网络结构基础框架：其包括：模型的第一层卷积层———&gt;nx【bneckBlock 模块】———&gt;1x1 的卷积层———&gt;自适应平均池化层———&gt;全连接层———&gt;全连接层</span>
 <span class="k">class</span> <span class="nc">MobileNetV3</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -1315,106 +1293,15 @@ h-swish[x] = x\frac{ReLU6(x+3)}{6}
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_impl</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="c1">### 构建 large 基础 mobilenet_v3_large 模型</span>
-<span class="k">def</span> <span class="nf">mobilenet_v3_large</span><span class="p">(</span><span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
-                       <span class="n">reduced_tail</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MobileNetV3</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Constructs a large MobileNetV3 architecture from</span>
-<span class="sd">    &quot;Searching for MobileNetV3&quot; &lt;https://arxiv.org/abs/1905.02244&gt;.</span>
-
-<span class="sd">    weights_link:</span>
-<span class="sd">    https://download.pytorch.org/models/mobilenet_v3_large-8738ca79.pth</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        num_classes (int): number of classes</span>
-<span class="sd">        reduced_tail (bool): If True, reduces the channel counts of all feature layers</span>
-<span class="sd">            between C4 and C5 by 2. It is used to reduce the channel redundancy in the</span>
-<span class="sd">            backbone for Detection and Segmentation.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">width_multi</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">bneck_conf</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">InvertedResidualConfig</span><span class="p">,</span> <span class="n">width_multi</span><span class="o">=</span><span class="n">width_multi</span><span class="p">)</span>
-    <span class="n">adjust_channels</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">InvertedResidualConfig</span><span class="o">.</span><span class="n">adjust_channels</span><span class="p">,</span> <span class="n">width_multi</span><span class="o">=</span><span class="n">width_multi</span><span class="p">)</span>
-
-    <span class="n">reduce_divider</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">reduced_tail</span> <span class="k">else</span> <span class="mi">1</span>   <span class="c1"># 是否较少网络参数标志，默认是 False，即不减少</span>
-
-    <span class="c1"># # beneckBlock 结构一系列参数列表</span>
-    <span class="n">inverted_residual_setting</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="c1"># input_c, kernel, expanded_c, out_c, use_se, activation, stride</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;RE&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;RE&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># C1</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;RE&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;RE&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># C2</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;RE&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;RE&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># C3</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">184</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">184</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">112</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">672</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">112</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">672</span><span class="p">,</span> <span class="mi">160</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># C4</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">160</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">960</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="mi">160</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">160</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">960</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="mi">160</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-    <span class="p">]</span>
-    <span class="n">last_channel</span> <span class="o">=</span> <span class="n">adjust_channels</span><span class="p">(</span><span class="mi">1280</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">)</span>  <span class="c1"># C5</span>
-
-    <span class="k">return</span> <span class="n">MobileNetV3</span><span class="p">(</span><span class="n">inverted_residual_setting</span><span class="o">=</span><span class="n">inverted_residual_setting</span><span class="p">,</span>
-                       <span class="n">last_channel</span><span class="o">=</span><span class="n">last_channel</span><span class="p">,</span>
-                       <span class="n">num_classes</span><span class="o">=</span><span class="n">num_classes</span><span class="p">)</span>
-
-<span class="c1">### 构建 small 基础 mobilenet_v3_small 模型</span>
-<span class="k">def</span> <span class="nf">mobilenet_v3_small</span><span class="p">(</span><span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
-                       <span class="n">reduced_tail</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MobileNetV3</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Constructs a large MobileNetV3 architecture from</span>
-<span class="sd">    &quot;Searching for MobileNetV3&quot; &lt;https://arxiv.org/abs/1905.02244&gt;.</span>
-
-<span class="sd">    weights_link:</span>
-<span class="sd">    https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        num_classes (int): number of classes</span>
-<span class="sd">        reduced_tail (bool): If True, reduces the channel counts of all feature layers</span>
-<span class="sd">            between C4 and C5 by 2. It is used to reduce the channel redundancy in the</span>
-<span class="sd">            backbone for Detection and Segmentation.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">width_multi</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">bneck_conf</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">InvertedResidualConfig</span><span class="p">,</span> <span class="n">width_multi</span><span class="o">=</span><span class="n">width_multi</span><span class="p">)</span>
-    <span class="n">adjust_channels</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">InvertedResidualConfig</span><span class="o">.</span><span class="n">adjust_channels</span><span class="p">,</span> <span class="n">width_multi</span><span class="o">=</span><span class="n">width_multi</span><span class="p">)</span>
-
-    <span class="n">reduce_divider</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">reduced_tail</span> <span class="k">else</span> <span class="mi">1</span>
-
-    <span class="n">inverted_residual_setting</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="c1"># input_c, kernel, expanded_c, out_c, use_se, activation, stride</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;RE&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># C1</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;RE&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># C2</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;RE&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># C3</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">48</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">48</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">288</span><span class="p">,</span> <span class="mi">96</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># C4</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">96</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">576</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="mi">96</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">bneck_conf</span><span class="p">(</span><span class="mi">96</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">576</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="mi">96</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;HS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="p">]</span>
-    <span class="n">last_channel</span> <span class="o">=</span> <span class="n">adjust_channels</span><span class="p">(</span><span class="mi">1024</span> <span class="o">//</span> <span class="n">reduce_divider</span><span class="p">)</span>  <span class="c1"># C5</span>
-
-    <span class="k">return</span> <span class="n">MobileNetV3</span><span class="p">(</span><span class="n">inverted_residual_setting</span><span class="o">=</span><span class="n">inverted_residual_setting</span><span class="p">,</span>
-                       <span class="n">last_channel</span><span class="o">=</span><span class="n">last_channel</span><span class="p">,</span>
-                       <span class="n">num_classes</span><span class="o">=</span><span class="n">num_classes</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>======= 代码不要直接粘贴一大段，看不懂的，融合在对应的网络模型结构里面哈。融合后就没有这个独立代码的小节了。</p>
 </section>
 </section>
 <section id="mobilenet-v4">
 <h2>MobileNet V4<a class="headerlink" href="#mobilenet-v4" title="Link to this heading">#</a></h2>
-<p>在这一章节会介绍 MobileNets 系列最新的版本 V4，重会介绍 V4 做出哪些方面的升级，以及使用哪些更先进的思想与技术，给轻量级的网络设计带来重要的改变。</p>
-<p>MobileNetV4，主要是针对移动设备设计的通用高效架构。在其核心部分，引入了通用倒瓶颈（UIB）搜索块，Mobile MQA，带来了 39%速度提升。同时还带来了一种优化的神经架构搜索（NAS）方法，它提高了 MobileNetV4 搜索的有效性。</p>
-<p>UIB、Mobile MQA 以及精细化的 NAS 方法的整合，使得 MNv4 模型系列在移动 CPU、DSP、GPU 以及像苹果神经引擎和谷歌 Pixel EdgeTPU 这样的专用加速器上几乎达到了帕累托最优——这是其他测试模型所不具备的特性。最后，为了进一步提升准确度，引入了一种新颖的蒸馏技术。借助这项技术，MNv4-Hybrid-Large 模型在 ImageNet-1K 上的准确度达到了 87%，在 Pixel 8 EdgeTPU 上的运行时间仅为 3.8ms。</p>
-<section id="id15">
-<h3>设计原则<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>MobileNetV4</strong>:主要是针对移动设备设计的通用高效架构。在其核心部分，引入了通用倒瓶颈（UIB）搜索块，Mobile MQA，带来了 39%速度提升。同时还带来了一种优化的神经架构搜索（NAS）方法，它提高了 MobileNetV4 搜索的有效性。同时UIB、Mobile MQA 以及精细化的 NAS 方法的整合，使得 MNv4 模型系列在移动 CPU、DSP、GPU 以及像苹果神经引擎和谷歌 Pixel EdgeTPU 这样的专用加速器上几乎达到了帕累托最优——这是其他测试模型所不具备的特性。最后，为了进一步提升准确度，引入了一种新颖的蒸馏技术。借助这项技术，MNv4-Hybrid-Large 模型在 ImageNet-1K 上的准确度达到了 87%，在 Pixel 8 EdgeTPU 上的运行时间仅为 3.8ms。</p>
+<section id="id12">
+<h3>设计原则<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <p>MobileNetV4 在平衡 MACs 和内存带宽方面进行了投资，旨在以最低的成本获得最大的回报，特别关注网络的起始和结束部分。</p>
 <p>在网络的开头，MobileNetV4 使用大而昂贵的前几层来显著提高模型的容量和下游准确性。这些初始层主要由大量的 MACs 组成，因此它们仅在低 Ridge Point 硬件上成本较高。在网络的末端，所有 MobileNetV4 变体使用相同大小的最终全连接(FC)层以最大化准确性，尽管这导致较小尺寸的 MNV4 变体在高 Ridge Point 硬件上遭受更高的 FC 延迟。</p>
 <p>由于大的初始卷积层在低 RP 硬件上成本高，但在高 RP 硬件上并不昂贵，而最终的全连接层在高 Ridge Point 硬件上成本高，在低 Ridge Point 硬件上却不贵，MobileNetV4 模型不会同时遭受这两种减速。</p>
@@ -1453,7 +1340,7 @@ MemTime_{i}=\frac{WeightBytes_{i}+AtivationBytes_{i}}{PeakMemmBW}
 \]</div>
 <p>在屋顶线模型中，硬件行为由_脊点_（RP）来总结，即硬件的峰值 MACs 与峰值 MemBW 之比。也就是说，这是实现最大性能所需的最小操作强度。</p>
 <p>如下图 2,3 所示，作者从 RP 预期的最低值（0MAC/字节）扫描到最高值（500MACs/字节）。屋顶线模型仅依赖于数据传输与计算的比率，因此具有相同 RP 的所有硬件通过延迟对工作负载的排名是相同的。3 这意味着，如果新目标的 RP 包含在扫描范围内，那么扫描-RP 的屋顶线分析（见下一段）同样适用于未来的硬件和软件。</p>
-<p><img alt="RP 图" src="../_images/04.mobilenet_12.png" /></p>
+<p><img alt="Mobilenet" src="../_images/04Mobilenet12.png" /></p>
 <p>脊点扫描分析：如图 2 和图 3 所示，屋顶线模型揭示了 MobileNetV4 模型如何与其他卷积 MobileNets 相比，实现硬件独立的几乎帕累托最优性能。在低脊点硬件（例如 CPU）上，模型更可能受计算限制而非内存限制。</p>
 <p>因此，为了提高延迟，即使以增加内存复杂度为代价（如 MobileNetV3Large-1.5x），也要最小化总的 MAC 数量。</p>
 <p>在高脊点硬件上，数据移动是瓶颈，所以 MAC 不会显著减慢模型速度，但可以增加模型容量（如 MobileNetV1-1.5x）。因此，为低脊点优化的模型在高脊点上运行缓慢，因为内存密集和低 MAC 的全连接（FC）层受到内存带宽的限制，不能利用高可用的峰值 MAC。</p>
@@ -1464,13 +1351,54 @@ MemTime_{i}=\frac{WeightBytes_{i}+AtivationBytes_{i}}{PeakMemmBW}
 <p>倒瓶颈（IB）模块，由 MobileNetV2 提出，已成为高效网络的标准化构建模块。</p>
 <p>基于最成功的 MobileNet 要素——可分离的深度卷积（DW）和点式（PW）扩展及倒瓶颈结构，本文引入了一种新的构建块——通用倒瓶颈（UIB）块，如下图所示。其结构相当简单。</p>
 <p>作者在倒瓶颈块中引入了两个可选的 DW，一个在扩展层之前，另一个在扩展层和投影层之间。这些 DW 的存在与否是神经网络架构搜索（NAS）优化过程的一部分，从而产生新的架构。尽管这种修改很简单，但作者的新构建块很好地统一了几个重要现有块，包括原始的 IB 块、ConvNext 块以及 ViT 中的 FFN 块。此外，UIB 还引入了一种新的变体：额外的深度卷积 IB（ExtraDW）块。</p>
-<p><img alt="RP 图" src="../_images/04.mobilenet_13.png" /></p>
+<p><img alt="Mobilenet" src="../_images/04Mobilenet13.png" /></p>
 <p>除了在神经网络架构搜索（NAS）过程中允许灵活的中间层（IB）结构外，作者还避免了任何人为设计的缩放规则，比如在 EfficientNet 中使用的那种，而是为每个模型大小单独优化结构。</p>
 <p>为了防止 NAS 超级网络的大小爆炸性增长，作者共享了通用组件（逐点扩展和投影）并简单地将深度可分离卷积（DWs）作为额外的搜索选项添加进去。结合基于超级网络的网络架构搜索算法，这种方法使得大多数参数（大于 95%）可以在不同的实例之间共享，使得 NAS 变得极其高效。</p>
 <p>倒瓶颈（IB）- 在扩展的特征激活上进行空间混合，以增加成本为代价提供更大的模型容量。</p>
 <p>ConvNext 通过在扩展之前执行空间混合，实现了使用更大核尺寸进行更廉价的空间混合。</p>
 <p>ExtraDW 是本文提出的一种新变体，它允许廉价地增加网络的深度和感受野。它提供了以下几点优势：结合 ConvNext 与 IB.4 的优势。</p>
 <p>FFN 是由两个 1x1 的点状卷积（PW）堆叠而成，并在它们之间加入激活和标准化层。PW 是最受加速器友好的操作之一，但最好与其他模块一起使用。</p>
+<p><strong>代码</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#倒瓶颈层实现        </span>
+<span class="k">class</span> <span class="nc">UniversalInvertedBottleneckBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+            <span class="n">inp</span><span class="p">,</span> 
+            <span class="n">oup</span><span class="p">,</span> 
+            <span class="n">start_dw_kernel_size</span><span class="p">,</span> 
+            <span class="n">middle_dw_kernel_size</span><span class="p">,</span> 
+            <span class="n">middle_dw_downsample</span><span class="p">,</span>
+            <span class="n">stride</span><span class="p">,</span>
+            <span class="n">expand_ratio</span>
+        <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># Starting depthwise conv.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_dw_kernel_size</span> <span class="o">=</span> <span class="n">start_dw_kernel_size</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_dw_kernel_size</span><span class="p">:</span>            
+            <span class="n">stride_</span> <span class="o">=</span> <span class="n">stride</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">middle_dw_downsample</span> <span class="k">else</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_start_dw_</span> <span class="o">=</span> <span class="n">conv_2d</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="n">start_dw_kernel_size</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">stride_</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">inp</span><span class="p">,</span> <span class="n">act</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="c1"># Expansion with 1x1 convs.</span>
+        <span class="n">expand_filters</span> <span class="o">=</span> <span class="n">make_divisible</span><span class="p">(</span><span class="n">inp</span> <span class="o">*</span> <span class="n">expand_ratio</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_expand_conv</span> <span class="o">=</span> <span class="n">conv_2d</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">expand_filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Middle depthwise conv.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">middle_dw_kernel_size</span> <span class="o">=</span> <span class="n">middle_dw_kernel_size</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">middle_dw_kernel_size</span><span class="p">:</span>
+            <span class="n">stride_</span> <span class="o">=</span> <span class="n">stride</span> <span class="k">if</span> <span class="n">middle_dw_downsample</span> <span class="k">else</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_middle_dw</span> <span class="o">=</span> <span class="n">conv_2d</span><span class="p">(</span><span class="n">expand_filters</span><span class="p">,</span> <span class="n">expand_filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="n">middle_dw_kernel_size</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">stride_</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">expand_filters</span><span class="p">)</span>
+        <span class="c1"># Projection with 1x1 convs.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_proj_conv</span> <span class="o">=</span> <span class="n">conv_2d</span><span class="p">(</span><span class="n">expand_filters</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">act</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_dw_kernel_size</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_dw_</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+          
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expand_conv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">middle_dw_kernel_size</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_middle_dw</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_proj_conv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
 </section>
 <section id="mobilemqa">
 <h3>MobileMQA<a class="headerlink" href="#mobilemqa" title="Link to this heading">#</a></h3>
@@ -1515,222 +1443,6 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
 <li><p>MNv4-Conv-L：针对 384px 输入，双重延迟目标为 2.3ms（Pixel6EdgeTPU）和 2.0ms（Pixel7EdgeTPU）。</p></li>
 </ul>
 <p>需要注意的是，通过将作者的搜索空间限制在跨设备具有良好相关成本模型的组件上，作者发现 EdgeTPU 延迟优化可以直接产生普遍高效的模型。</p>
-</section>
-<section id="id16">
-<h3>代码<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">网络一些层的配置</span>
-<span class="sd">&#39;&#39;&#39;</span>
-
-<span class="n">MNV4ConvSmall_BLOCK_SPECS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;conv0&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;convbn&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;layer1&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;convbn&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;layer2&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;convbn&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">96</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;layer3&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;uib&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;layer4&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;uib&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">96</span><span class="p">,</span>  <span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-        <span class="p">]</span>
-    <span class="p">},</span>  
-    <span class="s2">&quot;layer5&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;convbn&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">960</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">960</span><span class="p">,</span> <span class="mi">1280</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">MNV4ConvMedium_BLOCK_SPECS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;conv0&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;convbn&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;layer1&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;fused_ib&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;layer2&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;uib&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">48</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;layer3&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;uib&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">80</span><span class="p">,</span>  <span class="mi">160</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;layer4&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;uib&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>  
-    <span class="s2">&quot;layer5&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;convbn&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">960</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">960</span><span class="p">,</span> <span class="mi">1280</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">MNV4ConvLarge_BLOCK_SPECS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;conv0&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;convbn&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;layer1&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;fused_ib&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;layer2&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;uib&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">48</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;layer3&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;uib&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">96</span><span class="p">,</span>  <span class="mi">192</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;layer4&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;uib&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">},</span>  
-    <span class="s2">&quot;layer5&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;block_name&quot;</span><span class="p">:</span> <span class="s2">&quot;convbn&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_blocks&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;block_specs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">960</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-            <span class="p">[</span><span class="mi">960</span><span class="p">,</span> <span class="mi">1280</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">MNV4HybridConvMedium_BLOCK_SPECS</span> <span class="o">=</span> <span class="p">{</span>
-
-<span class="p">}</span>
-
-<span class="n">MNV4HybridConvLarge_BLOCK_SPECS</span> <span class="o">=</span> <span class="p">{</span>
-
-<span class="p">}</span>
-
-<span class="n">MODEL_SPECS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;MobileNetV4ConvSmall&quot;</span><span class="p">:</span> <span class="n">MNV4ConvSmall_BLOCK_SPECS</span><span class="p">,</span>
-    <span class="s2">&quot;MobileNetV4ConvMedium&quot;</span><span class="p">:</span> <span class="n">MNV4ConvMedium_BLOCK_SPECS</span><span class="p">,</span>
-    <span class="s2">&quot;MobileNetV4ConvLarge&quot;</span><span class="p">:</span> <span class="n">MNV4ConvLarge_BLOCK_SPECS</span><span class="p">,</span>
-    <span class="s2">&quot;MobileNetV4HybridMedium&quot;</span><span class="p">:</span> <span class="n">MNV4HybridConvMedium_BLOCK_SPECS</span><span class="p">,</span>
-    <span class="s2">&quot;MobileNetV4HybridLarge&quot;</span><span class="p">:</span> <span class="n">MNV4HybridConvLarge_BLOCK_SPECS</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>====== 断开要介绍下对应代码</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">torch</span>
@@ -1738,114 +1450,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
 
 <span class="kn">from</span> <span class="nn">mobilenet.model_config</span> <span class="kn">import</span> <span class="n">MODEL_SPECS</span> 
 
-<span class="k">def</span> <span class="nf">make_divisible</span><span class="p">(</span>
-        <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-        <span class="n">divisor</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-        <span class="n">min_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">round_down_protect</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This function is copied from here </span>
-<span class="sd">    &quot;https://github.com/TensorFlow/models/blob/master/official/vision/modeling/layers/nn_layers.py&quot;</span>
-<span class="sd">    </span>
-<span class="sd">    This is to ensure that all layers have channels that are divisible by 8.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        value: A `float` of original value.</span>
-<span class="sd">        divisor: An `int` of the divisor that need to be checked upon.</span>
-<span class="sd">        min_value: A `float` of  minimum value threshold.</span>
-<span class="sd">        round_down_protect: A `bool` indicating whether round down more than 10%</span>
-<span class="sd">        will be allowed.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        The adjusted value in `int` that is divisible against divisor.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">min_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">min_value</span> <span class="o">=</span> <span class="n">divisor</span>
-    <span class="n">new_value</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">min_value</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span> <span class="o">+</span> <span class="n">divisor</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">//</span> <span class="n">divisor</span> <span class="o">*</span> <span class="n">divisor</span><span class="p">)</span>
-    <span class="c1"># Make sure that round down does not go down by more than 10%.</span>
-    <span class="k">if</span> <span class="n">round_down_protect</span> <span class="ow">and</span> <span class="n">new_value</span> <span class="o">&lt;</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">value</span><span class="p">:</span>
-        <span class="n">new_value</span> <span class="o">+=</span> <span class="n">divisor</span>
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">conv_2d</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">act</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="n">conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
-    <span class="n">padding</span> <span class="o">=</span> <span class="p">(</span><span class="n">kernel_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-    <span class="n">conv</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;conv&#39;</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="n">padding</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="n">bias</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">norm</span><span class="p">:</span>
-        <span class="n">conv</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;BatchNorm2d&#39;</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">oup</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">act</span><span class="p">:</span>
-        <span class="n">conv</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;Activation&#39;</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU6</span><span class="p">())</span>
-    <span class="k">return</span> <span class="n">conv</span>
-
-
-<span class="c1">#逆残差</span>
-
-<span class="k">class</span> <span class="nc">InvertedResidual</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="n">expand_ratio</span><span class="p">,</span> <span class="n">act</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">InvertedResidual</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stride</span> <span class="o">=</span> <span class="n">stride</span>
-        <span class="k">assert</span> <span class="n">stride</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-        <span class="n">hidden_dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">inp</span> <span class="o">*</span> <span class="n">expand_ratio</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">expand_ratio</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;exp_1x1&#39;</span><span class="p">,</span> <span class="n">conv_2d</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;conv_3x3&#39;</span><span class="p">,</span> <span class="n">conv_2d</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">stride</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">hidden_dim</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;red_1x1&#39;</span><span class="p">,</span> <span class="n">conv_2d</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">act</span><span class="o">=</span><span class="n">act</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">use_res_connect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">inp</span> <span class="o">==</span> <span class="n">oup</span>
-
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_res_connect</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1">#倒瓶颈层实现        </span>
-<span class="k">class</span> <span class="nc">UniversalInvertedBottleneckBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
-            <span class="n">inp</span><span class="p">,</span> 
-            <span class="n">oup</span><span class="p">,</span> 
-            <span class="n">start_dw_kernel_size</span><span class="p">,</span> 
-            <span class="n">middle_dw_kernel_size</span><span class="p">,</span> 
-            <span class="n">middle_dw_downsample</span><span class="p">,</span>
-            <span class="n">stride</span><span class="p">,</span>
-            <span class="n">expand_ratio</span>
-        <span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="c1"># Starting depthwise conv.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">start_dw_kernel_size</span> <span class="o">=</span> <span class="n">start_dw_kernel_size</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_dw_kernel_size</span><span class="p">:</span>            
-            <span class="n">stride_</span> <span class="o">=</span> <span class="n">stride</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">middle_dw_downsample</span> <span class="k">else</span> <span class="mi">1</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_start_dw_</span> <span class="o">=</span> <span class="n">conv_2d</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="n">start_dw_kernel_size</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">stride_</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">inp</span><span class="p">,</span> <span class="n">act</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="c1"># Expansion with 1x1 convs.</span>
-        <span class="n">expand_filters</span> <span class="o">=</span> <span class="n">make_divisible</span><span class="p">(</span><span class="n">inp</span> <span class="o">*</span> <span class="n">expand_ratio</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_expand_conv</span> <span class="o">=</span> <span class="n">conv_2d</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">expand_filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="c1"># Middle depthwise conv.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">middle_dw_kernel_size</span> <span class="o">=</span> <span class="n">middle_dw_kernel_size</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">middle_dw_kernel_size</span><span class="p">:</span>
-            <span class="n">stride_</span> <span class="o">=</span> <span class="n">stride</span> <span class="k">if</span> <span class="n">middle_dw_downsample</span> <span class="k">else</span> <span class="mi">1</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_middle_dw</span> <span class="o">=</span> <span class="n">conv_2d</span><span class="p">(</span><span class="n">expand_filters</span><span class="p">,</span> <span class="n">expand_filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="n">middle_dw_kernel_size</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">stride_</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">expand_filters</span><span class="p">)</span>
-        <span class="c1"># Projection with 1x1 convs.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_proj_conv</span> <span class="o">=</span> <span class="n">conv_2d</span><span class="p">(</span><span class="n">expand_filters</span><span class="p">,</span> <span class="n">oup</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">act</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        
-        <span class="c1"># Ending depthwise conv.</span>
-        <span class="c1"># this not used</span>
-        <span class="c1"># _end_dw_kernel_size = 0</span>
-        <span class="c1"># self._end_dw = conv_2d(oup, oup, kernel_size=_end_dw_kernel_size, stride=stride, groups=inp, act=False)</span>
-        
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_dw_kernel_size</span><span class="p">:</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_dw_</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-            <span class="c1"># print(&quot;_start_dw_&quot;, x.shape)</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expand_conv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="c1"># print(&quot;_expand_conv&quot;, x.shape)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">middle_dw_kernel_size</span><span class="p">:</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_middle_dw</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-            <span class="c1"># print(&quot;_middle_dw&quot;, x.shape)</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_proj_conv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="c1"># print(&quot;_proj_conv&quot;, x.shape)</span>
-        <span class="k">return</span> <span class="n">x</span>
-
+<span class="c1">#通过配置参数构建Mobile v4 block</span>
 <span class="k">def</span> <span class="nf">build_blocks</span><span class="p">(</span><span class="n">layer_spec</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">layer_spec</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;block_name&#39;</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
@@ -1881,7 +1486,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Params to initiate MobilenNetV4</span>
 <span class="sd">        Args:</span>
 <span class="sd">            model : support 5 types of models as indicated in </span>
-<span class="sd">            &quot;https://github.com/TensorFlow/models/blob/master/official/vision/modeling/backbones/mobilenet.py&quot;        </span>
+<span class="sd">    </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="k">assert</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">MODEL_SPECS</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -1912,18 +1517,19 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
         <span class="k">return</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">x4</span><span class="p">,</span> <span class="n">x5</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>======= 代码不要直接粘贴一大段，看不懂的，融合在对应的网络模型结构里面哈。融合后就没有这个独立代码的小节了。</p>
 </section>
 </section>
-<section id="id17">
-<h2>小结与思考<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
-<p>MobileNet V1 是一种高效、轻量级的神经网络模型，适用于移动设备和嵌入式系统。其主要特点包括采用深度可分离卷积技术、具有宽度和分辨率调整系数、低延迟、低计算资源占用，以及广泛应用于多种计算机视觉任务。MobileNet V2 是在 V1 基础上提出的升级版轻量级深度学习卷积神经网络（CNN）架构。</p>
-<p>在提高性能的同时保持了低计算复杂性和参数数量的优势，适用于移动设备和嵌入式系统。MobileNet V3 是在 V2 基础上进一步优化的轻量级深度学习卷积神经网络（CNN）架构。</p>
-<p>它继承了 MobileNet V1 和 MobileNet V2 的优点，同时融合了神经网络架构搜索技术（Neural Architecture Search，NAS），在性能和效率方面取得了更大的提升。MobileNet V4 引入了新的通用反转瓶颈和移动 MQA 层，并结合了改进的神经架构搜索（NAS）方法。</p>
-<p>将这些与一种新颖的、最先进的蒸馏方法相结合，作者在 Pixel8EdgeTPU 上以 3.8 毫秒的延迟达到了 87%的 ImageNet-1K 准确度，推进了移动计算机视觉的最新技术水平。</p>
+<section id="id13">
+<h2>小结与思考<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>MobileNet V1 是一种高效、轻量级的神经网络模型，适用于移动设备和嵌入式系统。其主要特点包括采用深度可分离卷积技术、具有宽度和分辨率调整系数、低延迟、低计算资源占用，以及广泛应用于多种计算机视觉任务。</p></li>
+<li><p>MobileNet V2 是在 V1 基础上提出的升级版轻量级深度学习卷积神经网络（CNN）架构。在提高性能的同时保持了低计算复杂性和参数数量的优势，适用于移动设备和嵌入式系统。</p></li>
+<li><p>MobileNet V3 是在 V2 基础上进一步优化的轻量级深度学习卷积神经网络（CNN）架构。它继承了 MobileNet V1 和 MobileNet V2 的优点，同时融合了神经网络架构搜索技术（Neural Architecture Search，NAS），在性能和效率方面取得了更大的提升。</p></li>
+<li><p>MobileNet V4 引入了新的通用反转瓶颈和移动 MQA 层，并结合了改进的神经架构搜索（NAS）方法。将这些与一种新颖的、最先进的蒸馏方法相结合，作者在 Pixel8EdgeTPU 上以 3.8 毫秒的延迟达到了 87%的 ImageNet-1K 准确度，推进了移动计算机视觉的最新技术水平。</p></li>
+</ul>
 </section>
-<section id="id18">
-<h2>本节视频<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
+<section id="id14">
+<h2>本节视频<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?bvid=BV1Y84y1b7xj&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -1970,7 +1576,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ShuffleNet 系列</p>
+        <p class="prev-next-title">ShuffleNet</p>
       </div>
     </a>
     <a class="right-next"
@@ -2003,43 +1609,38 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">逐点卷积</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">宽度&amp;分辨率乘子</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">网络结构</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v2">MobileNet V2</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">贡献概述</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-bottlenecks">Linear Bottlenecks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">可分离卷积块的演化</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">反向残差</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">可分离卷积块的演化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">反向残差</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relu6">ReLU6 激活</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">网络结构</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">网络结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v3">MobileNet V3</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">重新设计耗时层结构</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">重新设计激活函数</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">重新设计耗时层结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">重新设计激活函数</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nas-block-wise-search">NAS 搜索全局结构（Block-wise Search）</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#netadapt-layer-wise-search">NetAdapt 搜索层结构（Layer-wise Search）</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">网络结构</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#se">SE 结构</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v3-block">MobileNet v3 block</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#se">SE 结构</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverted-residuals">反向残差结构(Inverted Residuals)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v3-block">MobileNet V3 block</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">代码</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilenet-v4">MobileNet V4</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">设计原则</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">设计原则</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-independent-pareto-efficiency">Hardware-Independent Pareto Efficiency</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-inverted-bottlenecks">Universal Inverted Bottlenecks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mobilemqa">MobileMQA</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refining-nas-for-enhanced-architectures">Refining NAS for Enhanced Architectures</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">代码</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -2062,7 +1663,7 @@ where attention_{j}=softmax(\frac{(XW^{Q_{j}})(SR(X)W^K)^T}{\sqrt{d_{k}}})(SR(X)
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 11, 2024.
+  Last updated on Jun 15, 2024.
   <br/>
 </p>
   </div>

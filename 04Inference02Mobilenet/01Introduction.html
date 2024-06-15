@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 11, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
 
 <link
   rel="alternate"
@@ -344,7 +344,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </details></li>
@@ -372,7 +372,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型轻量化</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">推理参数(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05ESPNet.html">ESPNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06FBNet.html">FBNet 系列</a></li>
@@ -723,7 +723,7 @@ document.write(`
 <h1>推理参数(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
 <p>本节将介绍 AI 模型网络参数方面的一些基本概念，以及硬件相关的性能指标，为后面让大家更了解模型轻量化做初步准备。值得让人思考的是，随着深度学习的发展，神经网络被广泛应用于各种领域，模型性能的提高同时也引入了巨大的参数量和计算量（如下图右所示），一般来说模型参数量越大，精度越高，性能越好(如下图左所示)。</p>
 <p>但由于大部分的深度神经网络模型的参数量很大，无法满足直接部署到移动端的条件，因此在不严重影响模型性能的前提下对模型进行重新设计，来减少网络参数量和计算复杂度，提升运算能力是目前相当热门的研究方向。同时也希望在后续的章节中，让大家更了解模型轻量化的一些经典网络结构。</p>
-<p><img alt="" src="../_images/01Introduction014.png" /></p>
+<p><img alt="Introduction" src="../_images/01Introduction014.png" /></p>
 <section id="id1">
 <h2>复杂度分析<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>模型参数量和计算量是两个重要的考量因素。模型参数量指的是模型中的参数数量，对应于数据结构中空间复杂度的概念。而计算量则对应于时间复杂度的概念，与网络执行时间的长短有关。</p>
@@ -870,7 +870,7 @@ c_{in}\times c_{out}
 <h2>硬件性能参数<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>硬件的浮点计算能力，得区分不同精度的浮点数。半精度、单精度、双精度这些概念是在 IEEE 754 标准里定义的，浮点计数是利用浮动小数点的方式使用不同长度的二进制来表示一个数字，与之对应的是定点数。</p>
 <p>同样的长度下浮点数能表达的数字范围相比定点数更大，但浮点数并不能精确表达所有实数，而只能采用更加接近的不同精度来表达。单精度的浮点数采用 4 个字节也就是 32 位二进制来表达一个数字，双精度浮点数采用 8 个字节也就是 64bits 来表达，当然半精度浮点数也就是采用 16bits 了。</p>
-<p><img alt="" src="../_images/01Introduction024.png" /></p>
+<p><img alt="Introduction" src="../_images/01Introduction024.png" /></p>
 <p>因为采用不同位数的浮点数的表达精度不一样，所以造成的计算误差也不一样，对于需要处理的数字范围大而且需要精确计算的科学计算来说，就要求采用双精度浮点数，而对于常见的多媒体和图形处理计算，32 位的单精度浮点计算已经足够了，对于要求精度更低的机器学习等一些应用来说，半精度 16 位浮点数就可以甚至 8 位浮点数就已经够用了。</p>
 <p>CPU 和 GPU 最大的不同在于内部计算单元数量的差异以及处理方式的不同，CPU 内部的核心数较少而且设计上更倾向于顺序串行处理数据，GPU 则因为只需要支持相对单一的数据类型和计算方式，所以计算单元较小但数量更多而且更倾向于并行处理数据。一个简单的比较是现在的 Intel CPU 最多也就支持 24 核但 GPU 则动不动就支持几千个核了。</p>
 <p>GPU 的计算能力的衡量指标：</p>
@@ -902,7 +902,7 @@ c_{in}\times c_{out}
 <section id="gpu">
 <h3>GPU 重点参数<a class="headerlink" href="#gpu" title="Link to this heading">#</a></h3>
 <p>以英伟达 T4 为例，来介绍具体的参数指标，如下图所示：</p>
-<p><img alt="" src="../_images/01Introduction034.png" /></p>
+<p><img alt="Introduction" src="../_images/01Introduction034.png" /></p>
 <ul class="simple">
 <li><p>Tensor 核心数</p></li>
 </ul>
@@ -1070,7 +1070,7 @@ c_{in}\times c_{out}
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 11, 2024.
+  Last updated on Jun 15, 2024.
   <br/>
 </p>
   </div>

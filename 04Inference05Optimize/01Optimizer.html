@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference05Optimize/01Optimizer.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="========== 一句话介绍本节要介绍的内容，下面这段话融合到里面的内容。========== 图片按规范命名，文档名字是 01Optimizer.md, 那么图片是 01Optimizer01.png，这种 现在来到推理引擎转换中的图优化模块，这里主要负责实现计算图中的算子融合、布局转换、算子替换、内存优化等非常多不同的类型的优化的 pass，以达到更好的推理效果。 推理引擎架构 计算..." />
+<meta property="og:description" content="本节主要介绍推理引擎转换中的图优化模块，该模块负责实现计算图中的各种优化操作，包括算子融合、布局转换、算子替换和内存优化等，以提高模型的推理效果。计算图是一种表示和执行数学运算的数据结构，在机器学习和深度学习中，模型的训练和推理过程通常会被表示成一个复杂的计算图，其中节点代表运算操作，边代表数据（通常是张量）在操作之间的流动。计算图优化是一种重要的技术，主要目标是提高计算效率和减少内存占用，..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="========== 一句话介绍本节要介绍的内容，下面这段话融合到里面的内容。========== 图片按规范命名，文档名字是 01Optimizer.md, 那么图片是 01Optimizer01.png，这种 现在来到推理引擎转换中的图优化模块，这里主要负责实现计算图中的算子融合、布局转换、算子替换、内存优化..." />
-<meta name="description" content="========== 一句话介绍本节要介绍的内容，下面这段话融合到里面的内容。========== 图片按规范命名，文档名字是 01Optimizer.md, 那么图片是 01Optimizer01.png，这种 现在来到推理引擎转换中的图优化模块，这里主要负责实现计算图中的算子融合、布局转换、算子替换、内存优化等非常多不同的类型的优化的 pass，以达到更好的推理效果。 推理引擎架构 计算..." />
+<meta property="og:image:alt" content="本节主要介绍推理引擎转换中的图优化模块，该模块负责实现计算图中的各种优化操作，包括算子融合、布局转换、算子替换和内存优化等，以提高模型的推理效果。计算图是一种表示和执行数学运算的数据结构，在机器学习和深度学习中，模型的训练和推理过程通常会被表示成一个复杂的计算图，其中节点代表运算操作，边代表数据（通常是张量）在操..." />
+<meta name="description" content="本节主要介绍推理引擎转换中的图优化模块，该模块负责实现计算图中的各种优化操作，包括算子融合、布局转换、算子替换和内存优化等，以提高模型的推理效果。计算图是一种表示和执行数学运算的数据结构，在机器学习和深度学习中，模型的训练和推理过程通常会被表示成一个复杂的计算图，其中节点代表运算操作，边代表数据（通常是张量）在操作之间的流动。计算图优化是一种重要的技术，主要目标是提高计算效率和减少内存占用，..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>计算图优化 &#8212; AI System</title>
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 11, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
 
 <link
   rel="alternate"
@@ -342,7 +342,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </details></li>
@@ -370,7 +370,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
@@ -690,12 +690,15 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#onnx-runtime">ONNX Runtime 图优化</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">优化级别</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">在线与离线模式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphtransformer-and-rewriterule">GraphTransformer and RewriteRule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selectoractiontransformer">SelectorActionTransformer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rulebasedgraphtransformer">RuleBasedGraphTransformer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ort">ORT优化实例分类</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">推理过程</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -710,13 +713,8 @@ document.write(`
 <!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>计算图优化<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>========== 一句话介绍本节要介绍的内容，下面这段话融合到里面的内容。
-========== 图片按规范命名，文档名字是 01Optimizer.md, 那么图片是 01Optimizer01.png，这种</p>
-<p>现在来到推理引擎转换中的图优化模块，这里主要负责实现计算图中的算子融合、布局转换、算子替换、内存优化等非常多不同的类型的优化的 pass，以达到更好的推理效果。</p>
-<p><img alt="推理引擎架构" src="04Inference05Optimize/image/infer_engine.png" /></p>
-<p>计算图是一种数据结构，用于表示和执行数学运算。在机器学习和深度学习中，模型的训练和推理过程通常会被表示成一个复杂的计算图。计算图中的节点代表运算操作，边代表数据（通常是张量）在操作之间的流动。</p>
-<p>计算图优化是深度学习框架中的一种重要技术，其目标是通过对计算图的优化来提高模型的运行效率。计算图是神经网络模型的一种表示，每个节点代表一个运算操作，边代表数据的流动。通过对计算图的优化，可以降低模型的运行成本，加快模型的运行速度，提高模型的运行效率。</p>
-<p>计算图优化主要有两个目标：提高计算效率和减少内存占用。它是一种自动化的过程，通常由深度学习框架（如 TensorFlow，PyTorch 等）的编译器来完成。通过计算图优化，可以显著提高模型的运行效率和性能，特别是在资源有限的设备（如移动设备和嵌入式设备）上。</p>
+<p>本节主要介绍推理引擎转换中的图优化模块，该模块负责实现计算图中的各种优化操作，包括算子融合、布局转换、算子替换和内存优化等，以提高模型的推理效果。计算图是一种表示和执行数学运算的数据结构，在机器学习和深度学习中，模型的训练和推理过程通常会被表示成一个复杂的计算图，其中节点代表运算操作，边代表数据（通常是张量）在操作之间的流动。计算图优化是一种重要的技术，主要目标是提高计算效率和减少内存占用，通常由深度学习框架的编译器自动完成，通过优化，可以降低模型的运行成本，加快运行速度，提高模型的运行效率，尤其在资源有限的设备上，优化能显著提高模型的运行效率和性能</p>
+<p><img alt="推理引擎架构" src="../_images/01Optimizer01.png" /></p>
 <section id="id2">
 <h2>挑战与架构<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <section id="id3">
@@ -760,10 +758,9 @@ Kernel 提升泛化性是指通过设计和优化 Kernel 函数，使得它能�
 <p>在特定场景确实图优化，能够给带来相当大的计算的收益，但是基于这种模板的方式，其缺点主要在于需要根据先验的知识来实现图的优化，相比于模型本身的复杂度而言注定是稀疏的，无法完全去除结构冗余。</p>
 <section id="id6">
 <h3>图优化方式<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<p>========== 内容太短了，建议用 GPT 或者国内的开源大模型扩写一下。</p>
-<p>Basic: 基础优化涵盖了所有保留计算图语义的修改，如：O1 常量折叠、O2 冗余节点消除和 O3 有限数量的算子融合。</p>
+<p>Basic: 基础优化，主要是对计算图进行一些基本的优化操作，这些操作主要保留了计算图的原有语义，亦即在优化过程中，不会改变计算图的基本结构和运算逻辑，只是在一定程度上提高了计算图的运行效率。基础优化主要包括以下几种：</p>
 <ol class="arabic simple">
-<li><p>常量折叠：</p></li>
+<li><p>常量折叠：主要用于处理计算图中的常量节点。在计算图中，如果有一些节点的值在编译时就已经确定了，那么这些节点就可以被称为常量节点。常量折叠就是在编译时就对这些常量节点进行计算，然后把计算结果存储起来，替换原来的常量节点，这样可以在运行时节省计算资源。</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Before optimization</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
@@ -772,7 +769,7 @@ Kernel 提升泛化性是指通过设计和优化 Kernel 函数，使得它能�
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>冗余节点消除：</p></li>
+<li><p>冗余节点消除：在计算图中，可能会有一些冗余的节点，这些节点在运算过程中并没有起到任何作用，只是增加了计算的复杂度。冗余节点消除就是找出这些冗余节点，然后从计算图中移除它们，从而简化计算图的结构，提高运行效率。</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Before optimization</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">x</span>
@@ -781,7 +778,7 @@ Kernel 提升泛化性是指通过设计和优化 Kernel 函数，使得它能�
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li><p>有限数量的算子融合：</p></li>
+<li><p>有限数量的算子融合：：算子融合是一种常用的图优化技术，它主要是将计算图中的多个运算节点融合为一个节点，从而减少运算节点的数量，提高运算效率。在基础优化中，算子融合通常只会融合有限数量的算子，以防止融合过多导致的运算复杂度增加。</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Before optimization</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">c</span>
@@ -789,7 +786,7 @@ Kernel 提升泛化性是指通过设计和优化 Kernel 函数，使得它能�
 <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span>
 </pre></div>
 </div>
-<p>Extended: 扩展优化仅在运行特定后端，如 CPU、CUDA、NPU  后端执行提供程序时适用。其针对硬件进行特殊且复杂的 Kernel 融合策略和方法。</p>
+<p>Extended: 扩展优化主要是针对特定硬件进行优化的。不同的硬件设备其架构和运行机制都有所不同，因此，相应的优化方式也会有所不同。扩展优化就是根据这些硬件设备的特性，采用一些特殊且复杂的优化策略和方法，以提高计算图在这些设备上的运行效率。例如，对于支持并行计算的 CUDA 设备，可以通过算子融合的方式将多个独立的运算操作合并成一个操作，从而充分利用 CUDA 设备的并行计算能力。</p>
 <p>示例：CUDA 后端的算子融合，以下是一个简单的计算图优化的例子，通过在 CUDA 中合并加法和乘法操作来实现的。</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 优化前：（1）独立的 CUDA 内核实现加法</span>
 <span class="n">__global__</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -832,10 +829,69 @@ Kernel 提升泛化性是指通过设计和优化 Kernel 函数，使得它能�
 </section>
 <section id="onnx-runtime">
 <h2>ONNX Runtime 图优化<a class="headerlink" href="#onnx-runtime" title="Link to this heading">#</a></h2>
-<p>========== 内容太短了，建议深入到 Onnx Runtime 的优化，或者你熟悉的得优化的内容。</p>
-<p>ONNX Runtime（Open Neural Network Exchange Runtime，简称 ORT），这是一个用于神经网络模型推理的跨平台库。</p>
-<p>ONNXRuntime 支持多种运行后端包括 CPU，GPU，TensorRT，DML 等。可以说 ONNXRuntime 是对 ONNX 模型最原生的支持，只要掌握模型导出的相应操作，便能对将不同框架的模型进行部署，提高开发效率。</p>
-<p>首先我们先简单定义一个 Pytorch 模型</p>
+<p>ONNX Runtime（Open Neural Network Exchange Runtime，简称 ORT），这是一个用于神经网络模型推理的跨平台库。ONNXRuntim e作为优秀的推理引擎不仅提供了对ONNX的完美支持同时还支持多种不同的后端执行器在不同的硬件平台上进行推理，支持多种运行后端包括 CPU，GPU，TensorRT，DML 等。可以说 ONNXRuntime 是对 ONNX 模型最原生的支持，只要掌握模型导出的相应操作，便能对将不同框架的模型进行部署，提高开发效率。</p>
+<p>ORT 提供了五种优化方向，分别为：</p>
+<ol class="arabic simple">
+<li><p>compute_optimizer 提供计算中内存流的优化</p></li>
+<li><p>layout_transformation 提供数据布局上的转化优化</p></li>
+<li><p>qdq_transformer 提供了针对量化过程中数据格式、指令集对应优化等操作</p></li>
+<li><p>transpose_optimization 提供了 onnx 与 ort format 格式转化上的优化操作</p></li>
+<li><p>selectors_actions 提供计算图节点融合等操作的逻辑抽象</p></li>
+</ol>
+<p>对于计算图中节点的消融、算子融合、常量折叠等操作主要提供了两种接口即 GraphTransofrmer 和 RewriteRule 。ORT 还进一步按照 selectors＋actions 策略设计了SelectorActionTransformer 接口，按照多个既定规则设计了 RuleBasedGraphTransformer 接口。ORT提供的绝大多数计算图优化方法都是继承自如上接口。</p>
+<p><img alt="类图" src="../_images/01Optimizer02.png" /></p>
+<section id="graphtransformer-and-rewriterule">
+<h3>GraphTransformer and RewriteRule<a class="headerlink" href="#graphtransformer-and-rewriterule" title="Link to this heading">#</a></h3>
+<p>GraphTransformer：接口定义在 include/onnxruntime/core/optimizer/graph_transformer.h 路径中。GraphTransformer定义了在计算图上in-place转化接口，旨在提供全局的优化操作。继承的子类需要实现函数 virtual Status ApplyImpl(Graph&amp; graph, bool&amp; modified, int graph_level, const logging::Logger&amp; logger)，具体的优化过程在该函数中编写。GraphTransformer 有一个方法 Recurse 会递归地在所有子图上应用 ApplyImpl 函数。</p>
+<p>在 graph_transformer.h 中还定义了一个数据结构 OpkernelRegistryId 用于检查 kernel 是否在提供的 EP(execution provider) 中注册过，如果没有注册对应融合后的 kernel，则不能执行融合操作生成对应的融合节点。</p>
+<p>RewriteRule：是计算图中一种保留语义的转换操作，与 GraphTransformer 相比，它更关注于局部的变换操作，例如消除无效操作或用简化的函数来替换复杂的函数等。实现 RewriteRule 接口需要定义两个函数：satisfycondition 和 apply，它们分别用于检查规则的适用条件以及执行具体的转换操作。</p>
+<p>其中，函数<code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">common::Status</span> <span class="pre">Apply(Graph&amp;</span> <span class="pre">graph,</span> <span class="pre">Node&amp;</span> <span class="pre">node,</span> <span class="pre">RewriteRuleEffect&amp;</span> <span class="pre">rule_effect,</span> <span class="pre">const</span> <span class="pre">logging::Logger&amp;</span> <span class="pre">logger)</span></code>是 RewriteRule 执行的核心，所有子类都需要实现这个函数。从函数的参数可以看出，规则的应用需要一个锚点，也就是传入的参数node。</p>
+<p>另外，在 rewrite_rule.h文件中定义了一个 RewriteRuleEffect 类，用于描述规则对计算图的影响。它包括四种状态：kNone（不修改原图）、kUpdatedCurrentNode（更新当前节点）、kRemoveCurrentNode（移除当前节点）和kModifiedRestOfGraph（修改其他节点）。</p>
+<p>GraphTransformer vs RewriteRule：ORT提供的这两种优化接口主要的差别在于 GraphTransformer 会全局遍历所有节点，找到符合优化条件的节点优化并进一步分析优化对应子图。RewriteRule 会从指定的节点出发，在该节点局部按照指定规则进行优化，并不会扩展到全图。</p>
+</section>
+<section id="selectoractiontransformer">
+<h3>SelectorActionTransformer<a class="headerlink" href="#selectoractiontransformer" title="Link to this heading">#</a></h3>
+<p>Selectoractiontransformer 继承自 GraphTransformer，是通过一组 selectors+actions 的方式实现对计算图的转换。这种逻辑类似于 RewriteRule 中的 satisfyCondition 函数和 Apply 函数，不同之处在于 selector 和 action 是两个类，选择和执行的逻辑更加复杂并且可以派生不同的子类，组合不同的情况。SelectorActionTransformer 还支持在 minimal build 版本的运行时阶段应用优化方法。</p>
+</section>
+<section id="rulebasedgraphtransformer">
+<h3>RuleBasedGraphTransformer<a class="headerlink" href="#rulebasedgraphtransformer" title="Link to this heading">#</a></h3>
+<p>RuleBasedGraphTransformer 是 GraphTransformer 的子类，是融合了 GraphTransformer 和 RewriteRule 的接口。它是由一组 RewriteRule 定义的 GraphTransformer，该转化过程会按照指定的策略迭代地应用所有重写规则。ORT 提供的策略是从上到下的遍历方式。</p>
+</section>
+<section id="ort">
+<h3>ORT优化实例分类<a class="headerlink" href="#ort" title="Link to this heading">#</a></h3>
+<p>在 ORT（Open Neural Network Exchange Runtime）中，优化实例可以大致分为三类操作：融合操作（Fusion）、消融操作（Elimination）、其他转化操作（Transform）。此外，这些优化实例可以进一步划分为两种类型，一种是继承了 GraphTransformer 的实例，另一种是继承了 RewriteRule 的实例。</p>
+<p>以下是几个具体的ORT优化实例：</p>
+<p>Attention Fusion (融合操作，GraphTransformer类型)：这是一种针对自注意力机制的优化，它可以将一系列计算自注意力的操作合并成一个单一的操作。这样可以减少计算过程中的数据传输，提高运行效率。</p>
+<p>Cast Elimination (消融操作，RewriteRule类型)：这是一种消除不必要类型转换的优化。在计算图中，有时会存在一些数据类型的转换操作，如从float转为int，然后又转回float。这种优化可以消除这些不必要的转换操作，减少计算的复杂性，提高运行速度。</p>
+<p>Convolution Fusion (融合操作，GraphTransformer类型)：这是一种针对卷积操作的优化，它可以将多个连续的卷积操作合并成一个单一的操作。这样可以减少计算过程中的数据传输，提高运行效率。</p>
+<p>BatchNormalization Elimination (消融操作，RewriteRule类型)：这是一种消除批量标准化操作的优化。在计算图中，有时批量标准化操作会在模型推理阶段变得不必要，这种优化可以消除这些不必要的操作，减少计算的复杂性，提高运行速度。</p>
+</section>
+<section id="id7">
+<h3>推理过程<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>ORT的推理脚本需要创建几个变量才能实现模型的加载和推理，分别为Env(用于声明运行的环境主要做ExecutionProvider的声明，ORT还有一个Environment变量是记录操作系统信息的，不是runtime环境)、SessionOption(主要设置或从配置文件中解析session的配置信息)、Session(模型运行的主要对象，解析模型，内部封装了InferenceSession来完成主要的推理工作)、Allocator(主要给输入输出分配存储空间)。</p>
+<p>ORT的整个推理过程可以分为三个阶段分别为管理器的配置、管理器的初始化以及模型的运行，这些部分都由session完成，由CreateSession函数和Session.Run函数实现。</p>
+<p>管理器配置阶段
+在该阶段中主要创建了InferenceSession对象、加载模型到session中以及将指定的ExecutionProvider注册到session中。</p>
+<p>InferenceSession是推理过程中主要的功能类，在该类中包含了推理过程所需的所有资源管理对象如负责算子的KerenlRegistryManager、负责图分割优化的GraphTransformerManager、负责日志的LoggingManager、管理session状态的SessionState、性能分析的profiler、后端执行器ExecutionProviders以及线程持管理、自定义和IO绑定等等。创建了InferenceSession后，也同时声明了这些管理器，但是并没有对这些对象进行实例化。</p>
+<p>然后就是模型的加载，ORT重载了多种加载方式，可以直接读ONNX格式，可以直接读ORT format格式还可以从ModelProto或者数据流中解析。Load函数会将模型信息加载到inference_session.h文件中的ModelProto model_proto_变量中然后在LoadWithLoader函数中封装为Model对象model_，计算图Graph会从该对象中得到即model_-&gt;MainGraph()。模型的元信息会经由SaveModelMetaData函数保存在ModelMetadata model_metadata_对象中。</p>
+<p>加载完模型后，从sessionOption中获取执行器的信息，然后将提供的执行器通过session中的Register ExecutionProvider函数进行注册。</p>
+<ol class="arabic simple" start="2">
+<li><p>管理器初始化阶段
+注册完执行器后会调用sess-&gt;Initialize()函数对上一个阶段的对象进行初始化。在该函数中首先会对环境变量进行初始化，然后将CPU执行器设置为默认的执行器。</p></li>
+</ol>
+<p>接着初始化session_state，将模型计算图、执行器、日志等信息进行注册。</p>
+<p>然后根据提供的EP将对应的算子注册到kernel_registry_manager中。</p>
+<p>接着对计算图进行转换，如果是ORT format格式的话还要进一步图分割(这里还没太懂，图分割应该是按照后端EP来进行分割的，将EP支持的算子组成一个或者多个子图。但是代码里只对ort format进行了分割，后面的execution plan中也只有一个计算流。先留个问题吧，回头在看看)。然后将转化后的模型信息进行保存。</p>
+<p>最后调用session_stata_-&gt;FinalizeSessionState(~)函数。该函数中会先判断节点是否都有对应的EP，然后将所有节点的kernelCreateInfo进行记录用于kernel的创建，最后就是调用FinalizeSessionSateImpl函数来为计算图创建执行计划createPlan和为kernel_registry_manager中的所有节点创建kernel。</p>
+<ol class="arabic simple" start="3">
+<li><p>运行阶段
+运行阶段调用了 inference_session.cc 中的 InferenceSession::Run() 函数，该函数是模型推理功能实现的主要函数。前面两个阶段完成了推理中需要的管理器设置和初始化，为计算图创建了执行计划 p_seq_exec_plan_，在运行阶段只需要按照创建的执行计划依次调用对应的kernel即可。</p></li>
+</ol>
+<p><img alt="算子调用函数链" src="../_images/01Optimizer03.png" /></p>
+<p>Session.Run() 函数会调用 ExecutionGraph() 函数来运行计算图，这里的 Session.Run() 是调用了 InferenceSession 中的 Run 函数，而该函数是个递归函数，会调用 N+1 次来捕获全图。ExecutionGraph 会调用 ExecutionGraphImpl 函数，ExecutionGraphImpl 会调用 ExecuteThePlan。</p>
+<p>接着 ExecutionThePlan 函数会优先通过 session_state 来获取计算图的执行计划，即 execution plan 类型为 SequentialExecutionPlan，然后依次遍历 execution plan 中的所有logicstream，在每个 logicstram 中依次调用 ExecutionStep 的 Execute 函数，ExecutionStep 的一个子类就是 lanuch kernel，该子类会调用当前 kernel 的copmute 函数实现 kernel 的调用。</p>
+<p>到此为止，整个推理过程从模型加载到kernel计算就完成了。</p>
+<p>这里我们给出一个简单的具体示例：首先我们先简单定义一个 Pytorch 模型</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
@@ -880,39 +936,14 @@ Kernel 提升泛化性是指通过设计和优化 Kernel 函数，使得它能�
 <span class="n">result</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">output_name</span><span class="p">],</span> <span class="p">{</span><span class="n">input_name</span><span class="p">:</span> <span class="n">dummy_input</span><span class="o">.</span><span class="n">numpy</span><span class="p">()})</span>
 </pre></div>
 </div>
-<section id="id7">
-<h3>优化级别<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
-<p>ONNX 运行时定义了“ GraphOptimizationLevel”枚举，以确定将启用上述哪些优化级别。选择一个级别将启用该级别的优化，以及所有先前级别的优化。例如，启用扩展优化，也将启用基本优化。这些级别到枚举的映射如下：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">GraphOptimizationLevel</span><span class="o">::</span><span class="n">ORT_DISABLE_ALL</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Disable</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">optimizations</span>
-<span class="n">GraphOptimizationLevel</span><span class="o">::</span><span class="n">ORT_ENABLE_BASIC</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Enables</span><span class="w"> </span><span class="n">basic</span><span class="w"> </span><span class="n">optimizations</span>
-<span class="n">GraphOptimizationLevel</span><span class="o">::</span><span class="n">ORT_ENABLE_EXTENDED</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Enables</span><span class="w"> </span><span class="n">basic</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">extended</span><span class="w"> </span><span class="n">optimizations</span>
-<span class="n">GraphOptimizationLevel</span><span class="o">::</span><span class="n">ORT_ENABLE_ALL</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Enables</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">optimizations</span><span class="w"> </span><span class="n">including</span><span class="w"> </span><span class="n">layout</span><span class="w"> </span><span class="n">optimizations</span>
-
-<span class="n">Ort</span><span class="o">::</span><span class="n">SessionOptions</span><span class="w"> </span><span class="n">session_options</span><span class="p">;</span>
-
-<span class="c1">// Set graph optimization level</span>
-<span class="n">session_options</span><span class="p">.</span><span class="n">SetGraphOptimizationLevel</span><span class="p">(</span><span class="n">SetGraphOptimizationLevel</span><span class="o">::</span><span class="n">ORT_ENABLE_EXTENDED</span><span class="p">)</span>
-</pre></div>
-</div>
+</section>
 </section>
 <section id="id8">
-<h3>在线与离线模式<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
-<p>====== 内容太短了，建议深入到 Onnx Runtime 的优化，或者你熟悉的得优化的内容。</p>
-<p>SessionOptions 选项中的 optimized_model_path 为优化模型的存储路径。</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// To enable model serialization after graph optimization set this</span>
-<span class="n">session_options</span><span class="p">.</span><span class="n">SetOptimizedModelFilePath</span><span class="p">(</span><span class="s">&quot;optimized_file_path&quot;</span><span class="p">)</span>
-
-<span class="k">auto</span><span class="w"> </span><span class="n">session_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ort</span><span class="o">::</span><span class="n">Session</span><span class="p">(</span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;optimized_file_path&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">session_options</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="id9">
-<h2>小结与思考<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<h2>小结与思考<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>本节主要介绍了计算图优化的基本内容，包括当前面临的挑战和架构，计算图优化的方法，以及通过 ONNX Runtime 图优化的实例进行详细说明。</p>
 </section>
-<section id="id10">
-<h2>本节视频<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h2>本节视频<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=608500949&bvid=BV1g84y1L7tF&cid=986409121&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -997,12 +1028,15 @@ Kernel 提升泛化性是指通过设计和优化 Kernel 函数，使得它能�
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#onnx-runtime">ONNX Runtime 图优化</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">优化级别</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">在线与离线模式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphtransformer-and-rewriterule">GraphTransformer and RewriteRule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selectoractiontransformer">SelectorActionTransformer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rulebasedgraphtransformer">RuleBasedGraphTransformer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ort">ORT优化实例分类</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">推理过程</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -1025,7 +1059,7 @@ Kernel 提升泛化性是指通过设计和优化 Kernel 函数，使得它能�
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 11, 2024.
+  Last updated on Jun 15, 2024.
   <br/>
 </p>
   </div>

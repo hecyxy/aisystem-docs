@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 11, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
 
 <link
   rel="alternate"
@@ -344,7 +344,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </details></li>
@@ -372,7 +372,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型轻量化</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01Introduction.html">推理参数(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Shufflenet.html">ShuffleNet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05ESPNet.html">ESPNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06FBNet.html">FBNet 系列</a></li>
@@ -718,8 +718,7 @@ document.write(`
 <section id="ghost-module">
 <h3>Ghost Module<a class="headerlink" href="#ghost-module" title="Link to this heading">#</a></h3>
 <p>利用<code class="docutils literal notranslate"><span class="pre">Ghost</span> <span class="pre">Module</span></code>生成与普通卷积层相同数量的特征图，我们可以轻松地将<code class="docutils literal notranslate"><span class="pre">Ghost</span> <span class="pre">Module</span></code>替换卷积层，集成到现有设计好的神经网络结构中，以减少计算成本。第一、先通过普通的 conv 生成一些特征图。第二、对生成的特征图进行 cheap 操作生成冗余特征图，这步使用的卷积是 DW 卷积。第三将 conv 生成的特征图与 cheap 操作生成的特征图进行 concat 操作。如下图（b）所示，展示了 Ghost 模块和普通卷积的过程。</p>
-<p><img alt="GhostModule" src="images/04Inference02Mobilenet/08.ghostnet_01.png" />
-===== ????</p>
+<p><img alt="GhostNet" src="../_images/08Ghostnet01.png" /></p>
 <p>深度卷积神经网络通常引用由大量卷积组成的卷积神经网络，导致大量的计算成本。尽管最近的工作，例如 MobileNet 和 ShuffleNet 引入了深度卷积或混洗操作，以使用较小的卷积核（浮点运算）来构建有效的 CNN，其余 1×1 卷积层仍将占用大量内存和 FLOPs。鉴于主流 CNN 计算出的中间特征图中存在大量的冗余，作者提出减少所需的资源，即用于生成它们的卷积核。实际上，给定输入数据 <span class="math notranslate nohighlight">\(X∈R^{cxhxw}\)</span>，其中 c 是输入通道数，h 和 w 是高度，输入数据的宽度，分别用于生成 n 个特征图的任意卷积层的运算可表示为:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -752,9 +751,10 @@ r_{s}=\frac{n\cdot h' \cdot w' \cdot c \cdot k \cdot k}{\frac{n}{s}\cdot h'\cdot
 \[
 r_{c} =\frac{n\cdot c\cdot k \cdot k}{\frac{n}{s}\cdot{c}\cdot{k}\cdot{k}+(s-1)\cdot \frac{n}{s}\cdot d \cdot d} ≈\frac{s\cdot c}{s+c-1}  ≈ s
 \]</div>
+<p>其实GhostNet的方法也很简单，无外乎就是将原本的乘法变成了两个乘法相加，然后在代码实现中，其实第二个变换是用depthwise conv实现的。作者在文中也提到，前面的卷积使用pointwise效率比较高，所以网络嫣然类似一个mobilenet的反过来的版本，只不过GhostNet采用了拼接的方式，进一步减少了计算量。Ghost module的pytorch代码如下：</p>
 <p><strong>代码</strong></p>
-<p>============ 加一段描述</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GhostModule</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ghost模块，以普通卷积和DW卷积组合而成</span>
+<span class="k">class</span> <span class="nc">GhostModule</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_channels</span><span class="p">,</span><span class="n">out_channels</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">use_relu</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">GhostModule</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="n">intrinsic_channels</span> <span class="o">=</span> <span class="n">out_channels</span><span class="o">//</span><span class="n">s</span>
@@ -781,11 +781,12 @@ r_{c} =\frac{n\cdot c\cdot k \cdot k}{\frac{n}{s}\cdot{c}\cdot{k}\cdot{k}+(s-1)\
 <h3>Ghost bottleneck<a class="headerlink" href="#ghost-bottleneck" title="Link to this heading">#</a></h3>
 <p>Ghost bottleneck 与 ResNet 中的基本残差块(Basic Residual Block)结构相似，可以认为是将 Basic Residual Block 中的卷积操作用 Ghost Module 替换得到。</p>
 <p>Ghost bottleneck 主要由两个堆叠的 Ghost Module 组成。第一个 Ghost Module 用于增加通道数。第二个 Ghost Module 用于减少通道数，以与 shortcut 路径匹配。然后，使用 shortcut 连接这两个 Ghost Module 的输入和输出。这里借鉴了 MobileNetV2，第二个 Ghost Module 之后不使用 ReLU 激活函数，其他层在每层之后都应用了批量归一化（BN）和 ReLU 非线性激活。作者设计了 2 种 Ghost bottleneck。如下图所示，分别对应着 stride=1 和 stride=2 的情况。Ghost bottleNeck 结构如下图所示：</p>
-<p><img alt="Ghost bottleneck" src="images/04Inference02Mobilenet/08.ghostnet_02.png" /></p>
+<p><img alt="GhostNet" src="../_images/08Ghostnet02.png" /></p>
 <p>左图中，主干通路用两 Ghost Module 串联组成，其中第一个 Ghost Module 扩大通道数，第二个 Ghost Module 将通道数降低到与输入通道数一致；残差边部分与 ResNet 一样。由于 Stride=1，因此不会对输入特征图的高和宽进行压缩，其功能为加深网络的深度。</p>
 <p>右图中，主干通路的两个 Ghost Module 之间加入了一个 Stride=2 的 DWConv，可以将特征图高和宽进行压缩，使其大小降为输入的 <span class="math notranslate nohighlight">\(\frac {1}{2}\)</span>；在残差边部分，也会添加一个步长为 2 的 DWConv 和 1x1 的 PWConv，以保证 Add 操作可以对齐。这个模块可以用来替换其他 CNN 中的下采样层（1/2）。出于效率考虑，Ghost Module 中的所有标准卷积都用 PWConv 代替。</p>
 <p><strong>代码</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GhostBottleneck</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ghost瓶颈层实现</span>
+<span class="k">class</span> <span class="nc">GhostBottleneck</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_channels</span><span class="p">,</span><span class="n">mid_channels</span><span class="p">,</span> <span class="n">out_channels</span> <span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="n">use_se</span><span class="p">,</span> <span class="n">se_kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">GhostBottleneck</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stride</span> <span class="o">=</span> <span class="n">stride</span>
@@ -840,7 +841,7 @@ a'_{hw} =\sum_{h'=1}^{H}F^{H}_{h,h'w}\odot z_{h'w},h=1,2,...,H,w=1,2,...,W \tag{
 a_{hw} =\sum_{w'=1}^{W}F^{W}_{w,hw'}\odot z_{h'w},h=1,2,...,H,w=1,2,...,W \tag{3}
 \]</div>
 <p>其中，<span class="math notranslate nohighlight">\(F^{H}\)</span> 和 <span class="math notranslate nohighlight">\(F^{W}\)</span> 是变换的权重。输入原始特征 Z，并依次应用公式(2)和公式(3)，分别提取沿两个方向的长距离依赖关系。作者将此操作称为解耦全连接注意力(decoupled fully connected attention，DFC attention)，其信息流如下图所示：</p>
-<p><img alt="Ghost bottleneck" src="images/04Inference02Mobilenet/08.ghostnet_03.png" /></p>
+<p><img alt="GhostNet" src="../_images/08Ghostnet03.png" /></p>
 <p>由于水平和垂直方向变换的解耦，注意力模块的计算复杂度可以降低到 <span class="math notranslate nohighlight">\(\mathcal{O}(H^{2}W+HW^{2})\)</span> 对于 full attention （公式 1），正方形区域内的所有 patches 直接参与被聚合 patch 的计算。在 DFC attention 中，一个 patch 直接由其垂直方向和水平方向的 patch 进行聚合，而其他 patch 参与垂直线/水平线上的 patch 的生成，与被聚合的 token 有间接关系。因此，一个 patch 的计算也涉及到正方形区域的所有 patchs。</p>
 <p>公式(2)和公式(3)是 DFC attention 的一般表示，分别沿着水平和垂直方向聚合像素。通过共享部分变换权重，可以方便地使用卷积操作实现，省去了影响实际推理速度的耗时张量的 reshape 操作和 transpose 操作。为了处理不同分辨率的输入图像，卷积核的大小可以与特征图的大小进行解耦，也就是在输入特征上依次进行两个大小为 <span class="math notranslate nohighlight">\(1 \times K_{H}\)</span> 和 <span class="math notranslate nohighlight">\( K_{W} \times 1\)</span> 的 DWConv 操作。当用卷积操作时，DFC attention 理论上的计算复杂度为 <span class="math notranslate nohighlight">\(\mathcal{O}(K_{H}HW+K_{W}HW)\)</span>。这种策略得到了 TFLite 和 ONNX 等工具的良好支持，可以在移动设备上进行快速推理。</p>
 <p><strong>代码</strong></p>
@@ -912,13 +913,13 @@ a_{hw} =\sum_{w'=1}^{W}F^{W}_{w,hw'}\odot z_{h'w},h=1,2,...,H,w=1,2,...,W \tag{3
 $\mathcal{O} = Sigmoid(A)\odot V(X)
 \]</div>
 <p>其中，<span class="math notranslate nohighlight">\(\odot\)</span> 表示 element-wise multiplication，<span class="math notranslate nohighlight">\(A\)</span> 是 attention map，Sigmoid 是归一化函数以缩放到 ( 0 , 1 )  范围。<span class="math notranslate nohighlight">\( \mathcal{V}()\)</span> 表示 Ghost Module，<span class="math notranslate nohighlight">\(X \)</span> 为输入特征。则信息聚合过程如下图所示：</p>
-<p><img alt="Ghost bottleneck" src="images/04Inference02Mobilenet/08.ghostnet_04.png" /></p>
+<p><img alt="GhostNet" src="../_images/08Ghostnet04.png" /></p>
 <p>使用相同的输入特征，Ghost Module 和 DFC attention 是两个从不同角度提取信息的并行分支。输出特征是它们逐元素的信息，其中包含来自 Ghost Module 的特性和 DFC attention 的信息。每个 attention value 涉及到大范围的 patches，以便输出的特征可以包含这些 patches 的信息。</p>
 </section>
 <section id="ghostnetv2-bottleneck">
 <h3>GhostNetV2 bottleneck<a class="headerlink" href="#ghostnetv2-bottleneck" title="Link to this heading">#</a></h3>
 <p>为了减小 DFC attention 模块所消耗的计算量，本文对 DFC 这条支路上的特征进行下采样，在更小的特征图上执行一系列变换。同时，本文发现，对一个逆 bottleneck 结构而言，增强“expressiveness”（bottleneck 中间层）比“capacity”（bottleneck 输出层）更加有效，因此在 GhostNetV2 只对中间特征做了增强。GhostNetV2 的 bottleneck 如下图所示。</p>
-<p><img alt="Ghost bottleneck" src="images/04Inference02Mobilenet/08.ghostnet_05.png" /></p>
+<p><img alt="GhostNet" src="../_images/08Ghostnet05.png" /></p>
 <p><strong>代码</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GhostBottleneckV2</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span> 
 
@@ -1096,7 +1097,7 @@ $\mathcal{O} = Sigmoid(A)\odot V(X)
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 11, 2024.
+  Last updated on Jun 15, 2024.
   <br/>
 </p>
   </div>

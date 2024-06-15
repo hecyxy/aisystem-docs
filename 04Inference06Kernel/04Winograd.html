@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 11, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
 
 <link
   rel="alternate"
@@ -344,7 +344,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </details></li>
@@ -372,7 +372,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
@@ -741,7 +741,7 @@ r_1 &amp; = d_1 \times g_0 +  d_2 \times g_1 + d_3 \times g_2
 \end{align}
 \end{split}\]</div>
 <p>具体的过程可以由下图了解到，在卷积的计算过程中，由于在卷积层的设计中，往往卷积的步幅（Stride）的大小会小于卷积核的大小，所以最后转换的矩阵乘中往往有规律的分布着大量重复元素，比如这个一维卷积例子中矩阵乘输入矩阵第一行的 <span class="math notranslate nohighlight">\(d_1\)</span>、<span class="math notranslate nohighlight">\(d_2\)</span> 和第二行中的 <span class="math notranslate nohighlight">\(d_1\)</span>、<span class="math notranslate nohighlight">\(d_2\)</span>，卷积转换成的矩阵乘法比一般矩阵乘法的问题域更小，这就让优化存在了可能。</p>
-<p><img alt="Winograd01" src="../_images/04.Winograd01.png" /></p>
+<p><img alt="Winograd01" src="../_images/04.winograd01.png" /></p>
 <p>在 Winograd 算法中则是通过增加加法操作来减少乘法操作从而实现计算加速，具体操作如下式所示：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -898,7 +898,7 @@ Y = A^T[[GgG^T]\odot[B^TdB]]A
 \end{align*}
 \end{split}\]</div>
 <p>然后，将上述的矩阵乘的形式进行如下图的分块：</p>
-<p><img alt="Winograd02" src="../_images/04.Winograd02.png" /></p>
+<p><img alt="Winograd02" src="../_images/04.winograd02.png" /></p>
 <p>即可以表示成如下类似于前文中 Winograd 加速一维卷积计算形式：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -931,15 +931,15 @@ g_2
 <li><p>卷积结果的计算：<span class="math notranslate nohighlight">\(𝑌=𝐴^𝑇𝑀𝐴\)</span>，其中 <span class="math notranslate nohighlight">\(A\)</span> 表示输出变换矩阵</p></li>
 </ol>
 <p>Winograd 算法的工作流程可以用以下图示来说明：</p>
-<p><img alt="Winograd03" src="../_images/04.Winograd03.png" /></p>
+<p><img alt="Winograd03" src="../_images/04.winograd03.png" /></p>
 <p>以上文中 Winograd 加速二维卷积 <span class="math notranslate nohighlight">\(F(2 \times 2, 3 \times 3)\)</span> 的计算为例子，可以具体了解 Winograd 的实现过程。</p>
 <p>如下图所示，在输入卷积核的转换过程中，首先通过 Winograd 算法中的卷积核变换矩阵 <span class="math notranslate nohighlight">\(G\)</span> 和 <span class="math notranslate nohighlight">\(G^T\)</span> 分别将 <span class="math notranslate nohighlight">\(3 \times 3\)</span> 的卷积核权重转换为 <span class="math notranslate nohighlight">\(4 \times 4\)</span> 的矩阵。然后，将该矩阵中相同位置的点（如下图中蓝色为位置 1 的点）进行重新排布（Relayout），形成一个输入通道数 <span class="math notranslate nohighlight">\(IC \times\)</span> 输出通道数 <span class="math notranslate nohighlight">\( OC\)</span> 的矩阵，这一过程最终产生了 <span class="math notranslate nohighlight">\(4 \times 4 = 16\)</span> 个转换后的卷积核权重矩阵 <span class="math notranslate nohighlight">\(U\)</span>。</p>
-<p><img alt="Winograd04" src="../_images/04.Winograd04.png" /></p>
+<p><img alt="Winograd04" src="../_images/04.winograd04.png" /></p>
 <p>如下图所示，在输入数据的转换过程中，首先将输入数据切分成 <span class="math notranslate nohighlight">\(4 \times 4\)</span> 的小块（tile）。接着，通过 Winograd 算法中输入数据的变换矩阵 <span class="math notranslate nohighlight">\(B\)</span> 和 <span class="math notranslate nohighlight">\(B^T\)</span> 将每个小块转换为 <span class="math notranslate nohighlight">\(4 \times 4\)</span> 的矩阵形式。完成矩阵转换后，每个小块的数据按照与卷积核转换过程中类似的重新排布方法，转换成 16 个维度是小块数 <span class="math notranslate nohighlight">\(nr\ tiles \times\)</span> 输入通道数 <span class="math notranslate nohighlight">\(IC\)</span> 的输入数据矩阵 <span class="math notranslate nohighlight">\(V\)</span>。</p>
-<p><img alt="Winograd05" src="../_images/04.Winograd05.png" /></p>
+<p><img alt="Winograd05" src="../_images/04.winograd05.png" /></p>
 <p>如下图所示，将上述转换得到的卷积核权重矩阵 <span class="math notranslate nohighlight">\(U\)</span> 与输入数据矩阵 <span class="math notranslate nohighlight">\(V\)</span> 进行矩阵乘的操作，得到 16 个维度为小块数 <span class="math notranslate nohighlight">\(nr\ tiles \times\)</span> 输出通道数 <span class="math notranslate nohighlight">\(OC\)</span> 的中间矩阵 <span class="math notranslate nohighlight">\(M\)</span>。</p>
 <p>随后，将相同位置的 16 个点重新排布成 <span class="math notranslate nohighlight">\(nr\ tiles \times OC\)</span>  个维度为 <span class="math notranslate nohighlight">\(4 \times 4\)</span> 的矩阵。然后再使用 Winograd 算法中的输出变换矩阵 <span class="math notranslate nohighlight">\(A\)</span> 和 <span class="math notranslate nohighlight">\(A^T\)</span> 将这些 <span class="math notranslate nohighlight">\(4 \times 4\)</span> 的矩阵转换为 <span class="math notranslate nohighlight">\(2 \times 2\)</span> 的输出矩阵，最后将这些矩阵写回输出矩阵中就可以得到 Winograd 卷积的最终结果 <span class="math notranslate nohighlight">\(Y\)</span>。</p>
-<p><img alt="Winograd06" src="../_images/04.Winograd06.png" /></p>
+<p><img alt="Winograd06" src="../_images/04.winograd06.png" /></p>
 </section>
 <section id="id4">
 <h2>算法约束与缺点<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
@@ -1065,7 +1065,7 @@ g_2
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 11, 2024.
+  Last updated on Jun 15, 2024.
   <br/>
 </p>
   </div>

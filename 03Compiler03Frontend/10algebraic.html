@@ -82,11 +82,11 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="后端优化(DONE)" href="../03Compiler04Backend/README.html" />
-    <link rel="prev" title="死代码消除" href="09DCE.html" />
+    <link rel="prev" title="内容介绍" href="09DCE.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 11, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
 
 <link
   rel="alternate"
@@ -344,7 +344,7 @@
 <li class="toctree-l2"><a class="reference internal" href="06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08CSE.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09DCE.html">内容介绍</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">代数简化(DONE)</a></li>
 </ul>
 </details></li>
@@ -372,7 +372,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
@@ -713,7 +713,7 @@ document.write(`
 <p>顾名思义，算术化简就是通过利用代数之间算术运算法则，在计算图中可以确定优化的运算符执行顺序，从而用新的运算符替换原有复杂的运算符组合。我们给出结合律，分配律，交换律的例子。</p>
 <section id="id2">
 <h3>结合律<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>非正式的讲，结合律是说：不论我们怎样结合数字（即先计算那些数字），答案都是一样的。即：</p>
+<p>非正式的讲，结合律是说： 不论我们怎样结合数字（即先计算那些数字），答案都是一样的。即：</p>
 <div class="math notranslate nohighlight">
 \[
 (a+b)+c = a+(b+c)
@@ -906,7 +906,7 @@ Square(A+B)-(A+B)\diamond C \rightarrow (A+B)\diamond(A+B-C)
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">死代码消除</p>
+        <p class="prev-next-title">内容介绍</p>
       </div>
     </a>
     <a class="right-next"
@@ -966,7 +966,7 @@ Square(A+B)-(A+B)\diamond C \rightarrow (A+B)\diamond(A+B-C)
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 11, 2024.
+  Last updated on Jun 15, 2024.
   <br/>
 </p>
   </div>

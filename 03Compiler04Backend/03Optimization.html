@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 11, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
 
 <link
   rel="alternate"
@@ -344,7 +344,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </details></li>
@@ -372,7 +372,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
@@ -689,12 +689,14 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">优化策略</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dsl">DSL 开发算子</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tvm">TVM 开发算法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tvm">TVM 开发算子</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triton">Triton 开发算子</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Triton实现原理</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">参考文献</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -765,7 +767,7 @@ document.write(`
 <p>手写算子的开发往往要求开发者深入底层硬件的细节，这涉及到对数据布局、指令选择、索引计算等诸多方面的精细调整，从而显著提高了编写 Kernel 的难度。为了简化这一过程，已经发展出多种高级语言（DSL）来加速开发，其中 TVM 和 Triton 是该领域的杰出代表。</p>
 <p>这些 DSL 通过提供高级抽象，封装了多种常用的优化技术，并通过编译器的优化阶段自动识别并应用这些技术。开发者在使用这些 DSL 时，只需专注于高层次的计算逻辑，并利用 DSL 提供的 API 接口，即可实现高性能的算子。与传统的手写代码和极限优化相比，这种方法虽然可能无法达到极致的性能，但已经能够实现超过 90%的性能水平，同时开发效率却能提升数十倍。这种权衡在许多情况下是合理的，因为它允许开发者以更高的效率开发出性能优异的应用程序。</p>
 <section id="tvm">
-<h3>TVM 开发算法<a class="headerlink" href="#tvm" title="Link to this heading">#</a></h3>
+<h3>TVM 开发算子<a class="headerlink" href="#tvm" title="Link to this heading">#</a></h3>
 <p>TVM 是 OctoML 研发的可扩展、开放的端到端 AI 编译器，用于神经网络模型的优化和部署，目标是减少企业为特定硬件开发和深度学习软件部署所花费的成本和时间。</p>
 <p>TVM 极大的发扬了 Halide 的计算与调度思想，将可实现的优化都以调度 API 的方式呈现。相比 Triton，TVM 不局限于 CUDA，支持了更多的后端，并且也易于扩展更多后端。TVM 上一个典型的调度如下：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">schedule_dense_packed</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">outs</span><span class="p">):</span>
@@ -927,18 +929,57 @@ document.write(`
 </section>
 </section>
 <section id="id4">
-<h2>小结与思考<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2>Triton实现原理<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>在没有Triton之前，算子工程师在开发算子时，需要同时处理DRAM、SRAM、计算单元，面临诸多挑战：</p>
+<ul class="simple">
+<li><p>内存管理：合理利用内存体系，将频繁访问的数据块缓存到较快的存储区域；对齐和合并访存请求，避免带宽浪费。</p></li>
+<li><p>线程管理：最大化利用硬件计算资源，规划并行线程数量和线程束大小。</p></li>
+<li><p>指令使用：使用CUDA实现一个功能有相应多种指令，不同指令具有不同延迟和吞吐量。</p></li>
+</ul>
+<p>Triton提高了算子开发时的效率，使得开发者不再囿于硬件细节。CUDA直接面向Thread变成，而Triton面向Thread Block编程，开发者只需关注1）Kernel launch的参数；2）每个数据分块的大小；3）数据分块之间的交互。在这之下的细节由Triton实现。</p>
+<p>Triton是基于MLIR实现的，其架构如下图<label for='sidenote-role-1' class='margin-toggle'><span id="id5">
+<sup>1</sup></span>
+
+</label><input type='checkbox' id='sidenote-role-1' name='sidenote-role-1' class='margin-toggle'><span class="sidenote"><sup>1</sup><a class="reference external" href="https://superjomn.github.io/posts/triton-mlir-publish/">Superjomn's blog | OpenAI/Triton MLIR 迁移工作简介</a></span>：</p>
+<p><img alt="img" src="../_images/03optimization06.png" /></p>
+<p>Frontend用于将开发者利用Python编写的kernel转换为对应的Triton IR (Triton Dialect)。使用<code class="docutils literal notranslate"><span class="pre">&#64;triton.jit</span></code>来标注kernel，Triton解析Python AST，将用户定义的计算过程带入MLIR体系，之后继续做后续的优化。</p>
+<p>Optimizer大致工作流如下：</p>
+<p><img alt="img" src="../_images/03optimization07.png" /></p>
+<p>主要分为1）TritonIR的优化；2）TritonIR到TritonGPU IR的转换；3）TritonGPU IR的优化。贯穿中间的数据结构是 TritonGPU IR。</p>
+<p>TritonGPU Dialect 相比 Triton Dialect，主要是增加了 GPU 硬件相关的 Op 和 Type。关键Op为数据布局转换。当前有以下几种数据布局：</p>
+<ul class="simple">
+<li><p>Blocked Layout：表示 thread 间平均分配 workload 的情况，每个线程处理一块memory上连续的数据。</p></li>
+<li><p>Shared Layout：表示数据在 shared memory 的一些特性。</p></li>
+<li><p>MMA Layout：表示 Tensor Core 中 MMA 指令结果的 data layout</p></li>
+<li><p>DotOperand Layout：表示 Triton 的 DotOp 的输入的 layout</p></li>
+</ul>
+<p>列举一些典型的 data layout 的转换，以及特点：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#shared</span> <span class="pre">-&gt;</span> <span class="pre">#blocked</span></code> ，正常是代表数据从 shared memory 被 load 到 register file 中，需要考虑 swizzle</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#blocked</span> <span class="pre">-&gt;</span> <span class="pre">#shared</span></code> ，代表数据从 register file 存储到 shared memory 中，需要上一步相同的 swizzle 方式</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#mma</span> <span class="pre">-&gt;</span> <span class="pre">#blocked</span></code> ，正常是 DotOp 的输出转换为更简单的 layout 来进一步计算，由于涉及到跨 thread 间的数据传递，因此一般会借由 shared memory 中转一次</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#blocked</span> <span class="pre">-&gt;</span> <span class="pre">#dot_operand</span></code> ，转换为 DotOp 的输入，这一步可能也需要 shared memory 中转</p></li>
+</ul>
+<p>TritonIR 上的优化主要是计算本身的，与硬件无关的优化，包含了如下 Pass：1）Inliner Pass，将 Kernel Call 的子函数 Inline 展开；2）Combine Pass，一些特定的 Pattern rewrite；3）Canonicalizer Pass，一些化简的 Pattern rewrite；4）CSE Pass，MLIR 的 <a class="reference external" href="https://mlir.llvm.org/docs/Passes/#-cse-eliminate-common-sub-expressions">cse</a> Pass，用于 消除公共子表达式；5）LICM Pass，MLIR 的 <a class="reference external" href="https://mlir.llvm.org/doxygen/LoopInvariantCodeMotion_8cpp_source.html">LoopInvariantCodeMotion Pass</a> ，将循环无关的变量挪到 forloop 外面。</p>
+<p>TritonGPU IR优化在计算本身优化外，新增了 GPU 硬件相关的优化，具体的 Pass 列表如下：1）ConvertTritonToTritonGPU Pass，将 Triton IR 转换为 TritonGPU IR，主要是增加 TritonGPU 特有的 layout；2）Coalesce Pass，重排 order，使得最大 contiguity 的维度排在最前面；3）Pipeline Pass，MMA 指令对应的 global memory 到 shared memory 的 N-Buffer 优化；4）Prefetch Pass，MMA 指令对应的 shared memory 到 register file 的 N-Buffer 优化</p>
+</section>
+<section id="id6">
+<h2>参考文献<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+</section>
+<section id="id7">
+<h2>小结与思考<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>计算分析：通过定义计算量、访存量、计算强度和理论性能等指标，利用 Roofline 模型分析程序的瓶颈，指导优化策略。</p></li>
 <li><p>优化策略：针对算子的计算特性和硬件资源特点，采用循环优化、指令优化和存储优化等技术，提升性能。</p></li>
 <li><p>DSL 开发算子：使用 TVM 和 Triton 等高级语言加速开发算子，通过封装优化技术和自动调优，提高开发效率。</p></li>
 </ul>
 </section>
-<section id="id5">
-<h2>本节视频<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>本节视频<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=306681773&bvid=BV1ZA411X7WZ&cid=936754541&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
+<hr class="footnotes docutils" />
 </section>
 </section>
 
@@ -1017,12 +1058,14 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">优化策略</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dsl">DSL 开发算子</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tvm">TVM 开发算法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tvm">TVM 开发算子</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triton">Triton 开发算子</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Triton实现原理</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">参考文献</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -1045,7 +1088,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 11, 2024.
+  Last updated on Jun 15, 2024.
   <br/>
 </p>
   </div>

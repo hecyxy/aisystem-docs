@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference03Slim/03QAT.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="======== 一句话介绍本节内容======== 感知量化训练上次说这个内容过于简单，需要继续拓展和深入一下的，参考我的文章 https://blog.csdn.net/m0_37046057/article/details/122356151 感知量化训练流程: 传统的训练后量化将模型从 FP32 量化到 INT8 精度时会产生较大的数值精度损失。感知量化训练（Aware Quanti..." />
+<meta property="og:description" content="感知量化训练流程: 传统的训练后量化将模型从 FP32 量化到 INT8 精度时会产生较大的数值精度损失。感知量化训练（Aware Quantization Training）通过在训练期间模拟量化操作，可以最大限度地减少量化带来的精度损失。 QAT 的流程如下图所示，首先基于预训练好的模型获取计算图，对计算图插入伪量化算子。准备好训练数据进行训练或者微调，在训练过程中最小化量化误差，最终得..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="======== 一句话介绍本节内容======== 感知量化训练上次说这个内容过于简单，需要继续拓展和深入一下的，参考我的文章 https://blog.csdn.net/m0_37046057/article/details/122356151 感知量化训练流程: 传统的训练后量化将模型从 FP32 量化到..." />
-<meta name="description" content="======== 一句话介绍本节内容======== 感知量化训练上次说这个内容过于简单，需要继续拓展和深入一下的，参考我的文章 https://blog.csdn.net/m0_37046057/article/details/122356151 感知量化训练流程: 传统的训练后量化将模型从 FP32 量化到 INT8 精度时会产生较大的数值精度损失。感知量化训练（Aware Quanti..." />
+<meta property="og:image:alt" content="感知量化训练流程: 传统的训练后量化将模型从 FP32 量化到 INT8 精度时会产生较大的数值精度损失。感知量化训练（Aware Quantization Training）通过在训练期间模拟量化操作，可以最大限度地减少量化带来的精度损失。 QAT 的流程如下图所示，首先基于预训练好的模型获取计算图，对计算图插..." />
+<meta name="description" content="感知量化训练流程: 传统的训练后量化将模型从 FP32 量化到 INT8 精度时会产生较大的数值精度损失。感知量化训练（Aware Quantization Training）通过在训练期间模拟量化操作，可以最大限度地减少量化带来的精度损失。 QAT 的流程如下图所示，首先基于预训练好的模型获取计算图，对计算图插入伪量化算子。准备好训练数据进行训练或者微调，在训练过程中最小化量化误差，最终得..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>感知量化训练 QAT &#8212; AI System</title>
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 11, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
 
 <link
   rel="alternate"
@@ -344,7 +344,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化(DONE)</a></li>
 </ul>
 </details></li>
@@ -372,7 +372,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
@@ -686,12 +686,19 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">伪量化节点</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">正向传播</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">反向传播</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bn">BN折叠</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">推理过程：</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">感知量化训练的技巧</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">感知量化实践</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">感知量化训练的技巧</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt">基于TensorRT的推理</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qat-ptq">QAT 和 PTQ 对比</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -706,8 +713,6 @@ document.write(`
 <!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="qat">
 <h1>感知量化训练 QAT<a class="headerlink" href="#qat" title="Link to this heading">#</a></h1>
-<p>======== 一句话介绍本节内容
-======== 感知量化训练上次说这个内容过于简单，需要继续拓展和深入一下的，参考我的文章 https://blog.csdn.net/m0_37046057/article/details/122356151</p>
 <section id="id1">
 <h2>感知量化训练流程<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>传统的训练后量化将模型从 FP32 量化到 INT8 精度时会产生较大的数值精度损失。感知量化训练（Aware Quantization Training）通过在训练期间模拟量化操作，可以最大限度地减少量化带来的精度损失。</p>
@@ -776,10 +781,72 @@ g_W = \frac{\partial L}{\partial W} = \frac{\partial L}{\partial Q(W)}
 <p>如果被量化的值在 <span class="math notranslate nohighlight">\([x_{min}, x_{max}] \)</span> 范围内，STE 近似的结果为 1，否则为 0。这种方法使模型能够在训练期间适应量化噪声，从而在实际部署时能够更好地处理量化误差。如下图所示：</p>
 <p><img alt="反向传播梯度计算" src="../_images/03QAT05.png" /></p>
 </section>
-</section>
+<section id="bn">
+<h4>BN折叠<a class="headerlink" href="#bn" title="Link to this heading">#</a></h4>
+<p>在卷积或全连接层后通常会加入批量归一化操作（Batch Normalization），以归一化输出数据。在训练阶段，BN作为一个独立的算子，统计输出的均值和方差（如下左图）。然而，为了提高推理阶段的效率，推理图将批量归一化参数“折叠”到卷积层或全连接层的权重和偏置中。也就是说，Conv和BN两个算子在正向传播时可以融合为一个算子，该操作称为BN折叠（如右下图）。</p>
+<p><img alt="BN 折叠" src="../_images/03QAT06.png" /></p>
+<p>为了准确地模拟量化效果，我们需要模拟这种折叠，并在通过批量归一化参数缩放权重后对其进行量化。我们通过以下方式做到这一点：</p>
+<div class="math notranslate nohighlight">
+\[
+w_{fold} := \frac{\gamma w}{\text{EMA}(\sigma_B^2) + \epsilon}
+\]</div>
+<p>其中 <span class="math notranslate nohighlight">\(\gamma\)</span> 是批量归一化的尺度参数，<span class="math notranslate nohighlight">\(\text{EMA}(\sigma_B^2)\)</span> 是跨批次卷积结果方差的移动平均估计，<span class="math notranslate nohighlight">\(\epsilon\)</span> 是为了数值稳定性的常数。</p>
 </section>
 <section id="id5">
-<h2>感知量化训练的技巧<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<h4>推理过程：<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>假设我们有一层的输入为 <span class="math notranslate nohighlight">\(x\)</span>，应用BN后得到输出 <span class="math notranslate nohighlight">\(y\)</span>，其基本公式为：</p>
+<ol class="arabic simple">
+<li><p>归一化：
+$<span class="math notranslate nohighlight">\(
+\hat{x}_i = \frac{x_i - \mu_B}{\sqrt{\sigma_B^2 + \epsilon}}
+\)</span>$</p></li>
+</ol>
+<p>其中，<span class="math notranslate nohighlight">\(\mu_B\)</span> 是均值，<span class="math notranslate nohighlight">\(\sigma_B^2\)</span> 是方差。</p>
+<ol class="arabic simple" start="2">
+<li><p>缩放和平移：</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+y_i = \gamma \hat{x}_i + \beta
+\]</div>
+<p>为了将 BN 折叠到前一层的权重和 bias 中，将 BN 的过程应用到上面的公式中，可以得到：</p>
+<div class="math notranslate nohighlight">
+\[
+y_i = \gamma \frac{z_i - \mu_B}{\sqrt{\sigma_B^2 + \epsilon}} + \beta
+\]</div>
+<p>可得：</p>
+<div class="math notranslate nohighlight">
+\[
+y_i = \gamma \frac{w x_i + b - \mu_B}{\sqrt{\sigma_B^2 + \epsilon}} + \beta
+\]</div>
+<p>将上式拆解为对权重 w 和偏置 b 的调整：</p>
+<ol class="arabic simple">
+<li><p>调整后的权重 <span class="math notranslate nohighlight">\(w_{fold}\)</span></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+w_{fold} = \frac{\gamma w}{\sqrt{\sigma_B^2 + \epsilon}}
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>调整后的偏置 <span class="math notranslate nohighlight">\(b_{fold}\)</span></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+b_{fold} = \frac{\gamma (b - \mu_B)}{\sqrt{\sigma_B^2 + \epsilon}} + \beta
+\]</div>
+<p>在量化感知训练中应用 BN 折叠的过程涉及将 BN 层的参数合并到前一层的权重和偏置中，并对这些合并后的权重进行量化。</p>
+<p>BN 折叠的训练模型：</p>
+<p><img alt="BN 折叠的训练模型" src="../_images/03QAT07.png" /></p>
+<p>BN 折叠感知量化训练模型：</p>
+<p><img alt="BN 折叠感知量化训练模型" src="../_images/03QAT08.png" /></p>
+<p>QAT中常见的算子折叠组合还有：Conv + BN、Conv + BN + ReLU、Conv + ReLU、Linear + ReLU、BN + ReLU。</p>
+</section>
+</section>
+</section>
+<section id="id6">
+<h2>感知量化实践<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h3>感知量化训练的技巧<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>从已校准的表现最佳的 PTQ 模型开始</p></li>
 </ol>
@@ -797,12 +864,67 @@ g_W = \frac{\partial L}{\partial W} = \frac{\partial L}{\partial Q(W)}
 <p>尽管 ADAM 和 RMSProp 是深度学习中常用的优化算法，但它们可能不太适合量化感知微调。这些方法会按参数重新缩放梯度，可能会扰乱感知量化训练的敏感性。使用带动量的 SGD 优化器可以确保微调过程更加稳定，使模型能够更有控制地适应较低的精度。</p>
 <p>通过 QAT，神经网络模型能够在保持高效推理的同时，尽量减少量化带来的精度损失，是模型压缩和部署的重要技术之一。在大多数情况下，一旦应用感知量化训练，量化推理精度几乎与浮点精度完全相同。然而，在 QAT 中重新训练模型的计算成本可能是数百个 epoch。</p>
 </section>
-<section id="id6">
-<h2>本节视频<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<section id="tensorrt">
+<h3>基于TensorRT的推理<a class="headerlink" href="#tensorrt" title="Link to this heading">#</a></h3>
+<p>TensorRT 通过混合精度（FP32、FP16、INT8）计算、图优化和层融合等技术，显著提高了模型的推理速度和效率。TensorRT 8.0 之后的版本可以显式地加载包含有 QAT 量化信息的 ONNX 模型，实现一系列优化后，可以生成 INT8 的 engine。要使用 TensorRT 推理 QAT 模型，通常需要以下步骤：</p>
+<ol class="arabic simple">
+<li><p>训练并量化模型：</p></li>
+</ol>
+<p>首先使用训练框架（如PyTorch、PaddlePaddle和MindSpore）进行量化感知训练并保存量化后的模型。</p>
+<ol class="arabic simple" start="2">
+<li><p>转换模型格式：</p></li>
+</ol>
+<p>将训练好的模型转换为 TensorRT 可以使用的 ONNX 格式。在这个过程中，转换器会将原始模型中的 FakeQuant 算子分解成 Q 和 DQ 两个算子，分别对应量化和反量化操作，包含了该层或者该激活值的量化 scale 和 zero-point。</p>
+<p><img alt="ONXX转换" src="../_images/03QAT09.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>使用 TensorRT 进行转换和推理：</p></li>
+</ol>
+<p>使用 TensorRT 转换 ONNX 模型，为特定的 GPU 构建一个优化后的引擎。</p>
+<p><img alt="alt text" src="../_images/03QAT10.png" /></p>
+<p>在转换过程中，TensorRT 会对计算图进行优化：</p>
+<p>（1）常量的折叠：如权重的 Q 节点可与权重合并，无需在真实推理中由 FP32 的权重经过 scale 和 Z 转为 INT8 的权重。</p>
+<p><img alt="常量折叠" src="../_images/03QAT11.png" /></p>
+<p>（2）op 融合：将 Q/DQ 信息融合到算子（如conv）中，得到量化的算子。通过 op 融合，模型计算将变为真实的 INT8 计算。</p>
+<p>比如可以将 DQ 和 Conv 融合，再和 Relu 融合，得到 ConvRelu，最后和下一个 Q 节点融合形成 INT8 输入和 INT8 输出的 QConvRelu 算子。如果在网络的末尾节点没有 Q 节点了（在前面已经融合了），可以将 DQ 和 Conv 融合得到 QConv算子，输入是INT8，输出是FP32。</p>
+<p><img alt="op 融合" src="../_images/03QAT12.png" /></p>
+<p>值得注意的一点是，TensorRT 官方建议不要在训练框架中模拟批量归一化和 ReLU 融合，因为 TensorRT 自己的融合优化保证了融合后算术语义不变，确保推理阶段的准确性。</p>
+<p>下面是经过TensorRT优化最终得到的量化推理计算图：</p>
+<p><img alt="量化推理计算图" src="../_images/03QAT13.png" /></p>
+<p>权重是INT8精度，FP32 的输入经过 Q 节点也被量化为 INT8，随后进行 INT8 计算，QConv 算子融合了反量化操作，最终输出的是 FP32 的结果。</p>
+<p>当 TensorRT 检测到模型中有 QDQ 算子的时候，就会触发显式量化，可以理解为上一个 Q 和下一个 DQ 节点之间的算子都是 INT8 计算，所以 QDQ 的放置位置很重要。有些算子需要高精度输入，比如 LayerNorm（BERT）, Sigmoid,TanH（LSTM）；而有些算子受低精度的影响不大，如 GeLU (BERT), Softmax (BERT)，可以在这些算子前面插入 QDQ 节点。</p>
+</section>
+</section>
+<section id="qat-ptq">
+<h2>QAT 和 PTQ 对比<a class="headerlink" href="#qat-ptq" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PTQ</p></th>
+<th class="head"><p>QAT</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>通常较快</p></td>
+<td><p>较慢</p></td>
+</tr>
+<tr class="row-odd"><td><p>无需重新训练模型</p></td>
+<td><p>需要训练/微调模型</p></td>
+</tr>
+<tr class="row-even"><td><p>量化方案即插即用</p></td>
+<td><p>量化方案即插即用（需要重新训练）</p></td>
+</tr>
+<tr class="row-odd"><td><p>对模型最终精度控制较少</p></td>
+<td><p>对最终精度控制更多，因为量化参数是在训练过程中学习到的</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>总之，PTQ和QAT各有优缺点，选择哪种方法应根据具体的应用场景和资源情况来决定。对于大多数应用，PTQ可以提供一个快速且易于实现的解决方案，而对于高精度要求的任务，QAT则是更好的选择。</p>
+</section>
+<section id="id8">
+<h2>本节视频<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=223192791&bvid=BV1s8411w7b9&cid=982178790&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</html>
-</section>
+</html></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -877,12 +999,19 @@ g_W = \frac{\partial L}{\partial W} = \frac{\partial L}{\partial Q(W)}
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">伪量化节点</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">正向传播</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">反向传播</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bn">BN折叠</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">推理过程：</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">感知量化训练的技巧</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">感知量化实践</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">感知量化训练的技巧</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt">基于TensorRT的推理</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qat-ptq">QAT 和 PTQ 对比</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -905,7 +1034,7 @@ g_W = \frac{\partial L}{\partial W} = \frac{\partial L}{\partial Q(W)}
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 11, 2024.
+  Last updated on Jun 15, 2024.
   <br/>
 </p>
   </div>
