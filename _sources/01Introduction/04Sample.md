@@ -12,7 +12,7 @@
 
 如图所示，可以看到一个神经网络模型可以接受输入（如当前手写数字图片），产生输出（如数字分类），这个过程叫前向传播（Forward Propagation）。
 
-![](images/04Sample02.png)
+![](../images/01Introduction/04Sample02.png)
 
 那么如何得到一个针对当前已有的输入输出数据上，预测效果最好的神经网络模型呢？这个时候需要通过对网络模型进行训练，训练过程可以抽象为数学上的优化问题，优化目标为:
 
@@ -170,7 +170,7 @@ class LeNet(nn.Module):
 
 首先一次沿着行进行滑动一定的步长 Step，再进行下次矩阵内积计算，直到滑到边界后再沿着一定步长跳到下一列重复刚才的滑动窗口。最终把每一步的结果组合成输出矩阵，即产生特征图（Feature Map）。
 
-![](images/04Sample04.png)
+![](../images/01Introduction/04Sample04.png)
 
 图中输入张量形状（Tensor Shape）为 $3 \times 32 \times 32$（3 代表通道数，32 代表张量高度和宽度），经过 $2 \times 3 \times 5 \times 5$ 的卷积（2 代表输出通道数，3 代表输入通道数，5 代表卷积核高度和宽度）后，输出张量形状为 $2 \times 28 \times 28$（2 代表通道，28 代表高度和宽度）。
 
@@ -234,7 +234,7 @@ for n in range(batch_size):
 
 如果没有 AI 框架，只将算子 for 循环抽象提供算子库（例如，cuDNN）的调用，算法工程师只能通过 NPU/GPU 厂商提供的底层 API 编写神经网络模型。例如，通过 CUDA + cuDNN 库书写卷积神经网络，如 [cuDNN 书写的卷积神经网络 LeNet 实例](https://github.com/tbennun/cudnn-training)。因此如图分为不同的步骤和处理流程。
 
-![](images/04Sample05.png)
+![](../images/01Introduction/04Sample05.png)
 
 1. 通过 cuDNN + CUDA API 编程实现 LeNet
  
@@ -328,7 +328,7 @@ AI 框架充分赋能深度学习领域，为 AI 算法的开发者提供了极�
 
 为了解决多硬件平台上的性能优化的问题，多种 AI 编译器被提出并得到了普及和应用，比如：TVM ，Glow，XLA 和 Jittor 等。AI 编译器以神经网络模型作为输入，将 AI 计算任务通过一层或多层中间表达 IR 进行翻译和优化，最后转化为目标硬件上可执行的代码，与传统的编译器（LLVM）类似，AI 编译器也采用前端、中间表示和后端分层设计的方式。
 
-![](images/04Sample06.png)
+![](../images/01Introduction/04Sample06.png)
 
 目前，业界主流的芯片公司和大型互联网公司等都在 AI 编译器进行了大量的投入来推进相关技术的发展。与传统编译器相比，AI 编译器是一个领域特定的编译器，有四个明显的特征：
 

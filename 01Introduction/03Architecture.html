@@ -726,20 +726,20 @@ document.write(`
 <p>因此在部分语境中，又有人称为 AI Infra 人工智能的基础设施，但是因为基础设施更偏向于底层硬件、集群等内容，而 AI 系统是多的是强调让 AI 执行起来的系统体系结构，因此更愿意称包括软硬件的内容为 AI 系统。</p>
 <p>传统本地部署时代，三大基础软件（数据库、操作系统、中间件）实现控制硬件交互、存储管理数据、网络通信调度等共性功能，抽象并隔绝底层硬件系统的复杂性，让上层应用开发者能够专注于业务逻辑和应用功能本身的创新实现。</p>
 <p>云时代同理，形成了 IaaS、PaaS、SaaS 三层架构，其中 PaaS 层提供应用开发环境和基础的数据分析管理服务。类比来看，我们认为，进入 AI 时代也有承担类似功能的、连接算力和应用的基础设施中间层即 AI 系统，提供基础模型服务、赋能模型微调和应用开发。</p>
-<p><img alt="" src="01Introduction/images/03Architecture01.png" /></p>
+<p><img alt="" src="../_images/03Architecture011.png" /></p>
 </section>
 <section id="id2">
 <h3>详细定义<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>开发者一般通过编程语言 Python 和 AI 开发框架（例如 PyTorch、MindSpore 等）API 编码和描述以上 AI 模型，声明训练作业和部署模型流程。由最开始 AlexNet 是作者直接通过 <a class="reference external" href="https://code.xn--flw351e.com/archive/p/cuda-convnet">CUDA</a> 实现网络模型，到目前有通过 Python 语言灵活和轻松调用的框架，到大家习惯使用 HuggingFace 进行神经网络语言模型训练，背后是系统工程师贴合实际需求不断研发新的工具，并推动深度学习生产力提升的结果。</p>
 <p>但是这些 AI 编程语言和 AI 开发框架应对自动化机器学习、强化学习等多样执行方式，以及细分的应用场景显得越来越低效，不够灵活，需要用户自定义一些特殊优化，没有好的工具和系统的支撑，这些问题一定程度上会拖慢和阻碍算法工程师研发效率，影响算法本身的发展。因此，目前开源社区中也不断涌现针对特定应用领域而设计的框架和工具，例如 <a class="reference external" href="https://huggingface.co/">Hugging Face</a> 提供语言预训练模型 ModelZoo 和社区，<a class="reference external" href="https://github.com/pytorch/fairseq">FairSeq</a> 自然语言处理中的序列到序列模型开发套件和<a class="reference external" href="https://github.com/open-mmlab/mmdetection">MMDetection</a> 物体检测套件，针对自动化机器学习设计的 <a class="reference external" href="https://github.com/microsoft/nni">NNI</a> 加速库等，进而针对特定领域模型应用负载进行定制化设计和性能优化，并提供更简化的接口和应用体验。</p>
-<p><img alt="" src="01Introduction/images/03Architecture02.png" /></p>
+<p><img alt="" src="../_images/03Architecture021.png" /></p>
 <p>由于不同领域的输入数据格式不同，预测输出结果不同，数据获取方式不同，造成模型结构和训练方式产生非常多样的需求，各家公司和组织不断研发新的针对特定领域的 AI 开发框架或上层应用接口封装，以支持特定领域数据科学家快速验证和实现新的 AI 想法，工程化部署和批量训练成熟的模型。如 Meta 推出的 Caffe 与 Torch 演化到 PyTorch，谷歌 TensorFlow 及新推出的 JAX，基于 PyTorch 构建的 HuggingFace 等。AI 开发工具与 AI 开发框架本身也是随着用户的模型构建与程序编写与部署需求不断演进。</p>
 <p>这其中快速获取用户的原因，有一些是其提供了针对应用场景非常简化的模型操作，并提供模型中心快速微调相应的模型，有一些是因为其能支持大规模模型训练或者有特定领域模型结构的系统优化。</p>
 <p>AI 系统自身设计挑战较高（如更大的规模、更大的超参数搜索空间、更复杂的模型结构设计），人工智能的代表性开发框架 PyTorch 是 Meta 开发，后续贡献给 Linux 开源基金会；TensorFlow 是谷歌（谷歌）从 2016 年开源；华为（HUAWEI）为了避免美国全面封锁 AI 领域推出自研的 AI 框架 MindSpore。</p>
 <p>硬件厂商围绕其设计了大量的专有 AI 芯片（如 GPU、TPU、NPU 等）来加速 AI 算法的训练微调和部署推理，微软（Microsoft）、亚马逊（Amazon）、特斯拉（Tesla）等公司早已部署数以万计的 GPU 用于 AI 模型的训练，OpenAI 等公司不断挑战更大规模的分布式模型训练。</p>
 <p>英伟达（NVIDIA）、华为（HUAWEI）、英特尔（Intel）、谷歌（谷歌）等公司不断根据 AI 模型特点设计新的 AI 加速器芯片和对应的 AI 加速模块，如张量核 Tensor Core、脉动阵列等提供更大算力 AI 加速器。</p>
 <p>上述从顶层的 AI 算法应用、开发框架到底层应用所介绍的 AI 全栈相关内容中则是指 <strong>AI 系统（AI System）</strong>，是围绕深度学习而衍生和设计的系统，因此也叫做<strong>深度学习系统（Deep Learning System）</strong>。</p>
-<p><img alt="" src="01Introduction/images/03Architecture03.png" /></p>
+<p><img alt="" src="../_images/03Architecture031.png" /></p>
 <p>但是 AI 系统很多也可以应用于机器学习算法或使用机器学习算法，例如自动化机器学习、集群管理系统等。同时这些系统设计方法具有一定的通用性，有些继承自机器学习系统或者可以借鉴用于机器学习系统。即使作为系统工程师，也需要密切关注算法和应用的演进，才能紧跟潮流设计出贴合应用实际的工具与系统。</p>
 </section>
 </section>
@@ -751,9 +751,9 @@ document.write(`
 </ol>
 <p>设计更具表达能力和简洁的神经网络计算原语以及高级编程语言。让用户能够提升 AI 应用程序的开发效率，屏蔽底层硬件计算的细节，更灵活的原语支持。当前神经网络模型除了特定领域模型的算子和流程可以复用（如大语言模型 Transformer 架构在自然语言处理 NLP 领域被广泛作为基础结构），其新结构新算子的设计与开发仍遵循试错（Trial And Error）的方式进行。那么如何灵活表达新的计算算子，算子间的组合以及融合形式，屏蔽经典熟知的算子与基础模型，是算法工程师所需要语言、库与 AI 开发框架层所提供的功能支持。</p>
 <p>更直观的编辑、调试和实验工具。让用户可以完整的进行神经网络模型的开发、测试、调整诊断与修复和优化程序，提升所开发 AI 应用程序的性能与鲁棒性。训练过程不是一蹴而就，其中伴随着损失函数 LOSS 曲线不收敛、Loss 值出现 NaN 无效值、内存溢出等算法问题与算法设计缺陷（Bug）。AI 工具链与 AI 系统本身如何在设计之初就考虑到这点，提供良好的可观测性、可调试性、允许用户注册自定义扩展等支持，是需要工具链与 AI 系统的设计者，所需要在 AI 系统的设计之初就需要提上日程的，否则之后更多是缝缝补补造成不好的开发体验与不能满足的需求，对用户来说就像使用一个黑盒且单片的工具。</p>
-<p><img alt="" src="01Introduction/images/03Architecture04.png" /></p>
+<p><img alt="" src="../_images/03Architecture04.png" /></p>
 <p>支持 AI 生命周期中的各个环节：数据处理、模型开发与训练、模型压缩与推理、安全和隐私保护等。不仅能构建 AI 模型，能够支持全生命周期的 AI 程序开发，并在 AI 系统内对全生命周期进行分析与优化。当前的 AI 工程化场景，已经不是灵感一现和单一的优化就能迅速取得领先优势，更多的是能否有完善的 AI 基础设施，快速复现开源社区工作，批量验证新的想法进行试错，所以一套好的完善的全流程的生命周期管理能够大幅度提升 AI 算法层面的生产力。</p>
-<p><img alt="" src="01Introduction/images/03Architecture05.png" /></p>
+<p><img alt="" src="../_images/03Architecture05.png" /></p>
 <ol class="arabic simple" start="2">
 <li><p>AI 任务系统级支持</p></li>
 </ol>
@@ -773,7 +773,7 @@ document.write(`
 <section id="id4">
 <h2>AI 系统组成<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>如图所示，大致可以将 AI 系统分为以下几个具体的方向：</p>
-<p><img alt="" src="01Introduction/images/03Architecture06.png" /></p>
+<p><img alt="" src="../_images/03Architecture06.png" /></p>
 <section id="id5">
 <h3>应用与开发层<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>负责提供用户前端的 AI 编程语言，接口和工具链。这一层尽可能让用户表达目标任务与 AI 算法，尽量少让用户关注底层实现（例如到底 AI 框架的实现是通过声明式编程方式还是命令式编程方式）是提升开发体验的较好的手段，但是过度的抽象会丧失灵活性的表达，在模型发展较快迭代频繁的时期用户还需要体验层兼顾灵活性和可调试性。开发体验层会调用，编排底层框架的接口提供更加简洁的用户开发体验。包括并不限于以下领域：</p>
@@ -816,7 +816,7 @@ document.write(`
 </section>
 <section id="id9">
 <h2>AI 系统生态<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
-<p><img alt="" src="01Introduction/images/03Architecture07.png" /></p>
+<p><img alt="" src="../_images/03Architecture07.png" /></p>
 <p>除了以上重要的 AI 系统构成之外，随着人工智能应用越来越广泛，我们还可以看到更广泛的 AI 系统生态的构成。其中包含以下领域：</p>
 <section id="id10">
 <h3>核心系统软硬件<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>

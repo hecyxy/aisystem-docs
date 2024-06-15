@@ -720,7 +720,7 @@ document.write(`
 <section id="ai">
 <h3>AI 训练流程原理<a class="headerlink" href="#ai" title="Link to this heading">#</a></h3>
 <p>如图所示，可以看到一个神经网络模型可以接受输入（如当前手写数字图片），产生输出（如数字分类），这个过程叫前向传播（Forward Propagation）。</p>
-<p><img alt="" src="01Introduction/images/04Sample02.png" /></p>
+<p><img alt="" src="../_images/04Sample02.png" /></p>
 <p>那么如何得到一个针对当前已有的输入输出数据上，预测效果最好的神经网络模型呢？这个时候需要通过对网络模型进行训练，训练过程可以抽象为数学上的优化问题，优化目标为:</p>
 <div class="math notranslate nohighlight">
 \[\theta = argmin_{\theta}\sum[Loss(f_{\theta}(x), y)]\]</div>
@@ -866,7 +866,7 @@ document.write(`
 </pre></div>
 </div>
 <p>首先一次沿着行进行滑动一定的步长 Step，再进行下次矩阵内积计算，直到滑到边界后再沿着一定步长跳到下一列重复刚才的滑动窗口。最终把每一步的结果组合成输出矩阵，即产生特征图（Feature Map）。</p>
-<p><img alt="" src="01Introduction/images/04Sample04.png" /></p>
+<p><img alt="" src="../_images/04Sample04.png" /></p>
 <p>图中输入张量形状（Tensor Shape）为 <span class="math notranslate nohighlight">\(3 \times 32 \times 32\)</span>（3 代表通道数，32 代表张量高度和宽度），经过 <span class="math notranslate nohighlight">\(2 \times 3 \times 5 \times 5\)</span> 的卷积（2 代表输出通道数，3 代表输入通道数，5 代表卷积核高度和宽度）后，输出张量形状为 <span class="math notranslate nohighlight">\(2 \times 28 \times 28\)</span>（2 代表通道，28 代表高度和宽度）。</p>
 </section>
 <section id="id5">
@@ -920,7 +920,7 @@ document.write(`
 <section id="id8">
 <h3>AI 框架层<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>如果没有 AI 框架，只将算子 for 循环抽象提供算子库（例如，cuDNN）的调用，算法工程师只能通过 NPU/GPU 厂商提供的底层 API 编写神经网络模型。例如，通过 CUDA + cuDNN 库书写卷积神经网络，如 <a class="reference external" href="https://github.com/tbennun/cudnn-training">cuDNN 书写的卷积神经网络 LeNet 实例</a>。因此如图分为不同的步骤和处理流程。</p>
-<p><img alt="" src="01Introduction/images/04Sample05.png" /></p>
+<p><img alt="" src="../_images/04Sample05.png" /></p>
 <ol class="arabic simple">
 <li><p>通过 cuDNN + CUDA API 编程实现 LeNet</p></li>
 </ol>
@@ -1006,7 +1006,7 @@ document.write(`
 <p>但是随着 AI 技术应用的全面发展，各厂家根据自身业务场景的需求，在 AI 硬件和算法上不断优化和探索，AI 系统的体系结构越来越复杂，更多新的 AI 加速芯片被提出来，其设计变得更加多样化，AI 框架运行的硬件环境和算法也趋于更多样和复杂，单一 AI 框架已经无法满足和平衡所有特性。所以，为了提供不同框架和硬件体系结构之间的迁移性，ONNX 等中间 IR 被提出，其定义了表示神经网络模型的统一格式，以促进不同 AI 框架之间的模型转换。</p>
 <p>为了实现硬件的多样性，需要将神经网络模型计算映射到不同架构的硬件中执行。在通用硬件上，高度优化的线性代数库为神经网络模型计算提供了基础加速库。此外，大多数硬件供应商还发布了专属的神经网络模型计算优化库，如：MKL-DNN 和 cuDNN 等，但基于基础加速库的优化往往落后于深度学习算法模型的更新，且大多数情况下需要针对不同的平台进行定制化的开发。</p>
 <p>为了解决多硬件平台上的性能优化的问题，多种 AI 编译器被提出并得到了普及和应用，比如：TVM ，Glow，XLA 和 Jittor 等。AI 编译器以神经网络模型作为输入，将 AI 计算任务通过一层或多层中间表达 IR 进行翻译和优化，最后转化为目标硬件上可执行的代码，与传统的编译器（LLVM）类似，AI 编译器也采用前端、中间表示和后端分层设计的方式。</p>
-<p><img alt="" src="01Introduction/images/04Sample06.png" /></p>
+<p><img alt="" src="../_images/04Sample06.png" /></p>
 <p>目前，业界主流的芯片公司和大型互联网公司等都在 AI 编译器进行了大量的投入来推进相关技术的发展。与传统编译器相比，AI 编译器是一个领域特定的编译器，有四个明显的特征：</p>
 <ol class="arabic simple">
 <li><p>Python 为主前端语言</p></li>
