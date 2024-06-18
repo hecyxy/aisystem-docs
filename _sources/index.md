@@ -75,11 +75,11 @@ title: AISystem & AIInfra
 02Hardware07Thought/README
 ```
 
-<!-- ## 三. AI 编译器 -->
+<!-- ## 三. AI 编程与编译原理 -->
 
 ```{toctree}
 :maxdepth: 1
-:caption: === 三. AI 编译器 ===
+:caption: === 三. AI 编程与编译原理 ===
 
 03Compiler/README
 03Compiler01Tradition/README

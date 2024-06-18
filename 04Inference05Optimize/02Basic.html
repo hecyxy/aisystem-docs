@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference05Optimize/02Basic.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="上一章节主要回顾了计算图优化的各个组成部分，包括基础优化、扩展优化以及布局和内存优化。这些优化方式在预优化阶段、优化阶段和后优化阶段都有所应用，以提高计算效率。同时，还介绍了 AI 框架和推理引擎在图优化方面的不同应用和侧重点。接下来，我们从计算图优化的各个组成部分开始逐步进行讲解。 基础图优化: 基础图优化指涵盖了所有保留语义的修改，如常量折叠、冗余节点消除和有限数量的节点融合，具体如下所..." />
+<meta property="og:description" content="上一章节主要回顾了计算图优化的各个组成部分，包括基础优化、扩展优化以及布局和内存优化。这些优化方式在预优化阶段、优化阶段和后优化阶段都有所应用，以提高计算效率。同时，还介绍了 AI 框架和推理引擎在图优化方面的不同应用和侧重点。接下来，我们从计算图优化的各个组成部分开始逐步进行讲解。 基础图优化方案: 基础图优化指涵盖了所有保留语义的修改，如常量折叠、冗余节点消除和有限数量的节点融合，具体如..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="上一章节主要回顾了计算图优化的各个组成部分，包括基础优化、扩展优化以及布局和内存优化。这些优化方式在预优化阶段、优化阶段和后优化阶段都有所应用，以提高计算效率。同时，还介绍了 AI 框架和推理引擎在图优化方面的不同应用和侧重点。接下来，我们从计算图优化的各个组成部分开始逐步进行讲解。 基础图优化: 基础图优化指涵..." />
-<meta name="description" content="上一章节主要回顾了计算图优化的各个组成部分，包括基础优化、扩展优化以及布局和内存优化。这些优化方式在预优化阶段、优化阶段和后优化阶段都有所应用，以提高计算效率。同时，还介绍了 AI 框架和推理引擎在图优化方面的不同应用和侧重点。接下来，我们从计算图优化的各个组成部分开始逐步进行讲解。 基础图优化: 基础图优化指涵盖了所有保留语义的修改，如常量折叠、冗余节点消除和有限数量的节点融合，具体如下所..." />
+<meta property="og:image" content="/_images/social_previews/summary_04Inference05Optimize_02Basic_b1ea4030.png" />
+<meta property="og:image:alt" content="上一章节主要回顾了计算图优化的各个组成部分，包括基础优化、扩展优化以及布局和内存优化。这些优化方式在预优化阶段、优化阶段和后优化阶段都有所应用，以提高计算效率。同时，还介绍了 AI 框架和推理引擎在图优化方面的不同应用和侧重点。接下来，我们从计算图优化的各个组成部分开始逐步进行讲解。 基础图优化方案: 基础图优化..." />
+<meta name="description" content="上一章节主要回顾了计算图优化的各个组成部分，包括基础优化、扩展优化以及布局和内存优化。这些优化方式在预优化阶段、优化阶段和后优化阶段都有所应用，以提高计算效率。同时，还介绍了 AI 框架和推理引擎在图优化方面的不同应用和侧重点。接下来，我们从计算图优化的各个组成部分开始逐步进行讲解。 基础图优化方案: 基础图优化指涵盖了所有保留语义的修改，如常量折叠、冗余节点消除和有限数量的节点融合，具体如..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>离线图优化技术 &#8212; AI System</title>
@@ -74,13 +74,15 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '04Inference05Optimize/02Basic';</script>
     <script src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="通用图优化技术" href="03Extend.html" />
-    <link rel="prev" title="计算图优化" href="01Optimizer.html" />
+    <link rel="next" title="其他计算图优化" href="03Extend.html" />
+    <link rel="prev" title="计算图优化架构" href="01Optimizer.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
@@ -253,7 +255,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 二. AI 硬件体系结构 ===</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../02Hardware/README.html">AI 硬件体系结构概述(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02Hardware/README.html">AI 硬件体系架构概述(DONE)</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware01Foundation/README.html">AI 计算体系概述(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/01Introduction.html">课程内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/02ArchSlim.html">AI 计算模式（上）(DONE)</a></li>
@@ -313,7 +315,7 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编译器 ===</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编程与编译原理 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../03Compiler/README.html">AI 编译原理概述(DONE)</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler01Tradition/README.html">传统编译器(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -371,25 +373,27 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/07EfficientNet.html">EfficientNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/08GhostNet.html">GhostNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/09MobileVit.html">MobileVit 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/10MobileFormer.html">MobileFormer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/11EfficientFormer.html">EfficientFormer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/021Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/022Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/023Mobilenet.html">MobileNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/024ESPNet.html">ESPNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/025FBNet.html">FBNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/026EfficientNet.html">EfficientNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/027GhostNet.html">GhostNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/031MobileVit.html">MobileVit 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/032MobileFormer.html">MobileFormer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/033EfficientFormer.html">EfficientFormer 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Transformer.html">Transformer 小型化</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏原理(DONE)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -400,19 +404,18 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型优化</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Optimizer.html">计算图优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01Optimizer.html">计算图优化架构</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">离线图优化技术</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Extend.html">通用图优化技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Extend.html">其他计算图优化</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference06Kernel/README.html">Kernel 优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference06Kernel/README.html">Kernel 优化(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/01Introduction.html">Kernel 层架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/02Conv.html">卷积操作原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/03Im2col.html">Im2Col 算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/04Winograd.html">Winograd 算法(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/05Qnnpack.html">QNNPack 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/08Others.html">汇编与循环优化</a></li>
 </ul>
 </details></li>
@@ -682,8 +685,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基础图优化</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">常量折叠</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基础图优化方案</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">常量折叠</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#const">Const 折叠</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expanddims">ExpandDims 折叠</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary">Binary 折叠</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">冗余节点消除</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#op">Op 本身无意义</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Op 参数无意义</a></li>
@@ -692,11 +700,19 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">公共子图优化</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">算子融合</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">算子替换</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">算子前移</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">算子融合</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">示例一</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">示例二</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">算子替换</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">一换一替换</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">一换多替换</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">算子前移</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -713,17 +729,19 @@ document.write(`
 <h1>离线图优化技术<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>上一章节主要回顾了计算图优化的各个组成部分，包括基础优化、扩展优化以及布局和内存优化。这些优化方式在预优化阶段、优化阶段和后优化阶段都有所应用，以提高计算效率。同时，还介绍了 AI 框架和推理引擎在图优化方面的不同应用和侧重点。接下来，我们从计算图优化的各个组成部分开始逐步进行讲解。</p>
 <section id="id2">
-<h2>基础图优化<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2>基础图优化方案<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>基础图优化指涵盖了所有保留语义的修改，如常量折叠、冗余节点消除和有限数量的节点融合，具体如下所示：</p>
-<p>1.Constant folding 常量折叠：主要针对那些在模型推理中值不变的常量进行处理。如果某个操作的所有输入都是常量，那么它的输出也会是一个常量，这个操作可以在编译阶段就执行，并将结果存储为一个常量，从而在实际处理中减少计算量。</p>
-<p>2.Redundant eliminations 冗余节点消除：如果模型中存在一些冗余的节点，例如同样的计算被多次执行，那么可以消除这些冗余的节点，不仅可以减少内存消耗，还可以提升运算效率。</p>
-<p>3.Operation fusion 算子融合：算子融合就是把几个连续的算子合并成一个算子，这种方式可以减少数据的读写操作，提升运算速度。</p>
-<p>4.Operation Replace 算子替换：如果可以找到一个等效但更高效的算子来完成相同的计算任务，就可以将原算子替换为这个更高效的算子。例如，将高精度的计算替换为低精度计算。</p>
-<p>5.Operation Forward 算子前移：如果有些算子的输入无关于程序的其它部分，那么这个算子可以前移执行，这样可以减少运行时的计算负担。</p>
+<ol class="arabic simple">
+<li><p>Constant folding 常量折叠：主要针对那些在模型推理中值不变的常量进行处理。如果某个操作的所有输入都是常量，那么它的输出也会是一个常量，这个操作可以在编译阶段就执行，并将结果存储为一个常量，从而在实际处理中减少计算量。</p></li>
+<li><p>Redundant eliminations 冗余节点消除：如果模型中存在一些冗余的节点，例如同样的计算被多次执行，那么可以消除这些冗余的节点，不仅可以减少内存消耗，还可以提升运算效率。</p></li>
+<li><p>Operation fusion 算子融合：算子融合就是把几个连续的算子合并成一个算子，这种方式可以减少数据的读写操作，提升运算速度。</p></li>
+<li><p>Operation Replace 算子替换：如果可以找到一个等效但更高效的算子来完成相同的计算任务，就可以将原算子替换为这个更高效的算子。例如，将高精度的计算替换为低精度计算。</p></li>
+<li><p>Operation Forward 算子前移：如果有些算子的输入无关于程序的其它部分，那么这个算子可以前移执行，这样可以减少运行时的计算负担。</p></li>
+</ol>
 </section>
 <section id="id3">
 <h2>常量折叠<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>常量折叠：Constant folding，常量折叠，编译器优化技术之一，通过对编译时常量或常量表达式进行计算来简化代码。常量折叠是将计算图中可以预先可以确定输出值的节点替换成常量，并对计算图进行一些结构简化的操作。</p>
+<p>常量折叠（Constant folding）是编译器优化技术之一，通过对编译时常量或常量表达式进行计算来简化代码。常量折叠是将计算图中可以预先可以确定输出值的节点替换成常量，并对计算图进行一些结构简化的操作。</p>
 <p>推理引擎中使用的常量折叠如上所述，通常试图在编译时计算出常量表达式的结果，从而消除在运行时对这些表达式的计算。这种优化可以显著提高程序的运行效率。假设有一个推理引擎正在处理一个计算图，其中包含如下的操作：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
@@ -736,31 +754,44 @@ document.write(`
 </div>
 <p>这样，程序在运行时就不再需要进行乘法运算，因为 <code class="docutils literal notranslate"><span class="pre">z</span></code> 的值已经在编译时被计算出来了。</p>
 <p>具体方法如下所示：</p>
-<p>Constant folding：Const 折叠，常量折叠如果一个 Op 所有输入都是常量 Const，可以先计算好结果 Const 代替该 Op，而不用每次都在推理阶段都计算一遍</p>
-<p>Fold Const To ExpandDims：ExpandDims 折叠，ExpandDims Op 指定维度的输入是常量 Const，则把这个维度以参数的形式折叠到 ExpandDims 算子中</p>
-<p>Fuse Const To Binary：Binary 折叠，Binary Op 第二个输入是标量 Const，把这个标量以参数形式折叠到 Binary Op 的属性中</p>
-<p>(1) Constant folding 常量折叠：如果一个 Op 所有输入都是常量 Const，可以先计算好结果 Const 代替该 Op，而不用每次都在推理阶段都计算一遍。</p>
+<ul class="simple">
+<li><p>Constant folding：Const 折叠，常量折叠如果一个 Op 所有输入都是常量 Const，可以先计算好结果 Const 代替该 Op，而不用每次都在推理阶段都计算一遍</p></li>
+<li><p>Fold Const To ExpandDims：ExpandDims 折叠，ExpandDims Op 指定维度的输入是常量 Const，则把这个维度以参数的形式折叠到 ExpandDims 算子中</p></li>
+<li><p>Fuse Const To Binary：Binary 折叠，Binary Op 第二个输入是标量 Const，把这个标量以参数形式折叠到 Binary Op 的属性中</p></li>
+</ul>
+<section id="const">
+<h3>Const 折叠<a class="headerlink" href="#const" title="Link to this heading">#</a></h3>
+<p>Constant folding 常量折叠：如果一个 Op 所有输入都是常量 Const，可以先计算好结果 Const 代替该 Op，而不用每次都在推理阶段都计算一遍。</p>
 <p><img alt="Constant folding" src="../_images/02Basic01.png" /></p>
 <p>如图所示，我们有两个常量输入，通过两个操作 Op1 和 Op2 进行处理。具体来说，Op1 接收两个常量作为输入，Opened 接收 Op1 的输出作为输入。在离线计算中，我们实际上可以预先计算出这两个常量的结果，然后把这个结果作为一个新的常量输入给 Op2。这种预先计算并替换常量的策略即为常量折叠。</p>
-<p>(2) ExpandDims 折叠：ExpandDims Op 指定维度的输入是常量 Const，则把这个维度以参数的形式折叠到 ExpandDims 算子中。</p>
+</section>
+<section id="expanddims">
+<h3>ExpandDims 折叠<a class="headerlink" href="#expanddims" title="Link to this heading">#</a></h3>
+<p>ExpandDims Op 指定维度的输入是常量 Const，则把这个维度以参数的形式折叠到 ExpandDims 算子中。</p>
 <p><img alt="ExpandDims" src="../_images/02Basic02.png" /></p>
 <p>在处理计算图优化的过程中，当 ExpandDims 操作的指定维度输入是常量时，我们可以直接将其堆叠进参数，并放在 ExpandDims 这个操作符内部。这样一来，我们就减少了一个操作符的使用。因为常量可能是一个操作符，或者可能占用一块内存空间。</p>
-<p>(3) Binary 折叠：Binary Op 第二个输入是标量 Const ，把这个标量以参数的形式折叠到 Binary Op 的属性中。</p>
+</section>
+<section id="binary">
+<h3>Binary 折叠<a class="headerlink" href="#binary" title="Link to this heading">#</a></h3>
+<p>Binary Op 第二个输入是标量 Const ，把这个标量以参数的形式折叠到 Binary Op 的属性中。</p>
 <p><img alt="Binary" src="../_images/02Basic03.png" /></p>
 <p>Binary 折叠其原理与 ExpandDims 的折叠类似。在 Binary 折叠中，如果输入是标量，那么我们可以直接将标量作为 Binary 操作的一个参数，然后进行计算。这样做的结果是，我们减少了一个计算节点。对于计算过程来说，提高了计算效率，节省了计算资源。</p>
 </section>
+</section>
 <section id="id4">
 <h2>冗余节点消除<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>冗余节点消除：在不改变图形结构的情况下删除所有冗余节点，目前支持 Identity Elimination、Slice Elimination、Unsqueeze Elimination、 Dropout Elimination 优化方式</p>
+<p>冗余节点消除是在不改变图形结构的情况下删除所有冗余节点，其主要分为以下几种形态。</p>
 <section id="op">
 <h3>Op 本身无意义<a class="headerlink" href="#op" title="Link to this heading">#</a></h3>
 <p>有些 Op 本身不参与计算，在推理阶段可以直接去掉对结果没有影响。如下图所示，在转换前后类型相同的 cast，只有一个输入 tensor 的 concat，以及 Seq2Out、Identity、NoOp、Print、Assert、StopGradient、Split 等算子均可以通过一系列的模板删除包括 dropout 算子。</p>
 <p><img alt="Op 本身无意义" src="../_images/02Basic04.png" /></p>
 <p>具体示例如下图所示：</p>
 <p>当图中存在冗余算子时，可能会出现以下三种情况：</p>
-<p>1、当前冗余算子的输出对于下一个节点是有意义的：可以直接去除冗余算子，然后将上一个算子的输出和下一个算子的输入相连</p>
-<p>2、当前冗余算子的输出对于下一个节点是无意义的：此时可以把它切成两个子图，一个子图就是 input-&gt;op1，另一个子图则是 op2-&gt;output</p>
-<p>3、当前冗余算子的输入对于下一个节点是无意义的：只要这个节点的输入没有意义，轮循删除往上的节点，直到输入有意义为止。</p>
+<ol class="arabic simple">
+<li><p>当前冗余算子的输出对于下一个节点是有意义的：可以直接去除冗余算子，然后将上一个算子的输出和下一个算子的输入相连</p></li>
+<li><p>当前冗余算子的输出对于下一个节点是无意义的：此时可以把它切成两个子图，一个子图就是 input-&gt;op1，另一个子图则是 op2-&gt;output</p></li>
+<li><p>当前冗余算子的输入对于下一个节点是无意义的：只要这个节点的输入没有意义，轮循删除往上的节点，直到输入有意义为止。</p></li>
+</ol>
 <p><img alt="Op 无意义示例" src="../_images/02Basic05.png" /></p>
 </section>
 <section id="id5">
@@ -768,9 +799,11 @@ document.write(`
 <p>有些 Op 本身是有意义，但是设置成某些参数后就变成了无意义了的 Op。典型示例如 cast 算子，其主要是对数据的排布进行转换，当输入的参数等于输出的参数的时候，算子本身则无意义且可删除。还有很多种其他情况下的算子，在删除处理后，实践证明对于模型性能的提升具有极大的帮助。如下图所示：</p>
 <p><img alt="Op 参数无意义" src="../_images/02Basic06.png" /></p>
 <p>详细示例如下所示：</p>
-<p>（1）对于 cast 算子，当它的 source 等于 destination 的时候，cast 算子可以删除</p>
-<p>（2）对于 ExpandDims 算子，当输出的 shape 跟输入的 shape 是一致时，ExpandDims 算子可以删除</p>
-<p>（3）对于 slice/pooling 算子，index_start 等于 0 或者 index_end 等于 channel-1 以及 pooling 算子的窗口为 1x1 的时候，算子均可删除</p>
+<ol class="arabic simple">
+<li><p>对于 cast 算子，当它的 source 等于 destination 的时候，cast 算子可以删除</p></li>
+<li><p>对于 ExpandDims 算子，当输出的 shape 跟输入的 shape 是一致时，ExpandDims 算子可以删除</p></li>
+<li><p>对于 slice/pooling 算子，index_start 等于 0 或者 index_end 等于 channel-1 以及 pooling 算子的窗口为 1x1 的时候，算子均可删除</p></li>
+</ol>
 <p><img alt="Op 参数无意义示例" src="../_images/02Basic07.png" /></p>
 </section>
 <section id="id6">
@@ -791,11 +824,11 @@ document.write(`
 </section>
 <section id="id7">
 <h3>Op 前后反义<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
-<p>前后两个相邻 Op 进行操作时，语义相反的两个 Op 都可以删除</p>
-<p>Squeeze ExpandDims Eliminate: Squeeze 和 ExpandDims 这两个 Op 是反义的,一个压缩维度，一个是拓展维度，当连续的这两个 Op 指定的 axis 相等时即可同时删除这两个 Op</p>
-<p>Inverse Cast Eliminate: 当连续的两个内存排布转换 Op 的参数前后反义，即 src1 等于 dst2,可同时删除这两个 Op</p>
-<p>Quant Dequant Eliminate: 连续进行量化和反量化，可同时删除这两个 Op</p>
-<p>Concat Slice Elimination: 合并后又进行同样的拆分，可同时删除这两个 Op</p>
+<p>前后两个相邻 Op 进行操作时，语义相反的两个 Op 都可以删除。</p>
+<p>Squeeze ExpandDims Eliminate: Squeeze 和 ExpandDims 这两个 Op 是反义的,一个压缩维度，一个是拓展维度，当连续的这两个 Op 指定的 axis 相等时即可同时删除这两个 Op。</p>
+<p>Inverse Cast Eliminate: 当连续的两个内存排布转换 Op 的参数前后反义，即 src1 等于 dst2,可同时删除这两个 Op。</p>
+<p>Quant Dequant Eliminate: 连续进行量化和反量化，可同时删除这两个 Op。</p>
+<p>Concat Slice Elimination: 合并后又进行同样的拆分，可同时删除这两个 Op。</p>
 <p>详细示例如下所示：可参考上述规则，对于存在前后反义算子的情况，进行冗余节点的消除。</p>
 <p><img alt="Op 前后反义" src="../_images/02Basic11.png" /></p>
 <p>图一：描绘了 Squeeze 算子与 ExpandDims 算子在计算图优化过程中的作用。这两个算子进行的是逆向操作，先对矩阵进行扩张（ExpandDims），后合并相同维度（Squeeze），这就形成了一个等效于无操作的过程。因此，省略这两个步骤可以优化计算流程，加速推理过程。</p>
@@ -815,15 +848,24 @@ document.write(`
 <p>算子融合（Operator Fusion）是深度学习中一种常见的优化技术，主要用于减少 GPU 内存访问，从而提高模型的执行效率。在神经网络模型中，一个模型通常由多个算子（例如卷积、激活函数、池化等）组成，这些算子的计算过程中会涉及到大量的数据的读取和写入。如果能将多个算子融合为一个复合算子，就可以减少内存访问次数，从而提高模型的运行效率。</p>
 <p>例如，假设我们有一个计算过程：<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">ReLU(Conv(x))</span></code>，如果我们将这个计算过程拆分为两步：<code class="docutils literal notranslate"><span class="pre">temp</span> <span class="pre">=</span> <span class="pre">Conv(x)</span></code>，<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">ReLU(temp)</span></code>，那么我们需要先将<code class="docutils literal notranslate"><span class="pre">Conv(x)</span></code>的结果写入内存，然后再从内存中读取这个结果用于 ReLU 的计算。但如果我们将这两个算子融合为一个算子，那么就可以直接将<code class="docutils literal notranslate"><span class="pre">Conv(x)</span></code>的结果输入到 ReLU，无需额外的内存访问，从而提高运行效率。</p>
 <p>算子融合不仅可以减少内存访问次数，还可以提高计算密度，使得 GPU 等硬件能更充分地利用其计算资源。但是，算子融合也需要考虑到算子的计算顺序和计算精度，不能随意地将算子进行融合。下面将围绕相邻 Op 中，存在数学上线性可融合的关系进行主要的介绍：</p>
-<p>示例一：</p>
-<p>1.Conv + BN + Act：Conv Op 后跟着的 Batch Normal 的算子可以把 BN 的参数融合到 Conv 里面</p>
+<section id="id10">
+<h3>示例一<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Conv + BN + Act：Conv Op 后跟着的 Batch Normal 的算子可以把 BN 的参数融合到 Conv 里面</p></li>
+</ol>
 <p>主要是基于以下数学原理：</p>
 <p>卷积操作（Conv）：这是一种线性操作，可以表示为 y=W*x+b，其中 W 代表权重，x 代表输入，b 代表偏置。</p>
-<p>批量归一化操作（Batch Normalization，BN）：BN 的基本形式为 y=(x-mean(x))/sqrt(var(x)+eps)*gamma+beta，其中 mean(x) 和 var(x) 分别是 x 的均值和方差，gamma 和 beta 是学习的尺度和偏移参数。</p>
-<p>将 Conv 和 BN 进行融合，然后按照 y=W'*x+b' 的形式重新构造，就是将 BN 的参数 gamma 和 beta 融合到 Conv 的权重 W 和偏置 b 中，得到新的权重 W' 和偏置 b'。具体计算方式为：</p>
-<p>W' = gamma/sqrt(var(x)+eps) * W</p>
-<p>b' = beta - gamma/sqrt(var(x)+eps) * mean(x)</p>
-<p>这样，我们就可以将 BN 融合到 Conv 中，得到的新的权重 W'和偏置 b'可以直接用于 Conv 操作，从而减少了 BN 的计算。以下是一个简单的 Python 代码示例：</p>
+<p>批量归一化操作（Batch Normalization，BN）：BN 的基本形式为 <span class="math notranslate nohighlight">\(y=(x-mean(x))/sqrt(var(x)+eps)*gamma+beta\)</span>，其中 <span class="math notranslate nohighlight">\(mean(x)\)</span> 和 <span class="math notranslate nohighlight">\(var(x)\)</span> 分别是 x 的均值和方差，gamma 和 beta 是学习的尺度和偏移参数。</p>
+<p>将 Conv 和 BN 进行融合，然后按照 <span class="math notranslate nohighlight">\(y=W'*x+b'\)</span> 的形式重新构造，就是将 BN 的参数 gamma 和 beta 融合到 Conv 的权重 W 和偏置 b 中，得到新的权重 <span class="math notranslate nohighlight">\(W'\)</span> 和偏置 <span class="math notranslate nohighlight">\(b'\)</span>。具体计算方式为：</p>
+<div class="math notranslate nohighlight">
+\[
+W' = gamma/sqrt(var(x)+eps) * W
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+b' = beta - gamma/sqrt(var(x)+eps) * mean(x)
+\]</div>
+<p>这样，我们就可以将 BN 融合到 Conv 中，得到的新的权重 <span class="math notranslate nohighlight">\(W'\)</span> 和偏置 <span class="math notranslate nohighlight">\(b'\)</span> 可以直接用于 Conv 操作，从而减少了 BN 的计算。以下是一个简单的 Python 代码示例：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fuse_conv_bn</span><span class="p">(</span><span class="n">conv</span><span class="p">,</span> <span class="n">bn</span><span class="p">):</span>
     <span class="c1"># 计算新的权重和偏置</span>
     <span class="n">w</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">weight</span>
@@ -843,52 +885,92 @@ document.write(`
     <span class="k">return</span> <span class="n">conv</span>
 </pre></div>
 </div>
-<p>2.Conv + Bias + Add：Conv Op 后跟着的 Add 可以融合到 Conv 里的 Bias 参数里面</p>
-<p>在&quot;Conv + Bias + Add&quot;的操作中，假设卷积输出为 X，偏置值为 b，Add 操作的值为 a。那么，这个操作序列的输出结果为：Output = X + b + a。注意到，加法操作满足交换律和结合律，所以我们可以将偏置值 b 和 Add 操作的值 a 进行相加，得到一个新的偏置值 b' = b + a。那么，原本的操作序列就可以简化为 &quot;Conv + Bias&quot;，其中 Bias 的值为 b'。</p>
-<p>3.Conv + Scale + Act：Conv Op 后跟着的 Scale 可以融合到 Conv 里的 Weight 里面</p>
+<ol class="arabic simple" start="2">
+<li><p>Conv + Bias + Add：Conv Op 后跟着的 Add 可以融合到 Conv 里的 Bias 参数里面</p></li>
+</ol>
+<p>在&quot;Conv + Bias + Add&quot;的操作中，假设卷积输出为 X，偏置值为 b，Add 操作的值为 a。那么，这个操作序列的输出结果为：<span class="math notranslate nohighlight">\(Output = X + b + a\)</span>。注意到，加法操作满足交换律和结合律，所以我们可以将偏置值 b 和 Add 操作的值 a 进行相加，得到一个新的偏置值 <span class="math notranslate nohighlight">\(b' = b + a\)</span>。那么，原本的操作序列就可以简化为 &quot;Conv + Bias&quot;，其中 Bias 的值为 b'。</p>
+<ol class="arabic simple" start="3">
+<li><p>Conv + Scale + Act：Conv Op 后跟着的 Scale 可以融合到 Conv 里的 Weight 里面</p></li>
+</ol>
 <p>主要是基于以下的数学原理：</p>
-<p>尺度变换操作（Scale）：这是一种乘法操作，可以表示为 y=x*alpha，其中 alpha 是需要学习的尺度参数。</p>
-<p>参考 Conv + BN + Act 的融合方式，将 Conv 和 Scale 进行融合，就是将 Scale 的参数 alpha 融合到 Conv 的权重 W 和偏置 b 中，得到新的权重 W' 和偏置 b'。具体计算方式为：</p>
-<p>W' = alpha * W</p>
-<p>b' = alpha * b</p>
-<p>这样，我们就可以将 Scale 融合到 Conv 中，得到的新的权重 W' 和偏置 b' 可以直接用于 Conv 操作，从而减少了 Scale 的计算。</p>
-<p>4.Conv + MatMul + Act：Conv Op 后跟着的 MatMul 可以融合到 Conv 里的 Weight 里面，原理与上述 scale 的融合相同</p>
+<p>尺度变换操作（Scale）：这是一种乘法操作，可以表示为 <span class="math notranslate nohighlight">\(y=x*alpha\)</span>，其中 alpha 是需要学习的尺度参数。</p>
+<p>参考 Conv + BN + Act 的融合方式，将 Conv 和 Scale 进行融合，就是将 Scale 的参数 alpha 融合到 Conv 的权重 W 和偏置 b 中，得到新的权重 <span class="math notranslate nohighlight">\(W'\)</span> 和偏置 <span class="math notranslate nohighlight">\(b'\)</span>。具体计算方式为：</p>
+<div class="math notranslate nohighlight">
+\[
+W' = alpha * W
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+b' = alpha * b
+\]</div>
+<p>这样，我们就可以将 Scale 融合到 Conv 中，得到的新的权重 <span class="math notranslate nohighlight">\(W'\)</span> 和偏置 <span class="math notranslate nohighlight">\(b'\)</span> 可以直接用于 Conv 操作，从而减少了 Scale 的计算。</p>
+<ol class="arabic simple" start="4">
+<li><p>Conv + MatMul + Act：Conv Op 后跟着的 MatMul 可以融合到 Conv 里的 Weight 里面，原理与上述 scale 的融合相同。</p></li>
+</ol>
 <p><img alt="算子融合 conv" src="../_images/02Basic13.png" /></p>
-<p>示例二：</p>
-<p>1.Matmul + Add：使用 GEMM 代替矩阵乘 Matmul + Add</p>
-<p>2.Matmul + Add/Scale：Matmul 前或者后接 Add / Scale / Div 可以融合到 Matmul 中</p>
-<p>(in<em>W+bias0) + bias1 = in</em>W + (bias0+bias1)</p>
-<p>(in<em>W+bias0) * sclae1 = in</em>(W<em>sclae1) + (bias0</em>sclae1)</p>
-<p>(in<em>W+bias0) / sclae2 = in</em>(W/sclae2) + (bias0/sclae2)</p>
+</section>
+<section id="id11">
+<h3>示例二<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Matmul + Add：使用 GEMM 代替矩阵乘 Matmul + Add；</p></li>
+<li><p>Matmul + Add/Scale：Matmul 前或者后接 Add / Scale / Div 可以融合到 Matmul 中；</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+(in*W+bias0) + bias1 = in*W + (bias0+bias1)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+(in*W+bias0) * sclae1 = in*(W*sclae1) + (bias0*sclae1)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+(in*W+bias0) / sclae2 = in*(W/sclae2) + (bias0/sclae2)
+\]</div>
 <p>因此可以一直往后融合下去。这个融合在性能上肯定是提升的，但是在精度上有可能会产生牺牲，特别是融合了 mul 算子。因为原来的矩阵乘 weight 和 bias 以及 scale 通常都是比较小的小于 1 的数值，把 scale 融合到 weight 和 bias 里面后，会导致 weight 和 bias 数值进一步降低，可能导致精度下降。</p>
-<p>3.Mean + Add：使用 Mean 后面跟着 Add，使用 Layer Norm 代替</p>
-<p>4.Batch Norm + Scale：scale 的 s 和 b 可以直接融合到 BN Op 里</p>
-<p>在 BN 操作后通常会有一个 Scale 操作，用于恢复数据的原始分布。具体来说，如果 <code class="docutils literal notranslate"><span class="pre">x</span></code> 是 BN 的输出，那么 Scale 操作就是 <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">s</span> <span class="pre">*</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">b</span></code>，其中 <code class="docutils literal notranslate"><span class="pre">s</span></code> 和 <code class="docutils literal notranslate"><span class="pre">b</span></code> 是可学习的参数。</p>
+<ol class="arabic simple" start="3">
+<li><p>Mean + Add：使用 Mean 后面跟着 Add，使用 Layer Norm 代替；</p></li>
+<li><p>Batch Norm + Scale：scale 的 <span class="math notranslate nohighlight">\(s\)</span> 和 <span class="math notranslate nohighlight">\(b\)</span> 可以直接融合到 BN Op 里；</p></li>
+</ol>
+<p>在 BN 操作后通常会有一个 Scale 操作，用于恢复数据的原始分布。具体来说，如果 <span class="math notranslate nohighlight">\(x\)</span> 是 BN 的输出，那么 Scale 操作就是 <span class="math notranslate nohighlight">\(y = s * x + b\)</span>，其中 <span class="math notranslate nohighlight">\(s\)</span> 和 <span class="math notranslate nohighlight">\(b\)</span> 是可学习的参数。</p>
 <p>将两个操作融合到一起，即直接在 BN 操作中包含 Scale 操作。这样做的优点是可以减少计算量和内存消耗，因为不需要单独存储 BN 的输出。同时，由于 BN 和 Scale 是连续的线性操作，它们的融合不会改变模型的表示能力。</p>
-<p>5.Matmul + Batch Norm：与 Conv + BN 相类似</p>
+<ol class="arabic simple" start="5">
+<li><p>Matmul + Batch Norm：与 Conv + BN 相类似</p></li>
+</ol>
 <p><img alt="算子融合 matmul" src="../_images/02Basic14.png" /></p>
-<p>最后，还有一种融合是算子与后续的激活相融合：Conv + ReLU、Conv + ReLU6、Conv + Act</p>
+<ol class="arabic simple" start="6">
+<li><p>Conv + ReLU、Conv + ReLU6、Conv + Act</p></li>
+</ol>
 <p>Act 激活操作和 Conv 操作虽然是连续但是计算过程是独立的，在推理的时候是先计算 Conv 层：访问 Conv 输出位置，再计算 ReLU 层（即第二次访存）。因此造成了访问两遍输出 output，增加了访存时间降低了推理效率。</p>
 <p>如果计算出 Conv 结果后立马进行 Act 激活计算，把最终结果输出，则只需要访存一次。计算量不变，减少访存次数，也能提高推理速度。</p>
 </section>
-<section id="id10">
-<h2>算子替换<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
-<p>算子替换（Operator Substitution）是一种神经网络模型优化技术，主要用于改善模型的计算效率和性能。这种技术是将模型中的某些算子替换为功能相同或相似，但计算效率更高或对特定硬件优化更好的算子。</p>
-<p>例如：</p>
-<p>1、在某些情况下，两个连续的卷积层可以被替换为一个等效的卷积层，以减少计算量。</p>
-<p>2、使用深度可分离的卷积（depthwise separable convolution）替换标准卷积，可以显著减少计算量，但仍能保持相似的性能。</p>
+</section>
+<section id="id12">
+<h2>算子替换<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<p>算子替换（Operator Substitution）是一种神经网络模型优化技术，主要用于改善模型的计算效率和性能。这种技术是将模型中的某些算子替换为功能相同或相似，但计算效率更高或对特定硬件优化更好的算子。例如：</p>
+<ol class="arabic simple">
+<li><p>在某些情况下，两个连续的卷积层可以被替换为一个等效的卷积层，以减少计算量。</p></li>
+<li><p>使用深度可分离的卷积（depthwise separable convolution）替换标准卷积，可以显著减少计算量，但仍能保持相似的性能。</p></li>
+</ol>
 <p>算子替换需要保证替换后的模型在功能上与原模型尽可能接近，以保证模型的性能不会因为算子的替换而有所下降。算子替换的原理是通过合并同类项、提取公因式等数学方法，将算子的计算公式加以简化，并将简化后的计算公式映射到某类算子上。算子替换可以达到降低计算量、降低模型大小的效果。在实际应用中，算子替换通常与其他优化技术如算子融合等结合使用，以达到最佳的优化效果。</p>
-<p>算子替换--一换一，将某 Op 以另外 Op 代替，能减少推理引擎需要单独实现及支持的 OP</p>
+<section id="id13">
+<h3>一换一替换<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>将某 Op 以另外 Op 代替，能减少推理引擎需要单独实现及支持的 OP。</p>
 <p>具体示例：</p>
-<p>MatMul -&gt; Conv2D：将矩阵乘变成 Conv，因为一般框架对 Conv 是做了更多的优化</p>
-<p>Linear -&gt; Conv2D：将全连接层转变成 1x1 Conv，因为对 Conv 做了更多的优化</p>
-<p>Batch Normal -&gt; Scale：BN 是等价于 Scale Op 的，转换成 Scale 计算量更少，速度更快</p>
-<p>pReLU -&gt; Leaky ReLU：将 pReLU 转变成 Leaky ReLU，不影响性能和精度的前提下，聚焦有限算法</p>
-<p>Conv -&gt; Linear After global pooling：在 Global Pooling 之后 Conv 算子转换成为全连接层</p>
+<ul class="simple">
+<li><p>MatMul -&gt; Conv2D：将矩阵乘变成 Conv，因为一般框架对 Conv 是做了更多的优化</p></li>
+<li><p>Linear -&gt; Conv2D：将全连接层转变成 1x1 Conv，因为对 Conv 做了更多的优化</p></li>
+<li><p>Batch Normal -&gt; Scale：BN 是等价于 Scale Op 的，转换成 Scale 计算量更少，速度更快</p></li>
+<li><p>pReLU -&gt; Leaky ReLU：将 pReLU 转变成 Leaky ReLU，不影响性能和精度的前提下，聚焦有限算法</p></li>
+<li><p>Conv -&gt; Linear After global pooling：在 Global Pooling 之后 Conv 算子转换成为全连接层</p></li>
+</ul>
 <p><img alt="算子替换 replace1vs1" src="../_images/02Basic15.png" /></p>
-<p>算子替换--一换多，将某 Op 以其他 Op 组合形式代替，能减少推理引擎需要单独实现及支持 Op 数量</p>
+</section>
+<section id="id14">
+<h3>一换多替换<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>将某 Op 以其他 Op 组合形式代替，能减少推理引擎需要单独实现及支持 Op 数量</p>
 <p>具体示例：</p>
-<p>Shuffle Channel Replace：Shuffle Channel Op 大部分框架缺乏单独实现，可以通过组合 Reshape + Permute 实现</p>
+<p>Shuffle Channel Replace：Shuffle Channel Op 大部分框架缺乏单独实现，可以通过组合 Reshape + Permute 实现：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 
@@ -908,19 +990,19 @@ document.write(`
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
 </div>
-<p>Pad Replace：将老版 onnx 的 pad-2 的 pads 从参数形式转成输入形式</p>
+<p>Pad Replace：将老版 onnx 的 pad-2 的 pads 从参数形式转成输入形式：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 
 <span class="k">def</span> <span class="nf">pad_replace</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pads</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pads</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>ShapeN Replace：将 ShapeN Op 通过组合多个 Shape 的方式实现</p>
+<p>ShapeN Replace：将 ShapeN Op 通过组合多个 Shape 的方式实现：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">shape_n_replace</span><span class="p">(</span><span class="o">*</span><span class="n">xs</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Group Conv Replace：把 Group 卷积通过组合 Slice、Conv 实现</p>
+<p>Group Conv Replace：把 Group 卷积通过组合 Slice、Conv 实现：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 
@@ -939,25 +1021,26 @@ document.write(`
 </div>
 <p><img alt="算子替换 replace1vsn" src="../_images/02Basic16.png" /></p>
 </section>
-<section id="id11">
-<h2>算子前移<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+</section>
+<section id="id15">
+<h2>算子前移<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
 <p>在神经网络模型优化中，算子前移通常指的是将某些计算过程提前进行，以减少重复计算并提高模型的运行效率。</p>
 <p>例如，假设我们有一个神经网络模型，其中有一部分计算是固定的，即无论输入是什么，这部分计算的结果都不会改变。在这种情况下，我们就可以将这部分计算提前进行，并将结果保存下来。然后在实际的计算过程中，我们只需要使用保存的结果，而无需再次进行这部分计算。这样就可以大大减少计算量，提高模型的运行效率。</p>
 <p>算子前移是一种常见的神经网络模型优化技术，它可以有效地减少计算量，提高模型的运行效率。然而，算子前移也需要考虑到模型的计算顺序和数据依赖性，不能随意地将计算过程提前。</p>
 <p>具体示例：</p>
-<p>Slice and Mul：Shuffle Channel Op 大部分框架缺乏单独实现，可以通过组合 Reshape + Permute 实现</p>
-<p>Bit shift and Reduce Sum：利用算术简化中的交换律，对计算的算子进行交换减少数据的传输和访存次数</p>
+<p>Slice and Mul：Shuffle Channel Op 大部分框架缺乏单独实现，可以通过组合 Reshape + Permute 实现。</p>
+<p>Bit shift and Reduce Sum：利用算术简化中的交换律，对计算的算子进行交换减少数据的传输和访存次数。</p>
 <p><img alt="算子前移" src="../_images/02Basic17.png" /></p>
 </section>
-<section id="id12">
-<h2>小结与思考<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<section id="id16">
+<h2>小结与思考<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>这节内容主要讨论了计算图优化中的常量折叠和冗余节点消除。详细解读了如何借助这两种方法，优化复杂的计算图，提高计算效率和减少不必要的计算任务。</p></li>
-<li><p>深入探讨了 cast、ExpandDims、Squeeze 和 Slice 等算子在神经网络中的搭配和使用，以及它们在不同组合情况下的优化可能性。这有助于在神经网络设计和计算过程中，减少重复计算和冗余计算，提高整体性能</p></li>
+<li><p>本节节内容主要讨论了计算图优化中的常量折叠和冗余节点消除。详细解读了如何借助这两种方法，优化复杂的计算图，提高计算效率和减少不必要的计算任务。</p></li>
+<li><p>深入探讨了 cast、ExpandDims、Squeeze 和 Slice 等算子在神经网络中的搭配和使用，以及它们在不同组合情况下的优化可能性。这有助于在神经网络设计和计算过程中，减少重复计算和冗余计算，提高整体性能。</p></li>
 </ol>
 </section>
-<section id="id13">
-<h2>本节视频<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<section id="id17">
+<h2>本节视频<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=308766387&bvid=BV1fA411r7hr&cid=991407476&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -1004,7 +1087,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">计算图优化</p>
+        <p class="prev-next-title">计算图优化架构</p>
       </div>
     </a>
     <a class="right-next"
@@ -1012,7 +1095,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">通用图优化技术</p>
+        <p class="prev-next-title">其他计算图优化</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1032,8 +1115,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基础图优化</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">常量折叠</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基础图优化方案</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">常量折叠</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#const">Const 折叠</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expanddims">ExpandDims 折叠</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary">Binary 折叠</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">冗余节点消除</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#op">Op 本身无意义</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Op 参数无意义</a></li>
@@ -1042,11 +1130,19 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">公共子图优化</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">算子融合</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">算子替换</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">算子前移</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">算子融合</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">示例一</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">示例二</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">算子替换</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">一换一替换</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">一换多替换</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">算子前移</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">本节视频</a></li>
 </ul>
   </nav></div>
 

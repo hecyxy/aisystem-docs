@@ -7,19 +7,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="低比特量化原理" />
+<meta property="og:title" content="低比特量化原理(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference03Slim/02Quant.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
 <meta property="og:description" content="计算机里面数值有很多种表示方式，如浮点表示的 FP32、FP16，整数表示的 INT32、INT16、INT8，量化一般是将 FP32、FP16 降低为 INT8 甚至 INT4 等低比特表示。 不同精度表示 模型量化则是一种将浮点值映射到低比特离散值的技术，可以有效的减少模型的参数大小、内存消耗和推理延迟，但往往带来较大的精度损失。尤其是在极低比特（<4bit）、二值网络（1bit）、甚至..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
+<meta property="og:image" content="/_images/social_previews/summary_04Inference03Slim_02Quant_c95f5daa.png" />
 <meta property="og:image:alt" content="计算机里面数值有很多种表示方式，如浮点表示的 FP32、FP16，整数表示的 INT32、INT16、INT8，量化一般是将 FP32、FP16 降低为 INT8 甚至 INT4 等低比特表示。 不同精度表示 模型量化则是一种将浮点值映射到低比特离散值的技术，可以有效的减少模型的参数大小、内存消耗和推理延迟，但往..." />
 <meta name="description" content="计算机里面数值有很多种表示方式，如浮点表示的 FP32、FP16，整数表示的 INT32、INT16、INT8，量化一般是将 FP32、FP16 降低为 INT8 甚至 INT4 等低比特表示。 不同精度表示 模型量化则是一种将浮点值映射到低比特离散值的技术，可以有效的减少模型的参数大小、内存消耗和推理延迟，但往往带来较大的精度损失。尤其是在极低比特（<4bit）、二值网络（1bit）、甚至..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>低比特量化原理 &#8212; AI System</title>
+    <title>低比特量化原理(DONE) &#8212; AI System</title>
   
   
   
@@ -81,8 +81,8 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="感知量化训练 QAT" href="03QAT.html" />
-    <link rel="prev" title="基本介绍" href="01Introduction.html" />
+    <link rel="next" title="感知量化训练 QAT(DONE)" href="03QAT.html" />
+    <link rel="prev" title="基本介绍(DONE)" href="01Introduction.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
@@ -255,7 +255,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 二. AI 硬件体系结构 ===</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../02Hardware/README.html">AI 硬件体系结构概述(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02Hardware/README.html">AI 硬件体系架构概述(DONE)</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware01Foundation/README.html">AI 计算体系概述(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/01Introduction.html">课程内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/02ArchSlim.html">AI 计算模式（上）(DONE)</a></li>
@@ -315,7 +315,7 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编译器 ===</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编程与编译原理 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../03Compiler/README.html">AI 编译原理概述(DONE)</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler01Tradition/README.html">传统编译器(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -373,25 +373,27 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/07EfficientNet.html">EfficientNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/08GhostNet.html">GhostNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/09MobileVit.html">MobileVit 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/10MobileFormer.html">MobileFormer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/11EfficientFormer.html">EfficientFormer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/021Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/022Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/023Mobilenet.html">MobileNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/024ESPNet.html">ESPNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/025FBNet.html">FBNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/026EfficientNet.html">EfficientNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/027GhostNet.html">GhostNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/031MobileVit.html">MobileVit 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/032MobileFormer.html">MobileFormer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/033EfficientFormer.html">EfficientFormer 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Transformer.html">Transformer 小型化</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型压缩</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">低比特量化原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03QAT.html">感知量化训练 QAT</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型压缩(DONE)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">低比特量化原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03QAT.html">感知量化训练 QAT(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04PTQ.html">训练后量化与部署(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05Pruning.html">模型剪枝原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06Distillation.html">知识蒸馏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05Pruning.html">模型剪枝(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06Distillation.html">知识蒸馏原理(DONE)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -402,19 +404,18 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Optimize/README.html">模型优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/01Optimizer.html">计算图优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/01Optimizer.html">计算图优化架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/02Basic.html">离线图优化技术</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/03Extend.html">通用图优化技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/03Extend.html">其他计算图优化</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference06Kernel/README.html">Kernel 优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference06Kernel/README.html">Kernel 优化(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/01Introduction.html">Kernel 层架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/02Conv.html">卷积操作原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/03Im2col.html">Im2Col 算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/04Winograd.html">Winograd 算法(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/05Qnnpack.html">QNNPack 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/08Others.html">汇编与循环优化</a></li>
 </ul>
 </details></li>
@@ -674,7 +675,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>低比特量化原理</h1>
+    <h1>低比特量化原理(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -684,29 +685,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">神经网络特点和量化优势</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">神经网络特点</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">模型量化优点</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI 特点和量化优势</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">神经网络特点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">模型量化优点</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">落地挑战与思考</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">精度挑战</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">硬件支持程度</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">软件算法是否能加速</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">落地挑战与思考</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">精度挑战</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">硬件支持程度</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">软件算法加速思考</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">量化原理</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">量化方法对比</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">量化方法（饱和与非饱和）</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">量化类型（线性与非线性）</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">对称量化</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">非对称量化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">量化原理</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">量化方法对比</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">饱和与非饱和量化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">线性与非线性量化</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">对称量化</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">非对称量化</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -719,15 +720,15 @@ document.write(`
                 <article class="bd-article">
                   
 <!--Copyright © ZOMI 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>低比特量化原理<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="done">
+<h1>低比特量化原理(DONE)<a class="headerlink" href="#done" title="Link to this heading">#</a></h1>
 <p>计算机里面数值有很多种表示方式，如浮点表示的 FP32、FP16，整数表示的 INT32、INT16、INT8，量化一般是将 FP32、FP16 降低为 INT8 甚至 INT4 等低比特表示。</p>
 <p><img alt="不同精度表示" src="../_images/02Quant01.png" /></p>
 <p>模型量化则是一种将浮点值映射到低比特离散值的技术，可以有效的减少模型的参数大小、内存消耗和推理延迟，但往往带来较大的精度损失。尤其是在极低比特（&lt;4bit）、二值网络（1bit）、甚至将梯度进行量化时，带来的精度挑战更大。本节将会重点讲解低比特量化的通用基本原理。</p>
-<section id="id2">
-<h2>神经网络特点和量化优势<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<section id="id3">
-<h3>神经网络特点<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="ai">
+<h2>AI 特点和量化优势<a class="headerlink" href="#ai" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>神经网络特点<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>低比特量化主要用在推理的场景，因此以量化和推理的视角来看，神经网络一般具有以下特点：</p>
 <ol class="arabic simple">
 <li><p><strong>模型参数量大</strong>：神经网络模型通常具有大量的参数，特别是在深度神经网络中，参数数量可能非常庞大。这导致了存储这些参数所需的空间也很大。</p></li>
@@ -738,8 +739,8 @@ document.write(`
 <p>部署神经网络时，我们希望网络越小越好，来降低部署成本，于是就需要模型量化等压缩手段。</p>
 <p><img alt="神经网络的发展" src="../_images/02Quant02.png" /></p>
 </section>
-<section id="id4">
-<h3>模型量化优点<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>模型量化优点<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>通过对神经网络模型进行合理的量化，可以实现以下优势：</p>
 <ol class="arabic simple">
 <li><p><strong>加速计算</strong>：传统的卷积操作都是使用 FP32 浮点，低比特的位数减少少计算性能也更高，INT8 相对比 FP32 的加速比可达到 3 倍甚至更高。</p></li>
@@ -750,11 +751,11 @@ document.write(`
 <p>总之，模型量化主要是对模型的参数进行压缩，比如 200MB 的模型压缩到 50MB，达到提升运算速度，降低内存和功耗的效果。</p>
 </section>
 </section>
-<section id="id5">
-<h2>落地挑战与思考<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h2>落地挑战与思考<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>在实际部署时，量化技术的落地也有一些挑战，需要综合衡量是否需要使用模型量化。</p>
-<section id="id6">
-<h3>精度挑战<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>精度挑战<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>量化方法的精确性</strong>：常见的量化方法如线性量化，对于数据分布的描述并不精确。线性量化将浮点数参数转换为固定位数的整数表示，这种精度的降低可能导致模型在量化后性能下降。对于特定任务和数据分布，需要设计更准确的量化方法以最小化精度损失。</p></li>
 <li><p><strong>低比特数的影响</strong>：将模型从高比特数（如 16 位）量化为低比特数（如 4 位）会导致更大的精度损失。随着比特数的减少，模型的表示能力下降，因此需要在精度和模型大小之间找到平衡点。</p></li>
@@ -762,8 +763,8 @@ document.write(`
 <li><p><strong>模型大小对精度的影响</strong>：模型大小与精度之间存在一种权衡关系。一般来说，模型越小，其表达能力和容纳参数的能力也越有限，因此在量化过程中，对于较小的模型，精度损失可能会更加显著。在进行模型量化时，需要综合考虑模型大小、精度要求以及实际应用场景，以确定最适合的量化策略。</p></li>
 </ol>
 </section>
-<section id="id7">
-<h3>硬件支持程度<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>硬件支持程度<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>在模型量化落地时，硬件支持是一个至关重要的因素。不同硬件平台对于低比特量化指令的支持程度不同，这会直接影响到模型在该硬件上的性能和效率。</p>
 <ol class="arabic simple">
 <li><p><strong>低比特指令支持差异</strong>：不同的硬件架构对于低比特指令的支持程度有所不同。比如英伟达一些系列显卡支持 INT8 Tensor Core 计算。</p></li>
@@ -772,8 +773,8 @@ document.write(`
 </ol>
 <p><img alt="性能对比" src="../_images/02Quant04.png" /></p>
 </section>
-<section id="id8">
-<h3>软件算法是否能加速<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>软件算法加速思考<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>在模型量化落地过程中，软件算法的加速能力是一个至关重要的考量因素。尽管软件算法的优化可以提高模型量化的执行效率，但在某些情况下，软件算法也可能对性能造成负面影响。</p>
 <ol class="arabic simple">
 <li><p><strong>混合比特量化的影响</strong>：对于混合比特量化（Mixed Precision Quantization）而言，需要进行量化和反向量化操作，同时可能需要插入 Cast 算子来确保数据格式一致性。这些操作会影响到 Kernel 的执行性能，尤其是在硬件平台不支持相关操作的情况下。因此，对于混合比特量化，需要进行针对性的软件算法优化，以尽量减少这些操作对执行性能的影响。</p></li>
@@ -782,8 +783,8 @@ document.write(`
 </ol>
 </section>
 </section>
-<section id="id9">
-<h2>量化原理<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h2>量化原理<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>模型量化方法可以分为以下三种：</p>
 <p><img alt="三种量化方法" src="../_images/02Quant05.png" /></p>
 <ol class="arabic simple">
@@ -799,8 +800,8 @@ document.write(`
 <li><p><strong>静态离线量化 (Post Training Quantization Static, PTQ Static)</strong></p></li>
 </ol>
 <p>静态离线量化使用少量无标签校准数据，采用 KL 散度等方法计算量化比例因子。静态离线量化也是一种在训练完成后将模型参数转换为低比特表示的方法，但与动态离线量化不同的是，静态离线量化中的量化参数是在转换过程中固定的，而不是根据输入数据动态调整的。</p>
-<section id="id10">
-<h3>量化方法对比<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>量化方法对比<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><strong>量化方法</strong></p></th>
@@ -842,8 +843,8 @@ document.write(`
 </div>
 <p>总的来说，QAT 可以达到的精度较高，但是往往需要较多的量化训练时间，量化成本比较大。PTQ 的量化过程比较迅速，只需要少量数据集来校准，但是量化后精度往往损失较多。</p>
 </section>
-<section id="id11">
-<h3>量化方法（饱和与非饱和）<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>饱和与非饱和量化<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>模型量化桥接了定点与浮点，建立了一种有效的数据映射关系，使得以较小的精度损失代价获得了较好的收益。模型量化有两种映射方法，以 INT8 量化为例子：</p>
 <ol class="arabic simple">
 <li><p>非饱和量化</p></li>
@@ -856,16 +857,16 @@ document.write(`
 <p>饱和量化方法使用 KL 散度计算一个合适的阈值 T (<span class="math notranslate nohighlight">\(0&lt;T&lt;abs\_max\)</span>)，将 <span class="math notranslate nohighlight">\(±|T|\)</span> 映射为 ±127，超出阈值  <span class="math notranslate nohighlight">\(±|T|\)</span> 外的直接映射为阈值 ±127，则量化比例因子（scale）等于 <span class="math notranslate nohighlight">\(T/127\)</span>。</p>
 <p><img alt="饱和量化" src="../_images/02Quant07.png" /></p>
 </section>
-<section id="id12">
-<h3>量化类型（线性与非线性）<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>线性与非线性量化<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>量化可以分为线性量化和非线性量化，目前主流的方法是线性量化。线性量化可以分为对称量化和非对称量化。要弄懂模型量化的原理就是要弄懂这种数据映射关系，浮点与定点数据的转换公式如下：</p>
 <div class="math notranslate nohighlight">
 \[Q=R/S+Z\]</div>
 <div class="math notranslate nohighlight">
 \[R=(Q-Z)*S\]</div>
 <p>其中，<span class="math notranslate nohighlight">\(R\)</span> 表示输入的浮点数据，<span class="math notranslate nohighlight">\(Q\)</span> 表示量化之后的定点数据，<span class="math notranslate nohighlight">\(Z\)</span> 表示零点（Zero Point）的数值，<span class="math notranslate nohighlight">\(S\)</span> 表示缩放因子（Scale）的数值。</p>
-<section id="id13">
-<h4>对称量化<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<section id="id11">
+<h4>对称量化<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
 <p>对称量化是非对称量化 <span class="math notranslate nohighlight">\(Z=0\)</span> 时的特例，即 <span class="math notranslate nohighlight">\(R_{max}\)</span> 和 <span class="math notranslate nohighlight">\(R_{min}\)</span> 关于 Z 对称。对称量化常用的方法是最大绝对值量化 <span class="math notranslate nohighlight">\((abs\_max)\)</span>，将输入缩放到 8 位范围 <span class="math notranslate nohighlight">\([-128, 127]\)</span>，对称的量化算法原始浮点精度数据与量化后 INT8 数据的转换如下：</p>
 <p><img alt="对称量化" src="../_images/02Quant08.png" /></p>
 <div class="math notranslate nohighlight">
@@ -878,8 +879,8 @@ scale = \frac{(2·max(|x_{min}|,x_{max}))}{Q_{max}-Q_{min}}
 \]</div>
 <p>其中，threshold 是阈值, 可以理解为 Tensor 的范围是 <span class="math notranslate nohighlight">\([-threshold, threshold]\)</span>。一般来说，对于激活值，<span class="math notranslate nohighlight">\(scale=threshold/128\)</span>。对于权重，<span class="math notranslate nohighlight">\(scale=threshold/127\)</span>。</p>
 </section>
-<section id="id14">
-<h4>非对称量化<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
+<section id="id12">
+<h4>非对称量化<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
 <p>非对称量化（<strong>Affifine Quantization</strong>）也称为 zero-point quantization，通过使用归一化动态范围 <span class="math notranslate nohighlight">\(n_{dx}\)</span> 进行缩放，然后通过零点 <span class="math notranslate nohighlight">\(z_{px}\)</span> 进行移位，将输入分布移动到完整范围 <span class="math notranslate nohighlight">\([-128, 127]\)</span> 或者 <span class="math notranslate nohighlight">\([0, 255]\)</span>。通过这个仿射变换，任何输入张量都将使用数据类型的所有位，从而减小了非对称分布的量化误差。</p>
 <p><img alt="非对称量化" src="../_images/02Quant09.png" /></p>
 <p>以线性量化的 MinMax 方法为例来求解 <span class="math notranslate nohighlight">\(S\)</span> 和 <span class="math notranslate nohighlight">\(Z\)</span>：</p>
@@ -916,8 +917,8 @@ offset = Q_{min}-round(\frac{x_{min}}{scale})
 </section>
 </section>
 </section>
-<section id="id15">
-<h2>小结与思考<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<section id="id13">
+<h2>小结与思考<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>低比特量化原理：将浮点数表示的模型参数转换为低比特整数（如 INT8 或 INT4）以减少模型大小、内存消耗和推理延迟，尽管可能会牺牲一定精度。</p></li>
 <li><p>神经网络量化优势：量化可以显著减少模型参数量，加速计算，节省内存，并降低能耗和芯片面积需求，适合推理场景。</p></li>
@@ -925,8 +926,8 @@ offset = Q_{min}-round(\frac{x_{min}}{scale})
 <li><p>量化方法分类：量化方法主要包括量化训练（QAT）、动态离线量化（PTQ Dynamic）和静态离线量化（PTQ Static），各有适用场景和优缺点。</p></li>
 </ul>
 </section>
-<section id="id16">
-<h2>本节视频<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<section id="id14">
+<h2>本节视频<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=735671964&bvid=BV1VD4y1n7AR&cid=974812144&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -973,7 +974,7 @@ offset = Q_{min}-round(\frac{x_{min}}{scale})
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">基本介绍</p>
+        <p class="prev-next-title">基本介绍(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -981,7 +982,7 @@ offset = Q_{min}-round(\frac{x_{min}}{scale})
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">感知量化训练 QAT</p>
+        <p class="prev-next-title">感知量化训练 QAT(DONE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1001,29 +1002,29 @@ offset = Q_{min}-round(\frac{x_{min}}{scale})
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">神经网络特点和量化优势</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">神经网络特点</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">模型量化优点</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI 特点和量化优势</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">神经网络特点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">模型量化优点</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">落地挑战与思考</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">精度挑战</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">硬件支持程度</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">软件算法是否能加速</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">落地挑战与思考</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">精度挑战</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">硬件支持程度</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">软件算法加速思考</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">量化原理</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">量化方法对比</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">量化方法（饱和与非饱和）</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">量化类型（线性与非线性）</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">对称量化</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">非对称量化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">量化原理</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">量化方法对比</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">饱和与非饱和量化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">线性与非线性量化</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">对称量化</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">非对称量化</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">本节视频</a></li>
 </ul>
   </nav></div>
 

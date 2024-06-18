@@ -7,19 +7,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="QNNPACK 算法" />
+<meta property="og:title" content="QNNPack 算法" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference06Kernel/05Qnnpack.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="QNNPACK（Quantized Neural Networks PACKage 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络加速库。本节将会深入介绍 QNNPACK 算法的实现过程。 QNNPACK 算法..." />
+<meta property="og:description" content="QNNPACK（Quantized Neural Networks PACKage 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络加速库。本节将会深入介绍 QNNPACK 算法的实现过程。 前置知识回顾: 在介..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
+<meta property="og:image" content="/_images/social_previews/summary_04Inference06Kernel_05Qnnpack_96349063.png" />
 <meta property="og:image:alt" content="QNNPACK（Quantized Neural Networks PACKage 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络..." />
-<meta name="description" content="QNNPACK（Quantized Neural Networks PACKage 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络加速库。本节将会深入介绍 QNNPACK 算法的实现过程。 QNNPACK 算法..." />
+<meta name="description" content="QNNPACK（Quantized Neural Networks PACKage 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络加速库。本节将会深入介绍 QNNPACK 算法的实现过程。 前置知识回顾: 在介..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>QNNPACK 算法 &#8212; AI System</title>
+    <title>QNNPack 算法 &#8212; AI System</title>
   
   
   
@@ -255,7 +255,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 二. AI 硬件体系结构 ===</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../02Hardware/README.html">AI 硬件体系结构概述(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02Hardware/README.html">AI 硬件体系架构概述(DONE)</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware01Foundation/README.html">AI 计算体系概述(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/01Introduction.html">课程内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/02ArchSlim.html">AI 计算模式（上）(DONE)</a></li>
@@ -315,7 +315,7 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编译器 ===</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编程与编译原理 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../03Compiler/README.html">AI 编译原理概述(DONE)</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler01Tradition/README.html">传统编译器(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -373,25 +373,27 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/07EfficientNet.html">EfficientNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/08GhostNet.html">GhostNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/09MobileVit.html">MobileVit 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/10MobileFormer.html">MobileFormer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/11EfficientFormer.html">EfficientFormer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/021Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/022Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/023Mobilenet.html">MobileNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/024ESPNet.html">ESPNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/025FBNet.html">FBNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/026EfficientNet.html">EfficientNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/027GhostNet.html">GhostNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/031MobileVit.html">MobileVit 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/032MobileFormer.html">MobileFormer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/033EfficientFormer.html">EfficientFormer 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Transformer.html">Transformer 小型化</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/02Quant.html">低比特量化原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/03QAT.html">感知量化训练 QAT(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/04PTQ.html">训练后量化与部署(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/05Pruning.html">模型剪枝(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference03Slim/06Distillation.html">知识蒸馏原理(DONE)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -402,19 +404,18 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Optimize/README.html">模型优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/01Optimizer.html">计算图优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/01Optimizer.html">计算图优化架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/02Basic.html">离线图优化技术</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/03Extend.html">通用图优化技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/03Extend.html">其他计算图优化</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Kernel 优化</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Kernel 优化(DONE)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01Introduction.html">Kernel 层架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02Conv.html">卷积操作原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03Im2col.html">Im2Col 算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04Winograd.html">Winograd 算法(DONE)</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">QNNPACK 算法</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">QNNPack 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07Nc4hw4.html">nc4hw4 内存排布</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08Others.html">汇编与循环优化</a></li>
 </ul>
 </details></li>
@@ -674,7 +675,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>QNNPACK 算法</h1>
+    <h1>QNNPack 算法</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -684,21 +685,24 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">QNNPACK 算法介绍</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#im2col-gemm">Im2Col + GEMM 回顾</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">前置知识回顾</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#im2col">Im2Col 算法回顾</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">神经网络量化</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">神经网络量化</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">对计算进行划分</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repacking">Repacking</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indirection-buffer">Indirection Buffer</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">间接缓冲区布局</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">使用间接缓冲区计算</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">QNNPack 算法</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">对计算进行划分</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">内存重排</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">间接缓冲区</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">间接缓冲区布局</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">间接缓冲区计算</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gemm">与 GEMM 算法的对比</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">本节视频</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">与 Im2Col 算法对比</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -712,15 +716,13 @@ document.write(`
                   
 <!--Copyright ©  适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="qnnpack">
-<h1>QNNPACK 算法<a class="headerlink" href="#qnnpack" title="Link to this heading">#</a></h1>
+<h1>QNNPack 算法<a class="headerlink" href="#qnnpack" title="Link to this heading">#</a></h1>
 <p>QNNPACK（Quantized Neural Networks PACKage 是 Marat Dukhan (Meta) 开发的专门用于量化神经网络计算的加速库，其卓越的性能表现一经开源就击败了几乎全部已公开的加速算法。到目前为止，QNNPACK 仍然是已公开的，用于移动端（手机）的，性能最优的量化神经网络加速库。本节将会深入介绍 QNNPACK 算法的实现过程。</p>
 <section id="id1">
-<h2>QNNPACK 算法介绍<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>Marat Dukhan 于 2019 年离开 Meta 来到谷歌之后，发表了一篇名为 The Indirect Convolution Algorithm 的文章，揭秘了 QNNPack 加速库中针对矩阵卷积运算的核心算法，即如文章标题所示的 The Indirect Convolution Algorithm（间接卷积算法）。</p>
-<p>在本节中，将结合 The Indirect Convolution Algorithm 这篇论文以及 QNNPack 在开源时同期发布的一篇技术性博客 QNNPACK: Open source library for optimized mobile deep learning，带领大家领略间接卷积算法的魅力。</p>
-<section id="im2col-gemm">
-<h3>Im2Col + GEMM 回顾<a class="headerlink" href="#im2col-gemm" title="Link to this heading">#</a></h3>
+<h2>前置知识回顾<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>在介绍 QNNPACK 算法前，先回顾一下传统的矩阵卷积运算方法。</p>
+<section id="im2col">
+<h3>Im2Col 算法回顾<a class="headerlink" href="#im2col" title="Link to this heading">#</a></h3>
 <p>简单的 1×1 卷积可以直接映射到矩阵-矩阵乘法，但对于具有较大内核、填充或下采样（步幅）的卷积，则不是这种情况。这些更复杂的卷积可以通过结合 Im2Col 算法与 GEMM 算法来实现：即将四维的输入图像按照卷积窗尺寸进行重排成为一个二维的矩阵，同时将卷积核进行展开重排也成为一个二维的矩阵，将卷积操作转换为两个矩阵的乘法，直接使用 GEMM 方式完成矩阵乘即可。Im2Col + GEMM 方法能成功的原因本质上是其拆解后忽略内存复用后的计算过程等价于矩阵乘。</p>
 <p>现假设已经完成 Im2Col 的转换，将卷积已经转换为如下图所示的矩阵乘法。B 矩阵为 kernel，尺寸为 N × K；A 矩阵为 feature map，尺寸为 K × M；结果矩阵 C 尺寸为 N × M。要想得到 C 矩阵中某一个位置的数据，需要计算 B 矩阵中对应列与 A 矩阵中对应行相乘的结果。</p>
 <p><img alt="矩阵乘法示意图" src="../_images/05QNNPACK01.png" /></p>
@@ -735,9 +737,8 @@ document.write(`
 </ul>
 <p>针对以上缺陷，Marat Dukhan 提出的间接卷积算法（即 QNNPACK）都能较好地解决。</p>
 </section>
-</section>
 <section id="id2">
-<h2>神经网络量化<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h3>神经网络量化<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>QNNPACK 原本推出的目的是解决量化问题，但后续发现在非量化的矩阵卷积运算中通用能发挥强大的性能。</p>
 <p>神经网络的计算通常依赖于单精度浮点数（FP32）。然而，随着深度学习算法的不断发展，神经网络对计算资源和内存的需求急剧增加。这种需求的增加使得许多移动设备无法有效地运行复杂的神经网络模型。</p>
 <p>为了解决这个问题，量化（Quantization）技术被引入到神经网络中。量化的核心思想是将神经网络中的权重参数和计算从 FP32 转换为低精度的整型数，例如 FP16/FP8/INT8。通过这种转换，计算速度和内存利用效率得到了显著提升。</p>
@@ -767,28 +768,34 @@ document.write(`
 \[ r[i] = scale × (q[i] − zeropoint) \]</div>
 <p>其中，scale 是一个正的浮点数，zeropoint 是一个 8 位无符号整数，和 q[i]一样。</p>
 </section>
+</section>
 <section id="id3">
-<h2>对计算进行划分<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2>QNNPack 算法<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>Marat Dukhan 于 2019 年离开 Meta 来到谷歌之后，发表了一篇名为 The Indirect Convolution Algorithm 的文章，揭秘了 QNNPack 加速库中针对矩阵卷积运算的核心算法，即如文章标题所示的 The Indirect Convolution Algorithm（间接卷积算法）。</p>
+<p>在本节中，将结合 The Indirect Convolution Algorithm 这篇论文以及 QNNPack 在开源时同期发布的一篇技术性博客 QNNPACK: Open source library for optimized mobile deep learning，带领大家领略间接卷积算法的魅力。</p>
+<section id="id4">
+<h3>对计算进行划分<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>虽然 QNNPACK 利用了像其他 BLAS 库一样的 PDOT 微内核，但其对具有 8 位元素的量化张量和移动 AI 使用案例的关注带来了非常不同的性能优化视角。大多数 BLAS 库针对科学计算使用案例，处理的矩阵通常由成千上万的双精度浮点元素组成，而 QNNPACK 的输入矩阵来自低精度、移动设备特定的计算机视觉模型，具有非常不同的维度。</p>
 <blockquote>
 <div><p>PDOT：Parallel Dot Product，是一种专门用于加速矩阵乘法运算的小型计算核心，它在处理低精度整数如 8 位整数和矩阵乘法时表现出色，特别是在移动设备和资源受限的硬件环境中。</p>
 <p>PDOT 微内核的设计目标是高效利用硬件资源，实现低精度整数矩阵乘法的高效计算。</p>
 </div></blockquote>
-<p>移动架构的约束规定 MR 和 NR 不能超过 8。因此，即使在具有 1024 通道的最大模型中，PDOT 微内核中读取的整个内存块最多为 16KB，这甚至可以适应超低端移动核心的一级缓存。这标志着 QNNPACK 与其他 GEMM 实现之间的重要区别：其他库会重新打包 A 和 B 矩阵，以更好地利用缓存层次结构，希望通过大量计算来摊销打包开销，而 QNNPACK 则针对 A 和 B 面板可以适应 L1 缓存的情况进行优化。因此，<strong>它旨在消除所有非计算必需的内存转换</strong>。</p>
+<p>移动架构的约束规定 MR 和 NR 不能超过 8。因此，即使在具有 1024 通道的最大模型中，PDOT 微内核中读取的整个内存块最多为 16KB，这甚至可以适应超低端移动核心的一级缓存。</p>
+<p>这标志着 QNNPACK 与其他 GEMM 实现之间的重要区别：其他库会重新打包 A 和 B 矩阵，以更好地利用缓存层次结构，希望通过大量计算来摊销打包开销，而 QNNPACK 则针对 A 和 B 面板可以适应 L1 缓存的情况进行优化。因此，<strong>它旨在消除所有非计算必需的内存转换</strong>。</p>
 <p>间接卷积算法的计算同样也是基于对输出的切分，计算 MR × NR 的小块。与传统 GEMM 方法不同的是，其将将整个 K 维全部在计算 Kernel 中处理完，消除了输出部分和的访存。这里所说的「将整个 K 维全部」并不是指 K 维不进行拆分，而是指拆分后不和其他维度交换，实际计算中 K 维会以 <span class="math notranslate nohighlight">\(2^n\)</span> 为基础进行拆分。</p>
 <p><img alt="间接卷积算法示意图" src="../_images/05QNNPACK04.png" /></p>
 <p>“消除所有非计算必需的内存转换”即为间接卷积算法的核心特定，这样的特性同样也注定了它在非量化任务中同样能起到显著的优化作用。</p>
 </section>
-<section id="repacking">
-<h2>Repacking<a class="headerlink" href="#repacking" title="Link to this heading">#</a></h2>
-<p>内存重新组织（repacking）是一种优化技术，旨在提高内存使用效率，减少内存碎片，提升程序性能。其核心思想是通过重新安排内存块的位置，使得内存的使用更加紧凑，减少不必要的内存开销。</p>
+<section id="id5">
+<h3>内存重排<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>内存重排（repacking）是一种优化技术，旨在提高内存使用效率，减少内存碎片，提升程序性能。其核心思想是通过重新安排内存块的位置，使得内存的使用更加紧凑，减少不必要的内存开销。</p>
 <p>一般情况下，内存碎片一般分为内部碎片与外部碎片。</p>
 <p><em>内部碎片</em>：分配的内存块比实际需要的要大，未使用的部分就形成了内部碎片。</p>
 <p><em>外部碎片</em>：在多次分配和释放内存后，内存中空闲的部分不能形成一个连续的可用内存块，从而无法满足大块内存分配需求。</p>
-<p>内存重新组织的目的是通过紧凑化操作减少外部碎片，从而提升内存利用率。</p>
-<p>一般的内存重新组织逻辑很简单，下面用一个例子来说明。</p>
+<p>内存重排的目的是通过紧凑化操作减少外部碎片，从而提升内存利用率。</p>
+<p>一般的内存重排逻辑很简单，下面用一个例子来说明。</p>
 <p>假设有一个内存空间，总大小为 <span class="math notranslate nohighlight">\(M\)</span>，当前被使用的内存块为 <span class="math notranslate nohighlight">\(B_1, B_2, \ldots, B_n\)</span>，每个内存块的大小分别为 <span class="math notranslate nohighlight">\(S_1, S_2, \ldots, S_n\)</span>，它们的起始地址分别为 <span class="math notranslate nohighlight">\(A_1, A_2, \ldots, A_n\)</span>。</p>
-<p>在内存重新组织后，我们希望所有内存块按顺序排列，新的起始地址分别为 <span class="math notranslate nohighlight">\(A_1', A_2', \ldots, A_n'\)</span>，且需要消除内存块之间的空隙。那么，新的内存块起始地址需要满足以下关系：</p>
+<p>在内存重排后，我们希望所有内存块按顺序排列，新的起始地址分别为 <span class="math notranslate nohighlight">\(A_1', A_2', \ldots, A_n'\)</span>，且需要消除内存块之间的空隙。那么，新的内存块起始地址需要满足以下关系：</p>
 <div class="math notranslate nohighlight">
 \[ A_1' = A_{\text{base}} \]</div>
 <div class="math notranslate nohighlight">
@@ -844,8 +851,8 @@ for each pointer in program:
 <li><p><strong>避免缓存关联性问题</strong>：传统实现中的 Repacking 部分是为了避免缓存关联性问题，即如果读取的行被大步长分隔，可能会导致不同行的元素落入同一缓存集合中，导致性能下降。而 QNNPACK 通过确保面板适合 L1 缓存，避免了这种情况。</p></li>
 </ul>
 </section>
-<section id="indirection-buffer">
-<h2>Indirection Buffer<a class="headerlink" href="#indirection-buffer" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h3>间接缓冲区<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>在 QNNPACK 中，Marat Dukhan 实现了一种更高效的算法。与其将卷积输入转换以适应矩阵-矩阵乘法的实现，不如调整微内核的实现，使其能够实时进行 Im2Col 转换。间接卷积算法的有效工作以来一个关键的前提——网络连续运行时，输入张量的内存地址保持不变。这一特性其实比较容易满足，即使地址真的需要变化，也可以将其拷贝到固定的内存区域中。</p>
 <p>间接卷积算法没有将实际数据从输入张量复制到 Im2Col 缓冲区，而是设置了一个间接缓冲区（Indirection Buffer），其中包含指向用于计算每个输出像素的输入像素行的指针。同时，此算法还修改了矩阵-矩阵乘法微内核，使其从间接缓冲区加载指向虚拟矩阵 A 行的指针，这个缓冲区通常比 Im2Col 缓冲区小得多。</p>
 <p>此外，如果输入张量的内存位置在推理运行之间不变，间接缓冲区可以在初始化时设置一次指向输入行的指针，然后在多个推理运行中重复使用。从实验结果可以观察到，使用间接缓冲区的微内核不仅消除了 Im2Col 转换的开销，而且性能稍微优于矩阵-矩阵乘法微内核（这可能是因为在计算不同的输出像素时重复使用了输入行）。</p>
@@ -864,8 +871,8 @@ for each pointer in program:
 <p>在实现过程中，软件的执行过程分为两部分：</p>
 <p>在准备阶段，需要执行加载模型配置输入缓冲区以及重排权重使其内存布局适用于后续计算两个工作。</p>
 <p>在运行阶段，对于每个输入执行 (𝑂𝐻∗𝑂𝑊/𝑀)∗(𝑂𝐶/𝑁) 次循环，每次使用 GEMM 计算 𝑀×𝑁 大小输出。</p>
-<section id="id4">
-<h3>间接缓冲区布局<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h4>间接缓冲区布局<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
 <p>间接缓冲区可以理解为一组卷积核大小的缓冲区，共有 𝑂𝐻×𝑂𝑊 个，每个缓冲区大小为 𝐾𝐻×𝐾𝑊 （每个缓冲区对应某个输出要使用的输入地址）。每计算一个空间位置输出，使用一个间接缓冲区；空间位置相同而通道不同的输出使用相同间接缓冲区，缓冲区中的每个指针用于索引输入中 IC 个元素。</p>
 <p>在计算时，随着输出的索引内存地址移动，选用不同的间接缓冲区，即可得到相应的输入地址。无需再根据输出目标的坐标计算要使用的输入的地址，这等同于预先计算地址。</p>
 <p>下图以 M 和 N 均为 4，KH 和 KW 均为 3 的情况做出示例。</p>
@@ -879,8 +886,8 @@ for each pointer in program:
 <p>进一步地，上图左上部分的输入缓冲区排列方式并不是最终排布方法，实际上这些指针会被处理成上图中部间接缓冲区的形式。将左上每个缓冲区中的指针打散，即可得到 KH × KW 指针，将 A、B、C 三个缓冲区的不同空间位置指针收集到一起，即可得到上图中上部分的缓冲区排列方式 KH × KW × M。</p>
 <p>上图中上部分是可视化效果，间接缓冲区真正的组织方式如上图中下部分所示。A、B、C、D 四个缓冲区内部相同空间位置的指针被组织到了一起并横向排布。值得注意的是，图例中 Stride 为 1，当 Stride 不为 1 时，重新组织后 A、B、C、D 相同空间的坐标（对应于在输入的坐标）不一定是连续的，相邻的空间位置横向坐标相差 strdie 大小。</p>
 </section>
-<section id="id5">
-<h3>使用间接缓冲区计算<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h4>间接缓冲区计算<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
 <p>现在来分析如何使用间接缓冲区完成计算。</p>
 <p>和上一小节相同，本节讨论的依然为 M × N 规模的输出，而这些输出要使用 M 个 KH × KW 大小的输入，其中有数据重用。</p>
 <p>卷积之所以可以使用 Im2col 优化算法，本质原因在于其拆解后忽略内存复用后的计算过程等价于矩阵乘。</p>
@@ -908,9 +915,10 @@ for each pointer in program:
 <p>次计算核，即可得到全部的输出。</p>
 </section>
 </section>
-<section id="gemm">
-<h2>与 GEMM 算法的对比<a class="headerlink" href="#gemm" title="Link to this heading">#</a></h2>
-<p>与基于 GEMM 的卷积算法相比，间接卷积的性能受到四个因素的影响：</p>
+</section>
+<section id="id9">
+<h2>与 Im2Col 算法对比<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<p>与基于 Im2Col 的卷积算法相比，间接卷积的性能受到四个因素的影响：</p>
 <ol class="arabic simple">
 <li><p>消除非单位卷积的 Im2Col 转换。间接卷积方法不需要执行 Im2Col 转换，这减少了内存和计算开销，因为无需将输入数据块复制到 Im2Col 缓冲区。</p></li>
 <li><p>改进的输入行缓存。对于大内核卷积，间接卷积方法通过从同一位置读取不同输出像素的输入行，提高了缓存效率。这是因为间接 GEMM 方法可以更好地利用缓存，而传统 GEMM 方法则需要从 Im2Col 缓冲区的不同位置读取数据，增加了缓存未命中率。</p></li>
@@ -921,16 +929,16 @@ for each pointer in program:
 <p>在 The Indirect Convolution Algorithm 中作者展示了间接卷积算法、基于 GEMM 的算法以及 ResNet18 和 SqueezeNet 1.0 模型中仅 GEMM 部分的性能。可以看到间接卷积算法性能会明显优于其他算法的性能。</p>
 <p><img alt="性能对比" src="../_images/05QNNPACK07.png" /></p>
 </section>
-<section id="id6">
-<h2>小结与思考<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h2>小结与思考<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>QNNPACK 是一种为量化神经网络设计的加速库，通过间接卷积算法优化移动设备上的计算性能。</p></li>
 <li><p>QNNPACK 利用量化技术减少模型大小和内存需求，同时通过避免不必要的内存转换和优化内存访问模式提升效率。</p></li>
 <li><p>QNNPACK 的间接卷积算法通过使用间接缓冲区和 PDOT 微内核，有效解决了传统卷积运算中的内存消耗和缓存效率问题。</p></li>
 </ul>
 </section>
-<section id="id7">
-<h2>本节视频<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h2>本节视频<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=992873862&bvid=BV1ms4y1o7ki&cid=1034431308&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -1005,21 +1013,24 @@ for each pointer in program:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">QNNPACK 算法介绍</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#im2col-gemm">Im2Col + GEMM 回顾</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">前置知识回顾</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#im2col">Im2Col 算法回顾</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">神经网络量化</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">神经网络量化</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">对计算进行划分</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repacking">Repacking</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indirection-buffer">Indirection Buffer</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">间接缓冲区布局</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">使用间接缓冲区计算</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">QNNPack 算法</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">对计算进行划分</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">内存重排</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">间接缓冲区</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">间接缓冲区布局</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">间接缓冲区计算</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gemm">与 GEMM 算法的对比</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">本节视频</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">与 Im2Col 算法对比</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">本节视频</a></li>
 </ul>
   </nav></div>
 

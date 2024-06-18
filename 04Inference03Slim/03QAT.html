@@ -7,19 +7,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="感知量化训练 QAT" />
+<meta property="og:title" content="感知量化训练 QAT(DONE)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="04Inference03Slim/03QAT.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="感知量化训练流程: 传统的训练后量化将模型从 FP32 量化到 INT8 精度时会产生较大的数值精度损失。感知量化训练（Aware Quantization Training）通过在训练期间模拟量化操作，可以最大限度地减少量化带来的精度损失。 QAT 的流程如下图所示，首先基于预训练好的模型获取计算图，对计算图插入伪量化算子。准备好训练数据进行训练或者微调，在训练过程中最小化量化误差，最终得..." />
+<meta property="og:description" content="本节将会介绍感知量化训练（QAT）流程，这是一种在训练期间模拟量化操作的方法，用于减少将深度学习模型从FP32精度量化到INT8时的精度损失。QAT通过在模型中插入伪量化节点（FakeQuant）来模拟量化误差，并在训练过程中最小化这些误差，最终得到一个适应量化环境的模型。 文中还会讨论伪量化节点的作用、正向和反向传播中的处理方式，以及如何在TensorRT中使用QAT模型进行高效推理。此外..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="感知量化训练流程: 传统的训练后量化将模型从 FP32 量化到 INT8 精度时会产生较大的数值精度损失。感知量化训练（Aware Quantization Training）通过在训练期间模拟量化操作，可以最大限度地减少量化带来的精度损失。 QAT 的流程如下图所示，首先基于预训练好的模型获取计算图，对计算图插..." />
-<meta name="description" content="感知量化训练流程: 传统的训练后量化将模型从 FP32 量化到 INT8 精度时会产生较大的数值精度损失。感知量化训练（Aware Quantization Training）通过在训练期间模拟量化操作，可以最大限度地减少量化带来的精度损失。 QAT 的流程如下图所示，首先基于预训练好的模型获取计算图，对计算图插入伪量化算子。准备好训练数据进行训练或者微调，在训练过程中最小化量化误差，最终得..." />
+<meta property="og:image" content="/_images/social_previews/summary_04Inference03Slim_03QAT_9cf7a8e1.png" />
+<meta property="og:image:alt" content="本节将会介绍感知量化训练（QAT）流程，这是一种在训练期间模拟量化操作的方法，用于减少将深度学习模型从FP32精度量化到INT8时的精度损失。QAT通过在模型中插入伪量化节点（FakeQuant）来模拟量化误差，并在训练过程中最小化这些误差，最终得到一个适应量化环境的模型。 文中还会讨论伪量化节点的作用、正向和反..." />
+<meta name="description" content="本节将会介绍感知量化训练（QAT）流程，这是一种在训练期间模拟量化操作的方法，用于减少将深度学习模型从FP32精度量化到INT8时的精度损失。QAT通过在模型中插入伪量化节点（FakeQuant）来模拟量化误差，并在训练过程中最小化这些误差，最终得到一个适应量化环境的模型。 文中还会讨论伪量化节点的作用、正向和反向传播中的处理方式，以及如何在TensorRT中使用QAT模型进行高效推理。此外..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>感知量化训练 QAT &#8212; AI System</title>
+    <title>感知量化训练 QAT(DONE) &#8212; AI System</title>
   
   
   
@@ -82,7 +82,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="训练后量化与部署(DONE)" href="04PTQ.html" />
-    <link rel="prev" title="低比特量化原理" href="02Quant.html" />
+    <link rel="prev" title="低比特量化原理(DONE)" href="02Quant.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
@@ -255,7 +255,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 二. AI 硬件体系结构 ===</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../02Hardware/README.html">AI 硬件体系结构概述(DONE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02Hardware/README.html">AI 硬件体系架构概述(DONE)</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware01Foundation/README.html">AI 计算体系概述(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/01Introduction.html">课程内容(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/02ArchSlim.html">AI 计算模式（上）(DONE)</a></li>
@@ -315,7 +315,7 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编译器 ===</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">=== 三. AI 编程与编译原理 ===</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../03Compiler/README.html">AI 编译原理概述(DONE)</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler01Tradition/README.html">传统编译器(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -373,25 +373,27 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference02Mobilenet/README.html">模型轻量化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/01Introduction.html">推理参数(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Shufflenet.html">ShuffleNet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Mobilenet.html">MobileNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/05ESPNet.html">ESPNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/06FBNet.html">FBNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/07EfficientNet.html">EfficientNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/08GhostNet.html">GhostNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/09MobileVit.html">MobileVit 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/10MobileFormer.html">MobileFormer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/11EfficientFormer.html">EfficientFormer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/021Squeezenet.html">SqueezeNet 系列(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/022Shufflenet.html">ShuffleNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/023Mobilenet.html">MobileNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/024ESPNet.html">ESPNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/025FBNet.html">FBNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/026EfficientNet.html">EfficientNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/027GhostNet.html">GhostNet 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/031MobileVit.html">MobileVit 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/032MobileFormer.html">MobileFormer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/033EfficientFormer.html">EfficientFormer 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Transformer.html">Transformer 小型化</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型压缩</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02Quant.html">低比特量化原理</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">感知量化训练 QAT</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">模型压缩(DONE)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01Introduction.html">基本介绍(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02Quant.html">低比特量化原理(DONE)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">感知量化训练 QAT(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04PTQ.html">训练后量化与部署(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05Pruning.html">模型剪枝原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06Distillation.html">知识蒸馏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05Pruning.html">模型剪枝(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06Distillation.html">知识蒸馏原理(DONE)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference04Converter/README.html">模型转换(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -402,19 +404,18 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference05Optimize/README.html">模型优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/01Optimizer.html">计算图优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/01Optimizer.html">计算图优化架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/02Basic.html">离线图优化技术</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/03Extend.html">通用图优化技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference05Optimize/03Extend.html">其他计算图优化</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference06Kernel/README.html">Kernel 优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference06Kernel/README.html">Kernel 优化(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/01Introduction.html">Kernel 层架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/02Conv.html">卷积操作原理(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/03Im2col.html">Im2Col 算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/04Winograd.html">Winograd 算法(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/05Qnnpack.html">QNNPACK 算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/05Qnnpack.html">QNNPack 算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/06Memory.html">推理内存布局</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/07Nc4hw4.html">nc4hw4 内存排布</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference06Kernel/08Others.html">汇编与循环优化</a></li>
 </ul>
 </details></li>
@@ -674,7 +675,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>感知量化训练 QAT</h1>
+    <h1>感知量化训练 QAT(DONE)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -689,18 +690,19 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">正向传播</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">反向传播</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bn">BN 折叠</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">推理过程：</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">推理过程</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">感知量化实践</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">感知量化训练的技巧</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt">基于 TensorRT 的推理</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt">基于 TensorRT 实现推理</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qat-ptq">QAT 和 PTQ 对比</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -713,8 +715,10 @@ document.write(`
                 <article class="bd-article">
                   
 <!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
-<section class="tex2jax_ignore mathjax_ignore" id="qat">
-<h1>感知量化训练 QAT<a class="headerlink" href="#qat" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="qat-done">
+<h1>感知量化训练 QAT(DONE)<a class="headerlink" href="#qat-done" title="Link to this heading">#</a></h1>
+<p>本节将会介绍感知量化训练（QAT）流程，这是一种在训练期间模拟量化操作的方法，用于减少将深度学习模型从FP32精度量化到INT8时的精度损失。QAT通过在模型中插入伪量化节点（FakeQuant）来模拟量化误差，并在训练过程中最小化这些误差，最终得到一个适应量化环境的模型。</p>
+<p>文中还会讨论伪量化节点的作用、正向和反向传播中的处理方式，以及如何在TensorRT中使用QAT模型进行高效推理。此外，还提供了一些实践技巧，包括从校准良好的PTQ模型开始、使用余弦退火学习率计划等，以及QAT与后训练量化（PTQ）的比较。</p>
 <section id="id1">
 <h2>感知量化训练流程<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>传统的训练后量化将模型从 FP32 量化到 INT8 精度时会产生较大的数值精度损失。感知量化训练（Aware Quantization Training）通过在训练期间模拟量化操作，可以最大限度地减少量化带来的精度损失。</p>
@@ -795,7 +799,7 @@ w_{fold} := \frac{\gamma w}{\text{EMA}(\sigma_B^2) + \epsilon}
 <p>其中 <span class="math notranslate nohighlight">\(\gamma\)</span> 是批量归一化的尺度参数，<span class="math notranslate nohighlight">\(\text{EMA}(\sigma_B^2)\)</span> 是跨批次卷积结果方差的移动平均估计，<span class="math notranslate nohighlight">\(\epsilon\)</span> 是为了数值稳定性的常数。</p>
 </section>
 <section id="id5">
-<h4>推理过程：<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<h4>推理过程<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
 <p>假设我们有一层的输入为 <span class="math notranslate nohighlight">\(x\)</span>，应用 BN 后得到输出 <span class="math notranslate nohighlight">\(y\)</span>，其基本公式为：</p>
 <ol class="arabic simple">
 <li><p>归一化：
@@ -867,7 +871,7 @@ b_{fold} = \frac{\gamma (b - \mu_B)}{\sqrt{\sigma_B^2 + \epsilon}} + \beta
 <p>通过 QAT，神经网络模型能够在保持高效推理的同时，尽量减少量化带来的精度损失，是模型压缩和部署的重要技术之一。在大多数情况下，一旦应用感知量化训练，量化推理精度几乎与浮点精度完全相同。然而，在 QAT 中重新训练模型的计算成本可能是数百个 epoch。</p>
 </section>
 <section id="tensorrt">
-<h3>基于 TensorRT 的推理<a class="headerlink" href="#tensorrt" title="Link to this heading">#</a></h3>
+<h3>基于 TensorRT 实现推理<a class="headerlink" href="#tensorrt" title="Link to this heading">#</a></h3>
 <p>TensorRT 通过混合精度（FP32、FP16、INT8）计算、图优化和层融合等技术，显著提高了模型的推理速度和效率。TensorRT 8.0 之后的版本可以显式地加载包含有 QAT 量化信息的 ONNX 模型，实现一系列优化后，可以生成 INT8 的 engine。要使用 TensorRT 推理 QAT 模型，通常需要以下步骤：</p>
 <ol class="arabic simple">
 <li><p>训练并量化模型：</p></li>
@@ -923,7 +927,15 @@ b_{fold} = \frac{\gamma (b - \mu_B)}{\sqrt{\sigma_B^2 + \epsilon}} + \beta
 <p>总之，PTQ 和 QAT 各有优缺点，选择哪种方法应根据具体的应用场景和资源情况来决定。对于大多数应用，PTQ 可以提供一个快速且易于实现的解决方案，而对于高精度要求的任务，QAT 则是更好的选择。</p>
 </section>
 <section id="id8">
-<h2>本节视频<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<h2>小结与思考<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>感知量化训练（QAT）是一种在训练期间模拟量化操作的方法，通过插入伪量化节点来减少模型从FP32到INT8量化时的精度损失。</p></li>
+<li><p>QAT使用FakeQuant节点在正向传播中引入量化噪声，并通过反向传播调整模型以适应量化误差，同时采用特定的训练技巧如余弦退火学习率和带动量的SGD优化器来提高训练稳定性。</p></li>
+<li><p>在TensorRT中，QAT模型可以通过转换为ONNX格式并优化计算图来实现高效推理，包括常量折叠和操作融合，最终生成INT8的推理引擎。</p></li>
+</ul>
+</section>
+<section id="id9">
+<h2>本节视频<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=223192791&bvid=BV1s8411w7b9&cid=982178790&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html></section>
@@ -969,7 +981,7 @@ b_{fold} = \frac{\gamma (b - \mu_B)}{\sqrt{\sigma_B^2 + \epsilon}} + \beta
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">低比特量化原理</p>
+        <p class="prev-next-title">低比特量化原理(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -1002,18 +1014,19 @@ b_{fold} = \frac{\gamma (b - \mu_B)}{\sqrt{\sigma_B^2 + \epsilon}} + \beta
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">正向传播</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">反向传播</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bn">BN 折叠</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">推理过程：</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">推理过程</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">感知量化实践</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">感知量化训练的技巧</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt">基于 TensorRT 的推理</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorrt">基于 TensorRT 实现推理</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qat-ptq">QAT 和 PTQ 对比</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
 </ul>
   </nav></div>
 
