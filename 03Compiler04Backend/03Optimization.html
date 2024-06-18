@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 18, 2024"/>
 
 <link
   rel="alternate"
@@ -265,13 +265,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/06BitWidth.html">计算之比特位宽(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算(DONE)</a></li>
 </ul>
 </details></li>
@@ -302,6 +302,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪(DONE)</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/AscendArch.html">昇腾 AI 处理器</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -329,8 +330,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
@@ -355,6 +356,7 @@
 <li class="toctree-l2"><a class="reference internal" href="04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07Practice.html">实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -693,7 +695,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triton">Triton 开发算子</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Triton实现原理</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Triton 实现原理</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">参考文献</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">小结与思考</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
@@ -929,26 +931,26 @@ document.write(`
 </section>
 </section>
 <section id="id4">
-<h2>Triton实现原理<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>在没有Triton之前，算子工程师在开发算子时，需要同时处理DRAM、SRAM、计算单元，面临诸多挑战：</p>
+<h2>Triton 实现原理<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>在没有 Triton 之前，算子工程师在开发算子时，需要同时处理 DRAM、SRAM、计算单元，面临诸多挑战：</p>
 <ul class="simple">
 <li><p>内存管理：合理利用内存体系，将频繁访问的数据块缓存到较快的存储区域；对齐和合并访存请求，避免带宽浪费。</p></li>
 <li><p>线程管理：最大化利用硬件计算资源，规划并行线程数量和线程束大小。</p></li>
-<li><p>指令使用：使用CUDA实现一个功能有相应多种指令，不同指令具有不同延迟和吞吐量。</p></li>
+<li><p>指令使用：使用 CUDA 实现一个功能有相应多种指令，不同指令具有不同延迟和吞吐量。</p></li>
 </ul>
-<p>Triton提高了算子开发时的效率，使得开发者不再囿于硬件细节。CUDA直接面向Thread变成，而Triton面向Thread Block编程，开发者只需关注1）Kernel launch的参数；2）每个数据分块的大小；3）数据分块之间的交互。在这之下的细节由Triton实现。</p>
-<p>Triton是基于MLIR实现的，其架构如下图<label for='sidenote-role-1' class='margin-toggle'><span id="id5">
+<p>Triton 提高了算子开发时的效率，使得开发者不再囿于硬件细节。CUDA 直接面向 Thread 变成，而 Triton 面向 Thread Block 编程，开发者只需关注 1）Kernel launch 的参数；2）每个数据分块的大小；3）数据分块之间的交互。在这之下的细节由 Triton 实现。</p>
+<p>Triton 是基于 MLIR 实现的，其架构如下图<label for='sidenote-role-1' class='margin-toggle'><span id="id5">
 <sup>1</sup></span>
 
 </label><input type='checkbox' id='sidenote-role-1' name='sidenote-role-1' class='margin-toggle'><span class="sidenote"><sup>1</sup><a class="reference external" href="https://superjomn.github.io/posts/triton-mlir-publish/">Superjomn's blog | OpenAI/Triton MLIR 迁移工作简介</a></span>：</p>
 <p><img alt="img" src="../_images/03optimization06.png" /></p>
-<p>Frontend用于将开发者利用Python编写的kernel转换为对应的Triton IR (Triton Dialect)。使用<code class="docutils literal notranslate"><span class="pre">&#64;triton.jit</span></code>来标注kernel，Triton解析Python AST，将用户定义的计算过程带入MLIR体系，之后继续做后续的优化。</p>
-<p>Optimizer大致工作流如下：</p>
+<p>Frontend 用于将开发者利用 Python 编写的 kernel 转换为对应的 Triton IR (Triton Dialect)。使用<code class="docutils literal notranslate"><span class="pre">&#64;triton.jit</span></code>来标注 kernel，Triton 解析 Python AST，将用户定义的计算过程带入 MLIR 体系，之后继续做后续的优化。</p>
+<p>Optimizer 大致工作流如下：</p>
 <p><img alt="img" src="../_images/03optimization07.png" /></p>
-<p>主要分为1）TritonIR的优化；2）TritonIR到TritonGPU IR的转换；3）TritonGPU IR的优化。贯穿中间的数据结构是 TritonGPU IR。</p>
-<p>TritonGPU Dialect 相比 Triton Dialect，主要是增加了 GPU 硬件相关的 Op 和 Type。关键Op为数据布局转换。当前有以下几种数据布局：</p>
+<p>主要分为 1）TritonIR 的优化；2）TritonIR 到 TritonGPU IR 的转换；3）TritonGPU IR 的优化。贯穿中间的数据结构是 TritonGPU IR。</p>
+<p>TritonGPU Dialect 相比 Triton Dialect，主要是增加了 GPU 硬件相关的 Op 和 Type。关键 Op 为数据布局转换。当前有以下几种数据布局：</p>
 <ul class="simple">
-<li><p>Blocked Layout：表示 thread 间平均分配 workload 的情况，每个线程处理一块memory上连续的数据。</p></li>
+<li><p>Blocked Layout：表示 thread 间平均分配 workload 的情况，每个线程处理一块 memory 上连续的数据。</p></li>
 <li><p>Shared Layout：表示数据在 shared memory 的一些特性。</p></li>
 <li><p>MMA Layout：表示 Tensor Core 中 MMA 指令结果的 data layout</p></li>
 <li><p>DotOperand Layout：表示 Triton 的 DotOp 的输入的 layout</p></li>
@@ -961,7 +963,7 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">#blocked</span> <span class="pre">-&gt;</span> <span class="pre">#dot_operand</span></code> ，转换为 DotOp 的输入，这一步可能也需要 shared memory 中转</p></li>
 </ul>
 <p>TritonIR 上的优化主要是计算本身的，与硬件无关的优化，包含了如下 Pass：1）Inliner Pass，将 Kernel Call 的子函数 Inline 展开；2）Combine Pass，一些特定的 Pattern rewrite；3）Canonicalizer Pass，一些化简的 Pattern rewrite；4）CSE Pass，MLIR 的 <a class="reference external" href="https://mlir.llvm.org/docs/Passes/#-cse-eliminate-common-sub-expressions">cse</a> Pass，用于 消除公共子表达式；5）LICM Pass，MLIR 的 <a class="reference external" href="https://mlir.llvm.org/doxygen/LoopInvariantCodeMotion_8cpp_source.html">LoopInvariantCodeMotion Pass</a> ，将循环无关的变量挪到 forloop 外面。</p>
-<p>TritonGPU IR优化在计算本身优化外，新增了 GPU 硬件相关的优化，具体的 Pass 列表如下：1）ConvertTritonToTritonGPU Pass，将 Triton IR 转换为 TritonGPU IR，主要是增加 TritonGPU 特有的 layout；2）Coalesce Pass，重排 order，使得最大 contiguity 的维度排在最前面；3）Pipeline Pass，MMA 指令对应的 global memory 到 shared memory 的 N-Buffer 优化；4）Prefetch Pass，MMA 指令对应的 shared memory 到 register file 的 N-Buffer 优化</p>
+<p>TritonGPU IR 优化在计算本身优化外，新增了 GPU 硬件相关的优化，具体的 Pass 列表如下：1）ConvertTritonToTritonGPU Pass，将 Triton IR 转换为 TritonGPU IR，主要是增加 TritonGPU 特有的 layout；2）Coalesce Pass，重排 order，使得最大 contiguity 的维度排在最前面；3）Pipeline Pass，MMA 指令对应的 global memory 到 shared memory 的 N-Buffer 优化；4）Prefetch Pass，MMA 指令对应的 shared memory 到 register file 的 N-Buffer 优化</p>
 </section>
 <section id="id6">
 <h2>参考文献<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
@@ -1062,7 +1064,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triton">Triton 开发算子</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Triton实现原理</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Triton 实现原理</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">参考文献</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">小结与思考</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
@@ -1088,7 +1090,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 15, 2024.
+  Last updated on Jun 18, 2024.
   <br/>
 </p>
   </div>

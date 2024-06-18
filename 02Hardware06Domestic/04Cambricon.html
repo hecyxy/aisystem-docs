@@ -79,12 +79,12 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="AI 芯片黄金十年(DONE)" href="../02Hardware07Thought/README.html" />
+    <link rel="next" title="昇腾 AI 处理器" href="AscendArch.html" />
     <link rel="prev" title="国内 AI 芯片(DONE)" href="README.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 18, 2024"/>
 
 <link
   rel="alternate"
@@ -263,13 +263,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/06BitWidth.html">计算之比特位宽(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算(DONE)</a></li>
 </ul>
 </details></li>
@@ -300,6 +300,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">国内 AI 芯片(DONE)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">寒武纪(DONE)</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="AscendArch.html">昇腾 AI 处理器</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -327,8 +328,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
@@ -353,6 +354,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -1041,11 +1043,11 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="id5">
 <h1>小结与思考<a class="headerlink" href="#id5" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p>寒武纪的MLU硬件是为AI应用设计的专用处理器，具有高性能、灵活性和高能效比，通过专门的存储和运算部件优化了AI任务处理。</p></li>
-<li><p>寒武纪提供统一的平台级基础系统软件Cambricon Neuware，支持云边端全系列智能芯片，简化AI模型迁移和软件开发。</p></li>
-<li><p>Cambricon BANG平台提供了一套完整的软件栈，支持从C/C++编程到深度学习框架和通信库，简化了异构并行编程。</p></li>
-<li><p>寒武纪的MLU架构包括多层次的存储结构和多种计算能力，支持不同规模的并行计算任务，并通过软件工具优化性能。</p></li>
-<li><p>存储层次包括GPR、NRAM、WRAM、SRAM、L2 Cache、LDRAM和GDRAM，支持不同存储需求和数据共享。</p></li>
+<li><p>寒武纪的 MLU 硬件是为 AI 应用设计的专用处理器，具有高性能、灵活性和高能效比，通过专门的存储和运算部件优化了 AI 任务处理。</p></li>
+<li><p>寒武纪提供统一的平台级基础系统软件 Cambricon Neuware，支持云边端全系列智能芯片，简化 AI 模型迁移和软件开发。</p></li>
+<li><p>Cambricon BANG 平台提供了一套完整的软件栈，支持从 C/C++编程到AI 框架和通信库，简化了异构并行编程。</p></li>
+<li><p>寒武纪的 MLU 架构包括多层次的存储结构和多种计算能力，支持不同规模的并行计算任务，并通过软件工具优化性能。</p></li>
+<li><p>存储层次包括 GPR、NRAM、WRAM、SRAM、L2 Cache、LDRAM 和 GDRAM，支持不同存储需求和数据共享。</p></li>
 </ul>
 <section id="id6">
 <h2>本节视频<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
@@ -1105,11 +1107,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../02Hardware07Thought/README.html"
+       href="AscendArch.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">AI 芯片黄金十年(DONE)</p>
+        <p class="prev-next-title">昇腾 AI 处理器</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1190,7 +1192,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 15, 2024.
+  Last updated on Jun 18, 2024.
   <br/>
 </p>
   </div>

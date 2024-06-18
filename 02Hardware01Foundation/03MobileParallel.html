@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 18, 2024"/>
 
 <link
   rel="alternate"
@@ -265,13 +265,13 @@
 <li class="toctree-l2"><a class="reference internal" href="06BitWidth.html">计算之比特位宽(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算(DONE)</a></li>
 </ul>
 </details></li>
@@ -302,6 +302,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪(DONE)</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/AscendArch.html">昇腾 AI 处理器</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -329,8 +330,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
@@ -355,6 +356,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -793,7 +795,7 @@ document.write(`
 </ol>
 <p>DDP 是一种分布式训练方法，它允许模型在多个计算节点上进行并行训练，每个节点都有自己的本地模型副本和本地数据。DDP 通常用于大规模的数据并行任务，其中模型参数在所有节点之间同步，但每个节点独立处理不同的数据批次。</p>
 <p>在 DDP 中，每个节点上的模型副本执行前向和后向传播计算，并计算梯度。然后，这些梯度在不同的节点之间进行通信和平均，以便所有节点都可以使用全局梯度来更新其本地模型参数。这种方法的优点是可以扩展到大量的节点，并且可以显著减少每个节点的内存需求，因为每个节点只需要存储整个模型的一个副本。</p>
-<p>DDP 通常与深度学习框架（如 PyTorch）一起使用，这些框架提供了对 DDP 的内置支持。例如，在 PyTorch 中，<code class="docutils literal notranslate"><span class="pre">torch.nn.parallel.DistributedDataParallel</span></code> 模块提供了 DDP 实现，它可以自动处理模型和梯度的同步，以及分布式训练的通信。</p>
+<p>DDP 通常与AI 框架（如 PyTorch）一起使用，这些框架提供了对 DDP 的内置支持。例如，在 PyTorch 中，<code class="docutils literal notranslate"><span class="pre">torch.nn.parallel.DistributedDataParallel</span></code> 模块提供了 DDP 实现，它可以自动处理模型和梯度的同步，以及分布式训练的通信。</p>
 <ol class="arabic simple" start="3">
 <li><p>Fully Sharded Data Parallel, FSDP 全分片数据并行</p></li>
 </ol>
@@ -831,10 +833,10 @@ document.write(`
 <section id="id8">
 <h2>小结与思考<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>AI芯片需具备对多样神经网络模型架构的灵活支持和高效执行特有计算逻辑的能力，以适应不同的应用需求。</p></li>
-<li><p>AI芯片应支持模型压缩算法，如量化和剪枝，以提高模型在终端部署时的推理性能，并实现软件算法与硬件执行的高效协同。</p></li>
-<li><p>AI芯片设计应考虑轻量化网络结构，支持更复杂的卷积运算和数据逻辑，以适应算力和带宽受限的场景。</p></li>
-<li><p>AI芯片需支持大模型的分布式并行策略，包括高效的片上网络接口和总线设计，以及大内存容量和高速互联带宽，以应对多芯片堆叠提高性能的需求。</p></li>
+<li><p>AI 芯片需具备对多样神经网络模型架构的灵活支持和高效执行特有计算逻辑的能力，以适应不同的应用需求。</p></li>
+<li><p>AI 芯片应支持模型压缩算法，如量化和剪枝，以提高模型在终端部署时的推理性能，并实现软件算法与硬件执行的高效协同。</p></li>
+<li><p>AI 芯片设计应考虑轻量化网络结构，支持更复杂的卷积运算和数据逻辑，以适应算力和带宽受限的场景。</p></li>
+<li><p>AI 芯片需支持大模型的分布式并行策略，包括高效的片上网络接口和总线设计，以及大内存容量和高速互联带宽，以应对多芯片堆叠提高性能的需求。</p></li>
 </ul>
 </section>
 <section id="id9">
@@ -949,7 +951,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 15, 2024.
+  Last updated on Jun 18, 2024.
   <br/>
 </p>
   </div>

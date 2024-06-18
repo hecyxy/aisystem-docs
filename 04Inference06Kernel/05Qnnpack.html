@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 18, 2024"/>
 
 <link
   rel="alternate"
@@ -265,13 +265,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/06BitWidth.html">计算之比特位宽(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算(DONE)</a></li>
 </ul>
 </details></li>
@@ -302,6 +302,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪(DONE)</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/AscendArch.html">昇腾 AI 处理器</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -329,8 +330,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
@@ -355,6 +356,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -791,17 +793,17 @@ document.write(`
 \[ A_1' = A_{\text{base}} \]</div>
 <div class="math notranslate nohighlight">
 \[ A_{i+1}' = A_i' + S_i \quad \text{for } i = 1, 2, \ldots, n-1 \]</div>
-<p><span class="math notranslate nohighlight">\(A_{\text{base}}\)</span>是紧凑化后内存的起始地址，一般取0。</p>
+<p><span class="math notranslate nohighlight">\(A_{\text{base}}\)</span> 是紧凑化后内存的起始地址，一般取 0。</p>
 <p>为了计算每个内存块新的起始地址，使用如下公式：</p>
 <div class="math notranslate nohighlight">
 \[ A_1' = 0 \]</div>
 <div class="math notranslate nohighlight">
 \[ A_{i}' = \sum_{j=1}^{i-1} S_j \quad \text{for } i = 2, 3, \ldots, n \]</div>
-<p>上述公式的含义是第i个内存块的新起始地址等于前i-1个内存块大小总和。</p>
+<p>上述公式的含义是第 i 个内存块的新起始地址等于前 i-1 个内存块大小总和。</p>
 <p>现假设有如下内存块：</p>
-<p><span class="math notranslate nohighlight">\(B_1\)</span>大小为10，起始地址为0。</p>
-<p><span class="math notranslate nohighlight">\(B_2\)</span>大小为20，起始地址为20。</p>
-<p><span class="math notranslate nohighlight">\(B_3\)</span>大小为15，起始地址为50。</p>
+<p><span class="math notranslate nohighlight">\(B_1\)</span> 大小为 10，起始地址为 0。</p>
+<p><span class="math notranslate nohighlight">\(B_2\)</span> 大小为 20，起始地址为 20。</p>
+<p><span class="math notranslate nohighlight">\(B_3\)</span> 大小为 15，起始地址为 50。</p>
 <p>经过内存紧凑化计算后，新的起始地址计算如下：</p>
 <div class="math notranslate nohighlight">
 \[ A_1' = 0 \]</div>
@@ -810,9 +812,9 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ A_3' = S_1 + S_2 = 10 + 20 = 30 \]</div>
 <p>紧凑化后，内存布局改变为：</p>
-<p><span class="math notranslate nohighlight">\(B_1\)</span>大小为10，起始地址为0。</p>
-<p><span class="math notranslate nohighlight">\(B_2\)</span>大小为20，起始地址为10。</p>
-<p><span class="math notranslate nohighlight">\(B_3\)</span>大小为15，起始地址为30。</p>
+<p><span class="math notranslate nohighlight">\(B_1\)</span> 大小为 10，起始地址为 0。</p>
+<p><span class="math notranslate nohighlight">\(B_2\)</span> 大小为 20，起始地址为 10。</p>
+<p><span class="math notranslate nohighlight">\(B_3\)</span> 大小为 15，起始地址为 30。</p>
 <p>内存紧凑化可以通过多种方式实现，下面展示一种常用的方式。此方式共分为三个阶段，一阶段为标记阶段，标记所有正在使用的内存块；二阶段为压缩阶段，将所有标记的内存块移动到内存的低地址部分；三阶段为更新引用阶段，更新所有指向移动内存块的指针。一个伪代码实现方式展示如下。</p>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># 标记阶段</span>
 for each block in memory:
@@ -872,15 +874,15 @@ for each pointer in program:
 <div class="math notranslate nohighlight">
 \[ KH × (M + 2(KW-1)) × IC \]</div>
 <p>这些输入内存由 M 个间接缓冲区中的指针索引，共有 M × KH × KW 个。</p>
-<p>在上图左上部分标识出了输入空间位置与相应输入缓冲区的对应关系。可以看到，图中标出A、B、C共3个缓冲区，相邻的两个缓冲区所指向的地址有(KW - Stride)/KW即2/3的区域相同。</p>
+<p>在上图左上部分标识出了输入空间位置与相应输入缓冲区的对应关系。可以看到，图中标出 A、B、C 共 3 个缓冲区，相邻的两个缓冲区所指向的地址有(KW - Stride)/KW 即 2/3 的区域相同。</p>
 <p>图中将平面缓冲区展示为三维的形式（引入 IC 维度），意在说明间接缓冲区的每个指针可索引 IC 个输入元素，而每个间接缓冲区索引的内容即为与权重对应的输入内存区域。</p>
-<p>进一步地，上图左上部分的输入缓冲区排列方式并不是最终排布方法，实际上这些指针会被处理成上图中部间接缓冲区的形式。将左上每个缓冲区中的指针打散，即可得到KH × KW指针，将A、B、C三个缓冲区的不同空间位置指针收集到一起，即可得到上图中上部分的缓冲区排列方式KH × KW × M。</p>
+<p>进一步地，上图左上部分的输入缓冲区排列方式并不是最终排布方法，实际上这些指针会被处理成上图中部间接缓冲区的形式。将左上每个缓冲区中的指针打散，即可得到 KH × KW 指针，将 A、B、C 三个缓冲区的不同空间位置指针收集到一起，即可得到上图中上部分的缓冲区排列方式 KH × KW × M。</p>
 <p>上图中上部分是可视化效果，间接缓冲区真正的组织方式如上图中下部分所示。A、B、C、D 四个缓冲区内部相同空间位置的指针被组织到了一起并横向排布。值得注意的是，图例中 Stride 为 1，当 Stride 不为 1 时，重新组织后 A、B、C、D 相同空间的坐标（对应于在输入的坐标）不一定是连续的，相邻的空间位置横向坐标相差 strdie 大小。</p>
 </section>
 <section id="id5">
 <h3>使用间接缓冲区计算<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>现在来分析如何使用间接缓冲区完成计算。</p>
-<p>和上一小节相同，本节讨论的依然为M × N规模的输出，而这些输出要使用M个KH × KW大小的输入，其中有数据重用。</p>
+<p>和上一小节相同，本节讨论的依然为 M × N 规模的输出，而这些输出要使用 M 个 KH × KW 大小的输入，其中有数据重用。</p>
 <p>卷积之所以可以使用 Im2col 优化算法，本质原因在于其拆解后忽略内存复用后的计算过程等价于矩阵乘。</p>
 <p>间接缓冲区使得可以通过指针模拟出对输入的访存。在实际运行计算尺寸为 M × N 的计算核时，会有 M 个智障扫描输入。M 个指针每次从间接缓冲区中取出 M 个地址，即对应于 M × IC 的输入内存。指针以 M × S 的形式运行，其中 S 在 IC 维度上运动。此部分输入扫描完毕后，这 M 个指针从间接缓冲区中继续取出相应部分的指针，继续对下一轮 M × IC 输入内存进行遍历，每次计算出输出部分的大小为 1/(KH × KW)。当这个过程运行 KH × KW 次后即得到了 M × N 的输出。这一部分的操作可以用下面的伪代码表示出来。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">kh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">kh</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">KH</span><span class="p">;</span><span class="w"> </span><span class="n">kh</span><span class="o">++</span><span class="p">){</span>
@@ -899,7 +901,7 @@ for each pointer in program:
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>由于间接缓冲区已经被组织成了特定的形状，因此每次更新M个指针时，只需要从间接缓冲区指针（伪代码中p_indirect_buffer）中获取。</p>
+<p>由于间接缓冲区已经被组织成了特定的形状，因此每次更新 M 个指针时，只需要从间接缓冲区指针（伪代码中 p_indirect_buffer）中获取。</p>
 <p>上述 M 个指针不断运动扫描的过程其实就是在扫描三维输入经过 Im2Col 之后的矩阵，而输入缓冲区的特点就是他将对二维矩阵的扫描转为对三维张量的扫描。上述 M × IC 的内存块其实是由 M 个 1 × IC 张量组成，他们之间 W 维度的间距为步长 stride。这样一来，只需要运行</p>
 <div class="math notranslate nohighlight">
 \[ \[ \left\lceil \frac{OH \times OW}{M} \right\rceil \times \left\lceil \frac{OC}{N} \right\rceil \] \]</div>
@@ -1040,7 +1042,7 @@ for each pointer in program:
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 15, 2024.
+  Last updated on Jun 18, 2024.
   <br/>
 </p>
   </div>

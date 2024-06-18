@@ -40,4 +40,5 @@
 04LoopOpt
 05OtherOpt
 06AutoTuning
+07Practice
 ```

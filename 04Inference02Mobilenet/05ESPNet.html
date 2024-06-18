@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 18, 2024"/>
 
 <link
   rel="alternate"
@@ -265,13 +265,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/06BitWidth.html">计算之比特位宽(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算(DONE)</a></li>
 </ul>
 </details></li>
@@ -302,6 +302,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪(DONE)</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/AscendArch.html">昇腾 AI 处理器</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -329,8 +330,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
@@ -355,6 +356,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -783,7 +785,7 @@ document.write(`
 <p><img alt="ESPNet" src="../_images/05Espnet02.png" /></p>
 <p>上图(a)举例说明一个网格伪像，其中单个活动像素（红色）与膨胀率 r = 2 的 3×3 膨胀卷积核卷积。</p>
 <p>上图(b)具有和不具有层次特征融合（Hierarchical feature fusion，HFF）的 ESP 模块特征图可视化。ESP 中的 HFF 消除了网格伪影。彩色观看效果最佳。</p>
-<p>为了解决 ESP 中的网格问题，使用不同膨胀率的核获得的特征映射在拼接之前会进行层次化添加（上图b中的 HFF）。该解决方案简单有效，且不会增加 ESP 模块的复杂性，这与现有方法不同，现有方法通过使用膨胀率较小的卷积核学习更多参数来消除网格误差[Dilated residual networks,Understanding convolution for semantic segmentation]。为了改善网络内部的梯度流动，ESP 模块的输入和输出特征映射使用元素求和[Deep residual learning for image recognition]进行组合。</p>
+<p>为了解决 ESP 中的网格问题，使用不同膨胀率的核获得的特征映射在拼接之前会进行层次化添加（上图 b 中的 HFF）。该解决方案简单有效，且不会增加 ESP 模块的复杂性，这与现有方法不同，现有方法通过使用膨胀率较小的卷积核学习更多参数来消除网格误差[Dilated residual networks,Understanding convolution for semantic segmentation]。为了改善网络内部的梯度流动，ESP 模块的输入和输出特征映射使用元素求和[Deep residual learning for image recognition]进行组合。</p>
 </section>
 <section id="id1">
 <h3>网络结构<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
@@ -850,7 +852,7 @@ document.write(`
 <p>如上图中 b 所示，能够降低 <span class="math notranslate nohighlight">\(\frac{Md+n^{2}d^{2}K}{\frac{Md}{g}+(n^{2}+d)dK}\)</span> 倍计算复杂度，K 为空洞卷积金字塔层数。考虑到单独计算 K 个 point-wise 卷积等同于单个分组数为 K 的 point-wise 分组卷积，而分组卷积的在实现上更高效，于是改进为上图 c 的最终结构。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EESP</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">       按照REDUCE ---&gt; SPLIT ---&gt; TRANSFORM --&gt; MERGE </span>
+<span class="sd">       按照 REDUCE ---&gt; SPLIT ---&gt; TRANSFORM --&gt; MERGE </span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nIn</span><span class="p">,</span> <span class="n">nOut</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">r_lim</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">down_method</span><span class="o">=</span><span class="s1">&#39;esp&#39;</span><span class="p">):</span>                   
@@ -863,17 +865,17 @@ document.write(`
 
         <span class="bp">self</span><span class="o">.</span><span class="n">proj_1x1</span> <span class="o">=</span> <span class="n">CBR</span><span class="p">(</span><span class="n">nIn</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
 
-        <span class="c1">#3x3核的膨胀率和感受野之间的映射</span>
+        <span class="c1">#3x3 核的膨胀率和感受野之间的映射</span>
         <span class="n">map_receptive_ksize</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">13</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">17</span><span class="p">:</span> <span class="mi">8</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">k_sizes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
             <span class="n">ksize</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
-            <span class="c1"># 达到感受野极限后，回落到3x3，膨胀率为1的基础卷积</span>
+            <span class="c1"># 达到感受野极限后，回落到 3x3，膨胀率为 1 的基础卷积</span>
             <span class="n">ksize</span> <span class="o">=</span> <span class="n">ksize</span> <span class="k">if</span> <span class="n">ksize</span> <span class="o">&lt;=</span> <span class="n">r_lim</span> <span class="k">else</span> <span class="mi">3</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">k_sizes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ksize</span><span class="p">)</span>
         <span class="c1">#根据感受野对这些核大小进行排序（升序）</span>
-        <span class="c1">#这使我们能够忽略分层中具有相同有效感受野的核（在我们的例子中为3×3）</span>
-        <span class="c1"># 特征融合，因为3x3感受野的核不具有网格伪影。</span>
+        <span class="c1">#这使我们能够忽略分层中具有相同有效感受野的核（在我们的例子中为 3×3）</span>
+        <span class="c1"># 特征融合，因为 3x3 感受野的核不具有网格伪影。</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">k_sizes</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">spp_dw</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">()</span>
      
@@ -896,7 +898,7 @@ document.write(`
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spp_dw</span><span class="p">)):</span>
             <span class="n">out_k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spp_dw</span><span class="p">[</span><span class="n">k</span><span class="p">](</span><span class="n">output1</span><span class="p">)</span>
             <span class="c1"># HFF</span>
-            <span class="c1">#我们不组合具有相同感受野的分支(在我们的例子中是3x3)</span>
+            <span class="c1">#我们不组合具有相同感受野的分支(在我们的例子中是 3x3)</span>
          
             <span class="n">out_k</span> <span class="o">=</span> <span class="n">out_k</span> <span class="o">+</span> <span class="n">output</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
             <span class="c1">#融合后应用批量定额，然后添加到列表中</span>
@@ -909,7 +911,7 @@ document.write(`
         <span class="p">)</span>
         <span class="k">del</span> <span class="n">output</span>
         <span class="c1"># 如果下采样，则返回连接的向量</span>
-        <span class="c1"># 因为下采样功能会将其与avg合并。合并特征图，然后对其进行阈值处理</span>
+        <span class="c1"># 因为下采样功能会将其与 avg 合并。合并特征图，然后对其进行阈值处理</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">downAvg</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">expanded</span>
 
@@ -933,7 +935,7 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="k">class</span> <span class="nc">DownSampler</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">   具有两个并行分支的下采样功能：平均池和步长为2的EESP块。然后，使用激活函数将这些分支的输出特征图连接起来并进行阈值处理，以产生最终输出。</span>
+<span class="sd">   具有两个并行分支的下采样功能：平均池和步长为 2 的 EESP 块。然后，使用激活函数将这些分支的输出特征图连接起来并进行阈值处理，以产生最终输出。</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nin</span><span class="p">,</span> <span class="n">nout</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">r_lim</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">reinf</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -1091,7 +1093,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 15, 2024.
+  Last updated on Jun 18, 2024.
   <br/>
 </p>
   </div>

@@ -81,12 +81,12 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="CPU（中央处理器）" href="03CPUData.html" />
+    <link rel="next" title="CPU 计算本质(DONE)" href="03CPUData.html" />
     <link rel="prev" title="CPU 基础 (DONE)" href="01CPUBase.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 18, 2024"/>
 
 <link
   rel="alternate"
@@ -265,13 +265,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/06BitWidth.html">计算之比特位宽(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">AI 芯片基础</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">AI 芯片基础(DONE)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03CPUData.html">CPU（中央处理器）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04CPULatency.html">CPU 计算时延</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03CPUData.html">CPU 计算本质(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04CPULatency.html">CPU 计算时延(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05GPUBase.html">GPU 基础 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06NPUBase.html">NPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06NPUBase.html">NPU 基础(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07Future.html">超异构计算(DONE)</a></li>
 </ul>
 </details></li>
@@ -302,6 +302,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪(DONE)</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/AscendArch.html">昇腾 AI 处理器</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -329,8 +330,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
@@ -355,6 +356,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -830,7 +832,7 @@ document.write(`
 <li><p>RISC 架构缺点：包括程序代码长度较长和对编译器优化的依赖。由于每条指令执行的操作较少，实现同样功能的程序可能需要更多的指令，从而增加了程序代码的长度。RISC 架构依赖编译器生成高效的机器代码，这要求编译器具备较高的优化能力，以充分发挥处理器的性能。</p></li>
 </ul>
 <p>随着技术的进步，现代 RISC 架构不断发展，通过引入更多的优化技术和改进设计，提高处理器性能和能效。例如，现代 RISC 处理器广泛采用超标量（superscalar）和超线程（hyper-threading）技术，提高指令级并行度和处理器资源利用率。此外，RISC 架构还引入了更多高级的编译器优化技术，如指令调度和寄存器分配，以进一步提升指令执行效率。</p>
-<p>=========== 增加 RISC 的图片TODO ZOMI</p>
+<p>=========== 增加 RISC 的图片 TODO ZOMI</p>
 </section>
 <section id="id5">
 <h3>ISA 历史种类<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
@@ -930,14 +932,14 @@ document.write(`
 <p>在服务器领域，x86 架构一直占据主导地位，尤其是在工业、金融业、科研、医疗等各大数据中心和企业级应用中。Intel 和 AMD 是主要供应商，提供高性能、高兼容性的处理器。x86 架构服务器广泛用于云计算、高性能计算（HPC）、大数据分析等应用场景。ARM 架构在服务器市场的渗透率较低，但近年来有所增长，主要得益于其低功耗、高效率的优势。像 AWS 的 Graviton 处理器和 Ampere 的 Altra 处理器，基于 ARM 架构，已在一些数据中心和边缘计算应用中得到采用。</p>
 <p>对于在服务器中使用 X86 以及 ARM 的优缺点，在市场中是有着充分论证的。x86 架构的主要优点是高性能和成熟的生态系统，兼容性强，适合高计算需求的任务。缺点包括功耗较高和成本较高。ARM 架构的优点是低功耗和高扩展性，适合节能计算任务，且成本相对较低。缺点是软件生态较弱和单线程性能通常低于 x86。</p>
 <p>从长远来看，x86 架构在高性能计算和企业级应用中将继续占据重要地位，但面临来自 ARM 架构的竞争。ARM 架构将在云计算、边缘计算等领域逐步增加市场份额，尤其在高效能和低功耗应用中。但由于这两种架构的授权等问题是持续存在的，国产化路线的选择也是近些年各大厂商一直在探索的问题。</p>
-<p>========= 增加服务器 X86 和 ARM 的图片TODO ZOMI</p>
+<p>========= 增加服务器 X86 和 ARM 的图片 TODO ZOMI</p>
 </section>
 <section id="pc">
 <h3>PC 领域<a class="headerlink" href="#pc" title="Link to this heading">#</a></h3>
 <p>x86 架构在个人电脑领域是主流，Intel 和 AMD 的处理器在台式机和笔记本市场占据主要份额，如 Intel Core 系列、AMD Ryzen 系列主导着桌面电脑、笔记本电脑和工作站市场，不断迭代优化以提高单核性能、增加多核心数量和集成显卡性能，并支持新的接口和技术，Windows 和大部分主流软件对 x86 架构有良好支持。近年来，Apple 推出基于 ARM 架构的 M 系列芯片（如 M1、M2），在 MacBook 和 iMac 中取得显著成功，在轻薄、长续航、性能提升和 AI 加速器集成等方面持续发展，推动了 ARM 架构在个人电脑中的应用。</p>
 <p>x86 架构的优点包括高性能和广泛的软件兼容性，适合各种复杂应用和游戏。缺点是功耗高和散热需求高。ARM 架构的优点是低功耗和高集成度，特别适合移动设备，续航时间长。缺点包括软件兼容性差和在某些高性能需求场景下表现不如 x86。</p>
 <p>对于未来发展，x86 架构将在高性能和专业应用市场继续占据重要位置，但 ARM 架构在轻薄笔记本和高效办公领域的份额有望增加，特别是随着 Apple 的成功和其他厂商的跟进。</p>
-<p>========= 增加 PC X86 和 ARM 的图片TODO ZOMI</p>
+<p>========= 增加 PC X86 和 ARM 的图片 TODO ZOMI</p>
 </section>
 <section id="id9">
 <h3>嵌入式领域<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
@@ -945,7 +947,7 @@ document.write(`
 <p>手机市场几乎完全由 ARM 架构主导，所有主流智能手机处理器（如 Apple A 系列、Qualcomm Snapdragon、Samsung Exynos 等）都基于 ARM 架构。在其他嵌入式领域，ARM（例如 Cortex-M 系列、Cortex-R 系列和 Cortex-A 系列）同样占据主导地位。ARM 处理器广泛用于物联网设备、智能家居、可穿戴设备、工业控制器、车载信息娱乐系统、仪表盘、智能家电、便携式医疗设备等。其低功耗、高集成度的特性使其在这些应用中非常受欢迎。此外，RISC-V 架构的开源特性、定制化优势和适应新兴应用的灵活性，使其在物联网、智能家居和传感器网络等领域受到越来越多的关注和应用。相比之下，x86 架构在嵌入式领域的应用相对较少，主要出现在一些需要高性能计算和复杂数据处理的场景，如高端工业控制系统、高性能网关、某些车载信息娱乐系统和高级医疗设备等。</p>
 <p>ARM 架构的主要优点在于低功耗和高集成度，适合电池供电的便携设备和需要高效能的应用。此外，ARM 处理器成本较低，适合大规模生产和应用。其缺点包括在某些高性能需求场景下性能较低，软件兼容性较弱。x86 架构的优点则是高性能和成熟的生态系统，适合复杂计算和数据处理。其缺点是高功耗和成本较高，在资源受限的嵌入式设备中不具竞争力。</p>
 <p>ARM 架构在嵌入式领域的普及将进一步扩大，特别是在物联网、智能家居、汽车电子和便携式医疗设备中。随着技术的发展，ARM 处理器的性能和能效将继续提升，进一步增强其市场竞争力。x86 架构则将在需要高性能计算和复杂数据处理的高端嵌入式系统中继续发挥作用，特别是在高性能边缘计算设备和高级工业控制系统中。总的来说，ARM 架构将凭借其灵活性和高效能在更多领域中占据主导地位，而 x86 架构将在特定高性能应用中继续保持重要地位，而例如 RISC-V 等架构则是只会出现在特定产品中，缺少相应生态的支持。</p>
-<p>========= 增加服务器 X86 和 ARM 的图片TODO ZOMI</p>
+<p>========= 增加服务器 X86 和 ARM 的图片 TODO ZOMI</p>
 </section>
 </section>
 <section id="id10">
@@ -1012,7 +1014,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">CPU（中央处理器）</p>
+        <p class="prev-next-title">CPU 计算本质(DONE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1084,7 +1086,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 15, 2024.
+  Last updated on Jun 18, 2024.
   <br/>
 </p>
   </div>

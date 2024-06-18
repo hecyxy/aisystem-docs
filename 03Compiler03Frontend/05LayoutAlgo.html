@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="03Compiler03Frontend/05LayoutAlgo.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="待更新中，卷的不行了卷得不行了！ZOMI 一个人晚上下班后才能更新视频和文章，如果您有兴趣也非常希望您能够参与进来（Github Issues 区留言或者 B 站私信 ZOMI 哦），一起写 AI 系统，一起分享 AI 系统的知识。 本节视频:" />
+<meta property="og:description" content="接着上节中我们对卷积神经网络的特征图存储方式的讨论。&quot;NHWC&quot;的数据排布方式更适合多核 CPU 运算，&quot;NCHW&quot;的数据排布方式更适合 GPU 并行运算。那么接下来让我们了解一下在华为昇腾的 NPU 中，这种特征图的存储方式。 华为昇腾数据排布: 我们在上半篇曾提到过，数据排布格式的转换主要是将内部数据布局转换为硬件设备友好的形式，实际在华为昇腾的 AI 处理器中，为了提高通用矩阵乘法运算..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="待更新中，卷的不行了卷得不行了！ZOMI 一个人晚上下班后才能更新视频和文章，如果您有兴趣也非常希望您能够参与进来（Github Issues 区留言或者 B 站私信 ZOMI 哦），一起写 AI 系统，一起分享 AI 系统的知识。 本节视频:" />
-<meta name="description" content="待更新中，卷的不行了卷得不行了！ZOMI 一个人晚上下班后才能更新视频和文章，如果您有兴趣也非常希望您能够参与进来（Github Issues 区留言或者 B 站私信 ZOMI 哦），一起写 AI 系统，一起分享 AI 系统的知识。 本节视频:" />
+<meta property="og:image:alt" content="接着上节中我们对卷积神经网络的特征图存储方式的讨论。&quot;NHWC&quot;的数据排布方式更适合多核 CPU 运算，&quot;NCHW&quot;的数据排布方式更适合 GPU 并行运算。那么接下来让我们了解一下在华为昇腾的 NPU 中，这种特征图的存储方式。 华为昇腾数据排布: 我们在上半篇曾提到过，数据排布格式的转换主要是将内部数据布局转换..." />
+<meta name="description" content="接着上节中我们对卷积神经网络的特征图存储方式的讨论。&quot;NHWC&quot;的数据排布方式更适合多核 CPU 运算，&quot;NCHW&quot;的数据排布方式更适合 GPU 并行运算。那么接下来让我们了解一下在华为昇腾的 NPU 中，这种特征图的存储方式。 华为昇腾数据排布: 我们在上半篇曾提到过，数据排布格式的转换主要是将内部数据布局转换为硬件设备友好的形式，实际在华为昇腾的 AI 处理器中，为了提高通用矩阵乘法运算..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>布局转换算法 &#8212; AI System</title>
@@ -74,6 +74,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '03Compiler03Frontend/05LayoutAlgo';</script>
     <script src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     <link rel="icon" href="../_static/logo-square.svg"/>
@@ -84,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 18, 2024"/>
 
 <link
   rel="alternate"
@@ -263,13 +265,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/06BitWidth.html">计算之比特位宽(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算(DONE)</a></li>
 </ul>
 </details></li>
@@ -300,6 +302,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪(DONE)</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/AscendArch.html">昇腾 AI 处理器</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -327,8 +330,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
@@ -353,6 +356,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -680,7 +684,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">华为昇腾数据排布</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-z-nz">Fractal Z &amp; NZ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI 编译器布局转换算法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">小结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -694,13 +702,72 @@ document.write(`
                   
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>布局转换算法<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<blockquote>
-<div><p>待更新中，卷的不行了卷得不行了！ZOMI 一个人晚上下班后才能更新视频和文章，如果您有兴趣也非常希望您能够参与进来（Github Issues 区留言或者 B 站私信 ZOMI 哦），一起写 AI 系统，一起分享 AI 系统的知识。</p>
-</div></blockquote>
+<p>接着上节中我们对卷积神经网络的特征图存储方式的讨论。&quot;NHWC&quot;的数据排布方式更适合多核 CPU 运算，&quot;NCHW&quot;的数据排布方式更适合 GPU 并行运算。那么接下来让我们了解一下在华为昇腾的 NPU 中，这种特征图的存储方式。</p>
 <section id="id2">
-<h2>本节视频<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2>华为昇腾数据排布<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>我们在上半篇曾提到过，数据排布格式的转换主要是将内部数据布局转换为硬件设备友好的形式，实际在华为昇腾的 AI 处理器中，为了提高通用矩阵乘法运算和访存的效率，一般既不选择 NHWC,也不选择 NCHW 来对多维数据进行存储。</p>
+<p>这里我们将华为昇腾的数据排布作为一个案例，这种多维数据统一采用 NC1HWC0 的五维数据格式进行存储，具体的含义是将数据从 C 维度分割成 C1 份 C0。</p>
+<p>如下图中所示，下图中将 N 这个维度进行了省略，原先的红色长方体展现的是 CHW 三个维度，将它在 C 维度分割成 C1 个长方体，每个长方体的三个维度为 C0HW，而后将这 C1 份长方体在内存中连续排列，此处的 C1=C/C0，如果不能除尽则向上取整，对应着上半篇中的内存对齐，也就是通道现在变成了 C0 个，其中 C0 对于 FP16 类型为 16，对于 INT8 类型则为 32，这部分数据需要连续存储。</p>
+<p><img alt="NC1HWC0 示意图" src="../03Compiler/images/03Compiler03Frontend/05LayoutAlgo01.png" /></p>
+<p>这样子的数据排布我们从硬件的角度来进行分析，华为的达芬奇架构在 AI Core 中特意优化了矩阵乘法单元，矩阵计算单元可以快速完成两个 16✖16 矩阵的相乘运算，等同于可以在极短时间内进行 <span class="math notranslate nohighlight">\(16^3\)</span>=4096 个乘加运算，并且可以实现 FP16 的运算精度，也就是说其可以针对 16 个 FP16 类型的数据进行快速的计算。这也就是我们对 C0 在 FP16 类型取 16，INT8 类型取 32 的部分原因。</p>
+<p>下面我们来介绍一下如何转换出 NC1HWC0 数据格式：</p>
+<p>将 NHWC 转换为 NC1HWC0 数据格式</p>
+<p>具体操作：1.将 NHWC 数据在 C 维度进行分割，变成 C1 份 NHWC0。</p>
+<p>2.将 C1 份 NHWC0 在内存中连续排列，由此变成 NC1HWC0。</p>
+<p>pytorch 中代码如下所示</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> 
+<span class="mi">2</span>  <span class="n">Tensor</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span> <span class="p">[</span><span class="n">N</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">C0</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="p">)</span>
+<span class="mi">3</span>
+</pre></div>
+</div>
+<p>将 NCHW 转换为 NC1HWC0 数据格式</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> 
+<span class="mi">2</span>  <span class="n">Tensor</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span> <span class="p">[</span><span class="n">N</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">C0</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+<span class="mi">3</span>
+</pre></div>
+</div>
+</section>
+<section id="fractal-z-nz">
+<h2>Fractal Z &amp; NZ<a class="headerlink" href="#fractal-z-nz" title="Link to this heading">#</a></h2>
+<p>ND 格式 （N-Dimension），是深度学习网络中最常见且最基本的张量存储格式，代表 N 维度的张量数据。</p>
+<p>为了在达芬奇架构中更高效的搬运和进行矩阵计算，引入一种特殊的数据分形格式，NZ 格式。<br>如下图所示，我们以 4*4 的矩阵来进行举例，按照 NZ 格式数据在内存中的排布格式为[0，1，4，5，8，9，12，13，2，3，6，7，10，11，14，15]，按照 ND 格式数据在内存中的排布格式为[0， 1，2，3，4，5，6，7，8，9，10，11，12，13，14，15]。</p>
+<p><img alt="NZ 示意图" src="../03Compiler/images/03Compiler03Frontend/05LayoutAlgo02.png" /></p>
+<p>如下图所示，NZ 分形操作中，整个矩阵被分为（H1 * W1）个分形，分形之间按照列主序排布，即类比行主序的存储方式，列主序是先存储一列再存储相邻的下一列，这样整体存储形状形如 N 字形；每个分形内部有（H0 * W0）个元素，按照行主序排布，形状如 Z 字形。</p>
+<p><img alt="NZ 矩阵示意图" src="../03Compiler/images/03Compiler03Frontend/05LayoutAlgo03.png" /></p>
+<p>下面我们详细地对 NZ 格式（也被称为 NW1H1H0W0 格式）具体在内存中存储的维度优先顺序进行展开。先对一个分形内部进行行主序存储，再在一个完整矩阵中以分形宽度为划分，进行列主序存储，再依次对相邻的下一个矩阵进行存储。即此方式先按 W0 方向存储，再按 H0 方向存储，接着按照 H1 方向存储，随后按照 W1 方向存储，最后按 N 方向存储，直到所有数据存储完成。</p>
+<p>下面我们介绍一下如何将 ND 数据格式转换为 NZ 数据格式：</p>
+<p>将 ND 转换为 NZ 数据格式</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1  (..., N，H, W )-&gt;pad-&gt;(..., N, H1*H0, W1*W0)-&gt;reshape-&gt;(..., N, H1, H0, W1, W0)-&gt;transpose-&gt;(..., N, W1, H1, H0, W0)
+</pre></div>
+</div>
+<p>其中 pad 为平铺操作，reshape 将张量进行拆分，形状重塑，transpose 为转置操作。</p>
+<p>除了 ND 和 NZ 格式，还有其他数据格式，如下图所示，图中最左侧小 z 大 Z，即为 ND 格式示意图，块内按照行排序，块间也按照行排序，常用于特征图的数据存储。图中中间部分为小 n 大 Z，块内按照列排序，块间按照行排序，常用于权重的数据存储。图中右侧部分为小 z 大 N，即为 NZ 格式示意图，块内按照行排序，块间按照列排序，常用于卷积结果的输出。</p>
+<p><img alt="众多数据格式示意图" src="../03Compiler/images/03Compiler03Frontend/05LayoutAlgo04.png" /></p>
+</section>
+<section id="ai">
+<h2>AI 编译器布局转换算法<a class="headerlink" href="#ai" title="Link to this heading">#</a></h2>
+<p>了解了基础知识与部分硬件中应用后，我们来了解一下在 AI 编译器中如何对数据布局进行转换优化。</p>
+<p>首先，我们转换数据布局的目的是将将内部数据布局转化为后端设备（硬件）友好的形式，我们需要做的是尝试找到在计算图中存储张量的最佳数据布局，然后将布局转换节点插入到图中。但其中有个需要十分注意的地方，布局转换也是需要很大的开销的，一旦涉及布局转换，就会有 I/O 操作，其产生的代价能否比的上数据格式转换后带来的性能优化也是需要我们重点考虑的部分。</p>
+<p>具体地来说，比如 NCHW 格式操作在 GPU 上通常运行得更快，所以在 GPU 上转换为 NCHW 格式是较为有效的操作。<br>一些 AI 编译器依赖于特定于硬件的库来实现更高的性能，而这些库可能需要特定的布局，比如华为昇腾的 AI 编译器就依赖于 CANN 库，其中的特定布局我们在上文中已经提到。<br>同时也有许多设备需要配备异构计算单元，比如手机，其 SOC 中有丰富的 IP，arm 端侧的 GPU 还有 ISP 以及 DPU 等一系列不同计算单元。不同的单元可能需要不同的数据布局以更好地利用数据，这就需要 AI 编译器提供一种跨各种硬件执行布局转换的方法。</p>
+<p>下面我们来看看数据转换具体是如何操作的。如下图所示，这两个都是数据转换的算子，数据转换我们在这里用 CASTDATA 算子来表示，左侧输入的数据格式为 NHWC，输出的数据格式为 NCHW，那么就需要一个数据转换算子节点来将数据格式由 NHWC 转换为 NCHW，右侧则相反过来，此处不再赘述。</p>
+<p><img alt="数据转换节点示意图" src="../03Compiler/images/03Compiler03Frontend/05LayoutAlgo05.png" /></p>
+<p>接下来，我们来看略复杂一些的数据转换。<br>如下图所示，首先像最左侧，此处我们两个算子使用的数据格式与输入输出时都相同，为 NCHW，那么此时 AI 编译器中就不需要加入数据转换节点。<br>中间部分，输入的数据格式为 NCHW，算子一需求的数据格式为 NHWC，需要在两者之间插入一个 CASTDATA NCHW TO NHWC 算子进行数据转换，算子二格式也为 NHWC，数据格式相同，不需要转换，输出的数据格式为 NCHW，那么在算子二到输出间需要插入一个 CASTDATA NHWC TO NCHW 算子进行数据转换。<br>最右侧这张图中，输入的数据格式为 NCHW，算子一需求的数据格式为 NHWC，需要在两者之间插入一个 CASTDATA NCHW TO NHWC 算子进行数据转换，算子二格式为 NCHW，需要在算子一到算子二之间插入一个 CASTDATA NHWC TO NCHW 算子进行数据转换。输出与算子二数据格式相同，不做额外处理。</p>
+<p><img alt="复杂数据转换节点示意图" src="../03Compiler/images/03Compiler03Frontend/05LayoutAlgo06.png" /></p>
+<p>接下来我们讲两个例子，首先我们来讲解一下训练场景下 AI 编译器的例子，例如 1×1 的卷积常常使用 NHWC 的数据格式，而如果到后面使用的是 3×3 的卷积常常使用 NCHW 的数据格式，AI 编译器此时能够感知上下文，得到这些存储格式的信息，这时候 AI 编译器就会根据具体的数据格式插入需要的转换算子，并且整个过程不会改变原先原计算图的其他内容。</p>
+<p>再假设此时我们使用的是三个连续的 1×1 的卷积算子，使用的都是 NHWC 的数据格式，算子之间的数据格式是一样的，那么此时 AI 编译器需要取消掉多余的转换算子。</p>
+<p>接着我们来讲解一下推理场景下 AI 编译器与训练场景下有什么不同，其中较大的区别是与会有在权重数据进行布局的转换。假设训练时使用的是 GPU 对神经网络进行训练，但是推理的时候会在更多的场景下进行使用，比如手机上进行推理，手机上较多使用的是 CPU，其进行推理时与在 GPU 上进行训练时的权重数据的布局可能会有所不同，那么此时就需要 AI 推理编译器插入一个权重布局的转换。</p>
+</section>
+<section id="id3">
+<h2>小结<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>本小节中我们主要介绍了</p>
+<p>1.卷积神经网络的特征图在华为昇腾 NPU 中的存储的数据排布格式，为 NC1HWC0 的五维数据格式，是将数据从 C 维度分割成 C1 份 C0，原因是能够更好地贴合华为的达芬奇架构中优化的矩阵乘法单元。</p>
+<p>2.华为昇腾 NPU 中的张量存储的数据排布格式，有 ND，NZ，以及小 n 大 Z 等等数据格式。</p>
+<p>3.AI 编译器中具体对数据布局进行转换优化的方式：插入 CASTDATA 算子进行数据转换，或者消除 CASTDATA 算子，亦或是推理场景下对权重布局的转换，都是为了计算图在对应硬件环境下能够完整执行。</p>
+</section>
+<section id="id4">
+<h2>本节视频<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <html>
-<iframe src="https:&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="https://www.bilibili.com/video/BV1gd4y1Y7dc/?vd_source=2f45292201835520d512b8f7c607b1fd" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
 </section>
 </section>
@@ -773,7 +840,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">华为昇腾数据排布</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractal-z-nz">Fractal Z &amp; NZ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI 编译器布局转换算法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">小结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -796,7 +867,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 15, 2024.
+  Last updated on Jun 18, 2024.
   <br/>
 </p>
   </div>

@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 15, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 18, 2024"/>
 
 <link
   rel="alternate"
@@ -265,13 +265,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware01Foundation/06BitWidth.html">计算之比特位宽(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware02ChipBase/README.html">AI 芯片基础(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/01CPUBase.html">CPU 基础 (DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/02CPUISA.html">CPU 指令集架构 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU（中央处理器）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/03CPUData.html">CPU 计算本质(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/04CPULatency.html">CPU 计算时延(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/05GPUBase.html">GPU 基础 (DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/06NPUBase.html">NPU 基础(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware02ChipBase/07Future.html">超异构计算(DONE)</a></li>
 </ul>
 </details></li>
@@ -302,6 +302,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪(DONE)</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/AscendArch.html">昇腾 AI 处理器</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -329,8 +330,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
@@ -355,6 +356,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -758,15 +760,15 @@ s.t. \ \ \ \ w\in R^m, \ \ ||w||_0 \leq k
 <p>具体的剪枝流程按照剪枝发生的时间可以分成四种： <strong>训练前剪枝</strong>、 <strong>训练中剪枝</strong>、 <strong>训练后剪枝</strong> 以及 <strong>运行时剪枝</strong>。前三种剪枝流程在模型实际部署推理之前，模型剪枝就已经完成且模型参数结构已确定，对不同的输入共享相同的模型结构和推理过程。运行时剪枝恰好相反，其根据输入的数据，在模型推理时动态地为每个输入数据点修剪模型并生成子网络，因此不同的数据实际所见的模型结构和参数是不同的。</p>
 <section id="id8">
 <h4>训练前剪枝<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
-<p>训练前剪枝(Pruning Before Training, PBT)也被称为初始化剪枝，它在网络被训练之前，基于随机初始化的权值对网络进行剪枝，其主要的动机是消除预训练的成本。PBT 通常分为两步: 首先根据特定的准则对未训练的稠密网络进行直接剪枝，目的是得到结构较稀疏的网络，然后对此稀疏网络进行训练，使其收敛从而获得更高的精度，具体过程如下图所示。PBT没有耗时的预训练，使模型在训练和推理都获得加速。</p>
+<p>训练前剪枝(Pruning Before Training, PBT)也被称为初始化剪枝，它在网络被训练之前，基于随机初始化的权值对网络进行剪枝，其主要的动机是消除预训练的成本。PBT 通常分为两步: 首先根据特定的准则对未训练的稠密网络进行直接剪枝，目的是得到结构较稀疏的网络，然后对此稀疏网络进行训练，使其收敛从而获得更高的精度，具体过程如下图所示。PBT 没有耗时的预训练，使模型在训练和推理都获得加速。</p>
 <p><img alt="训练前剪枝" src="../_images/pruning05.png" /></p>
 </section>
 <section id="id9">
 <h4>训练中剪枝<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
-<p>训练期间剪枝(Pruning During Training，PDT)将模型训练和参数修剪融合在一起，在模型训练中修剪神经网络，当模型训练结束剪枝也同时完成，不需要预训练或者或重训练微调。PDT的具体过程如图3.2所示，其中以虚线表示后面的操作不是必要的。</p>
-<p>由于PDT方法比较复杂，研究较少，具体的相关剪枝算法总结为三种类型:</p>
+<p>训练期间剪枝(Pruning During Training，PDT)将模型训练和参数修剪融合在一起，在模型训练中修剪神经网络，当模型训练结束剪枝也同时完成，不需要预训练或者或重训练微调。PDT 的具体过程如图 3.2 所示，其中以虚线表示后面的操作不是必要的。</p>
+<p>由于 PDT 方法比较复杂，研究较少，具体的相关剪枝算法总结为三种类型:</p>
 <ol class="arabic simple">
-<li><p><strong>基于稀疏正则化的方法</strong>：初始时模型是一个相对稠密的网络，为了让模型变得稀疏，需要对损失函数施加稀疏约束，例如给损失函数添加一个 <span class="math notranslate nohighlight">\(L_1\)</span> 正则化项。训练过程中模型会逐渐变得稀疏，必要时需要将一些十分接近0的参数置零。</p></li>
+<li><p><strong>基于稀疏正则化的方法</strong>：初始时模型是一个相对稠密的网络，为了让模型变得稀疏，需要对损失函数施加稀疏约束，例如给损失函数添加一个 <span class="math notranslate nohighlight">\(L_1\)</span> 正则化项。训练过程中模型会逐渐变得稀疏，必要时需要将一些十分接近 0 的参数置零。</p></li>
 <li><p><strong>基于动态基于动态稀疏训练的方法</strong>：初始时模型是一个相对稀疏的网络，而不是密集网络。接下来修剪掉一部分不重要的权重，然后重新生长相同数量的新权重，以调整稀疏结构。通过在训练过程中反复进行修剪和生长循环，不断寻找更好的稀疏结构。</p></li>
 <li><p><strong>基于评分的方法</strong>: 在模型训练过程中评估参数的分数，直接修剪掉得分低的参数，同样地训练完成即剪枝完成，没有预训练和重训练。</p></li>
 </ol>
@@ -775,7 +777,7 @@ s.t. \ \ \ \ w\in R^m, \ \ ||w||_0 \leq k
 </section>
 <section id="id10">
 <h4>训练后剪枝<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
-<p>训练后剪枝（Pruning After Training, PAT）是剪枝流程中最流行的一种 ，因为很多研究认为对稠密网络进行预训练是获得高效子网络的必要条件。这类修剪方法通常遵循Pretrain-Prune-Retrain过程，如下图所示。
+<p>训练后剪枝（Pruning After Training, PAT）是剪枝流程中最流行的一种 ，因为很多研究认为对稠密网络进行预训练是获得高效子网络的必要条件。这类修剪方法通常遵循 Pretrain-Prune-Retrain 过程，如下图所示。
 剪枝的流程主要包括以下三个步骤：</p>
 <ol class="arabic simple">
 <li><p><strong>模型预训练</strong>： 首先，使用标准的训练算法（如梯度下降）对原始模型进行训练，以获得一个基准模型。原始模型一般规模较大，被认为是过参数化的，在该阶段被训练以获得很好的精度。接下来，基准模型会在尽可能不损失精度的情况下被剪枝，以缩小模型规模、减小模型对硬件资源的需求，从而加速模型计算。</p></li>
@@ -784,7 +786,7 @@ s.t. \ \ \ \ w\in R^m, \ \ ||w||_0 \leq k
 <li><p><strong>评估与再剪枝</strong>： 剪枝完成后会对模型进行评估，以验证剪枝操作是否达到了预期的效果，评估通常包括性能指标（如准确率、速度、模型大小等）的比较和分析。如果剪枝结果未达到要求，会将微调之后的网络模型再送到剪枝模块中再次进行剪枝。如此不断迭代地进行模型剪枝优化，直到模型能够满足剪枝目标要求。</p></li>
 </ol>
 <p><img alt="训练后剪枝" src="../_images/pruning07.png" /></p>
-<p>图3.3展示了整个流程，这个流程是一个一般性的框架，具体的剪枝流程可能会因任务需求、模型类型和剪枝策略的不同而有所差异。在实际应用中，会根据具体情况对剪枝流程进行调整和优化。</p>
+<p>图 3.3 展示了整个流程，这个流程是一个一般性的框架，具体的剪枝流程可能会因任务需求、模型类型和剪枝策略的不同而有所差异。在实际应用中，会根据具体情况对剪枝流程进行调整和优化。</p>
 </section>
 <section id="id11">
 <h4>运行时剪枝<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
@@ -795,14 +797,14 @@ s.t. \ \ \ \ w\in R^m, \ \ ||w||_0 \leq k
 <h3>剪枝算法<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <p>许多剪枝算法已经被提出以适应不同类型的神经网络和应用场景。这些算法的共同目标是通过剪枝来减小模型的大小和计算成本，同时尽可能地保持或最小化对模型精度的影响。这些算法在设计上有各自的特点，能够适应不同类型的神经网络。</p>
 <p>在模型剪枝中，贪心法或称基于参数重要性的方法是其中常见的一种策略。其基本思想是先对模型中的参数或结构进行重要性评估，然后按照重要性的顺序对其进行排序，最后将不重要的部分剪除。然而，重要性的衡量方式是一个关键问题。在实际中，通常有多种方法来衡量参数或结构的重要性。</p>
-<p>一个最简单方法就是按参数绝对值大小来评估参数的重要性，越接近0的参数一般对网络输出影响较小，重要性也越低，优先被剪掉。剪枝流程遵循如下图所示的三个步骤：首先通过正常的网络训练学习网络参数。接着修剪低权重的连接，权重低于阈值的所有连接都将从网络中删除，这将密集网络转换为稀疏网络。最后一步是重新训练网络，以学习剩余稀疏连接的最终权值，这一步非常重要，如果使用经过修剪的网络而不进行再训练，模型准确率会受到影响。第二步和第三步会不断迭代进行，直到模型达到目标稀疏度或没有参数可以剪掉。如果一个神经元的所有连接都被剪掉，该神经会被删除。</p>
+<p>一个最简单方法就是按参数绝对值大小来评估参数的重要性，越接近 0 的参数一般对网络输出影响较小，重要性也越低，优先被剪掉。剪枝流程遵循如下图所示的三个步骤：首先通过正常的网络训练学习网络参数。接着修剪低权重的连接，权重低于阈值的所有连接都将从网络中删除，这将密集网络转换为稀疏网络。最后一步是重新训练网络，以学习剩余稀疏连接的最终权值，这一步非常重要，如果使用经过修剪的网络而不进行再训练，模型准确率会受到影响。第二步和第三步会不断迭代进行，直到模型达到目标稀疏度或没有参数可以剪掉。如果一个神经元的所有连接都被剪掉，该神经会被删除。</p>
 <p><img alt="剪枝过程" src="../_images/pruning04.png" /></p>
-<p>但这个剪枝算法存在一个问题，每个被剪掉的参数可能在之后的剪枝操作中重新变得重要，因此参数永久的被删除会导致模型精度永久的下降，即使模型被重训精度也不会恢复。为了解决这个问题，一种动态剪枝的算法被提出，该算法在每次迭代中，通过拼接操作来动态地恢复之前被剪掉但现在又变得重要的参数，过程如下图所示。其中参数的恢复和剪枝是利用一个掩码矩阵 <span class="math notranslate nohighlight">\(T_k\)</span> 来实现的，矩阵 <span class="math notranslate nohighlight">\(T_k\)</span> 中只有0和1两种元素，0表示对应参数被剪掉，1表示未被剪掉。在每次迭代中，<span class="math notranslate nohighlight">\(T_k\)</span> 被判定函数 <span class="math notranslate nohighlight">\(h_k(W_k)\)</span> 以 <span class="math notranslate nohighlight">\(\sigma (iter)\)</span> 的概率动态更新 ( <span class="math notranslate nohighlight">\(iter\)</span> 为迭代次数, <span class="math notranslate nohighlight">\(W_k\)</span> 为参数矩阵)，以剪掉不重要的参数或者重新恢复又变得重要的参数。</p>
+<p>但这个剪枝算法存在一个问题，每个被剪掉的参数可能在之后的剪枝操作中重新变得重要，因此参数永久的被删除会导致模型精度永久的下降，即使模型被重训精度也不会恢复。为了解决这个问题，一种动态剪枝的算法被提出，该算法在每次迭代中，通过拼接操作来动态地恢复之前被剪掉但现在又变得重要的参数，过程如下图所示。其中参数的恢复和剪枝是利用一个掩码矩阵 <span class="math notranslate nohighlight">\(T_k\)</span> 来实现的，矩阵 <span class="math notranslate nohighlight">\(T_k\)</span> 中只有 0 和 1 两种元素，0 表示对应参数被剪掉，1 表示未被剪掉。在每次迭代中，<span class="math notranslate nohighlight">\(T_k\)</span> 被判定函数 <span class="math notranslate nohighlight">\(h_k(W_k)\)</span> 以 <span class="math notranslate nohighlight">\(\sigma (iter)\)</span> 的概率动态更新 ( <span class="math notranslate nohighlight">\(iter\)</span> 为迭代次数, <span class="math notranslate nohighlight">\(W_k\)</span> 为参数矩阵)，以剪掉不重要的参数或者重新恢复又变得重要的参数。</p>
 <p><img alt="动态剪枝流程" src="../_images/pruning08.png" /></p>
 <p>判定函数 <span class="math notranslate nohighlight">\(h_k(W_k)\)</span> 被定义为</p>
 <p><img alt="公式" src="../_images/pruning09.png" /></p>
-<p>其中 <span class="math notranslate nohighlight">\(a_k\)</span> 和 <span class="math notranslate nohighlight">\(b_k\)</span> 是自定义的阈值，用于判定 <span class="math notranslate nohighlight">\(W_k\)</span> 中每个参数的重要性，如果参数绝对值小于 <span class="math notranslate nohighlight">\(a_k\)</span>， 掩码矩阵 <span class="math notranslate nohighlight">\(T_k\)</span> 中对应的元素被置为0，表示参数被剪掉。如果参数绝对值大于 <span class="math notranslate nohighlight">\(b_k\)</span> 掩码矩阵 <span class="math notranslate nohighlight">\(T_k\)</span> 中对应的元素被置为1，表示参数被重新恢复。每次重训练时，每个参数都参与更新，即使该参数被剪掉，只是在正向传播和反向传播过程中，会将矩阵 <span class="math notranslate nohighlight">\(W_k\)</span> 和 <span class="math notranslate nohighlight">\(T_k\)</span> 进行哈达玛积(Hadamard product)来进行参数剪枝。</p>
-<p>上述两种基于权重绝对值的细粒度剪枝方法会产生非规则的稀疏性，无法在一般硬件上得到计算加速。一种针对卷积神经网络，在滤波器级别的结构化剪枝方法被提出，通过删除网络中的整个过滤器及其连接的特征图，使之不需要专门的硬件也能加速神经网络的计算。对于含有多个卷积层的CNN，该算法在第 <span class="math notranslate nohighlight">\(i\)</span> 个卷积层修剪 <span class="math notranslate nohighlight">\(m\)</span> 个滤波器的步骤如下：</p>
+<p>其中 <span class="math notranslate nohighlight">\(a_k\)</span> 和 <span class="math notranslate nohighlight">\(b_k\)</span> 是自定义的阈值，用于判定 <span class="math notranslate nohighlight">\(W_k\)</span> 中每个参数的重要性，如果参数绝对值小于 <span class="math notranslate nohighlight">\(a_k\)</span>， 掩码矩阵 <span class="math notranslate nohighlight">\(T_k\)</span> 中对应的元素被置为 0，表示参数被剪掉。如果参数绝对值大于 <span class="math notranslate nohighlight">\(b_k\)</span> 掩码矩阵 <span class="math notranslate nohighlight">\(T_k\)</span> 中对应的元素被置为 1，表示参数被重新恢复。每次重训练时，每个参数都参与更新，即使该参数被剪掉，只是在正向传播和反向传播过程中，会将矩阵 <span class="math notranslate nohighlight">\(W_k\)</span> 和 <span class="math notranslate nohighlight">\(T_k\)</span> 进行哈达玛积(Hadamard product)来进行参数剪枝。</p>
+<p>上述两种基于权重绝对值的细粒度剪枝方法会产生非规则的稀疏性，无法在一般硬件上得到计算加速。一种针对卷积神经网络，在滤波器级别的结构化剪枝方法被提出，通过删除网络中的整个过滤器及其连接的特征图，使之不需要专门的硬件也能加速神经网络的计算。对于含有多个卷积层的 CNN，该算法在第 <span class="math notranslate nohighlight">\(i\)</span> 个卷积层修剪 <span class="math notranslate nohighlight">\(m\)</span> 个滤波器的步骤如下：</p>
 <ol class="arabic simple">
 <li><p>对于每个滤波器 <span class="math notranslate nohighlight">\(F_{i,j}\)</span>，计算卷积核的权重绝对值之和 <span class="math notranslate nohighlight">\(s_j = \sum^{n_i}_{l=1}\sum|K_l|\)</span>.</p></li>
 <li><p>根据 <span class="math notranslate nohighlight">\(s_j\)</span> 的值排序每个滤波器。</p></li>
@@ -960,7 +962,7 @@ s.t. \ \ \ \ w\in R^m, \ \ ||w||_0 \leq k
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 15, 2024.
+  Last updated on Jun 18, 2024.
   <br/>
 </p>
   </div>
