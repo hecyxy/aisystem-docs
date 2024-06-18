@@ -329,10 +329,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/08LLVMBackend.html">LLVM 后端代码生成(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器基本架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
 </details></li>
@@ -340,8 +340,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
@@ -356,7 +356,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">TVM 实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -762,7 +762,7 @@ document.write(`
 <p><strong>以下是脉动阵列每一步图解</strong></p>
 <p>第一步(<span class="math notranslate nohighlight">\(T=1\)</span>): <span class="math notranslate nohighlight">\(a_{0,0}\)</span> 和 <span class="math notranslate nohighlight">\(b_{0,0}\)</span> 进入 MXU 在第一个处理器被计算，并等待下一轮的数据</p>
 <p><img alt="Alt text" src="../_images/05TPU108.png" /></p>
-<p>第二步（<span class="math notranslate nohighlight">\(T=2\)</span>）：<span class="math notranslate nohighlight">\(a_{0,0}\)</span> 和 <span class="math notranslate nohighlight">\(b_{0,0}\)</span> 沿着原方向被传到下一个处理器，分别与新传入的 <span class="math notranslate nohighlight">\(a_{1,0}\)</span> 和 <span class="math notranslate nohighlight">\(b_{0,1}\)</span> 计算<br>同时 <span class="math notranslate nohighlight">\(a_{0,1}\)</span> 和 <span class="math notranslate nohighlight">\(b_{1,0}\)</span> 进入第一个处理器，和上一轮 <span class="math notranslate nohighlight">\(a_{0,0}\)</span> 和 <span class="math notranslate nohighlight">\(b_{0,0}\)</span> 的计算结果累加</p>
+<p>第二步（<span class="math notranslate nohighlight">\(T=2\)</span>）：<span class="math notranslate nohighlight">\(a_{0,0}\)</span> 和 <span class="math notranslate nohighlight">\(b_{0,0}\)</span> 沿着原方向被传到下一个处理器，分别与新传入的 <span class="math notranslate nohighlight">\(a_{1,0}\)</span> 和 <span class="math notranslate nohighlight">\(b_{0,1}\)</span> 计算。同时 <span class="math notranslate nohighlight">\(a_{0,1}\)</span> 和 <span class="math notranslate nohighlight">\(b_{1,0}\)</span> 进入第一个处理器，和上一轮 <span class="math notranslate nohighlight">\(a_{0,0}\)</span> 和 <span class="math notranslate nohighlight">\(b_{0,0}\)</span> 的计算结果累加</p>
 <p><img alt="Alt text" src="../_images/05TPU109.png" /></p>
 <p>以此类推，反复应用这个计算逻辑，我们就能最终得到矩阵 A 每一行元素和矩阵 B 每一列元素的点乘，再最终将这些运算结果输出，就获得了最终的结果。以下是这个计算过程的的剩余流程展示：</p>
 <p><span class="math notranslate nohighlight">\(T=3\)</span>：</p>
@@ -797,7 +797,7 @@ document.write(`
 <ul class="simple">
 <li><p><strong>计算性能优势</strong>：TPU v1 能够在每秒钟进行 <span class="math notranslate nohighlight">\(2 \times 65535 \times 7 \times 10^6 \approx 9.2 \times 10^{12} \rarr 92 \; TOPS\)</span> 次计算。</p></li>
 <li><p><strong>片上缓存</strong>：TPU v1 选择做大片上缓存，从而大幅度减少片外访问消耗用来对抗 2015 年附近内存访问速度慢的情况。</p></li>
-<li><p><strong>量化</strong>：虽然模型的训练阶段使用了 FP32 的精度，TPU v1 在推理场景首次引入了 INT8 的量化，最大程度上利用了深度学习网络的鲁棒性。在大缓存和量化的帮助下，TPU 能够每次放入更大的 batch，从而加强神经网络的推理效率。</p></li>
+<li><p><strong>量化</strong>：虽然模型的训练阶段使用了 FP32 的精度，TPU v1 在推理场景首次引入了 INT8 的量化，最大程度上利用了神经网络的鲁棒性。在大缓存和量化的帮助下，TPU 能够每次放入更大的 batch，从而加强神经网络的推理效率。</p></li>
 </ul>
 </section>
 <section id="id7">

@@ -327,10 +327,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/08LLVMBackend.html">LLVM 后端代码生成(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器基本架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
 </details></li>
@@ -338,8 +338,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
@@ -354,7 +354,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">TVM 实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -951,7 +951,7 @@ document.write(`
 <p>Triton 在其初始化序列中采用了一套精细且高效的模型管理机制，远超简单的模型加载范畴。这一过程深入到了模型生命周期管理的核心，确保了从模型仓库到生产环境的无缝过渡。</p>
 <p>在模型加载之前，Triton 执行详尽的验证步骤，这不仅仅局限于文件的存在性和格式正确性，还包括对模型结构的深入分析，验证模型输入输出的合规性、数据类型一致性以及模型间依赖关系的完整性。这一层次的验证是确保模型能够在生产环境中稳定运行的基础。</p>
 <p>根据模型的具体需求及系统当前的资源分配状况，Triton 采用先进的资源调度算法来决定模型的最优存放位置（内存或 GPU 显存）。此过程综合考虑了模型尺寸、预期的推理延迟要求、以及 GPU 的内存使用情况等多维度因素，力求达到资源使用的最优化。对于 GPU 密集型模型，Triton 会尝试最大化 GPU 并行度，同时考虑内存带宽限制，避免资源争抢。</p>
-<p>针对每个模型，Triton 会基于选定的 Backend 定制化创建推理引擎。这一步骤包含了模型的优化，比如图优化、算子融合、内核选择等，以及针对特定硬件的编译。特别是对于 TensorRT Backend，Triton 会利用其深度学习网络优化器自动执行量化、层融合、内存优化等高级策略，以减少计算和内存开销。</p>
+<p>针对每个模型，Triton 会基于选定的 Backend 定制化创建推理引擎。这一步骤包含了模型的优化，比如图优化、算子融合、内核选择等，以及针对特定硬件的编译。特别是对于 TensorRT Backend，Triton 会利用其神经网络优化器自动执行量化、层融合、内存优化等高级策略，以减少计算和内存开销。</p>
 <p>为了加速首次推理请求的响应时间，Triton 会在模型加载后执行一系列预推理操作，即所谓的“热身”。这个过程会生成并缓存执行计划，包括计算图的优化布局、内存分配方案等，确保后续请求能够直接利用这些预计算结果，从而显著减少冷启动延迟。</p>
 <ol class="arabic simple" start="2">
 <li><p>动态服务与资源管理</p></li>

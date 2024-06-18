@@ -80,7 +80,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="前端优化" href="../03Compiler03Frontend/README.html" />
-    <link rel="prev" title="AI 编译器的通用架构" href="03Architecture.html" />
+    <link rel="prev" title="AI 编译器基本架构(DONE)" href="03Architecture.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
@@ -327,10 +327,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/08LLVMBackend.html">LLVM 后端代码生成(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">AI 编译器</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">AI 编译器(DONE)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02Stage.html">AI 编译器历史阶段(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Architecture.html">AI 编译器的通用架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Architecture.html">AI 编译器基本架构(DONE)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">AI 编译器挑战与思考</a></li>
 </ul>
 </details></li>
@@ -338,8 +338,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
@@ -354,7 +354,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">TVM 实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -692,15 +692,15 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">AI 编译器面临挑战</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape">动态 Shape 泛化</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python 编译静态化</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">发挥硬件性能</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">特殊优化方法</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">易用性与性能兼顾</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">前端语言编译静态化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">充分发挥硬件性能</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">特殊算法优化方法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">易用性与性能兼顾</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">AI 编译器的未来</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">AI 编译器的未来</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -712,6 +712,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
+<!--Copyright 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="ai">
 <h1>AI 编译器挑战与思考<a class="headerlink" href="#ai" title="Link to this heading">#</a></h1>
 <p>本节首先会基于 The Deep Learning Compiler: A Comprehensive Survey 中的调研做一个热门 AI 编译器的横向对比，并简要介绍几个当前常用的 AI 编译器。随后会分析当前 AI 编译器面临的诸多挑战，并展望 AI 编译器的未来。</p>
@@ -761,8 +762,8 @@ document.write(`
 <p>然而，对于包含动态 shape 输入或者控制流语义的动态计算图，AI 编译器的支持确实有限。这是因为非固定 shape 的输入以及控制流语义会使计算图的结构在运行时变得不确定，这给编译器带来了挑战。在这种情况下，编译器通常需要依赖运行时系统动态地跟踪和执行计算图，而无法像静态计算图那样进行完全的静态优化。例如在 NLP 任务中，输入给网络模型的一个序列长度是不固定的，某些句子会长一点某些句子会短一点，此时就会引起大量的动态 shape 需求。</p>
 <p>在当前的 AI 领域中，一些任务并不能简单地通过人工修改来实现静态化。特别是在涉及到金字塔结构的检测模型等情况下，这种情况尤为突出。金字塔结构通常用于处理多尺度信息，例如在目标检测任务中，我们需要同时检测不同尺度的目标。这种金字塔结构的复杂性使得编译器难以有效地进行优化。因为金字塔结构的构建需要考虑多个尺度的输入数据以及相应的处理流程，这使得计算图的结构在编译时变得难以确定。由于金字塔结构的特性，其输入数据的形状和计算流程通常会在运行时动态地变化，这给编译器带来了挑战。</p>
 </section>
-<section id="python">
-<h3>Python 编译静态化<a class="headerlink" href="#python" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>前端语言编译静态化<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>Python 静态化通常指的是将 Python 代码转换为静态类型语言的过程，例如将 Python 代码转换为 C 或者 C++等语言。这个过程的目的是为了在 Python 代码中引入静态类型信息，以提高程序的性能和执行效率。</p>
 <p>在对 Python 静态化问题分析之前，先来对 Python 的执行流程做一个简单的了解。</p>
 <p>如图所示，Python 执行时，首先会将.py 文件中的源代码编译成 Python 的 byte code(字节码)，其格式为.pyc。然后编译器对这些字节码进行编译处理，再对程序进行执行操作。</p>
@@ -810,20 +811,20 @@ document.write(`
 <p><strong>灵活的语和数据类型转换</strong>：在将 Python 代码静态化的过程中，灵活的语和数据类型转换是一个关键挑战，特别是针对 Slice（切片）、Dict（字典）、Index（索引）等操作。编译器需要能够静态地分析和处理这些操作，确保在静态化后仍能正确地进行切片取值、字典操作和索引访问等动态特性，从而实现对 Python 代码的有效静态化转换。</p>
 <p><strong>JIT 的编译性能</strong>：JIT 的编译性能无论是基于 Tracing Based 还是 AST Transform，都可能会面临额外的编译开销。在 Tracing Based 方式中，编译器会根据程序的实际执行情况进行优化，但追踪和编译过程会增加额外开销。而在 AST Transform 方式中，编译器需要将抽象语法树转换为中间表示形式，这也会带来一定的编译成本。因此，在选择 JIT 编译方式时，需要权衡编译性能和执行效率之间的平衡。</p>
 </section>
-<section id="id3">
-<h3>发挥硬件性能<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>充分发挥硬件性能<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>当开发出一款新的 AI 框架并希望其在不同硬件设备上都能很好的激发硬件性能时，不可能让硬件对 AI 框架做出适应性修改，故需要极度依赖 AI 编译器适配各种硬件的能力。</p>
 <p>但目前编译器进行性能优化的难度和复杂度挑战逐渐变大。一是性能优化依赖图算融合优化，图层和算子层独立优化无法充分发挥芯片性能，需要图算融合优化，例如子图切分、子图内垂直融合优化和水平并行优化；二是随着硬件架构的复杂度上升，会有更多专有性优化被提出，从而想实现泛化优化会变得更加困难，这是一个矛盾的点。</p>
 <p>当前 AI 编译器尚未形成统一完善的方案，但在不断探索多种优化方法，以提高模型的执行效率和性能。其中，一项重要的探索是通过打开图和算子的边界，重新组合优化计算图的结构，以最大限度地发挥底层硬件芯片的性能潜力。这种优化涉及到对计算图的边界进行开放式的重组和优化，使得计算和数据在不同层次上更加紧密地配合，减少了内存访问开销和计算资源的浪费。同时，AI 编译器还将多种优化手段融合在一起，包括垂直融合优化（如 Buffer Fusion 等）和水平并行优化（如 Data Parallel 等），以在不同层次上进一步提高模型的执行效率。此外，重新组合优化后的子图的 Kernel 代码也将自动生成，包括调度（scheduling）、切片（tilling）、向量化（vectorizing）等操作，以便针对特定硬件平台进行优化。这些努力旨在实现更高效、更灵活的模型执行和部署，但仍需要持续不断的研究和探索，以达到更统一、更完善的解决方案。</p>
 </section>
-<section id="id4">
-<h3>特殊优化方法<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>特殊算法优化方法<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>当前 AI 编译器在解决大模型训练中的内存墙、性能墙等挑战时，借助复杂的并行策略来实现自动并行化。这包括通过规模扩展（Scale out）采用多维混合并行能力，如数据并行、张量并行和流水线并行，将计算任务分布到多个计算节点或设备上，以提高训练效率；同时，通过性能提升（Scale up）采用重计算、混合精度和异构并行等技术，对单个计算节点或设备进行性能优化。这些策略的综合应用旨在有效地应对大模型训练中的性能瓶颈，提高训练速度和效率。</p>
 <p>Scale Out/Up 的最大挑战之一是效率墙，其解决依赖于复杂的切分策略，对开发者来说，这是一项门槛较高且效率较低的任务。手工配置切分策略需要开发者具备深入的领域知识和丰富的经验，这不仅增加了开发时间和成本，还可能导致性能优化不足或过度优化的问题。尽管半自动并行可以解决部分效率问题，但真正要解放开发者，需要依赖编译技术和凸优化问题，以自动找到最优的并行策略。通过自动化的编译和优化过程，AI 编译器可以帮助开发者在规模扩展和性能提升方面取得更好的效果，从而克服效率墙带来的挑战。</p>
 <p>在面向 HPC 场景下，自动微分的要求更高，尤其是针对控制流和高阶微分的挑战。在动态图中，通过 Python 执行控制流可能会导致性能下降，尤其是当循环次数较多时，这会限制模型的效率。为了克服这一挑战，一种解决方案是将动态图静态化，以便在编译时优化控制流。另一方面，静态图的自动微分需要解决逻辑拼接或计算图展开等问题，以确保在高效率下进行微分操作。此外，高阶微分方面也是一个挑战，开发者需要灵活地控制图的展开方式，并且需要研究如何通过 Jacobian 矩阵和 Hessian 矩阵等方式进行高效计算，以满足复杂模型的需求。综上所述，面向 HPC 场景的自动微分需要综合考虑控制流和高阶微分等方面的挑战，以实现更高效、更可靠的计算。</p>
 </section>
-<section id="id5">
-<h3>易用性与性能兼顾<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>易用性与性能兼顾<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p><strong>与 AI 框架的边界和对接</strong>：不同 AI 框架对深度学习任务的抽象描述和 API 接口不同，语义和机制上有各自的特点。需要考虑如何在不保证所有算子被完整支持的情况下透明化的支持用户的计算图描述。</p>
 <p><strong>对用户透明性问题</strong>：部分 AI 编译器并非完全自动的编译工具，性能表现依赖于用户提供的高层抽象的实现模版，如 TVM。主要是为算子开发工程师提供效率工具，降低用户人工调优各种算子实现的人力成本。现有抽象却常常无法足够描述创新的硬件体系结构上所需要的算子实现。需要对编译器架构足够熟悉的情况下对其进行二次开发甚至架构上的重构，门槛及开发负担仍然很高。</p>
 <p><strong>编译开销</strong>：AI 编译器作为性能优化工具，只有在编译开销对比带来的性能收益有足够优势才有实用价值。部分应用场景下对于编译开销的要求较高。对于开发者而言，使用 AI 编译器阻碍其快速的完成模型的调试和验证工作，极大增加开发和部署的难度和负担。</p>
@@ -835,8 +836,8 @@ document.write(`
 <p>**AI 芯片需要编译器吗？AI 芯片需要 AI 编译器吗？**AI 芯片对于编译器的依赖取决于芯片本身的设计。越灵活的芯片对于编译器的依赖会越大。在 AI 芯片设计之初，有 CISC 风格把优化在芯片内部解决。但是随着专用领域的演化，为了支持更加灵活的需求，AI 芯片本身会在保留张量指令集和特殊内存结构的前提下越来越灵活。未来的架构师需要芯片和系统协同设计，自动化也会越来越多地被应用到专用芯片中去。</p>
 </section>
 </section>
-<section id="id6">
-<h2>AI 编译器的未来<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h2>AI 编译器的未来<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>针对 AI 编译器的未来，可能存在着许多未知的问题，但仍然是十分可观的。</p>
 <p><strong>编译器形态</strong>：未来的 AI 编译器将分为推理和训练两个阶段，采用 AOT（Ahead-of-Time）和 JIT（Just-in-Time）两种编译方式。在推理阶段，编译器将预先编译模型以实现高效执行；而在训练阶段，编译器则倾向于即时编译以应对动态需求。这种灵活性将使编译器能够根据任务需求和系统资源选择最佳编译方式，从而提高性能和资源利用率。</p>
 <p><strong>IR 形态</strong>：未来的 AI 编译器需要一个类似于 MLIR 的统一中间表示（IR），能够灵活地表示和优化各种类型的 AI 模型。这个 IR 将支持多种编程语言和框架，使得跨框架的模型优化和转换变得更加高效。</p>
@@ -844,15 +845,16 @@ document.write(`
 <p><strong>自动微分</strong>：未来的 AI 编译器将提供先进的自动微分功能，能够支持高阶微分的计算方式，并且方便对计算图进行操作。这种功能将使得对复杂模型进行优化和训练变得更加高效和灵活。编译器将能够自动推导出高阶导数，为模型的优化和调整提供更深入的信息。同时，它也将提供丰富的图操作接口，使得用户可以方便地对模型的结构进行修改和优化。这种自动微分的能力将为未来 AI 模型的研究和开发带来更大的灵活性和创造性。</p>
 <p><strong>Kernel 自动生成</strong>：未来的 AI 编译器将实现自动化的 Kernel 生成功能，从而降低开发门槛，快速实现高效且泛化性强的算子。这意味着编译器将能够根据给定的算法和硬件环境自动生成优化的计算核心，无需手动编写特定的硬件优化代码。这种自动生成 Kernel 的功能将大大简化算法开发和优化的流程，减少了手工调优的时间和精力。同时，生成的 Kernel 将针对不同的硬件平台进行优化，从而实现更高的性能和更好的泛化性能。这将使得开发者能够更专注于算法本身的创新，而不必过多关注底层的实现细节。</p>
 </section>
-<section id="id7">
-<h2>小结与思考<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<p><strong>目前主流 AI 编译器</strong>：TVM、XLA、nGraph、TC（Tensor Comprehensions）、Glow 等。</p>
-<p><strong>AI 编译器目前遇到的挑战</strong>：AI 编译器目前主要遇到五个挑战，分别是动态 Shape 问题、Python 编译静态化、发挥硬件性能、特殊优化方法以及易用性与性能兼顾问题。</p>
-<p><strong>AI 编译器的未来</strong>:未来的 AI 编译器将分为推理和训练两个阶段，采用 AOT（Ahead-of-Time）和 JIT（Just-in-Time）两种编译方式；将拥有一个统一的中间表达 IR；能够实现自动并行编译优化；能够提供先进的自动微分功能，支持高阶微分计算方式；能实现自动化 Kernel 代码生成，降低开发门槛。</p>
-<p><strong>思考问题</strong>：图算能否统一表达，统一编译优化，形成通用的 AI 编译器？完全的自动并行是否可行？AI 芯片需要编译器吗？AI 芯片需要 AI 编译器吗？</p>
-</section>
 <section id="id8">
-<h2>本节视频<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<h2>小结与思考<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>AI 编译器目前遇到的挑战：AI 编译器目前主要遇到五个挑战，分别是动态 Shape 问题、Python 编译静态化、发挥硬件性能、特殊优化方法以及易用性与性能兼顾问题。</p></li>
+<li><p>AI 编译器的未来：未来的 AI 编译器将分为推理和训练两个阶段，采用 AOT（Ahead-of-Time）和 JIT（Just-in-Time）两种编译方式；将拥有一个统一的中间表达 IR；能够实现自动并行编译优化；能够提供先进的自动微分功能，支持高阶微分计算方式；能实现自动化 Kernel 代码生成，降低开发门槛。</p></li>
+<li><p>思考问题：图算能否统一表达，统一编译优化，形成通用的 AI 编译器？完全的自动并行是否可行？AI 芯片需要编译器吗？AI 芯片需要 AI 编译器吗？</p></li>
+</ul>
+</section>
+<section id="id9">
+<h2>本节视频<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=563475228&bvid=BV1Hv4y1R7uc&cid=913460214&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -899,7 +901,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">AI 编译器的通用架构</p>
+        <p class="prev-next-title">AI 编译器基本架构(DONE)</p>
       </div>
     </a>
     <a class="right-next"
@@ -937,15 +939,15 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">AI 编译器面临挑战</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape">动态 Shape 泛化</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python 编译静态化</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">发挥硬件性能</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">特殊优化方法</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">易用性与性能兼顾</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">前端语言编译静态化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">充分发挥硬件性能</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">特殊算法优化方法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">易用性与性能兼顾</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">AI 编译器的未来</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">AI 编译器的未来</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">本节视频</a></li>
 </ul>
   </nav></div>
 

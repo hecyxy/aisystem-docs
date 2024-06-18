@@ -327,10 +327,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/08LLVMBackend.html">LLVM 后端代码生成(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器基本架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
 </details></li>
@@ -338,8 +338,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
@@ -354,7 +354,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">TVM 实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -744,7 +744,7 @@ document.write(`
 <p>GPU 与人工智能（AI）的发展密不可分。2012 年的一系列重要事件标志着 GPU 在 AI 计算中的崭露头角。Hinton 和 Alex Krizhevsky 设计的 AlexNet 是一个重要的突破，他们利用两块英伟达 GTX 580 GPU 训练了两周，将计算机图像识别的正确率提升了一个数量级，并赢得了 2012 年 ImageNet 竞赛冠军。这一成就充分展示了 GPU 在加速神经网络模型训练中的巨大潜力。</p>
 <p><img alt="GPU9" src="../_images/05GPUBase07.png" /></p>
 <p>同时，谷歌和吴恩达等团队的工作也进一步强调了 GPU 在 AI 计算中的重要性。谷歌利用 1000 台 CPU 服务器完成了猫狗识别任务，而吴恩达等则只用了 3 台 GTX680-GPU 服务器，取得了同样的成果。这一对比显示了 GPU 在深度学习任务中的显著加速效果，进一步激发了对 GPU 在 AI 领域的广泛应用。</p>
-<p>从 2005/2006 年开始，一些研究人员开始尝试使用 GPU 进行 AI 计算，但直到 2012/2013 年，GPU 才被更广泛地接受。随着深度学习网络层次越来越深、网络规模越来越大，GPU 的加速效果越来越显著。这得益于 GPU 相比 CPU 拥有更多的独立大吞吐量计算通道，以及较少的控制单元，使其在高度并行的计算任务中表现出色。</p>
+<p>从 2005/2006 年开始，一些研究人员开始尝试使用 GPU 进行 AI 计算，但直到 2012/2013 年，GPU 才被更广泛地接受。随着神经网络层次越来越深、网络规模越来越大，GPU 的加速效果越来越显著。这得益于 GPU 相比 CPU 拥有更多的独立大吞吐量计算通道，以及较少的控制单元，使其在高度并行的计算任务中表现出色。</p>
 <p>因此，GPU 在 AI 发展中的作用愈发凸显，它为深度学习等复杂任务提供了强大的计算支持，并成为了 AI 计算的标配。从学术界到互联网头部厂商，都开始广泛采用 GPU，将其引入到各自的生产研发环境中，为 AI 技术的快速发展和应用提供了关键支持。</p>
 <p><img alt="GPU10" src="../_images/05GPUBase08.png" /></p>
 </section>

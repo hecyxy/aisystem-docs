@@ -329,10 +329,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/08LLVMBackend.html">LLVM 后端代码生成(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器基本架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
 </details></li>
@@ -340,8 +340,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
@@ -356,7 +356,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">TVM 实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -751,7 +751,7 @@ document.write(`
 <p><img alt="深度学习中模型的训练与推理" src="../_images/02Constrains02.png" /></p>
 <p>在完成了训练阶段后，就可以得到固定网络模型参数的权重参数，并通过离线和在线优化（例如压缩、量化等），内核编译（例如内核调优与代码生成）等技术将该模型加载部署在推理系统中。</p>
 <p>对于模型的推理阶段如上图的红色部分所示，可以将整个的模型部署在 Web 服务器上或者是 IoT 设备上，通过对外暴露接口（例如，Http 或 gRPC 等），接收用户请求或系统调用，模型通过推理处理完请求后，返回给用户相应的响应结果，完成推理任务。</p>
-<p>与训练阶段类似，在推理阶段中需要输入小批量真实世界的数据样本，执行前向传播过程通过深度学习网络模型后，得到计算输出的预测结果。其中，这个过程不涉及反向传播，也就不需要计算梯度来更新模型的权重。</p>
+<p>与训练阶段类似，在推理阶段中需要输入小批量真实世界的数据样本，执行前向传播过程通过神经网络模型后，得到计算输出的预测结果。其中，这个过程不涉及反向传播，也就不需要计算梯度来更新模型的权重。</p>
 <p>另外值得注意的是，虽然推理（Inference）阶段与深度学习中的测试（Testing）阶段都通过将输入数据送入模型中，经过前向传播得到输出预测结果。但是，推理通常指的是在训练完成后，将模型应用于新的数据集或实际场景中，并生成预测输出，推理的目的是利用训练好的模型来对未知数据进行预测或分类。</p>
 <p>同时，因为推理过程通常是在生产环境中执行的，因此性能和效率至关重要。因此，需要优化模型的计算速度和内存占用，以便实时或高吞吐量地处理输入数据。而测试则是评估模型性能的过程，通常包括在一组已知的测试数据上运行训练好的模型，并评估其在测试数据上的表现，以了解模型的准确性、精确度、召回率等性能指标。测试的目的是验证模型是否能够在真实场景下有效地工作，检查模型在未知数据上的泛化能力。</p>
 </section>

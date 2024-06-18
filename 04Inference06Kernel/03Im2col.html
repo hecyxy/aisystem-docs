@@ -14,7 +14,7 @@
 <meta property="og:description" content="作为早期的AI 框架，Caffe 中卷积的实现采用的是基于 Im2Col 的方法，至今仍是卷积重要的优化方法之一。 从上一节的介绍中可以看到，在 CNN 中卷积直接计算的定义中，卷积核在输入图片上滑动，对应位置的元素相乘后相加求和，滑窗的大小由卷积核决定。由于滑动操作时的窗口的数据横向是连续的，但是不同行在内存中是不连续的，在计算时有可能需要多次访问内存。由于多次访问内存直接增加了数据传输时..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_04Inference06Kernel_03Im2col_c076d216.png" />
+<meta property="og:image" content="/None" />
 <meta property="og:image:alt" content="作为早期的AI 框架，Caffe 中卷积的实现采用的是基于 Im2Col 的方法，至今仍是卷积重要的优化方法之一。 从上一节的介绍中可以看到，在 CNN 中卷积直接计算的定义中，卷积核在输入图片上滑动，对应位置的元素相乘后相加求和，滑窗的大小由卷积核决定。由于滑动操作时的窗口的数据横向是连续的，但是不同行在内存中..." />
 <meta name="description" content="作为早期的AI 框架，Caffe 中卷积的实现采用的是基于 Im2Col 的方法，至今仍是卷积重要的优化方法之一。 从上一节的介绍中可以看到，在 CNN 中卷积直接计算的定义中，卷积核在输入图片上滑动，对应位置的元素相乘后相加求和，滑窗的大小由卷积核决定。由于滑动操作时的窗口的数据横向是连续的，但是不同行在内存中是不连续的，在计算时有可能需要多次访问内存。由于多次访问内存直接增加了数据传输时..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -329,10 +329,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/08LLVMBackend.html">LLVM 后端代码生成(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器基本架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
 </details></li>
@@ -340,8 +340,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
@@ -356,7 +356,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">TVM 实践案例</a></li>
 </ul>
 </details></li>
 </ul>

@@ -14,7 +14,7 @@
 <meta property="og:description" content="本章节将通过探讨 AI 编译器的黄金年代以及传统编译器与 AI 编译器的区别等角度，来介绍为什么需要 AI 编译器。 AI 编译器黄金年代: 图灵奖获得者 David Patterson 在 2019 年 5 月发表了一个名为“计算机架构新的黄金年代”的演讲，他通过回顾自 20 世纪 60 年代以来的计算机架构的发展，来介绍当前的难题与未来的机遇。他预测未来十年计算机架构领域将会迎来下一个黄..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_03Compiler02AICompiler_01Appear_33a1564b.png" />
+<meta property="og:image" content="/None" />
 <meta property="og:image:alt" content="本章节将通过探讨 AI 编译器的黄金年代以及传统编译器与 AI 编译器的区别等角度，来介绍为什么需要 AI 编译器。 AI 编译器黄金年代: 图灵奖获得者 David Patterson 在 2019 年 5 月发表了一个名为“计算机架构新的黄金年代”的演讲，他通过回顾自 20 世纪 60 年代以来的计算机架构的..." />
 <meta name="description" content="本章节将通过探讨 AI 编译器的黄金年代以及传统编译器与 AI 编译器的区别等角度，来介绍为什么需要 AI 编译器。 AI 编译器黄金年代: 图灵奖获得者 David Patterson 在 2019 年 5 月发表了一个名为“计算机架构新的黄金年代”的演讲，他通过回顾自 20 世纪 60 年代以来的计算机架构的发展，来介绍当前的难题与未来的机遇。他预测未来十年计算机架构领域将会迎来下一个黄..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -80,7 +80,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="AI 编译器历史阶段(DONE)" href="02Stage.html" />
-    <link rel="prev" title="AI 编译器" href="README.html" />
+    <link rel="prev" title="AI 编译器(DONE)" href="README.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
@@ -327,10 +327,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/08LLVMBackend.html">LLVM 后端代码生成(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">AI 编译器</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">AI 编译器(DONE)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">为什么需要 AI 编译器(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02Stage.html">AI 编译器历史阶段(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03Architecture.html">AI 编译器的通用架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03Architecture.html">AI 编译器基本架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
 </details></li>
@@ -338,8 +338,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
@@ -354,7 +354,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">实践案例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">TVM 实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -905,7 +905,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">AI 编译器</p>
+        <p class="prev-next-title">AI 编译器(DONE)</p>
       </div>
     </a>
     <a class="right-next"

@@ -7,19 +7,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="实践案例" />
+<meta property="og:title" content="TVM 实践案例" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="03Compiler04Backend/07Practice.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
 <meta property="og:description" content="在本节我们探讨一下，如何利用 AI 编译器在新的硬件上部署一个神经网络，从算法设计到实际运行，有哪些需要考虑的地方？本节将以 TVM 为例，首先介绍一下 TVM 的工作流： image-20240612213553327 导入模型。TVM 可以从 TensorFlow、PyTorch、ONNX 等框架导入模型。, 转换为 Relay。Relay 是 TVM 的中间表示形式，已导入 TVM 的..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
+<meta property="og:image" content="/_images/social_previews/summary_03Compiler04Backend_07Practice_7030070b.png" />
 <meta property="og:image:alt" content="在本节我们探讨一下，如何利用 AI 编译器在新的硬件上部署一个神经网络，从算法设计到实际运行，有哪些需要考虑的地方？本节将以 TVM 为例，首先介绍一下 TVM 的工作流： image-20240612213553327 导入模型。TVM 可以从 TensorFlow、PyTorch、ONNX 等框架导入模型。,..." />
 <meta name="description" content="在本节我们探讨一下，如何利用 AI 编译器在新的硬件上部署一个神经网络，从算法设计到实际运行，有哪些需要考虑的地方？本节将以 TVM 为例，首先介绍一下 TVM 的工作流： image-20240612213553327 导入模型。TVM 可以从 TensorFlow、PyTorch、ONNX 等框架导入模型。, 转换为 Relay。Relay 是 TVM 的中间表示形式，已导入 TVM 的..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>实践案例 &#8212; AI System</title>
+    <title>TVM 实践案例 &#8212; AI System</title>
   
   
   
@@ -329,10 +329,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler01Tradition/08LLVMBackend.html">LLVM 后端代码生成(DONE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler02AICompiler/README.html">AI 编译器(DONE)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/01Appear.html">为什么需要 AI 编译器(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/02Stage.html">AI 编译器历史阶段(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器的通用架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/03Architecture.html">AI 编译器基本架构(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler02AICompiler/04Future.html">AI 编译器挑战与思考</a></li>
 </ul>
 </details></li>
@@ -340,8 +340,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">内容介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合(DONE)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理(DONE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除</a></li>
@@ -356,7 +356,7 @@
 <li class="toctree-l2"><a class="reference internal" href="04LoopOpt.html">算子循环优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05OtherOpt.html">指令和存储优化(DONE)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06AutoTuning.html">Auto-Tuning 原理(DONE)</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">实践案例</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">TVM 实践案例</a></li>
 </ul>
 </details></li>
 </ul>
@@ -674,7 +674,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>实践案例</h1>
+    <h1>TVM 实践案例</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -684,26 +684,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">算法层</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">算子优化</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">量化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">算法层</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">算子优化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">量化</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">编译层</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">前端量化模型解析</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">计算图优化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">编译层</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">前端量化模型解析</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">计算图优化</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codegen">后端 Codegen 接入</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><strong>图划分</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">特定加速器的处理</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">代码生成</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">运行时</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">图划分</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">特定加速器的处理</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">代码生成</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">运行时</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">仿真层</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">算子仿真</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">网络仿真</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">仿真层</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">算子仿真</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">网络仿真</a></li>
 </ul>
 </li>
 </ul>
@@ -717,8 +717,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>实践案例<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
+<section class="tex2jax_ignore mathjax_ignore" id="tvm">
+<h1>TVM 实践案例<a class="headerlink" href="#tvm" title="Link to this heading">#</a></h1>
 <p>在本节我们探讨一下，如何利用 AI 编译器在新的硬件上部署一个神经网络，从算法设计到实际运行，有哪些需要考虑的地方？本节将以 TVM 为例，首先介绍一下 TVM 的工作流：</p>
 <p><img alt="image-20240612213553327" src="../_images/07Practice01.png" /></p>
 <ul class="simple">
@@ -729,10 +730,10 @@ document.write(`
 <li><p>转换为 TIR（Tensor Intermediate Representation）。这是 TVM 的低级中间表示，特定于硬件平台。TIR 通过低层次优化进行优化。之后优化的 TIR 被降低到硬件平台的目标编译器。这是生成可部署到生产中的优化模型的最终代码生成阶段。</p></li>
 <li><p>编译为机器码。TVM 支持不同硬件后端，包括：LLVM，针对任意微处理器架构，如 X86 和 ARM 处理器；专门的编译器，如 NVCC，NVIDIA 的编译器；嵌入式和专用目标平台，通过 TVM 的代码生成框架实现。</p></li>
 </ul>
+<section id="id1">
+<h2>算法层<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <section id="id2">
-<h2>算法层<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<section id="id3">
-<h3>算子优化<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<h3>算子优化<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>在部署网络时，首先要考虑在目标硬件平台的可行性，如果目标硬件平台不支持某个算子，那么就需要替换为相似的受支持的算子。例如在 YoloV5 中，默认的激活函数为 SiLU，SiLU 的计算公式涉及自然指数和除法，对 FPGA 硬件非常不友好，其函数曲线如下：</p>
 <p><img alt="../_../images/03Compiler04Backend/SiLU.png" src="../_images/07Practice02.png" /></p>
 <p>而 YoloV5 中还提供了其他的激活函数如 ReLU6，其函数曲线如下图。经过实验发现二者在精度上面并无太大差异，而 ReLU6 的计算方式则简单的多，可以用 ReLU6 来替换 SiLU。</p>
@@ -753,8 +754,8 @@ document.write(`
 </li>
 </ul>
 </section>
-<section id="id4">
-<h3>量化<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>量化<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>在算法层，还可以使用网络轻量化方法来对网络进行压缩。最常使用的方法是量化，在之前的章节已经介绍过量化的原理，在本节将以实践的角度介绍量化。</p>
 <p>Pytorch 有两种量化 API，分为动态图（eager）量化和静态图（fx）量化。</p>
 <p>在 torch.fx 出现之前（pytorch1.8 之前），量化可以在 eager 模式下进行。对一个 resnet18 进行量化感知训练的典型代码如下：</p>
@@ -972,6 +973,8 @@ document.write(`
 </div>
 <p>使用注解标注这个函数，然后调用该函数即可</p>
 </li>
+</ul>
+<ul>
 <li><p><strong>训练过程 loss 或量化参数出现 NAN</strong></p>
 <p>有两种可以尝试的方法：</p>
 <ul class="simple">
@@ -988,10 +991,10 @@ document.write(`
 </ul>
 </section>
 </section>
+<section id="id4">
+<h2>编译层<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <section id="id5">
-<h2>编译层<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<section id="id6">
-<h3>前端量化模型解析<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h3>前端量化模型解析<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>TVM 使用 QNN Dialect 来解析量化模型。QNN 是为 TVM 开发的支持导入预量化模型的框架，具有以下特点：</p>
 <ul class="simple">
 <li><p>QNN 为计算图级别的高层次 IR。在 QNN 中添加了新的算子，但未进行任何图级别或算子级别优化。而是将这些算子映射到已经定义好的图或算子级别优化。</p></li>
@@ -1141,42 +1144,36 @@ document.write(`
 </pre></div>
 </div>
 </li>
-<li><p><strong>requant 再量化操作</strong></p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>requant 中的难点是如何用整数计算来计算与`scale_0*scale_1/scale_output`这样一个浮点数的乘法。这一长串在运行时数据都是已知的，因此在编译期就可以将其提前计算，记作 s。假设 s=0.2，那么 s 可不可以表示为一串整数的计算？
+<li><p><strong>requant 再量化操作</strong></p>
+<p>requant 中的难点是如何用整数计算来计算与<code class="docutils literal notranslate"><span class="pre">scale_0*scale_1/scale_output</span></code>这样一个浮点数的乘法。这一长串在运行时数据都是已知的，因此在编译期就可以将其提前计算，记作 s。假设 s=0.2，那么 s 可不可以表示为一串整数的计算？</p>
+<p>根据浮点数的存储原理，其可以分解为尾数<strong>mantissa</strong> 和阶数<strong>exponent</strong>，上面的 0.2 可以分解为尾数 0.8 和阶数-2，即 0.2=0.8<em>2^(-2)，公式化为<strong>s = mantissa * 2 ^ exponent</strong>。尾数的值在（0.5,1）之间。如果量化的内部硬件在计算时以 int32 计算，那么 mantissa 可以表示为 mantissa</em>2^31<em>2^-31。在这个例子中 0.8 变为 1717986918</em>2^-31，右半部分可以用移位计算，那么 0.2 就变成了 1717986918<em>2^-31</em>2^(-2)。就完全变成了乘法和移位计算，之前的浮点数 s 变成了一个乘数和一个移位数。</p>
+<p>下面这段 tvm 中的代码就是将 s 分解为乘数和移位数的函数：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="p">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">int32_t</span><span class="p">,</span> <span class="n">int32_t</span><span class="o">&gt;</span> <span class="n">GetFixedPointMultiplierShift</span><span class="p">(</span><span class="n">double</span> <span class="n">double_multiplier</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">int32_t</span> <span class="n">significand</span><span class="p">,</span> <span class="n">exponent</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">double_multiplier</span> <span class="o">==</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">significand</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">exponent</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">std</span><span class="p">::</span><span class="n">make_pair</span><span class="p">(</span><span class="n">significand</span><span class="p">,</span> <span class="n">exponent</span><span class="p">);</span>
+  <span class="p">}</span>
 
-根据浮点数的存储原理，其可以分解为尾数**mantissa** 和阶数**exponent**，上面的 0.2 可以分解为尾数 0.8 和阶数-2，即 0.2=0.8*2^(-2)，公式化为**s = mantissa \* 2 ^ exponent**。尾数的值在（0.5,1）之间。如果量化的内部硬件在计算时以 int32 计算，那么 mantissa 可以表示为 mantissa*2^31*2^-31。在这个例子中 0.8 变为 1717986918*2^-31，右半部分可以用移位计算，那么 0.2 就变成了 1717986918*2^-31*2^(-2)。就完全变成了乘法和移位计算，之前的浮点数 s 变成了一个乘数和一个移位数。
-
-下面这段 tvm 中的代码就是将 s 分解为乘数和移位数的函数：
-
-```python
-std::pair&lt;int32_t, int32_t&gt; GetFixedPointMultiplierShift(double double_multiplier) {
-  int32_t significand, exponent;
-  if (double_multiplier == 0.) {
-    significand = 0;
-    exponent = 0;
-    return std::make_pair(significand, exponent);
-  }
-
-  //获得尾数和阶数
-  double significand_d = std::frexp(double_multiplier, &amp;exponent);
+  <span class="o">//</span><span class="n">获得尾数和阶数</span>
+  <span class="n">double</span> <span class="n">significand_d</span> <span class="o">=</span> <span class="n">std</span><span class="p">::</span><span class="n">frexp</span><span class="p">(</span><span class="n">double_multiplier</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">exponent</span><span class="p">);</span>
 
 
-  significand_d = std::round(significand_d * (1ll &lt;&lt; 31));
-  auto significand_int64 = static_cast&lt;int64_t&gt;(significand_d);
-  ICHECK_LE(significand_int64, (1ll &lt;&lt; 31));
-  if (significand_int64 == (1ll &lt;&lt; 31)) {
-    significand_int64 /= 2;
-    ++exponent;
-  } //如果乘积的结果等于 (1ll &lt;&lt; 31)，即超出了 32 位有符号整数的范围，则进行一次右移操作，并将指数部分加 1，以保证结果可以正确表示。
-  ICHECK_LE(significand_int64, std::numeric_limits&lt;int32_t&gt;::max());
-  significand = static_cast&lt;int32_t&gt;(significand_int64);
-  return std::make_pair(significand, exponent);
-}
-```
+  <span class="n">significand_d</span> <span class="o">=</span> <span class="n">std</span><span class="p">::</span><span class="nb">round</span><span class="p">(</span><span class="n">significand_d</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="n">ll</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">));</span>
+  <span class="n">auto</span> <span class="n">significand_int64</span> <span class="o">=</span> <span class="n">static_cast</span><span class="o">&lt;</span><span class="n">int64_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">significand_d</span><span class="p">);</span>
+  <span class="n">ICHECK_LE</span><span class="p">(</span><span class="n">significand_int64</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="n">ll</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">));</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">significand_int64</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="n">ll</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">significand_int64</span> <span class="o">/=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="o">++</span><span class="n">exponent</span><span class="p">;</span>
+  <span class="p">}</span> <span class="o">//</span><span class="n">如果乘积的结果等于</span> <span class="p">(</span><span class="mi">1</span><span class="n">ll</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">)</span><span class="err">，</span><span class="n">即超出了</span> <span class="mi">32</span> <span class="n">位有符号整数的范围</span><span class="err">，</span><span class="n">则进行一次右移操作</span><span class="err">，</span><span class="n">并将指数部分加</span> <span class="mi">1</span><span class="err">，</span><span class="n">以保证结果可以正确表示</span><span class="err">。</span>
+  <span class="n">ICHECK_LE</span><span class="p">(</span><span class="n">significand_int64</span><span class="p">,</span> <span class="n">std</span><span class="p">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">int32_t</span><span class="o">&gt;</span><span class="p">::</span><span class="nb">max</span><span class="p">());</span>
+  <span class="n">significand</span> <span class="o">=</span> <span class="n">static_cast</span><span class="o">&lt;</span><span class="n">int32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">significand_int64</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">std</span><span class="p">::</span><span class="n">make_pair</span><span class="p">(</span><span class="n">significand</span><span class="p">,</span> <span class="n">exponent</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<ul>
+</li>
 <li><p><strong>加法</strong></p>
 <p>乘法和加法都是二元操作，但是他们的量化计算方式却是不同的。如果仍然按照乘法的那个思路，会变成下面这样：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f_output</span> <span class="o">=</span> <span class="n">f_src0</span> <span class="o">*</span> <span class="n">f_src1</span>  <span class="o">//</span><span class="n">原始浮点计算</span>
@@ -1227,7 +1224,8 @@ std::pair&lt;int32_t, int32_t&gt; GetFixedPointMultiplierShift(double double_mul
 </div>
 <p>在使用时也非常简单，伪代码如下：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">int8</span> <span class="n">get_tanh_result</span><span class="p">(</span><span class="n">int8</span> <span class="nb">input</span><span class="p">){</span>
-    <span class="k">return</span> <span class="n">TANH_LUT</span><span class="p">[</span><span class="nb">input</span><span class="o">+</span><span class="mi">128</span><span class="p">];</span> <span class="o">//</span><span class="n">这里偏移</span> <span class="mi">128</span> <span class="n">是因为存放查找表时是</span><span class="o">-</span><span class="mi">128</span><span class="err">，</span><span class="o">-</span><span class="mi">127</span><span class="err">，</span><span class="o">...</span><span class="err">，</span><span class="mi">126</span><span class="err">，</span><span class="mi">127</span> <span class="n">这样的顺序</span><span class="err">，</span> <span class="n">对应的索引是</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="err">，</span><span class="o">...</span><span class="err">，</span><span class="n">需要偏移</span> <span class="mi">128</span>
+    <span class="c1"># 这里偏移 128 是因为存放查找表时是-128，-127，...，126，127 这样的顺序， 对应的索引是 0,1,2，...，需要偏移 128</span>
+    <span class="k">return</span> <span class="n">TANH_LUT</span><span class="p">[</span><span class="nb">input</span><span class="o">+</span><span class="mi">128</span><span class="p">];</span> 
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1255,8 +1253,8 @@ std::pair&lt;int32_t, int32_t&gt; GetFixedPointMultiplierShift(double double_mul
 <li><p>conv+relu6+tanh 也可以融合为一个大算子，因为 relu6 和 tanh 都是逐元素、一对一映射计算的。在经过图变换后，量化需要的节点都已插入。之后需要去做低层的优化和指令生成。</p></li>
 </ol>
 </section>
-<section id="id7">
-<h3>计算图优化<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>计算图优化<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>统计了 TVM 中前端一些关键 Pass 的作用，探究在高层次计算图优化中，编译器都做了哪些事。</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1356,8 +1354,8 @@ std::pair&lt;int32_t, int32_t&gt; GetFixedPointMultiplierShift(double double_mul
 <p>1.模型加载，转换为统一的 IR 表示</p>
 <p>2.硬件无关的计算图优化，常数折叠、算子简化等</p>
 <p>3.图划分，划分为 host 和 accelerator 两个部分。</p>
-<section id="id8">
-<h4><strong>图划分</strong><a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<section id="id7">
+<h4>图划分<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
 <p>将模型切割为不同的子图，对加速器运行友好（例如加速器支持的算子，或者在加速器上执行效率更高的算子）的部分被卸载，其余部分仍然让 host 执行。深度学习编译器通常有多层 IR，比如 TVM 的 Relay 和 TensorIR，和 MLIR（顾名思义），因此需要决定在哪个 IR 级别进行划分。</p>
 <p>该框架在高层 IR（即仍旧保留算子名称和属性的 IR）进行划分，出于以下考虑：</p>
 <p>1）一些硬件供应商手工制作了一个内核库。在这种情况下，唯一需要的信息是将每个算子映射到对应的内核的名称和属性，而不是由低级 IR 合并的硬件信息。</p>
@@ -1378,14 +1376,14 @@ std::pair&lt;int32_t, int32_t&gt; GetFixedPointMultiplierShift(double double_mul
 <p>将一个区域从 host 卸载到 device 通常会引入数据传输和内核调用开销，如果没有耗时的计算，应该将区域留在 host 执行，该框架支持按用户指定的标准将区域回调到 host 上。</p>
 <p>最后，每个可卸载区域被封装成一个单独的函数，并用一个 target 属性标记，该属性指示执行后端，如图 3（e）。</p>
 </section>
-<section id="id9">
-<h4>特定加速器的处理<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<section id="id8">
+<h4>特定加速器的处理<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
 <p>在划分之后，一个图被分割成多个不同后端处理的区域，在 host 上的区域可以有效利用从现有的深度学习编译器中进行的标准优化，然而卸载到加速器的区域可能需要一些特定于硬件的优化（例如融合、替换、存储布局转换、量化等），这些优化通常是专有的，无法在深度学习编译器中处理。</p>
 <p><img alt="img" src="../_images/07Practice11.png" /></p>
 <p>上图左边是量化，右边是存储布局转换。</p>
 </section>
-<section id="id10">
-<h4>代码生成<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<section id="id9">
+<h4>代码生成<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
 <p>编译流的最后一步是代码生成。</p>
 <p><img alt="img" src="../_images/07Practice12.png" /></p>
 <p>该框架通过遍历图并为每个图节点调用相应的代码生成来生成一个子模块。当遍历到 host 上的节点时，可以利用现有深度学习编译器中的代码生成，如 TVM 和 XLA，它们能为通用设备（如 CPU 和 GPU）生成代码。当遍历到特定 target 标注的节点（即划分函数）时，生成一个外部函数调用作为运行时内核调用的 hook。同时调用加速器特定的代码生成，其包含了硬件供应商提供的代码生成工具和编译流，为该节点中的划分函数生成一个“加速器子模块”。</p>
@@ -1400,8 +1398,8 @@ std::pair&lt;int32_t, int32_t&gt; GetFixedPointMultiplierShift(double double_mul
 <p>某些加速器有专用格式来表示神经网络，如 ARM Ethos-N 和 Xilinx Vitis AI，为了满足这种需求，该框架提供了一组统一的 API 来定制序列化的代码格式：1）将生成的代码编译和序列化为一个 bit 流，以便其可以与其他子模块一起实例化；2）在运行时反序列化来自子模块的 bit 流</p>
 <p>至此，针对 DNN 模型的编译和打包模块已经完成，之后进入运行时系统加载模块并执行推理。</p>
 </section>
-<section id="id11">
-<h4>运行时<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<section id="id10">
+<h4>运行时<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
 <p>运行时系统负责执行模型图的推理，并将算子和子图分发到目标平台。图执行引擎可以是一个简单的数据流图 visitor，处理大多数 CNN；也可以是一个虚拟机来执行字节码，处理现代模型中呈现出的动态性和控制流。</p>
 <p><img alt="img" src="../_images/07Practice10.webp" /></p>
 <p>运行时系统流程如下：</p>
@@ -1423,10 +1421,10 @@ std::pair&lt;int32_t, int32_t&gt; GetFixedPointMultiplierShift(double double_mul
 </section>
 </section>
 </section>
+<section id="id11">
+<h2>仿真层<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <section id="id12">
-<h2>仿真层<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
-<section id="id13">
-<h3>算子仿真<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<h3>算子仿真<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <p>当涉及到新硬件平台、新算子时，需要保证算子到网络整个层级的正确性。</p>
 <p>在深度学习加速器的开发中，最小的运行单位是算子。在 TVM 测试新算子的正确性，有多个步骤：</p>
 <ol class="arabic simple">
@@ -1436,8 +1434,8 @@ std::pair&lt;int32_t, int32_t&gt; GetFixedPointMultiplierShift(double double_mul
 <li><p>硬件实际测试：仿真通过后，编译器对接硬件进行实际的上板测试。</p></li>
 </ol>
 </section>
-<section id="id14">
-<h3>网络仿真<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<section id="id13">
+<h3>网络仿真<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <p>在单个算子通过后，如果直接测试整个网络，则跨度太大。整个网络中间涉及到图优化、所有算子的组合，更容易出问题。好在许多神经网络都是由相似的模式堆叠而成的，可以将这些模式抽离出来测试。我们可以构建一个子网络的 Benchmark，将全部网络的各种模式抽离出来，形成多个子网络的集合，在算子单测全部通过后，逐个测试子网络。</p>
 <p>在子网络的 Benchmark 全部通过后，可以测试整个网络。这时有两个评价指标可供衡量。一个是与模型在 CPU 上的推理结果进行对比，得出相对 CPU 计算的误差。然而，有时这个误差不是重要的，例如在一些模型中关注的是结果向量中相对排序的大小（分类模型）。这时，可以完善模型的前后处理，在测试集上进行端到端的测试，得出基于该任务的 Metric，例如 accuracy，评估该指标的性能。</p>
 </section>
@@ -1512,26 +1510,26 @@ std::pair&lt;int32_t, int32_t&gt; GetFixedPointMultiplierShift(double double_mul
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">算法层</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">算子优化</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">量化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">算法层</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">算子优化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">量化</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">编译层</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">前端量化模型解析</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">计算图优化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">编译层</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">前端量化模型解析</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">计算图优化</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codegen">后端 Codegen 接入</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><strong>图划分</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">特定加速器的处理</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">代码生成</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">运行时</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">图划分</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">特定加速器的处理</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">代码生成</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">运行时</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">仿真层</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">算子仿真</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">网络仿真</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">仿真层</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">算子仿真</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">网络仿真</a></li>
 </ul>
 </li>
 </ul>
