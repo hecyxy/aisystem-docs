@@ -1,6 +1,6 @@
 <!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 
-# 国内 AI 芯片(DONE)
+# 国内 AI 芯片
 
 - 《国内 AI 芯片》深入地解读国内 AI 初创芯片厂商如国内第一 AI 芯片上市公司寒武纪、国内造 GPU 声势最大的壁仞科技、腾讯重头的燧原科技等科技公司的 AI 芯片架构。
 
@@ -18,6 +18,10 @@
 | 国内 AI 芯片 | 04 寒武纪 AI 芯片第一股 | [文章](./04Cambricon.md), [PPT](./04CambriconProduct.pdf), [视频](https://www.bilibili.com/video/BV1Y8411m7Cd)|
 | 国内 AI 芯片 | 05 寒武纪 AI 芯片架构剖析（上）| [PPT](./05CambriconArch.pdf), [视频](https://www.bilibili.com/video/BV1op4y157Qf)|
 | 国内 AI 芯片 | 06 寒武纪 AI 芯片架构剖析（下）| [PPT](./06CambriconArch.pdf), [视频](https://www.bilibili.com/video/BV1TV411j7Yx)|
+| 国内 AI 芯片 | 07 昇腾 AI 处理器 | [文章](./07AscendBase.md), [PPT](), [视频]() |
+| 国内 AI 芯片 | 08 昇腾 AI 核心单元 | [文章](./08AscendCube.md), [PPT](), [视频]() |
+| 国内 AI 芯片 | 09 昇腾 AI 算力集群 | [文章](./09AscendCluster.md), [PPT](), [视频]() |
+| 国内 AI 芯片 | 10 昇腾 AI 全栈架构 | [文章](./10AscendArch.md), [PPT](), [视频]() |
 
 ## 备注
 
@@ -34,5 +38,8 @@
 :maxdepth: 1
 
 04Cambricon
-AscendArch
+07AscendBase
+08AscendCube
+09AscendCluster
+10AscendArch
 ```

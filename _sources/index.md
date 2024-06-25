@@ -86,6 +86,7 @@ title: AISystem & AIInfra
 03Compiler02AICompiler/README
 03Compiler03Frontend/README
 03Compiler04Backend/README
+03Compiler07CANN/README
 ```
 
 <!-- ## 四. 推理系统&引擎 -->
