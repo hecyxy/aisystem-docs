@@ -43,4 +43,5 @@
 04TensorParallel
 05PipelineParallel
 06HybridParallel
+07MSParallel
 ```

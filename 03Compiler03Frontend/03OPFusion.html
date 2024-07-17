@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 26, 2024"/>
+    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
 
 <link
   rel="alternate"
@@ -362,9 +362,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">TVM 实践案例</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler07CANN/README.html">CANN &amp; AscendC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler07CANN/README.html">CANN &amp; Ascend C</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/01CANN.html">昇腾异构计算架构 CANN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/02AscendC.html">算子开发编程语言 AscendC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/02OPType.html">CANN 算子类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/03AscendC.html">算子开发编程语言 Ascend C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/04Grmmar.html">Ascend C 语法扩展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/05Paradigm.html">Ascend C 编程范式</a></li>
 </ul>
 </details></li>
 </ul>
@@ -390,11 +393,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/025FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/026EfficientNet.html">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/027GhostNet.html">GhostNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Cnn.html">CNN 模型小型化（上）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/031MobileVit.html">MobileVit 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/032MobileFormer.html">MobileFormer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/033EfficientFormer.html">EfficientFormer 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Cnn.html">CNN 模型小型化（下）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Transformer.html">Transformer 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Transformer.html">Transformer 模型小型化</a></li>
+
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -438,6 +444,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/05MindSpore.html">昇思 MindSore 关键特性</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -467,6 +474,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/04TensorParallel.html">张量并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05PipelineParallel.html">流水并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/06HybridParallel.html">混合并行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/07MSParallel.html">昇思MindSpore并行</a></li>
 </ul>
 </details></li>
 </ul>
@@ -794,9 +802,9 @@ document.write(`
 	<span class="nb">print</span><span class="p">(</span><span class="n">kernel_fusion_output</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>最后我们给一个更具体的算子融合，读者可自行验证。
-========= 需要用文字解释一下下面的图例。</p>
+<p>最后我们给一个更具体的算子融合，读者可自行验证。</p>
 <p><img alt="融合方式 example" src="../_images/03OPFusion06.png" /></p>
+<p>如图所示，首先我们可以利用横向融合的思想，将一个 3×3×256 的卷积算子和一个 1×1×256 的卷积算子通过 Enlarge 方法将后者扩成 3×3×256 的卷积算子，然后融合成一个 3×3×512 的卷积算子；接着我们可以利用纵向融合的思想，将 Split，卷积，Add 融合成一个卷积算子，减少 Kernel 调度；最后，一般激活 ReLU 都可以和前一个计算步骤融合，于是最后融合得到一个 Cov2d_ReLU 算子。于是我们从一个比较复杂的计算图，最终得到了一个比较简洁的计算图，减少了 Kernel 调度，实现了“少就是多”。</p>
 <p>总而言之，为了提高效率，我们可以通过消除不必要的中间结果实例化、 减少不必要的输入扫描、 发现其他优化机会等方法来指导我们实现算子融合。</p>
 </section>
 <section id="id3">
@@ -805,7 +813,29 @@ document.write(`
 <p>下面我们以 Conv-BN-ReLU 的算子融合作为例子。</p>
 <section id="bn">
 <h3>BN 计算流程<a class="headerlink" href="#bn" title="Link to this heading">#</a></h3>
-<p>====== 先给出 BN 的计算公式，</p>
+<p>BN 的计算公式</p>
+<p>计算均值：</p>
+<div class="math notranslate nohighlight">
+\[
+\mu_B = \frac{1}{m} \sum_{i=1}^{m} x_i
+\]</div>
+<p>计算方差：</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_B^2 = \frac{1}{m} \sum_{i=1}^{m} (x_i - \mu_B)^2
+\]</div>
+<p>归一化：</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{x}_i = \frac{x_i - \mu_B}{\sqrt{\sigma_B^2 + \epsilon}}
+\]</div>
+<p>其中，<span class="math notranslate nohighlight">\(\epsilon\)</span> 是一个很小的正数，用于避免除以零。</p>
+<p>线性变换：</p>
+<div class="math notranslate nohighlight">
+\[
+y_i = \gamma \hat{x}_i + \beta
+\]</div>
+<p>其中，<span class="math notranslate nohighlight">\(\gamma\)</span> 和 <span class="math notranslate nohighlight">\(\beta\)</span> 是可学习的缩放参数和偏移参数。</p>
 <p>在 BN 前向计算过程中，首先求输入数据的均值 <span class="math notranslate nohighlight">\(\mu\)</span> 与方差 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span>，然后使用 <span class="math notranslate nohighlight">\(\mu\)</span>、<span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 对每个输入数据进行归一化及缩放操作。其中，<span class="math notranslate nohighlight">\(\mu\)</span>、<span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 依赖于输入数据；归一化及缩放计算的输入则依赖于输入数据、均值、方差以及两个超参数。下图为前向计算过程中 BN 的数据依赖关系：</p>
 <p><img alt="BN 计算过程 01" src="../_images/03OPFusion07.png" /></p>
 <p>其中，<span class="math notranslate nohighlight">\(\gamma\)</span> 和 <span class="math notranslate nohighlight">\(\beta\)</span> 是一个可学习的参数，在训练过程中，和其他层的权重参数一样，通过梯度下降进行学习。在训练过程中，为保持稳定，一般使用滑动平均法更新 <span class="math notranslate nohighlight">\(\mu\)</span> 与 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span>，滑动平均就是在更新当前值时，保留一定比例上一时刻的值，以均值 <span class="math notranslate nohighlight">\(\mu\)</span> 为例，根据比例 <span class="math notranslate nohighlight">\(\theta\)</span>（如，<span class="math notranslate nohighlight">\(\theta=0.99\)</span>）保存之前的均值，当前只更新 <span class="math notranslate nohighlight">\(1-\theta\)</span> 倍的本 Batch 的均值，计算方法如下：</p>
@@ -935,7 +965,8 @@ y = \gamma\frac{{\left( {z - mean} \right)}}{{\sqrt {\operatorname{var} } }} + \
 <h2>本节视频<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=691289516&bvid=BV1P24y1D7RV&cid=925968608&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</html></section>
+</html>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1042,7 +1073,7 @@ y = \gamma\frac{{\left( {z - mean} \right)}}{{\sqrt {\operatorname{var} } }} + \
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 26, 2024.
+  Last updated on Jul 17, 2024.
   <br/>
 </p>
   </div>

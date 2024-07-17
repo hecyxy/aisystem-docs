@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 26, 2024"/>
+    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
 
 <link
   rel="alternate"
@@ -360,9 +360,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">TVM 实践案例</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler07CANN/README.html">CANN &amp; AscendC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler07CANN/README.html">CANN &amp; Ascend C</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/01CANN.html">昇腾异构计算架构 CANN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/02AscendC.html">算子开发编程语言 AscendC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/02OPType.html">CANN 算子类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/03AscendC.html">算子开发编程语言 Ascend C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/04Grmmar.html">Ascend C 语法扩展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/05Paradigm.html">Ascend C 编程范式</a></li>
 </ul>
 </details></li>
 </ul>
@@ -388,11 +391,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/025FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/026EfficientNet.html">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/027GhostNet.html">GhostNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Cnn.html">CNN 模型小型化（上）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/031MobileVit.html">MobileVit 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/032MobileFormer.html">MobileFormer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/033EfficientFormer.html">EfficientFormer 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Cnn.html">CNN 模型小型化（下）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Transformer.html">Transformer 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Transformer.html">Transformer 模型小型化</a></li>
+
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -436,6 +442,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/05MindSpore.html">昇思 MindSore 关键特性</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -465,6 +472,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/04TensorParallel.html">张量并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05PipelineParallel.html">流水并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/06HybridParallel.html">混合并行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/07MSParallel.html">昇思MindSpore并行</a></li>
 </ul>
 </details></li>
 </ul>
@@ -694,10 +702,22 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">融合算子替换</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flash-attention">Flash Attention</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flash-attention">Flash Attention</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">步骤一：计算分子块的大小</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#o">步骤二：初始化输出矩阵 O</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">步骤三：切分子块</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kv-q">步骤四：外循环加载 K、V 内循环加载 Q 子块</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#softmax">步骤五：实现分块 SoftMax 算法</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">标准 softmax 计算方式</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flashattention">flashAttention 改进方式</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">flashAttention 性能分析</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-memory">layout&amp;memory 优化</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -762,39 +782,95 @@ document.write(`
 <p>Tiling（平铺）是一种处理注意力矩阵的策略，其主要思想是将原始的大型注意力矩阵拆分成更小的子矩阵，然后分别对这些子矩阵进行计算。只要每个子矩阵的大小能够适应 SRAM 的存储容量，那么在计算过程中就可以仅访问 SRAM，从而提高计算的效率。这种方法可以有效地在有限的存储和处理能力下处理大型注意力矩阵。</p>
 <p>Recomputation（重算）则是一种以计算能力为代价来节省存储空间的策略。这种方法的核心思想是，不保存大量的梯度信息和每一层正向传播过程中的中间状态，而是在反向传播计算到某一层时，临时重新进行正向传播以得到所需的中间状态。这样，即使在存储资源有限的情况下，也能有效进行神经网络模型的训练。</p>
 <p>主要的算法实现：</p>
-<p>步骤一：计算分子块的大小</p>
+<p><img alt="flashAttention 算法方式" src="../_images/03Extend04.png" /></p>
+<section id="id3">
+<h3>步骤一：计算分子块的大小<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>首先，我们需要获取 GPU 硬件 SRAM 的大小，我们假设为 M。为了让 Q、K、V 在计算中可以存放在 SRAM 中，我们需要设定分块的大小尺寸。</p>
 <p>其次，在 SRAM 上需要存在的数据包括，Q 子块，K 子块，V 子块，其次还应包括计算过程中的中间输出 O，O 的大小应该与 Q、K、V 子块大小一致。</p>
-<p>所以，在这里我们计算出子块的列大小 Bc =[M/4d]， d 为矩阵维度。</p>
-<p>步骤二：初始化输出矩阵 O</p>
-<p>SRAM 上的输出 O 矩阵赋值为全 0，它将作为一个累加器保存 softmax 的累积分母。</p>
-<p>步骤三：切分子块</p>
+<p><img alt="flashAttention 算法方式" src="../_images/03Extend05.png" /></p>
+<ol class="arabic simple">
+<li><p>Set block sizes B_c = [M / 4d], B_r = min([M / 4d],d)</p></li>
+</ol>
+<p>所以，在这里我们计算出子块的列大小 Bc =[M/4d]， d 为矩阵维度。当然，需要注意的是，上面的设置子块的大小并非唯一的，只有保证子块大小不超过 SRAM 的大小即可。</p>
+</section>
+<section id="o">
+<h3>步骤二：初始化输出矩阵 O<a class="headerlink" href="#o" title="Link to this heading">#</a></h3>
+<p><img alt="flashAttention 算法方式" src="../_images/03Extend06.png" /></p>
+<p>SRAM 上的输出 O 矩阵赋值为全 0，它将作为一个累加器保存 softmax 的累积分母，其中 l 也类似。m 用于记录每一行行最大分数，其初始化为-inf。</p>
+</section>
+<section id="id4">
+<h3>步骤三：切分子块<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><img alt="flashAttention 算法方式" src="../_images/03Extend07.png" /></p>
 <p>将 Q 划分成 Tr 个 Bolck，K、V 划分成 Tc 个 Block，初始化 attention output O，并划分成 Tr 个 Block。</p>
-<p>步骤四：外循环加载 K、V 内循环加载 Q 子块</p>
-<p><img alt="flashattention cycle" src="../_images/03Extend04.png" /></p>
-<p>如图所示：</p>
+</section>
+<section id="kv-q">
+<h3>步骤四：外循环加载 K、V 内循环加载 Q 子块<a class="headerlink" href="#kv-q" title="Link to this heading">#</a></h3>
+<p><img alt="flashattention cycle" src="../_images/03Extend08.png" /></p>
+<p>上图完美解释了这个循环过程，</p>
 <ol class="arabic simple">
 <li><p>外循环：对于每一个 Block Key 和 Value，从 HBM 加载进 SRAM</p></li>
 <li><p>内循环：对于每个 Block Query，从 HBM 加载进 SRAM</p></li>
 <li><p>在 SRAM 上完成 Block S 的计算</p></li>
 </ol>
-<p>步骤五：实现分块 SoftMax 算法</p>
+<p><img alt="flashattention cycle" src="../_images/03Extend09.png" /></p>
+<p>这里要注意的是，Oi, li, mi 其中存储的可能是上一个循环计算的中间结果。</p>
+</section>
+<section id="softmax">
+<h3>步骤五：实现分块 SoftMax 算法<a class="headerlink" href="#softmax" title="Link to this heading">#</a></h3>
 <p>下面我们看看原版的证明公式：</p>
-<p>假如有切片向量 x = [x^(1), x^(2)]，切片后 softmax 的计算方式：</p>
-<p><img alt="softmax 计算方式 1" src="../_images/03Extend05.png" /></p>
-<p>update m(x)，根据更新后的 m(x)，根据上一步计算结果重新计算 f(x), l(x)。假设存在 x^(3), 那么便可以将 x^(1)和 x^(2)合并成一个序列，重复步骤 1 即可。</p>
+<section id="id5">
+<h4>标准 softmax 计算方式<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p><img alt="flashattention cycle" src="../_images/03Extend10.png" /></p>
+<p>在实际硬件中，因为浮点数表示的范围是有限的，对于 float32 和 bfloat16 来说，当 z ≥ 89 时，exp(z) 就会变成 inf，发生数据上溢的问题。</p>
+<p>为了确保数值计算的稳定性，避免溢出问题，通常采用一种称为“safe softmax”的计算策略。在此方法中，通过减去最大值来缩放输入数据，以保证数值的相对稳定性。</p>
+<p>所以说，现有所有的深度学习框架中都采用了“safe softmax”这种计算方式，其计算公式如下：</p>
+<p><img alt="flashattention cycle" src="../_images/03Extend11.png" /></p>
+<p>计算举例：a = [0.1, 0.2, 0.3, 0.4]; m(a) = 0.4</p>
+<p>则可以得到：f(a) = [e^(0.1-0.4), e^(0.2-0.4), e^(0.3-0.4), e^(0.4-0.4)]</p>
+<p>然后计算得到：l(a) = Σf(a), softmax(a) = f(a) / l(a)</p>
+<p>从上面可以看出，首先在分子上“safe softmax”需要获取当前区间的最大值来缩放输入数据，而在分母上需要累加所有的分子 f(a)。</p>
+<p>由于 flashAttention 已经采取了分块计算的策略，也就意味着在计算 softmax 时，并不能拿到所有数据列的最大值和全部 f(a) 的和。</p>
+</section>
+<section id="flashattention">
+<h4>flashAttention 改进方式<a class="headerlink" href="#flashattention" title="Link to this heading">#</a></h4>
+<p>虽然 softmax 与 K 的列是耦合的，但如果分开计算每个子块的 softmax 再将最后的结果进行收集转换是否可以等价呢？下面我们看看原版的证明公式：</p>
+<ol class="arabic simple">
+<li><p>假如有切片向量 x = [x^(1), x^(2)]，切片后 softmax 的计算方式：</p></li>
+</ol>
+<p><img alt="softmax 计算方式 1" src="../_images/03Extend12.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>update m(x)，根据更新后的 m(x)，根据上一步计算结果重新计算 f(x), l(x)。假设存在 x^(3), 那么便可以将 x^(1)和 x^(2)合并成一个序列，重复步骤 1 即可。</p></li>
+</ol>
 <p>计算举例：a = [0.1, 0.2, 0.3, 0.4] = [a1, a2]</p>
 <p>则可以得到：m(a1) = 0.2, m(a2) = 0.4, m(a) = 0.4</p>
 <p>然后计算得到：f(a1) = [e^(0.1-0.2), e^(0.2-0.2)], f(a2) = [e^(0.3-0.4), e^(0.4-0.4)], f(a) = [e^(0.2-0.4)f(a1), e^(0.4-0.4)f(a2)], 同理 l(a) = e^(0.2-0.4)l(a1) + e^(0.4-0.4)l(a2)</p>
 <p>最终得到 softmax(a) = f(a) / l(a)</p>
-<p>通过上述的转换可知，softmax 与分块 softmax 是在数学上是等价的关系。不过由于真实计算中次数变多，精度上也可能存在一定丢失。</p>
+<p>需要注意的是，可以利用 GPU 多线程同时并行计算多个 block 的 softmax。</p>
+<p>可见通过上述的转换可知，softmax 与分块 softmax 是在数学上是等价的关系。不过由于真实计算中次数变多，精度上也可能存在一定丢失。</p>
+<p>在介绍完 flashAttention 中 softmax 的改进后，我们继续围绕论文中的代码进行分析：</p>
+<p><img alt="softmax 计算方式 1" src="../_images/03Extend13.png" /></p>
+<p>首先，根据上一步计算的子块 Sij，来计算当前块的行最大值 mij，当前块 Pij (即 softmax 的分子)，lij 为 Pij 的累积值。</p>
+<p>其次，计算子块与子块间的最大值 m^new 和多个子块的 Pij 的累积值 l^new。</p>
+<p>最后，根据 softmax 公式计算最终的 softmax，经结果写到 SRAM 的 Oi 中，并写出到 HBM，同时将最后的最后的 l^new 赋值给 li 写出到 HBM，m^new 赋值到 mi 写出到 HBM，开始下一轮循环。</p>
+<p>到此前向计算就算完成，我们可以通过下图来总结下 flashAttention 的前向计算过程，这里就不做过多解释了。</p>
+<p><img alt="softmax 计算方式 1" src="../_images/03Extend14.png" /></p>
 <p>步骤六：反向计算</p>
+<p>从上面的前向过程中，我们知道前向过程中只将 Oi, li, mi 写出到了 HBM，而 S 和 P 的保存则主要在反向的重算中实现。</p>
 <ol class="arabic simple">
 <li><p>前向过程会保留 Q，K，V，O， l， m 在 HBM 中，dO 由反向计算获取后，按照前向相同的分块模式重新分块。</p></li>
 <li><p>初始化 dQ，dK，dV 为全 0 矩阵，并按照对等 Q，K，V 的分割方式分割 dQ，dK，dV。</p></li>
 <li><p>分别从 HBM 中 Load K V block on SRAM，再 Load Q block on SRAM。根据前向过程重新计算对应 block 的 S 和 P；按分块矩阵的方式分别计算对应梯度，完成参数更新。</p></li>
 </ol>
-<p>代码实现：https://github.com/openai/triton/blob/main/python/tutorials/06-fused-attention.py#L17</p>
+<p>最终可以看到，在将三个 kernel 进行合并后，flashAttention v1 实现了中间计算完全基于 SRAM 的目的。</p>
+</section>
+</section>
+<section id="id6">
+<h3>flashAttention 性能分析<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>FlashAttention 节省的访存次数计算如下：</p>
+<p>首先，K，V （Nxd）的每个 block 都需要 Load 进 SRAM，因此该过程的 HBM 访问次数为 O(Nxd)。</p>
+<p>其次，Q 也需要分 block Load 进 SRAM，该过程一共持续外循环 Tc 次，因此该过程的 HBM 访问次数为 O(TcNd)</p>
+<p>最后，而 Tc = N/(Bc) = 4Nd/M(向上取整)。因此 flash attention 的 HBM 访问次数为 O(N^2d^2/M)</p>
+<p>下面来看 flash Attention 代码的具体实现：https://github.com/openai/triton/blob/main/python/tutorials/06-fused-attention.py#L17</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_fwd_kernel</span><span class="p">(</span>
     <span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">sm_scale</span><span class="p">,</span>
     <span class="n">L</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span>
@@ -873,6 +949,7 @@ document.write(`
 <p>Flash Attention 在速度和内存占用方面都表现出明显的优势，并取得了良好的效果。目前，Flash Attention 已经经过广泛验证, torch2.0 中已提供 flashattention 的实现。</p>
 <p>Flash Attention 的优点在于充分考虑了在计算任务中 IO 的重要性，并通过分块计算的方式开发了一种快速、节省显存、精确无近似的注意力实现方法。这使得我们更便于训练具有更长上下文的 Transformer 模型，并且为后续注意力算法的优化提供了一个基准。</p>
 </section>
+</section>
 <section id="layout-memory">
 <h2>layout&amp;memory 优化<a class="headerlink" href="#layout-memory" title="Link to this heading">#</a></h2>
 <p>针对网络模型，特别是在处理算子（操作符）时。算子在这里可以理解为模型中完成特定任务的一种函数或者操作，例如卷积，矩阵乘法等。</p>
@@ -880,22 +957,22 @@ document.write(`
 <p>当上一层的输入和下一层的输入不同时，我们就需要进行数据节点转换。具体来说，我们需要插入特定的算子来处理这种输入的变化。这个过程也是图优化的一部分。</p>
 <p>如果在某些情况下，我们发现有些算子在当前的计算图中是多余的，或者说并没有为模型的性能提升做出贡献，那么我们需要删除这些算子。</p>
 <p>具体示例如下：</p>
-<p><img alt="数据节点转换" src="../_images/03Extend06.png" /></p>
+<p><img alt="数据节点转换" src="../_images/03Extend15.png" /></p>
 <p>内存优化是一种计算机系统优化技术，主要目的是提高系统的运行性能，通过更有效地使用和管理内存资源来达到这个目的。</p>
 <p>Inplace operation：是一种内存优化手段，它在当前的内存块上直接进行操作，而不需要额外开辟新的内存。如果一块内存不再需要，且下一个操作是 element-wise（元素级操作，比如加法、乘法等），我们就可以使用原地操作，直接在原内存上进行计算，覆盖原有的数据。这样做的好处是可以节省内存，减少内存的分配和回收开销，从而提高程序的运行效率。</p>
 <p>Memory sharing：是另一种内存优化策略。它在内存使用上进行优化，当两个数据的内存大小相同，且有一个数据参与计算后不再需要时，我们可以让后一个数据直接覆盖前一个数据的内存。这样做的好处是可以减少内存的开销，节省内存空间，提高内存的使用效率。</p>
-<p><img alt="内存优化" src="../_images/03Extend07.png" /></p>
+<p><img alt="内存优化" src="../_images/03Extend16.png" /></p>
 </section>
-<section id="id3">
-<h2>小结与思考<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h2>小结与思考<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>计算图优化策略：本文深入探讨了计算图优化策略，重点分析了通过改变数据类型或存储格式、优化数据存储和访问方式来提升模型性能和降低内存占用的方法。</p></li>
 <li><p>Flash Attention 技术：介绍了 Flash Attention 技术，这是一种针对 Transformer 模型的注意力计算优化算法，通过减少对低速存储器的访问次数和利用高速存储计算单元，显著加速了注意力计算并降低了内存占用。</p></li>
 <li><p>内存优化技术：讨论了内存优化技术，包括 Inplace operation 和 Memory sharing，这些技术通过减少内存分配和回收开销，提高内存使用效率，从而提升程序运行效率。</p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>本节视频<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>本节视频<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=436279990&bvid=BV1Qj411T7Ef&cid=992509078&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -971,10 +1048,22 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">融合算子替换</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flash-attention">Flash Attention</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flash-attention">Flash Attention</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">步骤一：计算分子块的大小</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#o">步骤二：初始化输出矩阵 O</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">步骤三：切分子块</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kv-q">步骤四：外循环加载 K、V 内循环加载 Q 子块</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#softmax">步骤五：实现分块 SoftMax 算法</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">标准 softmax 计算方式</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flashattention">flashAttention 改进方式</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">flashAttention 性能分析</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-memory">layout&amp;memory 优化</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -997,7 +1086,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 26, 2024.
+  Last updated on Jul 17, 2024.
   <br/>
 </p>
   </div>

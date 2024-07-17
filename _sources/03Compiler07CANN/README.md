@@ -1,6 +1,6 @@
 <!--Copyright © ZOMI 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 
-# CANN & AscendC
+# CANN & Ascend C
 
 CANN 是昇腾的计算架构（Compute Architecture for Neural Networks），这是一套为高性能深度神经网络计算需求专门设计和优化的架构。而 Ascend C 是构建在 CANN 之上的算子开发编程语言 Ascend C，专为昇腾 AI 处理器算子开发设计的编程语言。
 
@@ -13,7 +13,10 @@ CANN 是昇腾的计算架构（Compute Architecture for Neural Networks），�
 | 小节 | 链接|
 |:--:|:--:|
 | 01 昇腾异构计算架构 CANN | [文章](./01CANN.md) |
-| 02 算子开发编程语言 AscendC | [文章](./02AscendC.md) |
+| 02 CANN 算子类型 | [文章](./02OPType.md) |
+| 03 算子开发编程语言 Ascend C | [文章](./03AscendC.md) |
+| 04 Ascend C 语法扩展 | [文章](./04Grmmar.md) |
+| 05 Ascend C 编程范式详解 | [文章](./05Paradigm.md) |
 
 ## 备注
 
@@ -31,5 +34,8 @@ CANN 是昇腾的计算架构（Compute Architecture for Neural Networks），�
 :maxdepth: 1
 
 01CANN
-02AscendC
+02OPType
+03AscendC
+04Grmmar
+05Paradigm
 ```

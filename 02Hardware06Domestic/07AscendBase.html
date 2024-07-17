@@ -74,6 +74,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02Hardware06Domestic/07AscendBase';</script>
     <script src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     <link rel="icon" href="../_static/logo-square.svg"/>
@@ -84,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 26, 2024"/>
+    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
 
 <link
   rel="alternate"
@@ -360,9 +362,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">TVM 实践案例</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler07CANN/README.html">CANN &amp; AscendC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler07CANN/README.html">CANN &amp; Ascend C</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/01CANN.html">昇腾异构计算架构 CANN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/02AscendC.html">算子开发编程语言 AscendC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/02OPType.html">CANN 算子类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/03AscendC.html">算子开发编程语言 Ascend C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/04Grmmar.html">Ascend C 语法扩展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/05Paradigm.html">Ascend C 编程范式</a></li>
 </ul>
 </details></li>
 </ul>
@@ -388,11 +393,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/025FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/026EfficientNet.html">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/027GhostNet.html">GhostNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Cnn.html">CNN 模型小型化（上）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/031MobileVit.html">MobileVit 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/032MobileFormer.html">MobileFormer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/033EfficientFormer.html">EfficientFormer 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Cnn.html">CNN 模型小型化（下）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Transformer.html">Transformer 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Transformer.html">Transformer 模型小型化</a></li>
+
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -436,6 +444,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/05MindSpore.html">昇思 MindSore 关键特性</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -465,6 +474,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/04TensorParallel.html">张量并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05PipelineParallel.html">流水并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/06HybridParallel.html">混合并行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/07MSParallel.html">昇思MindSpore并行</a></li>
 </ul>
 </details></li>
 </ul>
@@ -694,9 +704,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">昇腾 AI 处理器</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">AI 处理器架构</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">卷积加速原理</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">AI 处理器架构</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">昇腾 910</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">昇腾 310</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">卷积加速原理</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">小结与思考</a></li>
 </ul>
             </nav>
         </div>
@@ -732,9 +746,25 @@ document.write(`
 <p>除了 CPU 之外，该处理器真正的算力担当是采用了达芬奇架构的 AI Core。这些 AI Core 通过特别设计的架构和电路实现了高通量、大算力和低功耗，特别适合处理深度学习中神经网络必须的常用计算如矩阵相乘等。目前该处理器能对整数或浮点数提供强大的乘加计算力。由于采用了模块化的设计，可以很方便的通过叠加模块的方法提高后续处理器的计算力。</p>
 <p>针对深度神经网络参数量大、中间值多的特点，该处理器还特意为 AI 计算引擎配备了一定容量的片上缓冲区（On-Chip Buffer），提供高带宽、低延迟、高效率的数据交换和访问。能够快速访问到所需的数据对于提高神经网络算法的整体性能至关重要，同时将大量需要复用的中间数据缓存在片上对于降低系统整体功耗意义重大。为了能够实现计算任务在 AI Core 上的高效分配和调度，还特意配备了一个专用 CPU 作为任务调度器（Task Scheduler，TS）。该 CPU 专门服务于 AI Core 和 AI CPU，而不承担任何其他的事务和工作。</p>
 <p>数字视觉预处理模块主要完成图像视频的编解码，视频处理，对图像支持 JPEG 和 PNG 等格式的处理。来自主机端存储器或网络的视频和图像数据，在进入昇腾 AI 处理器的计算引擎处理之前，需要生成满足处理要求的输入格式、分辨率等，因此需要调用数字视觉预处理模块进行预处理以实现格式和精度转换等要求。数字视觉预处理模块主要实现视频解码（Video Decoder，VDEC），视频编码（Video Encoder，VENC），JPEG 编解码（JPEG Decoder/Encoder，JPEGD/E），PNG 解码（PNG Decoder，PNGD）和视觉预处理（Vision Pre-Processing Core，VPC）等功能。图像预处理可以完成对输入图像的上/下采样、裁剪、色调转换等多种功能。数字视觉预处理模块采用了专用定制电路的方式来实现高效率的图像处理功能，对应于每一种不同的功能都会设计一个相应的硬件电路模块来完成计算工作。在数字视觉预处理模块收到图像视频处理任务后，会读取需要处理的图像视频数据并分发到内部对应的处理模块进行处理，待处理完成后将数据写回到内存中等待后续步骤。</p>
-</section>
 <section id="id3">
-<h2>卷积加速原理<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h3>昇腾 910<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><img alt="昇腾 AI 处理器逻辑图" src="../_images/ascendarch18.png" /></p>
+<p>昇腾 910 处理器的目标场景是云端的推理和训练，其架构如上图所示，包含 Davinci Core、DVPP、HBM、DDR4 等组件。昇腾 910 处理器采用了芯粒(chiplet)技术，包含六个 die: 1 个计算芯粒(包含 32 个 Davinci Core、16 个 CPU Core 和 4 个 DVDP)，1 个 IO 芯粒，和 4 个 HBM 芯粒(总计 1.2TB/s 带宽)。针对云端训练和推理场景，昇腾 910 处理器做的优化包括:</p>
+<ol class="arabic simple">
+<li><p>高算力: 训练场景通常使用的 Batch Size 较大，因此采用最高规格的 Ascend-Max，每个 Core 每个周期可以完成 16<em>16</em>16=4096 次 FP16 乘累加</p></li>
+<li><p>高 Load/Store 带宽: 训练场景下计算反向 SGD 时，会有大量对 Last Level Cache 和片外缓存的访问，因此需要配备较高的 Load/Store 带宽，因此昇腾 910 除了 DDR 还采用了 HBM 技术。</p></li>
+<li><p>100G NIC: 随着 DNN 的模型尺寸愈发庞大，单机单卡甚至单机多卡已经不能满足云端训练的需求，为了支持多卡多机组成集群，昇腾 910 集成了支持 ROCE V2 协议的 100G NIC 用于跨服务器传递数据，使得可以使用昇腾 910 组成万卡集群。</p></li>
+<li><p>高吞吐率的数字视觉与处理器(DVPP): DVPP 用于 JPEG、PNG 格式图像编解码、图像预处理(对输入图像上下采样、裁剪、色调转换等)、视频编解码，为了适配云端推理场景，DVPP 最高支持 128 路 1080P 视频解码。</p></li>
+</ol>
+</section>
+<section id="id4">
+<h3>昇腾 310<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><img alt="昇腾 AI 处理器逻辑图" src="../_images/ascendarch17.png" />
+昇腾 310 处理器的目标场景是边缘推理，比如智慧城市、智慧新零售、机器人、工业制造等，其架构如上图所示，主要包含 Davinci Core、DVPP、LPDDR4 等组件。相比昇腾 910，昇腾 310 的定制化 IP 相对较少，但是提供了更多外设接口。由于在边缘推理场景下 batch size 通常只有 1，因此昇腾 310 选择了较小的矩阵计算维度(m = 4, n = 16, k = 16)以实现<span class="math notranslate nohighlight">\(C_{mn} = A_{mk}\times B_{kn}\)</span>。由于在矩阵运算中<span class="math notranslate nohighlight">\(M = batch\_size \times output\_hight \times output\_width\)</span>, 当 batch size = 1 时，将 m 设置成 4 可以提升乘累加利用率。</p>
+</section>
+</section>
+<section id="id5">
+<h2>卷积加速原理<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>在深度神经网络中，卷积计算一直扮演着至关重要的角色。在一个多层的卷积神经网络中，卷积计算的计算量往往是决定性的，将直接影响到系统运行的实际性能。昇腾 AI 处理器作为人工智能加速器自然也不会忽略这一点，并且从软硬件架构上都对卷积计算进行了深度的优化。</p>
 <p><img alt="卷积计算过程" src="../_images/ascendarch15.png" /></p>
 <p>上图展示的是一个典型的卷积层计算过程，其中<strong>X</strong>为输入特征矩阵，<strong>W</strong>为权重矩阵；<strong>b</strong>为偏置值；<strong>Y</strong>o 为中间输出；Y 为输出特征矩阵，GEMM 表示通用矩阵乘法。输入特征矩阵<strong>X</strong>和<strong>W</strong>先经过 Img2Col 展开处理后得到重构矩阵 XI2C 和 WI2C 通过矩阵<strong>X</strong>I2C 和矩阵<strong>W</strong>I2C 进行矩阵相乘运算后得到中间输出矩阵<strong>Y</strong>o；接着累加偏置<strong>b</strong>，得到最终输出特征矩阵<strong>Y</strong>，这就完成了一个卷积神经网络中的卷积层处理。</p>
@@ -747,8 +777,8 @@ document.write(`
 <p>同时 AI Core 在片上集成了大容量的输入缓冲区和输出缓冲区，一次可以读取并缓存充足的数据，减少了对核外存储系统的访问频次，提升了数据搬移的效率。同时各类缓冲区相对于核外存储系统具有较高的访问速度，大量片上缓冲区的使用也极大提升了计算中实际可获得的数据带宽。</p>
 <p>同时针对深度神经网络的结构多样性，AI Core 采用了灵活的数据通路，使得数据在片上缓冲区、核外存储系统、存储转换单元以及计算单元之间可以快速流动和切换，从而满足不同结构的深度神经网络的计算要求，使得 AI Core 对各种类型的计算具有一定的通用性。</p>
 </section>
-<section id="id4">
-<h2>小结与思考<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2>小结与思考<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>昇腾 AI 处理器的创新：华为推出的昇腾 AI 处理器基于达芬奇架构，专为 AI 领域设计，提供云边端一体化的全栈全场景解决方案，以高能效比和强大的 3D Cube 矩阵计算单元为特点，支持多种计算模式和混合精度计算。</p></li>
 <li><p>昇腾 AI 处理器架构：昇腾 AI 处理器是一个 SoC，集成了特制的计算单元、存储单元和控制单元，包括 AI Core、AI CPU、多层级片上缓存/缓冲区和数字视觉预处理模块 DVPP，通过 CHI 协议的环形总线实现模块间的数据共享和一致性。</p></li>
@@ -826,9 +856,13 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">昇腾 AI 处理器</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">AI 处理器架构</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">卷积加速原理</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">AI 处理器架构</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">昇腾 910</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">昇腾 310</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">卷积加速原理</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">小结与思考</a></li>
 </ul>
   </nav></div>
 
@@ -851,7 +885,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 26, 2024.
+  Last updated on Jul 17, 2024.
   <br/>
 </p>
   </div>

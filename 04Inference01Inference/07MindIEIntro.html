@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jun 26, 2024"/>
+    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
 
 <link
   rel="alternate"
@@ -360,9 +360,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler04Backend/07Practice.html">TVM 实践案例</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler07CANN/README.html">CANN &amp; AscendC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler07CANN/README.html">CANN &amp; Ascend C</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/01CANN.html">昇腾异构计算架构 CANN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/02AscendC.html">算子开发编程语言 AscendC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/02OPType.html">CANN 算子类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/03AscendC.html">算子开发编程语言 Ascend C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/04Grmmar.html">Ascend C 语法扩展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler07CANN/05Paradigm.html">Ascend C 编程范式</a></li>
 </ul>
 </details></li>
 </ul>
@@ -388,11 +391,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/025FBNet.html">FBNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/026EfficientNet.html">EfficientNet 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/027GhostNet.html">GhostNet 系列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02CNN.html">CNN 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/02Cnn.html">CNN 模型小型化（上）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/031MobileVit.html">MobileVit 系列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/032MobileFormer.html">MobileFormer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/033EfficientFormer.html">EfficientFormer 系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Cnn.html">CNN 模型小型化（下）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/03Transformer.html">Transformer 小型化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04Inference02Mobilenet/04Transformer.html">Transformer 模型小型化</a></li>
+
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04Inference03Slim/README.html">模型压缩</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -436,6 +442,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/02Fundamentals.html">AI 框架作用</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/03History.html">AI 框架之争</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/04Programing.html">框架编程范式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework01Foundation/05MindSpore.html">昇思 MindSore 关键特性</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05Framework02AutoDiff/README.html">自动微分</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -465,6 +472,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/04TensorParallel.html">张量并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/05PipelineParallel.html">流水并行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/06HybridParallel.html">混合并行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework04Parallel/07MSParallel.html">昇思MindSpore并行</a></li>
 </ul>
 </details></li>
 </ul>
@@ -739,7 +747,7 @@ document.write(`
 </section>
 <section id="mindie-rt">
 <h3>MindIE-RT<a class="headerlink" href="#mindie-rt" title="Link to this heading">#</a></h3>
-<p>MindIE-RT 是面向昇腾 AI 处理器的推理加速引擎，提供模型推理迁移相关开发接口及工具，能够将不同的AI 框架（PyTorch、ONNX 等）上完成训练的算法模型统一为计算图表示，具备多粒度模型优化、整图下发以及推理部署等功能。集成 Transfomer 高性能算子加速库 ATB，提供基础高性能算子，和高效的算子组合技术（Graph）便于模型加速。</p>
+<p>MindIE-RT 是面向昇腾 AI 处理器的推理加速引擎，提供模型推理迁移相关开发接口及工具，能够将不同的 AI 框架（PyTorch、ONNX 等）上完成训练的算法模型统一为计算图表示，具备多粒度模型优化、整图下发以及推理部署等功能。集成 Transfomer 高性能算子加速库 ATB，提供基础高性能算子，和高效的算子组合技术（Graph）便于模型加速。</p>
 </section>
 </section>
 <section id="id2">
@@ -787,7 +795,7 @@ document.write(`
 </section>
 <section id="id5">
 <h3>推理运行时<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>集成推理应用接口及 Transformer 加速库，提供推理迁移相关开发接口及工具，提供通用优化及并行推理能力》。MindIE-RT（Mind Inference Engine RT，昇腾推理引擎运行时）是针对昇腾 AI 处理器的推理加速引擎，提供 AI 模型推理场景下的商业化部署能力，能够将不同的AI 框架上完成训练的算法模型统一为计算图表示，具备多粒度模型优化、整图下发以及推理部署等功能。</p>
+<p>集成推理应用接口及 Transformer 加速库，提供推理迁移相关开发接口及工具，提供通用优化及并行推理能力》。MindIE-RT（Mind Inference Engine RT，昇腾推理引擎运行时）是针对昇腾 AI 处理器的推理加速引擎，提供 AI 模型推理场景下的商业化部署能力，能够将不同的 AI 框架上完成训练的算法模型统一为计算图表示，具备多粒度模型优化、整图下发以及推理部署等功能。</p>
 <p>MindIE-RT 集成昇腾高性能算子加速库 ATB，为实现基于 Transformer 的神经网络推理加速引擎库，库中包含了各类 Transformer 类模型的高度优化模块，如 Encoder 和 Decoder 部分。</p>
 <p>MindIE-RT 专注于为用户提供快速迁移、稳定精度以及极致性能的推理服务，让用户能够脱离底层硬件细节和不同平台框架的差异，专注于推理业务本身，实现高效的模型部署开发。并且专门针对大模型下的 Transformer 架构，提高 Transformer 模型性能，提供了基础的高性能的算子，高效的算子组合技术（Graph），方便模型加速。目前 MindIE-RT 已实现动态输入推理，解析框架模型等功能特性。</p>
 <ol class="arabic simple">
@@ -924,7 +932,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 26, 2024.
+  Last updated on Jul 17, 2024.
   <br/>
 </p>
   </div>

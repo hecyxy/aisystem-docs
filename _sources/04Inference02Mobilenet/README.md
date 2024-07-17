@@ -50,9 +50,11 @@
 025FBNet
 026EfficientNet
 027GhostNet
-02CNN
+02Cnn
 031MobileVit
 032MobileFormer
 033EfficientFormer
+03Cnn
 03Transformer
+04Transformer
 ```
