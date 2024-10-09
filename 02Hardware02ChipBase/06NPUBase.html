@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="02Hardware02ChipBase/06NPUBase.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="近年来，随着人工智能技术的飞速发展，AI 专用处理器如 NPU（Neural Processing Unit）和 TPU（Tensor Processing Unit）也应运而生。这些处理器旨在加速深度学习和机器学习任务，相比传统的 CPU 和 GPU，它们在处理 AI 任务时表现出更高的效率和性能。在接下来的内容中，我们将首先简单介绍引入什么是 AI 芯片，随后具体展开其的部署说明，技术发..." />
+<meta property="og:description" content="近年来，随着 AI 技术的飞速发展，AI 专用处理器如 NPU（Neural Processing Unit）和 TPU（Tensor Processing Unit）也应运而生。这些处理器旨在加速深度学习和机器学习任务，相比传统的 CPU 和 GPU，它们在处理 AI 任务时表现出更高的效率和性能。在接下来的内容中，我们将首先简单介绍引入什么是 AI 芯片，随后具体展开其的部署说明，技术发..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="近年来，随着人工智能技术的飞速发展，AI 专用处理器如 NPU（Neural Processing Unit）和 TPU（Tensor Processing Unit）也应运而生。这些处理器旨在加速深度学习和机器学习任务，相比传统的 CPU 和 GPU，它们在处理 AI 任务时表现出更高的效率和性能。在接下来的内..." />
-<meta name="description" content="近年来，随着人工智能技术的飞速发展，AI 专用处理器如 NPU（Neural Processing Unit）和 TPU（Tensor Processing Unit）也应运而生。这些处理器旨在加速深度学习和机器学习任务，相比传统的 CPU 和 GPU，它们在处理 AI 任务时表现出更高的效率和性能。在接下来的内容中，我们将首先简单介绍引入什么是 AI 芯片，随后具体展开其的部署说明，技术发..." />
+<meta property="og:image" content="/_images/social_previews/summary_02Hardware02ChipBase_06NPUBase_b36dcc45.png" />
+<meta property="og:image:alt" content="近年来，随着 AI 技术的飞速发展，AI 专用处理器如 NPU（Neural Processing Unit）和 TPU（Tensor Processing Unit）也应运而生。这些处理器旨在加速深度学习和机器学习任务，相比传统的 CPU 和 GPU，它们在处理 AI 任务时表现出更高的效率和性能。在接下来的内..." />
+<meta name="description" content="近年来，随着 AI 技术的飞速发展，AI 专用处理器如 NPU（Neural Processing Unit）和 TPU（Tensor Processing Unit）也应运而生。这些处理器旨在加速深度学习和机器学习任务，相比传统的 CPU 和 GPU，它们在处理 AI 任务时表现出更高的效率和性能。在接下来的内容中，我们将首先简单介绍引入什么是 AI 芯片，随后具体展开其的部署说明，技术发..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>NPU 基础 &#8212; AI System</title>
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -300,10 +300,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -341,13 +341,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -730,14 +729,14 @@ document.write(`
 <!--Copyright 适用于[License]（https://github.com/chenzomi12/AISystem）版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="npu">
 <h1>NPU 基础<a class="headerlink" href="#npu" title="Link to this heading">#</a></h1>
-<p>近年来，随着人工智能技术的飞速发展，AI 专用处理器如 NPU（Neural Processing Unit）和 TPU（Tensor Processing Unit）也应运而生。这些处理器旨在加速深度学习和机器学习任务，相比传统的 CPU 和 GPU，它们在处理 AI 任务时表现出更高的效率和性能。在接下来的内容中，我们将首先简单介绍引入什么是 AI 芯片，随后具体展开其的部署说明，技术发展路线和应用场景。</p>
+<p>近年来，随着 AI 技术的飞速发展，AI 专用处理器如 NPU（Neural Processing Unit）和 TPU（Tensor Processing Unit）也应运而生。这些处理器旨在加速深度学习和机器学习任务，相比传统的 CPU 和 GPU，它们在处理 AI 任务时表现出更高的效率和性能。在接下来的内容中，我们将首先简单介绍引入什么是 AI 芯片，随后具体展开其的部署说明，技术发展路线和应用场景。</p>
 <section id="ai">
 <h2>什么是 AI 芯片<a class="headerlink" href="#ai" title="Link to this heading">#</a></h2>
-<p>AI 芯片是专门为加速人工智能应用中的大量针对矩阵计算任务而设计的处理器或计算模块。与传统的通用芯片如中央处理器（CPU）不同，AI 芯片采用针对特定领域优化的体系结构（Domain-Specific Architecture，DSA），侧重于提升执行 AI 算法所需的专用计算性能。</p>
+<p>AI 芯片是专门为加速 AI 应用中的大量针对矩阵计算任务而设计的处理器或计算模块。与传统的通用芯片如中央处理器（CPU）不同，AI 芯片采用针对特定领域优化的体系结构（Domain-Specific Architecture，DSA），侧重于提升执行 AI 算法所需的专用计算性能。</p>
 <p>如下图所示的就是一个典型的 AI 芯片架构，我们假设所有场景围绕应用，那么其周围的例如解码芯片（如图中黄色部分 RSU）、FPGA 芯片（如图中粉色部分）等都是属于针对特定领域优化的芯片结构。</p>
 <p><img alt="" src="../_images/06NPUBase01.png" /></p>
 <p>DSA 通常被称为针对特殊领域的加速器架构，因为与在通用 CPU 上执行整个应用程序相比，它们可以大幅提升特定应用的性能。DSA 可以通过更贴近应用的实际需求来实现更高的效率和性能。除了 AI 芯片，DSA 的其他例子还包括图形加速单元（GPU）、用于深度学习的神经网络处理器（NPU/TPU）以及软件定义网络（SDN）处理器等。</p>
-<p>AI 芯片作为一种专用加速器，通过在硬件层面优化深度学习算法所需的矩阵乘法、卷积等关键运算，可以显著加速 AI 应用的执行速度，降低功耗。与在通用 CPU 上用软件模拟这些运算相比，AI 芯片能带来数量级的性能提升。因此，AI 芯片已成为人工智能技术实现落地的关键使能器。</p>
+<p>AI 芯片作为一种专用加速器，通过在硬件层面优化深度学习算法所需的矩阵乘法、卷积等关键运算，可以显著加速 AI 应用的执行速度，降低功耗。与在通用 CPU 上用软件模拟这些运算相比，AI 芯片能带来数量级的性能提升。因此，AI 芯片已成为 AI 技术实现落地的关键使能器。</p>
 <p>他们的架构区别如下图，CPU 最为均衡，可以处理多种类型的任务，各种组件比例适中；GPU 则减少了控制逻辑的存在但大量增加了 ALU 计算单元，提供给我们以高计算并行度；而 NPU 则是拥有大量 AI Core，这可以让我们高效完成针对性的 AI 计算任务。</p>
 <p><img alt="" src="../_images/06NPUBase02.png" /></p>
 <p>AI 芯片的兴起源于深度学习的快速发展。随着神经网络模型的规模不断增大，其应用快速发展，训练和推理所需的计算量呈指数级增长，传统的通用芯片已无法满足性能和功耗的要求。与此同时，AI 应用对实时性和能效的需求也日益提高，尤其是在自动驾驶、智能安防、边缘计算等场景中。这些因素共同推动了 AI 芯片的发展。</p>
@@ -748,10 +747,10 @@ document.write(`
 </section>
 <section id="id1">
 <h2>AI 芯片任务和部署<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>AI 芯片在人工智能的发展中扮演着至关重要的角色，其任务和部署过程极其复杂。首先，AI 芯片需要处理大量数据，并执行高强度的计算任务，这涉及到高性能计算、能效优化、硬件架构设计等多个方面。在人工智能系统中，芯片不仅要具备强大的计算能力，还需要在不同应用场景下表现出色，例如数据中心、大规模服务器以及边缘设备等。</p>
+<p>AI 芯片在 AI 的发展中扮演着至关重要的角色，其任务和部署过程极其复杂。首先，AI 芯片需要处理大量数据，并执行高强度的计算任务，这涉及到高性能计算、能效优化、硬件架构设计等多个方面。在 AI 系统中，芯片不仅要具备强大的计算能力，还需要在不同应用场景下表现出色，例如数据中心、大规模服务器以及边缘设备等。</p>
 <p>AI 芯片的复杂性主要体现在以下几个方面。首先是计算能力，AI 任务通常涉及大量的矩阵运算和并行计算，这对芯片的计算核心和内存带宽提出了极高的要求。为了满足这些需求，芯片需要设计复杂的并行计算架构，并配备高效的内存系统，以保证数据的高速传输和处理。</p>
 <p>其次是能效比，尤其是在移动设备和边缘计算场景中，芯片必须在保证高性能的同时，尽量降低功耗。这要求芯片设计者在硬件架构和算法加速技术上进行优化，以提高计算效率并减少能源消耗。</p>
-<p>此外，AI 芯片还需要具备灵活性和可扩展性，以适应不断变化的应用需求和技术进步。例如，不同的人工智能任务可能需要不同的计算资源和数据处理能力，芯片必须能够动态调整以满足这些需求。</p>
+<p>此外，AI 芯片还需要具备灵活性和可扩展性，以适应不断变化的应用需求和技术进步。例如，不同的 AI 任务可能需要不同的计算资源和数据处理能力，芯片必须能够动态调整以满足这些需求。</p>
 <p>尽管 AI 芯片的任务和部署极为复杂，但其功能最终可以归结为两种主要形态：训练和推理。</p>
 <section id="id2">
 <h3>训练芯片<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
@@ -821,8 +820,8 @@ document.write(`
 <section id="id6">
 <h2>小结与思考<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>NPU 和 TPU 等 AI 专用处理器的问世，极大地推动了人工智能技术的发展和应用。这些芯片在架构设计和性能优化方面不断创新，为各种 AI 任务提供了强大的计算支持。</p></li>
-<li><p>随着 AI 技术的不断发展和应用需求的增长，AI 芯片将迎来更加广阔的发展前景。各大科技巨头和芯片厂商将继续加大在 AI 芯片领域的投入和创新，推动人工智能技术的进一步发展和普及。</p></li>
+<li><p>NPU 和 TPU 等 AI 专用处理器的问世，极大地推动了 AI 技术的发展和应用。这些芯片在架构设计和性能优化方面不断创新，为各种 AI 任务提供了强大的计算支持。</p></li>
+<li><p>随着 AI 技术的不断发展和应用需求的增长，AI 芯片将迎来更加广阔的发展前景。各大科技巨头和芯片厂商将继续加大在 AI 芯片领域的投入和创新，推动 AI 技术的进一步发展和普及。</p></li>
 </ol>
 </section>
 <section id="id7">
@@ -938,7 +937,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="03Compiler07CANN/README.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="CANN 是昇腾的计算架构（Compute Architecture for Neural Networks），这是一套为高性能深度神经网络计算需求专门设计和优化的架构。而 Ascend C 是构建在 CANN 之上的算子开发编程语言 Ascend C，专为昇腾 AI 处理器算子开发设计的编程语言。 内容大纲 PPT 和 字幕 需要到 Github 下载，网页课程版链接会失效哦~ 建议优先下..." />
+<meta property="og:description" content="CANN 是昇腾的计算架构（Compute Architecture for Neural Networks），这是一套为高性能神经网络计算需求专门设计和优化的架构。而 Ascend C 是构建在 CANN 之上的算子开发编程语言 Ascend C，专为昇腾 AI 处理器算子开发设计的编程语言。 内容大纲 PPT 和 字幕 需要到 Github 下载，网页课程版链接会失效哦~ 建议优先下载 ..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_03Compiler07CANN_README_66536b75.png" />
-<meta property="og:image:alt" content="CANN 是昇腾的计算架构（Compute Architecture for Neural Networks），这是一套为高性能深度神经网络计算需求专门设计和优化的架构。而 Ascend C 是构建在 CANN 之上的算子开发编程语言 Ascend C，专为昇腾 AI 处理器算子开发设计的编程语言。 内容大纲 P..." />
-<meta name="description" content="CANN 是昇腾的计算架构（Compute Architecture for Neural Networks），这是一套为高性能深度神经网络计算需求专门设计和优化的架构。而 Ascend C 是构建在 CANN 之上的算子开发编程语言 Ascend C，专为昇腾 AI 处理器算子开发设计的编程语言。 内容大纲 PPT 和 字幕 需要到 Github 下载，网页课程版链接会失效哦~ 建议优先下..." />
+<meta property="og:image" content="/_images/social_previews/summary_03Compiler07CANN_README_7bba40da.png" />
+<meta property="og:image:alt" content="CANN 是昇腾的计算架构（Compute Architecture for Neural Networks），这是一套为高性能神经网络计算需求专门设计和优化的架构。而 Ascend C 是构建在 CANN 之上的算子开发编程语言 Ascend C，专为昇腾 AI 处理器算子开发设计的编程语言。 内容大纲 PPT..." />
+<meta name="description" content="CANN 是昇腾的计算架构（Compute Architecture for Neural Networks），这是一套为高性能神经网络计算需求专门设计和优化的架构。而 Ascend C 是构建在 CANN 之上的算子开发编程语言 Ascend C，专为昇腾 AI 处理器算子开发设计的编程语言。 内容大纲 PPT 和 字幕 需要到 Github 下载，网页课程版链接会失效哦~ 建议优先下载 ..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>CANN &amp; Ascend C &#8212; AI System</title>
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -300,10 +300,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -341,13 +341,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -716,7 +715,7 @@ document.write(`
 <!--Copyright © ZOMI 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="cann-ascend-c">
 <h1>CANN &amp; Ascend C<a class="headerlink" href="#cann-ascend-c" title="Link to this heading">#</a></h1>
-<p>CANN 是昇腾的计算架构（Compute Architecture for Neural Networks），这是一套为高性能深度神经网络计算需求专门设计和优化的架构。而 Ascend C 是构建在 CANN 之上的算子开发编程语言 Ascend C，专为昇腾 AI 处理器算子开发设计的编程语言。</p>
+<p>CANN 是昇腾的计算架构（Compute Architecture for Neural Networks），这是一套为高性能神经网络计算需求专门设计和优化的架构。而 Ascend C 是构建在 CANN 之上的算子开发编程语言 Ascend C，专为昇腾 AI 处理器算子开发设计的编程语言。</p>
 <p><strong>内容大纲</strong></p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">PPT</span></code>和<code class="docutils literal notranslate"><span class="pre">字幕</span></code>需要到 <a class="reference external" href="https://github.com/chenzomi12/AISystem">Github</a> 下载，网页课程版链接会失效哦~</p>
@@ -859,7 +858,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

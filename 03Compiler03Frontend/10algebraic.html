@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="代数简化" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="03Compiler03Frontend/10Algebraic.html" />
+<meta property="og:url" content="03Compiler03Frontend/10algebraic.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
 <meta property="og:description" content="代数简化（Algebraic Reduced）是一种从数学上来指导我们优化计算图的方法。其目的是利用交换率、结合律等规律调整图中算子的 执行顺序 ，或者删除不必要的算子，以提高图整体的计算效率。 代数化简可以通过子图替换的方式完成，具体实现：1）可以先抽象出一套通用的子图替换框架，再对各规则实例化。2）可以针对每一个具体的规则实现专门的优化逻辑。下面我们将介绍三种不同的代数简化方案。 算术简..." />
 <meta property="og:image:width" content="1146" />
@@ -76,7 +76,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '03Compiler03Frontend/10Algebraic';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03Compiler03Frontend/10algebraic';</script>
     <script src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -302,10 +302,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -343,8 +343,7 @@
 <li class="toctree-l2"><a class="reference internal" href="01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08CSE.html">公共表达式消除原理</a></li>
@@ -545,7 +544,7 @@
       
       
       
-      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/blob/master/03Compiler03Frontend/10Algebraic.md?plain=1" target="_blank"
+      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/blob/master/03Compiler03Frontend/10algebraic.md?plain=1" target="_blank"
    class="btn btn-sm btn-source-file-button dropdown-item"
    title="Show source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -562,7 +561,7 @@
       
       
       
-      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/edit/master/03Compiler03Frontend/10Algebraic.md" target="_blank"
+      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/edit/master/03Compiler03Frontend/10algebraic.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -579,7 +578,7 @@
       
       
       
-      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/issues/new?title=Issue%20on%20page%20%2F03Compiler03Frontend/10Algebraic.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chenzomi12/chenzomi12.github.io/issues/new?title=Issue%20on%20page%20%2F03Compiler03Frontend/10algebraic.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -609,7 +608,7 @@
       
       
       
-      <li><a href="../_sources/03Compiler03Frontend/10Algebraic.md" target="_blank"
+      <li><a href="../_sources/03Compiler03Frontend/10algebraic.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -987,7 +986,7 @@ Square(A+B)-(A+B)\diamond C \rightarrow (A+B)\diamond(A+B-C)
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

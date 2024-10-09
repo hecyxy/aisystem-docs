@@ -14,7 +14,7 @@
 <meta property="og:description" content="在本章节会接着介绍 CNN 模型的小型化，除了第二节提到的三个模型外，在本章节会继续介绍 ESPNet 系列，FBNet 系列，EfficientNet 系列和 GhostNet 系列。 ESPNet 系列: ESPNetV1: ESPNet V1 ：应用在高分辨图像下的语义分割，在计算、内存占用、功耗方面都非常高效。主要贡献在于基于传统卷积模块，提出高效空间金子塔卷积模块（ESP Modu..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_04Inference02Mobilenet_03Cnn_b2390543.png" />
+<meta property="og:image" content="/None" />
 <meta property="og:image:alt" content="在本章节会接着介绍 CNN 模型的小型化，除了第二节提到的三个模型外，在本章节会继续介绍 ESPNet 系列，FBNet 系列，EfficientNet 系列和 GhostNet 系列。 ESPNet 系列: ESPNetV1: ESPNet V1 ：应用在高分辨图像下的语义分割，在计算、内存占用、功耗方面都非常..." />
 <meta name="description" content="在本章节会接着介绍 CNN 模型的小型化，除了第二节提到的三个模型外，在本章节会继续介绍 ESPNet 系列，FBNet 系列，EfficientNet 系列和 GhostNet 系列。 ESPNet 系列: ESPNetV1: ESPNet V1 ：应用在高分辨图像下的语义分割，在计算、内存占用、功耗方面都非常高效。主要贡献在于基于传统卷积模块，提出高效空间金子塔卷积模块（ESP Modu..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -302,10 +302,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -343,13 +343,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1110,7 +1109,7 @@ a_{hw} = \sum_{h',w'} F_{h,w,h',w'}\odot z_{h',w'}\tag{1}
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

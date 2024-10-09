@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="03Compiler07CANN/01CANN.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="本节将介绍昇腾 AI 异构计算架构 CANN（Compute Architecture for Neural Networks），这是一套为高性能深度神经网络计算需求专门设计和优化的架构。CANN 包括硬件层面的达·芬奇架构和软件层面的全栈支持，旨在提供强大的硬件基础和管理网络模型、计算流及数据流的软件栈，以支撑深度神经网络在异构处理器上的执行。 通过本节内容的学习，读者将能够理解 CANN..." />
+<meta property="og:description" content="本节将介绍昇腾 AI 异构计算架构 CANN（Compute Architecture for Neural Networks），这是一套为高性能神经网络计算需求专门设计和优化的架构。CANN 包括硬件层面的达·芬奇架构和软件层面的全栈支持，旨在提供强大的硬件基础和管理网络模型、计算流及数据流的软件栈，以支撑神经网络在异构处理器上的执行。 通过本节内容的学习，读者将能够理解 CANN 如何为..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="本节将介绍昇腾 AI 异构计算架构 CANN（Compute Architecture for Neural Networks），这是一套为高性能深度神经网络计算需求专门设计和优化的架构。CANN 包括硬件层面的达·芬奇架构和软件层面的全栈支持，旨在提供强大的硬件基础和管理网络模型、计算流及数据流的软件栈，以支撑..." />
-<meta name="description" content="本节将介绍昇腾 AI 异构计算架构 CANN（Compute Architecture for Neural Networks），这是一套为高性能深度神经网络计算需求专门设计和优化的架构。CANN 包括硬件层面的达·芬奇架构和软件层面的全栈支持，旨在提供强大的硬件基础和管理网络模型、计算流及数据流的软件栈，以支撑深度神经网络在异构处理器上的执行。 通过本节内容的学习，读者将能够理解 CANN..." />
+<meta property="og:image" content="/_images/social_previews/summary_03Compiler07CANN_01CANN_de3d8bd2.png" />
+<meta property="og:image:alt" content="本节将介绍昇腾 AI 异构计算架构 CANN（Compute Architecture for Neural Networks），这是一套为高性能神经网络计算需求专门设计和优化的架构。CANN 包括硬件层面的达·芬奇架构和软件层面的全栈支持，旨在提供强大的硬件基础和管理网络模型、计算流及数据流的软件栈，以支撑神经..." />
+<meta name="description" content="本节将介绍昇腾 AI 异构计算架构 CANN（Compute Architecture for Neural Networks），这是一套为高性能神经网络计算需求专门设计和优化的架构。CANN 包括硬件层面的达·芬奇架构和软件层面的全栈支持，旨在提供强大的硬件基础和管理网络模型、计算流及数据流的软件栈，以支撑神经网络在异构处理器上的执行。 通过本节内容的学习，读者将能够理解 CANN 如何为..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>昇腾异构计算架构 CANN &#8212; AI System</title>
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -300,10 +300,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -341,13 +341,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -732,20 +731,20 @@ document.write(`
 <!--适用于[License] (https://github.com/chenzomi12/AISystem/blob/main/LICENSE)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="cann">
 <h1>昇腾异构计算架构 CANN<a class="headerlink" href="#cann" title="Link to this heading">#</a></h1>
-<p>本节将介绍昇腾 AI 异构计算架构 CANN（Compute Architecture for Neural Networks），这是一套为高性能深度神经网络计算需求专门设计和优化的架构。CANN 包括硬件层面的达·芬奇架构和软件层面的全栈支持，旨在提供强大的硬件基础和管理网络模型、计算流及数据流的软件栈，以支撑深度神经网络在异构处理器上的执行。</p>
+<p>本节将介绍昇腾 AI 异构计算架构 CANN（Compute Architecture for Neural Networks），这是一套为高性能神经网络计算需求专门设计和优化的架构。CANN 包括硬件层面的达·芬奇架构和软件层面的全栈支持，旨在提供强大的硬件基础和管理网络模型、计算流及数据流的软件栈，以支撑神经网络在异构处理器上的执行。</p>
 <p>通过本节内容的学习，读者将能够理解 CANN 如何为深度学习提供全面的硬件和软件支持，以及如何通过其多层级架构实现高效的 AI 应用开发和性能优化。</p>
 <section id="id1">
 <h2>总体架构<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>本节参考文献：《Ascend C 异构并行程序设计》——苏统华，杜鹏，闫长江，2024</p>
-<p>昇腾 AI 异构计算架构（Compute Architecture for Neural Networks，CANN）是专门为高性能深度神经网络计算需求所设计和优化的一套架构。在硬件层面，昇腾 AI 处理器所包含的达·芬奇架构在硬件设计上进行计算资源的定制化设计，在功能实现上进行深度适配，为深度神经网络计算性能的提升提供了强大的硬件基础。在软件层面，CANN 所包含的软件栈则提供了管理网络模型、计算流以及数据流的功能，支撑起深度神经网络在异构处理器上的执行流程。</p>
+<p>昇腾 AI 异构计算架构（Compute Architecture for Neural Networks，CANN）是专门为高性能神经网络计算需求所设计和优化的一套架构。在硬件层面，昇腾 AI 处理器所包含的达·芬奇架构在硬件设计上进行计算资源的定制化设计，在功能实现上进行深度适配，为神经网络计算性能的提升提供了强大的硬件基础。在软件层面，CANN 所包含的软件栈则提供了管理网络模型、计算流以及数据流的功能，支撑起神经网络在异构处理器上的执行流程。</p>
 <p>如下图所示，CANN 作为昇腾 AI 处理器的异构计算架构，支持业界多种主流的 AI 框架，包括 MindSpore、TensorFlow、PyTorch、Jittor 等。Ascend C 算子开发语言，开放全量低阶 API 接口使能开发者完成高性能自定义算子开发；开放高阶 API 接口，降低开发难度，开发者可快速实现复杂自定义算子开发。GE 图引擎（Graph Engine），包括图优化、图编译、图执行等，便于开发者使用，优化整网性能。HCCL 集合通信库（Huawei Collective Communication Library），可供开发者直接调用，改善网络拥塞，提升网络资源利用率和运维效率。AOL 算子加速库（Ascend Operator Library），提供基础算子和大模型融合算子 API 接口对外开放，供开发者直接调用，使能大模型极致性能优化。Runtime 运行时，将硬件资源（计算、通信、内存管理等）的 API 接口对外开放，满足开发者对模型开发、系统优化、第三方 AI 框架对接等不同场景诉求。</p>
 <p><img alt="昇腾异构计算架构 CANN" src="../_images/01CANN01.png" /></p>
 <p>CANN 提供了功能强大、适配性好、可自定义开发的 AI 异构计算架构，自顶向下分为 5 部分。</p>
 <p><img alt="CANN 逻辑架构" src="../_images/01CANN02.png" /></p>
-<p>昇腾计算语言（Ascend Computing Language，简称 AscendCL）：AscendCL 接口是昇腾计算开放编程框架，是对底层昇腾计算服务接口的封装。它提供设备（Device）管理、上下文（Context）管理、流（Stream）管理、内存管理、模型加载与执行、算子加载与执行、媒体数据处理、图（Graph）管理等 API 库，供用户开发人工智能应用。</p>
+<p>昇腾计算语言（Ascend Computing Language，简称 AscendCL）：AscendCL 接口是昇腾计算开放编程框架，是对底层昇腾计算服务接口的封装。它提供设备（Device）管理、上下文（Context）管理、流（Stream）管理、内存管理、模型加载与执行、算子加载与执行、媒体数据处理、图（Graph）管理等 API 库，供用户开发 AI 应用。</p>
 <p>昇腾计算服务层（Ascend Computing Service Layer）： 主要提供昇腾算子库 AOL（Ascend Operator Library），通用神经网络（Neural Network，NN）库、线性代数计算库（Basic Linear Algebra Subprograms，BLAS）等高性能算子加速计算；昇腾调优引擎 AOE（Ascend Optimization Engine），通过算子调优 OPAT、子图调优 SGAT、梯度调优 GDAT、模型压缩 AMCT 提升模型端到端运行速度。同时提供 AI 框架适配器 Framework Adaptor 用于兼容 TensorFlow、PyTorch 等主流 AI 框架。</p>
 <p>昇腾计算编译层（Ascend Computing Compilation Layer）：昇腾计算编译层通过图编译器（Graph Compiler）将用户输入中间表达（Intermediate Representation，IR）的计算图编译成昇腾硬件可执行模型；同时借助张量加速引擎 TBE（Tensor Boost Engine）的自动调度机制，高效编译算子。</p>
-<p>昇腾计算执行层（Ascend Computing Execution Layer）：负责模型和算子的执行，提供运行时库（Runtime）、图执行器（Graph Executor）、数字视觉预处理（Digital Vision Pre-Processing，DVPP）、人工智能预处理（Artificial Intelligence Pre-Processing，AIPP）、华为集合通信库（Huawei Collective Communication Library，HCCL）等功能单元。</p>
+<p>昇腾计算执行层（Ascend Computing Execution Layer）：负责模型和算子的执行，提供运行时库（Runtime）、图执行器（Graph Executor）、数字视觉预处理（Digital Vision Pre-Processing，DVPP）、 AI 预处理（Artificial Intelligence Pre-Processing，AIPP）、华为集合通信库（Huawei Collective Communication Library，HCCL）等功能单元。</p>
 <p>昇腾计算基础层（Ascend Computing Base Layer）：主要为其上各层提供基础服务，如共享虚拟内存（Shared Virtual Memory，SVM）、设备虚拟化（Virtual Machine，VM）、主机-设备通信（Host Device Communication，HDC）等。</p>
 </section>
 <section id="id2">
@@ -825,7 +824,7 @@ document.write(`
 <section id="id13">
 <h2>小结与思考<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>昇腾 AI 异构计算架构 CANN：专为深度神经网络设计的硬件和软件架构，提供定制化计算资源和深度适配，支持多种 AI 框架和算子开发。</p></li>
+<li><p>昇腾 AI 异构计算架构 CANN：专为神经网络设计的硬件和软件架构，提供定制化计算资源和深度适配，支持多种 AI 框架和算子开发。</p></li>
 <li><p>CANN 的多层级架构：包含 AscendCL、Ascend Computing Service Layer、Ascend Computing Compilation Layer、Ascend Computing Execution Layer 和 Ascend Computing Base Layer，提供从应用开发到硬件资源管理的全面支持。</p></li>
 <li><p>CANN 的关键功能特性：包括统一编程语言、网络构图接口、高性能计算引擎、算子库和基础业务支持，以及硬件无关优化和芯片特定优化，以提升性能和易用性。</p></li>
 </ul>
@@ -939,7 +938,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

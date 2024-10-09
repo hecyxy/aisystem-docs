@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -302,10 +302,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -343,13 +343,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -756,7 +755,7 @@ document.write(`
 </section>
 <section id="id3">
 <h2>知识类型<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>大型深度神经网络中的知识来源非常丰富，不仅仅局限于模型在训练过程中学习到的权重（weights）和偏置（biases），还包括其他多种形式的信息。</p>
+<p>大型神经网络中的知识来源非常丰富，不仅仅局限于模型在训练过程中学习到的权重（weights）和偏置（biases），还包括其他多种形式的信息。</p>
 <p>知识的类型可以分为四类，主要有 Response-based、Feature-based、Relation-based 三种，另外还有一种较少提及的类型，即 Architecture-based 的知识。</p>
 <p><img alt="知识类型" src="../_images/06Distillation03.png" /></p>
 <section id="response-based-knowledge">
@@ -772,8 +771,8 @@ document.write(`
 </section>
 <section id="feature-based-knowledge">
 <h3>feature-based knowledge<a class="headerlink" href="#feature-based-knowledge" title="Link to this heading">#</a></h3>
-<p>上面一种方法学习目标非常直接，学生模型直接学习教师模型的最后预测结果，然而输出层提供的信息是有限的。在深度神经网络中，数据通过多个层次的神经元进行传递和处理，每一层都可以看作是对数据的一种特征提取和变换。</p>
-<p>随着网络的深度增加，每一层提取的特征都越来越抽象和高级，可以捕捉到数据中更加复杂和抽象的模式和结构。考虑到深度神经网络擅长学习不同抽象级别的多层特征表示，因此模型中间层的输出，即特征图，也可以作为指导学生模型学习的知识。</p>
+<p>上面一种方法学习目标非常直接，学生模型直接学习教师模型的最后预测结果，然而输出层提供的信息是有限的。在神经网络中，数据通过多个层次的神经元进行传递和处理，每一层都可以看作是对数据的一种特征提取和变换。</p>
+<p>随着网络的深度增加，每一层提取的特征都越来越抽象和高级，可以捕捉到数据中更加复杂和抽象的模式和结构。考虑到神经网络擅长学习不同抽象级别的多层特征表示，因此模型中间层的输出，即特征图，也可以作为指导学生模型学习的知识。</p>
 <p><img alt="Feature-based knowledge" src="../_images/06Distillation05.png" /></p>
 <p>这些来自中间层基于特征的知识是对基于响应的知识的良好扩展，特别适用于训练更瘦更深的网络。上图展示了 Feature-based knowledge 的知识蒸馏过程。</p>
 <p>基于特征的知识转移的蒸馏损失函数可以表示为：</p>
@@ -1002,7 +1001,7 @@ L_{RelD}(F_t,F_s) = L_{R^2}(\psi_{t}(t_i,t_j),\psi_{s}(s_i,s_j))
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

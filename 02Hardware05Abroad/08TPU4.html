@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -302,10 +302,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -343,13 +343,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -801,7 +800,7 @@ document.write(`
 <p>谷歌在 TPU v4 Pod 中采取了 3D Torus 的拓扑结构实现芯片之间的互联。在 3D Torus 网络中，每个节点通过三个维度的连接与相邻节点相连，形成一个三维的网格结构。这种高度互联的结构允许芯片在 X-Y-Z 三个维度上形成一个连续循环，提供高带宽和低延迟的通信能力，非常适合于高性能计算和大规模并行处理。谷歌的 TPU v4 能够紧密耦合 4,096 个 TPUv4 引擎，实现总计 1.126 exaflops 的 BF16 计算能力。TPU v4 的每个端口对应一个 TPU v4 芯片，端口连接交换机提供 6 Tb/sec 的带宽，作为网络接口卡和 3D 环面网络的基础。这种设计确保了 TPU v4 在处理大规模并行计算任务时的高效性和稳定性。</p>
 <p>下图是一个 3D Torus Cube 的图示，我们可以看到每一个节点都会和上下、左右、前后的节点互联，而处于这个立方体边上的芯片会连接到在它相对面上的节点从而实现每一个节点都与 6 个节点互联。</p>
 <p><img alt="TPU v4 Arch" src="../_images/08TPU405.jpeg" /></p>
-<p>我们细致讲一下这个 Cube。下图是一个 Cube 的另一种展开方式。Cube 如果要实现 6 面连接，每个面需要 16 条链路，每个 Cube 总共有 96 条光链路连接到 OCS 上。为了提供整个 3D Torus 的连接，相对的侧面需要连接到相同的 OCS 上面（图中不同色块和 Cube 之间的长环）。因此，每个 Cube 会连接到 <span class="math notranslate nohighlight">\(6 \times 16 \div 4 = 48\)</span> 个 OCS 上。这 48 个 OCS 一共连接来自 64 个 Cube 的 48 对光缆，总共并联 4096 个 TPU v4 芯片。所以，如果想要搭建一个 TPU v4 集群，就需要购置 4096 片 TPU v4 和 48 个 OCS 光互联交换器，因此成本相当之高，而幸运的是，谷歌最不缺的就是钱。当然，在当前这个时间点，在美一家公司和投资人都愿意无上限地为模型花钱的时代，传统大厂在成本投入上的优势相对于新兴的人工智能公司（例如 OpenAI 和 Anthropic）越来越少，而芯片的产能甚至是电力资源这种物理上的限制反而成了目前各家迭代模型最大的瓶颈。</p>
+<p>我们细致讲一下这个 Cube。下图是一个 Cube 的另一种展开方式。Cube 如果要实现 6 面连接，每个面需要 16 条链路，每个 Cube 总共有 96 条光链路连接到 OCS 上。为了提供整个 3D Torus 的连接，相对的侧面需要连接到相同的 OCS 上面（图中不同色块和 Cube 之间的长环）。因此，每个 Cube 会连接到 <span class="math notranslate nohighlight">\(6 \times 16 \div 4 = 48\)</span> 个 OCS 上。这 48 个 OCS 一共连接来自 64 个 Cube 的 48 对光缆，总共并联 4096 个 TPU v4 芯片。所以，如果想要搭建一个 TPU v4 集群，就需要购置 4096 片 TPU v4 和 48 个 OCS 光互联交换器，因此成本相当之高，而幸运的是，谷歌最不缺的就是钱。当然，在当前这个时间点，在美一家公司和投资人都愿意无上限地为模型花钱的时代，传统大厂在成本投入上的优势相对于新兴的 AI 公司（例如 OpenAI 和 Anthropic）越来越少，而芯片的产能甚至是电力资源这种物理上的限制反而成了目前各家迭代模型最大的瓶颈。</p>
 <p><img alt="TPU v4 Arch" src="../_images/08TPU406.jpeg" /></p>
 </section>
 <section id="id6">
@@ -860,7 +859,7 @@ document.write(`
 <h2>小结与思考<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>模型的演进总是要比芯片的设计迭代更快，随着大模型涌现，支持主要依赖 AI 计算集群，而非提高单芯片能力，TPU v4 对于高效互联和规模化的支持。</p></li>
-<li><p>算法-芯片协同设计是 TPU v4 的灵魂，人工智能芯片与算法之间的结合继续保持紧密关系。包括对于新数据格式（HF32/BF16）支持，对于稀疏计算支持，对于模型关键算法专用加速器。</p></li>
+<li><p>算法-芯片协同设计是 TPU v4 的灵魂， AI 芯片与算法之间的结合继续保持紧密关系。包括对于新数据格式（HF32/BF16）支持，对于稀疏计算支持，对于模型关键算法专用加速器。</p></li>
 <li><p>Benchmark 之外很多生产环境的性能指标都无法直观评测，XLA 编译器的优化效益也难以直观评测。到底 TPU v4 是否如网上纰漏的信息那么强悍有待验证。</p></li>
 </ul>
 </section>
@@ -996,7 +995,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

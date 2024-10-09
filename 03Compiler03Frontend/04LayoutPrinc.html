@@ -7,19 +7,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="布局转换原理" />
+<meta property="og:title" content="布局转换原理与算法" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="03Compiler03Frontend/04LayoutPrinc.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
 <meta property="og:description" content="数据布局转换目前已经越来越多地用于编译器的前端优化，将内部数据布局转换为后端设备友好的形式。数据布局转换主要影响程序的空间局部性，所谓空间局部性指的是如果一个内存位置被引用了一次，那么程序很可能在不远的将来引用其附近的一个内存位置，它会影响到程序执行中的缓存及其他性能。目前已经有许多数据布局转换技术：数组维度的排列，数据分块等等。 接下来，我们将简单介绍数据布局转换，包括数据在内存如何排布，..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
+<meta property="og:image" content="/_images/social_previews/summary_03Compiler03Frontend_04LayoutPrinc_0c93136f.png" />
 <meta property="og:image:alt" content="数据布局转换目前已经越来越多地用于编译器的前端优化，将内部数据布局转换为后端设备友好的形式。数据布局转换主要影响程序的空间局部性，所谓空间局部性指的是如果一个内存位置被引用了一次，那么程序很可能在不远的将来引用其附近的一个内存位置，它会影响到程序执行中的缓存及其他性能。目前已经有许多数据布局转换技术：数组维度的排..." />
 <meta name="description" content="数据布局转换目前已经越来越多地用于编译器的前端优化，将内部数据布局转换为后端设备友好的形式。数据布局转换主要影响程序的空间局部性，所谓空间局部性指的是如果一个内存位置被引用了一次，那么程序很可能在不远的将来引用其附近的一个内存位置，它会影响到程序执行中的缓存及其他性能。目前已经有许多数据布局转换技术：数组维度的排列，数据分块等等。 接下来，我们将简单介绍数据布局转换，包括数据在内存如何排布，..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-    <title>布局转换原理 &#8212; AI System</title>
+    <title>布局转换原理与算法 &#8212; AI System</title>
   
   
   
@@ -79,12 +79,12 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="布局转换算法" href="05LayoutAlgo.html" />
+    <link rel="next" title="内存分配算法" href="06Memory.html" />
     <link rel="prev" title="算子融合" href="03OPFusion.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -300,10 +300,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -341,13 +341,12 @@
 <li class="toctree-l2"><a class="reference internal" href="01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -691,7 +690,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>布局转换原理</h1>
+    <h1>布局转换原理与算法</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -733,7 +732,7 @@ document.write(`
                   
 <!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>布局转换原理<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1>布局转换原理与算法<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>数据布局转换目前已经越来越多地用于编译器的前端优化，将内部数据布局转换为后端设备友好的形式。数据布局转换主要影响程序的空间局部性，所谓空间局部性指的是如果一个内存位置被引用了一次，那么程序很可能在不远的将来引用其附近的一个内存位置，它会影响到程序执行中的缓存及其他性能。目前已经有许多数据布局转换技术：数组维度的排列，数据分块等等。</p>
 <p>接下来，我们将简单介绍数据布局转换，包括数据在内存如何排布，张量数据在内存中如何排布，以及数组维度排列的具体应用如 NCHW 与 NHWC 这两种数据排布方式。</p>
 <section id="id2">
@@ -895,11 +894,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="05LayoutAlgo.html"
+       href="06Memory.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">布局转换算法</p>
+        <p class="prev-next-title">内存分配算法</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -960,7 +959,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

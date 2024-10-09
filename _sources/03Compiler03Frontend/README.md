@@ -45,10 +45,9 @@ AI 编译器主要是分为前端优化、后端优化，部分还会有中间�
 02GraphIR
 03OPFusion
 04LayoutPrinc
-05LayoutAlgo
 06Memory
 07ConstantFold
 08CSE
 09DCE
-10Algebraic
+10algebraic
 ```

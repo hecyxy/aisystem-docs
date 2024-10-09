@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -300,10 +300,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -341,13 +341,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -745,7 +744,7 @@ document.write(`
 <li><p>物联网网关：作为连接传感器、设备与云端的桥梁，物联网网关负责数据采集、初步处理、协议转换和安全传输。它们可能具备一定的计算能力以支持本地数据分析和简单推理。</p></li>
 <li><p>嵌入式设备：包括各种单板计算机（如 Raspberry Pi、Arduino）、微控制器（MCU）、智能模组等，这些设备通常具有低功耗、小体积等特点，常用于智能家居、工业控制、自动驾驶等场景中的数据采集、控制输出和本地推理。</p></li>
 <li><p>移动设备：如智能手机、平板电脑、智能穿戴设备等，它们内置处理器、内存和操作系统，能够运行轻量级推理应用，实现基于 AI 的个性化服务、实时分析或设备自主决策。</p></li>
-<li><p>专用硬件加速器：如 AI 加速卡（如 Intel Movidius、NVIDIA Jetson 系列）、视觉处理单元（VPU）、现场可编程门阵列（FPGA）等，用于在边缘设备上高效执行特定的 AI 算法，如深度神经网络推理。</p></li>
+<li><p>专用硬件加速器：如 AI 加速卡（如 Intel Movidius、NVIDIA Jetson 系列）、视觉处理单元（VPU）、现场可编程门阵列（FPGA）等，用于在边缘设备上高效执行特定的 AI 算法，如神经网络推理。</p></li>
 <li><p>网络设备：在边缘场景中，可能还包括无线接入点（WAP）、LoRa 网关、NB-IoT 基站等，提供无线连接，支持物联网设备接入和数据传输。</p></li>
 </ol>
 <p><img alt="深度学习在边缘设备和云上执行" src="../_images/03Workflow01.png" />
@@ -763,7 +762,7 @@ document.write(`
 </ul>
 <p>云端部署推理系统的确具备诸多显著优点，使其成为众多企业和课程首选的部署方式。然而，云端部署并非万能解决方案，也伴随着一些特定的挑战。</p>
 <ul class="simple">
-<li><p>人工智能的服务成本非常高昂。因为需要云端的服务你就需要大量的机器，大量的容灾，大量的各种设备维护机房，所以它整体的成本是很高的。</p></li>
+<li><p>AI 的服务成本非常高昂。因为需要云端的服务你就需要大量的机器，大量的容灾，大量的各种设备维护机房，所以它整体的成本是很高的。</p></li>
 <li><p>推理服务对网络的依赖高。用户请求需要通过网络传输到云端进行处理，再返回结果，可能导致一定延迟。对于对实时性要求极高的应用（如实时语音识别、远程操控），网络延迟可能成为关键瓶颈。</p></li>
 <li><p>数据隐私问题。在某些应用场景下，数据可能包含敏感信息，直接上传至云端进行推理可能引发隐私问题或不符合数据保护法规的要求。此时，可能需要采用加密、差分隐私等技术，或考虑边缘端推理以减少数据外传。</p></li>
 <li><p>数据传输成本。当推理过程中涉及大量数据传输（如高清视频流分析）时，可能会产生较高的带宽费用，尤其是在大规模部署和高并发情况下。数据传输成本不仅是网络带宽使用费，也可能包括因数据传输而产生的电力消耗、硬件磨损等间接成本。</p></li>
@@ -1007,7 +1006,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

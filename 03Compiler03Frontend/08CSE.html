@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -302,10 +302,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -343,13 +343,12 @@
 <li class="toctree-l2"><a class="reference internal" href="01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -867,7 +866,7 @@ Insert(i,j) = Later(i,j)\ -\ (LaterIn(j)\ \cap \overline{UEExpr(j)})
 <ul class="simple">
 <li><p>如果 <span class="math notranslate nohighlight">\(b_i\)</span> 只有一个后继节点 <span class="math notranslate nohighlight">\(b_j\)</span>，则将 <span class="math notranslate nohighlight">\(Insert(i,j)\)</span> 中的表达式插入到 <span class="math notranslate nohighlight">\(b_i\)</span> 的出口处。</p></li>
 <li><p>如果 <span class="math notranslate nohighlight">\(b_j\)</span> 只有一个前趋节点 <span class="math notranslate nohighlight">\(b_i\)</span>，则将 <span class="math notranslate nohighlight">\(Insert(i,j)\)</span> 中的表达式插入到 <span class="math notranslate nohighlight">\(b_j\)</span> 的入口处。</p></li>
-<li><p>若前两个条件都不满足，则在边 {i-&gt;j} 上新建一个基本块，将 <span class="math notranslate nohighlight">\(Insert(i,j)\)</span> 中的表达式插入到该基本块中。</p></li>
+<li><p>若前两个条件都不满足，则在边 <span class="math notranslate nohighlight">\({b_i\rightarrow b_j}\)</span> 上新建一个基本块，将 <span class="math notranslate nohighlight">\(Insert(i,j)\)</span> 中的表达式插入到该基本块中。</p></li>
 </ul>
 <p>需要注意的是，由于插入的是新的赋值语句，所以插入后，有一些表达式冗余了。比如对于一个基本块的向上展示的表达式。因此编译器对每个基本块都需要维护一个删除集合，记为 <span class="math notranslate nohighlight">\(Delete(i)\)</span>。其定义如下：</p>
 <div class="math notranslate nohighlight">
@@ -882,7 +881,7 @@ Delete(j) = UEExpr(j)\ \cap \ \bigcup_{i\in preds(j)} Insert(i,j)
 <p>公共表达式是传统编译器常用的前端优化的一种，经过迁移也可以应用到深度学习编译器中。</p>
 <p>AI 编译器中公共子表达式消除采取相同的思路，区别在于 AI 编译器中子表达式是基于计算图或图层 IR。通过在计算图中搜索相同结构的子图，简化计算图的结构，从而减少计算开销。</p>
 <p><img alt="second" src="../_images/08CSE02.png" /></p>
-<p>图中 Op3 和 Op4 都经过了相同的图结构{{Op1,Op2},{Op1-&gt;Op2}}, AI 编译器会将相同子图的所有不同输出都连接到同一个子图上，然后会在后续的死代码消除中删除其他相同的子图，从而达到简化计算图的目的。减少计算开销。</p>
+<p>图中 Op3 和 Op4 都经过了相同的图结构<span class="math notranslate nohighlight">\(\{\{Op1,Op2\},Op1\rightarrow Op2\}\)</span>, AI 编译器会将相同子图的所有不同输出都连接到同一个子图上，然后会在后续的死代码消除中删除其他相同的子图，从而达到简化计算图的目的。减少计算开销。</p>
 </section>
 <section id="id11">
 <h2>公共子表达式实现案例<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
@@ -1078,7 +1077,7 @@ Dom(n) = {n}\ \cup \ (\bigcap_{m\in preds(n)}Dom(m))
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

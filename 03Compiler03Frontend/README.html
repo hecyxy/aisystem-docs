@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -302,10 +302,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -343,13 +343,12 @@
 <li class="toctree-l2"><a class="reference internal" href="01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -747,7 +746,7 @@ document.write(`
 <td class="text-center"><p><a class="reference download internal" download="" href="../_downloads/9b643026f8aaecb733cfc2e5ea5c7855/04LayoutPrinc.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1xK411z7Uw/">视频</a>, <a class="reference internal" href="04LayoutPrinc.html"><span class="std std-doc">文章</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p>05 布局转换算法</p></td>
-<td class="text-center"><p><a class="reference download internal" download="" href="../_downloads/73942bc1c7fdbb23832af0de65ef0082/05LayoutAlgo.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1gd4y1Y7dc/">视频</a>, <a class="reference internal" href="05LayoutAlgo.html"><span class="std std-doc">文章</span></a></p></td>
+<td class="text-center"><p><a class="reference download internal" download="" href="../_downloads/73942bc1c7fdbb23832af0de65ef0082/05LayoutAlgo.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1gd4y1Y7dc/">视频</a>, <a class="reference internal" href="#./05LayoutAlgo.md"><span class="xref myst">文章</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>06 内存分配算法</p></td>
 <td class="text-center"><p><a class="reference download internal" download="" href="../_downloads/b295067671cf61313e2a17f24437fa0e/06Memory.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1nM411879s/">视频</a>, <a class="reference internal" href="06Memory.html"><span class="std std-doc">文章</span></a></p></td>
@@ -762,7 +761,7 @@ document.write(`
 <td class="text-center"><p><a class="reference download internal" download="" href="../_downloads/d159deda8624630aff81a342b65edb28/09DCE.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1hD4y1h7nh/">视频</a>, <a class="reference internal" href="09DCE.html"><span class="std std-doc">文章</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>10 代数简化</p></td>
-<td class="text-center"><p><a class="reference download internal" download="" href="../_downloads/c5339d26706cd069295dbdcb95876b9e/10Algebraic.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1g24y1Q7qC/">视频</a>, <a class="reference internal" href="10Algebraic.html"><span class="std std-doc">文章</span></a></p></td>
+<td class="text-center"><p><a class="reference download internal" download="" href="../_downloads/c5339d26706cd069295dbdcb95876b9e/10Algebraic.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1g24y1Q7qC/">视频</a>, <span class="xref myst">文章</span></p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p>11 优化 Pass 排序</p></td>
 <td class="text-center"><p><a class="reference download internal" download="" href="../_downloads/67948bc16be8f7e9bead7df3a9197fb2/11Summary.pdf"><span class="xref download myst">PPT</span></a>, <a class="reference external" href="https://www.bilibili.com/video/BV1L14y1P7ku/">视频</a></p></td>
@@ -785,13 +784,12 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03OPFusion.html">算子融合</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06Memory.html">内存分配算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09DCE.html">死代码消除</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10Algebraic.html">代数简化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10algebraic.html">代数简化</a></li>
 </ul>
 </div>
 </section>
@@ -889,7 +887,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

@@ -38,8 +38,8 @@
 :maxdepth: 1
 
 04Cambricon
-07AscendBase
-08AscendCube
-09AscendCluster
-10AscendArch
+08AscendBase
+09AscendSOC
+10AscendCube
+11AscendLayout
 ```

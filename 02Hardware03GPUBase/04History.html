@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -302,10 +302,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -343,13 +343,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -977,7 +976,7 @@ document.write(`
 </section>
 <section id="pascal">
 <h2>Pascal 架构<a class="headerlink" href="#pascal" title="Link to this heading">#</a></h2>
-<p>2016 年英伟达提出 Pascal 架构，相比之前的架构，Pascal 帕斯卡架构在应用场景、内存带宽和制程工艺等多个方面做出了创新。将系统内存 GDDR5 换成 HBM2，能够在更高的带宽下处理更大的工作数据集，提高效率和计算吞吐量，并减少从系统内存传输的频率，而且 HBM2 原生支持数据纠错（Error correcting Code, ECC）。采用 16nm FinFET 工艺，拥有 15.3 亿个晶体管，相同功耗下算力提升提升一个数量级。同时提出第一代 NVLink，提升单机卡间通信之外扩展多机之间的带宽。支持统一内存，允许在 GPU 和 CPU 的完整虚拟地址空间之间透明迁移数据，降低了并行编程的门槛。支持计算抢占和针对 Pascal 架构优化的人工智能算法，可应用于高性能计算、深度学习和 GPU 计算密集型领域。</p>
+<p>2016 年英伟达提出 Pascal 架构，相比之前的架构，Pascal 帕斯卡架构在应用场景、内存带宽和制程工艺等多个方面做出了创新。将系统内存 GDDR5 换成 HBM2，能够在更高的带宽下处理更大的工作数据集，提高效率和计算吞吐量，并减少从系统内存传输的频率，而且 HBM2 原生支持数据纠错（Error correcting Code, ECC）。采用 16nm FinFET 工艺，拥有 15.3 亿个晶体管，相同功耗下算力提升提升一个数量级。同时提出第一代 NVLink，提升单机卡间通信之外扩展多机之间的带宽。支持统一内存，允许在 GPU 和 CPU 的完整虚拟地址空间之间透明迁移数据，降低了并行编程的门槛。支持计算抢占和针对 Pascal 架构优化的 AI 算法，可应用于高性能计算、深度学习和 GPU 计算密集型领域。</p>
 <p><img alt="Pascal 帕斯卡架构主要创新" src="../_images/04History07.png" /></p>
 <p>GP100 Pascal 由图形处理集群（GPCs）、纹理处理集群（TPCs）、流式多处理器（SMs）和内存控制器组成。一个完整的 GP100 由 6 个 GPCs、60 个 Pascal SMs、30 个 TPCs（每个都包括 2 个 SMs）和 8 个 512 位内存控制器（总共 4096 位）组成。每个 GPC 都有 10 个 SMs，每个 SM 有 64 个 CUDA 核和 4 个纹理单元，拥有 60 个 SMs，共有 3840 个单精度 CUDA Cores 和 240 个纹理单元。每个内存控制器都连接到 512 KB 的 L2 高速缓存上，每个 HBM2 DRAM 都由一对内存控制器控制，总共包含 4096 KB L2 高速缓存。</p>
 <p><img alt="Pascal 帕斯卡架构" src="../_images/04History08.png" /></p>
@@ -1042,7 +1041,7 @@ document.write(`
 <li><p>在逻辑学领域，他提出了图灵判定问题，对计算机可解性和不可解性做出了重要贡献。</p></li>
 </ol>
 </div></blockquote>
-<p>随着神经网络模型的量化部署逐渐成熟，Turing 架构中的 Tensor Core（张量核心）增加了对 INT8/INT4/Binary 的支持，加速神经网络训练和推理函数的矩阵乘法核心。一个 TU102 GPU 包含 576 个张量核心，每个张量核心可以使用 FP16 输入在每个时钟执行多达 64 个浮点融合乘法加法（FMA）操作。SM 中 8 个张量核心在每个时钟中总共执行 512 次 FP16 的乘法和累积运算，或者在每个时钟执行 1024 次 FP 运算，新的 INT8 精度模式以两倍的速率工作，即每个时钟进行 2048 个整数运算。Tensor Core 用于加速基于人工智能的英伟达 NGX 功能，增强图形、渲染和其它类型的客户端应用程序，包括 DLSS（深度学习超级采样）、人工智能绘画、AI Super Rez（图像/视频超分辨率）和 AI Slow-Mo（视频流插帧）。</p>
+<p>随着神经网络模型的量化部署逐渐成熟，Turing 架构中的 Tensor Core（张量核心）增加了对 INT8/INT4/Binary 的支持，加速神经网络训练和推理函数的矩阵乘法核心。一个 TU102 GPU 包含 576 个张量核心，每个张量核心可以使用 FP16 输入在每个时钟执行多达 64 个浮点融合乘法加法（FMA）操作。SM 中 8 个张量核心在每个时钟中总共执行 512 次 FP16 的乘法和累积运算，或者在每个时钟执行 1024 次 FP 运算，新的 INT8 精度模式以两倍的速率工作，即每个时钟进行 2048 个整数运算。Tensor Core 用于加速基于 AI 的英伟达 NGX 功能，增强图形、渲染和其它类型的客户端应用程序，包括 DLSS（深度学习超级采样）、 AI 绘画、AI Super Rez（图像/视频超分辨率）和 AI Slow-Mo（视频流插帧）。</p>
 <p>每个 SMs 分别有 64 个 FP32 核和 64 个 INT32 核，还包括 8 个混合精度的张量核（Tensor Core），每个 SM 被分为四个块，每个块包括一个新的 L0 指令缓存和一个 64 KB 的寄存器文件。四个块共享一个 96 KB L1 数据缓存/共享内存。传统的图形工作负载将 96 KB 的 L1/共享内存划分为 64 KB 的专用图形着色器 RAM 和 32 KB 的用于纹理缓存和寄存器文件溢出区域。计算工作负载可以将 96 KB 划分为 32 KB 共享内存和 64 KB L1 缓存，或者 64 KB 共享内存和 32 KB L1 缓存。</p>
 <p><img alt="Turing Tensor Core &amp; RT Core" src="../_images/04History19.png" /></p>
 <p>RT Core 主要用于三角形与光线求交点，并通过 BVH（Bounding Volume Hierarchy）结构加速三角形的遍历，由于布置在 block 之外，相对于普通 ALU 计算来说是异步的，包括两个部分，一部分检测碰撞盒来剔除面片，另一部分做真正的相交测试。RT Core 的使用，使 SM 在很大程度上可以用来做图形计算之外的工作。</p>
@@ -1077,13 +1076,13 @@ document.write(`
 <p><img alt="Ampere 安培架构" src="../_images/04History22.png" /></p>
 <p>A100 Tensor Core3.0 增强操作数共享并提高计算效率，引入了 TF32、BF16 和 FP64 数据类型的支持。平时训练模型的过程中使用更多的是 FP32 和 FP16，TF32 在指数位有 8 位，FP16 在指数为有 5 位，因此 FP32 的位宽比 FP16 更多，小数位决定精度，FP32 在小数位有 23 位，FP16 只有 10 位，在 AI 训练的过程中很多时候 FP16 是够用的，但是动态范围会有限制，因此提出 TF32，指数位保持和 FP32 相同，小数位和 FP16 保持相同，BF16 的指数位和 FP32、TF32 相同，但是小数位少了三位。数百个张量核并行运行，大幅提高吞吐量和计算效率。</p>
 <p><img alt="Ampere 架构 TF32、BF16 和 FP64" src="../_images/04History23.png" /></p>
-<p>A100 FP32 FFMA，INT8、INT4 和 Binary 分别提高了 32x、64x 和 256x，与 Volta 架构一样，自动混合精度（AMP）允许用户使用与 FP16 相结合的混合精度来进行人工智能训练，使用 AMP 之后 A100 提供了比 TF32 快 2 倍的张量核心性能。</p>
+<p>A100 FP32 FFMA，INT8、INT4 和 Binary 分别提高了 32x、64x 和 256x，与 Volta 架构一样，自动混合精度（AMP）允许用户使用与 FP16 相结合的混合精度来进行 AI 训练，使用 AMP 之后 A100 提供了比 TF32 快 2 倍的张量核心性能。</p>
 <p><img alt="Ampere 架构 A100 支持精度" src="../_images/04History24.png" /></p>
 <p>Tensor Core 除了执行乘法和加法操作之外还可以支持稀疏化结构矩阵（Sparse Tensor），实现细粒度的结构化稀疏，支持一个 2:4 的结构化稀疏矩阵与另一个稠密矩阵直接相乘。一种常见的方法是利用稀疏矩阵的结构特点，只对非零元素进行计算，从而减少计算量。一个训练得到的稠密矩阵在推理阶段经过剪枝之后会变成一个稀疏化矩阵，然后英伟达架构对矩阵进行压缩后变成一个稠密的数据矩阵和一个 indices，索引压缩过的数据方便检索记录，最后进行矩阵乘。</p>
 <p><img alt="Ampere 架构稀疏化流程" src="../_images/04History25.png" /></p>
 <p>A100 张量核心 GPU 可以被分为 7 个 GPU 实例并被不同任务使用，每个实例的处理器在整个内存系统中都有单独且相互隔离的路径，片上交叉端口、L2 缓存、内存控制器和 DRAM 地址总线都被唯一地分配给一个单独的实例，确保单个用户的工作负载可以在可预测的吞吐量和延迟下运行，同时具有相同的 L2 缓存分配和 DRAM 带宽，即使其他任务正在读写缓存或 DRAM 接口。用户可以将这些虚拟 GPU 实例当成真的 GPU 进行使用，为云计算厂商提供算力切分和多用户租赁服务。</p>
 <p><img alt="Ampere 架构多实例分割虚拟 GPU" src="../_images/04History26.png" /></p>
-<p>DGX A100 是英伟达专门构建的第三代人工智能系统，在单个系统中可以提供 5 PFLOPS（petaflop）性能，通过一种新的基础设施结构，彻底改变了企业数据中心，旨在将所有人工智能工作负载统一在一个新的通用平台和架构上。A100 以整机的形式出售，最上面是散热器，中间的 A100 芯片不再通过 PCIe 进行连接，而是直接封装在主板上，这样便于在同一个节点上进行模型并行，但是跨节点跨机器之间训练大模型时带宽就会成为整个大模型训练的瓶颈。内存高达 1TB 或者 2TB，可以直接将数据全部加载到 CPU 里面，然后再不断回传到 GPU 中，加速大模型训练。</p>
+<p>DGX A100 是英伟达专门构建的第三代 AI 系统，在单个系统中可以提供 5 PFLOPS（petaflop）性能，通过一种新的基础设施结构，彻底改变了企业数据中心，旨在将所有 AI 工作负载统一在一个新的通用平台和架构上。A100 以整机的形式出售，最上面是散热器，中间的 A100 芯片不再通过 PCIe 进行连接，而是直接封装在主板上，这样便于在同一个节点上进行模型并行，但是跨节点跨机器之间训练大模型时带宽就会成为整个大模型训练的瓶颈。内存高达 1TB 或者 2TB，可以直接将数据全部加载到 CPU 里面，然后再不断回传到 GPU 中，加速大模型训练。</p>
 <p><img alt="A100 硬件规格" src="../_images/04History27.png" /></p>
 </section>
 <section id="hopper">
@@ -1202,7 +1201,7 @@ document.write(`
 <p>NVIDIA CUDA 平台针对 NVIDIA Grace CPU，NVIDIA Grace Hopper Superchip 和 NVIDIA NVLink Switch 系统进行了优化，使得 NVIDIA CUDA 发展成为一个全面、高效、高性能的加速计算平台，为开发人员在异构平台上加速应用程序提供了最佳的体验。</p>
 <p><img alt="NVIDIA CUDA Platform and its ecosystem" src="../_images/04History32.png" /></p>
 <p>基于 Hopper 架构，英伟达推出 NVIDIA H100 高性能计算加速器，旨在为各种规模的计算工作负载提供出色的性能和效率。在单服务器规模下，结合主流服务器使用 H100 加速卡可以提供强大的计算能力，加速各种计算密集型工作负载。在多服务器规模下，组成 GPU 集群的多块 H100 加速卡可以构建高性能计算集群，支持分布式计算和并行计算，提高整体计算效率。而在超级计算规模下，大量 H100 加速卡组成的超级计算集群可以处理极端规模的计算任务，支持复杂的科学计算和研究。</p>
-<p>从单服务器到多服务器再到超级计算规模（Mainstream Servers to DGX to DGX SuperPOD），NVIDIA H100 在不同层次和规模下展现出色的计算性能和效率，满足各种计算需求和业务目标。企业可以根据自身需求和预算选择适合的 NVIDIA H100 解决方案，加速其计算任务和推动人工智能领域的发展。</p>
+<p>从单服务器到多服务器再到超级计算规模（Mainstream Servers to DGX to DGX SuperPOD），NVIDIA H100 在不同层次和规模下展现出色的计算性能和效率，满足各种计算需求和业务目标。企业可以根据自身需求和预算选择适合的 NVIDIA H100 解决方案，加速其计算任务和推动 AI 领域的发展。</p>
 <p><img alt="H100-Mainstream Servers to DGX to DGX SuperPOD" src="../_images/04History33.png" /></p>
 </section>
 <section id="blackwell">
@@ -1226,7 +1225,7 @@ document.write(`
 </div></blockquote>
 <p>英伟达 GB200 Grace Blackwell 超级芯片通过 900GB/s 超低功耗的片间互联，将两个英伟达 B200 Tensor Core GPU 与英伟达 Grace CPU 相连。在 90 天内训练一个 1.8 万亿参数的 MoE 架构 GPT 模型，需要 8000 个 Hopper 架构 GPU，15 兆瓦功率，Blackwell 架构只需要 2000 个 GPU，以及 1/4 的能源消耗。8 年时间，从 Pascal 架构到 Blackwell 架构，英伟达将 AI 计算性能提升了 1000 倍！</p>
 <p><img alt="8 年时间 AI 计算性能提升了 1000 倍" src="../_images/04History35.png" /></p>
-<p>英伟达 GB200 NVL72 集群以机架形式设计连接 36 个 GB200 超级芯片(36 个 Grace cpu 和 72 个 Blackwell GPU)。GB200 NVL72 是一款液冷、机架型 72 GPU NVLink，可以作为单个大规模 GPU，提供比上一代 HGX H100 实现 30 倍的实时万亿参数 LLM 推理，加速下一代人工智能和加速计算。</p>
+<p>英伟达 GB200 NVL72 集群以机架形式设计连接 36 个 GB200 超级芯片(36 个 Grace cpu 和 72 个 Blackwell GPU)。GB200 NVL72 是一款液冷、机架型 72 GPU NVLink，可以作为单个大规模 GPU，提供比上一代 HGX H100 实现 30 倍的实时万亿参数 LLM 推理，加速下一代 AI 和加速计算。</p>
 <p><img alt="英伟达 GB200 NVL72 集群" src="../_images/04History36.png" /></p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1289,7 +1288,7 @@ document.write(`
 </div>
 <p>随着大模型（LLM）参数量增长对算力的需求，英伟达在存储带宽和内存方面不断创新，P100 上首次使用 HBM2，A100 使用 HBM2e，H100 使用 HBM3，H200 和 B100 使用 HBM3e。</p>
 <p><img alt="英伟达为满足模型需要不断创新" src="../_images/04History37.jpg" /></p>
-<p>英伟达 Blackwell HGX B200 和 HGX B100 在生成式人工智能、数据分析和高性能计算方面具有相同的突破性进展。HGX B200 是基于 8 个 B200 x86 平台，提供 144 petaFLOPs 的 AI 性能，每个 GPU 最高可配置 1000 瓦。HGX B100 是基于 8 个 B100 x86 平台，提供 112 petaFLOPs 的 AI 性能，每个 GPU 最高可配置为 700 瓦。</p>
+<p>英伟达 Blackwell HGX B200 和 HGX B100 在生成式 AI 、数据分析和高性能计算方面具有相同的突破性进展。HGX B200 是基于 8 个 B200 x86 平台，提供 144 petaFLOPs 的 AI 性能，每个 GPU 最高可配置 1000 瓦。HGX B100 是基于 8 个 B100 x86 平台，提供 112 petaFLOPs 的 AI 性能，每个 GPU 最高可配置为 700 瓦。</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
@@ -1385,7 +1384,7 @@ document.write(`
 <li><p>2018 年提出 Turing 架构，在消费级显卡上提出 RT Core 以实现硬件光线追踪。</p></li>
 <li><p>2020 年 Ampere 架构因多用户 GPU 实例在 AI 云应用厂商中广泛采用。</p></li>
 <li><p>2022 年 Hopper 架构实现了 CPU 和 GPU 异构，CPU 与 GPU 实现英伟达 NVLink-C2C 互连。</p></li>
-<li><p>2024 年 Blackwell 架构 GPU，英伟达将 AI 计算性能提升了 1000 倍，进一步为生成式人工智能与大模型提供算力支持。</p></li>
+<li><p>2024 年 Blackwell 架构 GPU，英伟达将 AI 计算性能提升了 1000 倍，进一步为生成式 AI 与大模型提供算力支持。</p></li>
 </ul>
 <section id="cuda-core-tensor-core">
 <h3>CUDA Core &amp; Tensor Core<a class="headerlink" href="#cuda-core-tensor-core" title="Link to this heading">#</a></h3>
@@ -1646,7 +1645,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

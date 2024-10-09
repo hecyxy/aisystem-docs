@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -302,10 +302,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -343,13 +343,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -739,7 +738,7 @@ document.write(`
 <p>剪枝不仅可以减少模型的存储和计算需求，还能在保持模型性能的同时提高模型的泛化能力。我们将探讨剪枝的定义、分类、不同阶段的剪枝流程，以及多种剪枝算法，包括基于参数重要性的方法、结构化剪枝、动态剪枝和基于优化算法的全局剪枝策略。</p>
 <section id="id2">
 <h2>模型剪枝概述<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>为了从海量的数据中学到更多“知识”，深度神经网络的规模变得越来越大。这些大型神经网络拥有庞大的参数，远远超出了人类能够直观理解和处理的范畴。这种规模的增加带来了模型训练和推理时巨大的计算和存储压力。为了减少神经网络模型对存储、带宽和计算等硬件资源的需求，将模型更好地应用到实际环境中，一些模型压缩方法被提出。</p>
+<p>为了从海量的数据中学到更多“知识”，神经网络的规模变得越来越大。这些大型神经网络拥有庞大的参数，远远超出了人类能够直观理解和处理的范畴。这种规模的增加带来了模型训练和推理时巨大的计算和存储压力。为了减少神经网络模型对存储、带宽和计算等硬件资源的需求，将模型更好地应用到实际环境中，一些模型压缩方法被提出。</p>
 <p>模型压缩将一个庞大而复杂的预训练模型转化为一个更精简的小模型，尽可能在不牺牲模型精确度的情况下，减少模型的存储和计算负载，从而使得模型更高效在各种硬件平台上部署和运行。模型压缩方法主要分为这几类：<strong>量化（Quantization）</strong>，<strong>剪枝（Pruning）</strong>，<strong>知识蒸馏（Knowledge Distillation）</strong> 和 <strong>二值化网络（Binary Neural Network）</strong> 等等。</p>
 <p>其中，模型剪枝是一类重要而且应用广范的模型压缩方法，其通过移除神经网络中的冗余或不重要的参数（如权重、神经元或卷积核），在尽量保持模型准确度的前提下减少模型的大小，提高模型的计算速度和泛化能力。</p>
 <section id="id3">
@@ -976,7 +975,7 @@ s.t. \ \ \ \ w\in R^m, \ \ ||w||_0 \leq k
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

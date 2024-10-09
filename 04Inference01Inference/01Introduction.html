@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -300,10 +300,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -341,13 +341,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -735,7 +734,7 @@ document.write(`
 <section id="id2">
 <h2>推理系统介绍<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>在深入探讨推理系统与推理引擎之前，首先需要明确“推理”这一概念。推理，简单来说，就是在利用大量数据训练好模型的结构和参数后，使用小批量数据进行一次前向传播，从而得到模型输出的过程。在此过程中，并不涉及模型梯度和损失的优化。推理的最终目标，便是将训练好的模型部署到实际的生产环境中，使 AI 真正运行起来，服务于日常生活。</p>
-<p><strong>推理系统</strong>，是一个专门用于部署神经网络模型，执行推理预测任务的人工智能系统。它类似于传统的 Web 服务或移动端应用系统，但专注于 AI 模型的部署与运行。推理系统会加载模型到内存，并进行版本管理，确保新版本能够顺利上线，旧版本能够安全回滚。此外，它还会对输入数据进行批量尺寸（Batch Size）的动态优化，以提高处理效率。通过提供服务接口（如 HTTP、gRPC 等），推理系统使得客户端能够方便地调用模型进行推理预测。同时，推理系统还可以作为一个微服务，在数据中心中与其他微服务协同工作，共同完成复杂的请求处理任务。</p>
+<p><strong>推理系统</strong>，是一个专门用于部署神经网络模型，执行推理预测任务的 AI 系统。它类似于传统的 Web 服务或移动端应用系统，但专注于 AI 模型的部署与运行。推理系统会加载模型到内存，并进行版本管理，确保新版本能够顺利上线，旧版本能够安全回滚。此外，它还会对输入数据进行批量尺寸（Batch Size）的动态优化，以提高处理效率。通过提供服务接口（如 HTTP、gRPC 等），推理系统使得客户端能够方便地调用模型进行推理预测。同时，推理系统还可以作为一个微服务，在数据中心中与其他微服务协同工作，共同完成复杂的请求处理任务。</p>
 <p><strong>推理引擎</strong>，则是推理系统中的重要组成部分，它主要负责 AI 模型的加载与执行。推理引擎可分为调度与执行两层，聚焦于 Runtime 执行部分和 Kernel 算子内核层，为不同的硬件提供更加高效、快捷的执行引擎。它可以看作是一个基础软件，提供了一组 API，使得开发者能够在特定的加速器平台（如 CPU、GPU 和 TPU）上轻松地进行推理任务。目前市场上已有多种推理引擎，如字节跳动的 LightSeq、Meta AI 的 AITemplate、英伟达的 TensorRT，以及华为的 MindSpore Lite 和腾讯的 NCNN 等。</p>
 <p>在本节中，将深入探讨推理系统与推理引擎的概念及其区别。在了解推理系统的工作流程，同时，也将深入剖析推理引擎的整体架构，理解其在推理过程中的核心作用与运行机制。通过这一节的学习，将对推理系统与推理引擎有更加全面、深入的认识，为后续的实际应用打下坚实基础。</p>
 <section id="id3">
@@ -788,9 +787,9 @@ s
 </section>
 <section id="id8">
 <h3>人工客服应用<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
-<p>推理引擎或推理系统在人工客服和人工智能对话方面有广泛的应用。以下是一些相关的内容：</p>
+<p>推理引擎或推理系统在人工客服和 AI 对话方面有广泛的应用。以下是一些相关的内容：</p>
 <p>智能客服：推理引擎可以用于实现智能客服系统，能够理解用户的问题并提供准确的答案。通过对大量的语料库和知识库进行训练，推理引擎可以学习到不同的问题模式和解决方案，从而能够快速准确地回答用户的问题。</p>
-<p>对话管理：在人工智能对话中，推理引擎可以帮助系统理解用户的意图和需求，并根据这些信息来引导对话的流向。它可以根据用户的输入和历史对话记录，预测用户可能的问题和需求，并提供相应的回答和建议。</p>
+<p>对话管理：在 AI 对话中，推理引擎可以帮助系统理解用户的意图和需求，并根据这些信息来引导对话的流向。它可以根据用户的输入和历史对话记录，预测用户可能的问题和需求，并提供相应的回答和建议。</p>
 <p>情感分析：推理引擎可以对用户的语言进行情感分析，判断用户的情绪状态。这对于人工客服来说非常重要，因为它可以帮助客服人员更好地理解用户的需求和问题，并提供更合适的解决方案。</p>
 <p>知识图谱：结合知识图谱，推理引擎可以利用实体和关系的信息来进行更深入的推理和回答。它可以根据用户的问题，从知识图谱中检索相关的信息，并以更自然和准确的方式呈现给用户。</p>
 <p>多轮对话：推理引擎可以支持多轮对话，使系统能够与用户进行连续的交互。它可以根据用户的回答和反馈，动态地调整对话策略和回答内容，以提供更个性化和有效的服务。</p>
@@ -938,7 +937,7 @@ s
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

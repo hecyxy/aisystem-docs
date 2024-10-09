@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -300,10 +300,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -341,13 +341,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">后端优化</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -763,7 +762,7 @@ vmulq_f32：对两个单精度浮点向量执行乘法操作。
 </section>
 <section id="id4">
 <h3>张量化<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<p>在人工智能应用日益广泛的今天，程序运行的数据形式经历了显著的演变。特别是以神经网络为代表的神经网络模型，其内部数据形式为多维矩阵，通常称为张量。例如，在计算机视觉任务中，典型的输入数据具有 [N, C, H, W] 的维度，其中 N 代表批次大小，C 代表通道数，H 和 W 分别代表图像的高度和宽度。</p>
+<p>在 AI 应用日益广泛的今天，程序运行的数据形式经历了显著的演变。特别是以神经网络为代表的神经网络模型，其内部数据形式为多维矩阵，通常称为张量。例如，在计算机视觉任务中，典型的输入数据具有 [N, C, H, W] 的维度，其中 N 代表批次大小，C 代表通道数，H 和 W 分别代表图像的高度和宽度。</p>
 <p>在神经网络的内部计算过程中，特征图和参与计算的权重（如卷积核）也以类似的 4 维张量形式存在。传统的计算方法，如使用多层循环嵌套逐个计算数据元素，对于神经网络模型而言，效率极其低下。由于神经网络的计算具有高度的数据并行性，同一层内的元素之间几乎没有依赖关系。在理想情况下，如果能在硬件负载允许的范围内一次性将大量数据送入运算单元，将显著提升数据并行性，从而加速计算过程。</p>
 <p>针对这一需求，英伟达公司开发了 Tensor Core 技术，专门针对张量计算进行加速。Tensor Core 是一种特殊的硬件单元，设计用于高效执行深度学习中的张量运算，如矩阵乘法和累加操作，这些操作是神经网络模型中的核心组成部分。通过 Tensor Core，GPU 能够在保持精度的同时，大幅度提高张量运算的速度和效率。在 Volta 架构中，一个 SM 由 8 个 FP64 Cuda Cores，16 个 INT32 Cuda Core，16 个 FP32 Cuda Core，和 128 个 Tensor Core 组成，一共有 4 个 SM。</p>
 <p>一个典型的 Tensor Core 指令如下所示，它可以在一条指令中计算 C[8x8] += A[8x32] * B[32x8]</p>
@@ -968,7 +967,7 @@ vmulq_f32：对两个单精度浮点向量执行乘法操作。
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>

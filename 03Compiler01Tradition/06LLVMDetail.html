@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Jul 17, 2024"/>
+    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
 
 <link
   rel="alternate"
@@ -300,10 +300,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/04Cambricon.html">寒武纪介绍</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/07AscendBase.html">昇腾 AI 处理器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendCube.html">昇腾 AI 核心单元</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendCluster.html">昇腾 AI 算力集群</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendArch.html">昇腾 AI 全栈架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/08AscendBase.html">昇腾 AI 架构介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/09AscendSOC.html">昇腾 AI 处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/10AscendCube.html">昇腾 AI 核心单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware06Domestic/11AscendLayout.html">昇腾数据布局转换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware07Thought/README.html">AI 芯片黄金十年</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -341,13 +341,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/01Introduction.html">AI 编译器前端优化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/02GraphIR.html">图算 IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/03OPFusion.html">算子融合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/05LayoutAlgo.html">布局转换算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/04LayoutPrinc.html">布局转换原理与算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/06Memory.html">内存分配算法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/07ConstantFold.html">常量折叠原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/08CSE.html">公共表达式消除原理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/09DCE.html">死代码消除</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10Algebraic.html">代数简化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03Compiler03Frontend/10algebraic.html">代数简化</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03Compiler04Backend/README.html">后端优化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -904,11 +903,12 @@ document.write(`
 <section id="id6">
 <h3>LLVM IR 内存模型<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>在进行编译器优化时，需要了解 LLVM IR（中间表示）的内存模型。LLVM IR 的内存模型是基于基本块的，每个基本块都有自己的内存空间，指令只能在其内存空间内执行。</p>
-<p>在 LLVM 架构中，几乎所有的实体都是一个 <code class="docutils literal notranslate"><span class="pre">Value</span></code>。<code class="docutils literal notranslate"><span class="pre">Value</span></code> 是一个非常基础的基类，其子类表示它们的结果可以被其他地方使用。继承自 <code class="docutils literal notranslate"><span class="pre">User</span></code> 的类表示它们会使用一个或多个 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 对象。根据 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 与 <code class="docutils literal notranslate"><span class="pre">User</span></code> 之间的关系，可以引申出 use-def 链和 def-use 链这两个概念。</p>
+<p>在 LLVM 架构中，几乎所有的实体都是一个 <code class="docutils literal notranslate"><span class="pre">Value</span></code>。<code class="docutils literal notranslate"><span class="pre">Value</span></code> 是一个非常基础的基类，其子类表示它们的结果可以被其他地方使用。<code class="docutils literal notranslate"><span class="pre">User</span></code> 类是继承自 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 的一个类，表示能够使用一个或多个 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 的对象。根据 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 与 <code class="docutils literal notranslate"><span class="pre">User</span></code> 之间的关系，可以引申出 use-def 链和 def-use 链这两个概念。</p>
 <ul class="simple">
 <li><p>use-def 链是指被某个 <code class="docutils literal notranslate"><span class="pre">User</span></code> 使用的 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 列表；</p></li>
-<li><p>def-use 链是指使用某个 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 的 <code class="docutils literal notranslate"><span class="pre">User</span></code> 列表。实际上，LLVM 中还定义了一个 <code class="docutils literal notranslate"><span class="pre">Use</span></code> 类，<code class="docutils literal notranslate"><span class="pre">Use</span></code> 表示上述使用关系中的一个边。</p></li>
+<li><p>def-use 链是指使用某个 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 的 <code class="docutils literal notranslate"><span class="pre">User</span></code> 列表。</p></li>
 </ul>
+<p>实际上，LLVM 中还定义了一个 <code class="docutils literal notranslate"><span class="pre">Use</span></code> 类，<code class="docutils literal notranslate"><span class="pre">Use</span></code> 是一个对象，它表示对一个 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 的单个引用或使用。主要作用是帮助 LLVM 跟踪每个 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 的所有使用情况，从而支持 def-use 链的构建和数据流分析。</p>
 </section>
 <section id="id7">
 <h3>LLVM IR 基本单位<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
@@ -1102,7 +1102,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 17, 2024.
+  Last updated on Oct 09, 2024.
   <br/>
 </p>
   </div>
