@@ -14,7 +14,7 @@
 <meta property="og:description" content="我们知道，计算机指令是指挥机器工作的指示和命令，程序就是一系列指令按照顺序排列的集合，执行程序的过程就是计算机的工作过程。从微观上看，我们输入指令的时候，计算机会将指令转换成二进制码存储在存储单元里面，然后在即将执行的时候拿出来。那么计算机是怎么知道我们输入的是什么指令，指令要怎么执行呢？ 这就要提到 ISA 也就是指令集架构，本节内容主要围绕 CPU 的指令集架构 ISA 展开，学习 CI..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
+<meta property="og:image" content="/_images/social_previews/summary_02Hardware02ChipBase_02CPUISA_557b34dc.png" />
 <meta property="og:image:alt" content="我们知道，计算机指令是指挥机器工作的指示和命令，程序就是一系列指令按照顺序排列的集合，执行程序的过程就是计算机的工作过程。从微观上看，我们输入指令的时候，计算机会将指令转换成二进制码存储在存储单元里面，然后在即将执行的时候拿出来。那么计算机是怎么知道我们输入的是什么指令，指令要怎么执行呢？ 这就要提到 ISA 也..." />
 <meta name="description" content="我们知道，计算机指令是指挥机器工作的指示和命令，程序就是一系列指令按照顺序排列的集合，执行程序的过程就是计算机的工作过程。从微观上看，我们输入指令的时候，计算机会将指令转换成二进制码存储在存储单元里面，然后在即将执行的时候拿出来。那么计算机是怎么知道我们输入的是什么指令，指令要怎么执行呢？ 这就要提到 ISA 也就是指令集架构，本节内容主要围绕 CPU 的指令集架构 ISA 展开，学习 CI..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -50,7 +50,7 @@
     <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=182be0a6" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
@@ -452,7 +452,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTroch 微分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来</a></li>
 </ul>
 </details></li>
@@ -784,7 +784,7 @@ document.write(`
 <p>接下来我们详细解释一条 MIPS32 指令，来加深读者对于指令的理解。如下图所示的是一条 addi 指令，那为什么是 addi 指令呢？决定这条指令功能的是前 6 位，也就是 op code，也可以理解为运算符，不同的 op code 对应了不同的操作，图中是以“加法”为例。</p>
 <p><img alt="ISA" src="../_images/02CPUISA02.png" /></p>
 <p>右边三个部分对应着的是操作对象，其中一共有三个参数分别是：目的操作数 Addr1、原操作数 Addr2 以及立即数 imediate Value。其中目的操作数 Addr1、原操作数 Addr2 都是 5 位所代表的是我们寄存器的地址，Addr1 用于存储计算后的结果，Addr2 地址中存储着要进行加法计算的数值。imediate Value 是一个立即数共 16 位，它是一个有符号的常量值，用于与 Addr2 寄存器中的值相加。</p>
-<p>图中的立即数转化为十进制就是 350，这条指令会将寄存器 Addr2 中的值与立即数 355 相加，并将结果存储在 Addr1 寄存器中。</p>
+<p>图中的立即数转化为十进制就是 350，这条指令会将寄存器 Addr2 中的值与立即数 <strong>350</strong> 相加，并将结果存储在 Addr1 寄存器中。</p>
 <p>细心的读者应该是已经发现 addi 是 I 型（Immediate）指令，因为我们可以很明显的看到指令的后 16 位包含一个立即数操作数，立即数的大小通常限制在 16 位，这意味着它可以直接编码在指令中。在 MIPS32 中，立即数的范围通常是-32768 到 32767。addi 指令在执行时可能会发生溢出，但 MIPS 架构使用有符号数，因此溢出会导致符号位的扩展。</p>
 <blockquote>
 <div><p>与 add 指令相比，addi 指令执行的是寄存器与立即数的加法，而不是两个寄存器之间的加法。因此 add 是一种 R 类型指令，当然感兴趣的读者也可以自行关注相关内容。</p>

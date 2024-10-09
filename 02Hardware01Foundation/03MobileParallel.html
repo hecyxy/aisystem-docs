@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -50,7 +50,7 @@
     <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=182be0a6" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
@@ -452,7 +452,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTroch 微分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来</a></li>
 </ul>
 </details></li>
@@ -758,7 +758,7 @@ document.write(`
 <li><p><strong>减少卷积核个数的设计</strong></p></li>
 </ol>
 <p>在 DenseNet 和 GhostNet 的模型设计中，提出了一种通过 Reuse Feature Map 的设计方式来减少模型参数和运算量。</p>
-<p>如下图，对于 DenseNetV1 的结构设计来说，第 n 层的参数量由于复用了之前层的 Feature Map, 由 <span class="math notranslate nohighlight">\(kxkxCix(C1+C2)\)</span> 变为了 <span class="math notranslate nohighlight">\(kxkxCixC2\)</span>，即为原来的 <span class="math notranslate nohighlight">\(C2/(C1+C2)\)</span>，而 C2 远小于 C1，其中 k 表示卷积核尺寸, C1 表示前 n-1 层的 Feature Map 个数，C2 表示第 n 层的输出 Feature Map 个数。</p>
+<p>如下图，对于 DenseNetV1 的结构设计来说，第 n 层的参数量由于复用了之前层的 Feature Map, 由 <span class="math notranslate nohighlight">\(kxkxC1x(C1+C2)\)</span> 变为了 <span class="math notranslate nohighlight">\(kxkxC1xC2\)</span>，即为原来的 <span class="math notranslate nohighlight">\(C2/(C1+C2)\)</span>，而 C2 远小于 C1，其中 k 表示卷积核尺寸, C1 表示前 n-1 层的 Feature Map 个数，C2 表示第 n 层的输出 Feature Map 个数。</p>
 <p><img alt="" src="../_images/03MobileParallel03.png" /></p>
 </section>
 <section id="id3">

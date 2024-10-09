@@ -14,7 +14,7 @@
 <meta property="og:description" content="1999 年，英伟达发明了 GPU（graphics processing unit），本节将介绍英伟达 GPU 从 Fermi 到 Blackwell 共 9 代架构，时间跨度从 2010 年至 2024 年，具体包括费米（Feimi）、开普勒（Kepler）、麦克斯韦（Maxwell）、帕斯卡（Pashcal）、伏特（Volt）、图灵（Turing）、安培（Ampere）和赫柏（Hopp..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
+<meta property="og:image" content="/_images/social_previews/summary_02Hardware03GPUBase_04History_cb8c3a2a.png" />
 <meta property="og:image:alt" content="1999 年，英伟达发明了 GPU（graphics processing unit），本节将介绍英伟达 GPU 从 Fermi 到 Blackwell 共 9 代架构，时间跨度从 2010 年至 2024 年，具体包括费米（Feimi）、开普勒（Kepler）、麦克斯韦（Maxwell）、帕斯卡（Pashcal..." />
 <meta name="description" content="1999 年，英伟达发明了 GPU（graphics processing unit），本节将介绍英伟达 GPU 从 Fermi 到 Blackwell 共 9 代架构，时间跨度从 2010 年至 2024 年，具体包括费米（Feimi）、开普勒（Kepler）、麦克斯韦（Maxwell）、帕斯卡（Pashcal）、伏特（Volt）、图灵（Turing）、安培（Ampere）和赫柏（Hopp..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -50,7 +50,7 @@
     <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=182be0a6" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
@@ -452,7 +452,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTroch 微分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来</a></li>
 </ul>
 </details></li>
@@ -1141,6 +1141,7 @@ document.write(`
 </div>
 <p>H100 一共有 8 组 GPC、66 组 TPC、132 组 SM，总计有 16896 个 CUDA 核心、528 个 Tensor 核心、50MB 二级缓存。显存为新一代 HBM3，容量 80 GB，位宽 5120-bit，带宽高达 3 TB/s。</p>
 <p><img alt="Hopper 赫柏架构" src="../_images/04History29.png" /></p>
+<p><strong>（注意：上面的图是GH100的图，而不是H100的图）</strong></p>
 <blockquote>
 <div><p>格蕾丝·赫希贝尔·赫柏（Grace Hopper）是 20 世纪美国计算机科学家和海军军官，被誉为计算机编程先驱和软件工程的奠基人之一。在 1934 年获得了耶鲁大学数学博士学位，成为该校历史上第一位女性获得博士学位的人。在计算机领域做出了重要贡献，尤其在编程语言和软件开发方面有突出成就，被尊称为“软件工程之母”和“编程女王”。主要成就包括：</p>
 <ol class="arabic simple">

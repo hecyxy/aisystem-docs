@@ -14,7 +14,7 @@
 <meta property="og:description" content="前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blankwell 架构演变了非常多代，其中和 AI 特别相关的就有 Tensor Core 和 NVLink。 本节首先..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
+<meta property="og:image" content="/_images/social_previews/summary_02Hardware03GPUBase_01Works_ab121af0.png" />
 <meta property="og:image:alt" content="前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blankwell 架构演变了非常多代，其..." />
 <meta name="description" content="前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blankwell 架构演变了非常多代，其中和 AI 特别相关的就有 Tensor Core 和 NVLink。 本节首先..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -50,7 +50,7 @@
     <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=182be0a6" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
@@ -452,7 +452,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/03GradMode.html">微分计算模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/04Implement.html">微分实现方式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/05ForwardMode.html">动手实现自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTroch 微分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/06ReversedMode.html">动手实现 PyTorch 微分</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05Framework02AutoDiff/07Challenge.html">自动微分的挑战&amp;未来</a></li>
 </ul>
 </details></li>
@@ -851,7 +851,7 @@ document.write(`
 </pre></div>
 </div>
 <p>示例代码中包含 2 FLOPS 操作，分别是乘法（Multiply）和加法（Add），对于每一次计算操作都需要在内存中读取两个数据，<span class="math notranslate nohighlight">\(x[i]\)</span> 和 <span class="math notranslate nohighlight">\(y[i]\)</span>，最后执行一个线性操作，存储到 <span class="math notranslate nohighlight">\(y[i]\)</span> 中，其中把加法和乘法融合在一起的操作也可以称作 FMA（Fused Multiply and Add）。</p>
-<p>在 O(n) 的时间复杂度下，根据 n 的大小迭代计算 n 次，在 CPU 中串行地按指令顺序去执行 <span class="math notranslate nohighlight">\(AX+Y\)</span> 程序。以 Intel Exon 8280 这款芯片为例，其内存带宽是 131 GB/s，内存的延时是 89 ns，这意味着 8280 芯片的峰值算力是在 89 ns 的时间内传输 11659 个比特（byte）数据。<span class="math notranslate nohighlight">\(AX+Y\)</span> 将在 89 ns 的时间内传输 16 比特（C/C++中 double 数据类型所占的内存空间是 8 bytes）数据，此时内存的利用率只有 0.14%（16/11659），存储总线有 99.86% 的时间处于空闲状态。</p>
+<p>在 O(n) 的时间复杂度下，根据 n 的大小迭代计算 n 次，在 CPU 中串行地按指令顺序去执行 <span class="math notranslate nohighlight">\(AX+Y\)</span> 程序。以 Intel Exon 8280 这款芯片为例，其内存带宽是 131 GB/s，内存的延时是 89 ns，这意味着 8280 芯片的峰值算力是在 89 ns 的时间内传输 11659 个字节（byte）数据。<span class="math notranslate nohighlight">\(AX+Y\)</span> 将在 89 ns 的时间内传输 16 字节（C/C++中 double 数据类型所占的内存空间是 8 bytes）数据，此时内存的利用率只有 0.14%（16/11659），存储总线有 99.86% 的时间处于空闲状态。</p>
 <p><img alt="内存总线 99.86%时间处于空闲状态" src="../_images/01Works04.png" /></p>
 <p>不同处理器计算 <span class="math notranslate nohighlight">\(AX+Y\)</span> 时的内存利用率，不管是 AMD Rome 7742、Intel Xeon 8280 还是英伟达 A100，对于 <span class="math notranslate nohighlight">\(AX+Y\)</span> 这段程序的内存利用率都非常低，基本 ≤0.14%。</p>
 <div class="pst-scrollable-table-container"><table class="table">

@@ -14,7 +14,7 @@
 <meta property="og:description" content="在这节内容，会介绍是怎么实现自动微分的，因为代码量非常小，也许你也可以写一个玩玩。前面的章节当中，已经把自动微分的原理深入浅出的讲了一下，也引用了非常多的论文。有兴趣的可以顺着综述 A survey 这篇深扒一下。 前向自动微分原理: 了解自动微分的不同实现方式非常有用。在这里呢，我们将介绍主要的前向自动微分，通过 Python 这个高级语言来实现操作符重载。在正反向模式中的这篇的文章中，我..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
+<meta property="og:image" content="/_images/social_previews/summary_05Framework02AutoDiff_05ForwardMode_22910da7.png" />
 <meta property="og:image:alt" content="在这节内容，会介绍是怎么实现自动微分的，因为代码量非常小，也许你也可以写一个玩玩。前面的章节当中，已经把自动微分的原理深入浅出的讲了一下，也引用了非常多的论文。有兴趣的可以顺着综述 A survey 这篇深扒一下。 前向自动微分原理: 了解自动微分的不同实现方式非常有用。在这里呢，我们将介绍主要的前向自动微分，通..." />
 <meta name="description" content="在这节内容，会介绍是怎么实现自动微分的，因为代码量非常小，也许你也可以写一个玩玩。前面的章节当中，已经把自动微分的原理深入浅出的讲了一下，也引用了非常多的论文。有兴趣的可以顺着综述 A survey 这篇深扒一下。 前向自动微分原理: 了解自动微分的不同实现方式非常有用。在这里呢，我们将介绍主要的前向自动微分，通过 Python 这个高级语言来实现操作符重载。在正反向模式中的这篇的文章中，我..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -50,7 +50,7 @@
     <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=182be0a6" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
@@ -81,7 +81,7 @@
     <link rel="icon" href="../_static/logo-square.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="动手实现 PyTroch 微分" href="06ReversedMode.html" />
+    <link rel="next" title="动手实现 PyTorch 微分" href="06ReversedMode.html" />
     <link rel="prev" title="微分实现方式" href="04Implement.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -452,7 +452,7 @@
 <li class="toctree-l2"><a class="reference internal" href="03GradMode.html">微分计算模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04Implement.html">微分实现方式</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">动手实现自动微分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06ReversedMode.html">动手实现 PyTroch 微分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06ReversedMode.html">动手实现 PyTorch 微分</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07Challenge.html">自动微分的挑战&amp;未来</a></li>
 </ul>
 </details></li>
@@ -939,7 +939,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">动手实现 PyTroch 微分</p>
+        <p class="prev-next-title">动手实现 PyTorch 微分</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
