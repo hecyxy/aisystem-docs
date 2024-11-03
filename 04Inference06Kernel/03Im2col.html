@@ -14,7 +14,7 @@
 <meta property="og:description" content="作为早期的 AI 框架，Caffe 中卷积的实现采用的是基于 Im2Col 的方法，至今仍是卷积重要的优化方法之一。 从上一节的介绍中可以看到，在 CNN 中卷积直接计算的定义中，卷积核在输入图片上滑动，对应位置的元素相乘后相加求和，滑窗的大小由卷积核决定。由于滑动操作时的窗口的数据横向是连续的，但是不同行在内存中是不连续的，在计算时有可能需要多次访问内存。由于多次访问内存直接增加了数据传输..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_04Inference06Kernel_03Im2col_0643b8b1.png" />
+<meta property="og:image" content="/None" />
 <meta property="og:image:alt" content="作为早期的 AI 框架，Caffe 中卷积的实现采用的是基于 Im2Col 的方法，至今仍是卷积重要的优化方法之一。 从上一节的介绍中可以看到，在 CNN 中卷积直接计算的定义中，卷积核在输入图片上滑动，对应位置的元素相乘后相加求和，滑窗的大小由卷积核决定。由于滑动操作时的窗口的数据横向是连续的，但是不同行在内存..." />
 <meta name="description" content="作为早期的 AI 框架，Caffe 中卷积的实现采用的是基于 Im2Col 的方法，至今仍是卷积重要的优化方法之一。 从上一节的介绍中可以看到，在 CNN 中卷积直接计算的定义中，卷积核在输入图片上滑动，对应位置的元素相乘后相加求和，滑窗的大小由卷积核决定。由于滑动操作时的窗口的数据横向是连续的，但是不同行在内存中是不连续的，在计算时有可能需要多次访问内存。由于多次访问内存直接增加了数据传输..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
+    <meta name="docbuild:last-update" content="Nov 03, 2024"/>
 
 <link
   rel="alternate"
@@ -988,7 +988,7 @@ N\times\left(\frac{H}{h}+2 (KH-1)\right)\times\left(\frac{W}{w}+2 (KW-1)\right)\
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 09, 2024.
+  Last updated on Nov 03, 2024.
   <br/>
 </p>
   </div>

@@ -14,7 +14,7 @@
 <meta property="og:description" content="上一节内容介绍了通用的数据并行和分布式数据并行，主要是对神经网络模型的输入数据 mini-batch 进行分布式处理。并且讨论了同步数据并行和异步数据并行的差异点，深入到 PyTorch AI 框架的弹性数据并行是如何实现与处理的。在本节内容中，将会重点关注 AI 框架中如何实现针对权重数据、优化器数据和梯度数据进行分布式并行，并在 PyTorch 框架的具体实现方案。 前置知识: 在介绍针..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_05Framework04Parallel_03ZeRODP_0a5dc48c.png" />
+<meta property="og:image" content="/None" />
 <meta property="og:image:alt" content="上一节内容介绍了通用的数据并行和分布式数据并行，主要是对神经网络模型的输入数据 mini-batch 进行分布式处理。并且讨论了同步数据并行和异步数据并行的差异点，深入到 PyTorch AI 框架的弹性数据并行是如何实现与处理的。在本节内容中，将会重点关注 AI 框架中如何实现针对权重数据、优化器数据和梯度数据..." />
 <meta name="description" content="上一节内容介绍了通用的数据并行和分布式数据并行，主要是对神经网络模型的输入数据 mini-batch 进行分布式处理。并且讨论了同步数据并行和异步数据并行的差异点，深入到 PyTorch AI 框架的弹性数据并行是如何实现与处理的。在本节内容中，将会重点关注 AI 框架中如何实现针对权重数据、优化器数据和梯度数据进行分布式并行，并在 PyTorch 框架的具体实现方案。 前置知识: 在介绍针..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
+    <meta name="docbuild:last-update" content="Nov 03, 2024"/>
 
 <link
   rel="alternate"
@@ -1230,7 +1230,7 @@ seq × bsz/4
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 09, 2024.
+  Last updated on Nov 03, 2024.
   <br/>
 </p>
   </div>

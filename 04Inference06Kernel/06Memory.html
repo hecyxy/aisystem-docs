@@ -14,7 +14,7 @@
 <meta property="og:description" content="从前文的简单介绍中，我们提到了可以从内存布局上对推理引擎的 Kernel 进行优化，接下来，我们将先介绍 CPU 和 GPU 的基础内存知识，NCHWX 内存排布格式以及详细展开描述 MNN 这个针对移动应用量身定制的通用高效推理引擎中通过数据内存重新排布进行的内核优化。 内存: CPU 内存主要架构图如下图所示，其中比较关键的是有主存，以及其上的多级缓存架构，CPU 运行的速度太快，相对而..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_04Inference06Kernel_06Memory_24ff3173.png" />
+<meta property="og:image" content="/None" />
 <meta property="og:image:alt" content="从前文的简单介绍中，我们提到了可以从内存布局上对推理引擎的 Kernel 进行优化，接下来，我们将先介绍 CPU 和 GPU 的基础内存知识，NCHWX 内存排布格式以及详细展开描述 MNN 这个针对移动应用量身定制的通用高效推理引擎中通过数据内存重新排布进行的内核优化。 内存: CPU 内存主要架构图如下图所示..." />
 <meta name="description" content="从前文的简单介绍中，我们提到了可以从内存布局上对推理引擎的 Kernel 进行优化，接下来，我们将先介绍 CPU 和 GPU 的基础内存知识，NCHWX 内存排布格式以及详细展开描述 MNN 这个针对移动应用量身定制的通用高效推理引擎中通过数据内存重新排布进行的内核优化。 内存: CPU 内存主要架构图如下图所示，其中比较关键的是有主存，以及其上的多级缓存架构，CPU 运行的速度太快，相对而..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Oct 09, 2024"/>
+    <meta name="docbuild:last-update" content="Nov 03, 2024"/>
 
 <link
   rel="alternate"
@@ -891,7 +891,7 @@ Y’_{ij}[z] = \sum_kX’_{ij}[k]\ast W’_{ij}[k][z]
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 09, 2024.
+  Last updated on Nov 03, 2024.
   <br/>
 </p>
   </div>
