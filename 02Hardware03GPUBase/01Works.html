@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Nov 03, 2024"/>
+    <meta name="docbuild:last-update" content="Dec 08, 2024"/>
 
 <link
   rel="alternate"
@@ -851,7 +851,7 @@ document.write(`
 </pre></div>
 </div>
 <p>示例代码中包含 2 FLOPS 操作，分别是乘法（Multiply）和加法（Add），对于每一次计算操作都需要在内存中读取两个数据，<span class="math notranslate nohighlight">\(x[i]\)</span> 和 <span class="math notranslate nohighlight">\(y[i]\)</span>，最后执行一个线性操作，存储到 <span class="math notranslate nohighlight">\(y[i]\)</span> 中，其中把加法和乘法融合在一起的操作也可以称作 FMA（Fused Multiply and Add）。</p>
-<p>在 O(n) 的时间复杂度下，根据 n 的大小迭代计算 n 次，在 CPU 中串行地按指令顺序去执行 <span class="math notranslate nohighlight">\(AX+Y\)</span> 程序。以 Intel Exon 8280 这款芯片为例，其内存带宽是 131 GB/s，内存的延时是 89 ns，这意味着 8280 芯片的峰值算力是在 89 ns 的时间内传输 11659 个字节（byte）数据。<span class="math notranslate nohighlight">\(AX+Y\)</span> 将在 89 ns 的时间内传输 16 字节（C/C++中 double 数据类型所占的内存空间是 8 bytes）数据，此时内存的利用率只有 0.14%（16/11659），存储总线有 99.86% 的时间处于空闲状态。</p>
+<p>在 O(n) 的时间复杂度下，根据 n 的大小迭代计算 n 次，在 CPU 中串行地按指令顺序去执行 <span class="math notranslate nohighlight">\(AX+Y\)</span> 程序。以 Intel Xeon 8280 这款芯片为例，其内存带宽是 131 GB/s，内存的延时是 89 ns，这意味着 8280 芯片的峰值算力是在 89 ns 的时间内传输 11659 个字节（byte）数据。<span class="math notranslate nohighlight">\(AX+Y\)</span> 将在 89 ns 的时间内传输 16 字节（C/C++中 double 数据类型所占的内存空间是 8 bytes）数据，此时内存的利用率只有 0.14%（16/11659），存储总线有 99.86% 的时间处于空闲状态。</p>
 <p><img alt="内存总线 99.86%时间处于空闲状态" src="../_images/01Works04.png" /></p>
 <p>不同处理器计算 <span class="math notranslate nohighlight">\(AX+Y\)</span> 时的内存利用率，不管是 AMD Rome 7742、Intel Xeon 8280 还是英伟达 A100，对于 <span class="math notranslate nohighlight">\(AX+Y\)</span> 这段程序的内存利用率都非常低，基本 ≤0.14%。</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -903,7 +903,7 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>每次执行从 0 到 7 的数据，实现一次性迭代 8 次，每次传输 16 bytes 数据，因此同样在 Intel Exon 8280 芯片上，每 89 ns 的时间内将执行 729（11659/16）次请求，将程序这样改进就是通过并发使整个总线处于一个忙碌的状态，但是在真正的应用场景中：</p>
+<p>每次执行从 0 到 7 的数据，实现一次性迭代 8 次，每次传输 16 bytes 数据，因此同样在 Intel Xeon 8280 芯片上，每 89 ns 的时间内将执行 729（11659/16）次请求，将程序这样改进就是通过并发使整个总线处于一个忙碌的状态，但是在真正的应用场景中：</p>
 <ul class="simple">
 <li><p>编译器很少会对整个循环进行超过 100 次以上的展开；</p></li>
 <li><p>一个线程每一次执行的指令数量是有限的，不可能执行非常多并发的数量；</p></li>
@@ -1025,7 +1025,7 @@ document.write(`
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>Pre SM</p></th>
+<th class="head"><p>Per SM</p></th>
 <th class="head"><p>A100</p></th>
 </tr>
 </thead>
@@ -1175,7 +1175,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Nov 03, 2024.
+  Last updated on Dec 08, 2024.
   <br/>
 </p>
   </div>

@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Nov 03, 2024"/>
+    <meta name="docbuild:last-update" content="Dec 08, 2024"/>
 
 <link
   rel="alternate"
@@ -736,7 +736,7 @@ document.write(`
 <p>英伟达和 ATI 之争本质上是 shader 管线与其他纹理，ROP 单元配置比例之争，A 认为计算用 shader 越多越好，计算性能强大，N 认为纹理单元由于结构更简单电晶体更少，单位面积配置起来更划算，至于游戏则是越后期需要计算的比例越重。</p>
 <p>第三代 GPU 的发展从 2006 年开始，带来了方便的编程环境创建，使得用户可以直接编写程序来利用 GPU 的并行计算能力。在 2006 年，英伟达和 ATI 分别推出了 CUDA（Compute Unified Device Architecture）和 CTM（CLOSE TO THE METAL）编程环境。</p>
 <p>这一举措打破了 GPU 仅限于图形语言的局限，将 GPU 变成了真正的并行数据处理超级加速器。CUDA 和 CTM 的推出使得开发者可以更灵活地利用 GPU 的计算能力，为科学计算、数据分析等领域提供了更多可能性。</p>
-<p>2008 年，苹果公司推出了一个通用的并行计算编程平台 OPENCL（Open Computing Language）。与 CUDA 不同，OPENCL 并不与特定的硬件绑定，而是与具体的计算设备无关，这使得它迅速成为移动端 GPU 的编程环境业界标准。OPENCL 的出现进一步推动了 GPU 在各种应用领域的普及和应用，为广大开发者提供了更广阔的创新空间。</p>
+<p>2008 年，苹果公司推出了一个通用的并行计算编程平台 OpenCL（Open Computing Language）。与 CUDA 不同，OpenCL 并不与特定的硬件绑定，而是与具体的计算设备无关，这使得它迅速成为移动端 GPU 的编程环境业界标准。OpenCL 的出现进一步推动了 GPU 在各种应用领域的普及和应用，为广大开发者提供了更广阔的创新空间。</p>
 <p>第三代 GPU 的到来不仅提升了 GPU 的计算性能，更重要的是为其提供了更便捷、灵活的编程环境，使得 GPU 在科学计算、深度学习等领域的应用得以广泛推广，成为现代计算领域不可或缺的重要组成部分。</p>
 <p>下图分别展示了英伟达和 AMD 的工具链架构，我们可以看到两者的层次架构都是十分相像的，最核心的区别实则在于中间的 libraries 部分，两家供应商均根据自己的硬件为基础 library 做了优化；此外在编译层面两方也会针对自身架构，在比如调度，算子融合等方面实现各自的编译逻辑；而在对外接口上双方都在争取提供给当今热门的框架和应用以足够的支持。</p>
 <p><img alt="GPU4" src="../_images/05GPUBase03.png" /></p>
@@ -751,7 +751,7 @@ document.write(`
 <p>GPU 和 CPU 在架构方面的主要区别包括以下几点：</p>
 <ol class="arabic simple">
 <li><p><strong>并行处理能力</strong>：CPU 拥有少量的强大计算单元（ALU），更适合处理顺序执行的任务，可以在很少的时钟周期内完成算术运算，时钟周期的频率很高，复杂的控制逻辑单元（Control）可以在程序有多个分支的情况下提供分支预测能力，因此 CPU 擅长逻辑控制和串行计算，流水线技术通过多个部件并行工作来缩短程序执行时间。GPU 控制单元可以把多个访问合并成，采用了数量众多的计算单元（ALU）和线程（Thread），大量的 ALU 可以实现非常大的计算吞吐量，超配的线程可以很好地平衡内存延时问题，因此可以同时处理多个任务，专注于大规模高度并行的计算任务。</p></li>
-<li><p><strong>内存架构</strong>：CPU 被缓存 Cache 占据了大量空间，大量缓存可以保存之后可能需要访问的数据，可以降低延时； GPU 缓存很少且为线程（Thread）服务，如果很多线程需要访问一个相同的数据，缓存会合并这些访问之后再去访问 DRMA，获取数据之后由 Cache 分发到数据对应的线程。GPU 更多的寄存器可以支持大量 Thread。</p></li>
+<li><p><strong>内存架构</strong>：CPU 被缓存 Cache 占据了大量空间，大量缓存可以保存之后可能需要访问的数据，可以降低延时； GPU 缓存很少且为线程（Thread）服务，如果很多线程需要访问一个相同的数据，缓存会合并这些访问之后再去访问 DRAM，获取数据之后由 Cache 分发到数据对应的线程。GPU 更多的寄存器可以支持大量 Thread。</p></li>
 <li><p><strong>指令集</strong>：CPU 的指令集更加通用，适合执行各种类型的任务； GPU 的指令集主要用于图形处理和通用计算，如 CUDA 和 OpenCL。</p></li>
 <li><p><strong>功耗和散热</strong>：CPU 的功耗相对较低，散热要求也相对较低；由于 GPU 的高度并行特性，其功耗通常较高，需要更好的散热系统来保持稳定运行。</p></li>
 </ol>
@@ -891,7 +891,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Nov 03, 2024.
+  Last updated on Dec 08, 2024.
   <br/>
 </p>
   </div>

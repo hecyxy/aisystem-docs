@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Nov 03, 2024"/>
+    <meta name="docbuild:last-update" content="Dec 08, 2024"/>
 
 <link
   rel="alternate"
@@ -738,27 +738,27 @@ document.write(`
 <h3>模型轻量化方法<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>网络模型的轻量级衡量指标有两个，一个是网络参数量、另一个是浮点运算数(Floating-point Operations, FLOPs)，也就是计算量。对于卷积神经网络中卷积层的参数量和计算量定义如下。</p>
 <p><strong>Params 网络参数量</strong></p>
-<p>对于输入为 <span class="math notranslate nohighlight">\(w x h x Ci\)</span> 的输入图像，卷积核大小为 <span class="math notranslate nohighlight">\(k×k\)</span>，得到输出的特征图大小为 <span class="math notranslate nohighlight">\(W x H x Co\)</span> 的卷积操作，其参数量为：<span class="math notranslate nohighlight">\(Params = (k x k x Ci +1) x Co\)</span>。</p>
+<p>对于输入为 <span class="math notranslate nohighlight">\(w \times h \times Ci\)</span> 的输入图像，卷积核大小为 <span class="math notranslate nohighlight">\(k \times k\)</span>，得到输出的特征图大小为 <span class="math notranslate nohighlight">\(W \times H \times Co\)</span> 的卷积操作，其参数量为：<span class="math notranslate nohighlight">\(Params = (k \times k \times Ci + 1) \times Co\)</span>。</p>
 <p><strong>FLOPs 浮点运算数</strong></p>
-<p>对于输入为 <span class="math notranslate nohighlight">\(w x h x Ci\)</span> 的输入图像，卷积核大小为 k×k，得到输出的特征图大小为 <span class="math notranslate nohighlight">\(W x H x Co\)</span> 的卷积操作，其浮点运算数为：<span class="math notranslate nohighlight">\(FLOPs = W x H x (k x k x Ci +1) x Co\)</span>。</p>
+<p>对于输入为 <span class="math notranslate nohighlight">\(w \times h \times Ci\)</span> 的输入图像，卷积核大小为 k×k，得到输出的特征图大小为 <span class="math notranslate nohighlight">\(W \times H \times Co\)</span> 的卷积操作，其浮点运算数为：<span class="math notranslate nohighlight">\(FLOPs = W \times H \times (k \times k \times Ci +1) \times Co\)</span>。</p>
 <p>一般来说，网络模型参数量和浮点运算数越小，模型的速度越快，但是衡量模型的快慢不仅仅是参数量和计算量的多少，还有内存访问的次数多少相关，也就是和网络结构本身相关。现在我们将从 AI 计算模式的角度进一步分析这些轻量化设计的特点。</p>
 <ol class="arabic simple">
 <li><p><strong>减少内存空间的设计</strong></p></li>
 </ol>
-<p>为了减小模型的参数量，在 VGG 和 inceptionNet 系列网络中，提出了将两个 <span class="math notranslate nohighlight">\(3x3\)</span> 卷积核一个 <span class="math notranslate nohighlight">\(5x5\)</span> 卷积核，和将一个 <span class="math notranslate nohighlight">\(5x1\)</span> 卷积核和一个 <span class="math notranslate nohighlight">\(1x5\)</span> 卷积核代替一个 <span class="math notranslate nohighlight">\(5x5\)</span> 的卷积核的模型卷积层设计，如下图所示。</p>
-<p>比如使用 2 个 <span class="math notranslate nohighlight">\(3x3\)</span> 卷积核来代替 <span class="math notranslate nohighlight">\(5x5\)</span> 卷积核，这样做的主要目的是在保证具有相同感知野的条件下，提升了网络的深度，在一定程度上提升了神经网络的效果，并且模型参数可以由 <span class="math notranslate nohighlight">\(5 x 5 x Ci x Co\)</span> 变成了 <span class="math notranslate nohighlight">\(3 x 3 x Ci x Co+3 x 3 x Ci x Co\)</span>，假设 <span class="math notranslate nohighlight">\(Ci = Co\)</span>, 该层参数可以减小为原来的 <span class="math notranslate nohighlight">\(18/25\)</span>。</p>
+<p>为了减小模型的参数量，在 VGG 和 InceptionNet 系列网络中，提出了将两个 <span class="math notranslate nohighlight">\(3 \times 3\)</span> 卷积核一个 <span class="math notranslate nohighlight">\(5 \times 5\)</span> 卷积核，和将一个 <span class="math notranslate nohighlight">\(5 \times 1\)</span> 卷积核和一个 <span class="math notranslate nohighlight">\(1 \times 5\)</span> 卷积核代替一个 <span class="math notranslate nohighlight">\(5 \times 5\)</span> 的卷积核的模型卷积层设计，如下图所示。</p>
+<p>比如使用 2 个 <span class="math notranslate nohighlight">\(3 \times 3\)</span> 卷积核来代替 <span class="math notranslate nohighlight">\(5 \times 5\)</span> 卷积核，这样做的主要目的是在保证具有相同感知野的条件下，提升了网络的深度，在一定程度上提升了神经网络的效果，并且模型参数可以由 <span class="math notranslate nohighlight">\(5  \times  5  \times  Ci  \times  Co\)</span> 变成了 <span class="math notranslate nohighlight">\(3  \times  3  \times  Ci  \times  Co+3  \times  3  \times  Ci  \times  Co\)</span>，假设 <span class="math notranslate nohighlight">\(Ci = Co\)</span>, 该层参数可以减小为原来的 <span class="math notranslate nohighlight">\(18/25\)</span>。</p>
 <p><img alt="" src="../_images/03MobileParallel01.png" /></p>
 <ol class="arabic simple" start="2">
 <li><p><strong>减少通道数的设计</strong></p></li>
 </ol>
-<p>MobileNet 系列的网络设计中，提出了深度可分离卷积的设计策略，其中通过 Depthwise 逐层卷积加 <span class="math notranslate nohighlight">\(1x1\)</span> 的卷积核来实现一个正常的卷积操作（如下图所示），<span class="math notranslate nohighlight">\(1x1\)</span> 的 Pointwise 卷积负责完成卷积核通道的缩减来减小模型参数量。</p>
+<p>MobileNet 系列的网络设计中，提出了深度可分离卷积的设计策略，其中通过 Depthwise 逐层卷积加 <span class="math notranslate nohighlight">\(1 \times 1\)</span> 的卷积核来实现一个正常的卷积操作（如下图所示），<span class="math notranslate nohighlight">\(1 \times 1\)</span> 的 Pointwise 卷积负责完成卷积核通道的缩减来减小模型参数量。</p>
 <p><img alt="" src="../_images/03MobileParallel02.png" /></p>
-<p>比如一个 <span class="math notranslate nohighlight">\(3x3\)</span> 卷积核大小的卷积层，输入通道是 16，输出通道是 32，正常的卷积模型参数是 <span class="math notranslate nohighlight">\(3x3x16x32=4608\)</span>，而将其模型替代设计为一个 <span class="math notranslate nohighlight">\(3x3\)</span> 卷积核的 Depthwise 卷积，和 <span class="math notranslate nohighlight">\(1x1\)</span> 卷积核的 Pointwise 卷积，模型参数为 <span class="math notranslate nohighlight">\(3x3x16+1x1x16x32=656\)</span>，可以看出模型参数量得到了很大的减少。</p>
+<p>比如一个 <span class="math notranslate nohighlight">\(3 \times 3\)</span> 卷积核大小的卷积层，输入通道是 16，输出通道是 32，正常的卷积模型参数是 <span class="math notranslate nohighlight">\(3 \times 3 \times 16 \times 32=4608\)</span>，而将其模型替代设计为一个 <span class="math notranslate nohighlight">\(3 \times 3\)</span> 卷积核的 Depthwise 卷积，和 <span class="math notranslate nohighlight">\(1 \times 1\)</span> 卷积核的 Pointwise 卷积，模型参数为 <span class="math notranslate nohighlight">\(3 \times 3 \times 16+1 \times 1 \times 16 \times 32=656\)</span>，可以看出模型参数量得到了很大的减少。</p>
 <ol class="arabic simple" start="3">
 <li><p><strong>减少卷积核个数的设计</strong></p></li>
 </ol>
 <p>在 DenseNet 和 GhostNet 的模型设计中，提出了一种通过 Reuse Feature Map 的设计方式来减少模型参数和运算量。</p>
-<p>如下图，对于 DenseNetV1 的结构设计来说，第 n 层的参数量由于复用了之前层的 Feature Map, 由 <span class="math notranslate nohighlight">\(kxkxC1x(C1+C2)\)</span> 变为了 <span class="math notranslate nohighlight">\(kxkxC1xC2\)</span>，即为原来的 <span class="math notranslate nohighlight">\(C2/(C1+C2)\)</span>，而 C2 远小于 C1，其中 k 表示卷积核尺寸, C1 表示前 n-1 层的 Feature Map 个数，C2 表示第 n 层的输出 Feature Map 个数。</p>
+<p>如下图，对于 DenseNetV1 的结构设计来说，第 n 层的参数量由于复用了之前层的 Feature Map, 由 <span class="math notranslate nohighlight">\(k \times k \times C1 \times (C1+C2)\)</span> 变为了 <span class="math notranslate nohighlight">\(k \times k \times C1 \times C2\)</span>，即为原来的 <span class="math notranslate nohighlight">\(C2/(C1+C2)\)</span>，而 C2 远小于 C1，其中 k 表示卷积核尺寸, C1 表示前 n-1 层的 Feature Map 个数，C2 表示第 n 层的输出 Feature Map 个数。</p>
 <p><img alt="" src="../_images/03MobileParallel03.png" /></p>
 </section>
 <section id="id3">
@@ -969,7 +969,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Nov 03, 2024.
+  Last updated on Dec 08, 2024.
   <br/>
 </p>
   </div>
