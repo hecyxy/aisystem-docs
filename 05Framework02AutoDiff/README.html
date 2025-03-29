@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="05Framework02AutoDiff/README.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="《自动微分》AI 框架会默认提供自动微分功能，避免用户手动地去对神经网络模型求导，这些复杂的工作交给 AI 框架就好了，于是自动微自然成为分作为 AI 框架的核心功能。 本节自动微分系列将会大概初步谈了谈从手动微分到自动微分的过程，03 自动微分正反模式中深入了自动微分的正反向模式具体公式和推导。实际上 02 了解到正反向模式只是自动微分的原理模式，在实际代码实现的过程，04 会通过三种实现..." />
+<meta property="og:description" content="《自动微分》AI 框架会默认提供自动微分功能，避免用户手动地去对神经网络模型求导，这些复杂的工作交给 AI 框架就好了，于是自动微分自然成为了 AI 框架的核心功能。 本节自动微分系列将会大概初步谈一谈从手动微分到自动微分的过程，03 自动微分正反模式中深入了自动微分的正反向模式具体公式和推导。实际上 02 了解到正反向模式只是自动微分的原理模式，在实际代码实现的过程，04 会通过三种实现方..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="《自动微分》AI 框架会默认提供自动微分功能，避免用户手动地去对神经网络模型求导，这些复杂的工作交给 AI 框架就好了，于是自动微自然成为分作为 AI 框架的核心功能。 本节自动微分系列将会大概初步谈了谈从手动微分到自动微分的过程，03 自动微分正反模式中深入了自动微分的正反向模式具体公式和推导。实际上 02 了..." />
-<meta name="description" content="《自动微分》AI 框架会默认提供自动微分功能，避免用户手动地去对神经网络模型求导，这些复杂的工作交给 AI 框架就好了，于是自动微自然成为分作为 AI 框架的核心功能。 本节自动微分系列将会大概初步谈了谈从手动微分到自动微分的过程，03 自动微分正反模式中深入了自动微分的正反向模式具体公式和推导。实际上 02 了解到正反向模式只是自动微分的原理模式，在实际代码实现的过程，04 会通过三种实现..." />
+<meta property="og:image" content="/_images/social_previews/summary_05Framework02AutoDiff_README_25eed92c.png" />
+<meta property="og:image:alt" content="《自动微分》AI 框架会默认提供自动微分功能，避免用户手动地去对神经网络模型求导，这些复杂的工作交给 AI 框架就好了，于是自动微分自然成为了 AI 框架的核心功能。 本节自动微分系列将会大概初步谈一谈从手动微分到自动微分的过程，03 自动微分正反模式中深入了自动微分的正反向模式具体公式和推导。实际上 02 了解..." />
+<meta name="description" content="《自动微分》AI 框架会默认提供自动微分功能，避免用户手动地去对神经网络模型求导，这些复杂的工作交给 AI 框架就好了，于是自动微分自然成为了 AI 框架的核心功能。 本节自动微分系列将会大概初步谈一谈从手动微分到自动微分的过程，03 自动微分正反模式中深入了自动微分的正反向模式具体公式和推导。实际上 02 了解到正反向模式只是自动微分的原理模式，在实际代码实现的过程，04 会通过三种实现方..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>自动微分 &#8212; AI System</title>
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Dec 08, 2024"/>
+    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
 
 <link
   rel="alternate"
@@ -718,8 +718,8 @@ document.write(`
 <!--Copyright © ZOMI 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>自动微分<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>《自动微分》AI 框架会默认提供自动微分功能，避免用户手动地去对神经网络模型求导，这些复杂的工作交给 AI 框架就好了，于是自动微自然成为分作为 AI 框架的核心功能。</p>
-<p>本节自动微分系列将会大概初步谈了谈从手动微分到自动微分的过程，03 自动微分正反模式中深入了自动微分的正反向模式具体公式和推导。实际上 02 了解到正反向模式只是自动微分的原理模式，在实际代码实现的过程，04 会通过三种实现方式（基于库、操作符重载、源码转换）来实现。05 和 06 则是具体跟大家一起手把手实现一个类似于 PyTorch 的自动微分框架。07 最后做个小小的总结，一起 review 自动微分面临易用性、性能的挑战，最后在可微分编程方面畅享了下未来。</p>
+<p>《自动微分》AI 框架会默认提供自动微分功能，避免用户手动地去对神经网络模型求导，这些复杂的工作交给 AI 框架就好了，于是自动微分自然成为了 AI 框架的核心功能。</p>
+<p>本节自动微分系列将会大概初步谈一谈从手动微分到自动微分的过程，03 自动微分正反模式中深入了自动微分的正反向模式具体公式和推导。实际上 02 了解到正反向模式只是自动微分的原理模式，在实际代码实现的过程，04 会通过三种实现方式（基于库、操作符重载、源码转换）来实现。05 和 06 则是具体跟大家一起手把手实现一个类似于 PyTorch 的自动微分框架。07 最后做个小小的总结，一起 review 自动微分面临易用性、性能的挑战，最后在可微分编程方面畅享了下未来。</p>
 <section id="id2">
 <h2>内容大纲<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <blockquote>
@@ -873,7 +873,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Dec 08, 2024.
+  Last updated on Mar 29, 2025.
   <br/>
 </p>
   </div>

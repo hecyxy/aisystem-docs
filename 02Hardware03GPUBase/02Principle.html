@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Dec 08, 2024"/>
+    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
 
 <link
   rel="alternate"
@@ -729,7 +729,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[Y[i,j] = \sum_{m}\sum_{n} X[i+m, j+n] \cdot K[m,n]\]</div>
 <p>其中，<span class="math notranslate nohighlight">\(Y\)</span> 是卷积后的输出数据，<span class="math notranslate nohighlight">\(X\)</span> 是输入数据，<span class="math notranslate nohighlight">\(K\)</span> 是卷积核，<span class="math notranslate nohighlight">\(i\)</span> 和 <span class="math notranslate nohighlight">\(j\)</span> 是输出数据的索引，<span class="math notranslate nohighlight">\(m\)</span> 和 <span class="math notranslate nohighlight">\(n\)</span> 是卷积核的索引。通过卷积运算，可以提取输入数据中的特征，例如边缘、纹理等，从而帮助神经网络学习更复杂的特征。在深度学习中，卷积运算通常与激活函数和池化操作结合使用，构成卷积神经网络（CNN），用于图像识别、目标检测等任务。</p>
-<p>图像卷积正常的三通道卷积，输入维度为 3 维（H, W, 3），卷积核维度为（N, C, KH, KW），输出维度为（N, H, W），卷积默认采用数据排布方式为 NHWC，输入维度为 4 维（N, IH, IW, IC），卷积核维度为（OC, KH, KW, IC），输出维度为（N, OH, OW, OC）。卷积计算的一般方式是计算卷积核模板（kernel）和卷积图片，卷积核中每一个元素与图片中的每一个元素依次相乘再相加后得到最终输出为特征图（feature map）。</p>
+<p>图像卷积正常的三通道卷积，输入维度为 3 维（H, W, 3），卷积核维度为（N, C, KH, KW），输出维度为（N, H, W），卷积默认采用数据排布方式为 NHWC，输入维度为 4 维（N, IH, IW, IC），卷积核维度为（OC, KH, KW, IC），输出维度为（N, OH, OW, OC）。卷积计算的一般方式是计算卷积核模板（Kernel）和卷积图片，卷积核中每一个元素与图片中的每一个元素依次相乘再相加后得到最终输出为特征图（feature map）。</p>
 <p><img alt="卷积计算的一般方式" src="../_images/02principle01.png" /></p>
 <p>以 Img2col 算法为例，Img2col 是一种常用的图像处理技术，用于在卷积神经网络（CNN）中进行卷积运算。它将输入的图像数据重塑成一个矩阵，使得卷积运算可以转换为矩阵乘法的形式，从而提高计算效率。具体来说，Img2col 的过程如下：</p>
 <ul class="simple">
@@ -975,7 +975,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Dec 08, 2024.
+  Last updated on Mar 29, 2025.
   <br/>
 </p>
   </div>

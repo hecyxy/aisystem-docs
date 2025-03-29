@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Dec 08, 2024"/>
+    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
 
 <link
   rel="alternate"
@@ -754,7 +754,7 @@ J_f= \left[ \begin{matrix} \dfrac{\delta y_1}{\delta x_1} &amp; \cdots &amp; \df
 <h2>微分计算模式<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>根据对分解后的基本操作求导和链式规则组合顺序的不同，自动微分可以分为两种模式：</p>
 <ul class="simple">
-<li><p><em>前向模式</em>（Forward Automatic Differentiation，也叫做 tangent mode AD）或者前向累积梯度（前向模式）；</p></li>
+<li><p><em>前向模式</em>（Forward Automatic Differentiation，也叫做 tangent mode AD）或者前向累计梯度（前向模式）；</p></li>
 <li><p><em>反向模式</em>（Reverse Automatic Differentiation，也叫做 adjoint mode AD）或者说反向累计梯度（反向模式）。</p></li>
 </ul>
 <section id="id4">
@@ -817,7 +817,7 @@ f(x1,x2)=ln(x1)+x1x2−sin(x2)
 \[
 f(x1,x2)=ln(x1)+x1x2−sin(x2)
 \]</div>
-<p>面是前向模式的计算过程，下表中，左半部分是从左往右每个图节点的求值结果和计算过程，右半部分是每个节点对 x1 的求导结果和计算过程。这里 <span class="math notranslate nohighlight">\(𝑉˙i\)</span> 表示 <span class="math notranslate nohighlight">\(𝑉i\)</span> 对 <span class="math notranslate nohighlight">\(𝑥1\)</span> 的偏导数。即：</p>
+<p>下面是前向模式的计算过程，下表中，左半部分是从左往右每个图节点的求值结果和计算过程，右半部分是每个节点对 x1 的求导结果和计算过程。这里 <span class="math notranslate nohighlight">\(𝑉˙i\)</span> 表示 <span class="math notranslate nohighlight">\(𝑉i\)</span> 对 <span class="math notranslate nohighlight">\(𝑥1\)</span> 的偏导数。即：</p>
 <div class="math notranslate nohighlight">
 \[
 \dot{v_i}=\dfrac{\delta v_i}{\delta x_1}
@@ -938,7 +938,7 @@ J_f \cdot r= \left[ \begin{matrix} \dfrac{\delta y_1}{\delta x_1} &amp; \cdots &
 <p>对于函数 <span class="math notranslate nohighlight">\(\overline{y}=f(\overline{x})\)</span>，其中 <span class="math notranslate nohighlight">\(f: \mathbb{R}^{n} \rightarrow \mathbb{R}^{m}\)</span>，那么 <span class="math notranslate nohighlight">\(\overline{y}\)</span> 中关于 <span class="math notranslate nohighlight">\(\overline{x}\)</span> 的梯度可以表示为 Jacobian 矩阵：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-J_{f}= \left[\begin{array}{ccc} \dfrac{\partial y}{\partial x_{1}} &amp; \cdots &amp; \dfrac{\partial y}{\partial x_{1}} \end{array}\right]= \left[\begin{array}{ccc} \dfrac{\partial y_{1}}{\partial x_{1}} &amp; \cdots &amp; \dfrac{\partial y_{1}}{\partial x_{n}} \\ \vdots &amp; \ddots &amp; \vdots \\ \dfrac{\partial y_{m}}{\partial x_{1}} &amp; \cdots &amp; \dfrac{\partial y_{m}}{\partial x_{n}} \end{array}\right]
+J_{f}= \left[\begin{array}{ccc} \dfrac{\partial y}{\partial x_{1}} &amp; \cdots &amp; \dfrac{\partial y}{\partial x_{n}} \end{array}\right]= \left[\begin{array}{ccc} \dfrac{\partial y_{1}}{\partial x_{1}} &amp; \cdots &amp; \dfrac{\partial y_{1}}{\partial x_{n}} \\ \vdots &amp; \ddots &amp; \vdots \\ \dfrac{\partial y_{m}}{\partial x_{1}} &amp; \cdots &amp; \dfrac{\partial y_{m}}{\partial x_{n}} \end{array}\right]
 \end{split}\]</div>
 <p>设置 <span class="math notranslate nohighlight">\(\overline{v}\)</span> 是关于函数 <span class="math notranslate nohighlight">\(l=g(\overline{y})\)</span> 的梯度：</p>
 <div class="math notranslate nohighlight">
@@ -948,7 +948,7 @@ J_{f}= \left[\begin{array}{ccc} \dfrac{\partial y}{\partial x_{1}} &amp; \cdots 
 <p>Jacobian-vector 积就是函数 l 中关于 x_1 的梯度：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\boldsymbol{J}^T \cdot \overline{v}= \left[\begin{array}{ccc} \dfrac{\partial y_{1}}{\partial x_{1}} &amp; \cdots &amp; \dfrac{\partial y_{1}}{\partial x_{n}} \\ \vdots &amp; \ddots &amp; \vdots \\ \dfrac{\partial y_{m}}{\partial x_{1}} &amp; \cdots &amp; \dfrac{\partial y_{m}}{\partial x_{n}} \end{array}\right] \cdot\left[\begin{array}{c} \dfrac{\partial l}{\partial y_{1}} \\ \vdots \\ \dfrac{\partial l}{\partial y_{m}} \end{array}\right]=\left[\begin{array}{c} \dfrac{\partial y_{1}}{\partial x_{1}} \\ \vdots \\ \dfrac{\partial y_{m}}{\partial x_{1}} \end{array}\right]
+\boldsymbol{J}^T \cdot \overline{v}= \left[\begin{array}{ccc} \dfrac{\partial y_{1}}{\partial x_{1}} &amp; \cdots &amp; \dfrac{\partial y_{m}}{\partial x_{1}} \\ \vdots &amp; \ddots &amp; \vdots \\ \dfrac{\partial y_{1}}{\partial x_{n}} &amp; \cdots &amp; \dfrac{\partial y_{m}}{\partial x_{n}} \end{array}\right] \cdot\left[\begin{array}{c} \dfrac{\partial l}{\partial y_{1}} \\ \vdots \\ \dfrac{\partial l}{\partial y_{m}} \end{array}\right]=\left[\begin{array}{c} \dfrac{\partial l}{\partial x_{1}} \\ \vdots \\ \dfrac{\partial l}{\partial x_{n}} \end{array}\right]
 \end{split}\]</div>
 <p>即通过雅克比矩阵转置与后续节点梯度值的乘积，可以得到当前节点的梯度值。</p>
 </section>
@@ -1102,7 +1102,7 @@ J_{f}= \left[\begin{array}{ccc} \dfrac{\partial y}{\partial x_{1}} &amp; \cdots 
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Dec 08, 2024.
+  Last updated on Mar 29, 2025.
   <br/>
 </p>
   </div>

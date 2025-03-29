@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Dec 08, 2024"/>
+    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
 
 <link
   rel="alternate"
@@ -809,8 +809,8 @@ document.write(`
 </ul>
 <p>LLVM 的整体架构清晰地分为前端、优化器和后端三个部分。用户与 Clang 前端直接交互，输入高级语言代码，而 Clang 将其转换为中间表示。之后，LLVM 的优化器和后端在后台处理，进行复杂的优化和代码生成步骤，最终输出高效的目标机器码。</p>
 <p><img alt="编译器" src="../_images/04LLVM09.png" /></p>
-<p>在使用 LLVM 时，我们会从原始的 C 代码开始。这个 C 代码会经过一系列的预处理步骤，最终被转换为 LLVM 的中间表示文件（.ll 文件）或者 LLVM 字节码文件（.bc 文件）。</p>
-<p>接下来使用 LLVM 的前端工具将中间表示文件编译成 IR。IR 的表示有两种方式，一种是 LLVM 汇编语言（.ll 文件），另一种是 LLVM 字节码（.bc 文件）。LLVM 汇编语言更为易读，方便人类阅读和理解。</p>
+<p>在使用 LLVM 时，我们会从原始的 C 代码开始。这个 C 代码会经过一系列的预处理步骤，最终被转换为 LLVM 的中间表示文件（.ll 文件）或者 LLVM 比特码文件（.bc 文件）。</p>
+<p>接下来使用 LLVM 的前端工具将中间表示文件编译成 IR。IR 的表示有两种方式，一种是 LLVM 汇编语言（.ll 文件），另一种是 LLVM 比特码（.bc 文件）。LLVM 汇编语言更为易读，方便人类阅读和理解。</p>
 <p>IR 经过 LLVM 的后端编译器工具 llc 将 IR 转换为汇编代码（assembly code）。这个汇编代码是目标机器特定机器码指令的文本表示。</p>
 <p>最后的两个步骤是将汇编代码汇编（assemble）成机器码文件，然后链接（link）生成可执行二进制文件，使其可以在特定平台上运行。</p>
 </section>
@@ -993,7 +993,7 @@ llc<span class="w"> </span>.<span class="se">\h</span>ello.bc<span class="w"> </
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Dec 08, 2024.
+  Last updated on Mar 29, 2025.
   <br/>
 </p>
   </div>

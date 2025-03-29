@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="02Hardware03GPUBase/01Works.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blankwell 架构演变了非常多代，其中和 AI 特别相关的就有 Tensor Core 和 NVLink。 本节首先..." />
+<meta property="og:description" content="前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blackwell 架构演变了非常多代，其中和 AI 特别相关的就有 Tensor Core 和 NVLink。 本节首先..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blankwell 架构演变了非常多代，其..." />
-<meta name="description" content="前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blankwell 架构演变了非常多代，其中和 AI 特别相关的就有 Tensor Core 和 NVLink。 本节首先..." />
+<meta property="og:image" content="/_images/social_previews/summary_02Hardware03GPUBase_01Works_ba23f294.png" />
+<meta property="og:image:alt" content="前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blackwell 架构演变了非常多代，其..." />
+<meta name="description" content="前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blackwell 架构演变了非常多代，其中和 AI 特别相关的就有 Tensor Core 和 NVLink。 本节首先..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>GPU 工作原理 &#8212; AI System</title>
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Dec 08, 2024"/>
+    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
 
 <link
   rel="alternate"
@@ -726,7 +726,7 @@ document.write(`
 <!--Copyright 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="gpu">
 <h1>GPU 工作原理<a class="headerlink" href="#gpu" title="Link to this heading">#</a></h1>
-<p>前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blankwell 架构演变了非常多代，其中和 AI 特别相关的就有 Tensor Core 和 NVLink。</p>
+<p>前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blackwell 架构演变了非常多代，其中和 AI 特别相关的就有 Tensor Core 和 NVLink。</p>
 <p>本节首先讲解 CPU 和 GPU 架构的区别，之后以 <span class="math notranslate nohighlight">\(AX+Y\)</span> 这个例子来探究 GPU 是如何做并行计算的，为了更好地了解 GPU 并行计算，对并发和并行这两个概念进行了区分。此外会讲解 GPU 的缓存机制，因为这将涉及到 GPU 的缓存（Cache）和线程（Thread）。</p>
 <section id="cpu-vs-gpu">
 <h2>CPU vs GPU<a class="headerlink" href="#cpu-vs-gpu" title="Link to this heading">#</a></h2>
@@ -1175,7 +1175,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Dec 08, 2024.
+  Last updated on Mar 29, 2025.
   <br/>
 </p>
   </div>

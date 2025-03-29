@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Dec 08, 2024"/>
+    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
 
 <link
   rel="alternate"
@@ -777,6 +777,16 @@ document.write(`
 <li><p><strong>计算的精度分配</strong>：在模型的前向传播和反向传播过程中，使用较低的精度（如 FP16）进行计算，以加快计算速度和降低内存使用量。由于 FP16 格式所需的内存和带宽均低于 FP32，这可以显著提高数据处理的效率。</p></li>
 <li><p><strong>参数更新的精度保持</strong>：尽管计算使用了较低的精度，但在更新模型参数时，仍然使用较高的精度（如 FP32）来保持训练过程的稳定性和模型的最终性能。这是因为直接使用 FP16 进行参数更新可能会导致训练不稳定，甚至模型无法收敛，由于 FP16 的表示范围和精度有限，容易出现梯度消失或溢出的问题。</p></li>
 </ol>
+<p>另外，混合精度训练中通常还会使用损失缩放（loss scaling）技术来对于loss进行一定倍数的放大，该放大倍数会进一步作用到梯度上，从而尽量避免训练后期由于梯度过小导致的数值下溢出问题，使得模型参数更新保持稳定。</p>
+<p>具体而言，混合精度训练每一轮更新的流程如下：</p>
+<ul class="simple">
+<li><p>将FP32的权重转为FP16，得到一个FP16的权重版本用于前向传播过程，同时依然保留FP32的权重作为用于后续参数更新的副本。</p></li>
+<li><p>Forward过程使用较低精度进行计算：将FP16的激活值（activation）通过FP16的各层权重，最终得到FP16的loss。</p></li>
+<li><p>Loss Scaling：将FP16的loss放大若干倍。</p></li>
+<li><p>反向传播：使用放大后的FP16 loss进行反向传播，得到FP16的梯度（这里的梯度值相比于实际梯度值也是放大后的，其scale的倍数等同于上一步loss scale的倍数）。由于此时的梯度值是放大后的，因此即便使用FP16保存一般也不会出现下溢出问题。</p></li>
+<li><p>Gradient Upscaling：将FP16的梯度转为FP32，然后进行反缩放（unscale），得到FP32的实际梯度值。这个实际梯度值可能非常小，但此时由于其使用FP32进行保存，因此也避免了下溢出问题。</p></li>
+<li><p>最终，使用FP32的实际梯度来更新FP32的权重副本。</p></li>
+</ul>
 <p><img alt="FP32 vs FP16" src="../_images/01BasicTC03.png" /></p>
 <p>而在混合精度的实现上，其通常需要特定的硬件支持和软件优化。例如，英伟达的 Tensor Core 就是专门设计来加速 FP16 计算的，同时保持 FP32 的累加精度，从而使得混合精度训练成为可能。在软件层面，AI 框架如 PyTorch 和 MindSpore 等也提供了混合精度训练的支持，通过自动化的工具简化了实现过程。可以从上图看出 FP16 相比于 FP32，不管是从整数位还是小数位来看，它所表示的范围要小很多。</p>
 <p><img alt="软件层面混合精度计算" src="../_images/01BasicTC04.png" /></p>
@@ -841,7 +851,7 @@ document.write(`
 <p>事实上，如果我们整体来看，如上图所示，一个 Tensor Core 是一个 4x4 的 Tensor Core 核心。但实际上，在一个 SM（Streaming Multiprocessor）中有多个 Tensor Core，我们无法对每个 Tensor Core 进行细粒度的控制，否则效率会很低。因此，一个 Warp 就扮演了重要角色，将多个 Tensor Core 打包在一起，以执行更大规模的计算任务。</p>
 <p>通过 Warp 层的卷积指令，CUDA 向外提供了一个 16x16x16 的抽象层，使得开发者可以通过一条指令完成多个 Tensor Core 的协同工作，实现高效的并行计算。这条指令也即我们之前提到的<code class="docutils literal notranslate"><span class="pre">mma_sync</span></code> API，它允许开发者利用 Warp 内的线程同时调度多个 Tensor Core 执行矩阵乘加操作，从而提高 GPU 计算的效率和性能。</p>
 <p>那么现在有一个问题，Tensor Core 是如何跟卷积计算或者 GEMM 计算之间进行映射的呢?</p>
-<p>例如 GPU 中的 Tensor Core 一次仅仅只有 4x4 这么小的 kernel，怎么处理 input image <span class="math notranslate nohighlight">\(224*224\)</span>，kernel <span class="math notranslate nohighlight">\(7*7\)</span> 的 GEMM 计算呢?</p>
+<p>例如 GPU 中的 Tensor Core 一次仅仅只有 4x4 这么小的 Kernel，怎么处理 input image <span class="math notranslate nohighlight">\(224*224\)</span>，Kernel <span class="math notranslate nohighlight">\(7*7\)</span> 的 GEMM 计算呢?</p>
 <p>或者说在现在大模型时代，Tensor Core 是怎么处理 Transformer 结构 inputembedding 为 <span class="math notranslate nohighlight">\(2048*2048\)</span>，hiddensize 为 <span class="math notranslate nohighlight">\(1024*1024\)</span> 的 GEMM 呢?</p>
 <p>上文我们已经提到，卷积运算可以被转化为矩阵乘法操作，这一点是连接卷积和 Tensor Core 的桥梁。</p>
 <p><img alt="Tensor Core 硬件原理" src="../_images/01BasicTC09.png" /></p>
@@ -970,7 +980,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Dec 08, 2024.
+  Last updated on Mar 29, 2025.
   <br/>
 </p>
   </div>

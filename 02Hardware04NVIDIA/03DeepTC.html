@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Dec 08, 2024"/>
+    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
 
 <link
   rel="alternate"
@@ -795,7 +795,7 @@ D_{0,0} = A_{0,0} * B_{0,0} + A_{0,1} * B_{1,0} + A_{0,2} * B_{2,0} + A_{0,3} * 
 </pre></div>
 </div>
 <p>如上面代码所示，我们沿每个维度将循环嵌套 Loop nest 划分为块 blocks，然后划分成为 Mtile-by-Ntile 的独立矩阵乘，最后通过累积 Mtile-by-Ntile-by-Ktile 的矩阵乘积来计算每个乘积。</p>
-<p>在 GPU 计算时，使用 CUDA kernel grid，将 CUDA 线程块分配给输出矩阵 D 的每个分区，CUDA 线程块并行计算 Mtile-by-Ntile-by-Ktile 矩阵乘，在 K 维上进行迭代，执行累积 Mtile-by-Ntile-by-Ktile 矩阵乘的结果。可以看出这里计算主要是在线程块，也就是 Thread Block，面去进行并行计算的。</p>
+<p>在 GPU 计算时，使用 CUDA Kernel grid，将 CUDA 线程块分配给输出矩阵 D 的每个分区，CUDA 线程块并行计算 Mtile-by-Ntile-by-Ktile 矩阵乘，在 K 维上进行迭代，执行累积 Mtile-by-Ntile-by-Ktile 矩阵乘的结果。可以看出这里计算主要是在线程块，也就是 Thread Block，面去进行并行计算的。</p>
 </section>
 <section id="warp-level">
 <h3>Warp-level 矩阵乘<a class="headerlink" href="#warp-level" title="Link to this heading">#</a></h3>
@@ -955,7 +955,7 @@ D_{0,0} = A_{0,0} * B_{0,0} + A_{0,1} * B_{1,0} + A_{0,2} * B_{2,0} + A_{0,3} * 
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Dec 08, 2024.
+  Last updated on Mar 29, 2025.
   <br/>
 </p>
   </div>

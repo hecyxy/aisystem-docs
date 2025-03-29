@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Dec 08, 2024"/>
+    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
 
 <link
   rel="alternate"
@@ -891,7 +891,7 @@ document.write(`
             <span class="n">ksize</span> <span class="o">=</span> <span class="n">ksize</span> <span class="k">if</span> <span class="n">ksize</span> <span class="o">&lt;=</span> <span class="n">r_lim</span> <span class="k">else</span> <span class="mi">3</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">k_sizes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ksize</span><span class="p">)</span>
         <span class="c1">#根据感受野对这些核大小进行排序（升序）</span>
-        <span class="c1">#这使我们能够忽略分层中具有相同有效感受野的核（在我们的例子中为 3×3）</span>
+        <span class="c1">#这使我们能够忽略分层中具有相同有效感受野的核（在例子中为 3×3）</span>
         <span class="c1"># 特征融合，因为 3x3 感受野的核不具有网格伪影。</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">k_sizes</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">spp_dw</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">()</span>
@@ -915,7 +915,7 @@ document.write(`
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spp_dw</span><span class="p">)):</span>
             <span class="n">out_k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spp_dw</span><span class="p">[</span><span class="n">k</span><span class="p">](</span><span class="n">output1</span><span class="p">)</span>
             <span class="c1"># HFF</span>
-            <span class="c1">#我们不组合具有相同感受野的分支(在我们的例子中是 3x3)</span>
+            <span class="c1">#我们不组合具有相同感受野的分支(在例子中是 3x3)</span>
          
             <span class="n">out_k</span> <span class="o">=</span> <span class="n">out_k</span> <span class="o">+</span> <span class="n">output</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
             <span class="c1">#融合后应用批量定额，然后添加到列表中</span>
@@ -1106,7 +1106,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Dec 08, 2024.
+  Last updated on Mar 29, 2025.
   <br/>
 </p>
   </div>
