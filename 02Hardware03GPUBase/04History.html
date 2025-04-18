@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
+    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
 
 <link
   rel="alternate"
@@ -1015,7 +1015,7 @@ document.write(`
 </div></blockquote>
 <p>与上一代 Pascal GP100 GPU 一样，GV100 GPU 有 6 个 GPU 处理集群（GPCs），每个 GPC 有 7 个纹理处理集群（TPCs）、14 个流式多处理器（SMs），以及内存控制器。</p>
 <p><img alt="volta 伏特架构" src="../_images/04History12.png" /></p>
-<p>Volta 伏特架构 SM 结构相比前几代架构，SM 的数目明显增多，SM 被划分为四个处理块，单个 SM 中包含 4 个 Warp Schedule，4 个 Dispatch Unit，64 个 FP32 Core（4<em>16），64 个 INT32 Core（4</em>16），32 个 FP64 Core（4<em>8），8 个 Tensor Core（4</em>2），32 个 LD/ST Unit（4*8），4 个 SFU，FP32 和 INT32 两组运算单元独立出现在流水线中，每个 Cycle 都可以同时执行 FP32 和 INT32 指令，因此每个时钟周期可以执行的计算量更大。Volt 架构新增了混合精度张量核心（Tensor Core）以及高性能 L1 数据缓存和新的 SIMT 线程模型。单个 SM 通过共享内存和 L1 资源的合并，相比 GP100 64 KB 的共享内存容量，Volta 架构增加到 96KB。</p>
+<p>Volta 伏特架构 SM 结构相比前几代架构，SM 的数目明显增多，SM 被划分为四个处理块，单个 SM 中包含 4 个 Warp Schedule，4 个 Dispatch Unit，64 个 FP32 Core（<span class="math notranslate nohighlight">\(4 \times 16\)</span>），64 个 INT32 Core（<span class="math notranslate nohighlight">\(4 \times 16\)</span>），32 个 FP64 Core（<span class="math notranslate nohighlight">\(4 \times 8\)</span>），8 个 Tensor Core（<span class="math notranslate nohighlight">\(4 \times 2\)</span>），32 个 LD/ST Unit（<span class="math notranslate nohighlight">\(4 \times 8\)</span>），4 个 SFU，FP32 和 INT32 两组运算单元独立出现在流水线中，每个 Cycle 都可以同时执行 FP32 和 INT32 指令，因此每个时钟周期可以执行的计算量更大。Volt 架构新增了混合精度张量核心（Tensor Core）以及高性能 L1 数据缓存和新的 SIMT 线程模型。单个 SM 通过共享内存和 L1 资源的合并，相比 GP100 64 KB 的共享内存容量，Volta 架构增加到 96KB。</p>
 <p><img alt="Volta 伏特架构 SM 结构" src="../_images/04History13.png" /></p>
 <p>新的张量核心使 Volta 架构得以训练大型神经网络，GPU 并行模式可以实现深度学习功能的通用计算，最常见卷积/矩阵乘（Conv/GEMM）操作，依旧被编码成融合乘加运算 FMA（Fused Multiply Add），硬件层面还是需要把数据按照：寄存器-ALU-寄存器-ALU-寄存器方式来回来回搬运数据，因此专门设计 Tensor Core 实现矩阵乘计算。</p>
 <p>英伟达计算硬件模型从 SIMT 发展成为了 SIMT+DSA 的混合，每个张量核心单时钟周期内执行 64 个浮点 FMA 操作，而 SM 中的 8 个张量核心单时钟周期总共执行 512 个 FMA 操作（或 1024 个单独的浮点操作）。每个张量核心在一个 4x4 矩阵上操作，并执行计算：<span class="math notranslate nohighlight">\(D=A×B+C\)</span>，输入 A 和 B 矩阵是 FP16，而计算结果矩阵 C 和 D 可以是 FP16 或 FP32 矩阵，极大地减少了系统内存的开销，一个时钟周期内可以执行更多的矩阵运算，使得 GPU 在能耗上更有优势。CUDA 9 C++ API 有专门的矩阵乘和存储操作，有效地使用 CUDA-C++程序中的张量核心，同时 cuBLAS 和 cuDNN 库利用张量核进行深度学习研究。</p>
@@ -1072,7 +1072,7 @@ document.write(`
 <li><p>对电磁学和热力学等领域都有重要贡献，被认为是 19 世纪最杰出的物理学家之一。</p></li>
 </ol>
 </div></blockquote>
-<p>英伟达 A100 GPU 包括 8 个 GPC，每个 GPC 包含 8 个 TPC，每个 TPC 包含 2S 个 SMs/，每个 GPC 包含 16 个 SM/GPC，整个 GPU 拥有 128 个 SMs。每个 SM 有 64 个 FP32 CUDA 核心，总共 8192 FP32 CUDA 核心。Tensor Core3.0，总共 512 个。6 个 HBM2 存储栈，12 个 512 位内存控制器，内存可达到 40 GB。第三代 NVLink，GPU 和服务器双向带宽为 4.8 TB/s，GPU 之间的互联速度为 600 GB/s。A100 SM 拥有 192 KB 共享内存和 L1 数据缓存，比 V100 SM 大 1.5 倍。</p>
+<p>英伟达 A100 GPU 包括 8 个 GPC，每个 GPC 包含 8 个 TPC，每个 TPC 包含 2S 个 SMs，每个 GPC 包含 16 个 SM/GPC，整个 GPU 拥有 128 个 SMs。每个 SM 有 64 个 FP32 CUDA 核心，总共 8192 FP32 CUDA 核心。Tensor Core3.0，总共 512 个。6 个 HBM2 存储栈，12 个 512 位内存控制器，内存可达到 40 GB。第三代 NVLink，GPU 和服务器双向带宽为 4.8 TB/s，GPU 之间的互联速度为 600 GB/s。A100 SM 拥有 192 KB 共享内存和 L1 数据缓存，比 V100 SM 大 1.5 倍。</p>
 <p><img alt="Ampere 安培架构" src="../_images/04History22.png" /></p>
 <p>A100 Tensor Core3.0 增强操作数共享并提高计算效率，引入了 TF32、BF16 和 FP64 数据类型的支持。平时训练模型的过程中使用更多的是 FP32 和 FP16，TF32 在指数位有 8 位，FP16 在指数为有 5 位，因此 FP32 的位宽比 FP16 更多，小数位决定精度，FP32 在小数位有 23 位，FP16 只有 10 位，在 AI 训练的过程中很多时候 FP16 是够用的，但是动态范围会有限制，因此提出 TF32，指数位保持和 FP32 相同，小数位和 FP16 保持相同，BF16 的指数位和 FP32、TF32 相同，但是小数位少了三位。数百个张量核并行运行，大幅提高吞吐量和计算效率。</p>
 <p><img alt="Ampere 架构 TF32、BF16 和 FP64" src="../_images/04History23.png" /></p>
@@ -1646,7 +1646,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Mar 29, 2025.
+  Last updated on Apr 18, 2025.
   <br/>
 </p>
   </div>

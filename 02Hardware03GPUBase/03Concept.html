@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
+    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
 
 <link
   rel="alternate"
@@ -777,7 +777,7 @@ document.write(`
 <p><img alt="Fermi 架构 CUDA Core" src="../_images/03Concept05.png" /></p>
 <p>Volta 架构取消 CUDA core，变为单独的 FP32 FPU 和 INT32 ALU，因为 FP32:INT32 是 1:1 的关系，因此还是可以将它们合并起来一起称为原来的 CUDA Core，这样做的好处是每个 SM 现在支持 FP32 和 INT32 的并发执行，同时新增了光线追踪 RT Core。</p>
 <p><img alt="Fermi 架构 CUDA Core" src="../_images/03Concept06.png" /></p>
-<p>Warp 是线程束，逻辑上所有 Thread 并行执行，但是从硬件的角度讲并不是所有的 Thread 能够在同一时刻执行，因此引入 Warp。Warp 是 SM 基本执行单元，一个 Warp 包含 32 个并行 Thread（warp_size=32），这 32 个 Thread 执行 SIMT（Single Instruction Multiple Thread）指令模式。</p>
+<p>Warp 是线程束，逻辑上所有 Thread 并行执行，但是从硬件的角度讲并不是所有的 Thread 能够在同一时刻执行，因此引入 Warp。Warp 是 SM 基本执行单元，一个 Warp 包含 32 个并行 Thread（<span class="math notranslate nohighlight">\(\text{warp}_\text{size}=32\)</span>），这 32 个 Thread 执行 SIMT（Single Instruction Multiple Thread）指令模式。</p>
 <p>也就是说，所有的 Thread 以锁步的方式执行同一条指令，但是每个 Thread 会使用各自的 Data 执行指令分支。如果在 Warp 中没有 32 个 Thread 需要工作，那么 Warp 虽然还是作为一个整体运行，但这部分 Thread 是处于非激活状态。此外，Thread 是最小的逻辑单位，Warp 是硬件执行单位。</p>
 </section>
 <section id="cuda">
@@ -1078,7 +1078,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Mar 29, 2025.
+  Last updated on Apr 18, 2025.
   <br/>
 </p>
   </div>

@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
+    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
 
 <link
   rel="alternate"
@@ -874,9 +874,9 @@ Attention(Q, K, V)=softmax(QK^T/ \sqrt d_k)V
 <h3>AI 计算模式思考<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>结合上面介绍的经典 AI 模型结构特点，AI 芯片设计可以引出如下对于 AI 计算模式的思考：</p>
 <ol class="arabic simple">
-<li><p>**需要支持神经网络模型的计算逻辑。**比如不同神经元之间权重共享逻辑的支持，以及除了卷积/全连接这种计算密集型算子，还需要支持激活如 softmax, layernorm 等 Vector 类型访存密集型的算子。</p></li>
-<li><p>**能够支持高维的张量存储与计算。**比如在卷积运算中，每一层都有大量的输入和输出通道，并且对于某些特定场景如遥感领域，Feature Map 的形状都非常大，在有限的芯片面积里最大化计算访存比，高效的内存管理设计非常重要。</p></li>
-<li><p>**需要有灵活的软件配置接口，支持更多的神经网络模型结构。**针对不同领域，如计算机视觉、语音、自然语言处理，AI 模型具有不同形式的设计，但是作为 AI 芯片，需要尽可能全的支持所有应用领域的模型，并且支持未来可能出现的新模型结构，这样在一个漫长的芯片设计到流片的周期中，才能降低研发成本，获得市场的认可。</p></li>
+<li><p><strong>需要支持神经网络模型的计算逻辑</strong>。比如不同神经元之间权重共享逻辑的支持，以及除了卷积/全连接这种计算密集型算子，还需要支持激活如 softmax, layernorm 等 Vector 类型访存密集型的算子。</p></li>
+<li><p><strong>能够支持高维的张量存储与计算</strong>。比如在卷积运算中，每一层都有大量的输入和输出通道，并且对于某些特定场景如遥感领域，Feature Map 的形状都非常大，在有限的芯片面积里最大化计算访存比，高效的内存管理设计非常重要。</p></li>
+<li><p><strong>需要有灵活的软件配置接口，支持更多的神经网络模型结构</strong>。针对不同领域，如计算机视觉、语音、自然语言处理，AI 模型具有不同形式的设计，但是作为 AI 芯片，需要尽可能全的支持所有应用领域的模型，并且支持未来可能出现的新模型结构，这样在一个漫长的芯片设计到流片的周期中，才能降低研发成本，获得市场的认可。</p></li>
 </ol>
 </section>
 </section>
@@ -906,7 +906,7 @@ Attention(Q, K, V)=softmax(QK^T/ \sqrt d_k)V
 &amp;Z=Q_{max} - R_{max}/S
 \end{align}
 \end{split}\]</div>
-<p>对称量化和非对称量化的区别主要是对浮点数的最大值和最小值统计区间的区别，对称量化中 <span class="math notranslate nohighlight">\(R_max\)</span> 和 <span class="math notranslate nohighlight">\(R_min\)</span> 关于 0 对称，也就是只需要找到浮点区间的绝对值最大的那个值即可。对称量化对于正负数不均匀分布的情况不够友好，比如如果浮点数 X 全部是正数，进行 8bit 非对称量化后的数据全部在 [0，127] 一侧, 那么 [-128，0] 的区间就浪费了，减弱了 8bit 数据的表示范围。非对称量化则会更好的将数据表达在 [0,255] 整个区间。下图是两种量化方法进行 8bit 量化数据映射的示意图。</p>
+<p>对称量化和非对称量化的区别主要是对浮点数的最大值和最小值统计区间的区别，对称量化中 <span class="math notranslate nohighlight">\(R_{max}\)</span> 和 <span class="math notranslate nohighlight">\(R_{min}\)</span> 关于 0 对称，也就是只需要找到浮点区间的绝对值最大的那个值即可。对称量化对于正负数不均匀分布的情况不够友好，比如如果浮点数 X 全部是正数，进行 8bit 对称量化后的数据全部在 [0, 127] 一侧, 那么 [-128, 0] 的区间就浪费了，减弱了 8bit 数据的表示范围。非对称量化则会更好的将数据表达在 [0, 255] 整个区间。下图是两种量化方法进行 8bit 量化数据映射的示意图。</p>
 <p><img alt="" src="../_images/02ArchSlim09.png" /></p>
 <p>神经网络的权重量化以 layer 为单位，求每一层权重的量化参数(S,Z)时候，又会分为 by channel 和 by layer 两种方式。by channel 是指每层的每个 channel 都计算一个(S,Z)；by layer 方式则是这一层所有 channel 数据共同统计，每个 channel 共用一组(S,Z)量化参数。by channel 的量化方式比 by layer 会存储更多的量化参数，所以实际部署中需要和带来的性能提升做一个均衡的选择。</p>
 </section>
@@ -1083,7 +1083,7 @@ Attention(Q, K, V)=softmax(QK^T/ \sqrt d_k)V
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Mar 29, 2025.
+  Last updated on Apr 18, 2025.
   <br/>
 </p>
   </div>

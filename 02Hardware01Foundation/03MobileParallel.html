@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
+    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
 
 <link
   rel="alternate"
@@ -740,12 +740,12 @@ document.write(`
 <p><strong>Params 网络参数量</strong></p>
 <p>对于输入为 <span class="math notranslate nohighlight">\(w \times h \times Ci\)</span> 的输入图像，卷积核大小为 <span class="math notranslate nohighlight">\(k \times k\)</span>，得到输出的特征图大小为 <span class="math notranslate nohighlight">\(W \times H \times Co\)</span> 的卷积操作，其参数量为：<span class="math notranslate nohighlight">\(Params = (k \times k \times Ci + 1) \times Co\)</span>。</p>
 <p><strong>FLOPs 浮点运算数</strong></p>
-<p>对于输入为 <span class="math notranslate nohighlight">\(w \times h \times Ci\)</span> 的输入图像，卷积核大小为 k×k，得到输出的特征图大小为 <span class="math notranslate nohighlight">\(W \times H \times Co\)</span> 的卷积操作，其浮点运算数为：<span class="math notranslate nohighlight">\(FLOPs = W \times H \times (k \times k \times Ci +1) \times Co\)</span>。</p>
+<p>对于输入为 <span class="math notranslate nohighlight">\(w \times h \times Ci\)</span> 的输入图像，卷积核大小为 <span class="math notranslate nohighlight">\(k \times k\)</span>，得到输出的特征图大小为 <span class="math notranslate nohighlight">\(W \times H \times Co\)</span> 的卷积操作，其浮点运算数为：<span class="math notranslate nohighlight">\(FLOPs = W \times H \times (k \times k \times Ci +1) \times Co\)</span>。</p>
 <p>一般来说，网络模型参数量和浮点运算数越小，模型的速度越快，但是衡量模型的快慢不仅仅是参数量和计算量的多少，还有内存访问的次数多少相关，也就是和网络结构本身相关。现在我们将从 AI 计算模式的角度进一步分析这些轻量化设计的特点。</p>
 <ol class="arabic simple">
 <li><p><strong>减少内存空间的设计</strong></p></li>
 </ol>
-<p>为了减小模型的参数量，在 VGG 和 InceptionNet 系列网络中，提出了将两个 <span class="math notranslate nohighlight">\(3 \times 3\)</span> 卷积核一个 <span class="math notranslate nohighlight">\(5 \times 5\)</span> 卷积核，和将一个 <span class="math notranslate nohighlight">\(5 \times 1\)</span> 卷积核和一个 <span class="math notranslate nohighlight">\(1 \times 5\)</span> 卷积核代替一个 <span class="math notranslate nohighlight">\(5 \times 5\)</span> 的卷积核的模型卷积层设计，如下图所示。</p>
+<p>为了减小模型的参数量，在 VGG 和 InceptionNet 系列网络中，提出了将两个 <span class="math notranslate nohighlight">\(3 \times 3\)</span> 卷积核代替一个 <span class="math notranslate nohighlight">\(5 \times 5\)</span> 卷积核，和将一个 <span class="math notranslate nohighlight">\(5 \times 1\)</span> 卷积核和一个 <span class="math notranslate nohighlight">\(1 \times 5\)</span> 卷积核代替一个 <span class="math notranslate nohighlight">\(5 \times 5\)</span> 的卷积核的模型卷积层设计，如下图所示。</p>
 <p>比如使用 2 个 <span class="math notranslate nohighlight">\(3 \times 3\)</span> 卷积核来代替 <span class="math notranslate nohighlight">\(5 \times 5\)</span> 卷积核，这样做的主要目的是在保证具有相同感知野的条件下，提升了网络的深度，在一定程度上提升了神经网络的效果，并且模型参数可以由 <span class="math notranslate nohighlight">\(5  \times  5  \times  Ci  \times  Co\)</span> 变成了 <span class="math notranslate nohighlight">\(3  \times  3  \times  Ci  \times  Co+3  \times  3  \times  Ci  \times  Co\)</span>，假设 <span class="math notranslate nohighlight">\(Ci = Co\)</span>, 该层参数可以减小为原来的 <span class="math notranslate nohighlight">\(18/25\)</span>。</p>
 <p><img alt="" src="../_images/03MobileParallel01.png" /></p>
 <ol class="arabic simple" start="2">
@@ -969,7 +969,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Mar 29, 2025.
+  Last updated on Apr 18, 2025.
   <br/>
 </p>
   </div>

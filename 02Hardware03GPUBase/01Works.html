@@ -14,7 +14,7 @@
 <meta property="og:description" content="前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blackwell 架构演变了非常多代，其中和 AI 特别相关的就有 Tensor Core 和 NVLink。 本节首先..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/_images/social_previews/summary_02Hardware03GPUBase_01Works_ba23f294.png" />
+<meta property="og:image" content="/None" />
 <meta property="og:image:alt" content="前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blackwell 架构演变了非常多代，其..." />
 <meta name="description" content="前面的章节对 AI 计算体系和 AI 芯片基础进行讲解，在 AI 芯片基础中关于通用图形处理器 GPU 只是简单地讲解了主要概念，将从 GPU 硬件基础和英伟达 GPU 架构两个方面讲解 GPU 的工作原理。英伟达 GPU 有着很长的发展历史，整体架构从 Fermi 到 Blackwell 架构演变了非常多代，其中和 AI 特别相关的就有 Tensor Core 和 NVLink。 本节首先..." />
 <meta name="twitter:card" content="summary_large_image" />
@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
+    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
 
 <link
   rel="alternate"
@@ -903,7 +903,7 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>每次执行从 0 到 7 的数据，实现一次性迭代 8 次，每次传输 16 bytes 数据，因此同样在 Intel Xeon 8280 芯片上，每 89 ns 的时间内将执行 729（11659/16）次请求，将程序这样改进就是通过并发使整个总线处于一个忙碌的状态，但是在真正的应用场景中：</p>
+<p>每次执行从 0 到 7 的数据，实现一次性迭代 8 次，每次传输 16 bytes 数据，因此同样在 Intel Xeon 8280 芯片上，每 89 ns 的时间内将执行 8 次请求，内存带宽的利用率就翻了 8 倍。现在，如果我们想要最大程度上的利用内存带宽，每 89 ns 的时间内我们最多可以执行 728（11659/16）次请求，将程序这样改进就是通过并发使整个总线处于一个忙碌的状态，但是在真正的应用场景中：</p>
 <ul class="simple">
 <li><p>编译器很少会对整个循环进行超过 100 次以上的展开；</p></li>
 <li><p>一个线程每一次执行的指令数量是有限的，不可能执行非常多并发的数量；</p></li>
@@ -920,10 +920,10 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>通过并行的方式进行循环展开，并行就是通过并行处理器或者多个线程去执行 <span class="math notranslate nohighlight">\(AX+Y\)</span> 这个操作，同样使得总线处于忙碌的状态，每一次可以执行 729 个迭代。相比较并发的方式：</p>
+<p>通过并行的方式进行循环展开，并行就是通过并行处理器或者多个线程去执行 <span class="math notranslate nohighlight">\(AX+Y\)</span> 这个操作，同样使得总线处于忙碌的状态，每一次可以执行 728 个迭代。相比较并发的方式：</p>
 <ul class="simple">
 <li><p>每个线程独立负责相关的运算，也就是每个线程去计算一次 <span class="math notranslate nohighlight">\(AX+Y\)</span>；</p></li>
-<li><p>执行 729 次计算一共需要 729 个线程，也就是一共可以进行 729 次并行计算；</p></li>
+<li><p>执行 728 次计算一共需要 728 个线程，也就是一共可以进行 728 次并行计算；</p></li>
 <li><p>此时程序会受到线程数量和内存请求的约束。</p></li>
 </ul>
 </section>
@@ -1175,7 +1175,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Mar 29, 2025.
+  Last updated on Apr 18, 2025.
   <br/>
 </p>
   </div>

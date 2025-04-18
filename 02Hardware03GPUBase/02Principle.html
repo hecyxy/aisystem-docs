@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Mar 29, 2025"/>
+    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
 
 <link
   rel="alternate"
@@ -736,7 +736,7 @@ document.write(`
 <li><p>将输入的图像数据按照卷积核的大小和步长进行切片，形成若干个小的图像块；</p></li>
 <li><p>将每个图像块展开成一列，并将所有列拼接在一起，形成一个大的矩阵。</p></li>
 </ul>
-<p>通过这种方式，原始的图像数据被重塑成一个二维矩阵，其中每一列对应于卷积核在输入图像上滑动时所覆盖的区域。行数对应输出 <span class="math notranslate nohighlight">\(OH*OW\)</span> 个数，每个行向量中，先排列计算一个输出点所需要输入上第一个通道的 <span class="math notranslate nohighlight">\(KH*KW\)</span> 个数据，再按照次序排列之后的通道，直到第 IC 个通道。在实际应用中，Img2col 通常与矩阵乘法库（如 BLAS）结合使用，以便利用高效的矩阵乘法实现卷积运算，这种技术在提高卷积神经网络的计算效率和加速训练过程中起着重要作用。</p>
+<p>通过这种方式，原始的图像数据被重塑成一个二维矩阵，其中每一列对应于卷积核在输入图像上滑动时所覆盖的区域。行数对应输出 <span class="math notranslate nohighlight">\(OH \times OW\)</span> 个数，每个行向量中，先排列计算一个输出点所需要输入上第一个通道的 <span class="math notranslate nohighlight">\(KH \times KW\)</span> 个数据，再按照次序排列之后的通道，直到第 IC 个通道。在实际应用中，Img2col 通常与矩阵乘法库（如 BLAS）结合使用，以便利用高效的矩阵乘法实现卷积运算，这种技术在提高卷积神经网络的计算效率和加速训练过程中起着重要作用。</p>
 <p><img alt="Img2col 图像处理算法" src="../_images/02principle02.png" /></p>
 <p>对权重数据进行重排，即以卷积核大小为步长展开后续卷积窗并存在矩阵下一列。将 N 个卷积核展开为权重矩阵的一行，因此共有 N 行，每个向量上先排列第一个输入通道上 KH*KW 数据，再依次排列之后的通道直到 IC。</p>
 <p><img alt="权重数据重排成权重矩阵" src="../_images/02principle03.png" /></p>
@@ -975,7 +975,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Mar 29, 2025.
+  Last updated on Apr 18, 2025.
   <br/>
 </p>
   </div>
