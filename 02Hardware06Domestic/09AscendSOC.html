@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 18, 2025"/>
 
 <link
   rel="alternate"
@@ -296,7 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPU v4 与光路交换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">国内 AI 芯片</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -732,7 +732,7 @@ document.write(`
 <p>昇腾 AI 处理器的架构包括了 AI Core、AI CPU、多层级片上缓存/缓冲区和数字视觉预处理模块 DVPP，这些组件通过 CHI 协议的环形总线实现数据共享和一致性而组成的 SoC。此外，本节还将探讨卷积加速原理，即昇腾 AI 处理器如何通过软硬件优化实现高效的卷积计算加速，包括矩阵计算单元和数据缓冲区的高效组合以及灵活的数据通路设计，以满足不同神经网络的计算要求。</p>
 <section id="id1">
 <h2>昇腾 AI 处理器<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>华为公司针对 AI 领域专用计算量身打造了“达芬奇架构”，并于 2018 年推出了基于“达芬奇架构”的昇腾 AI 处理器，开启了华为的AI之旅。</p>
+<p>华为公司针对 AI 领域专用计算量身打造了“达芬奇架构”，并于 2018 年推出了基于“达芬奇架构”的昇腾 AI 处理器，开启了华为的 AI 之旅。</p>
 <p>从基础研究出发，立足于自然语言处理、机器视觉、自动驾驶等领域，昇腾 AI 处理器致力于打造面向云边端一体化的全栈全场景解决方案，同时为了配合其应用目标，打造了异构计算架构 CANN（Computer Architecture for Nerual Network），为昇腾 AI 处理器进行加速计算。全栈指技术方面，包括 IP、芯片、加速计算、AI 框架、应用使能等的全栈式设计方案。全场景包括公有云、私有云、各种边缘计算、物联网行业终端及消费者终端设备。围绕全栈全场景，华为正以昇腾 AI 处理器为核心，以算力为驱动，以工具为抓手，全力突破 AI 发展的极限。</p>
 <p>自 2018 年伊始，如图所示昇腾 AI 处理器的训练和推理系列型号陆续推出。推理系列的处理器则是面向移动计算场景的强算力 AI 片上系统（SoC，System on Chip）。训练系列的处理器主要应用于云端，可以为深度学习的训练算法提供强大算力。</p>
 <p><img alt="" src="../_images/09AscendSOC01.png" /></p>
@@ -756,19 +756,19 @@ document.write(`
 <h3>昇腾 910<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>昇腾 910 处理器的目标场景是云端的推理和训练，其架构如图所示，包含 Davinci Core、DVPP、HBM、DDR4 等组件。</p>
 <p><img alt="昇腾 AI 处理器逻辑图" src="../_images/09AscendSOC05.png" /></p>
-<p>昇腾 910 处理器采用了芯粒(chiplet)技术，包含六个 die: 1 个计算芯粒(包含 32 个 Davinci Core、16 个 CPU Core 和 4 个 DVDP)，1 个 IO 芯粒，和 4 个 HBM 芯粒(总计 1.2TB/s 带宽)。针对云端训练和推理场景，昇腾 910 处理器做的优化包括:</p>
+<p>昇腾 910 处理器采用了芯粒（chiplet）技术，包含六个 die: 1 个计算芯粒（包含 32 个 Davinci Core、16 个 CPU Core 和 4 个 DVDP），1 个 IO 芯粒，和 4 个 HBM 芯粒（总计 1.2 TB/s 带宽）。针对云端训练和推理场景，昇腾 910 处理器做的优化包括:</p>
 <ol class="arabic simple">
-<li><p>高算力: 训练场景通常使用的 Batch Size 较大，因此采用最高规格的 Ascend-Max，每个 Core 每个周期可以完成 16<em>16</em>16=4096 次 FP16 乘累加。</p></li>
+<li><p>高算力: 训练场景通常使用的 Batch Size 较大，因此采用最高规格的 Ascend-Max，每个 Core 每个周期可以完成 <span class="math notranslate nohighlight">\(16\times16\times16=4096\)</span> 次 FP16 乘累加。</p></li>
 <li><p>高 Load/Store 带宽: 训练场景下计算反向 SGD 时，会有大量对 Last Level Cache 和片外缓存的访问，因此需要配备较高的 Load/Store 带宽，因此昇腾 910 除了 DDR 还采用了 HBM 技术。</p></li>
 <li><p>100G NIC: 随着 DNN 的模型尺寸愈发庞大，单机单卡甚至单机多卡已经不能满足云端训练的需求，为了支持多卡多机组成集群，昇腾 910 集成了支持 ROCE V2 协议的 100G NIC 用于跨服务器传递数据，使得可以使用昇腾 910 组成万卡集群。</p></li>
-<li><p>高吞吐率的数字视觉与处理器(DVPP): DVPP 用于 JPEG、PNG 格式图像编解码、图像预处理(对输入图像上下采样、裁剪、色调转换等)、视频编解码，为了适配云端推理场景，DVPP 最高支持 128 路 1080P 视频解码。</p></li>
+<li><p>高吞吐率的数字视觉与处理器（DVPP）: DVPP 用于 JPEG、PNG 格式图像编解码、图像预处理(对输入图像上下采样、裁剪、色调转换等)、视频编解码，为了适配云端推理场景，DVPP 最高支持 128 路 1080P 视频解码。</p></li>
 </ol>
 </section>
 <section id="id4">
 <h3>昇腾 310<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>昇腾 310 处理器的目标场景是边缘推理，比如智慧城市、智慧新零售、机器人、工业制造等，其架构如上图所示，主要包含 Davinci Core、DVPP、LPDDR4 等组件。</p>
 <p><img alt="昇腾 AI 处理器逻辑图" src="../_images/09AscendSOC06.png" /></p>
-<p>相比昇腾 910，昇腾 310 的定制化 IP 相对较少，但是提供了更多外设接口。由于在边缘推理场景下 batch size 通常只有 1，因此昇腾 310 选择了较小的矩阵计算维度(m = 4, n = 16, k = 16)以实现<span class="math notranslate nohighlight">\(C_{mn} = A_{mk}\times B_{kn}\)</span>。由于在矩阵运算中<span class="math notranslate nohighlight">\(M = batch\_size \times output\_hight \times output\_width\)</span>, 当 batch size = 1 时，将 m 设置成 4 可以提升乘累加利用率。</p>
+<p>相比昇腾 910，昇腾 310 的定制化 IP 相对较少，但是提供了更多外设接口。由于在边缘推理场景下 batch size 通常只有 1，因此昇腾 310 选择了较小的矩阵计算维度（m = 4, n = 16, k = 16）以实现 <span class="math notranslate nohighlight">\(C_{mn} = A_{mk}\times B_{kn}\)</span>。由于在矩阵运算中 <span class="math notranslate nohighlight">\(M = \text{batch\_size} \times \text{output\_hight} \times \text{output\_width}\)</span>, 当 batch size = 1 时，将 m 设置成 4 可以提升乘累加利用率。</p>
 </section>
 </section>
 <section id="id5">
@@ -776,20 +776,20 @@ document.write(`
 <p>在神经网络中，卷积计算一直扮演着至关重要的角色。在一个多层的卷积神经网络中，卷积计算的计算量往往是决定性的，将直接影响到系统运行的实际性能。昇腾 AI 处理器作为 AI 加速器自然也不会忽略这一点，并且从软硬件架构上都对卷积计算进行了深度的优化。</p>
 <section id="id6">
 <h3>卷积/矩阵计算<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<p>下图展示的是一个典型的卷积层计算过程，其中<strong>X</strong>为输入特征矩阵，<strong>W</strong>为权重矩阵；<strong>b</strong>为偏置值；<strong>Y</strong>o 为中间输出；Y 为输出特征矩阵，GEMM 表示通用矩阵乘法。输入特征矩阵<strong>X</strong>和<strong>W</strong>先经过 Img2Col 展开处理后得到重构矩阵 XI2C 和 WI2C 通过矩阵<strong>X</strong>I2C 和矩阵<strong>W</strong>I2C 进行矩阵相乘运算后得到中间输出矩阵<strong>Y</strong>o；接着累加偏置<strong>b</strong>，得到最终输出特征矩阵<strong>Y</strong>，这就完成了一个卷积神经网络中的卷积层处理。</p>
+<p>下图展示的是一个典型的卷积层计算过程，其中 <strong>X</strong> 为输入特征矩阵，<strong>W</strong> 为权重矩阵；<strong>b</strong> 为偏置值；<span class="math notranslate nohighlight">\(\textbf{Y}_\textbf{o}\)</span> 为中间输出；<strong>Y</strong> 为输出特征矩阵，GEMM 表示通用矩阵乘法。输入特征矩阵 <strong>X</strong> 和 <strong>W</strong> 先经过 Img2Col 展开处理后得到重构矩阵 XI2C 和 WI2C 通过矩阵 XI2C 和矩阵 WI2C 进行矩阵相乘运算后得到中间输出矩阵 <span class="math notranslate nohighlight">\(\textbf{Y}_\textbf{o}\)</span>；接着累加偏置 <strong>b</strong>，得到最终输出特征矩阵 <strong>Y</strong>，这就完成了一个卷积神经网络中的卷积层处理。</p>
 <p><img alt="卷积计算过程" src="../_images/09AscendSOC07.png" /></p>
 </section>
 <section id="id7">
 <h3>计算数据通路<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>利用 AI Core 来加速通用卷积计算，总线接口从核外 L2 缓冲区或者直接从内存中读取卷积程序编译后的指令，送入指令缓存中，完成指令预取等操作，等待标量指令处理队列进行译码。如果标量指令处理队列当前无正在执行的指令，就会即刻读入指令缓存中的指令，并进行地址和参数配置，之后再由指令发射模块按照指令类型分别送入相应的指令队列进行执行。在卷积计算中首先发射的指令是数据搬运指令，该指令会被发送到存储转换队列中，再最终转发到存储转换单元中。</p>
 <p><img alt="典型卷积数据流" src="../_images/09AscendSOC08.png" /></p>
-<p>卷积整个数据流如上图所示，如果所有数据都在 DDR 或 HBM 中，存储转换单元收到读取数据指令后，会将矩阵<em><strong>X</strong></em>和<em><strong>W</strong></em>由总线接口单元从核外存储器中由数据通路 1 读取到输入缓冲区中，并且经过数据通路 3 进入存储转换单元，由存储转换单元对<em><strong>X</strong></em>和<em><strong>W</strong></em>进行补零和 Img2Col 重组后得到<em><strong>X</strong></em>I2C 和<em><strong>W</strong></em>I2C 两个重构矩阵，从而完成卷积计算到矩阵计算的格式变换。</p>
-<p>在格式转换的过程中，存储转换队列可以发送下一个指令给存储转换单元，通知存储转换单元在矩阵转换结束后将<em><strong>X</strong></em>I2C 和<em><strong>W</strong></em>I2C 经过数据通路 5 送入矩阵计算单元中等待计算。</p>
-<p>根据数据的局部性特性，在卷积过程中如果权重<em><strong>W</strong></em>I2C 需要重复多次计算，可以将权重经过数据通路 17 固定在输入缓冲区中，在每次需要用到该组权重时再经过数据通路 18 传递到矩阵计算单元中。</p>
+<p>卷积整个数据流如上图所示，如果所有数据都在 DDR 或 HBM 中，存储转换单元收到读取数据指令后，会将矩阵 <em><strong>X</strong></em> 和 <em><strong>W</strong></em> 由总线接口单元从核外存储器中由数据通路 1 读取到输入缓冲区中，并且经过数据通路 3 进入存储转换单元，由存储转换单元对 <em><strong>X</strong></em> 和 <em><strong>W</strong></em> 进行补零和 Img2Col 重组后得到 <em><strong>X</strong></em>I2C 和 <em><strong>W</strong></em>I2C 两个重构矩阵，从而完成卷积计算到矩阵计算的格式变换。</p>
+<p>在格式转换的过程中，存储转换队列可以发送下一个指令给存储转换单元，通知存储转换单元在矩阵转换结束后将 <em><strong>X</strong></em>I2C 和 <em><strong>W</strong></em>I2C 经过数据通路 5 送入矩阵计算单元中等待计算。</p>
+<p>根据数据的局部性特性，在卷积过程中如果权重 <em><strong>W</strong></em>I2C 需要重复多次计算，可以将权重经过数据通路 17 固定在输入缓冲区中，在每次需要用到该组权重时再经过数据通路 18 传递到矩阵计算单元中。</p>
 <p>在格式转换过程中，存储转换单元还会同时将偏置数据从核外存储经由数据通路 4 读入到输出缓冲区中，经过数据通路 6 由存储转换单元将偏置数据从原始的向量格式重组成矩阵后，经过数据通路 7 转存入输出缓冲区中，再经过数据通路 9 存入累加器中的寄存器中，以便后续利用累加器进行偏置值累加。</p>
-<p>当左、右矩阵数据都准备好了以后，矩阵运算队列会将矩阵相乘指令通过数据通路 5 发送给矩阵计算单元。<em><strong>X</strong></em>I2C 和<em><strong>W</strong></em>I2C 矩阵会被分块组合成 16*16 的矩阵，由矩阵计算单元进行矩阵乘法运算。如果输入矩阵较大则可能会重复以上步骤多次并累加得到<em><strong>Y</strong></em>o 中间结果矩阵，存放于矩阵计算单元中。</p>
-<p>矩阵相乘完成后如果还需要处理偏置值，累加器会收到偏置累加指令，并从输出缓冲区中通过数据通路 9 读入偏置值，同时经过数据通路 8 读入矩阵计算单元中的中间结果<em><strong>Y</strong></em>o 并累加，最终得到输出特征矩阵<em><strong>Y</strong></em>，经过数据通路 10 被转移到输出缓冲区中等待后续指令进行处理。</p>
-<p>AI Core 通过矩阵相乘完成了网络的卷积计算，之后向量执行单元会收到池化和激活指令，输出特征矩阵<em><strong>Y</strong></em>就会经过数据通路 12 进入向量计算单元进行池化和激活处理，得到的结果<em><strong>Y</strong></em>会经过数据通路 13 存入输出缓冲区中。向量计算单元能够处理激活函数等一些常见的特殊计算，并且可以高效实现降维的操作，特别适合做池化计算。在执行多层神经网络计算时，<em><strong>Y</strong></em>会被再次从输出缓冲区经过数据通路 14 转存到输入缓冲区中，作为输入重新开始下一层网络的计算。</p>
+<p>当左、右矩阵数据都准备好了以后，矩阵运算队列会将矩阵相乘指令通过数据通路 5 发送给矩阵计算单元。<em><strong>X</strong></em>I2C 和 <em><strong>W</strong></em>I2C 矩阵会被分块组合成 <span class="math notranslate nohighlight">\(16\times16\)</span> 的矩阵，由矩阵计算单元进行矩阵乘法运算。如果输入矩阵较大则可能会重复以上步骤多次并累加得到 <span class="math notranslate nohighlight">\(\textbf{Y}_\textbf{o}\)</span> 中间结果矩阵，存放于矩阵计算单元中。</p>
+<p>矩阵相乘完成后如果还需要处理偏置值，累加器会收到偏置累加指令，并从输出缓冲区中通过数据通路 9 读入偏置值，同时经过数据通路 8 读入矩阵计算单元中的中间结果 <span class="math notranslate nohighlight">\(\textbf{Y}_\textbf{o}\)</span> 并累加，最终得到输出特征矩阵 <em><strong>Y</strong></em>，经过数据通路 10 被转移到输出缓冲区中等待后续指令进行处理。</p>
+<p>AI Core 通过矩阵相乘完成了网络的卷积计算，之后向量执行单元会收到池化和激活指令，输出特征矩阵 <em><strong>Y</strong></em> 就会经过数据通路 12 进入向量计算单元进行池化和激活处理，得到的结果 <em><strong>Y</strong></em> 会经过数据通路 13 存入输出缓冲区中。向量计算单元能够处理激活函数等一些常见的特殊计算，并且可以高效实现降维的操作，特别适合做池化计算。在执行多层神经网络计算时，<em><strong>Y</strong></em> 会被再次从输出缓冲区经过数据通路 14 转存到输入缓冲区中，作为输入重新开始下一层网络的计算。</p>
 <p>达芬奇架构针对通用卷积的计算特征和数据流规律，采用功能高度定制化的设计，将存储、计算和控制单元进行有效的结合，在每个模块完成独立功能的同时实现了整体的优化设计。AI Core 高效组合了矩阵计算单元与数据缓冲区，缩短了存储到计算的数据传输路径，降低延时。</p>
 <p>同时 AI Core 在片上集成了大容量的输入缓冲区和输出缓冲区，一次可以读取并缓存充足的数据，减少了对核外存储系统的访问频次，提升了数据搬移的效率。同时各类缓冲区相对于核外存储系统具有较高的访问速度，大量片上缓冲区的使用也极大提升了计算中实际可获得的数据带宽。</p>
 <p>同时针对神经网络的结构多样性，AI Core 采用了灵活的数据通路，使得数据在片上缓冲区、核外存储系统、存储转换单元以及计算单元之间可以快速流动和切换，从而满足不同结构的神经网络的计算要求，使得 AI Core 对各种类型的计算具有一定的通用性。</p>
@@ -907,7 +907,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 18, 2025.
+  Last updated on May 18, 2025.
   <br/>
 </p>
   </div>

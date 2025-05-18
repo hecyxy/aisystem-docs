@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 18, 2025"/>
 
 <link
   rel="alternate"
@@ -294,7 +294,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPU v4 与光路交换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">国内 AI 芯片</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -716,7 +716,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlu">寒武纪 MLU 架构细节</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv3-ipu-mlu-core">MLUv3 IPU(MLU Core)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv3-mpu-cluster">MLUv3 MPU (Cluster)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv03">MLUv03 片内通信</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv3">MLUv3 片内通信</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">存储层次</a><ul class="visible nav section-nav flex-column">
@@ -755,7 +755,7 @@ document.write(`
 <p><img alt="发展历程" src="../_images/cambricon06.png" /></p>
 <section id="id2">
 <h2>产品形态<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>下面我们来简单介绍了一下 2016 年至今寒武纪的各个主流产品。从 1A 处理器核，到思元（意思为“思考的单元”）系列 MLU100、MLU200、MLU300 的各个产品。终端智能处理器 IP 是寒武纪的入局产品，寒武纪是靠它打入的市场，包括 1A、1H、1M，算力在 0.5~1TOPS。</p>
+<p>下面我们来简单介绍了一下 2016 年至今寒武纪的各个主流产品。从 1A 处理器核，到思元（意思为“思考的单元”）系列 MLU100、MLU200、MLU300 的各个产品。终端智能处理器 IP 是寒武纪的入局产品，寒武纪是靠它打入的市场，包括 1A、1H、1M，算力在 0.5~1 TOPS。</p>
 <p>基于这些 IP，寒武纪迭代出了若干代边缘端、云端产品，其中主要是 MLU100、MLU200、MLU300 三代或者说三个系列产品。MLU100 属于比较早期的板卡产品，目前的宣传已经不多。MLU200 系列包括 MLU220、MLU270、MLU290 三种形态，分别服务于边缘端、云端推理、云端训练。MLU300 系列主要是 MLU370，从数字上可以看出它与 MLU270 应用场景上的渊源，但它也可以用作训练。</p>
 <p>产品一览：</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -793,7 +793,7 @@ document.write(`
 <p><img alt="产品形态 1" src="../_images/cambricon07.png" /></p>
 <p>MLU370-X8 智能加速卡是全面升级的数据中心训推一体 AI 加速卡，基于寒武纪全新一代思元 370 芯片，接口为 PCIe 4.0 X16，是全高全长双宽（FHFL-Dual-Slot）的标准 PCIe 加速卡，适用于业内最新的 CPU 平台，可轻松搭载于最先进的 AI 服务器，快速实现 AI 算力的部署。MLU370-X8 加速卡功耗为 250W，可为计算机视觉、自然语言处理、语音等多样化的 AI 应用提供强大算力支持。</p>
 <p><img alt="产品形态 2" src="../_images/cambricon08.png" /></p>
-<p>MLU370-X8 通过 MLU-Link™高速网络，组建大规模训练集群，并实现芯片间互联。新一代 MLU-Link™，不仅支持板卡上 2 个思元 370 芯片间通过 MLU-Link™进行通讯，同时也可以通过 MLU-Link™桥接卡对外互联，板卡间 MLU-Link 互联双向总带宽为 200GB/s，满足大型 AI 模型训练的需要。</p>
+<p>MLU370-X8 通过 MLU-Link™高速网络，组建大规模训练集群，并实现芯片间互联。新一代 MLU-Link™，不仅支持板卡上 2 个思元 370 芯片间通过 MLU-Link™进行通讯，同时也可以通过 MLU-Link™桥接卡对外互联，板卡间 MLU-Link 互联双向总带宽为 200 GB/s，满足大型 AI 模型训练的需要。</p>
 <blockquote>
 <div><p>关于芯粒技术，芯粒英文是 Chiplet，是指预先制造好、具有特定功能、可组合集成的晶片（Die），Chiplet 也有翻译为“小芯片”，中科院计算所韩银和等 2020 年时建议将 Chiplet 翻译为“芯粒”。</p>
 <p>在集成电路领域，发展水平和国外存在差距，“卡脖子”成了很突出的问题。按摩尔定律去发展、去追赶是一条路，但也可以另辟蹊径。</p>
@@ -940,7 +940,7 @@ document.write(`
 <section id="cnserving">
 <h3>CNServing<a class="headerlink" href="#cnserving" title="Link to this heading">#</a></h3>
 <p>CNServing 是一款可部署 MagicMind 序列化模型的高性能服务系统，专为生产环境而设计。将任意框架模型通过 MagicMind 生成序列化模型后，使用 CNServing 可将其方便快捷地部署在 MLU 服务器上。可同时部署在多张 MLU 板卡上，也可以部署多个序列化模型，为客户端提供高性能服务。</p>
-<p>CNServing 基于 TensorFlow Serving 架构开发。相比 TensorFlow Serving，CNServing 拥有更好的性能表现，并且 CNServing 的 client 端 API 仍然使用 TensorFlow_serving_api，这样使用 TensorFlow Serving 部署模型的用户无需修改 client 端任何代码即可轻松切换到 CNServing 上。</p>
+<p>CNServing 基于 TensorFlow Serving 架构开发。相比 TensorFlow Serving，CNServing 拥有更好的性能表现，并且 CNServing 的 client 端 API 仍然使用 <code class="docutils literal notranslate"><span class="pre">TensorFlow_serving_api</span></code>，这样使用 TensorFlow Serving 部署模型的用户无需修改 client 端任何代码即可轻松切换到 CNServing 上。</p>
 </section>
 </section>
 <section id="mlu">
@@ -949,9 +949,10 @@ document.write(`
 <h3>MLUv3 IPU(MLU Core)<a class="headerlink" href="#mluv3-ipu-mlu-core" title="Link to this heading">#</a></h3>
 <p>IPU 在官方文档中也叫作 MLU Core，下面是示意图。</p>
 <p><img alt="MLU Core 核心模块" src="../_images/cambricon09.png" /></p>
-<p>我们可以看到，Control Unit 比较重要，负责指令的读取、译码和发射。自研指令可以通过 Control Unit 被负责计算和访存的调度器 Dispatch 到 ALU、VFU、TFU、IO-DMA、Move-DMA 四个队列。IO-DMA 用来实现片外 DRAM 与 W/N-RAM 数据传输，也可以用于实现 Register 与片内 RAM 之间的 Load/Store 操作以及原子操作。</p>
-<p>Move-DMA 用于 IPU 中 W/N-RAM 与 MPU S-RAM 间数据传输和类型转换。I-Cache 顾名思义就是指令缓存，有 64KB，如 512bit 指令可以缓存 1024 条。VA-Cache(Vector Addressing)是离散数据访问指令的专用缓存。用于加速离散向量访问效率，减少对总线和存储单元读写次数。Neural-RAM（nram）是 768KB，需 16byte 对齐，存储 Input 和 Feature Map 数据。Weight-RAM（wram）是 1024KB，需 8byte 对齐，存储权重和优化器数据。</p>
-<p>ALU 就是标量 Scale 数据的算术逻辑运算。GPR 是指一组位宽 48bit 的寄存器，IPU 为 Load/Store 架构，除立即数以外所有操作加载到 GPR 才能参与算术逻辑运算。SREG 是指位宽 32bit 的特殊寄存器，用于存储硬件特定属性，如 Perf 计数、任务索引等。</p>
+<p>我们可以看到，Control Unit 比较重要，负责指令的读取、译码和发射。自研指令可以通过 Control Unit 被负责计算和访存的调度器 Dispatch 到 ALU、VFU、TFU、IO-DMA、Move-DMA 五个队列。</p>
+<p>IO-DMA 用来实现片外 DRAM 与 W/N-RAM 数据传输，也可以用于实现 Register 与片内 RAM 之间的 Load/Store 操作以及原子操作。</p>
+<p>Move-DMA 用于 IPU 中 W/N-RAM 与 MPU S-RAM 间数据传输和类型转换。I-Cache 顾名思义就是指令缓存，有 64 KB，如 512 bit 指令可以缓存 1024 条。VA-Cache（Vector Addressing）是离散数据访问指令的专用缓存。用于加速离散向量访问效率，减少对总线和存储单元读写次数。Neural-RAM（nram）是 768 KB，需 16 byte 对齐，存储 Input 和 Feature Map 数据。Weight-RAM（wram）是 1024 KB，需 8 byte 对齐，存储权重和优化器数据。</p>
+<p>ALU 就是标量 Scale 数据的算术逻辑运算。GPR 是指一组位宽 48 bit 的寄存器，IPU 为 Load/Store 架构，除立即数以外所有操作加载到 GPR 才能参与算术逻辑运算。SREG 是指位宽 32 bit 的特殊寄存器，用于存储硬件特定属性，如 Perf 计数、任务索引等。</p>
 <p>VFU/TFU 是计算单元，实现张量 Tensor 和向量 Vector 运算；输入输出：Vector 运算输入输出在 Neuron-RAM；Tensor 运算输入自 Neuron-RAM 和 Weight-RAM，输出根据调度情况到 Neuron-RAM 和 Weight-RAM。</p>
 <p>关于指令流水，那么 MLU Core 有三类可以并行执行的指令队列：XFU-PIPE、 DMA-PIPE、ALU-PIPE。XFU-PIPE 可以执行向量和张量单元指令。DMA-PIPE 可以支持双流同时进行数据搬运执行。具体包括上述的 move-DMA 和 IO-DMA 两个流。ALU-PIPE 可以执行标量数据算术逻辑指令。各个指令队列的并行执行有助于让 IPU 的不同种类的操作互相掩盖。</p>
 </section>
@@ -964,8 +965,8 @@ document.write(`
 <div><p>需要注意，MLUv02 以前的寒武纪产品是没有 MPU 架构，也没有 Cluster 概念的。</p>
 </div></blockquote>
 </section>
-<section id="mluv03">
-<h3>MLUv03 片内通信<a class="headerlink" href="#mluv03" title="Link to this heading">#</a></h3>
+<section id="mluv3">
+<h3>MLUv3 片内通信<a class="headerlink" href="#mluv3" title="Link to this heading">#</a></h3>
 <p>这里所述的片内通信分为两种：Cluster 内通信与 Cluster 间通信。</p>
 <p>Cluster 内通信中我们先看 IPU（MLU-Core），其中 ICache 访问 Global-DRAM 读取指令并保存到 Icache 中，IO-DMA 还可以直接在 DRAM 和 W/N-RAM 之间搬运数据。Move-DMA 负责在 S/W/N-RAM 之间以及它们与 GPR 之间搬运数据。之所以要使用两种不同的 DMA 是为了方便两者之间的并行。</p>
 <p><img alt="MLU Core 通信" src="../_images/cambricon12.png" /></p>
@@ -980,8 +981,8 @@ document.write(`
 <p>GPR、WRAM 和 NRAM 是一个 MLU Core 的私有存储，Memory Core 没有私有的 WRAM 和 NRAM 存储资源。L2 Cache 是芯片的全局共享存储资源，目前主要用于缓存指令、Kernel 参数以及只读数据。LDRAM 是每个 MLU Core 和 Memory Core 的私有存储空间，其容量比 WRAM 和 NRAM 更大，主要用于解决片上存储空间不足的问题。GDRAM 是全局共享的存储资源，可以用于实现主机端与设备端的数据共享，以及计算任务之间的数据共享。</p>
 <section id="gpr">
 <h3>GPR 模块<a class="headerlink" href="#gpr" title="Link to this heading">#</a></h3>
-<p>GPR 是每个 MLU Core 和 Memory Core 私有的存储资源。MLU Core 和 Memory Core 的标量计算系统都采用精简指令集架构，所有的标量数据，无论是整型数据还是浮点数据，在参与运算之前必须先加载到 GPR。GPR 的最大位宽为 48 位，一个 GPR 可以存储一个 8bit、16bit、32bit 或者 48bit 的数据。GPR 中的数据不仅可以用来实现标量运算和控制流功能，还用于存储向量运算所需要的地址、长度和标量参数等。</p>
-<p>GPR 不区分数据类型和位宽，GPR 中存储的数据的类型和位宽由操作对应数据的指令决定。当实际写入 GPR 中的数据的位宽小于 48bit 时，高位自动清零。</p>
+<p>GPR 是每个 MLU Core 和 Memory Core 私有的存储资源。MLU Core 和 Memory Core 的标量计算系统都采用精简指令集架构，所有的标量数据，无论是整型数据还是浮点数据，在参与运算之前必须先加载到 GPR。GPR 的最大位宽为 48 位，一个 GPR 可以存储一个 8 bit、16 bit、32 bit 或者 48 bit 的数据。GPR 中的数据不仅可以用来实现标量运算和控制流功能，还用于存储向量运算所需要的地址、长度和标量参数等。</p>
+<p>GPR 不区分数据类型和位宽，GPR 中存储的数据的类型和位宽由操作对应数据的指令决定。当实际写入 GPR 中的数据的位宽小于 48 bit 时，高位自动清零。</p>
 <p>Cambricon BANG 异构并行编程模型中的隐式数据迁移都是借助 GPR 实现的。例如，将 GDRAM 上的标量数据赋值给一个位于 LDRAM 的变量时，编译器会自动插入访存指令将 GDRAM 中的数据先加载到 GPR 中，再插入一条访存指令将 GPR 中的数据写入 LDRAM 中。</p>
 </section>
 <section id="nram-neural-ram">
@@ -1166,7 +1167,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlu">寒武纪 MLU 架构细节</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv3-ipu-mlu-core">MLUv3 IPU(MLU Core)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv3-mpu-cluster">MLUv3 MPU (Cluster)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv03">MLUv03 片内通信</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mluv3">MLUv3 片内通信</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">存储层次</a><ul class="visible nav section-nav flex-column">
@@ -1209,7 +1210,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 18, 2025.
+  Last updated on May 18, 2025.
   <br/>
 </p>
   </div>

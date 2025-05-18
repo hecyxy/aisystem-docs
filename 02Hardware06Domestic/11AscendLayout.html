@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 18, 2025"/>
 
 <link
   rel="alternate"
@@ -296,7 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPU v4 与光路交换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">国内 AI 芯片</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -755,9 +755,9 @@ document.write(`
 <h3>Fractal Z &amp; NZ 格式<a class="headerlink" href="#fractal-z-nz" title="Link to this heading">#</a></h3>
 <p>ND 格式 （N-Dimension），是神经网络中最常见且最基本的张量存储格式，代表 N 维度的张量数据。</p>
 <p>为了在达芬奇架构中更高效的搬运和进行矩阵计算，引入一种特殊的数据分形格式，NZ 格式。
-如下图所示，我们以 4*4 的矩阵来进行举例，按照 NZ 格式数据在内存中的排布格式为[0，1，4，5，8，9，12，13，2，3，6，7，10，11，14，15]，按照 ND 格式数据在内存中的排布格式为[0， 1，2，3，4，5，6，7，8，9，10，11，12，13，14，15]。</p>
+如下图所示，我们以 <span class="math notranslate nohighlight">\(4\times 4\)</span> 的矩阵来进行举例，按照 NZ 格式数据在内存中的排布格式为[0，1，4，5，8，9，12，13，2，3，6，7，10，11，14，15]，按照 ND 格式数据在内存中的排布格式为[0， 1，2，3，4，5，6，7，8，9，10，11，12，13，14，15]。</p>
 <p><img alt="NZ 示意图" src="../_images/11AscendLayout02.png" /></p>
-<p>如下图所示，NZ 分形操作中，整个矩阵被分为（H1 * W1）个分形，分形之间按照列主序排布，即类比行主序的存储方式，列主序是先存储一列再存储相邻的下一列，这样整体存储形状形如 N 字形；每个分形内部有（H0 * W0）个元素，按照行主序排布，形状如 Z 字形。</p>
+<p>如下图所示，NZ 分形操作中，整个矩阵被分为（<span class="math notranslate nohighlight">\(H1 \times W1\)</span>）个分形，分形之间按照列主序排布，即类比行主序的存储方式，列主序是先存储一列再存储相邻的下一列，这样整体存储形状形如 N 字形；每个分形内部有（<span class="math notranslate nohighlight">\(H0 \times W0\)</span>）个元素，按照行主序排布，形状如 Z 字形。</p>
 <p><img alt="NZ 矩阵示意图" src="../_images/11AscendLayout03.png" /></p>
 <p>下面我们详细地对 NZ 格式（也被称为 NW1H1H0W0 格式）具体在内存中存储的维度优先顺序进行展开。先对一个分形内部进行行主序存储，再在一个完整矩阵中以分形宽度为划分，进行列主序存储，再依次对相邻的下一个矩阵进行存储。即此方式先按 W0 方向存储，再按 H0 方向存储，接着按照 H1 方向存储，随后按照 W1 方向存储，最后按 N 方向存储，直到所有数据存储完成。</p>
 <p>下面我们介绍一下如何将 ND 数据格式转换为 NZ 数据格式：</p>
@@ -909,7 +909,7 @@ transpose-&gt;
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 18, 2025.
+  Last updated on May 18, 2025.
   <br/>
 </p>
   </div>

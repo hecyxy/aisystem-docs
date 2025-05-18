@@ -74,6 +74,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02Hardware06Domestic/10AscendCube';</script>
     <script src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     <link rel="icon" href="../_static/logo-square.svg"/>
@@ -84,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 18, 2025"/>
 
 <link
   rel="alternate"
@@ -294,7 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPU v4 与光路交换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">国内 AI 芯片</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -754,7 +756,7 @@ document.write(`
 <h3>矩阵计算单元<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <section id="id4">
 <h4>矩阵乘法<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
-<p>由于常见的神经网络算法中大量的使用了矩阵计算，达芬奇架构中特意对矩阵计算进行了深度的优化并定制了相应的矩阵计算单元来支持高吞吐量的矩阵处理。上图表示一个矩阵 A 和另一个矩阵 B 之间的乘法运算 C=A*B，其中 M 表示矩阵 A 的行数，K 表示矩阵 A 的列数以及矩阵 B 的行数，N 表示矩阵 B 的列数。在传统 CPU 中计算矩阵乘法的典型代码如下代码所示。</p>
+<p>由于常见的神经网络算法中大量的使用了矩阵计算，达芬奇架构中特意对矩阵计算进行了深度的优化并定制了相应的矩阵计算单元来支持高吞吐量的矩阵处理。上图表示一个矩阵 A 和另一个矩阵 B 之间的乘法运算 <span class="math notranslate nohighlight">\(C=A\times B\)</span>，其中 M 表示矩阵 A 的行数，K 表示矩阵 A 的列数以及矩阵 B 的行数，N 表示矩阵 B 的列数。在传统 CPU 中计算矩阵乘法的典型代码如下代码所示。</p>
 <p><img alt="矩阵乘法示意图" src="../_images/10AscendCube03.png" /></p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w"> </span><span class="n">m</span><span class="o">++</span><span class="p">)</span>
 <span class="w">	</span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="o">++</span><span class="p">)</span>
@@ -762,7 +764,7 @@ document.write(`
 <span class="w">			</span><span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">n</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>该程序需要用到 3 个循环进行一次完整的矩阵相乘计算，如果在一个单发射的 CPU 上执行至少需要 M*K*N 个指令周期才能完成，当矩阵非常庞大时执行过程极为耗时。</p>
+<p>该程序需要用到 3 个循环进行一次完整的矩阵相乘计算，如果在一个单发射的 CPU 上执行至少需要 <span class="math notranslate nohighlight">\(M\times K\times N\)</span> 个指令周期才能完成，当矩阵非常庞大时执行过程极为耗时。</p>
 <p>在 CPU 计算过程中，矩阵 A 是按照行的方式进行扫描，矩阵 B 以列的方式进行扫描。考虑到典型的矩阵存储方式，无论矩阵 A 还是矩阵 B 都会按照行的方式进行存放，也就是所谓的 Row-Major 的方式。而内存读取的方式是具有极强的数据局部性特征的，也就是说当读取内存中某个数的时候会打开内存中相应的一整行并且把同一行中所有的数都读取出来。这种内存的读取方式对矩阵 A 是非常高效的，但是对于矩阵 B 的读取却显得非常不友好，因为代码中矩阵 B 是需要一列一列读取的。为此需要将矩阵 B 的存储方式转成按列存储，也就是所谓的 Column-Major，如下图所示，这样才能够符合内存读取的高效率模式。因此，在矩阵计算中往往通过改变某个矩阵的存储方式来提升矩阵计算的效率。</p>
 <p><img alt="矩阵 B 存储方式" src="../_images/10AscendCube04.png" /></p>
 <p>一般在矩阵较大时，由于芯片上计算和存储资源有限，往往需要对矩阵进行分块平铺处理（Tiling），如下图所示。受限于片上缓存的容量，当一次难以装下整个矩阵 B 时，可以将矩阵 B 划分成为 B0、B1、B2 和 B3 等多个子矩阵。而每一个子矩阵的大小都可以适合一次性存储到芯片上的缓存中并与矩阵 A 进行计算从而得到结果子矩阵。这样做的目的是充分利用数据的局部性原理，尽可能的把缓存中的子矩阵数据重复使用完毕并得到所有相关的子矩阵结果后再读入新的子矩阵开始新的周期。如此往复可以依次将所有的子矩阵都一一搬运到缓存中，并完成整个矩阵计算的全过程，最终得到结果矩阵 C。分块的优点是充分利用了缓存的容量，并最大程度利用了数据计算过程中的局部性特征，可以高效实现大规模的矩阵乘法计算，是一种常见的优化手段。</p>
@@ -770,14 +772,14 @@ document.write(`
 </section>
 <section id="id5">
 <h4>计算方式<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
-<p>在神经网络中实现计算卷积过程，关键的步骤是将卷积运算转化为矩阵运算。在 CPU 中大规模的矩阵计算往往成为性能瓶颈，而矩阵计算在深度学习算法中又极为重要。为了解决这个矛盾， GPU 采用通用矩阵乘法（GEMM）的方法来实现矩阵乘法。例如要实现一个 16*16 矩阵与另一个 16*16 矩阵的乘法，需要安排 256 个并行的线程，并且每一个线程都可以独立计算完成结果矩阵中的一个输出点。假设每一个线程在一个时钟周期内可以完成一次乘加运算，则 GPU 完成整个矩阵计算需要 16 个指令周期，这个延时是 GPU 无法避免的瓶颈。而昇腾 AI 处理器针对这个问题做了深度的优化。因此 AI Core 对矩阵乘法运算的高效性为昇腾 AI 处理器作为神经网络的加速器提供了强大的性能保障。</p>
-<p>达芬奇架构在 AI Core 中特意设计了矩阵计算单元作为昇腾 AI 处理器的核心计算模块，意图高效解决矩阵计算的瓶颈问题。矩阵计算单元提供强大的并行乘加计算能力，使得 AI Core 能够高速处理矩阵计算问题。通过精巧设计的定制电路和极致的后端优化手段，矩阵计算单元可以用一条指令完成两个 16*16 矩阵的相乘运算（标记为 16^3，也是 Cube 这一名称的来历），等同于在极短时间内进行了 16^3=4096 个乘加运算，并且可以实现 FP16 的运算精度。</p>
-<p>如下图所示，矩阵计算单元在完成<strong>A</strong>* <strong>B</strong> =<strong>C</strong> 的矩阵运算时，会事先将矩阵<strong>A</strong>按行存放在输入缓冲区中，同时将矩阵 B 按列存放在输入缓冲区中，通过矩阵计算单元计算后得到的结果矩阵<strong>C</strong>按行存放在输出缓冲区中。在矩阵相乘运算中，如下图 所示，矩阵<strong>C</strong>的第一元素由矩阵 A 的第一行的 16 个元素和矩阵<strong>B</strong>的第一列的 16 个元素由矩阵计算单元子电路进行 16 次乘法和 15 次加法运算得出。矩阵计算单元中共有 256 个矩阵计算子电路组成，可以由一条指令并行完成矩阵<strong>C</strong>的 256 个元素计算。</p>
+<p>在神经网络中实现计算卷积过程，关键的步骤是将卷积运算转化为矩阵运算。在 CPU 中大规模的矩阵计算往往成为性能瓶颈，而矩阵计算在深度学习算法中又极为重要。为了解决这个矛盾， GPU 采用通用矩阵乘法（GEMM）的方法来实现矩阵乘法。例如要实现一个 <span class="math notranslate nohighlight">\(16\times 16\)</span> 矩阵与另一个 <span class="math notranslate nohighlight">\(16\times 16\)</span> 矩阵的乘法，需要安排 256 个并行的线程，并且每一个线程都可以独立计算完成结果矩阵中的一个输出点。假设每一个线程在一个时钟周期内可以完成一次乘加运算，则 GPU 完成整个矩阵计算需要 16 个指令周期，这个延时是 GPU 无法避免的瓶颈。而昇腾 AI 处理器针对这个问题做了深度的优化。因此 AI Core 对矩阵乘法运算的高效性为昇腾 AI 处理器作为神经网络的加速器提供了强大的性能保障。</p>
+<p>达芬奇架构在 AI Core 中特意设计了矩阵计算单元作为昇腾 AI 处理器的核心计算模块，意图高效解决矩阵计算的瓶颈问题。矩阵计算单元提供强大的并行乘加计算能力，使得 AI Core 能够高速处理矩阵计算问题。通过精巧设计的定制电路和极致的后端优化手段，矩阵计算单元可以用一条指令完成两个 <span class="math notranslate nohighlight">\(16\times 16\)</span> 矩阵的相乘运算（标记为 <span class="math notranslate nohighlight">\(16^3\)</span>，也是 Cube 这一名称的来历），等同于在极短时间内进行了 <span class="math notranslate nohighlight">\(16^3=4096\)</span> 个乘加运算，并且可以实现 FP16 的运算精度。</p>
+<p>如下图所示，矩阵计算单元在完成 <span class="math notranslate nohighlight">\(\mathbf{A}\times \mathbf{B} = \mathbf{C}\)</span> 的矩阵运算时，会事先将矩阵 <strong>A</strong> 按行存放在输入缓冲区中，同时将矩阵 <strong>B</strong> 按列存放在输入缓冲区中，通过矩阵计算单元计算后得到的结果矩阵 <strong>C</strong> 按行存放在输出缓冲区中。在矩阵相乘运算中，如下图 所示，矩阵 <strong>C</strong> 的第一元素由矩阵 <strong>A</strong> 的第一行的 16 个元素和矩阵 <strong>B</strong> 的第一列的 16 个元素由矩阵计算单元子电路进行 16 次乘法和 15 次加法运算得出。矩阵计算单元中共有 256 个矩阵计算子电路组成，可以由一条指令并行完成矩阵 <strong>C</strong> 的 256 个元素计算。</p>
 <p><img alt="矩阵计算单元计算示意图" src="../_images/10AscendCube06.png" /></p>
-<p>在有关矩阵的处理上，通常在进行完一次矩阵乘法后还需要和上一次的结果进行累加，以实现类似<strong>C</strong>=<strong>A</strong>*<strong>B</strong>+**C **的运算。矩阵计算单元的设计也考虑到了这种情况，为此专门在矩阵计算单元后面增加了一组累加器单元，可以实现将上一次的中间结果与当前的结果相累加，总共累加的次数可以由软件控制，并在累加完成之后将最终结果写入到输出缓冲区中。在卷积计算过程中，累加器可以完成加偏置的累加计算。</p>
-<p>矩阵计算单元可以快速完成 16<em>16 的矩阵相乘。但当超过 16</em>16 大小的矩阵利用该单元进行计算时，则需要事先按照特定的数据格式进行矩阵的存储，并在计算的过程中以特定的分块方式进行数据的读取。如下图所示，矩阵<strong>A</strong>展示的切割和排序方式称作“大 <strong>Z</strong>小<strong>z</strong>”，直观的看就是矩阵<strong>A <strong>的各个分块之间按照行的顺序排序，称之为“大</strong>Z</strong>”方式；而每个块的内部数据也是按照行的方式排列，称为“小<strong>z</strong>”方式。与之形成对比的是矩阵<strong>B</strong>的各个分块之间按照行排序，而每个块的内部按照列排序，称为“大<strong>Z</strong>小<strong>N</strong>”的排序方式。按照矩阵计算的一般法则，如此排列的<strong>A</strong>、<strong>B</strong>矩阵相乘之后得到的结果矩阵<strong>C</strong>将会呈现出各个分块之间按照列排序，而每个块内部按照行排序的格式，称为“大<strong>N</strong> 小<strong>Z</strong>”的排列方式。</p>
+<p>在有关矩阵的处理上，通常在进行完一次矩阵乘法后还需要和上一次的结果进行累加，以实现类似 <span class="math notranslate nohighlight">\(\mathbf{C} = \mathbf{A}\times \mathbf{B}+ \mathbf{C}\)</span> 的运算。矩阵计算单元的设计也考虑到了这种情况，为此专门在矩阵计算单元后面增加了一组累加器单元，可以实现将上一次的中间结果与当前的结果相累加，总共累加的次数可以由软件控制，并在累加完成之后将最终结果写入到输出缓冲区中。在卷积计算过程中，累加器可以完成加偏置的累加计算。</p>
+<p>矩阵计算单元可以快速完成 <span class="math notranslate nohighlight">\(16\times 16\)</span> 的矩阵相乘。但当超过 <span class="math notranslate nohighlight">\(16\times 16\)</span> 大小的矩阵利用该单元进行计算时，则需要事先按照特定的数据格式进行矩阵的存储，并在计算的过程中以特定的分块方式进行数据的读取。如下图所示，矩阵 <strong>A</strong> 展示的切割和排序方式称作“大 <strong>Z</strong> 小 <strong>z</strong>”，直观的看就是矩阵 <strong>A</strong> 的各个分块之间按照行的顺序排序，称之为“大 <strong>Z</strong>”方式；而每个块的内部数据也是按照行的方式排列，称为“小 <strong>z</strong>”方式。与之形成对比的是矩阵 <strong>B</strong> 的各个分块之间按照行排序，而每个块的内部按照列排序，称为“大 <strong>Z</strong> 小 <strong>N</strong>”的排序方式。按照矩阵计算的一般法则，如此排列的 <strong>A</strong>、<strong>B</strong> 矩阵相乘之后得到的结果矩阵 <strong>C</strong> 将会呈现出各个分块之间按照列排序，而每个块内部按照行排序的格式，称为“大 <strong>N</strong> 小 <strong>Z</strong>”的排列方式。</p>
 <p><img alt="存储格式要求" src="../_images/10AscendCube07.png" /></p>
-<p>在利用矩阵计算单元进行大规模的矩阵运算时，由于矩阵计算单元的容量有限，往往不能一次存放下整个矩阵，所以也需要对矩阵进行分块并采用分步计算的方式，如下图所示，将矩阵<strong>A</strong>和矩阵<strong>B</strong>都等分成同样大小的块，每一块都可以是一个 16*16 的子矩阵，排不满的地方可以通过补零实现。首先求 C1 结果子矩阵，需要分两步计算：第一步将<strong>A1</strong>和<strong>B1</strong>搬移到矩阵计算单元中，并算出<strong>A1</strong>*<strong>B1</strong> 的中间结果；第二步将<strong>A2</strong>和<strong>B2</strong>搬移到矩阵计算单元中，再次计算<strong>A2</strong>*<strong>B2</strong>，并把计算结果累加到上一次<strong>A1</strong>*B1 的中间结果，这样才完成结果子矩阵<strong>C1</strong>的计算，之后将<strong>C1</strong>写入输出缓冲区。由于输出缓冲区容量也有限，所以需要尽快将<strong>C1</strong>子矩阵写入内存中，便于留出空间接受下一个结果子矩阵<strong>C2</strong>。同理依次类推可以完成整个大规模矩阵乘法的运算。</p>
+<p>在利用矩阵计算单元进行大规模的矩阵运算时，由于矩阵计算单元的容量有限，往往不能一次存放下整个矩阵，所以也需要对矩阵进行分块并采用分步计算的方式，如下图所示，将矩阵 <strong>A</strong> 和矩阵 <strong>B</strong> 都等分成同样大小的块，每一块都可以是一个 <span class="math notranslate nohighlight">\(16\times 16\)</span> 的子矩阵，排不满的地方可以通过补零实现。首先求 <span class="math notranslate nohighlight">\(\mathbf{C_1}\)</span> 结果子矩阵，需要分两步计算：第一步将 <span class="math notranslate nohighlight">\(\mathbf{A_1}\)</span> 和 <span class="math notranslate nohighlight">\(\mathbf{B_1}\)</span> 搬移到矩阵计算单元中，并算出 <span class="math notranslate nohighlight">\(\mathbf{A_1} \times \mathbf{B_1}\)</span> 的中间结果；第二步将 <span class="math notranslate nohighlight">\(\mathbf{A_2}\)</span> 和 <span class="math notranslate nohighlight">\(\mathbf{B_2}\)</span> 搬移到矩阵计算单元中，再次计算 <span class="math notranslate nohighlight">\(\mathbf{A_2} \times \mathbf{B_2}\)</span>，并把计算结果累加到上一次 <span class="math notranslate nohighlight">\(\mathbf{A_1} \times \mathbf{B_1}\)</span> 的中间结果，这样才完成结果子矩阵 <span class="math notranslate nohighlight">\(\mathbf{C_1}\)</span> 的计算，之后将 <span class="math notranslate nohighlight">\(\mathbf{C_1}\)</span> 写入输出缓冲区。由于输出缓冲区容量也有限，所以需要尽快将 <span class="math notranslate nohighlight">\(\mathbf{C_1}\)</span> 子矩阵写入内存中，便于留出空间接受下一个结果子矩阵 <span class="math notranslate nohighlight">\(\mathbf{C_2}\)</span>。同理依次类推可以完成整个大规模矩阵乘法的运算。</p>
 <p><img alt="矩阵分块计算" src="../_images/10AscendCube08.png" /></p>
 </section>
 </section>
@@ -807,7 +809,7 @@ document.write(`
 <p>输入数据从总线接口读入后就会经由存储转换单元进行处理。存储转换单元作为 AI Core 内部数据通路的传输控制器，负责 AI Core 内部数据在不同缓冲区之间的读写管理，以及完成一系列的格式转换操作，如补零，Img2Col，转置、解压缩等。存储转换单元还可以控制 AI Core 内部的输入缓冲区，从而实现局部数据的缓存。</p>
 <p>在神经网络计算中，由于输入图像特征数据通道众多且数据量庞大，往往会采用输入缓冲区来暂时保留需要频繁重复使用的数据，以达到节省功耗、提高性能的效果。当输入缓冲区被用来暂存使用率较高的数据时，就不需要每次通过总线接口到 AI Core 的外部读取，从而在减少总线上数据访问频次的同时也降低了总线上产生拥堵的风险。另外，当存储转换单元进行数据的格式转换操作时，会产生巨大的带宽需求，达芬奇架构要求源数据必须被存放于输入缓冲区中，才能够进行格式转换，而输入缓冲控制器负责控制数据流入输入缓冲区中。输入缓冲区的存在有利于将大量用于矩阵计算的数据一次性的被搬移到 AI Core 内部，同时利用固化的硬件极高的提升了数据格式转换的速度，避免了矩阵计算单元的阻塞，消除了由于数据转换过程缓慢而带来的性能瓶颈。</p>
 <p>在神经网络中往往可以把每层计算的中间结果放在输出缓冲区中，从而在进入下一层计算时方便的获取数据。由于通过总线读取数据的带宽低，延迟大，通过充分利用输出缓冲区就可以大大提升计算效率。</p>
-<p>在矩阵计算单元还包含有直接的供数寄存器，提供当前正在进行计算的大小为 16*16 的左、右输入矩阵。在矩阵计算单元之后，累加器也含有结果寄存器，用于缓存当前计算的大小为 16*16 的结果矩阵。在累加器配合下可以不断的累积前次矩阵计算的结果，这在卷积神经网络的计算过程中极为常见。在软件的控制下，当累积的次数达到要求后，结果寄存器中的结果可以被一次性的传输到输出缓冲区中。</p>
+<p>在矩阵计算单元还包含有直接的供数寄存器，提供当前正在进行计算的大小为 <span class="math notranslate nohighlight">\(16\times 16\)</span> 的左、右输入矩阵。在矩阵计算单元之后，累加器也含有结果寄存器，用于缓存当前计算的大小为 <span class="math notranslate nohighlight">\(16\times 16\)</span> 的结果矩阵。在累加器配合下可以不断的累积前次矩阵计算的结果，这在卷积神经网络的计算过程中极为常见。在软件的控制下，当累积的次数达到要求后，结果寄存器中的结果可以被一次性的传输到输出缓冲区中。</p>
 <p>AI Core 中的存储系统为计算单元提供源源不断的数据，高效适配计算单元的强大算力，综合提升了 AI Core 的整体计算性能。与谷歌 TPU 设计中的统一缓冲区设计理念相类似，AI Core 采用了大容量的片上缓冲区设计，通过增大的片上缓存数据量来减少数据从片外存储系统搬运到 AI Core 中的频次，从而可以降低数据搬运过程中所产生的功耗，有效控制了整体计算的能耗。</p>
 <p>达芬奇架构通过存储转换单元中内置的定制电路，在进行数据传输的同时，就可以实现诸如 Img2Col 或者其它类型的格式转化操作，不光是节省了格式转换过程中的消耗，同时也节省了数据转换的指令开销。这种能将数据在传输的同时进行转换的指令称为随路指令。硬件单元对随路指令的支持为程序设计提供了便捷性。</p>
 </section>
@@ -953,7 +955,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 18, 2025.
+  Last updated on May 18, 2025.
   <br/>
 </p>
   </div>

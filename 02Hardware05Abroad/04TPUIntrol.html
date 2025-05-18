@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 18, 2025"/>
 
 <link
   rel="alternate"
@@ -296,7 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="05TPU1.html">谷歌 TPU v1-脉动阵列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06TPU2.html">谷歌 TPUv2 训练芯片</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07TPU3.html">谷歌 TPUv3 POD 形态</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08TPU4.html">谷歌 TPU v4 与光路交换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -749,13 +749,13 @@ document.write(`
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>TPU 比较</p></th>
-<th class="head"><p>TPUv1</p></th>
-<th class="head"><p>TPUv2</p></th>
-<th class="head"><p>TPUv3</p></th>
+<th class="head"><p>TPU v1</p></th>
+<th class="head"><p>TPU v2</p></th>
+<th class="head"><p>TPU v3</p></th>
 <th class="head"><p>Edge TPU v1</p></th>
 <th class="head"><p>Pixel Neural Core</p></th>
-<th class="head"><p>TPUv4i</p></th>
-<th class="head"><p>TPUv4</p></th>
+<th class="head"><p>TPU v4i</p></th>
+<th class="head"><p>TPU v4</p></th>
 <th class="head"><p>谷歌 Tensor</p></th>
 </tr>
 </thead>
@@ -816,7 +816,7 @@ document.write(`
 <td><p>32 GiB HBM</p></td>
 <td><p>-</p></td>
 <td><p>-</p></td>
-<td><p>8GiB DDR</p></td>
+<td><p>8 GiB DDR</p></td>
 <td><p>32 GiB HBM</p></td>
 <td><p>-</p></td>
 </tr>
@@ -882,19 +882,19 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>TPUv1</p></td>
+<tr class="row-even"><td><p>TPU v1</p></td>
 <td><p>2016 年</p></td>
-<td><p>92Tops + 8GB DDR3</p></td>
+<td><p>92 Tops + 8 GB DDR3</p></td>
 <td><p>数据中心推理</p></td>
 </tr>
-<tr class="row-odd"><td><p>TPUv2</p></td>
+<tr class="row-odd"><td><p>TPU v2</p></td>
 <td><p>2017 年</p></td>
-<td><p>180TFlops(浮点计算能力) + 64GB(HBM)</p></td>
+<td><p>180 TFlops(浮点计算能力) + 64 GB(HBM)</p></td>
 <td><p>数据中心训练和推理</p></td>
 </tr>
-<tr class="row-even"><td><p>TPUv3</p></td>
+<tr class="row-even"><td><p>TPU v3</p></td>
 <td><p>2018 年</p></td>
-<td><p>420TFlops + 128GB(HBM)</p></td>
+<td><p>420 TFlops + 128 GB(HBM)</p></td>
 <td><p>数据中心训练和推理</p></td>
 </tr>
 <tr class="row-odd"><td><p>Edge TPU</p></td>
@@ -902,22 +902,22 @@ document.write(`
 <td><p>可处理高吞吐量的稀疏数据</p></td>
 <td><p>IoT 设备</p></td>
 </tr>
-<tr class="row-even"><td><p>TPUv2 Pod</p></td>
+<tr class="row-even"><td><p>TPU v2 Pod</p></td>
 <td><p>2019 年</p></td>
-<td><p>11.5 万亿次运算/秒，4TB ( HBM )</p></td>
+<td><p>11.5 万亿次运算/秒，4 TB ( HBM )</p></td>
 <td><p>数据中心训练和推理</p></td>
 </tr>
-<tr class="row-odd"><td><p>TPUv3 Pod</p></td>
+<tr class="row-odd"><td><p>TPU v3 Pod</p></td>
 <td><p>2019 年</p></td>
-<td><p>&gt;100 万亿次运算/秒，32TB ( HBM )</p></td>
+<td><p>&gt;100 万亿次运算/秒，32 TB ( HBM )</p></td>
 <td><p>数据中心训练和推理</p></td>
 </tr>
-<tr class="row-even"><td><p>TPUv4</p></td>
+<tr class="row-even"><td><p>TPU v4</p></td>
 <td><p>2021 年</p></td>
 <td><p>-</p></td>
 <td><p>数据中心训练和推理</p></td>
 </tr>
-<tr class="row-odd"><td><p>TPUv4 Pod</p></td>
+<tr class="row-odd"><td><p>TPU v4 Pod</p></td>
 <td><p>2022 年</p></td>
 <td><p>-</p></td>
 <td><p>数据中心训练和推理</p></td>
@@ -926,8 +926,7 @@ document.write(`
 </table>
 </div>
 <p>随着时间的推移，谷歌不仅在大型数据中心部署了先进技术，还洞察到将这些技术应用于消费电子产品，尤其是智能手机市场的巨大潜力。于是在 2017 年，谷歌在 Pixel 2 和 Pixel 3 上便搭载了谷歌针对消费类产品的首个定制图像芯片 —— Pixel Visual Core。之后，谷歌基于 Edge TPU 的框架研发了继任芯片 —— Pixel Neural Core，在 2019 年 10 月发布的 Pixel 4 上首次搭载。之后，谷歌在 Pixel 产品线上对于 TPU 的依赖也一直延续到了今天。</p>
-<p>在这个 AI 爆发的大时代，谷歌在移动端的 AI 掷下豪赌，对于最新发布的 Tensor G3，谷歌 Silicon 的高级总监 Monika Gupta 是这样评价的：“我们的合作与 Tensor 一直不仅仅局限于追求速度和性能这样的传统评价标准。目标是推动移动计算体验的进步。</p>
-<p>在最新的 Tensor G3 芯片中，我们对每个关键的系统组件都进行了升级，以便更好地支持设备上的生成式 AI 技术。这包括最新型号的 ARM 中央处理器、性能更强的图形处理器、全新的图像信号处理器和图像数字信号处理器，以及我们最新研发的，专门为运行谷歌的神经网络模型而量身打造的 TPU。”</p>
+<p>在这个 AI 爆发的大时代，谷歌在移动端的 AI 掷下豪赌，对于最新发布的 Tensor G3，谷歌 Silicon 的高级总监 Monika Gupta 是这样评价的：“我们与 Tensor 的合作一直不仅仅局限于追求速度和性能这样的传统评价标准。目标是推动移动计算体验的进步。在最新的 Tensor G3 芯片中，我们对每个关键的系统组件都进行了升级，以便更好地支持设备上的生成式 AI 技术。这包括最新型号的 ARM 中央处理器、性能更强的图形处理器、全新的图像信号处理器和图像数字信号处理器，以及我们最新研发的，专门为运行谷歌的神经网络模型而量身打造的 TPU。”</p>
 <p><img alt="Alt text" src="../_images/04TPUIntro03.png" /></p>
 </section>
 </section>
@@ -975,7 +974,7 @@ document.write(`
 </section>
 <section id="tpu-v2">
 <h3>TPU v2 概览<a class="headerlink" href="#tpu-v2" title="Link to this heading">#</a></h3>
-<p>在 2017 年的五月，谷歌推出了 TPU V2。TPU v2 的设计集成了高带宽的存储解决方案，具有 16GiB 的 HBM，并能够提供最高 600 GB/s 的内存带宽，以及 45 TFLOPS 的浮点运算能力，用于支持更加高效的内存访问、数据操作、和复杂运算。</p>
+<p>在 2017 年的五月，谷歌推出了 TPU V2。TPU v2 的设计集成了高带宽的存储解决方案，具有 16 GiB 的 HBM，并能够提供最高 600 GB/s 的内存带宽，以及 45 TFLOPS 的浮点运算能力，用于支持更加高效的内存访问、数据操作、和复杂运算。</p>
 <p>进一步地，谷歌将四个 TPU v2 排列成了性能为 180 TFLOPS 的四芯片模块，并将这样的 64 个模块组成一个一共有 256 片 TPU v2 集成的 TPU v2 Pod，理论峰值计算量达到了恐怖的 11.5 PFLOPS。</p>
 <p>以下三张图是分别是 TPU v2：</p>
 <p><img alt="Alt text" src="../_images/04TPUIntro09.png" /></p>
@@ -1128,7 +1127,7 @@ v2 芯片互联，从而推出了这个超大的计算集群。</p>
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 18, 2025.
+  Last updated on May 18, 2025.
   <br/>
 </p>
   </div>

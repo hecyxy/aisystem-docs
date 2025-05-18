@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 18, 2025"/>
 
 <link
   rel="alternate"
@@ -294,7 +294,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPU v4 与光路交换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -767,7 +767,7 @@ document.write(`
 <p>在流水并行中，每个节点按顺序处理不同的模型层，微批次在节点间流动，就像在流水线上一样。梯度在所有微批次处理完毕后被平均，然后更新模型参数。</p>
 <p>流水并行性按层“垂直”分割模型。我们还可以“水平”分割层内的某些操作，这通常称为张量并行训练（Tensor Parallel, TP）来进一步提高效率。</p>
 <p>在张量并行中，模型中的大型矩阵乘法操作被分割成更小的部分，这些部分可以在多个计算节点上并行执行。例如，在 Transformer 模型中，矩阵乘法是一个主要的计算瓶颈，通过张量并行，我们可以将权重矩阵分割成更小的块，每个块在不同的节点上并行处理。</p>
-<p>在实践中，模型并行可以包括流水并行和张量并行的组合。一个节点可以负责模型的一部分（模型并行），同时处理不同的微批次（流水并行），并且在这个节点内部，大型的矩阵运算可以进一步在多个处理器间分割（张量并行）。这样的组合可以充分利用分布式计算资源，提高大模型训练的效率。</p>
+<p>在实践中，模型并行可以包括流水并行和张量并行的组合。一个节点可以负责模型的一部分（模型并行），同时处理不同的微批次（流水并行），并且在这个节点内部，大型的矩阵运算可以进一步在多个处理器间分割（张量并行）。以 MoE 模型举例，在 MoE 中大部分都会采取 Experts Parallel 来作为并行方法。一般来讲，Experts Parallel 其实就是 PP 与 TP 的组合：在计算 Attention 的部分使用 PP，在 Experts（FFNs）那里用TP。这样的组合可以充分利用分布式计算资源，提高大模型训练的效率。</p>
 </section>
 <section id="ai">
 <h3>AI 框架分布式<a class="headerlink" href="#ai" title="Link to this heading">#</a></h3>
@@ -959,7 +959,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 18, 2025.
+  Last updated on May 18, 2025.
   <br/>
 </p>
   </div>

@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 18, 2025"/>
 
 <link
   rel="alternate"
@@ -296,7 +296,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">谷歌 TPU v1-脉动阵列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06TPU2.html">谷歌 TPUv2 训练芯片</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07TPU3.html">谷歌 TPUv3 POD 形态</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08TPU4.html">谷歌 TPU v4 与光路交换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -736,15 +736,15 @@ document.write(`
 <p>基于示意图，我们来解析一下 TPU v1 上几个关键的元素：</p>
 <ul class="simple">
 <li><p><strong>DDR3 DRAM / Weight FIFI</strong>: 第一个讲的是谷歌的 Weight FIFO，位于图像的右上角。在模型推理场景，通过 DDR3-2133 接口，模型权重会被存储在 TPU v1 上的 DDR3 RAM 内。这些权重通过 PCIe 从主机计算机的内存中“预加载”到这些芯片上，然后可以传输到芯片的 Weight FIFO 内存中，以便矩阵乘法单元（MXU）使用。</p></li>
-<li><p><strong>矩阵乘法单元 MXU（MMU）</strong>: MXU 以脉动阵列的形式工作，能够提供 <span class="math notranslate nohighlight">\(256 \times 256 \times 8\)</span> bit 的乘加计算，在每个时钟周期输出 256 个 16bit 的部分和计算结果。矩阵单元里面包含一个 64kb 的 Weight Tile 以及一个双缓存单元用于缓存回调。MXU 被谷歌的工程师们描述为“TPU 的心脏”，在本节后面的内容中，我们会更加细致的去剖析这一部分的设计。</p></li>
-<li><p><strong>累加器 Accumulators</strong>: 这是一个能够存储 4MiB 的 32-bit 数据的累加单元，用来存储 MXU 计算后的结果。这 4MiB 代表着 4096 个，每个含 256 个元素的 32 位累加器。为什么是 4096 呢？原因是谷歌的工程师注意到每字节的运算次数需要达到峰值性能大约是 1350，继而将其向上舍入到 2048，然后再翻倍让便编译器在运行至峰值性能时能使用双缓冲，这也就是为什么这个累加器被设计为 4MiB。</p></li>
+<li><p><strong>矩阵乘法单元 MXU（MMU）</strong>: MXU 以脉动阵列的形式工作，能够提供 <span class="math notranslate nohighlight">\(256 \times 256 \times 8\)</span> bit 的乘加计算，在每个时钟周期输出 256 个 16 bit 的部分和计算结果。矩阵单元里面包含一个 64 kb 的 Weight Tile 以及一个双缓存单元用于缓存回调。MXU 被谷歌的工程师们描述为“TPU 的心脏”，在本节后面的内容中，我们会更加细致的去剖析这一部分的设计。</p></li>
+<li><p><strong>累加器 Accumulators</strong>: 这是一个能够存储 4 MiB 的 32-bit 数据的累加单元，用来存储 MXU 计算后的结果。这 4 MiB 代表着 4096 个，每个含 256 个元素的 32 位累加器。为什么是 4096 呢？原因是谷歌的工程师注意到每字节的运算次数需要达到峰值性能大约是 1350，继而将其向上舍入到 2048，然后再翻倍让便编译器在运行至峰值性能时能使用双缓冲，这也就是为什么这个累加器被设计为 4 MiB。</p></li>
 <li><p><strong>控制指令 Control</strong>: 每个芯片都需要一个控制模块，而在 TPU 中，整个控制单元采用了四级流水线设计。控制单元的主要任务是接收通过 PCIE 总线或主机（CPU）传递的指令，并将这些指令执行于 TPU。这些指令源自 CPU，而芯片的指令集为 CISC，共包含 12 条指令。TPU 采用 CISC 而非更简单的 WISC 指令集的原因是，谷歌定义的每条指令的平均执行周期为 10-20 个时钟周期，这使得每条指令相对复杂。特别是，TPU 中的各种单元，如 MXU、UB 和 AU，都定义了一些专门为神经网络设计的高级复杂指令：</p>
 <ul>
-<li><p>Read_Host_Memory: 从 CPU host 读取数据到 Unified Buffer</p></li>
-<li><p>Read_Weight: 从 Weight DRAM 读取数据到 Weight FIFO</p></li>
-<li><p>Matrix_Multiply/Convolve: 执行乘法或卷积运算</p></li>
-<li><p>Activate: 执行 ReLU，Sigmoid 等激活计算</p></li>
-<li><p>Write_Host_Memory: 把计算结果数据从 Unified Buffer 输出到 CPU host</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Read_Host_Memory</span></code>: 从 CPU host 读取数据到 Unified Buffer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Read_Weight</span></code>: 从 Weight DRAM 读取数据到 Weight FIFO</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Matrix_Multiply/Convolve</span></code>: 执行乘法或卷积运算</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Activate</span></code>: 执行 <code class="docutils literal notranslate"><span class="pre">ReLU</span></code>，<code class="docutils literal notranslate"><span class="pre">Sigmoid</span></code> 等激活计算</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Write_Host_Memory:</span></code> 把计算结果数据从 Unified Buffer 输出到 CPU host</p></li>
 </ul>
 </li>
 </ul>
@@ -752,7 +752,7 @@ document.write(`
 </section>
 <section id="id2">
 <h2>TPU v1 芯片布局图<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>通过下图，我们可以看到整个 TPU 属于一个专用的电路，里面最大的两个就是 Local Unified BUffeer 和 MXU，一个用于缓存，一个用于计算加乘计算。由于 TPU 是专门应用于矩阵计算的芯片，继而不需要极度复杂的控制单元，所以我们上文讲到的控制器只用了 2%的面积，给核心功能留下了更多的空间。</p>
+<p>通过下图，我们可以看到整个 TPU 属于一个专用的电路，里面最大的两个就是 Local Unified Buffer 和 MXU，一个用于缓存，一个用于计算加乘计算。由于 TPU 是专门应用于矩阵计算的芯片，继而不需要极度复杂的控制单元，所以我们上文讲到的控制器只用了 2%的面积，给核心功能留下了更多的空间。</p>
 <p><img alt="Alt text" src="../_images/05TPU102.png" /></p>
 </section>
 <section id="systolic-array">
@@ -797,7 +797,7 @@ document.write(`
 <section id="id5">
 <h3>脉动阵列计算延迟<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>当我们讨论脉动阵列和 TPU 的计算延迟时，重要的是要明白如何有效地管理和优化这些延迟，以保持高效的计算流程。在 TPU 中，尤其是当数据需要通过一系列的计算单元进行传递时，每个单元的处理时间会对整体性能产生影响。</p>
-<p>首先，TPU 的设计采用了流水线技术，这是一种典型的硬件加速技术，用于提高计算效率和吞吐量。在流水线操作中，不同的计算阶段被划分成多个小的步骤或级别，每个级别专注于完成特定的任务。TPU 的 CISC 使用了四级流水线来处理指令，其中上文介绍的 Matrix_Multiply，也就是数据在计算单元中被计算的指令，可能需要较长时间才能完成。为了不让这种计算延迟影响整体性能，TPU 利用指令重叠技术来隐藏延迟。也就是说，在一个计算指令还未完成前，已经开始准备或执行下一个计算任务，从而抵消掉计算的延迟。</p>
+<p>首先，TPU 的设计采用了流水线技术，这是一种典型的硬件加速技术，用于提高计算效率和吞吐量。在流水线操作中，不同的计算阶段被划分成多个小的步骤或级别，每个级别专注于完成特定的任务。TPU 的 CISC 使用了四级流水线来处理指令，其中上文介绍的 <code class="docutils literal notranslate"><span class="pre">Matrix_Multiply</span></code>，也就是数据在计算单元中被计算的指令，可能需要较长时间才能完成。为了不让这种计算延迟影响整体性能，TPU 利用指令重叠技术来隐藏延迟。也就是说，在一个计算指令还未完成前，已经开始准备或执行下一个计算任务，从而抵消掉计算的延迟。</p>
 </section>
 <section id="id6">
 <h3>脉动阵列小结<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
@@ -813,7 +813,7 @@ document.write(`
 <p><img alt="Alt text" src="../_images/05TPU115.png" /></p>
 <p>以下是这三个芯片每一个颗粒（Die）的对比，那么在这个环节，TPU 有着以下几个明显的优势：</p>
 <ul class="simple">
-<li><p><strong>计算性能优势</strong>：TPU v1 能够在每秒钟进行 <span class="math notranslate nohighlight">\(2 \times 65535 \times 7 \times 10^6 \approx 9.2 \times 10^{12} \rarr 92 \; TOPS\)</span> 次计算。</p></li>
+<li><p><strong>计算性能优势</strong>：TPU v1 能够在每秒钟进行 <span class="math notranslate nohighlight">\(2 \times 65535 \times 7 \times 10^6 \approx 9.2 \times 10^{12} \rightarrow 92 \; TOPS\)</span> 次计算。</p></li>
 <li><p><strong>片上缓存</strong>：TPU v1 选择做大片上缓存，从而大幅度减少片外访问消耗用来对抗 2015 年附近内存访问速度慢的情况。</p></li>
 <li><p><strong>量化</strong>：虽然模型的训练阶段使用了 FP32 的精度，TPU v1 在推理场景首次引入了 INT8 的量化，最大程度上利用了神经网络的鲁棒性。在大缓存和量化的帮助下，TPU 能够每次放入更大的 batch，从而加强神经网络的推理效率。</p></li>
 </ul>
@@ -936,7 +936,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 18, 2025.
+  Last updated on May 18, 2025.
   <br/>
 </p>
   </div>

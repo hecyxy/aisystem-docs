@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="Apr 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 18, 2025"/>
 
 <link
   rel="alternate"
@@ -294,7 +294,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/05TPU1.html">谷歌 TPU v1-脉动阵列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/06TPU2.html">谷歌 TPUv2 训练芯片</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/07TPU3.html">谷歌 TPUv3 POD 形态</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPUv4 与光路交换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02Hardware05Abroad/08TPU4.html">谷歌 TPU v4 与光路交换</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02Hardware06Domestic/README.html">国内 AI 芯片</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -778,7 +778,7 @@ document.write(`
 <p>值得一提的是，NVLink 的设计也考虑到了 CPU 与 GPU 之间的高带宽通信需求。这一点尤其重要，因为它为异构计算提供了更加紧密和高效的集成方式。虽然基于 x86 架构的 AMD 和 Intel 可能不会直接采用 NVLink，但英伟达与 IBM 的合作展现了 NVLink 技术在非 x86 架构中的巨大潜力。通过在 IBM 的 POWER 微处理器上实现 NVLink，展示了一种全新的、去除 PCIe 瓶颈的通信方式，为高性能计算系统提供了更加高效的数据交换路径。</p>
 <section id="id2">
 <h3>初代 NVLink 结构<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>第一代 NVLink 技术采用了一种精巧的设计，每条 NVLink 是由一对双工双路信道组成，通过巧妙地将 32 条配线组合起来，形成了 8 对不同的配对。这种独特的结构使得每个方向上能够实现高效的数据传输，具体来说，就是通过 2 位双向传输（2bi）乘以 8 对配对（8pair）再乘以 2 条线（2wire），最终形成了 32 条线（32wire）的配置。</p>
+<p>第一代 NVLink 技术采用了一种精巧的设计，每条 NVLink 是由一对双工双路信道组成，通过巧妙地将 32 条配线组合起来，形成了 8 对不同的配对。这种独特的结构使得每个方向上能够实现高效的数据传输，具体来说，就是通过 2 位双向传输（2 bit）乘以 8 对配对（8 pair）再乘以 2 条线（2 wire），最终形成了 32 条线（32 wire）的配置。</p>
 <p><img alt="第一代 NVLink 结构详析" src="../_images/05DeepNvlink06.png" /></p>
 <p>如上图所示，在 P100 GPU 上，英伟达搭载了 4 条这样的 NVLink 通道，每条通道能够提供双向总共 40GB/s 的带宽。这意味着，整个 P100 芯片能够达到惊人的 160GB/s 的总带宽，为数据密集型的应用提供了强大的数据处理能力。</p>
 <p>通过这种技术，不仅解决了传统 PCIe 通信带宽瓶颈的问题，而且还为 GPU 之间以及 GPU 与 CPU 之间的通信提供了一条更快、更高效的数据传输路径。为处理更加复杂的计算任务，构建更加强大的计算系统铺平了道路。</p>
@@ -807,7 +807,7 @@ document.write(`
 <h3>NVLink 互联拓扑<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>为了实现 GPU 间的高效链接和协作计算，就需要基于 NVLink 系统配置和性能成本要求，来合理的配置 GPU 之间的 NVLink 通道的物理布局和连接方式。</p>
 <p><img alt="NVLink 拓扑" src="../_images/05DeepNvlink11.png" /></p>
-<p>初代 DGX-1 通常采用了一种类似于上图的互联形式。不过，IBM 在基于 Power8+微架构的 Power 处理器上引入了 NVLink 1.0 技术，这使得英伟达的 P100 GPU 可以直接通过 NVLink 与 CPU 相连，而无需经过 PCIe 总线。这一举措实现了 GPU 与 CPU 之间的高速、低延迟的直接通信，为深度学习和高性能计算提供了更强大的性能和效率。</p>
+<p>初代 DGX-1 通常采用了一种类似于上图的互联形式。不过，IBM 在基于 Power8+ 微架构的 Power 处理器上引入了 NVLink 1.0 技术，这使得英伟达的 P100 GPU 可以直接通过 NVLink 与 CPU 相连，而无需经过 PCIe 总线。这一举措实现了 GPU 与 CPU 之间的高速、低延迟的直接通信，为深度学习和高性能计算提供了更强大的性能和效率。</p>
 <p>通过与最近的 Power8+ CPU 相连，每个节点的 4 个 GPU 可以配置成一种全连接的 mesh 结构。这种结构使得 GPU 之间可以直接交换数据，并在深度学习和计算密集型任务中实现更高效的数据传输和协作计算。</p>
 <p><img alt="DGX1 NVLink 拓扑" src="../_images/05DeepNvlink12.png" /></p>
 <p>如上图所示，DGX-1 集成了八块 P100 GPU 和两块志强 E5 2698v4 处理器。然而，由于每块 GPU 只有 4 条 NVLink 通道，因此 GPU 形成了一种混合的 cube-mesh 网络拓扑结构。在这种结构中，GPU 被分成两组，每组四块 GPU，并且在组内形成了一个 mesh 结构，在组间形成了一个 cube 结构。</p>
@@ -819,7 +819,7 @@ document.write(`
 <h3>第五代 NVLink<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>在 2024 年的 Blackwell 架构中英伟达继续对其服务器带宽和可扩展性方面进行迭代。</p>
 <p>总体上看，英伟达将 NVLink 的带宽从每 GPU 900GB/s 增加了一倍，达到每 GPU 1800GB/s。与上一代产品相比，这是过去几年来 NVLink 带宽的最大跃升，因为 2022 Hopper 架构的 NVLink 带宽仅比上代提高了 50%。</p>
-<p>值得注意的是，尽管英伟达将 GPU 芯片数量翻倍，互连带宽也翻了一倍，因此每个芯片接收的数据量并没有改变。然而，由于两个芯片需要作为单个处理器一起工作，因此需要传输和重新排列的数据总量显着增加。</p>
+<p>值得注意的是，尽管英伟达将 GPU 芯片数量翻倍，互连带宽也翻了一倍，因此每个芯片接收的数据量并没有改变。然而，由于两个芯片需要作为单个处理器一起工作，因此需要传输和重新排列的数据总量显著增加。</p>
 <p>另一个有趣的方面是，每个 GPU 的 NVLink 数量没有改变，GH100 Hopper 的 NVLink 容量为 18 个链接，Blackwell GPU 的 NVLink 容量也是 18 个链接。因此，NVLink 5 带来的所有带宽增益都来自于链路内每个高速对的 200Gbps 更高信号传输速率。这与前几代 NVLink 的模式是一致的，每次迭代都会使信号传输速率翻倍。</p>
 <p>除此之外，由于 NVLink 4 的链路数量保持不变，本地芯片拓扑选项基本上也保持不变。英伟达的 HGX H100 设计结合了 4 路和 8 路设置，HGX B200/B100 设置也将相同。这并不意味着英伟达没有增加 NVLink 域中 GPU 数量的雄心，但这将在机架级别而不是节点级别实现。</p>
 </section>
@@ -945,7 +945,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 18, 2025.
+  Last updated on May 18, 2025.
   <br/>
 </p>
   </div>
