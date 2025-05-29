@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 29, 2025"/>
 
 <link
   rel="alternate"
@@ -726,7 +726,7 @@ document.write(`
 <li><p><a class="reference internal" href="#./02AICompiler/"><span class="xref myst"><strong>《AI 编译器》</strong></span></a>是本节的概览重点，去了解本节的主要内容 AI 编译器的整体架构，包括他的发展阶段，目前主要的组成模块，整体的技术演进方向等概念性的内容，因为近年来 AI 编译器发展迅猛，可以横向去了解 AI 编译器整体技术。AI 编译器发展时间并不长，从第一代开始到目前进入第二代，AI 编译器整体架构基本上已经清晰，可是也会遇到很多挑战和技术难点。</p></li>
 <li><p><a class="reference internal" href="#./03Frontend/"><span class="xref myst"><strong>《前端优化》</strong></span></a>前端优化作为 AI 编译器的整体架构主要模块，主要优化的对象是计算图，而计算图是通过 AI 框架产生的，值得注意的是并不是所有的 AI 框架都会生成计算图，有了计算图就可以结合深度学习的原理知识进行图的优化。前端优化包括图算融合、数据排布、内存优化等跟深度学习相结合的优化手段，同时把传统编译器关于代数优化的技术引入到计算图中。</p></li>
 <li><p><a class="reference internal" href="#./04Backend/"><span class="xref myst"><strong>《后端优化》</strong></span></a>后端优化作为 AI 编译器跟硬件之间的相连接的模块，更多的是算子或者 Kernel 进行优化，而优化之前需要把计算图转换称为调度树等 IR 格式，AI 编译器为了更好地跟硬件打交道，充分赋能硬件，需要后端优化来支持，于是后端针对调度树或者底层 IR，在每一个算子/Kernel 进行循环优化、指令优化和内存优化等技术。</p></li>
-<li><p>**《多面体技术》**多面体不属于新的技术，反而是传统编译器的一种优化手段，得益于深度学习中的主要特征（循环、张量），因此多面体技术可以发挥更大的作用，对循环展开、内存映射等优化工作。多面体表示技术作为统一化的程序变换表示技术, 可以通过迭代域、仿射调度、访存函数等操作对算子或者 Kernel 进行循环优化和内存映射优化，作为 AI 编译器的前言研究方向。</p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst"><strong>《多面体技术》</strong></span></a>多面体不属于新的技术，反而是传统编译器的一种优化手段，得益于深度学习中的主要特征（循环、张量），因此多面体技术可以发挥更大的作用，对循环展开、内存映射等优化工作。多面体表示技术作为统一化的程序变换表示技术, 可以通过迭代域、仿射调度、访存函数等操作对算子或者 Kernel 进行循环优化和内存映射优化，作为 AI 编译器的前言研究方向。</p></li>
 <li><p><a class="reference internal" href="#./06PyTorch/"><span class="xref myst"><strong>《PyTorch 图模式》</strong></span></a>在充分了解 AI 编译器后，来深度剖析 PyTorch2.0 关于图模式的 Dynamo 是如何实现的，如何对 PyTorch 的后端执行进行加速。本节会以实际的 AI 框架 PyTorch 2.0 为主线，去把其主打特性 Dynamo 和 AOTAutograd 进行展开，并回顾 PyTorch 对图模式的尝试，了解现今最热门的 AI 框架如何进行编译器优化的。</p></li>
 </ul>
 </section>
@@ -839,7 +839,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 18, 2025.
+  Last updated on May 29, 2025.
   <br/>
 </p>
   </div>

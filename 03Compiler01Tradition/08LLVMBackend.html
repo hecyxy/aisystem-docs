@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 29, 2025"/>
 
 <link
   rel="alternate"
@@ -717,7 +717,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">LLVM 编译器全流程</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">基于 LLVM 课程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">基于 LLVM 项目</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">小结与思考</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">本节视频</a></li>
 </ul>
@@ -826,8 +826,8 @@ document.write(`
 <h4>代码输出的实现<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
 <p>在 LLVM 中，Code Emission 由以下组件共同完成：</p>
 <ol class="arabic simple">
-<li><p><strong>指令选择器（Instruction Selector）</strong> 指令选择器负责从 LLVM IR 中选择合适的目标机器指令。LLVM 使用多种指令选择算法，包括基于树模式匹配的<code class="docutils literal notranslate"><span class="pre">SelectionDAG</span></code>和基于表格驱动的<code class="docutils literal notranslate"><span class="pre">GlobalISel</span></code>。指令选择器将中间表示转化为机器指令的中间表示。</p></li>
-<li><p><strong>指令调度器（Instruction Scheduler）</strong> 指令调度器优化指令的执行顺序，以减少依赖关系和提高指令级并行性。LLVM 的调度器包括<code class="docutils literal notranslate"><span class="pre">SelectionDAG</span></code>调度器和机器码层的调度器，后者在目标机器码生成前优化指令序列。</p></li>
+<li><p><strong>指令选择器（Instruction Selector）</strong> 指令选择器负责从 LLVM IR 中选择合适的目标机器指令。LLVM 使用多种指令选择算法，包括基于树模式匹配的 <code class="docutils literal notranslate"><span class="pre">SelectionDAG</span></code> 和基于表格驱动的 <code class="docutils literal notranslate"><span class="pre">GlobalISel</span></code>。指令选择器将中间表示转化为机器指令的中间表示。</p></li>
+<li><p><strong>指令调度器（Instruction Scheduler）</strong> 指令调度器优化指令的执行顺序，以减少依赖关系和提高指令级并行性。LLVM 的调度器包括 <code class="docutils literal notranslate"><span class="pre">SelectionDAG</span></code> 调度器和机器码层的调度器，后者在目标机器码生成前优化指令序列。</p></li>
 <li><p><strong>寄存器分配器（Register Allocator）</strong> 寄存器分配器负责将虚拟寄存器映射到物理寄存器。LLVM 提供了多种寄存器分配算法，包括线性扫描分配器和基于图着色的分配器。寄存器分配器的目标是最小化寄存器溢出和寄存器间的冲突。</p></li>
 <li><p><strong>汇编生成器（Assembly Generator）</strong> 汇编生成器将优化后的机器指令转化为汇编代码。LLVM 的汇编生成器支持多种目标架构，生成的汇编代码可以通过汇编器转化为目标机器码。</p></li>
 <li><p><strong>机器代码生成器（Machine Code Generator）</strong> 机器代码生成器将汇编代码转化为最终的二进制机器代码。LLVM 的机器代码生成器直接生成目标文件或内存中的可执行代码，支持多种目标文件格式和平台。</p></li>
@@ -871,7 +871,7 @@ document.write(`
 <p>在编译器的每个模块和 Pass 均可通过 Pass manager 进行管理，可以动态添加、删除或调整 Pass 来优化编译过程中的各个阶段。</p>
 </section>
 <section id="id11">
-<h2>基于 LLVM 课程<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<h2>基于 LLVM 项目<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Modular</p></li>
 </ol>
@@ -882,22 +882,22 @@ document.write(`
 </ol>
 <p>在其计算中，Julia 使用 LLVM JIT 编译。LLVM JIT 编译器通常不断地分析正在执行的代码，并且识别代码的一部分，使得从编译中获得的性能加速超过编译该代码的性能开销。</p>
 <p><img alt="Pipeline" src="../_images/08LLVMBackend04.png" /></p>
-<ol class="arabic simple" start="2">
+<ol class="arabic simple" start="3">
 <li><p>XLA：优化机器学习编译器</p></li>
 </ol>
 <p>XLA(加速线性代数)是谷歌推出的一种针对特定领域的线性代数编译器，能够加快 TensorFlow 模型的运行速度，而且可能完全不需要更改源代码。</p>
 <p>TensorFlow 中大部分代码和算子都是通过 XLA 编译的，XLA 的底层就是 LLVM，所以 XLA 可以利用到 LLVM 的很多特性，比如优化、代码生成、并行计算等。</p>
-<ol class="arabic simple" start="3">
+<ol class="arabic simple" start="4">
 <li><p>JAX：高性能的数值计算库</p></li>
 </ol>
 <p>JAX 是 Autograd 和 XLA 的结合，JAX 本身不是一个深度学习的框架，他是一个高性能的数值计算库，更是结合了可组合的函数转换库，用于高性能机器学习研究。</p>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple" start="5">
 <li><p>TensorFlow：机器学习平台</p></li>
 </ol>
 <p>TensorFlow 是一个端到端开源机器学习平台。它拥有一个全面而灵活的生态系统，其中包含各种工具、库和社区资源，可助力研究人员推动先进机器学习技术。</p>
 <p>TensorFlow 可以更好的应用于工业生产环境，因为它可以利用到硬件加速器，并提供可靠的性能。</p>
 <p><img alt="Pipeline" src="../_images/08LLVMBackend05.png" /></p>
-<ol class="arabic simple" start="5">
+<ol class="arabic simple" start="6">
 <li><p>TVM 到端深度学习编译器</p></li>
 </ol>
 <p>为了使得各种硬件后端的计算图层级和算子层级优化成为可能，TVM 从现有框架中取得 DL 程序的高层级表示，并产生多硬件平台后端上低层级的优化代码，其目标是展示与人工调优的竞争力。</p>
@@ -910,7 +910,7 @@ document.write(`
 <li><p>生成过程包括指令选择、寄存器分配、指令调度、代码输出等步骤，可被不同后端实现。</p></li>
 <li><p>LLVM 后端的可扩展性支持新硬件架构和指令集发展，推动编译器技术和工具链进步。</p></li>
 <li><p>前端和优化层提供统一的编译器前端，实现跨平台开发和优化。</p></li>
-<li><p>基于 LLVM 的课程有 Modular、XLA、JAX、TensorFlow、TVM、Julia 等。</p></li>
+<li><p>基于 LLVM 的项目有 Modular、XLA、JAX、TensorFlow、TVM、Julia 等。</p></li>
 </ul>
 </section>
 <section id="id13">
@@ -1006,7 +1006,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">LLVM 编译器全流程</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">基于 LLVM 课程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">基于 LLVM 项目</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">小结与思考</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">本节视频</a></li>
 </ul>
@@ -1031,7 +1031,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 18, 2025.
+  Last updated on May 29, 2025.
   <br/>
 </p>
   </div>

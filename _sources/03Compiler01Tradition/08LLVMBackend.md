@@ -118,9 +118,9 @@ Code Emission（代码生成）是 LLVM 后端的重要阶段，其目标是将�
 
 在 LLVM 中，Code Emission 由以下组件共同完成：
 
-1. **指令选择器（Instruction Selector）** 指令选择器负责从 LLVM IR 中选择合适的目标机器指令。LLVM 使用多种指令选择算法，包括基于树模式匹配的`SelectionDAG`和基于表格驱动的`GlobalISel`。指令选择器将中间表示转化为机器指令的中间表示。
+1. **指令选择器（Instruction Selector）** 指令选择器负责从 LLVM IR 中选择合适的目标机器指令。LLVM 使用多种指令选择算法，包括基于树模式匹配的 `SelectionDAG` 和基于表格驱动的 `GlobalISel`。指令选择器将中间表示转化为机器指令的中间表示。
     
-2. **指令调度器（Instruction Scheduler）** 指令调度器优化指令的执行顺序，以减少依赖关系和提高指令级并行性。LLVM 的调度器包括`SelectionDAG`调度器和机器码层的调度器，后者在目标机器码生成前优化指令序列。
+2. **指令调度器（Instruction Scheduler）** 指令调度器优化指令的执行顺序，以减少依赖关系和提高指令级并行性。LLVM 的调度器包括 `SelectionDAG` 调度器和机器码层的调度器，后者在目标机器码生成前优化指令序列。
     
 3. **寄存器分配器（Register Allocator）** 寄存器分配器负责将虚拟寄存器映射到物理寄存器。LLVM 提供了多种寄存器分配算法，包括线性扫描分配器和基于图着色的分配器。寄存器分配器的目标是最小化寄存器溢出和寄存器间的冲突。
     
@@ -170,7 +170,7 @@ Pass 管理：
 
 在编译器的每个模块和 Pass 均可通过 Pass manager 进行管理，可以动态添加、删除或调整 Pass 来优化编译过程中的各个阶段。
 
-## 基于 LLVM 课程
+## 基于 LLVM 项目
 
 1. Modular
 
@@ -184,17 +184,17 @@ Youtube 上 LLVM 之父 Chris Lattner：编译器的黄金时代
 
 ![Pipeline](../images/03Compiler01Tradition/08LLVMBackend04.png)
 
-2. XLA：优化机器学习编译器
+3. XLA：优化机器学习编译器
 
 XLA(加速线性代数)是谷歌推出的一种针对特定领域的线性代数编译器，能够加快 TensorFlow 模型的运行速度，而且可能完全不需要更改源代码。
 
 TensorFlow 中大部分代码和算子都是通过 XLA 编译的，XLA 的底层就是 LLVM，所以 XLA 可以利用到 LLVM 的很多特性，比如优化、代码生成、并行计算等。
 
-3. JAX：高性能的数值计算库
+4. JAX：高性能的数值计算库
 
 JAX 是 Autograd 和 XLA 的结合，JAX 本身不是一个深度学习的框架，他是一个高性能的数值计算库，更是结合了可组合的函数转换库，用于高性能机器学习研究。
 
-4. TensorFlow：机器学习平台
+5. TensorFlow：机器学习平台
 
 TensorFlow 是一个端到端开源机器学习平台。它拥有一个全面而灵活的生态系统，其中包含各种工具、库和社区资源，可助力研究人员推动先进机器学习技术。
 
@@ -202,7 +202,7 @@ TensorFlow 可以更好的应用于工业生产环境，因为它可以利用到
 
 ![Pipeline](../images/03Compiler01Tradition/08LLVMBackend05.png)
 
-5. TVM 到端深度学习编译器
+6. TVM 到端深度学习编译器
 
 为了使得各种硬件后端的计算图层级和算子层级优化成为可能，TVM 从现有框架中取得 DL 程序的高层级表示，并产生多硬件平台后端上低层级的优化代码，其目标是展示与人工调优的竞争力。
 
@@ -214,7 +214,7 @@ TensorFlow 可以更好的应用于工业生产环境，因为它可以利用到
 - 生成过程包括指令选择、寄存器分配、指令调度、代码输出等步骤，可被不同后端实现。
 - LLVM 后端的可扩展性支持新硬件架构和指令集发展，推动编译器技术和工具链进步。
 - 前端和优化层提供统一的编译器前端，实现跨平台开发和优化。
-- 基于 LLVM 的课程有 Modular、XLA、JAX、TensorFlow、TVM、Julia 等。
+- 基于 LLVM 的项目有 Modular、XLA、JAX、TensorFlow、TVM、Julia 等。
 
 ## 本节视频
 

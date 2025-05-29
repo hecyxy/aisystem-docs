@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 29, 2025"/>
 
 <link
   rel="alternate"
@@ -874,7 +874,7 @@ document.write(`
 </section>
 <section id="id3">
 <h3>语义分析<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>语法分析（Semantic Analyze）主要关注代码结构是否符合语法规则，而语义分析则负责确保代码的含义和逻辑正确。在语义分析阶段，编译器会检查变量的类型是否匹配、函数调用是否正确、表达式是否合理等，以确保代码在运行时不会出现逻辑错误。</p>
+<p>语法分析（Syntactic Analyze）主要关注代码结构是否符合语法规则，而语义分析（Semantic Analyze）则负责确保代码的含义和逻辑正确。在语义分析阶段，编译器会检查变量的类型是否匹配、函数调用是否正确、表达式是否合理等，以确保代码在运行时不会出现逻辑错误。</p>
 <p>语义分析借助符号表来检验代码是否符合语言类型系统。符号表存储标识符和其对应的类型之间的映射，以及其他必要信息。一种直观的类型检查方法是在解析阶段之后，遍历抽象语法树（AST），同时从符号表中获取关于类型的信息。</p>
 <p>语义分析报错案例：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -921,7 +921,7 @@ hello.c:5:5:<span class="w"> </span>note:<span class="w"> </span>previous<span c
 </ul>
 <p>分析 Pass 用于收集信息和了解程序的行为，而转换 Pass 则用于修改程序以实现优化或修改功能。在 LLVM 中，这两种 Pass 通常结合使用，以实现对程序进行全面优化和改进。</p>
 <p>优化过程需要执行以下代码：</p>
-<p>首先我们需要生成 hello.bc 文件：</p>
+<p>首先我们需要生成 <code class="docutils literal notranslate"><span class="pre">hello.bc</span></code> 文件：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clang<span class="w"> </span>-emit-llvm<span class="w"> </span>-c<span class="w"> </span>hello.c<span class="w"> </span>-o<span class="w"> </span>hello.bc
 </pre></div>
 </div>
@@ -929,7 +929,7 @@ hello.c:5:5:<span class="w"> </span>note:<span class="w"> </span>previous<span c
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>opt<span class="w"> </span>-passes<span class="o">=</span><span class="s1">&#39;instcount,adce,mdgc&#39;</span><span class="w"> </span>-o<span class="w"> </span>hello-tmp.bc<span class="w"> </span>hello.bc<span class="w"> </span>-stats
 </pre></div>
 </div>
-<p>就可以生成 hello-tmp.bc 文件，其中包含了优化后的 IR。</p>
+<p>就可以生成 <code class="docutils literal notranslate"><span class="pre">hello-tmp.bc</span></code> 文件，其中包含了优化后的 IR。</p>
 <p>在上述过程中有很多不同阶段的 pass。</p>
 <ul class="simple">
 <li><p>以 adce(Aggressive Dead Code Elimination)为例：adce 是 Analysis Pass 类似死代码消除(Dead Code Elimination)，它会分析代码中是否存在冗余的计算，如果存在，则将冗余的计算消除掉。</p></li>
@@ -1083,7 +1083,7 @@ hello.c:5:5:<span class="w"> </span>note:<span class="w"> </span>previous<span c
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 18, 2025.
+  Last updated on May 29, 2025.
   <br/>
 </p>
   </div>

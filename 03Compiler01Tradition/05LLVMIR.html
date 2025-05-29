@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 29, 2025"/>
 
 <link
   rel="alternate"
@@ -870,7 +870,7 @@ document.write(`
 <li><p>然后加载 %3 和 %4 的值，进行加法操作，并将结果存储至 %5 中</p></li>
 <li><p>最后，程序返回整数值 0</p></li>
 </ol>
-<p>LLVM IR 的代码和 C 语言编译生成的代码在功能实现上具有完全相同的特性。.ll 文件作为 LLVM IR 的一种中间语言，可以通过 LLVM 编译器将其转换为机器码，从而实现计算机程序的执行。</p>
+<p>LLVM IR 的代码和 C 语言编译生成的代码在功能实现上具有完全相同的特性。<code class="docutils literal notranslate"><span class="pre">.ll</span></code> 文件作为 LLVM IR 的一种中间语言，可以通过 LLVM 编译器将其转换为机器码，从而实现计算机程序的执行。</p>
 </section>
 <section id="id5">
 <h3>基本语法<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
@@ -891,7 +891,7 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>在经过编译后的 .ll 文件的内容如下所示：</p>
+<p>在经过编译后的 <code class="docutils literal notranslate"><span class="pre">.ll</span></code> 文件的内容如下所示：</p>
 <div class="highlight-llvm notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="vg">@main</span><span class="p">()</span><span class="w"> </span><span class="vg">#0</span><span class="w"> </span><span class="p">{</span>
 <span class="nl">entry:</span>
 <span class="w">  </span><span class="nv">%retval</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">alloca</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">4</span>
@@ -917,8 +917,8 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">icmp</span></code> 指令是根据比较规则，比较两个操作数，将比较的结果以布尔值或者布尔值向量返回，且对于操作数的限定是操作数为整数或整数值向量、指针或指针向量。其中，eq 是比较规则，%rem 和 0 是操作数，i32 是操作数类型，比较 %rem 与 0 的值是否相等，将比较的结果存放到 %cmp 中。</p>
-<p><code class="docutils literal notranslate"><span class="pre">br</span></code> 指令有两种形式，分别对应于条件分支和无条件分支。该指令的条件分支在形式上接受一个“i1”值和两个“label”值，用于将控制流传输到当前函数中的不同基本块，上面这条指令是条件分支，类似于 c 中的三目条件运算符 <code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">expression</span> <span class="pre">？Statement：statement&gt;</span></code>；无条件分支的话就是不用判断，直接跳转到指定的分支，类似于 c 中 goto ，比如说这个就是无条件分支 br label %return。<code class="docutils literal notranslate"><span class="pre">br</span> <span class="pre">i1</span> <span class="pre">%cmp,</span> <span class="pre">label</span> <span class="pre">%if.then,</span> <span class="pre">label</span> <span class="pre">%if.else</span></code> 指令的意思是，i1 类型的变量 %cmp 的值如果为真，执行 <code class="docutils literal notranslate"><span class="pre">if.then</span></code> 否则执行 <code class="docutils literal notranslate"><span class="pre">if.else</span></code>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">icmp</span></code> 指令是根据比较规则，比较两个操作数，将比较的结果以布尔值或者布尔值向量返回，且对于操作数的限定是操作数为整数或整数值向量、指针或指针向量。其中，<code class="docutils literal notranslate"><span class="pre">eq</span></code> 是比较规则，<code class="docutils literal notranslate"><span class="pre">%rem</span></code> 和 <code class="docutils literal notranslate"><span class="pre">0</span></code> 是操作数，<code class="docutils literal notranslate"><span class="pre">i32</span></code> 是操作数类型，比较 <code class="docutils literal notranslate"><span class="pre">%rem</span></code> 与 <code class="docutils literal notranslate"><span class="pre">0</span></code> 的值是否相等，将比较的结果存放到 <code class="docutils literal notranslate"><span class="pre">%cmp</span></code> 中。</p>
+<p><code class="docutils literal notranslate"><span class="pre">br</span></code> 指令有两种形式，分别对应于条件分支和无条件分支。该指令的条件分支在形式上接受一个“i1”值和两个“label”值，用于将控制流传输到当前函数中的不同基本块，上面这条指令是条件分支，类似于 c 中的三目条件运算符 <code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">expression</span> <span class="pre">？Statement：statement&gt;</span></code>；无条件分支的话就是不用判断，直接跳转到指定的分支，类似于 c 中 goto ，比如说这个就是无条件分支 <code class="docutils literal notranslate"><span class="pre">br</span> <span class="pre">label</span> <span class="pre">%return</span></code>。<code class="docutils literal notranslate"><span class="pre">br</span> <span class="pre">i1</span> <span class="pre">%cmp,</span> <span class="pre">label</span> <span class="pre">%if.then,</span> <span class="pre">label</span> <span class="pre">%if.else</span></code> 指令的意思是，i1 类型的变量 %cmp 的值如果为真，执行 <code class="docutils literal notranslate"><span class="pre">if.then</span></code> 否则执行 <code class="docutils literal notranslate"><span class="pre">if.else</span></code>。</p>
 <ol class="arabic simple" start="2">
 <li><p>循环体</p></li>
 </ol>
@@ -937,7 +937,7 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>在经过编译后的 .ll 文件的内容如下所示：</p>
+<p>在经过编译后的 <code class="docutils literal notranslate"><span class="pre">.ll</span></code> 文件的内容如下所示：</p>
 <div class="highlight-llvm notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="vg">@main</span><span class="p">()</span><span class="w"> </span><span class="vg">#0</span><span class="w"> </span><span class="p">{</span>
 <span class="nl">entry:</span>
 <span class="w">  </span><span class="nv">%retval</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">alloca</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">4</span>
@@ -984,7 +984,7 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>在经过编译后的 .ll 文件的内容如下所示：</p>
+<p>在经过编译后的 <code class="docutils literal notranslate"><span class="pre">.ll</span></code> 文件的内容如下所示：</p>
 <div class="highlight-llvm notranslate"><div class="highlight"><pre><span></span><span class="vg">@.str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">unnamed_addr</span><span class="w"> </span><span class="k">constant</span><span class="w"> </span><span class="p">[</span><span class="m">16</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="k">c</span><span class="s">&quot;i\E7\9A\84\E5\80\BC\E4\B8\BA\EF\BC\9A%d\00&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">1</span>
 <span class="vg">@.str.1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">unnamed_addr</span><span class="w"> </span><span class="k">constant</span><span class="w"> </span><span class="p">[</span><span class="m">18</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="k">c</span><span class="s">&quot;*pi\E7\9A\84\E5\80\BC\E4\B8\BA\EF\BC\9A%d\00&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">1</span>
 <span class="vg">@.str.2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">unnamed_addr</span><span class="w"> </span><span class="k">constant</span><span class="w"> </span><span class="p">[</span><span class="m">23</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="k">c</span><span class="s">&quot;&amp;i\E7\9A\84\E5\9C\B0\E5\9D\80\E5\80\BC\E4\B8\BA\EF\BC\9A%p\00&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">1</span>
@@ -1011,7 +1011,7 @@ document.write(`
 <span class="k">declare</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="vg">@printf</span><span class="p">(</span><span class="kt">i8</span><span class="p">*,</span><span class="w"> </span><span class="p">...)</span>
 </pre></div>
 </div>
-<p>对指针的操作就是指针的指针，开辟一块指针类型的内存，里面放个指针`%pi = alloca i32*, align 8</p>
+<p>对指针的操作就是指针的指针，开辟一块指针类型的内存，里面放个指针 <code class="docutils literal notranslate"><span class="pre">%pi</span> <span class="pre">=</span> <span class="pre">alloca</span> <span class="pre">i32*,</span> <span class="pre">align</span> <span class="pre">8</span></code>。</p>
 </section>
 </section>
 <section id="id6">
@@ -1132,7 +1132,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 18, 2025.
+  Last updated on May 29, 2025.
   <br/>
 </p>
   </div>

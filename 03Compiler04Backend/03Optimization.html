@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 29, 2025"/>
 
 <link
   rel="alternate"
@@ -941,7 +941,7 @@ document.write(`
 <li><p>Layout 抽象：Layout 抽象描述的是计算资源和输入、输出元素的坐标映射关系，主要包括块编码、共享内存编码、切片编码等几类定义，这些编码信息会作为 attribute 附着在一个一个的 Tensor 对象上，来描述这个 Tensor 作为输入或输出时所需满足的映射关系。如果出现一个 Tensor 作为输入和输出时的映射关系不兼容的情况，会再通过插入一些中转 layout 来完成兼容性的适配，代价是可能引入额外的转换开销。</p></li>
 <li><p>优化 Pass：主要包括了英伟达 GPU 计算 kernel 优化的一些常见技巧，包括用于辅助向量化访存的<a class="reference external" href="https://link.zhihu.com/?target=https%3A//github.com/openai/triton/blob/main/lib/Dialect/TritonGPU/Transforms/Coalesce.cpp">coalescing</a>、用于缓解计算访存差异的<a class="reference external" href="https://link.zhihu.com/?target=https%3A//github.com/openai/triton/blob/main/lib/Dialect/TritonGPU/Transforms/Pipeline.cpp">pipeline</a>/<a class="reference external" href="https://link.zhihu.com/?target=https%3A//github.com/openai/triton/blob/main/lib/Dialect/TritonGPU/Transforms/Prefetch.cpp">prefetch</a>，用于避免 shared memory 访问 bank-conflict 的<a class="reference external" href="https://link.zhihu.com/?target=https%3A//github.com/openai/triton/blob/main/include/triton/Dialect/TritonGPU/IR/TritonGPUAttrDefs.td%23L47">swizzling</a>。用户在开发 Kernel 时，主要关注其业务逻辑，而底层硬件优化的细节由 Trition 编译器实现。对于一些十分精细的优化，使用 Triton 可能就无法实现。</p></li>
 </ul>
-<p>在应用场景上，Triton 已经被集成进了多个著名的课程中：</p>
+<p>在应用场景上，Triton 已经被集成进了多个著名的项目中：</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/jax-ml/jax-triton">jax-ml/jax-triton</a>：JAX 是一个用于加速数值计算的 Python 库，使用 Triton 编写可以嵌入到 JAX 程序中的自定义 GPU 内核。在 JAX 中可以使用 triton_call 方便的调用 Triton kernel。</p></li>
 <li><p><a class="reference external" href="https://github.com/pytorch/pytorch/tree/ab148da66cb9433effac90c7bd4930a961481d9/torch/_inductor/triton_ops">PyTorch/inductor</a>：Inductor 在 Triton 的集成方面做得更加全面且务实。Inductor 一共包含三种使用 Triton 的方式，针对非计算密集算子，基于 Inductor IR，实现了相对通用的<a class="reference external" href="https://link.zhihu.com/?target=https%3A//github.com/pytorch/pytorch/blob/ab148da66cb9433effac90c7bd4930a961481d19/torch/_inductor/codegen/triton.py%23L997">Codegen</a>的支持。针对 GEMM，基于 Jinja2，通过模式匹配的方式实现了<a class="reference external" href="https://link.zhihu.com/?target=https%3A//github.com/pytorch/pytorch/blob/ab148da66cb9433effac90c7bd4930a961481d19/torch/_inductor/kernel/mm.py%23L27">半定制的 codegen</a>。针对 Conv，调用<a class="reference external" href="https://link.zhihu.com/?target=https%3A//github.com/pytorch/pytorch/blob/ab148da66cb9433effac90c7bd4930a961481d19/torch/_inductor/triton_ops/conv.py%23L14">pre-baked Triton kernel</a>，没有提供定制能力。</p></li>
@@ -1108,7 +1108,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 18, 2025.
+  Last updated on May 29, 2025.
   <br/>
 </p>
   </div>

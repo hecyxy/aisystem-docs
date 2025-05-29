@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 29, 2025"/>
 
 <link
   rel="alternate"
@@ -707,13 +707,14 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">循环优化</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">循环分块</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">循环重排</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">循环融合</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">循环拆分</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">循环展开</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">循环重排</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">循环融合</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">循环拆分</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">本节视频</a></li>
 </ul>
             </nav>
         </div>
@@ -786,40 +787,33 @@ document.write(`
 </pre></div>
 </div>
 <p>当 T 个 B 中的元素可以放进 Cache 中时，在 i 层循环即使 i 切换了，但是 B 此时数据还在 Cache 中，只有 j_o 循环变换时，B 中的数据才会发生 Cache miss，对于 B 来说 Cache miss 为 m/T * T/b = m/b。但是对于 A 来说，Cache miss 变为了 m/T * n/b = nm / Tb，反而增加了。那么再对 i 层循环进行 tile，最终变为了:</p>
-<p>```python`
-for i_o in range(0, n, W):
-for j_o in range(0, m, T):
-for i_i in range(i_o, min(i_o + W, n)):
-for j_i in range(j_o, min(j_o + T, m)):
-A[i_i] += B[j_i]</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-假设 W 个 A 中的元素也能一次性放入 Cache。B 的 Cache miss 没变，A 的 Cache miss 变为 n/W  \* W/b = n/b。
-
-从公式上推导，似乎只要 T 和 W 满足了能放进 Cache 的数量，那么 Cache miss 与 T、W 就无关，不同 T、W 的性能应该是一样的，但实际运行并不是这样的。tile 大小的选择受到 Cache line 大小、Cache 关联度、数据替换策略、硬件存储架构等多个因素的共同影响，分块过大时数据尚未充分利用 Cache 的重用就被替换出去从而导致 miss，而分块过小又会造成较大的成本开销从而掩盖带来的性能优势。tile 大小的选择目前还没有一个确定的算法，目前流行的方法有基于分析的方法、基于经验搜索的算法等。
-
-- 基于分析的方法：早期有研究者对嵌套循环和硬件存储特征进行静态分析，为编译器选择合适的分块大小。这类方法主要用来解决容量失效、自干扰失效、交叉干扰失效导致的 Cache 不命中和局部性优化问题。这类方法在实际使用时存在一定缺陷：1）理论分析不能完全反应实际存储的复杂过程，影响程序分块性能的因素很多，导致实际最优分块的性能和分析方法选择的分块性能差距较大；2）分析建模过程复杂，成本较高，对硬件和程序布局依赖严重，不具有通用性。
-
-- 基于经验搜索的方法：将循环嵌套看做是一个黑盒，根据经验选择一系列不同分块大小的组合，在目标机器上对这些分块组合进行自动调优，并从较好的分块大小组合中选取性能最优的分块大小。这类方法的缺陷是对多层循环进行分块时，要遍历庞大的搜索空间，导致时间成本过高。
-
-### 循环展开
-
-循环展开（Loop Unrolling）将一个循环中的多次迭代展开成多个单独的迭代，以减少程序执行的开销，提高代码的运行效率。在计算机执行程序的流水线中，每次跳转到循环体内部都需要进行额外的指令处理和跳转操作，这会增加程序的开销。而循环展开可以通过减少跳转次数、减少指令处理次数等方式，降低指令分支预测的开销来优化程序性能，提高程序执行的速度。
-
-通常循环展开包含以下几个步骤：
-
-1. 复制循环体 n 次，使展开后循环体包括原来循环体 n 个拷贝。这里的 n 一般被称为展开因子
-
-2. 调整数组索引变量的增量以及内存读写操作的地址
-
-3. 删除除了最后一个循环体外的所有循环体中的循环计数变量的增加操作，并且修改最后一个循环体中循环计数变量的增量为原来的 n 倍
-
-4. 删除除了最后一个循环体外的所有循环中的循环条件判断语句
-
-例如原始循环：
-
-```python
-for i in range(m):
-    a[i] += b[i]
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i_o</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">W</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j_o</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i_o</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">i_o</span> <span class="o">+</span> <span class="n">W</span><span class="p">,</span> <span class="n">n</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">j_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j_o</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">j_o</span> <span class="o">+</span> <span class="n">T</span><span class="p">,</span> <span class="n">m</span><span class="p">)):</span>
+                <span class="n">A</span><span class="p">[</span><span class="n">i_i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">B</span><span class="p">[</span><span class="n">j_i</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>假设 W 个 A 中的元素也能一次性放入 Cache。B 的 Cache miss 没变，A 的 Cache miss 变为 n/W  * W/b = n/b。</p>
+<p>从公式上推导，似乎只要 T 和 W 满足了能放进 Cache 的数量，那么 Cache miss 与 T、W 就无关，不同 T、W 的性能应该是一样的，但实际运行并不是这样的。tile 大小的选择受到 Cache line 大小、Cache 关联度、数据替换策略、硬件存储架构等多个因素的共同影响，分块过大时数据尚未充分利用 Cache 的重用就被替换出去从而导致 miss，而分块过小又会造成较大的成本开销从而掩盖带来的性能优势。tile 大小的选择目前还没有一个确定的算法，目前流行的方法有基于分析的方法、基于经验搜索的算法等。</p>
+<ul class="simple">
+<li><p>基于分析的方法：早期有研究者对嵌套循环和硬件存储特征进行静态分析，为编译器选择合适的分块大小。这类方法主要用来解决容量失效、自干扰失效、交叉干扰失效导致的 Cache 不命中和局部性优化问题。这类方法在实际使用时存在一定缺陷：1）理论分析不能完全反应实际存储的复杂过程，影响程序分块性能的因素很多，导致实际最优分块的性能和分析方法选择的分块性能差距较大；2）分析建模过程复杂，成本较高，对硬件和程序布局依赖严重，不具有通用性。</p></li>
+<li><p>基于经验搜索的方法：将循环嵌套看做是一个黑盒，根据经验选择一系列不同分块大小的组合，在目标机器上对这些分块组合进行自动调优，并从较好的分块大小组合中选取性能最优的分块大小。这类方法的缺陷是对多层循环进行分块时，要遍历庞大的搜索空间，导致时间成本过高。</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>循环展开<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>循环展开（Loop Unrolling）将一个循环中的多次迭代展开成多个单独的迭代，以减少程序执行的开销，提高代码的运行效率。在计算机执行程序的流水线中，每次跳转到循环体内部都需要进行额外的指令处理和跳转操作，这会增加程序的开销。而循环展开可以通过减少跳转次数、减少指令处理次数等方式，降低指令分支预测的开销来优化程序性能，提高程序执行的速度。</p>
+<p>通常循环展开包含以下几个步骤：</p>
+<ol class="arabic simple">
+<li><p>复制循环体 n 次，使展开后循环体包括原来循环体 n 个拷贝。这里的 n 一般被称为展开因子</p></li>
+<li><p>调整数组索引变量的增量以及内存读写操作的地址</p></li>
+<li><p>删除除了最后一个循环体外的所有循环体中的循环计数变量的增加操作，并且修改最后一个循环体中循环计数变量的增量为原来的 n 倍</p></li>
+<li><p>删除除了最后一个循环体外的所有循环中的循环条件判断语句</p></li>
+</ol>
+<p>例如原始循环：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>通过循环展开，可以将其转换为以下形式：</p>
@@ -842,13 +836,13 @@ for i in range(m):
 </ol>
 <p>比较上面三个方法可以看到：启发式方法开销最小，展开因子的选择依赖于静态模型的准确性；机器学习开销次之，展开因子的选择不仅依赖于提取的循环特征，而且还需要大量样本进行训练；迭代编译开销最大，但在不考虑开销的情况下肯定可以找到最优展开因子。</p>
 </section>
-<section id="id7">
-<h3>循环重排<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>循环重排<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>循环重排序（reorder）是矩阵乘法常见的优化方式，指的是对程序中的循环结构重新排列顺序，以优化数据访问模式，特别是在 CNN 中卷积层的应用。通过改变循环的嵌套顺序或者循环内部的迭代顺序，可以改善数据的局部性，减少缓存失效。如下图循环重排序示意图，在矩阵乘法计算中，B 是逐列访问的，在行优先的存储模式下访问模式很不友好。切换内层的循环顺序可以使得所有元素按顺序读取和写入。一次计算输出的一行，得到的是中间结果，全部累加即可得到结果矩阵的一行最终结果，这种方式利用的是内存的空间局部性。</p>
 <p><img alt="循环重排访存模式" src="../_images/04LoopOpt03.png" /></p>
 </section>
-<section id="id8">
-<h3>循环融合<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>循环融合<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>循环融合（Loop Fusion）用于将多个循环合并为一个更大的循环，将相邻或紧密间隔的循环融合在一起。通过合并多个循环，可以减少程序中的循环次数，从而减少循环开销。合并循环可以减少内存访问次数，提高数据局部性，减少缓存未命中的可能性，从而提高程序执行效率。</p>
 <p>以下是一个简单的循环融合的示例代码：</p>
 <p>两个独立的循环如下：</p>
@@ -893,8 +887,8 @@ for i in range(m):
 </pre></div>
 </div>
 </section>
-<section id="id9">
-<h3>循环拆分<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>循环拆分<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>拆分主要是将循环分成多个循环，可以在有条件的循环中使用，分为无条件循环和含条件循环。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -938,16 +932,16 @@ for i in range(m):
 <p>这样做可以提升数组 E 的局部性，减少 Cache miss。</p>
 </section>
 </section>
-<section id="id10">
-<h2>小结与思考<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h2>小结与思考<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>因为 Cache 的容量小的特点，一次只能容纳一部分数据，因此需要分析计算的时间局部性和空间局部性。</p></li>
 <li><p>循环的优化方案针对不同的数据局部性和计算并行性，有循环分块、循环展开、循环重排、循环融合、循环拆分等方案。</p></li>
 <li><p>循环优化的目的是提升数据的局部性或计算的并行性，以提高整体算子性能。其挑战包括数据局部性和计算并行性。</p></li>
 </ul>
 </section>
-<section id="id11">
-<h2>本节视频<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<section id="id12">
+<h2>本节视频<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <html>
 <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=776857139&bvid=BV1r14y1w7hG&cid=937441251&p=1&as_wide=1&high_quality=1&danmaku=0&t=30&autoplay=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </html>
@@ -1029,13 +1023,14 @@ for i in range(m):
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">循环优化</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">循环分块</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">循环重排</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">循环融合</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">循环拆分</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">循环展开</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">循环重排</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">循环融合</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">循环拆分</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">小结与思考</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">本节视频</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">小结与思考</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">本节视频</a></li>
 </ul>
   </nav></div>
 
@@ -1058,7 +1053,7 @@ for i in range(m):
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 18, 2025.
+  Last updated on May 29, 2025.
   <br/>
 </p>
   </div>

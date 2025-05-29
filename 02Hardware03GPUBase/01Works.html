@@ -86,7 +86,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 29, 2025"/>
 
 <link
   rel="alternate"
@@ -850,7 +850,7 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>示例代码中包含 2 FLOPS 操作，分别是乘法（Multiply）和加法（Add），对于每一次计算操作都需要在内存中读取两个数据，<span class="math notranslate nohighlight">\(x[i]\)</span> 和 <span class="math notranslate nohighlight">\(y[i]\)</span>，最后执行一个线性操作，存储到 <span class="math notranslate nohighlight">\(y[i]\)</span> 中，其中把加法和乘法融合在一起的操作也可以称作 FMA（Fused Multiply and Add）。</p>
+<p>示例代码中包含 2 FLOPs 操作，分别是乘法（Multiply）和加法（Add），对于每一次计算操作都需要在内存中读取两个数据，<span class="math notranslate nohighlight">\(x[i]\)</span> 和 <span class="math notranslate nohighlight">\(y[i]\)</span>，最后执行一个线性操作，存储到 <span class="math notranslate nohighlight">\(y[i]\)</span> 中，其中把加法和乘法融合在一起的操作也可以称作 FMA（Fused Multiply and Add）。</p>
 <p>在 O(n) 的时间复杂度下，根据 n 的大小迭代计算 n 次，在 CPU 中串行地按指令顺序去执行 <span class="math notranslate nohighlight">\(AX+Y\)</span> 程序。以 Intel Xeon 8280 这款芯片为例，其内存带宽是 131 GB/s，内存的延时是 89 ns，这意味着 8280 芯片的峰值算力是在 89 ns 的时间内传输 11659 个字节（byte）数据。<span class="math notranslate nohighlight">\(AX+Y\)</span> 将在 89 ns 的时间内传输 16 字节（C/C++中 double 数据类型所占的内存空间是 8 bytes）数据，此时内存的利用率只有 0.14%（16/11659），存储总线有 99.86% 的时间处于空闲状态。</p>
 <p><img alt="内存总线 99.86%时间处于空闲状态" src="../_images/01Works04.png" /></p>
 <p>不同处理器计算 <span class="math notranslate nohighlight">\(AX+Y\)</span> 时的内存利用率，不管是 AMD Rome 7742、Intel Xeon 8280 还是英伟达 A100，对于 <span class="math notranslate nohighlight">\(AX+Y\)</span> 这段程序的内存利用率都非常低，基本 ≤0.14%。</p>
@@ -932,7 +932,7 @@ document.write(`
 <p>在 GPU 工作过程中希望尽可能的去减少内存的时延、内存的搬运、还有内存的带宽等一系列内存相关的问题，其中缓存对于内存尤为重要。英伟达 Ampere A100 内存结构中 HBM Memory 的大小是 80G，也就是 A100 的显存大小是 80G。</p>
 <p>其中寄存器（Register）文件也可以视为缓存，寄存器靠近 SM（Streaming Multiprocessors）执行单元，从而可以快速地获取执行单元中的数据，同时也方便读取 L1 Cache 缓存中的数据。此外 L2 Cache 更靠近 HBM Memory，这样方便 GPU 把大量的数据直接搬运到 cache 中，因此为了同时实现上面两个目标，GPU 设计了多级缓存。80G 的显存是一个高带宽的内存，L2 Cache 大小为 40M，所有 SM 共享同一个 L2 Cache，L1 Cache 大小为 192kB，每个 SM 拥有自己独立的 Cache，同样每个 SM 拥有自己独立的 Register，每个寄存器大小为 256 kB，因为总共有 108 个 SM 流处理器，因此寄存器总共的大小是 27MB，L1 Cache 总共的大小是 20 MB。</p>
 <p><img alt="英伟达 Ampere A100 内存结构" src="../_images/01Works05.png" /></p>
-<p>GPU 和 CPU 内存带宽和时延进行比较，在 GPU 中如果把主内存（HBM Memory）作为内存带宽（B/W, bandwidth）的基本单位，L2 缓存的带宽是主内存的 3 倍，L1 缓存的带宽是主存的 13 倍。在真正计算的时候，希望缓存的数据能够尽快的去用完，然后读取下一批数据，此时就会遇到时延（Lentency）的问题。如果将 L1 缓存的延迟作为基本单位，L2 缓存的延迟是 L1 的 5 倍，HBM 的延迟将是 L1 的 15 倍，因此 GPU 需要有单独的显存。</p>
+<p>GPU 和 CPU 内存带宽和时延进行比较，在 GPU 中如果把主内存（HBM Memory）作为内存带宽（B/W, bandwidth）的基本单位，L2 缓存的带宽是主内存的 3 倍，L1 缓存的带宽是主存的 13 倍。在真正计算的时候，希望缓存的数据能够尽快的去用完，然后读取下一批数据，此时就会遇到时延（Latency）的问题。如果将 L1 缓存的延迟作为基本单位，L2 缓存的延迟是 L1 的 5 倍，HBM 的延迟将是 L1 的 15 倍，因此 GPU 需要有单独的显存。</p>
 <p>假设使用 CPU 将 DRAM（Dynamic Random Access Memory）中的数据传入到 GPU 中进行计算，较高的时延（25 倍）会导致数据传输的速度远小于计算的速度，因此需要 GPU 有自己的高带宽内存 HBM（High Bandwidth Memory），GPU 和 CPU 之间的通信和数据传输主要通过 PCIe 来进行。</p>
 <p><img alt="英伟达 Ampere A100 存储延迟对比" src="../_images/01Works06.png" /></p>
 <blockquote>
@@ -1175,7 +1175,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 18, 2025.
+  Last updated on May 29, 2025.
   <br/>
 </p>
   </div>

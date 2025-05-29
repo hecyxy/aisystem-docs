@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 29, 2025"/>
 
 <link
   rel="alternate"
@@ -842,12 +842,12 @@ document.write(`
 <p>IR（Intermediate Representation）中间表示，是编译器中很重要的一种数据结构。编译器在完成前端工作以后，首先生成其自定义的 IR，并在此基础上执行各种优化算法，最后再生成目标代码。</p>
 <p>从广义上看，编译器的运行过程中，中间节点的表示，都可以统称为 IR。从狭义上讲编译器的 IR，是指该编译器明确定义的一种具体的数据结构，这个数据结构通常还伴随着一种语言来表达程序，这个语言程序用来实现这个明确定义的 IR。大部分时间，不太严格区分这个明确定义的 IR 以及其伴随的语言程序，将其统称为 IR。</p>
 <p>如图所示，在编译原理中，通常将编译器分为前端和后端。其中，前端会对所输入的程序进行词法分析、语法分析、语义分析，然后生成中间表达形式 IR。后端会对 IR 进行优化，然后生成目标代码。</p>
-<p><img alt="IR 示例图" src="../_images/01Introduction06.png" />
-:width:<code class="docutils literal notranslate"><span class="pre">550px</span></code></p>
+<!-- ![IR 示例图](../images/03Compiler01Tradition/01Introduction06.png) -->
+<img src="../images/03Compiler01Tradition/01Introduction06.png" alt="IR 示例图" width="550px">
 <p>例如：LLVM 把前端和后端给拆分出来，在中间层明确定义一种抽象的语言，这个语言就叫做 IR。定义了 IR 以后，前端的任务就是负责最终生成 IR，优化器则是负责优化生成的 IR，而后端的任务就是把 IR 给转化成目标平台的语言。LLVM 的 IR 使用 LLVM assembly language 或称为 LLVM language 来实现 LLVM IR 的类型系统，就指的是 LLVM assembly language 中的类型系统。</p>
 <p>因此，编译器的前端，优化器，后端之间，唯一交换的数据结构类型就是 IR，通过 IR 来实现不同模块的解耦。有些 IR 还会为其专门起一个名字，比如：Open64 的 IR 通常叫做 WHIRL IR，方舟编译器的 IR 叫做 MAPLE IR，LLVM 则通常就称为 LLVM IR。</p>
-<p><img alt="LLVM 架构图中的 IR" src="../_images/01Introduction07.png" />
-:width:<code class="docutils literal notranslate"><span class="pre">550px</span></code></p>
+<!-- ![LLVM 架构图中的 IR](../images/03Compiler01Tradition/01Introduction07.png) -->
+<img src="../images/03Compiler01Tradition/01Introduction07.png" alt="LLVM 架构图中的 IR" width="550px">
 <ul class="simple">
 <li><p><strong>IR 的定义</strong></p></li>
 </ul>
@@ -1004,7 +1004,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 18, 2025.
+  Last updated on May 29, 2025.
   <br/>
 </p>
   </div>

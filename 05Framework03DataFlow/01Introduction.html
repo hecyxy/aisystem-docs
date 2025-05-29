@@ -11,12 +11,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="05Framework03DataFlow/01Introduction.html" />
 <meta property="og:site_name" content="AISystem & AIInfra (AI系统原理)" />
-<meta property="og:description" content="在 AI 框架发展的最近一个阶段，技术上主要以计算图来描述神经网络。前期实践最终催生出了工业级 AI：TensorFlow 和 PyTorch，这一时期同时伴随着如 Chainer、DyNet、CNTK、PaddlePaddle、JAX 等激发了框架设计灵感的诸多实验课程。 TensorFlow 和 PyTorch，特别是 PyTorch 代表了今天 AI 框架两种不同的设计路径：系统性能优..." />
+<meta property="og:description" content="在 AI 框架发展的最近一个阶段，技术上主要以计算图来描述神经网络。前期实践最终催生出了工业级 AI：TensorFlow 和 PyTorch，这一时期同时伴随着如 Chainer、DyNet、CNTK、PaddlePaddle、JAX 等激发了框架设计灵感的诸多实验项目。 TensorFlow 和 PyTorch，特别是 PyTorch 代表了今天 AI 框架两种不同的设计路径：系统性能优..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="/None" />
-<meta property="og:image:alt" content="在 AI 框架发展的最近一个阶段，技术上主要以计算图来描述神经网络。前期实践最终催生出了工业级 AI：TensorFlow 和 PyTorch，这一时期同时伴随着如 Chainer、DyNet、CNTK、PaddlePaddle、JAX 等激发了框架设计灵感的诸多实验课程。 TensorFlow 和 PyTorc..." />
-<meta name="description" content="在 AI 框架发展的最近一个阶段，技术上主要以计算图来描述神经网络。前期实践最终催生出了工业级 AI：TensorFlow 和 PyTorch，这一时期同时伴随着如 Chainer、DyNet、CNTK、PaddlePaddle、JAX 等激发了框架设计灵感的诸多实验课程。 TensorFlow 和 PyTorch，特别是 PyTorch 代表了今天 AI 框架两种不同的设计路径：系统性能优..." />
+<meta property="og:image" content="/_images/social_previews/summary_05Framework03DataFlow_01Introduction_ed88052f.png" />
+<meta property="og:image:alt" content="在 AI 框架发展的最近一个阶段，技术上主要以计算图来描述神经网络。前期实践最终催生出了工业级 AI：TensorFlow 和 PyTorch，这一时期同时伴随着如 Chainer、DyNet、CNTK、PaddlePaddle、JAX 等激发了框架设计灵感的诸多实验项目。 TensorFlow 和 PyTorc..." />
+<meta name="description" content="在 AI 框架发展的最近一个阶段，技术上主要以计算图来描述神经网络。前期实践最终催生出了工业级 AI：TensorFlow 和 PyTorch，这一时期同时伴随着如 Chainer、DyNet、CNTK、PaddlePaddle、JAX 等激发了框架设计灵感的诸多实验项目。 TensorFlow 和 PyTorch，特别是 PyTorch 代表了今天 AI 框架两种不同的设计路径：系统性能优..." />
 <meta name="twitter:card" content="summary_large_image" />
 
     <title>基本介绍 &#8212; AI System</title>
@@ -84,7 +84,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="cn"/>
-    <meta name="docbuild:last-update" content="May 18, 2025"/>
+    <meta name="docbuild:last-update" content="May 29, 2025"/>
 
 <link
   rel="alternate"
@@ -715,7 +715,7 @@ document.write(`
 <!--Copyright © 适用于[License](https://github.com/chenzomi12/AISystem)版权许可-->
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>基本介绍<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>在 AI 框架发展的最近一个阶段，技术上主要以计算图来描述神经网络。前期实践最终催生出了工业级 AI：TensorFlow 和 PyTorch，这一时期同时伴随着如 Chainer、DyNet、CNTK、PaddlePaddle、JAX 等激发了框架设计灵感的诸多实验课程。</p>
+<p>在 AI 框架发展的最近一个阶段，技术上主要以计算图来描述神经网络。前期实践最终催生出了工业级 AI：TensorFlow 和 PyTorch，这一时期同时伴随着如 Chainer、DyNet、CNTK、PaddlePaddle、JAX 等激发了框架设计灵感的诸多实验项目。</p>
 <p>TensorFlow 和 PyTorch，特别是 PyTorch 代表了今天 AI 框架两种不同的设计路径：系统性能优先改善灵活性和灵活性易用性优先改善系统性能。这两种选择，随着神经网络算法研究和应用的更进一步发展，使得 AI 框架在技术实现方案的巨大差异。</p>
 <p>随着神经网络模型越来越复杂，包括混合专家模型 MOE、生成对抗网络 GAN、注意力模型 Attention Transformer 等。复杂的模型结构需要 AI 框架能够对模型算子的执行依赖关系、梯度计算以及训练参数进行快速高效的分析，便于优化模型结构、制定调度执行策略以及实现自动化梯度计算，从而提高 AI 框架训练的效率。</p>
 <p>综上所述，目前主流的 AI 框架都选择使用<strong>计算图</strong>来抽象神经网络计算表达，通过通用的数据结构（张量）来理解、表达和执行神经网络模型，通过<strong>计算图</strong>可以把 AI 系统化的问题形象地表示出来。</p>
@@ -822,7 +822,7 @@ document.write(`
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 18, 2025.
+  Last updated on May 29, 2025.
   <br/>
 </p>
   </div>
