@@ -57,10 +57,6 @@ title: AISystem & AIInfra
 :caption: === 一. AI 系统概述 ===
 
 01Introduction/README
-01Introduction/01Present
-01Introduction/02Develop
-01Introduction/03Architecture
-01Introduction/04Sample
 ```
 
 <!-- ## 二. AI 硬件体系结构 -->
@@ -79,18 +75,18 @@ title: AISystem & AIInfra
 02Hardware07Thought/README
 ```
 
-<!-- ## 三. AI 编译器 -->
+<!-- ## 三. AI 编程与编译原理 -->
 
 ```{toctree}
 :maxdepth: 1
-:caption: === 三. AI 编译器 ===
+:caption: === 三. AI 编程与编译原理 ===
 
 03Compiler/README
 03Compiler01Tradition/README
 03Compiler02AICompiler/README
 03Compiler03Frontend/README
 03Compiler04Backend/README
-03Compiler06PyTorch/README
+03Compiler07CANN/README
 ```
 
 <!-- ## 四. 推理系统&引擎 -->
@@ -104,7 +100,8 @@ title: AISystem & AIInfra
 04Inference02Mobilenet/README
 04Inference03Slim/README
 04Inference04Converter/README
-04Inference05Kernel/README
+04Inference05Optimize/README
+04Inference06Kernel/README
 ```
 
 <!-- ## 五. AI 框架核心模块 -->
@@ -118,8 +115,6 @@ title: AISystem & AIInfra
 05Framework02AutoDiff/README
 05Framework03DataFlow/README
 05Framework04Parallel/README
-05Framework05AICluster/README
-05Framework06AIAlgo/README
 ```
 
 <!-- ## 附录内容 -->
@@ -129,12 +124,6 @@ title: AISystem & AIInfra
 :maxdepth: 1
 
 00Others/README
-00Others/Instruments
-00Others/Install
-00Others/Inference
-00Others/Glossary
-00Others/Editors
-00Others/Criterion
 ```
 
 ## 备注

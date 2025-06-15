@@ -104,8 +104,8 @@ thebe_config = {
 }
 
 html_theme_options = {
-    "path_to_docs": "docs",
-    "repository_url": "https://github.com/executablebooks/sphinx-book-theme",
+    "path_to_docs": "",
+    "repository_url": "https://github.com/chenzomi12/chenzomi12.github.io/",
     "repository_branch": "master",
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
@@ -123,7 +123,7 @@ html_theme_options = {
     "use_sidenotes": True,
     "show_toc_level": 3,
     "logo": {
-        "image_dark": "_static/logo-wide-dark.svg",
+        "image_dark": "_static/logo-wide.svg",
         # "text": html_title,  # Uncomment to try text with logo
     },
     "icon_links": [
@@ -160,7 +160,7 @@ ogp_social_cards = {
     "image": "_static/logo-square.png",
 }
 
-# -- ABlog config -------------------------------------------------
+# # -- ABlog config -------------------------------------------------
 blog_path = "reference/blog"
 blog_post_pattern = "reference/blog/*.md"
 blog_baseurl = "https://sphinx-book-theme.readthedocs.io"
